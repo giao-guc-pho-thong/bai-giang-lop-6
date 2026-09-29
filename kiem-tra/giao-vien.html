@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!-- Khuôn trang GIÁO VIÊN (xem / gom / xuất kết quả kiểm tra online). Sửa khuôn này rồi chạy
+     scripts/dung_de_online.py — không sửa file sinh ra trong "bài kiểm tra/online/". -->
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Kết quả kiểm tra — Trang giáo viên</title>
+<style>
+:root{--nen:#f1f5fb;--chu:#1f2937;--mo:#64748b;--chinh:#2563eb;--dam:#1e3a8a;--nhat:#dbeafe;--dung:#16a34a;--dung-nhat:#dcfce7;
+  --sai:#dc2626;--sai-nhat:#fee2e2;--cam:#b45309;--cam-nhat:#fef3c7;--vien:#e2e8f0}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--nen);color:var(--chu);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.khung{max-width:1180px;margin:0 auto;padding:14px}
+.the{background:#fff;border:1px solid var(--vien);border-radius:14px;padding:16px;margin:12px 0}
+h1{font-size:1.35rem;margin:0;color:var(--dam)}
+h2{font-size:1.1rem;margin:0 0 8px;color:var(--dam)}
+.nho{color:var(--mo);font-size:.88rem}
+.an{display:none!important}
+button,select,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border-radius:9px;border:1.5px solid #cbd5e1;background:#fff;padding:8px 12px}
+.nut-chinh{background:var(--chinh);border-color:var(--chinh);color:#fff;font-weight:700}
+.nut-nguy{border-color:#fca5a5;color:var(--sai)}
+.o{width:100%;padding:9px 11px;border:1.5px solid #cbd5e1;border-radius:9px;background:#fff}
+.hang{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hang>*{flex:0 0 auto}
+.loc select,.loc input{padding:7px 9px;border:1.5px solid #cbd5e1;border-radius:9px;background:#fff;max-width:100%}
+.dau{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.thong-ke{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px}
+.o-tk{background:#f8fafc;border:1px solid var(--vien);border-radius:10px;padding:8px 12px}
+.o-tk b{display:block;font-size:1.35rem;color:var(--dam)}
+.cuon{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:7px 8px;border-bottom:1px solid var(--vien);text-align:left;white-space:nowrap}
+th{background:#f8fafc;position:sticky;top:0;cursor:pointer;user-select:none}
+td.so,th.so{text-align:right}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#f8fafc}
+.canh{background:var(--cam-nhat);color:var(--cam);border-radius:6px;padding:0 6px;font-weight:700}
+.nhan{display:inline-block;border-radius:6px;padding:0 7px;font-size:.82rem;font-weight:700}
+.nhan.dung{background:var(--dung-nhat);color:#166534}.nhan.sai{background:var(--sai-nhat);color:#991b1b}
+.thanh-ti-le{height:10px;background:#e2e8f0;border-radius:6px;overflow:hidden;min-width:90px}
+.thanh-ti-le i{display:block;height:100%;background:var(--chinh)}
+.phu{position:fixed;inset:0;background:rgba(15,23,42,.7);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:18px;overflow:auto}
+.hop{background:#fff;border-radius:14px;padding:18px;max-width:820px;width:100%}
+.thong-bao{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:60;background:#111827;color:#fff;padding:10px 16px;border-radius:10px;max-width:92vw}
+.khoa{max-width:380px;margin:12vh auto}
+.bang-ct td{white-space:normal;vertical-align:top}
+@media print{.loc,.hang-cong-cu,button{display:none!important}}
+</style>
+</head>
+<body>
+
+<main class="khung khoa the" id="man-khoa">
+  <h1>🔒 Trang giáo viên</h1>
+  <p class="nho">Kết quả kiểm tra online — lớp 6. Nhập mã PIN để mở.</p>
+  <input class="o" id="o-pin" type="password" inputmode="numeric" autocomplete="off" placeholder="Mã PIN">
+  <p class="nho" id="loi-pin" style="color:var(--sai);min-height:1.2em"></p>
+  <button class="nut-chinh" id="mo-khoa" style="width:100%">Mở</button>
+  <p class="nho" id="dang-cho" style="margin-top:12px"></p>
+</main>
+
+<div class="khung an" id="man-chinh">
+  <div class="the dau">
+    <div><h1>📝 Kết quả kiểm tra online</h1><div class="nho">Dữ liệu lưu trong trình duyệt của máy này. Sao lưu thường xuyên.</div></div>
+    <div class="hang hang-cong-cu">
+      <button id="nut-nhap-file">📂 Nhập file</button>
+      <button id="nut-dan-ma">📋 Dán mã</button>
+      <button id="nut-csv" class="nut-chinh">⬇️ Xuất Excel (CSV)</button>
+      <button id="nut-sao-luu">💾 Sao lưu</button>
+      <button id="nut-khoa">🔒 Khoá</button>
+      <input type="file" id="chon-file" accept=".json,application/json" multiple class="an">
+    </div>
+  </div>
+
+  <div class="the">
+    <div class="hang loc">
+      <select id="loc-de"></select>
+      <select id="loc-truong"></select>
+      <select id="loc-lop"></select>
+      <input id="loc-ten" placeholder="Tìm tên học sinh…" style="min-width:180px">
+      <label class="nho"><input type="checkbox" id="loc-canh"> Chỉ bài có rời trang / cảnh báo</label>
+    </div>
+    <div class="thong-ke" id="thong-ke"></div>
+  </div>
+
+  <div class="the"><div class="cuon"><table id="bang"></table></div><p class="nho" id="bang-rong"></p></div>
+
+  <div class="the" id="khoi-ti-le"><h2>Tỉ lệ làm đúng từng câu</h2><p class="nho">Chọn một đề ở ô lọc để xem. Câu có tỉ lệ thấp là chỗ cả lớp cần học lại.</p><div class="cuon" id="ti-le"></div></div>
+
+  <div class="the"><h2>Các đề đang có</h2><div id="ds-de"></div>
+    <p class="nho">Mã mở đề của từng đề nằm trong file <code>bài kiểm tra/online/cau-hinh.json</code> trên máy soạn đề.</p>
+    <div class="hang" style="margin-top:8px"><button class="nut-nguy" id="nut-xoa-het">🗑️ Xoá toàn bộ kết quả trên máy này…</button></div>
+  </div>
+</div>
+
+<div class="phu an" id="phu"><div class="hop" id="hop"></div></div>
+<div class="thong-bao an" id="thong-bao"></div>
+
+<script>
+/* ==========================================================================================
+   Mã dùng chung cho trang LÀM BÀI và trang GIÁO VIÊN (kiểm tra online lớp 6).
+   Script dung_de_online.py chèn nguyên file này vào cả hai trang — sửa ở đây, dựng lại là xong.
+   Không phụ thuộc thư viện nào (trừ qrcode.js, chỉ trang làm bài dùng).
+   ========================================================================================== */
+var KT = (function () {
+  'use strict';
+
+  var KHOA = {
+    ketQua: 'kt6.ketQua',            // [bản ghi]  — mọi lượt đã nộp trên máy này + bài GV đã nhập
+    dangLam: 'kt6.dangLam',          // {maDe: trạng thái lượt đang làm}
+    hocSinh: 'kt6.hocSinhGanNhat',   // {lop, truong} — điền sẵn cho lượt sau (không giữ tên)
+    moKhoaGV: 'kt6.giaoVienMoKhoa'   // hạn (ms) mở khoá trang giáo viên trên máy này
+  };
+
+  // ---------------------------------------------------------------- chữ & định dạng
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  /** Định dạng một dòng: **đậm**, *nghiêng*, ______ (chỗ trống). */
+  function md(s) {
+    return esc(s)
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/\*(.+?)\*/g, '<i>$1</i>')
+      .replace(/_{3,}/g, '<span class="cho-trong">$&</span>');
+  }
+  /** Định dạng đoạn văn: "\n\n" tách đoạn, "\n" xuống dòng. */
+  function mdKhoi(s) {
+    return String(s || '').split(/\n\s*\n/).map(function (p) {
+      return '<p>' + md(p.trim()).replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+  }
+  /** Điểm lưu dạng số nguyên phần trăm (875 = 8,75) → chuỗi kiểu Việt Nam. */
+  function soVN(phanTram) {
+    var s = (Math.round(phanTram) / 100).toFixed(2).replace(/\.?0+$/, '');
+    return s.replace('.', ',');
+  }
+  function thoiGian(giay) {
+    giay = Math.max(0, Math.round(giay));
+    var p = Math.floor(giay / 60), g = giay % 60;
+    return p + ' phút ' + (g < 10 ? '0' : '') + g + ' giây';
+  }
+  function dongHo(giay) {
+    giay = Math.max(0, Math.ceil(giay));
+    var p = Math.floor(giay / 60), g = giay % 60;
+    return (p < 10 ? '0' : '') + p + ':' + (g < 10 ? '0' : '') + g;
+  }
+  function ngayGio(ms) {
+    var d = new Date(ms), h = function (n) { return (n < 10 ? '0' : '') + n; };
+    return h(d.getDate()) + '/' + h(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + h(d.getHours()) + ':' + h(d.getMinutes());
+  }
+  function khongDau(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+  }
+
+  // ---------------------------------------------------------------- SHA-256 (đồng bộ, không cần HTTPS)
+  function sha256(chuoi) {
+    function xoay(v, n) { return (v >>> n) | (v << (32 - n)); }
+    var H = [], K = [], dem = 0;
+    for (var ung = 2; dem < 64; ung++) {
+      var nguyenTo = true;
+      for (var u = 2; u * u <= ung; u++) if (ung % u === 0) { nguyenTo = false; break; }
+      if (nguyenTo) {
+        if (dem < 8) H[dem] = (Math.pow(ung, 0.5) * 4294967296) | 0;
+        K[dem++] = (Math.pow(ung, 1 / 3) * 4294967296) | 0;
+      }
+    }
+    var b = new TextEncoder().encode(chuoi), l = b.length;
+    var dem64 = ((l + 9 + 63) >> 6) << 6, m = new Uint8Array(dem64);
+    m.set(b); m[l] = 0x80;
+    var dv = new DataView(m.buffer);
+    dv.setUint32(dem64 - 4, (l * 8) >>> 0);
+    dv.setUint32(dem64 - 8, Math.floor(l / 536870912));
+    var w = new Array(64);
+    for (var i = 0; i < dem64; i += 64) {
+      for (var j = 0; j < 16; j++) w[j] = dv.getUint32(i + j * 4) | 0;
+      for (j = 16; j < 64; j++) {
+        var s0 = xoay(w[j - 15], 7) ^ xoay(w[j - 15], 18) ^ (w[j - 15] >>> 3);
+        var s1 = xoay(w[j - 2], 17) ^ xoay(w[j - 2], 19) ^ (w[j - 2] >>> 10);
+        w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
+      }
+      var a = H[0], bb = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (j = 0; j < 64; j++) {
+        var t1 = (h + (xoay(e, 6) ^ xoay(e, 11) ^ xoay(e, 25)) + ((e & f) ^ (~e & g)) + K[j] + w[j]) | 0;
+        var t2 = ((xoay(a, 2) ^ xoay(a, 13) ^ xoay(a, 22)) + ((a & bb) ^ (a & c) ^ (bb & c))) | 0;
+        h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = bb; bb = a; a = (t1 + t2) | 0;
+      }
+      H[0] = (H[0] + a) | 0; H[1] = (H[1] + bb) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0;
+      H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+    }
+    return H.map(function (x) { return ('0000000' + (x >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  // Cùng công thức với dung_de_online.py
+  function bamPin(pin) { return sha256('kt6|pin|' + String(pin).trim()); }
+  function bamMaMoDe(maDe, ma) { return sha256('kt6|de|' + maDe + '|' + String(ma).trim().toUpperCase()); }
+
+  // ---------------------------------------------------------------- lưu trữ
+  function doc(khoa, macDinh) {
+    try { var v = JSON.parse(localStorage.getItem(khoa)); return v == null ? macDinh : v; }
+    catch (e) { return macDinh; }
+  }
+  function ghi(khoa, giaTri) {
+    try { localStorage.setItem(khoa, JSON.stringify(giaTri)); return true; }
+    catch (e) { return false; }
+  }
+
+  // ---------------------------------------------------------------- đề & chấm
+  /** Danh sách phẳng các câu theo thứ tự gốc: [{cau, nhom, phan}] */
+  function dsCau(de) {
+    var ds = [];
+    de.phan.forEach(function (phan) {
+      phan.nhom.forEach(function (nhom) {
+        nhom.cau.forEach(function (cau) { ds.push({ cau: cau, nhom: nhom, phan: phan }); });
+      });
+    });
+    return ds;
+  }
+  function chuanHoa(s) {
+    return String(s == null ? '' : s).normalize('NFC').toLowerCase()
+      .replace(/[‘’ʼ`´]/g, "'").replace(/[“”]/g, '"')
+      .replace(/\s+/g, ' ').trim().replace(/\s*[.!?]+$/, '').trim();
+  }
+  function daLam(cau, tl) {
+    if (cau.loai === 'chon') return typeof tl === 'number';
+    if (cau.loai === 'dien') return typeof tl === 'string' && tl.trim() !== '';
+    if (cau.loai === 'sapXep') return Array.isArray(tl) && tl.length > 0;
+    return false;
+  }
+  function cauGhep(cau, tl) {
+    var s = (tl || []).map(function (i) { return cau.manh[i]; }).join(' ');
+    return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+  }
+  function dung(cau, tl) {
+    if (!daLam(cau, tl)) return false;
+    if (cau.loai === 'chon') return tl === cau.dapAn;
+    var cua = chuanHoa(cau.loai === 'dien' ? tl : cauGhep(cau, tl));
+    return cau.dapAn.some(function (d) { return chuanHoa(d) === cua; });
+  }
+  /** Câu trả lời của HS thành chữ để hiển thị / xuất file. */
+  function hienThi(cau, tl) {
+    if (!daLam(cau, tl)) return '';
+    if (cau.loai === 'chon') return cau.phuongAn[tl] != null ? cau.phuongAn[tl].replace(/\*/g, '') : '?';
+    if (cau.loai === 'dien') return tl.trim();
+    return cauGhep(cau, tl) + (cau.cuoi || '');
+  }
+  function dapAnChu(cau) {
+    if (cau.loai === 'chon') return cau.phuongAn[cau.dapAn].replace(/\*/g, '');
+    if (cau.loai === 'sapXep') return cau.dapAn[0] + (cau.cuoi || '');
+    return cau.dapAn.join(' / ');
+  }
+  function phanTram(diem) { return Math.round(diem * 100); }
+  /** Chấm toàn bài. traLoi = {id: câu trả lời thô}. */
+  function cham(de, traLoi) {
+    var tong = 0, toiDa = 0, soDung = 0, chiTiet = [];
+    dsCau(de).forEach(function (x) {
+      var c = x.cau, tl = traLoi[c.id], ok = dung(c, tl), d = phanTram(c.diem);
+      toiDa += d; if (ok) { tong += d; soDung++; }
+      chiTiet.push({ id: c.id, loai: c.loai, traLoi: tl == null ? null : tl, hienThi: hienThi(c, tl),
+                     dung: ok, diem: ok ? d / 100 : 0, diemToiDa: d / 100 });
+    });
+    return { diem: tong, diemToiDa: toiDa, soDung: soDung, tongSoCau: chiTiet.length, chiTiet: chiTiet };
+  }
+
+  // ---------------------------------------------------------------- gói kết quả gọn cho mã QR
+  // Mảng vị trí (không dùng tên khoá) để mã QR nhỏ; trang giáo viên chấm lại từ câu trả lời thô.
+  function goiGon(bg, de) {
+    return [1, bg.de.maDe, bg.de.phienBan, bg.maLuot,
+      bg.hocSinh.hoTen, bg.hocSinh.gioiTinh, bg.hocSinh.lop, bg.hocSinh.truong,
+      Math.round(bg.batDau / 1000), Math.round(bg.nopLuc / 1000), bg.thoiGianChoPhepGiay,
+      bg.lyDoNop === 'het-gio' ? 'h' : 't', bg.giamSat.soLanRoiTrang, bg.giamSat.soLanThoatToanManHinh,
+      dsCau(de).map(function (x) { var t = bg.traLoiTho[x.cau.id]; return t == null ? null : t; }),
+      Math.round(bg.diem * 100)];
+  }
+  /** Gói gọn → bản ghi đầy đủ. de = đề tương ứng (có thể null nếu trang GV không có đề này). */
+  function moGoi(g, de, nguon) {
+    if (!Array.isArray(g) || g[0] !== 1) throw new Error('Mã kết quả không đúng định dạng.');
+    var bg = {
+      maLuot: g[3], hocSinh: { hoTen: g[4], gioiTinh: g[5], lop: g[6], truong: g[7] },
+      de: { maDe: g[1], phienBan: g[2], tieuDe: de ? de.tieuDe : g[1], mon: de ? de.mon : '' },
+      batDau: g[8] * 1000, nopLuc: g[9] * 1000, thoiGianLamGiay: g[9] - g[8], thoiGianChoPhepGiay: g[10],
+      lyDoNop: g[11] === 'h' ? 'het-gio' : 'tu-nop',
+      giamSat: { soLanRoiTrang: g[12], soLanThoatToanManHinh: g[13] },
+      traLoiTho: {}, nguon: nguon || 'nhap'
+    };
+    if (de && de.phienBan === g[2]) {
+      var ds = dsCau(de);
+      g[14].forEach(function (t, i) { if (ds[i] && t != null) bg.traLoiTho[ds[i].cau.id] = t; });
+      var kq = cham(de, bg.traLoiTho);
+      bg.diem = kq.diem / 100; bg.diemToiDa = kq.diemToiDa / 100; bg.soDung = kq.soDung;
+      bg.tongSoCau = kq.tongSoCau; bg.traLoi = kq.chiTiet;
+      if (kq.diem !== g[15]) bg.canhBao = 'Điểm chấm lại (' + soVN(kq.diem) + ') khác điểm trên máy học sinh (' + soVN(g[15]) + ').';
+    } else {
+      bg.diem = g[15] / 100; bg.diemToiDa = 10;
+      bg.canhBao = de ? 'Đề đã đổi phiên bản — giữ điểm của máy học sinh, không chấm lại được.'
+                      : 'Trang giáo viên không có đề này — giữ điểm của máy học sinh.';
+    }
+    return bg;
+  }
+  function b64url(bytes) {
+    var s = ''; for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function tuB64url(s) {
+    s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '=';
+    var bin = atob(s), b = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+    return b;
+  }
+  function quaLuong(bytes, luong) {
+    return new Response(new Blob([bytes]).stream().pipeThrough(luong)).arrayBuffer()
+      .then(function (ab) { return new Uint8Array(ab); });
+  }
+  /** Gói gọn → chuỗi mã ("z…" = đã nén deflate, "j…" = không nén). */
+  function maHoa(goi) {
+    var bytes = new TextEncoder().encode(JSON.stringify(goi));
+    if (typeof CompressionStream === 'undefined') return Promise.resolve('j' + b64url(bytes));
+    return quaLuong(bytes, new CompressionStream('deflate-raw'))
+      .then(function (z) { return 'z' + b64url(z); }, function () { return 'j' + b64url(bytes); });
+  }
+  function giaiMa(ma) {
+    ma = String(ma || '').trim();
+    var m = ma.match(/[#&?]nhap=([^&\s]+)/); if (m) ma = decodeURIComponent(m[1]);
+    var loai = ma.charAt(0), bytes = tuB64url(ma.slice(1));
+    var p = loai === 'z' ? quaLuong(bytes, new DecompressionStream('deflate-raw'))
+          : loai === 'j' ? Promise.resolve(bytes) : Promise.reject(new Error('Mã kết quả không đúng định dạng.'));
+    return p.then(function (b) { return JSON.parse(new TextDecoder().decode(b)); });
+  }
+
+  // ---------------------------------------------------------------- tải file
+  function taiFile(ten, noiDung, kieu) {
+    var blob = new Blob([noiDung], { type: kieu || 'application/json;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = ten;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+  function tenTep(s) {
+    return khongDau(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'khong-ten';
+  }
+
+  return {
+    KHOA: KHOA, esc: esc, md: md, mdKhoi: mdKhoi, soVN: soVN, thoiGian: thoiGian, dongHo: dongHo,
+    ngayGio: ngayGio, khongDau: khongDau, sha256: sha256, bamPin: bamPin, bamMaMoDe: bamMaMoDe,
+    doc: doc, ghi: ghi, dsCau: dsCau, chuanHoa: chuanHoa, daLam: daLam, cauGhep: cauGhep, dung: dung,
+    hienThi: hienThi, dapAnChu: dapAnChu, cham: cham, goiGon: goiGon, moGoi: moGoi,
+    maHoa: maHoa, giaiMa: giaiMa, taiFile: taiFile, tenTep: tenTep
+  };
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+  var CAC_DE = [{"maDe":"tieng-anh-lop-6-kiem-tra-unit-01","phienBan":1,"mon":"Tiếng Anh","tieuDe":"Kiểm tra Unit 1 — My New School","phamVi":"Unit 1 — MY NEW SCHOOL (SGK Global Success 6, tập một, trang 6 – 15)","thoiGianPhut":45,"nguonDeGiay":"bài kiểm tra/tiếng anh/tieng-anh-lop-6-kiem-tra-unit-01.md","ghiChu":"Khác đề giấy: câu 26–28 đổi từ trả lời tự do sang trắc nghiệm 4 phương án (vẫn 0,5 điểm/câu); câu 33 (viết đoạn 1,5 điểm) thay bằng 6 câu tự chấm 33a–33f × 0,25 điểm (3 câu sắp xếp, 3 câu chọn) cùng chủ đề my school.","phan":[{"tieuDe":"A. PRONUNCIATION (1,0 point)","nhom":[{"huongDan":"Choose the word whose **bold** part is pronounced differently from that of the other three.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"1","loai":"chon","de":"","phuongAn":["sm**ar**t","cl**a**ss","st**ar**t","s**u**bject"],"dapAn":3,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*smart, class, start* có âm /ɑː/; *subject* /ˈsʌbdʒɪkt/ có âm /ʌ/."},{"id":"2","loai":"chon","de":"","phuongAn":["l**u**nch","M**o**nday","l**ar**ge","st**u**dy"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*lunch, Monday, study* có âm /ʌ/; *large* /lɑːdʒ/ có âm /ɑː/."},{"id":"3","loai":"chon","de":"","phuongAn":["c**o**mpass","g**ar**den","cl**u**b","br**o**ther"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*compass, club, brother* có âm /ʌ/; *garden* /ˈɡɑːdn/ có âm /ɑː/."},{"id":"4","loai":"chon","de":"","phuongAn":["**ar**t","cl**a**ssroom","S**u**nday","c**ar**ton"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*art, classroom, carton* có âm /ɑː/; *Sunday* /ˈsʌndeɪ/ có âm /ʌ/."}]}]},{"tieuDe":"B. VOCABULARY & GRAMMAR (4,0 points)","nhom":[{"huongDan":"Choose the correct answer A, B, C, or D.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"5","loai":"chon","de":"My sister ______ English at Ngoc Lan Lower Secondary School.","phuongAn":["study","studies","studying","is study"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Chủ ngữ *My sister* thay được bằng *she* → động từ thêm *-es*: *study → studies*."},{"id":"6","loai":"chon","de":"______ your friends go to school by bus every day?","phuongAn":["Do","Does","Are","Is"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Chủ ngữ *your friends* là số nhiều (= *they*) → câu hỏi dùng trợ động từ *Do*."},{"id":"7","loai":"chon","de":"Nam doesn't ______ his homework after school.","phuongAn":["does","do","doing","to do"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Đã có *doesn't* thì động từ chính về nguyên thể: *do*."},{"id":"8","loai":"chon","de":"Nga ______ her bicycle to school.","phuongAn":["rides usually","usually rides","usually ride","ride usually"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Sách dạy: *\"We usually place the adverb of frequency before the main verb.\"* Chủ ngữ *Nga* = *she* nên động từ còn phải thêm *-s*: *usually rides*."},{"id":"9","loai":"chon","de":"Students at my school ______ a uniform on Mondays.","phuongAn":["do","play","wear","study"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Cụm từ cố định trong Unit 1: *wear + a uniform* (mặc đồng phục)."},{"id":"10","loai":"chon","de":"Sunrise is a ______ school. The students study and live there.","phuongAn":["boarding","international","large","new"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*Boarding school* là trường nội trú — học sinh *study and live there*, đúng như bài đọc Skills 1."}]},{"huongDan":"Write ONE word from the box in each gap. There is ONE extra word.","nguLieu":null,"hopTu":["homework","library","lunch","playground","uniform"],"xaoCau":true,"cau":[{"id":"11","loai":"dien","de":"The students always look smart in their school ______.","dapAn":["uniform"],"diem":0.25,"giaiThich":"*Look smart in their school uniform*: trông gọn gàng trong bộ đồng phục."},{"id":"12","loai":"dien","de":"I do my ______ after school every day.","dapAn":["homework"],"diem":0.25,"giaiThich":"Cụm *do my homework* — làm bài tập về nhà."},{"id":"13","loai":"dien","de":"My friends and I have ______ at school at twelve o'clock.","dapAn":["lunch"],"diem":0.25,"giaiThich":"Mười hai giờ trưa là giờ ăn trưa: *have lunch*."},{"id":"14","loai":"dien","de":"There are many books in our school ______.","dapAn":["library"],"diem":0.25,"giaiThich":"Nơi có nhiều sách trong trường là *library* (thư viện). Từ thừa là *playground*."}]},{"huongDan":"Write the correct form of the verbs in brackets.","nguLieu":"Lan **(15)** ______ a new student at Hoa Binh Lower Secondary School. Her school **(16)** ______ a large playground and a new library. Lan **(17)** ______ to school by bus. She and her friends **(18)** ______ their bicycles to school every day. Does she **(19)** ______ her new school? Yes, she does. She **(20)** ______ English with her favourite teacher, Miss Hoa.","hopTu":null,"xaoCau":false,"cau":[{"id":"15","loai":"dien","de":"(be)","dapAn":["is"],"diem":0.25,"giaiThich":"*Lan* = *she* → động từ *be* là *is*."},{"id":"16","loai":"dien","de":"(have)","dapAn":["has"],"diem":0.25,"giaiThich":"*Her school* = *it* → *have* đổi thành *has*."},{"id":"17","loai":"dien","de":"(not / go)","dapAn":["doesn't go","does not go"],"diem":0.25,"giaiThich":"Phủ định với chủ ngữ ngôi thứ ba số ít: *doesn't* + động từ nguyên thể → *doesn't go*."},{"id":"18","loai":"dien","de":"(ride)","dapAn":["ride"],"diem":0.25,"giaiThich":"Chủ ngữ *She and her friends* = *they* → động từ giữ nguyên thể: *ride*."},{"id":"19","loai":"dien","de":"(like)","dapAn":["like"],"diem":0.25,"giaiThich":"Đã có *Does* ở đầu câu thì động từ chính về nguyên thể: *like*."},{"id":"20","loai":"dien","de":"(study)","dapAn":["studies"],"diem":0.25,"giaiThich":"Chủ ngữ *She* → thêm *-es*; *-y* sau phụ âm đổi thành *-i*: *study → studies*."}]}]},{"tieuDe":"C. READING (2,5 points)","nhom":[{"huongDan":"Read the passage. Choose True or False.","nguLieu":"**MY NEW SCHOOL**\n\nMy name is Mai. I am a new student at Ngoc Lan Lower Secondary School. My school is in the centre of a small town in Bac Giang. It is not a boarding school. I go home after class every day. My school has twelve classes, a computer room, a library and a big playground. I usually cycle to school with my classmates. This year we study new subjects: maths, English, science, history and music. My favourite subject is English because our teacher often plays games with us. At break time, my friends and I play football in the playground. I never have lunch at school, but I sometimes do my homework in the library.","hopTu":null,"xaoCau":true,"cau":[{"id":"21","loai":"chon","de":"Mai's school is in the centre of a small town.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"My school is in the centre of a small town in Bac Giang.\"*"},{"id":"22","loai":"chon","de":"Mai lives at her school.","phuongAn":["True","False"],"dapAn":1,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"It is not a boarding school. I go home after class every day.\"* — Mai không ở lại trường."},{"id":"23","loai":"chon","de":"There is a library at Mai's school.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"My school has twelve classes, a computer room, a library and a big playground.\"*"},{"id":"24","loai":"chon","de":"Mai walks to school every day.","phuongAn":["True","False"],"dapAn":1,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"I usually cycle to school with my classmates.\"* — Mai đi xe đạp, không đi bộ."},{"id":"25","loai":"chon","de":"Mai sometimes does her homework in the library.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"I sometimes do my homework in the library.\"*"}]},{"huongDan":"Read the passage again. Choose the correct answer A, B, C, or D.","nguLieu":"**MY NEW SCHOOL**\n\nMy name is Mai. I am a new student at Ngoc Lan Lower Secondary School. My school is in the centre of a small town in Bac Giang. It is not a boarding school. I go home after class every day. My school has twelve classes, a computer room, a library and a big playground. I usually cycle to school with my classmates. This year we study new subjects: maths, English, science, history and music. My favourite subject is English because our teacher often plays games with us. At break time, my friends and I play football in the playground. I never have lunch at school, but I sometimes do my homework in the library.","hopTu":null,"xaoCau":true,"cau":[{"id":"26","loai":"chon","de":"Where is Mai's school?","phuongAn":["In the centre of a small town in Bac Giang.","In the centre of a big city in Bac Giang.","In a small town in Bac Ninh.","Next to a boarding school in Bac Giang."],"dapAn":0,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Câu trả lời nằm ở câu *\"My school is in the centre of a small town in Bac Giang.\"* — phải khớp cả *small town* lẫn *Bac Giang*."},{"id":"27","loai":"chon","de":"How does Mai go to school?","phuongAn":["She walks to school.","She usually cycles to school with her classmates.","She goes to school by bus.","She rides a bicycle to school with her teacher."],"dapAn":1,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Bài viết: *\"I usually cycle to school with my classmates.\"* — Mai đi xe đạp cùng bạn cùng lớp, không phải cùng thầy cô."},{"id":"28","loai":"chon","de":"Why is English Mai's favourite subject?","phuongAn":["Because she does her homework in the library.","Because her teacher often plays games with the students.","Because she plays football with her friends at break time.","Because English is a new subject this year."],"dapAn":1,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Phải nối câu *\"My favourite subject is English\"* với vế *\"because our teacher often plays games with us\"*. Các phương án khác đều có trong bài nhưng không phải lí do Mai thích môn English."}]}]},{"tieuDe":"D. WRITING (2,5 points)","nhom":[{"huongDan":"Arrange the words to make correct sentences.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"29","loai":"sapXep","de":"","manh":["to","school","Duy","cycles","every","day"],"cuoi":".","dapAn":["Duy cycles to school every day","Every day Duy cycles to school"],"diem":0.25,"giaiThich":"Chủ ngữ *Duy* đứng đầu, động từ *cycles* có *-s*, cụm chỉ thời gian *every day* đứng cuối câu."},{"id":"30","loai":"sapXep","de":"","manh":["never","we","lunch","have","at","school"],"cuoi":".","dapAn":["We never have lunch at school","At school we never have lunch"],"diem":0.25,"giaiThich":"Trạng từ tần suất *never* đứng trước động từ chính *have*."},{"id":"31","loai":"sapXep","de":"","manh":["your","does","where","live","friend"],"cuoi":"?","dapAn":["Where does your friend live"],"diem":0.25,"giaiThich":"Câu hỏi có từ để hỏi: *Where* + *does* + chủ ngữ + động từ nguyên thể."},{"id":"32","loai":"sapXep","de":"","manh":["usually","smart","look","in","uniforms","students","their"],"cuoi":".","dapAn":["Students usually look smart in their uniforms"],"diem":0.25,"giaiThich":"*usually* đứng trước động từ chính *look*; *look smart in their uniforms* là cụm có trong Getting Started."}]},{"huongDan":"My school: arrange the words to make correct sentences.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"33a","loai":"sapXep","de":"","manh":["school","starts","at","seven","my","o'clock"],"cuoi":".","dapAn":["My school starts at seven o'clock"],"diem":0.25,"giaiThich":"*My school* = *it* nên *start* thêm *-s*: *starts*; giờ giấc đặt sau *at*."},{"id":"33b","loai":"sapXep","de":"","manh":["always","homework","I","my","do","after","school"],"cuoi":".","dapAn":["I always do my homework after school","After school I always do my homework"],"diem":0.25,"giaiThich":"*always* đứng trước động từ chính *do*; cụm *do my homework* không tách rời."},{"id":"33c","loai":"sapXep","de":"","manh":["has","a","school","my","library","big"],"cuoi":".","dapAn":["My school has a big library"],"diem":0.25,"giaiThich":"*My school* = *it* → dùng *has*; tính từ *big* đứng trước danh từ *library*."}]},{"huongDan":"My school: choose the correct answer A, B, C, or D.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"33d","loai":"chon","de":"Choose the correct sentence.","phuongAn":["My school have a large playground.","My school has a large playground.","My school is have a large playground.","My school having a large playground."],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*My school* = *it* → *have* đổi thành *has*; không thêm *is* trước động từ thường."},{"id":"33e","loai":"chon","de":"Choose the correct sentence.","phuongAn":["We play usually football at break time.","We usually play football at break time.","We usually plays football at break time.","We are usually play football at break time."],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Trạng từ tần suất đứng trước động từ chính; chủ ngữ *We* nên *play* giữ nguyên thể, không thêm *-s*."},{"id":"33f","loai":"chon","de":"My school is Ngoc Lan Lower Secondary School. It is in the centre of my town. I like my school because ______.","phuongAn":["my classmates often help me with my homework","my classmates often helps me with my homework","my classmates help often me with my homework","I never like my classmates"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*my classmates* là số nhiều nên *help* không thêm *-s*, và *often* đứng trước *help*. Phương án cuối đúng ngữ pháp nhưng trái nghĩa với *I like my school because…*."}]}]}]}];
+  var CH = {"pinBam":"328164a80c9db1079a1ad365804aaba77bed5aea2121f5f5efc3ba213d09ad24","dungLuc":1790670861};   // {pinBam, dungLuc}
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var THEO_MA = {}; CAC_DE.forEach(function (d) { THEO_MA[d.maDe] = d; });
+  var HAN_MO_KHOA = 12 * 3600 * 1000;
+  var sapXep = { cot: 'nopLuc', giam: true };
+
+  function thongBao(chu, ms) {
+    var tb = $('#thong-bao'); tb.textContent = chu; tb.classList.remove('an');
+    clearTimeout(thongBao.h); thongBao.h = setTimeout(function () { tb.classList.add('an'); }, ms || 4000);
+  }
+  function moHop(html) { $('#hop').innerHTML = html; $('#phu').classList.remove('an'); }
+  function dongHop() { $('#phu').classList.add('an'); }
+  $('#phu').onclick = function (e) { if (e.target.id === 'phu') dongHop(); };
+
+  function dsKQ() { return KT.doc(KT.KHOA.ketQua, []); }
+  function ghiKQ(ds) { if (!KT.ghi(KT.KHOA.ketQua, ds)) thongBao('⚠️ Không ghi được vào bộ nhớ trình duyệt (đầy hoặc bị chặn).', 7000); }
+
+  /** Thêm các bản ghi, bỏ trùng theo maLuot. Trả về số bài mới. */
+  function themBanGhi(moi) {
+    var ds = dsKQ(), co = {}, dem = 0;
+    ds.forEach(function (b) { co[b.maLuot] = 1; });
+    moi.forEach(function (b) {
+      if (!b || !b.maLuot || !b.hocSinh || !b.de) return;
+      if (co[b.maLuot]) return;
+      co[b.maLuot] = 1; ds.push(b); dem++;
+    });
+    ghiKQ(ds);
+    return dem;
+  }
+  /** Bản ghi đầy đủ từ file: chấm lại nếu có đề, để phòng file bị sửa tay. */
+  function chuanHoaBanGhi(b, nguon) {
+    var de = THEO_MA[b.de && b.de.maDe];
+    if (de && b.traLoiTho && de.phienBan === b.de.phienBan) {
+      var kq = KT.cham(de, b.traLoiTho);
+      if (Math.round(b.diem * 100) !== kq.diem) b.canhBao = 'Điểm trong file (' + KT.soVN(b.diem * 100) + ') khác điểm chấm lại (' + KT.soVN(kq.diem) + ') — đã dùng điểm chấm lại.';
+      b.diem = kq.diem / 100; b.diemToiDa = kq.diemToiDa / 100; b.soDung = kq.soDung; b.tongSoCau = kq.tongSoCau; b.traLoi = kq.chiTiet;
+    }
+    if (b.nguon === 'may-nay') b.nguon = nguon;
+    delete b.daMoLuotMoi;
+    return b;
+  }
+  function nhapMa(ma, nguon) {
+    return KT.giaiMa(ma).then(function (g) {
+      var bg = KT.moGoi(g, THEO_MA[g[1]] || null, nguon);
+      var n = themBanGhi([bg]);
+      return { bg: bg, moi: n };
+    });
+  }
+
+  // ------------------------------------------------------------ mở khoá
+  function daMoKhoa() { return KT.doc(KT.KHOA.moKhoaGV, 0) > Date.now(); }
+  function moKhoa() {
+    if (KT.bamPin($('#o-pin').value) !== CH.pinBam) { $('#loi-pin').textContent = 'Mã PIN chưa đúng.'; return; }
+    KT.ghi(KT.KHOA.moKhoaGV, Date.now() + HAN_MO_KHOA);
+    vaoTrang();
+  }
+  $('#mo-khoa').onclick = moKhoa;
+  $('#o-pin').onkeydown = function (e) { if (e.key === 'Enter') moKhoa(); };
+  $('#nut-khoa').onclick = function () { KT.ghi(KT.KHOA.moKhoaGV, 0); location.hash = ''; location.reload(); };
+
+  function maTrongDiaChi() { var m = location.hash.match(/nhap=([^&]+)/); return m ? decodeURIComponent(m[1]) : null; }
+
+  function vaoTrang() {
+    $('#man-khoa').classList.add('an'); $('#man-chinh').classList.remove('an');
+    var ma = maTrongDiaChi();
+    if (ma) {
+      history.replaceState(null, '', location.pathname + location.search);
+      nhapMa(ma, 'nhap-qr').then(function (r) {
+        var hs = r.bg.hocSinh;
+        moHop('<h2>' + (r.moi ? '✅ Đã nhận bài' : 'ℹ️ Bài này đã có trong danh sách') + '</h2>' +
+          '<p style="font-size:1.15rem"><b>' + KT.esc(hs.hoTen) + '</b> · ' + KT.esc(hs.lop) + ' · ' + KT.esc(hs.truong) + '</p>' +
+          '<p>' + KT.esc(r.bg.de.tieuDe) + ' — <b style="font-size:1.3rem">' + KT.soVN(r.bg.diem * 100) + ' điểm</b></p>' +
+          (r.bg.giamSat.soLanRoiTrang || r.bg.giamSat.soLanThoatToanManHinh ? '<p class="canh">Rời trang ' + r.bg.giamSat.soLanRoiTrang + ' lần · thoát toàn màn hình ' + r.bg.giamSat.soLanThoatToanManHinh + ' lần</p>' : '') +
+          (r.bg.canhBao ? '<p class="canh">' + KT.esc(r.bg.canhBao) + '</p>' : '') +
+          '<p class="nho">Quét tiếp mã của học sinh khác bằng camera điện thoại.</p><button class="nut-chinh" id="ok-nhan">Đóng</button>');
+        $('#ok-nhan').onclick = dongHop;
+        veTatCa();
+      }).catch(function (e) { thongBao('❌ Không đọc được mã: ' + e.message, 7000); veTatCa(); });
+    }
+    veTatCa();
+  }
+
+  // ------------------------------------------------------------ lọc & bảng
+  function giaTriLoc() {
+    return { de: $('#loc-de').value, truong: $('#loc-truong').value, lop: $('#loc-lop').value,
+             ten: KT.khongDau($('#loc-ten').value).toLowerCase().trim(), canh: $('#loc-canh').checked };
+  }
+  function datLuaChon(sel, cac, nhanTatCa, giuLai) {
+    sel.innerHTML = '<option value="">' + nhanTatCa + '</option>' + cac.map(function (c) {
+      return '<option value="' + KT.esc(c[0]) + '"' + (c[0] === giuLai ? ' selected' : '') + '>' + KT.esc(c[1]) + '</option>';
+    }).join('');
+  }
+  function veLoc(ds) {
+    var l = giaTriLoc(), de = {}, truong = {}, lop = {};
+    ds.forEach(function (b) {
+      de[b.de.maDe] = b.de.tieuDe;
+      truong[b.hocSinh.truong] = 1;
+      if (!l.truong || b.hocSinh.truong === l.truong) lop[b.hocSinh.lop] = 1;
+    });
+    CAC_DE.forEach(function (d) { de[d.maDe] = d.tieuDe; });
+    datLuaChon($('#loc-de'), Object.keys(de).map(function (k) { return [k, de[k]]; }), 'Mọi đề', l.de);
+    datLuaChon($('#loc-truong'), Object.keys(truong).sort().map(function (k) { return [k, k]; }), 'Mọi trường', l.truong);
+    datLuaChon($('#loc-lop'), Object.keys(lop).sort().map(function (k) { return [k, 'Lớp ' + k]; }), 'Mọi lớp', l.lop);
+  }
+  function locDS(ds) {
+    var l = giaTriLoc();
+    return ds.filter(function (b) {
+      var gs = b.giamSat || {};
+      return (!l.de || b.de.maDe === l.de) && (!l.truong || b.hocSinh.truong === l.truong) && (!l.lop || b.hocSinh.lop === l.lop) &&
+        (!l.ten || KT.khongDau(b.hocSinh.hoTen).toLowerCase().indexOf(l.ten) >= 0) &&
+        (!l.canh || gs.soLanRoiTrang > 0 || gs.soLanThoatToanManHinh > 0 || b.canhBao);
+    });
+  }
+  var COT = [
+    ['stt', '#'], ['hoTen', 'Họ và tên'], ['gioiTinh', 'Giới tính'], ['lop', 'Lớp'], ['truong', 'Trường'], ['de', 'Đề'],
+    ['diem', 'Điểm', 1], ['soDung', 'Số câu đúng', 1], ['thoiGianLamGiay', 'Thời gian làm', 1], ['nopLuc', 'Nộp lúc'],
+    ['lyDoNop', 'Cách nộp'], ['roi', 'Rời trang', 1], ['tmh', 'Thoát TMH', 1], ['nguon', 'Nguồn']
+  ];
+  function giaTriCot(b, cot) {
+    var gs = b.giamSat || {};
+    switch (cot) {
+      case 'hoTen': return KT.khongDau(b.hocSinh.hoTen.split(' ').slice(-1)[0] + ' ' + b.hocSinh.hoTen).toLowerCase();
+      case 'gioiTinh': case 'lop': case 'truong': return b.hocSinh[cot];
+      case 'de': return b.de.tieuDe;
+      case 'roi': return gs.soLanRoiTrang || 0;
+      case 'tmh': return gs.soLanThoatToanManHinh || 0;
+      default: return b[cot];
+    }
+  }
+  function veBang(ds) {
+    ds = ds.slice().sort(function (a, b) {
+      var x = giaTriCot(a, sapXep.cot), y = giaTriCot(b, sapXep.cot);
+      var s = typeof x === 'number' ? x - y : String(x).localeCompare(String(y), 'vi');
+      return sapXep.giam ? -s : s;
+    });
+    var h = '<thead><tr>' + COT.map(function (c) {
+      return '<th data-cot="' + c[0] + '"' + (c[2] ? ' class="so"' : '') + '>' + c[1] + (sapXep.cot === c[0] ? (sapXep.giam ? ' ▼' : ' ▲') : '') + '</th>';
+    }).join('') + '</tr></thead><tbody>';
+    ds.forEach(function (b, i) {
+      var gs = b.giamSat || {}, hs = b.hocSinh;
+      h += '<tr data-ma="' + KT.esc(b.maLuot) + '"><td>' + (i + 1) + '</td><td><b>' + KT.esc(hs.hoTen) + '</b>' + (b.canhBao ? ' <span class="canh" title="' + KT.esc(b.canhBao) + '">!</span>' : '') +
+        '</td><td>' + KT.esc(hs.gioiTinh) + '</td><td>' + KT.esc(hs.lop) + '</td><td>' + KT.esc(hs.truong) + '</td><td>' + KT.esc(b.de.tieuDe) +
+        '</td><td class="so"><b>' + KT.soVN(b.diem * 100) + '</b></td><td class="so">' + (b.soDung != null ? b.soDung + '/' + b.tongSoCau : '') +
+        '</td><td class="so">' + KT.dongHo(b.thoiGianLamGiay) + '</td><td>' + KT.ngayGio(b.nopLuc) + '</td><td>' + (b.lyDoNop === 'het-gio' ? 'Hết giờ' : 'Tự nộp') +
+        '</td><td class="so">' + (gs.soLanRoiTrang ? '<span class="canh">' + gs.soLanRoiTrang + '</span>' : 0) +
+        '</td><td class="so">' + (gs.soLanThoatToanManHinh ? '<span class="canh">' + gs.soLanThoatToanManHinh + '</span>' : 0) +
+        '</td><td>' + ({ 'may-nay': 'Máy này', 'nhap-qr': 'Quét QR', 'nhap-file': 'File', 'nhap-ma': 'Dán mã' }[b.nguon] || KT.esc(b.nguon || '')) + '</td></tr>';
+    });
+    $('#bang').innerHTML = h + '</tbody>';
+    $('#bang-rong').textContent = ds.length ? '' : 'Chưa có bài nào khớp bộ lọc. Quét mã QR trên máy học sinh hoặc bấm "Nhập file".';
+  }
+  function veThongKe(ds) {
+    var n = ds.length, diem = ds.map(function (b) { return Math.round(b.diem * 100); });
+    var tb = n ? diem.reduce(function (a, b) { return a + b; }, 0) / n : 0;
+    var dem = function (f) { return ds.filter(f).length; };
+    var o = function (nhan, gt) { return '<div class="o-tk"><span class="nho">' + nhan + '</span><b>' + gt + '</b></div>'; };
+    $('#thong-ke').innerHTML = o('Số bài', n) + o('Điểm trung bình', n ? KT.soVN(tb) : '–') +
+      o('Cao nhất', n ? KT.soVN(Math.max.apply(null, diem)) : '–') + o('Thấp nhất', n ? KT.soVN(Math.min.apply(null, diem)) : '–') +
+      o('Từ 8 trở lên', dem(function (b) { return b.diem >= 8; })) + o('Dưới 5', dem(function (b) { return b.diem < 5; })) +
+      o('Có rời trang', dem(function (b) { return (b.giamSat || {}).soLanRoiTrang > 0 || (b.giamSat || {}).soLanThoatToanManHinh > 0; }));
+  }
+  function veTiLe(ds) {
+    var maDe = $('#loc-de').value, de = THEO_MA[maDe], vung = $('#ti-le');
+    if (!de) { vung.innerHTML = ''; return; }
+    var cung = ds.filter(function (b) { return b.de.phienBan === de.phienBan && b.traLoiTho; });
+    if (!cung.length) { vung.innerHTML = '<p class="nho">Chưa có bài của đề này.</p>'; return; }
+    var h = '<table><thead><tr><th>Câu (số gốc)</th><th>Phần</th><th>Đáp án</th><th class="so">Đúng</th><th>Tỉ lệ</th></tr></thead><tbody>';
+    KT.dsCau(de).forEach(function (x) {
+      var d = cung.filter(function (b) { return KT.dung(x.cau, b.traLoiTho[x.cau.id]); }).length, p = Math.round(100 * d / cung.length);
+      h += '<tr><td>' + KT.esc(x.cau.id) + '</td><td>' + KT.esc(x.phan.tieuDe.replace(/\(.*\)/, '')) + '</td><td style="white-space:normal">' + KT.esc(KT.dapAnChu(x.cau)) +
+        '</td><td class="so">' + d + '/' + cung.length + '</td><td><div class="thanh-ti-le" title="' + p + '%"><i style="width:' + p + '%;background:' +
+        (p < 50 ? 'var(--sai)' : p < 75 ? '#f59e0b' : 'var(--dung)') + '"></i></div> ' + p + '%</td></tr>';
+    });
+    vung.innerHTML = h + '</tbody></table>';
+  }
+  function veDsDe() {
+    $('#ds-de').innerHTML = CAC_DE.length ? '<ul>' + CAC_DE.map(function (d) {
+      return '<li><a href="' + KT.esc(d.maDe) + '.html" target="_blank" rel="noopener">' + KT.esc(d.tieuDe) + '</a> — ' + KT.esc(d.mon) + ', ' +
+        d.thoiGianPhut + ' phút, ' + KT.dsCau(d).length + ' câu <span class="nho">(phiên bản ' + d.phienBan + ')</span></li>';
+    }).join('') + '</ul>' : '<p class="nho">Chưa có đề nào.</p>';
+  }
+  function veTatCa() {
+    var ds = dsKQ();
+    veLoc(ds);
+    var loc = locDS(ds);
+    veThongKe(loc); veBang(loc); veTiLe(loc); veDsDe();
+  }
+  ['#loc-de', '#loc-truong', '#loc-lop', '#loc-canh'].forEach(function (s) { $(s).onchange = veTatCa; });
+  $('#loc-ten').oninput = veTatCa;
+  $('#bang').onclick = function (e) {
+    var th = e.target.closest('th');
+    if (th) { var c = th.dataset.cot; if (c === 'stt') return; sapXep = { cot: c, giam: sapXep.cot === c ? !sapXep.giam : c === 'diem' }; veTatCa(); return; }
+    var tr = e.target.closest('tr[data-ma]'); if (tr) chiTiet(tr.dataset.ma);
+  };
+
+  // ------------------------------------------------------------ chi tiết một bài
+  function chiTiet(maLuot) {
+    var b = dsKQ().filter(function (x) { return x.maLuot === maLuot; })[0]; if (!b) return;
+    var hs = b.hocSinh, gs = b.giamSat || {}, de = THEO_MA[b.de.maDe];
+    var h = '<div class="dau"><h2>' + KT.esc(hs.hoTen) + ' — ' + KT.soVN(b.diem * 100) + ' điểm</h2><button id="dong-ct">Đóng</button></div>' +
+      '<p>' + KT.esc(hs.gioiTinh) + ' · Lớp ' + KT.esc(hs.lop) + ' · ' + KT.esc(hs.truong) + '<br>' + KT.esc(b.de.tieuDe) + ' (phiên bản ' + b.de.phienBan + ')<br>' +
+      'Bắt đầu ' + KT.ngayGio(b.batDau) + ' · nộp ' + KT.ngayGio(b.nopLuc) + ' (' + (b.lyDoNop === 'het-gio' ? 'hết giờ, máy tự nộp' : 'tự nộp') + ') · làm ' + KT.thoiGian(b.thoiGianLamGiay) + '<br>' +
+      'Rời trang <b>' + (gs.soLanRoiTrang || 0) + '</b> lần · thoát toàn màn hình <b>' + (gs.soLanThoatToanManHinh || 0) + '</b> lần' +
+      (gs.toanManHinh === 'khong-ho-tro' ? ' <span class="nho">(máy không hỗ trợ toàn màn hình, vd iPhone)</span>' : '') + '<br>' +
+      '<span class="nho">Mã bài ' + KT.esc(b.maLuot) + '</span></p>' + (b.canhBao ? '<p class="canh">' + KT.esc(b.canhBao) + '</p>' : '');
+    if (gs.suKien && gs.suKien.length) {
+      var ten = { 'bat-dau': 'Bắt đầu', 'roi-trang': 'Rời trang', 'quay-lai': 'Quay lại', 'thoat-toan-man-hinh': 'Thoát toàn màn hình',
+                  'mo-lai-trang': 'Mở lại trang', 'nop-bai': 'Nộp bài', 'het-gio': 'Hết giờ' };
+      h += '<details><summary>Nhật kí làm bài (' + gs.suKien.length + ' sự kiện)</summary><p class="nho">' + gs.suKien.map(function (s) {
+        return KT.dongHo((s.t - b.batDau) / 1000) + ' ' + (ten[s.loai] || s.loai);
+      }).join(' · ') + '</p></details>';
+    }
+    if (b.traLoi && b.traLoi.length) {
+      var theoId = {}; if (de) KT.dsCau(de).forEach(function (x) { theoId[x.cau.id] = x.cau; });
+      h += '<div class="cuon"><table class="bang-ct"><thead><tr><th>Câu</th><th>Học sinh trả lời</th><th>Đáp án</th><th class="so">Điểm</th></tr></thead><tbody>';
+      b.traLoi.forEach(function (t) {
+        h += '<tr><td>' + KT.esc(t.id) + '</td><td>' + (t.hienThi ? KT.esc(t.hienThi) : '<i class="nho">bỏ trống</i>') + ' <span class="nhan ' + (t.dung ? 'dung">✓' : 'sai">✗') +
+          '</span></td><td>' + (theoId[t.id] ? KT.esc(KT.dapAnChu(theoId[t.id])) : '') + '</td><td class="so">' + KT.soVN(t.diem * 100) + '/' + KT.soVN(t.diemToiDa * 100) + '</td></tr>';
+      });
+      h += '</tbody></table></div>';
+    }
+    h += '<div class="hang" style="margin-top:12px"><button class="nut-nguy" id="xoa-bai">🗑️ Xoá bài này</button></div>';
+    moHop(h);
+    $('#dong-ct').onclick = dongHop;
+    $('#xoa-bai').onclick = function () {
+      if (!confirm('Xoá bài của ' + hs.hoTen + '? Không hoàn tác được.')) return;
+      ghiKQ(dsKQ().filter(function (x) { return x.maLuot !== maLuot; })); dongHop(); veTatCa();
+    };
+  }
+
+  // ------------------------------------------------------------ nhập / xuất
+  $('#nut-nhap-file').onclick = function () { $('#chon-file').click(); };
+  $('#chon-file').onchange = function () {
+    var tep = Array.prototype.slice.call(this.files), moi = 0, loi = 0, xong = 0, input = this;
+    if (!tep.length) return;
+    tep.forEach(function (f) {
+      f.text().then(function (s) {
+        var d = JSON.parse(s), ds = Array.isArray(d) ? d : (d && Array.isArray(d.ketQua) ? d.ketQua : [d]);
+        moi += themBanGhi(ds.map(function (b) { return chuanHoaBanGhi(b, 'nhap-file'); }));
+      }).catch(function () { loi++; }).then(function () {
+        if (++xong === tep.length) { input.value = ''; veTatCa(); thongBao('Đã nhập ' + moi + ' bài mới' + (loi ? ' · ' + loi + ' file lỗi' : '') + '.'); }
+      });
+    });
+  };
+  $('#nut-dan-ma').onclick = function () {
+    moHop('<h2>Dán mã kết quả</h2><p class="nho">Mỗi dòng một mã (học sinh bấm "Sao chép mã" rồi gửi). Dán được cả đường link quét từ QR.</p>' +
+      '<textarea class="o" id="o-ma" rows="7" style="font:12px monospace"></textarea><div class="hang" style="margin-top:10px">' +
+      '<button id="huy-ma">Huỷ</button><button class="nut-chinh" id="ok-ma">Nhập</button></div>');
+    $('#huy-ma').onclick = dongHop;
+    $('#ok-ma').onclick = function () {
+      var dong = $('#o-ma').value.split(/\s+/).filter(Boolean), moi = 0, loi = 0;
+      Promise.all(dong.map(function (m) {
+        return nhapMa(m, 'nhap-ma').then(function (r) { moi += r.moi; }, function () { loi++; });
+      })).then(function () { dongHop(); veTatCa(); thongBao('Đã nhập ' + moi + ' bài mới' + (loi ? ' · ' + loi + ' mã lỗi' : '') + '.'); });
+    };
+  };
+  function oCSV(v) { v = v == null ? '' : String(v); return /[",;\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+  $('#nut-csv').onclick = function () {
+    var ds = locDS(dsKQ()), maDe = $('#loc-de').value, de = THEO_MA[maDe];
+    var cotCau = de ? KT.dsCau(de).map(function (x) { return x.cau.id; }) : [];
+    var dau = ['STT', 'Họ và tên', 'Giới tính', 'Lớp', 'Trường', 'Mã đề', 'Tên đề', 'Phiên bản đề', 'Điểm', 'Điểm tối đa', 'Số câu đúng', 'Tổng số câu',
+      'Bắt đầu', 'Nộp lúc', 'Thời gian làm (phút)', 'Thời gian cho phép (phút)', 'Cách nộp', 'Số lần rời trang', 'Số lần thoát toàn màn hình', 'Nguồn', 'Mã bài', 'Cảnh báo']
+      .concat(cotCau.map(function (id) { return 'Câu ' + id; }));
+    var dong = [dau.map(oCSV).join(',')];
+    ds.forEach(function (b, i) {
+      var gs = b.giamSat || {}, hs = b.hocSinh, theo = {};
+      (b.traLoi || []).forEach(function (t) { theo[t.id] = t; });
+      dong.push([i + 1, hs.hoTen, hs.gioiTinh, hs.lop, hs.truong, b.de.maDe, b.de.tieuDe, b.de.phienBan,
+        KT.soVN(b.diem * 100), KT.soVN((b.diemToiDa || 10) * 100), b.soDung, b.tongSoCau, KT.ngayGio(b.batDau), KT.ngayGio(b.nopLuc),
+        KT.soVN(Math.round(b.thoiGianLamGiay / 60 * 100)), b.thoiGianChoPhepGiay / 60, b.lyDoNop === 'het-gio' ? 'Hết giờ' : 'Tự nộp',
+        gs.soLanRoiTrang || 0, gs.soLanThoatToanManHinh || 0, b.nguon, b.maLuot, b.canhBao || '']
+        .concat(cotCau.map(function (id) { var t = theo[id]; return t ? (t.dung ? '✓ ' : '✗ ') + (t.hienThi || '') : ''; }))
+        .map(oCSV).join(','));
+    });
+    var ngay = new Date().toISOString().slice(0, 10);
+    KT.taiFile('ket-qua-kiem-tra-' + (maDe || 'tat-ca') + '-' + ngay + '.csv', '﻿' + dong.join('\r\n'), 'text/csv;charset=utf-8');
+  };
+  $('#nut-sao-luu').onclick = function () {
+    var ds = dsKQ();
+    KT.taiFile('sao-luu-kiem-tra-' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify({ loai: 'sao-luu-kt6', luc: Date.now(), ketQua: ds }));
+    thongBao('Đã tải file sao lưu ' + ds.length + ' bài. Muốn khôi phục: bấm "Nhập file".');
+  };
+  $('#nut-xoa-het').onclick = function () {
+    var n = dsKQ().length;
+    var go = prompt('Sẽ xoá ' + n + ' bài trên máy này. Hãy bấm "Sao lưu" trước.\nGõ XOA để xác nhận:');
+    if (go !== 'XOA') return;
+    ghiKQ([]); veTatCa(); thongBao('Đã xoá toàn bộ kết quả trên máy này.');
+  };
+
+  // ------------------------------------------------------------ khởi động
+  if (maTrongDiaChi()) $('#dang-cho').textContent = '📥 Có một bài làm đang chờ nhận — nhập PIN để lưu vào danh sách.';
+  if (daMoKhoa()) vaoTrang(); else $('#o-pin').focus();
+  window.addEventListener('hashchange', function () { if (daMoKhoa() && maTrongDiaChi()) vaoTrang(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+<!-- Khuôn trang LÀM BÀI kiểm tra online. KHÔNG sửa file sinh ra trong "bài kiểm tra/online/":
+     sửa khuôn này rồi chạy scripts/dung_de_online.py. Các chỗ /*__…__*/ do script điền. -->
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Kiểm tra Unit 1 — My New School — Làm bài kiểm tra</title>
+<style>
+:root{--nen:#f1f5fb;--the:#fff;--chu:#1f2937;--mo:#64748b;--chinh:#2563eb;--dam:#1e3a8a;--nhat:#dbeafe;
+  --dung:#16a34a;--dung-nhat:#dcfce7;--sai:#dc2626;--sai-nhat:#fee2e2;--cam:#d97706;--vien:#e2e8f0;--bo:14px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--nen);color:var(--chu);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+body.dang-lam{user-select:none;-webkit-user-select:none}
+body.dang-lam input{user-select:text;-webkit-user-select:text}
+.khung{max-width:760px;margin:0 auto;padding:14px 14px 110px}
+.the{background:var(--the);border:1px solid var(--vien);border-radius:var(--bo);padding:18px;margin:14px 0}
+h1{font-size:1.4rem;margin:.1em 0 .3em;line-height:1.3;color:var(--dam)}
+h2{font-size:1.1rem;margin:1.5em 0 .3em;color:var(--dam)}
+.nho{color:var(--mo);font-size:.9rem}
+.thong-so{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none;font-size:.95rem}
+label.nhan-o{display:block;margin:14px 0 5px;font-weight:650}
+input.o{width:100%;font:inherit;padding:11px 12px;border:1.5px solid #cbd5e1;border-radius:10px;background:#fff;color:inherit}
+input.o:focus{outline:none;border-color:var(--chinh);box-shadow:0 0 0 3px var(--nhat)}
+.gioi-tinh{display:flex;gap:10px}
+.gioi-tinh label{flex:1;display:flex;gap:8px;align-items:center;justify-content:center;border:1.5px solid #cbd5e1;border-radius:10px;padding:10px;cursor:pointer}
+.gioi-tinh label.chon{border-color:var(--chinh);background:var(--nhat);font-weight:650}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1.5px solid #cbd5e1;background:#fff;color:inherit;padding:10px 14px}
+button:disabled{opacity:.5;cursor:default}
+.nut-chinh{background:var(--chinh);border-color:var(--chinh);color:#fff;font-weight:700;padding:13px 18px;width:100%;margin-top:18px}
+.nut-phu{background:#f8fafc}
+.loi{color:var(--sai);font-size:.93rem;min-height:1.3em;margin-top:8px}
+.canh-bao{background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:.95rem}
+.an{display:none!important}
+/* thanh trên khi làm bài */
+.thanh{position:sticky;top:0;z-index:20;background:var(--dam);color:#fff;display:flex;align-items:center;gap:8px;
+  padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top));box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.dong-ho{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.25rem;background:rgba(255,255,255,.16);padding:3px 10px;border-radius:8px}
+.dong-ho.sap-het{background:var(--cam)}
+.dong-ho.gap{background:var(--sai);animation:nhay 1s infinite}
+@keyframes nhay{50%{opacity:.55}}
+.tien-do{flex:1;font-size:.88rem;line-height:1.25;min-width:0}
+.tien-do b{font-size:1rem}
+.thanh button{border:none;font-weight:700;padding:8px 11px}
+.nut-luoi{background:rgba(255,255,255,.16);color:#fff}
+.nut-nop{background:#fff;color:var(--dam)}
+/* câu hỏi */
+.cau{background:#fff;border:1px solid var(--vien);border-left:5px solid var(--vien);border-radius:var(--bo);padding:14px;margin:12px 0;scroll-margin-top:72px}
+.cau.xong{border-left-color:var(--chinh)}
+.de-cau{margin:0}
+.so{font-weight:800;color:var(--dam);margin-right:4px;white-space:nowrap}
+.huong-dan{margin:6px 0 4px;color:#334155}
+.diem-cau{color:var(--mo);font-size:.85rem;white-space:nowrap}
+.cac-pa{display:grid;gap:8px;margin-top:10px}
+.cac-pa.hai{grid-template-columns:1fr 1fr}
+.pa{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:11px 12px;line-height:1.4}
+.pa .chu{font-weight:800;min-width:1.4em;color:var(--dam)}
+.pa.chon{border-color:var(--chinh);background:var(--nhat)}
+.pa.la-dap-an{border-color:var(--dung);background:var(--dung-nhat)}
+.pa.chon-sai{border-color:var(--sai);background:var(--sai-nhat)}
+.ngu-lieu{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--bo);padding:12px 14px;margin:10px 0}
+.ngu-lieu p{margin:.45em 0}
+.hop-tu{display:flex;flex-wrap:wrap;gap:8px;border:1.5px dashed #94a3b8;border-radius:10px;padding:10px;margin:8px 0}
+.hop-tu span{background:#eef2ff;padding:3px 12px;border-radius:999px;font-weight:600}
+.cho-trong{letter-spacing:1px}
+.o-dien{margin-top:10px}
+.ghep{min-height:50px;border:1.5px dashed #94a3b8;border-radius:10px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px;background:#f8fafc}
+.ghep .goi-y{color:var(--mo);font-size:.9rem}
+.kho{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.manh{padding:7px 13px;border-radius:999px;background:#eef2ff;border-color:#c7d2fe;font-weight:600}
+.manh.da-dung{visibility:hidden}
+.ghep .manh{background:#fff;border-color:var(--chinh)}
+.xoa-ghep{font-size:.85rem;padding:5px 10px;margin-top:8px}
+/* lưới số câu */
+.luoi{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--vien);padding:12px 12px max(12px,env(safe-area-inset-bottom));
+  z-index:25;max-height:55vh;overflow:auto;box-shadow:0 -4px 16px rgba(0,0,0,.12)}
+.luoi .o-so{width:46px;margin:3px;padding:8px 0;text-align:center;font-weight:700}
+.luoi .o-so.xong{background:var(--chinh);color:#fff;border-color:var(--chinh)}
+/* lớp phủ */
+.phu{position:fixed;inset:0;background:rgba(15,23,42,.78);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.hop{background:#fff;border-radius:16px;padding:20px;max-width:440px;width:100%;max-height:90vh;overflow:auto}
+.hop h3{margin:0 0 8px;color:var(--dam)}
+.hang-nut{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hang-nut button{flex:1;min-width:120px}
+.thong-bao{position:fixed;left:50%;top:70px;transform:translateX(-50%);z-index:60;background:#111827;color:#fff;padding:10px 16px;border-radius:10px;
+  max-width:92vw;font-size:.95rem;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+/* kết quả */
+.diem-lon{font-size:3.2rem;font-weight:900;color:var(--dam);text-align:center;line-height:1.1;margin:6px 0}
+.diem-lon small{font-size:1.2rem;color:var(--mo);font-weight:700}
+.bang-tt{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:8px}
+.bang-tt td{padding:5px 4px;border-bottom:1px solid var(--vien);vertical-align:top}
+.bang-tt td:first-child{color:var(--mo);width:42%}
+.qr{display:flex;justify-content:center;margin:12px 0 4px}
+.qr svg{width:min(80vw,330px);height:auto;background:#fff}
+.xem-lai .cau.dung{border-left-color:var(--dung)}
+.xem-lai .cau.sai{border-left-color:var(--sai)}
+.the-kq{display:inline-block;font-weight:700;border-radius:6px;padding:0 8px;font-size:.85rem;margin-left:4px}
+.the-kq.dung{background:var(--dung-nhat);color:#166534}
+.the-kq.sai{background:var(--sai-nhat);color:#991b1b}
+.dong-tl{margin-top:8px}
+.giai-thich{background:#f1f5f9;border-radius:10px;padding:8px 12px;margin-top:8px;font-size:.95rem}
+.chan{margin-top:30px;text-align:center}
+.chan button{font-size:.85rem;color:var(--mo);background:transparent;border-color:transparent;text-decoration:underline}
+@media (max-width:420px){.cac-pa.hai{grid-template-columns:1fr}}
+@media print{.thanh,.luoi,.chan,.hang-nut{display:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ======================= MÀN 1: THÔNG TIN HỌC SINH ======================= -->
+<main id="man-thong-tin" class="khung an">
+  <div class="the">
+    <div class="nho" id="tt-mon"></div>
+    <h1 id="tt-tieu-de"></h1>
+    <ul class="thong-so" id="tt-thong-so"></ul>
+  </div>
+  <form class="the" id="form-hs" autocomplete="off" novalidate>
+    <h2 style="margin-top:0">Thông tin của em</h2>
+    <label class="nhan-o" for="hs-ten">Họ và tên</label>
+    <input class="o" id="hs-ten" maxlength="60" autocapitalize="words" spellcheck="false" placeholder="Ví dụ: Nguyễn Minh An">
+    <label class="nhan-o">Giới tính</label>
+    <div class="gioi-tinh" id="hs-gioi">
+      <label><input type="radio" name="gioi" value="Nam"> Nam</label>
+      <label><input type="radio" name="gioi" value="Nữ"> Nữ</label>
+    </div>
+    <label class="nhan-o" for="hs-lop">Lớp</label>
+    <input class="o" id="hs-lop" maxlength="12" autocapitalize="characters" spellcheck="false" placeholder="Ví dụ: 6A1">
+    <label class="nhan-o" for="hs-truong">Trường</label>
+    <input class="o" id="hs-truong" maxlength="80" spellcheck="false" placeholder="Ví dụ: THCS Nguyễn Trãi">
+    <label class="nhan-o" for="hs-ma">Mã mở đề <span class="nho">(thầy cô ghi trên bảng)</span></label>
+    <input class="o" id="hs-ma" maxlength="20" autocapitalize="characters" spellcheck="false" inputmode="text">
+    <div class="canh-bao">
+      Khi bấm <b>Bắt đầu</b>: đồng hồ chạy ngay, màn hình chuyển sang toàn màn hình.
+      Mỗi lần em <b>rời khỏi trang bài làm</b> (chuyển ứng dụng, mở tab khác, thoát toàn màn hình) máy đều ghi lại cho thầy cô.
+      Hết giờ máy tự nộp bài.
+    </div>
+    <div class="loi" id="hs-loi" role="alert"></div>
+    <button class="nut-chinh" type="submit">Bắt đầu làm bài</button>
+  </form>
+</main>
+
+<!-- ======================= MÀN 2: LÀM BÀI ======================= -->
+<div id="man-lam-bai" class="an">
+  <header class="thanh">
+    <span class="dong-ho" id="dong-ho" aria-live="off">--:--</span>
+    <div class="tien-do"><b id="so-da-lam">0</b>/<span id="so-tong">0</span> câu<br><span id="ten-hs-thanh"></span></div>
+    <button class="nut-luoi" id="nut-luoi" type="button" aria-label="Danh sách câu">☰ Câu</button>
+    <button class="nut-nop" id="nut-nop" type="button">Nộp bài</button>
+  </header>
+  <main class="khung" id="vung-de"></main>
+  <div class="luoi an" id="luoi"></div>
+</div>
+
+<!-- ======================= MÀN 3: KẾT QUẢ ======================= -->
+<main id="man-ket-qua" class="khung an"></main>
+
+<!-- ======================= LỚP PHỦ ======================= -->
+<div class="phu an" id="phu"><div class="hop" id="hop" role="dialog" aria-modal="true"></div></div>
+<div class="thong-bao an" id="thong-bao" role="status"></div>
+
+<script>
+//---------------------------------------------------------------------
+//
+// QR Code Generator for JavaScript
+//
+// Copyright (c) 2009 Kazuhiko Arase
+//
+// URL: http://www.d-project.com/
+//
+// Licensed under the MIT license:
+//  http://www.opensource.org/licenses/mit-license.php
+//
+// The word 'QR Code' is registered trademark of
+// DENSO WAVE INCORPORATED
+//  http://www.denso-wave.com/qrcode/faqpatent-e.html
+//
+//---------------------------------------------------------------------
+
+var qrcode = function() {
+
+  //---------------------------------------------------------------------
+  // qrcode
+  //---------------------------------------------------------------------
+
+  /**
+   * qrcode
+   * @param typeNumber 1 to 40
+   * @param errorCorrectionLevel 'L','M','Q','H'
+   */
+  var qrcode = function(typeNumber, errorCorrectionLevel) {
+
+    var PAD0 = 0xEC;
+    var PAD1 = 0x11;
+
+    var _typeNumber = typeNumber;
+    var _errorCorrectionLevel = QRErrorCorrectionLevel[errorCorrectionLevel];
+    var _modules = null;
+    var _moduleCount = 0;
+    var _dataCache = null;
+    var _dataList = [];
+
+    var _this = {};
+
+    var makeImpl = function(test, maskPattern) {
+
+      _moduleCount = _typeNumber * 4 + 17;
+      _modules = function(moduleCount) {
+        var modules = new Array(moduleCount);
+        for (var row = 0; row < moduleCount; row += 1) {
+          modules[row] = new Array(moduleCount);
+          for (var col = 0; col < moduleCount; col += 1) {
+            modules[row][col] = null;
+          }
+        }
+        return modules;
+      }(_moduleCount);
+
+      setupPositionProbePattern(0, 0);
+      setupPositionProbePattern(_moduleCount - 7, 0);
+      setupPositionProbePattern(0, _moduleCount - 7);
+      setupPositionAdjustPattern();
+      setupTimingPattern();
+      setupTypeInfo(test, maskPattern);
+
+      if (_typeNumber >= 7) {
+        setupTypeNumber(test);
+      }
+
+      if (_dataCache == null) {
+        _dataCache = createData(_typeNumber, _errorCorrectionLevel, _dataList);
+      }
+
+      mapData(_dataCache, maskPattern);
+    };
+
+    var setupPositionProbePattern = function(row, col) {
+
+      for (var r = -1; r <= 7; r += 1) {
+
+        if (row + r <= -1 || _moduleCount <= row + r) continue;
+
+        for (var c = -1; c <= 7; c += 1) {
+
+          if (col + c <= -1 || _moduleCount <= col + c) continue;
+
+          if ( (0 <= r && r <= 6 && (c == 0 || c == 6) )
+              || (0 <= c && c <= 6 && (r == 0 || r == 6) )
+              || (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
+            _modules[row + r][col + c] = true;
+          } else {
+            _modules[row + r][col + c] = false;
+          }
+        }
+      }
+    };
+
+    var getBestMaskPattern = function() {
+
+      var minLostPoint = 0;
+      var pattern = 0;
+
+      for (var i = 0; i < 8; i += 1) {
+
+        makeImpl(true, i);
+
+        var lostPoint = QRUtil.getLostPoint(_this);
+
+        if (i == 0 || minLostPoint > lostPoint) {
+          minLostPoint = lostPoint;
+          pattern = i;
+        }
+      }
+
+      return pattern;
+    };
+
+    var setupTimingPattern = function() {
+
+      for (var r = 8; r < _moduleCount - 8; r += 1) {
+        if (_modules[r][6] != null) {
+          continue;
+        }
+        _modules[r][6] = (r % 2 == 0);
+      }
+
+      for (var c = 8; c < _moduleCount - 8; c += 1) {
+        if (_modules[6][c] != null) {
+          continue;
+        }
+        _modules[6][c] = (c % 2 == 0);
+      }
+    };
+
+    var setupPositionAdjustPattern = function() {
+
+      var pos = QRUtil.getPatternPosition(_typeNumber);
+
+      for (var i = 0; i < pos.length; i += 1) {
+
+        for (var j = 0; j < pos.length; j += 1) {
+
+          var row = pos[i];
+          var col = pos[j];
+
+          if (_modules[row][col] != null) {
+            continue;
+          }
+
+          for (var r = -2; r <= 2; r += 1) {
+
+            for (var c = -2; c <= 2; c += 1) {
+
+              if (r == -2 || r == 2 || c == -2 || c == 2
+                  || (r == 0 && c == 0) ) {
+                _modules[row + r][col + c] = true;
+              } else {
+                _modules[row + r][col + c] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+
+    var setupTypeNumber = function(test) {
+
+      var bits = QRUtil.getBCHTypeNumber(_typeNumber);
+
+      for (var i = 0; i < 18; i += 1) {
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+        _modules[Math.floor(i / 3)][i % 3 + _moduleCount - 8 - 3] = mod;
+      }
+
+      for (var i = 0; i < 18; i += 1) {
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+        _modules[i % 3 + _moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
+      }
+    };
+
+    var setupTypeInfo = function(test, maskPattern) {
+
+      var data = (_errorCorrectionLevel << 3) | maskPattern;
+      var bits = QRUtil.getBCHTypeInfo(data);
+
+      // vertical
+      for (var i = 0; i < 15; i += 1) {
+
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+
+        if (i < 6) {
+          _modules[i][8] = mod;
+        } else if (i < 8) {
+          _modules[i + 1][8] = mod;
+        } else {
+          _modules[_moduleCount - 15 + i][8] = mod;
+        }
+      }
+
+      // horizontal
+      for (var i = 0; i < 15; i += 1) {
+
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+
+        if (i < 8) {
+          _modules[8][_moduleCount - i - 1] = mod;
+        } else if (i < 9) {
+          _modules[8][15 - i - 1 + 1] = mod;
+        } else {
+          _modules[8][15 - i - 1] = mod;
+        }
+      }
+
+      // fixed module
+      _modules[_moduleCount - 8][8] = (!test);
+    };
+
+    var mapData = function(data, maskPattern) {
+
+      var inc = -1;
+      var row = _moduleCount - 1;
+      var bitIndex = 7;
+      var byteIndex = 0;
+      var maskFunc = QRUtil.getMaskFunction(maskPattern);
+
+      for (var col = _moduleCount - 1; col > 0; col -= 2) {
+
+        if (col == 6) col -= 1;
+
+        while (true) {
+
+          for (var c = 0; c < 2; c += 1) {
+
+            if (_modules[row][col - c] == null) {
+
+              var dark = false;
+
+              if (byteIndex < data.length) {
+                dark = ( ( (data[byteIndex] >>> bitIndex) & 1) == 1);
+              }
+
+              var mask = maskFunc(row, col - c);
+
+              if (mask) {
+                dark = !dark;
+              }
+
+              _modules[row][col - c] = dark;
+              bitIndex -= 1;
+
+              if (bitIndex == -1) {
+                byteIndex += 1;
+                bitIndex = 7;
+              }
+            }
+          }
+
+          row += inc;
+
+          if (row < 0 || _moduleCount <= row) {
+            row -= inc;
+            inc = -inc;
+            break;
+          }
+        }
+      }
+    };
+
+    var createBytes = function(buffer, rsBlocks) {
+
+      var offset = 0;
+
+      var maxDcCount = 0;
+      var maxEcCount = 0;
+
+      var dcdata = new Array(rsBlocks.length);
+      var ecdata = new Array(rsBlocks.length);
+
+      for (var r = 0; r < rsBlocks.length; r += 1) {
+
+        var dcCount = rsBlocks[r].dataCount;
+        var ecCount = rsBlocks[r].totalCount - dcCount;
+
+        maxDcCount = Math.max(maxDcCount, dcCount);
+        maxEcCount = Math.max(maxEcCount, ecCount);
+
+        dcdata[r] = new Array(dcCount);
+
+        for (var i = 0; i < dcdata[r].length; i += 1) {
+          dcdata[r][i] = 0xff & buffer.getBuffer()[i + offset];
+        }
+        offset += dcCount;
+
+        var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+        var rawPoly = qrPolynomial(dcdata[r], rsPoly.getLength() - 1);
+
+        var modPoly = rawPoly.mod(rsPoly);
+        ecdata[r] = new Array(rsPoly.getLength() - 1);
+        for (var i = 0; i < ecdata[r].length; i += 1) {
+          var modIndex = i + modPoly.getLength() - ecdata[r].length;
+          ecdata[r][i] = (modIndex >= 0)? modPoly.getAt(modIndex) : 0;
+        }
+      }
+
+      var totalCodeCount = 0;
+      for (var i = 0; i < rsBlocks.length; i += 1) {
+        totalCodeCount += rsBlocks[i].totalCount;
+      }
+
+      var data = new Array(totalCodeCount);
+      var index = 0;
+
+      for (var i = 0; i < maxDcCount; i += 1) {
+        for (var r = 0; r < rsBlocks.length; r += 1) {
+          if (i < dcdata[r].length) {
+            data[index] = dcdata[r][i];
+            index += 1;
+          }
+        }
+      }
+
+      for (var i = 0; i < maxEcCount; i += 1) {
+        for (var r = 0; r < rsBlocks.length; r += 1) {
+          if (i < ecdata[r].length) {
+            data[index] = ecdata[r][i];
+            index += 1;
+          }
+        }
+      }
+
+      return data;
+    };
+
+    var createData = function(typeNumber, errorCorrectionLevel, dataList) {
+
+      var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectionLevel);
+
+      var buffer = qrBitBuffer();
+
+      for (var i = 0; i < dataList.length; i += 1) {
+        var data = dataList[i];
+        buffer.put(data.getMode(), 4);
+        buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
+        data.write(buffer);
+      }
+
+      // calc num max data.
+      var totalDataCount = 0;
+      for (var i = 0; i < rsBlocks.length; i += 1) {
+        totalDataCount += rsBlocks[i].dataCount;
+      }
+
+      if (buffer.getLengthInBits() > totalDataCount * 8) {
+        throw 'code length overflow. ('
+          + buffer.getLengthInBits()
+          + '>'
+          + totalDataCount * 8
+          + ')';
+      }
+
+      // end code
+      if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
+        buffer.put(0, 4);
+      }
+
+      // padding
+      while (buffer.getLengthInBits() % 8 != 0) {
+        buffer.putBit(false);
+      }
+
+      // padding
+      while (true) {
+
+        if (buffer.getLengthInBits() >= totalDataCount * 8) {
+          break;
+        }
+        buffer.put(PAD0, 8);
+
+        if (buffer.getLengthInBits() >= totalDataCount * 8) {
+          break;
+        }
+        buffer.put(PAD1, 8);
+      }
+
+      return createBytes(buffer, rsBlocks);
+    };
+
+    _this.addData = function(data, mode) {
+
+      mode = mode || 'Byte';
+
+      var newData = null;
+
+      switch(mode) {
+      case 'Numeric' :
+        newData = qrNumber(data);
+        break;
+      case 'Alphanumeric' :
+        newData = qrAlphaNum(data);
+        break;
+      case 'Byte' :
+        newData = qr8BitByte(data);
+        break;
+      case 'Kanji' :
+        newData = qrKanji(data);
+        break;
+      default :
+        throw 'mode:' + mode;
+      }
+
+      _dataList.push(newData);
+      _dataCache = null;
+    };
+
+    _this.isDark = function(row, col) {
+      if (row < 0 || _moduleCount <= row || col < 0 || _moduleCount <= col) {
+        throw row + ',' + col;
+      }
+      return _modules[row][col];
+    };
+
+    _this.getModuleCount = function() {
+      return _moduleCount;
+    };
+
+    _this.make = function() {
+      if (_typeNumber < 1) {
+        var typeNumber = 1;
+
+        for (; typeNumber < 40; typeNumber++) {
+          var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, _errorCorrectionLevel);
+          var buffer = qrBitBuffer();
+
+          for (var i = 0; i < _dataList.length; i++) {
+            var data = _dataList[i];
+            buffer.put(data.getMode(), 4);
+            buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
+            data.write(buffer);
+          }
+
+          var totalDataCount = 0;
+          for (var i = 0; i < rsBlocks.length; i++) {
+            totalDataCount += rsBlocks[i].dataCount;
+          }
+
+          if (buffer.getLengthInBits() <= totalDataCount * 8) {
+            break;
+          }
+        }
+
+        _typeNumber = typeNumber;
+      }
+
+      makeImpl(false, getBestMaskPattern() );
+    };
+
+    _this.createTableTag = function(cellSize, margin) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var qrHtml = '';
+
+      qrHtml += '<table style="';
+      qrHtml += ' border-width: 0px; border-style: none;';
+      qrHtml += ' border-collapse: collapse;';
+      qrHtml += ' padding: 0px; margin: ' + margin + 'px;';
+      qrHtml += '">';
+      qrHtml += '<tbody>';
+
+      for (var r = 0; r < _this.getModuleCount(); r += 1) {
+
+        qrHtml += '<tr>';
+
+        for (var c = 0; c < _this.getModuleCount(); c += 1) {
+          qrHtml += '<td style="';
+          qrHtml += ' border-width: 0px; border-style: none;';
+          qrHtml += ' border-collapse: collapse;';
+          qrHtml += ' padding: 0px; margin: 0px;';
+          qrHtml += ' width: ' + cellSize + 'px;';
+          qrHtml += ' height: ' + cellSize + 'px;';
+          qrHtml += ' background-color: ';
+          qrHtml += _this.isDark(r, c)? '#000000' : '#ffffff';
+          qrHtml += ';';
+          qrHtml += '"/>';
+        }
+
+        qrHtml += '</tr>';
+      }
+
+      qrHtml += '</tbody>';
+      qrHtml += '</table>';
+
+      return qrHtml;
+    };
+
+    _this.createSvgTag = function(cellSize, margin, alt, title) {
+
+      var opts = {};
+      if (typeof arguments[0] == 'object') {
+        // Called by options.
+        opts = arguments[0];
+        // overwrite cellSize and margin.
+        cellSize = opts.cellSize;
+        margin = opts.margin;
+        alt = opts.alt;
+        title = opts.title;
+      }
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      // Compose alt property surrogate
+      alt = (typeof alt === 'string') ? {text: alt} : alt || {};
+      alt.text = alt.text || null;
+      alt.id = (alt.text) ? alt.id || 'qrcode-description' : null;
+
+      // Compose title property surrogate
+      title = (typeof title === 'string') ? {text: title} : title || {};
+      title.text = title.text || null;
+      title.id = (title.text) ? title.id || 'qrcode-title' : null;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var c, mc, r, mr, qrSvg='', rect;
+
+      rect = 'l' + cellSize + ',0 0,' + cellSize +
+        ' -' + cellSize + ',0 0,-' + cellSize + 'z ';
+
+      qrSvg += '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"';
+      qrSvg += !opts.scalable ? ' width="' + size + 'px" height="' + size + 'px"' : '';
+      qrSvg += ' viewBox="0 0 ' + size + ' ' + size + '" ';
+      qrSvg += ' preserveAspectRatio="xMinYMin meet"';
+      qrSvg += (title.text || alt.text) ? ' role="img" aria-labelledby="' +
+          escapeXml([title.id, alt.id].join(' ').trim() ) + '"' : '';
+      qrSvg += '>';
+      qrSvg += (title.text) ? '<title id="' + escapeXml(title.id) + '">' +
+          escapeXml(title.text) + '</title>' : '';
+      qrSvg += (alt.text) ? '<description id="' + escapeXml(alt.id) + '">' +
+          escapeXml(alt.text) + '</description>' : '';
+      qrSvg += '<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>';
+      qrSvg += '<path d="';
+
+      for (r = 0; r < _this.getModuleCount(); r += 1) {
+        mr = r * cellSize + margin;
+        for (c = 0; c < _this.getModuleCount(); c += 1) {
+          if (_this.isDark(r, c) ) {
+            mc = c*cellSize+margin;
+            qrSvg += 'M' + mc + ',' + mr + rect;
+          }
+        }
+      }
+
+      qrSvg += '" stroke="transparent" fill="black"/>';
+      qrSvg += '</svg>';
+
+      return qrSvg;
+    };
+
+    _this.createDataURL = function(cellSize, margin) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      return createDataURL(size, size, function(x, y) {
+        if (min <= x && x < max && min <= y && y < max) {
+          var c = Math.floor( (x - min) / cellSize);
+          var r = Math.floor( (y - min) / cellSize);
+          return _this.isDark(r, c)? 0 : 1;
+        } else {
+          return 1;
+        }
+      } );
+    };
+
+    _this.createImgTag = function(cellSize, margin, alt) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+
+      var img = '';
+      img += '<img';
+      img += '\u0020src="';
+      img += _this.createDataURL(cellSize, margin);
+      img += '"';
+      img += '\u0020width="';
+      img += size;
+      img += '"';
+      img += '\u0020height="';
+      img += size;
+      img += '"';
+      if (alt) {
+        img += '\u0020alt="';
+        img += escapeXml(alt);
+        img += '"';
+      }
+      img += '/>';
+
+      return img;
+    };
+
+    var escapeXml = function(s) {
+      var escaped = '';
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charAt(i);
+        switch(c) {
+        case '<': escaped += '&lt;'; break;
+        case '>': escaped += '&gt;'; break;
+        case '&': escaped += '&amp;'; break;
+        case '"': escaped += '&quot;'; break;
+        default : escaped += c; break;
+        }
+      }
+      return escaped;
+    };
+
+    var _createHalfASCII = function(margin) {
+      var cellSize = 1;
+      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      var y, x, r1, r2, p;
+
+      var blocks = {
+        '██': '█',
+        '█ ': '▀',
+        ' █': '▄',
+        '  ': ' '
+      };
+
+      var blocksLastLineNoMargin = {
+        '██': '▀',
+        '█ ': '▀',
+        ' █': ' ',
+        '  ': ' '
+      };
+
+      var ascii = '';
+      for (y = 0; y < size; y += 2) {
+        r1 = Math.floor((y - min) / cellSize);
+        r2 = Math.floor((y + 1 - min) / cellSize);
+        for (x = 0; x < size; x += 1) {
+          p = '█';
+
+          if (min <= x && x < max && min <= y && y < max && _this.isDark(r1, Math.floor((x - min) / cellSize))) {
+            p = ' ';
+          }
+
+          if (min <= x && x < max && min <= y+1 && y+1 < max && _this.isDark(r2, Math.floor((x - min) / cellSize))) {
+            p += ' ';
+          }
+          else {
+            p += '█';
+          }
+
+          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+          ascii += (margin < 1 && y+1 >= max) ? blocksLastLineNoMargin[p] : blocks[p];
+        }
+
+        ascii += '\n';
+      }
+
+      if (size % 2 && margin > 0) {
+        return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join('▀');
+      }
+
+      return ascii.substring(0, ascii.length-1);
+    };
+
+    _this.createASCII = function(cellSize, margin) {
+      cellSize = cellSize || 1;
+
+      if (cellSize < 2) {
+        return _createHalfASCII(margin);
+      }
+
+      cellSize -= 1;
+      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      var y, x, r, p;
+
+      var white = Array(cellSize+1).join('██');
+      var black = Array(cellSize+1).join('  ');
+
+      var ascii = '';
+      var line = '';
+      for (y = 0; y < size; y += 1) {
+        r = Math.floor( (y - min) / cellSize);
+        line = '';
+        for (x = 0; x < size; x += 1) {
+          p = 1;
+
+          if (min <= x && x < max && min <= y && y < max && _this.isDark(r, Math.floor((x - min) / cellSize))) {
+            p = 0;
+          }
+
+          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+          line += p ? white : black;
+        }
+
+        for (r = 0; r < cellSize; r += 1) {
+          ascii += line + '\n';
+        }
+      }
+
+      return ascii.substring(0, ascii.length-1);
+    };
+
+    _this.renderTo2dContext = function(context, cellSize) {
+      cellSize = cellSize || 2;
+      var length = _this.getModuleCount();
+      for (var row = 0; row < length; row++) {
+        for (var col = 0; col < length; col++) {
+          context.fillStyle = _this.isDark(row, col) ? 'black' : 'white';
+          context.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+      }
+    }
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrcode.stringToBytes
+  //---------------------------------------------------------------------
+
+  qrcode.stringToBytesFuncs = {
+    'default' : function(s) {
+      var bytes = [];
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charCodeAt(i);
+        bytes.push(c & 0xff);
+      }
+      return bytes;
+    }
+  };
+
+  qrcode.stringToBytes = qrcode.stringToBytesFuncs['default'];
+
+  //---------------------------------------------------------------------
+  // qrcode.createStringToBytes
+  //---------------------------------------------------------------------
+
+  /**
+   * @param unicodeData base64 string of byte array.
+   * [16bit Unicode],[16bit Bytes], ...
+   * @param numChars
+   */
+  qrcode.createStringToBytes = function(unicodeData, numChars) {
+
+    // create conversion map.
+
+    var unicodeMap = function() {
+
+      var bin = base64DecodeInputStream(unicodeData);
+      var read = function() {
+        var b = bin.read();
+        if (b == -1) throw 'eof';
+        return b;
+      };
+
+      var count = 0;
+      var unicodeMap = {};
+      while (true) {
+        var b0 = bin.read();
+        if (b0 == -1) break;
+        var b1 = read();
+        var b2 = read();
+        var b3 = read();
+        var k = String.fromCharCode( (b0 << 8) | b1);
+        var v = (b2 << 8) | b3;
+        unicodeMap[k] = v;
+        count += 1;
+      }
+      if (count != numChars) {
+        throw count + ' != ' + numChars;
+      }
+
+      return unicodeMap;
+    }();
+
+    var unknownChar = '?'.charCodeAt(0);
+
+    return function(s) {
+      var bytes = [];
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charCodeAt(i);
+        if (c < 128) {
+          bytes.push(c);
+        } else {
+          var b = unicodeMap[s.charAt(i)];
+          if (typeof b == 'number') {
+            if ( (b & 0xff) == b) {
+              // 1byte
+              bytes.push(b);
+            } else {
+              // 2bytes
+              bytes.push(b >>> 8);
+              bytes.push(b & 0xff);
+            }
+          } else {
+            bytes.push(unknownChar);
+          }
+        }
+      }
+      return bytes;
+    };
+  };
+
+  //---------------------------------------------------------------------
+  // QRMode
+  //---------------------------------------------------------------------
+
+  var QRMode = {
+    MODE_NUMBER :    1 << 0,
+    MODE_ALPHA_NUM : 1 << 1,
+    MODE_8BIT_BYTE : 1 << 2,
+    MODE_KANJI :     1 << 3
+  };
+
+  //---------------------------------------------------------------------
+  // QRErrorCorrectionLevel
+  //---------------------------------------------------------------------
+
+  var QRErrorCorrectionLevel = {
+    L : 1,
+    M : 0,
+    Q : 3,
+    H : 2
+  };
+
+  //---------------------------------------------------------------------
+  // QRMaskPattern
+  //---------------------------------------------------------------------
+
+  var QRMaskPattern = {
+    PATTERN000 : 0,
+    PATTERN001 : 1,
+    PATTERN010 : 2,
+    PATTERN011 : 3,
+    PATTERN100 : 4,
+    PATTERN101 : 5,
+    PATTERN110 : 6,
+    PATTERN111 : 7
+  };
+
+  //---------------------------------------------------------------------
+  // QRUtil
+  //---------------------------------------------------------------------
+
+  var QRUtil = function() {
+
+    var PATTERN_POSITION_TABLE = [
+      [],
+      [6, 18],
+      [6, 22],
+      [6, 26],
+      [6, 30],
+      [6, 34],
+      [6, 22, 38],
+      [6, 24, 42],
+      [6, 26, 46],
+      [6, 28, 50],
+      [6, 30, 54],
+      [6, 32, 58],
+      [6, 34, 62],
+      [6, 26, 46, 66],
+      [6, 26, 48, 70],
+      [6, 26, 50, 74],
+      [6, 30, 54, 78],
+      [6, 30, 56, 82],
+      [6, 30, 58, 86],
+      [6, 34, 62, 90],
+      [6, 28, 50, 72, 94],
+      [6, 26, 50, 74, 98],
+      [6, 30, 54, 78, 102],
+      [6, 28, 54, 80, 106],
+      [6, 32, 58, 84, 110],
+      [6, 30, 58, 86, 114],
+      [6, 34, 62, 90, 118],
+      [6, 26, 50, 74, 98, 122],
+      [6, 30, 54, 78, 102, 126],
+      [6, 26, 52, 78, 104, 130],
+      [6, 30, 56, 82, 108, 134],
+      [6, 34, 60, 86, 112, 138],
+      [6, 30, 58, 86, 114, 142],
+      [6, 34, 62, 90, 118, 146],
+      [6, 30, 54, 78, 102, 126, 150],
+      [6, 24, 50, 76, 102, 128, 154],
+      [6, 28, 54, 80, 106, 132, 158],
+      [6, 32, 58, 84, 110, 136, 162],
+      [6, 26, 54, 82, 110, 138, 166],
+      [6, 30, 58, 86, 114, 142, 170]
+    ];
+    var G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0);
+    var G18 = (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0);
+    var G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1);
+
+    var _this = {};
+
+    var getBCHDigit = function(data) {
+      var digit = 0;
+      while (data != 0) {
+        digit += 1;
+        data >>>= 1;
+      }
+      return digit;
+    };
+
+    _this.getBCHTypeInfo = function(data) {
+      var d = data << 10;
+      while (getBCHDigit(d) - getBCHDigit(G15) >= 0) {
+        d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15) ) );
+      }
+      return ( (data << 10) | d) ^ G15_MASK;
+    };
+
+    _this.getBCHTypeNumber = function(data) {
+      var d = data << 12;
+      while (getBCHDigit(d) - getBCHDigit(G18) >= 0) {
+        d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18) ) );
+      }
+      return (data << 12) | d;
+    };
+
+    _this.getPatternPosition = function(typeNumber) {
+      return PATTERN_POSITION_TABLE[typeNumber - 1];
+    };
+
+    _this.getMaskFunction = function(maskPattern) {
+
+      switch (maskPattern) {
+
+      case QRMaskPattern.PATTERN000 :
+        return function(i, j) { return (i + j) % 2 == 0; };
+      case QRMaskPattern.PATTERN001 :
+        return function(i, j) { return i % 2 == 0; };
+      case QRMaskPattern.PATTERN010 :
+        return function(i, j) { return j % 3 == 0; };
+      case QRMaskPattern.PATTERN011 :
+        return function(i, j) { return (i + j) % 3 == 0; };
+      case QRMaskPattern.PATTERN100 :
+        return function(i, j) { return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 == 0; };
+      case QRMaskPattern.PATTERN101 :
+        return function(i, j) { return (i * j) % 2 + (i * j) % 3 == 0; };
+      case QRMaskPattern.PATTERN110 :
+        return function(i, j) { return ( (i * j) % 2 + (i * j) % 3) % 2 == 0; };
+      case QRMaskPattern.PATTERN111 :
+        return function(i, j) { return ( (i * j) % 3 + (i + j) % 2) % 2 == 0; };
+
+      default :
+        throw 'bad maskPattern:' + maskPattern;
+      }
+    };
+
+    _this.getErrorCorrectPolynomial = function(errorCorrectLength) {
+      var a = qrPolynomial([1], 0);
+      for (var i = 0; i < errorCorrectLength; i += 1) {
+        a = a.multiply(qrPolynomial([1, QRMath.gexp(i)], 0) );
+      }
+      return a;
+    };
+
+    _this.getLengthInBits = function(mode, type) {
+
+      if (1 <= type && type < 10) {
+
+        // 1 - 9
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 10;
+        case QRMode.MODE_ALPHA_NUM : return 9;
+        case QRMode.MODE_8BIT_BYTE : return 8;
+        case QRMode.MODE_KANJI     : return 8;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else if (type < 27) {
+
+        // 10 - 26
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 12;
+        case QRMode.MODE_ALPHA_NUM : return 11;
+        case QRMode.MODE_8BIT_BYTE : return 16;
+        case QRMode.MODE_KANJI     : return 10;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else if (type < 41) {
+
+        // 27 - 40
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 14;
+        case QRMode.MODE_ALPHA_NUM : return 13;
+        case QRMode.MODE_8BIT_BYTE : return 16;
+        case QRMode.MODE_KANJI     : return 12;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else {
+        throw 'type:' + type;
+      }
+    };
+
+    _this.getLostPoint = function(qrcode) {
+
+      var moduleCount = qrcode.getModuleCount();
+
+      var lostPoint = 0;
+
+      // LEVEL1
+
+      for (var row = 0; row < moduleCount; row += 1) {
+        for (var col = 0; col < moduleCount; col += 1) {
+
+          var sameCount = 0;
+          var dark = qrcode.isDark(row, col);
+
+          for (var r = -1; r <= 1; r += 1) {
+
+            if (row + r < 0 || moduleCount <= row + r) {
+              continue;
+            }
+
+            for (var c = -1; c <= 1; c += 1) {
+
+              if (col + c < 0 || moduleCount <= col + c) {
+                continue;
+              }
+
+              if (r == 0 && c == 0) {
+                continue;
+              }
+
+              if (dark == qrcode.isDark(row + r, col + c) ) {
+                sameCount += 1;
+              }
+            }
+          }
+
+          if (sameCount > 5) {
+            lostPoint += (3 + sameCount - 5);
+          }
+        }
+      };
+
+      // LEVEL2
+
+      for (var row = 0; row < moduleCount - 1; row += 1) {
+        for (var col = 0; col < moduleCount - 1; col += 1) {
+          var count = 0;
+          if (qrcode.isDark(row, col) ) count += 1;
+          if (qrcode.isDark(row + 1, col) ) count += 1;
+          if (qrcode.isDark(row, col + 1) ) count += 1;
+          if (qrcode.isDark(row + 1, col + 1) ) count += 1;
+          if (count == 0 || count == 4) {
+            lostPoint += 3;
+          }
+        }
+      }
+
+      // LEVEL3
+
+      for (var row = 0; row < moduleCount; row += 1) {
+        for (var col = 0; col < moduleCount - 6; col += 1) {
+          if (qrcode.isDark(row, col)
+              && !qrcode.isDark(row, col + 1)
+              &&  qrcode.isDark(row, col + 2)
+              &&  qrcode.isDark(row, col + 3)
+              &&  qrcode.isDark(row, col + 4)
+              && !qrcode.isDark(row, col + 5)
+              &&  qrcode.isDark(row, col + 6) ) {
+            lostPoint += 40;
+          }
+        }
+      }
+
+      for (var col = 0; col < moduleCount; col += 1) {
+        for (var row = 0; row < moduleCount - 6; row += 1) {
+          if (qrcode.isDark(row, col)
+              && !qrcode.isDark(row + 1, col)
+              &&  qrcode.isDark(row + 2, col)
+              &&  qrcode.isDark(row + 3, col)
+              &&  qrcode.isDark(row + 4, col)
+              && !qrcode.isDark(row + 5, col)
+              &&  qrcode.isDark(row + 6, col) ) {
+            lostPoint += 40;
+          }
+        }
+      }
+
+      // LEVEL4
+
+      var darkCount = 0;
+
+      for (var col = 0; col < moduleCount; col += 1) {
+        for (var row = 0; row < moduleCount; row += 1) {
+          if (qrcode.isDark(row, col) ) {
+            darkCount += 1;
+          }
+        }
+      }
+
+      var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+      lostPoint += ratio * 10;
+
+      return lostPoint;
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // QRMath
+  //---------------------------------------------------------------------
+
+  var QRMath = function() {
+
+    var EXP_TABLE = new Array(256);
+    var LOG_TABLE = new Array(256);
+
+    // initialize tables
+    for (var i = 0; i < 8; i += 1) {
+      EXP_TABLE[i] = 1 << i;
+    }
+    for (var i = 8; i < 256; i += 1) {
+      EXP_TABLE[i] = EXP_TABLE[i - 4]
+        ^ EXP_TABLE[i - 5]
+        ^ EXP_TABLE[i - 6]
+        ^ EXP_TABLE[i - 8];
+    }
+    for (var i = 0; i < 255; i += 1) {
+      LOG_TABLE[EXP_TABLE[i] ] = i;
+    }
+
+    var _this = {};
+
+    _this.glog = function(n) {
+
+      if (n < 1) {
+        throw 'glog(' + n + ')';
+      }
+
+      return LOG_TABLE[n];
+    };
+
+    _this.gexp = function(n) {
+
+      while (n < 0) {
+        n += 255;
+      }
+
+      while (n >= 256) {
+        n -= 255;
+      }
+
+      return EXP_TABLE[n];
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // qrPolynomial
+  //---------------------------------------------------------------------
+
+  function qrPolynomial(num, shift) {
+
+    if (typeof num.length == 'undefined') {
+      throw num.length + '/' + shift;
+    }
+
+    var _num = function() {
+      var offset = 0;
+      while (offset < num.length && num[offset] == 0) {
+        offset += 1;
+      }
+      var _num = new Array(num.length - offset + shift);
+      for (var i = 0; i < num.length - offset; i += 1) {
+        _num[i] = num[i + offset];
+      }
+      return _num;
+    }();
+
+    var _this = {};
+
+    _this.getAt = function(index) {
+      return _num[index];
+    };
+
+    _this.getLength = function() {
+      return _num.length;
+    };
+
+    _this.multiply = function(e) {
+
+      var num = new Array(_this.getLength() + e.getLength() - 1);
+
+      for (var i = 0; i < _this.getLength(); i += 1) {
+        for (var j = 0; j < e.getLength(); j += 1) {
+          num[i + j] ^= QRMath.gexp(QRMath.glog(_this.getAt(i) ) + QRMath.glog(e.getAt(j) ) );
+        }
+      }
+
+      return qrPolynomial(num, 0);
+    };
+
+    _this.mod = function(e) {
+
+      if (_this.getLength() - e.getLength() < 0) {
+        return _this;
+      }
+
+      var ratio = QRMath.glog(_this.getAt(0) ) - QRMath.glog(e.getAt(0) );
+
+      var num = new Array(_this.getLength() );
+      for (var i = 0; i < _this.getLength(); i += 1) {
+        num[i] = _this.getAt(i);
+      }
+
+      for (var i = 0; i < e.getLength(); i += 1) {
+        num[i] ^= QRMath.gexp(QRMath.glog(e.getAt(i) ) + ratio);
+      }
+
+      // recursive call
+      return qrPolynomial(num, 0).mod(e);
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // QRRSBlock
+  //---------------------------------------------------------------------
+
+  var QRRSBlock = function() {
+
+    var RS_BLOCK_TABLE = [
+
+      // L
+      // M
+      // Q
+      // H
+
+      // 1
+      [1, 26, 19],
+      [1, 26, 16],
+      [1, 26, 13],
+      [1, 26, 9],
+
+      // 2
+      [1, 44, 34],
+      [1, 44, 28],
+      [1, 44, 22],
+      [1, 44, 16],
+
+      // 3
+      [1, 70, 55],
+      [1, 70, 44],
+      [2, 35, 17],
+      [2, 35, 13],
+
+      // 4
+      [1, 100, 80],
+      [2, 50, 32],
+      [2, 50, 24],
+      [4, 25, 9],
+
+      // 5
+      [1, 134, 108],
+      [2, 67, 43],
+      [2, 33, 15, 2, 34, 16],
+      [2, 33, 11, 2, 34, 12],
+
+      // 6
+      [2, 86, 68],
+      [4, 43, 27],
+      [4, 43, 19],
+      [4, 43, 15],
+
+      // 7
+      [2, 98, 78],
+      [4, 49, 31],
+      [2, 32, 14, 4, 33, 15],
+      [4, 39, 13, 1, 40, 14],
+
+      // 8
+      [2, 121, 97],
+      [2, 60, 38, 2, 61, 39],
+      [4, 40, 18, 2, 41, 19],
+      [4, 40, 14, 2, 41, 15],
+
+      // 9
+      [2, 146, 116],
+      [3, 58, 36, 2, 59, 37],
+      [4, 36, 16, 4, 37, 17],
+      [4, 36, 12, 4, 37, 13],
+
+      // 10
+      [2, 86, 68, 2, 87, 69],
+      [4, 69, 43, 1, 70, 44],
+      [6, 43, 19, 2, 44, 20],
+      [6, 43, 15, 2, 44, 16],
+
+      // 11
+      [4, 101, 81],
+      [1, 80, 50, 4, 81, 51],
+      [4, 50, 22, 4, 51, 23],
+      [3, 36, 12, 8, 37, 13],
+
+      // 12
+      [2, 116, 92, 2, 117, 93],
+      [6, 58, 36, 2, 59, 37],
+      [4, 46, 20, 6, 47, 21],
+      [7, 42, 14, 4, 43, 15],
+
+      // 13
+      [4, 133, 107],
+      [8, 59, 37, 1, 60, 38],
+      [8, 44, 20, 4, 45, 21],
+      [12, 33, 11, 4, 34, 12],
+
+      // 14
+      [3, 145, 115, 1, 146, 116],
+      [4, 64, 40, 5, 65, 41],
+      [11, 36, 16, 5, 37, 17],
+      [11, 36, 12, 5, 37, 13],
+
+      // 15
+      [5, 109, 87, 1, 110, 88],
+      [5, 65, 41, 5, 66, 42],
+      [5, 54, 24, 7, 55, 25],
+      [11, 36, 12, 7, 37, 13],
+
+      // 16
+      [5, 122, 98, 1, 123, 99],
+      [7, 73, 45, 3, 74, 46],
+      [15, 43, 19, 2, 44, 20],
+      [3, 45, 15, 13, 46, 16],
+
+      // 17
+      [1, 135, 107, 5, 136, 108],
+      [10, 74, 46, 1, 75, 47],
+      [1, 50, 22, 15, 51, 23],
+      [2, 42, 14, 17, 43, 15],
+
+      // 18
+      [5, 150, 120, 1, 151, 121],
+      [9, 69, 43, 4, 70, 44],
+      [17, 50, 22, 1, 51, 23],
+      [2, 42, 14, 19, 43, 15],
+
+      // 19
+      [3, 141, 113, 4, 142, 114],
+      [3, 70, 44, 11, 71, 45],
+      [17, 47, 21, 4, 48, 22],
+      [9, 39, 13, 16, 40, 14],
+
+      // 20
+      [3, 135, 107, 5, 136, 108],
+      [3, 67, 41, 13, 68, 42],
+      [15, 54, 24, 5, 55, 25],
+      [15, 43, 15, 10, 44, 16],
+
+      // 21
+      [4, 144, 116, 4, 145, 117],
+      [17, 68, 42],
+      [17, 50, 22, 6, 51, 23],
+      [19, 46, 16, 6, 47, 17],
+
+      // 22
+      [2, 139, 111, 7, 140, 112],
+      [17, 74, 46],
+      [7, 54, 24, 16, 55, 25],
+      [34, 37, 13],
+
+      // 23
+      [4, 151, 121, 5, 152, 122],
+      [4, 75, 47, 14, 76, 48],
+      [11, 54, 24, 14, 55, 25],
+      [16, 45, 15, 14, 46, 16],
+
+      // 24
+      [6, 147, 117, 4, 148, 118],
+      [6, 73, 45, 14, 74, 46],
+      [11, 54, 24, 16, 55, 25],
+      [30, 46, 16, 2, 47, 17],
+
+      // 25
+      [8, 132, 106, 4, 133, 107],
+      [8, 75, 47, 13, 76, 48],
+      [7, 54, 24, 22, 55, 25],
+      [22, 45, 15, 13, 46, 16],
+
+      // 26
+      [10, 142, 114, 2, 143, 115],
+      [19, 74, 46, 4, 75, 47],
+      [28, 50, 22, 6, 51, 23],
+      [33, 46, 16, 4, 47, 17],
+
+      // 27
+      [8, 152, 122, 4, 153, 123],
+      [22, 73, 45, 3, 74, 46],
+      [8, 53, 23, 26, 54, 24],
+      [12, 45, 15, 28, 46, 16],
+
+      // 28
+      [3, 147, 117, 10, 148, 118],
+      [3, 73, 45, 23, 74, 46],
+      [4, 54, 24, 31, 55, 25],
+      [11, 45, 15, 31, 46, 16],
+
+      // 29
+      [7, 146, 116, 7, 147, 117],
+      [21, 73, 45, 7, 74, 46],
+      [1, 53, 23, 37, 54, 24],
+      [19, 45, 15, 26, 46, 16],
+
+      // 30
+      [5, 145, 115, 10, 146, 116],
+      [19, 75, 47, 10, 76, 48],
+      [15, 54, 24, 25, 55, 25],
+      [23, 45, 15, 25, 46, 16],
+
+      // 31
+      [13, 145, 115, 3, 146, 116],
+      [2, 74, 46, 29, 75, 47],
+      [42, 54, 24, 1, 55, 25],
+      [23, 45, 15, 28, 46, 16],
+
+      // 32
+      [17, 145, 115],
+      [10, 74, 46, 23, 75, 47],
+      [10, 54, 24, 35, 55, 25],
+      [19, 45, 15, 35, 46, 16],
+
+      // 33
+      [17, 145, 115, 1, 146, 116],
+      [14, 74, 46, 21, 75, 47],
+      [29, 54, 24, 19, 55, 25],
+      [11, 45, 15, 46, 46, 16],
+
+      // 34
+      [13, 145, 115, 6, 146, 116],
+      [14, 74, 46, 23, 75, 47],
+      [44, 54, 24, 7, 55, 25],
+      [59, 46, 16, 1, 47, 17],
+
+      // 35
+      [12, 151, 121, 7, 152, 122],
+      [12, 75, 47, 26, 76, 48],
+      [39, 54, 24, 14, 55, 25],
+      [22, 45, 15, 41, 46, 16],
+
+      // 36
+      [6, 151, 121, 14, 152, 122],
+      [6, 75, 47, 34, 76, 48],
+      [46, 54, 24, 10, 55, 25],
+      [2, 45, 15, 64, 46, 16],
+
+      // 37
+      [17, 152, 122, 4, 153, 123],
+      [29, 74, 46, 14, 75, 47],
+      [49, 54, 24, 10, 55, 25],
+      [24, 45, 15, 46, 46, 16],
+
+      // 38
+      [4, 152, 122, 18, 153, 123],
+      [13, 74, 46, 32, 75, 47],
+      [48, 54, 24, 14, 55, 25],
+      [42, 45, 15, 32, 46, 16],
+
+      // 39
+      [20, 147, 117, 4, 148, 118],
+      [40, 75, 47, 7, 76, 48],
+      [43, 54, 24, 22, 55, 25],
+      [10, 45, 15, 67, 46, 16],
+
+      // 40
+      [19, 148, 118, 6, 149, 119],
+      [18, 75, 47, 31, 76, 48],
+      [34, 54, 24, 34, 55, 25],
+      [20, 45, 15, 61, 46, 16]
+    ];
+
+    var qrRSBlock = function(totalCount, dataCount) {
+      var _this = {};
+      _this.totalCount = totalCount;
+      _this.dataCount = dataCount;
+      return _this;
+    };
+
+    var _this = {};
+
+    var getRsBlockTable = function(typeNumber, errorCorrectionLevel) {
+
+      switch(errorCorrectionLevel) {
+      case QRErrorCorrectionLevel.L :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+      case QRErrorCorrectionLevel.M :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+      case QRErrorCorrectionLevel.Q :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+      case QRErrorCorrectionLevel.H :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+      default :
+        return undefined;
+      }
+    };
+
+    _this.getRSBlocks = function(typeNumber, errorCorrectionLevel) {
+
+      var rsBlock = getRsBlockTable(typeNumber, errorCorrectionLevel);
+
+      if (typeof rsBlock == 'undefined') {
+        throw 'bad rs block @ typeNumber:' + typeNumber +
+            '/errorCorrectionLevel:' + errorCorrectionLevel;
+      }
+
+      var length = rsBlock.length / 3;
+
+      var list = [];
+
+      for (var i = 0; i < length; i += 1) {
+
+        var count = rsBlock[i * 3 + 0];
+        var totalCount = rsBlock[i * 3 + 1];
+        var dataCount = rsBlock[i * 3 + 2];
+
+        for (var j = 0; j < count; j += 1) {
+          list.push(qrRSBlock(totalCount, dataCount) );
+        }
+      }
+
+      return list;
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // qrBitBuffer
+  //---------------------------------------------------------------------
+
+  var qrBitBuffer = function() {
+
+    var _buffer = [];
+    var _length = 0;
+
+    var _this = {};
+
+    _this.getBuffer = function() {
+      return _buffer;
+    };
+
+    _this.getAt = function(index) {
+      var bufIndex = Math.floor(index / 8);
+      return ( (_buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
+    };
+
+    _this.put = function(num, length) {
+      for (var i = 0; i < length; i += 1) {
+        _this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
+      }
+    };
+
+    _this.getLengthInBits = function() {
+      return _length;
+    };
+
+    _this.putBit = function(bit) {
+
+      var bufIndex = Math.floor(_length / 8);
+      if (_buffer.length <= bufIndex) {
+        _buffer.push(0);
+      }
+
+      if (bit) {
+        _buffer[bufIndex] |= (0x80 >>> (_length % 8) );
+      }
+
+      _length += 1;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrNumber
+  //---------------------------------------------------------------------
+
+  var qrNumber = function(data) {
+
+    var _mode = QRMode.MODE_NUMBER;
+    var _data = data;
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _data.length;
+    };
+
+    _this.write = function(buffer) {
+
+      var data = _data;
+
+      var i = 0;
+
+      while (i + 2 < data.length) {
+        buffer.put(strToNum(data.substring(i, i + 3) ), 10);
+        i += 3;
+      }
+
+      if (i < data.length) {
+        if (data.length - i == 1) {
+          buffer.put(strToNum(data.substring(i, i + 1) ), 4);
+        } else if (data.length - i == 2) {
+          buffer.put(strToNum(data.substring(i, i + 2) ), 7);
+        }
+      }
+    };
+
+    var strToNum = function(s) {
+      var num = 0;
+      for (var i = 0; i < s.length; i += 1) {
+        num = num * 10 + chatToNum(s.charAt(i) );
+      }
+      return num;
+    };
+
+    var chatToNum = function(c) {
+      if ('0' <= c && c <= '9') {
+        return c.charCodeAt(0) - '0'.charCodeAt(0);
+      }
+      throw 'illegal char :' + c;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrAlphaNum
+  //---------------------------------------------------------------------
+
+  var qrAlphaNum = function(data) {
+
+    var _mode = QRMode.MODE_ALPHA_NUM;
+    var _data = data;
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _data.length;
+    };
+
+    _this.write = function(buffer) {
+
+      var s = _data;
+
+      var i = 0;
+
+      while (i + 1 < s.length) {
+        buffer.put(
+          getCode(s.charAt(i) ) * 45 +
+          getCode(s.charAt(i + 1) ), 11);
+        i += 2;
+      }
+
+      if (i < s.length) {
+        buffer.put(getCode(s.charAt(i) ), 6);
+      }
+    };
+
+    var getCode = function(c) {
+
+      if ('0' <= c && c <= '9') {
+        return c.charCodeAt(0) - '0'.charCodeAt(0);
+      } else if ('A' <= c && c <= 'Z') {
+        return c.charCodeAt(0) - 'A'.charCodeAt(0) + 10;
+      } else {
+        switch (c) {
+        case ' ' : return 36;
+        case '$' : return 37;
+        case '%' : return 38;
+        case '*' : return 39;
+        case '+' : return 40;
+        case '-' : return 41;
+        case '.' : return 42;
+        case '/' : return 43;
+        case ':' : return 44;
+        default :
+          throw 'illegal char :' + c;
+        }
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qr8BitByte
+  //---------------------------------------------------------------------
+
+  var qr8BitByte = function(data) {
+
+    var _mode = QRMode.MODE_8BIT_BYTE;
+    var _data = data;
+    var _bytes = qrcode.stringToBytes(data);
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _bytes.length;
+    };
+
+    _this.write = function(buffer) {
+      for (var i = 0; i < _bytes.length; i += 1) {
+        buffer.put(_bytes[i], 8);
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrKanji
+  //---------------------------------------------------------------------
+
+  var qrKanji = function(data) {
+
+    var _mode = QRMode.MODE_KANJI;
+    var _data = data;
+
+    var stringToBytes = qrcode.stringToBytesFuncs['SJIS'];
+    if (!stringToBytes) {
+      throw 'sjis not supported.';
+    }
+    !function(c, code) {
+      // self test for sjis support.
+      var test = stringToBytes(c);
+      if (test.length != 2 || ( (test[0] << 8) | test[1]) != code) {
+        throw 'sjis not supported.';
+      }
+    }('\u53cb', 0x9746);
+
+    var _bytes = stringToBytes(data);
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return ~~(_bytes.length / 2);
+    };
+
+    _this.write = function(buffer) {
+
+      var data = _bytes;
+
+      var i = 0;
+
+      while (i + 1 < data.length) {
+
+        var c = ( (0xff & data[i]) << 8) | (0xff & data[i + 1]);
+
+        if (0x8140 <= c && c <= 0x9FFC) {
+          c -= 0x8140;
+        } else if (0xE040 <= c && c <= 0xEBBF) {
+          c -= 0xC140;
+        } else {
+          throw 'illegal char at ' + (i + 1) + '/' + c;
+        }
+
+        c = ( (c >>> 8) & 0xff) * 0xC0 + (c & 0xff);
+
+        buffer.put(c, 13);
+
+        i += 2;
+      }
+
+      if (i < data.length) {
+        throw 'illegal char at ' + (i + 1);
+      }
+    };
+
+    return _this;
+  };
+
+  //=====================================================================
+  // GIF Support etc.
+  //
+
+  //---------------------------------------------------------------------
+  // byteArrayOutputStream
+  //---------------------------------------------------------------------
+
+  var byteArrayOutputStream = function() {
+
+    var _bytes = [];
+
+    var _this = {};
+
+    _this.writeByte = function(b) {
+      _bytes.push(b & 0xff);
+    };
+
+    _this.writeShort = function(i) {
+      _this.writeByte(i);
+      _this.writeByte(i >>> 8);
+    };
+
+    _this.writeBytes = function(b, off, len) {
+      off = off || 0;
+      len = len || b.length;
+      for (var i = 0; i < len; i += 1) {
+        _this.writeByte(b[i + off]);
+      }
+    };
+
+    _this.writeString = function(s) {
+      for (var i = 0; i < s.length; i += 1) {
+        _this.writeByte(s.charCodeAt(i) );
+      }
+    };
+
+    _this.toByteArray = function() {
+      return _bytes;
+    };
+
+    _this.toString = function() {
+      var s = '';
+      s += '[';
+      for (var i = 0; i < _bytes.length; i += 1) {
+        if (i > 0) {
+          s += ',';
+        }
+        s += _bytes[i];
+      }
+      s += ']';
+      return s;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // base64EncodeOutputStream
+  //---------------------------------------------------------------------
+
+  var base64EncodeOutputStream = function() {
+
+    var _buffer = 0;
+    var _buflen = 0;
+    var _length = 0;
+    var _base64 = '';
+
+    var _this = {};
+
+    var writeEncoded = function(b) {
+      _base64 += String.fromCharCode(encode(b & 0x3f) );
+    };
+
+    var encode = function(n) {
+      if (n < 0) {
+        // error.
+      } else if (n < 26) {
+        return 0x41 + n;
+      } else if (n < 52) {
+        return 0x61 + (n - 26);
+      } else if (n < 62) {
+        return 0x30 + (n - 52);
+      } else if (n == 62) {
+        return 0x2b;
+      } else if (n == 63) {
+        return 0x2f;
+      }
+      throw 'n:' + n;
+    };
+
+    _this.writeByte = function(n) {
+
+      _buffer = (_buffer << 8) | (n & 0xff);
+      _buflen += 8;
+      _length += 1;
+
+      while (_buflen >= 6) {
+        writeEncoded(_buffer >>> (_buflen - 6) );
+        _buflen -= 6;
+      }
+    };
+
+    _this.flush = function() {
+
+      if (_buflen > 0) {
+        writeEncoded(_buffer << (6 - _buflen) );
+        _buffer = 0;
+        _buflen = 0;
+      }
+
+      if (_length % 3 != 0) {
+        // padding
+        var padlen = 3 - _length % 3;
+        for (var i = 0; i < padlen; i += 1) {
+          _base64 += '=';
+        }
+      }
+    };
+
+    _this.toString = function() {
+      return _base64;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // base64DecodeInputStream
+  //---------------------------------------------------------------------
+
+  var base64DecodeInputStream = function(str) {
+
+    var _str = str;
+    var _pos = 0;
+    var _buffer = 0;
+    var _buflen = 0;
+
+    var _this = {};
+
+    _this.read = function() {
+
+      while (_buflen < 8) {
+
+        if (_pos >= _str.length) {
+          if (_buflen == 0) {
+            return -1;
+          }
+          throw 'unexpected end of file./' + _buflen;
+        }
+
+        var c = _str.charAt(_pos);
+        _pos += 1;
+
+        if (c == '=') {
+          _buflen = 0;
+          return -1;
+        } else if (c.match(/^\s$/) ) {
+          // ignore if whitespace.
+          continue;
+        }
+
+        _buffer = (_buffer << 6) | decode(c.charCodeAt(0) );
+        _buflen += 6;
+      }
+
+      var n = (_buffer >>> (_buflen - 8) ) & 0xff;
+      _buflen -= 8;
+      return n;
+    };
+
+    var decode = function(c) {
+      if (0x41 <= c && c <= 0x5a) {
+        return c - 0x41;
+      } else if (0x61 <= c && c <= 0x7a) {
+        return c - 0x61 + 26;
+      } else if (0x30 <= c && c <= 0x39) {
+        return c - 0x30 + 52;
+      } else if (c == 0x2b) {
+        return 62;
+      } else if (c == 0x2f) {
+        return 63;
+      } else {
+        throw 'c:' + c;
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // gifImage (B/W)
+  //---------------------------------------------------------------------
+
+  var gifImage = function(width, height) {
+
+    var _width = width;
+    var _height = height;
+    var _data = new Array(width * height);
+
+    var _this = {};
+
+    _this.setPixel = function(x, y, pixel) {
+      _data[y * _width + x] = pixel;
+    };
+
+    _this.write = function(out) {
+
+      //---------------------------------
+      // GIF Signature
+
+      out.writeString('GIF87a');
+
+      //---------------------------------
+      // Screen Descriptor
+
+      out.writeShort(_width);
+      out.writeShort(_height);
+
+      out.writeByte(0x80); // 2bit
+      out.writeByte(0);
+      out.writeByte(0);
+
+      //---------------------------------
+      // Global Color Map
+
+      // black
+      out.writeByte(0x00);
+      out.writeByte(0x00);
+      out.writeByte(0x00);
+
+      // white
+      out.writeByte(0xff);
+      out.writeByte(0xff);
+      out.writeByte(0xff);
+
+      //---------------------------------
+      // Image Descriptor
+
+      out.writeString(',');
+      out.writeShort(0);
+      out.writeShort(0);
+      out.writeShort(_width);
+      out.writeShort(_height);
+      out.writeByte(0);
+
+      //---------------------------------
+      // Local Color Map
+
+      //---------------------------------
+      // Raster Data
+
+      var lzwMinCodeSize = 2;
+      var raster = getLZWRaster(lzwMinCodeSize);
+
+      out.writeByte(lzwMinCodeSize);
+
+      var offset = 0;
+
+      while (raster.length - offset > 255) {
+        out.writeByte(255);
+        out.writeBytes(raster, offset, 255);
+        offset += 255;
+      }
+
+      out.writeByte(raster.length - offset);
+      out.writeBytes(raster, offset, raster.length - offset);
+      out.writeByte(0x00);
+
+      //---------------------------------
+      // GIF Terminator
+      out.writeString(';');
+    };
+
+    var bitOutputStream = function(out) {
+
+      var _out = out;
+      var _bitLength = 0;
+      var _bitBuffer = 0;
+
+      var _this = {};
+
+      _this.write = function(data, length) {
+
+        if ( (data >>> length) != 0) {
+          throw 'length over';
+        }
+
+        while (_bitLength + length >= 8) {
+          _out.writeByte(0xff & ( (data << _bitLength) | _bitBuffer) );
+          length -= (8 - _bitLength);
+          data >>>= (8 - _bitLength);
+          _bitBuffer = 0;
+          _bitLength = 0;
+        }
+
+        _bitBuffer = (data << _bitLength) | _bitBuffer;
+        _bitLength = _bitLength + length;
+      };
+
+      _this.flush = function() {
+        if (_bitLength > 0) {
+          _out.writeByte(_bitBuffer);
+        }
+      };
+
+      return _this;
+    };
+
+    var getLZWRaster = function(lzwMinCodeSize) {
+
+      var clearCode = 1 << lzwMinCodeSize;
+      var endCode = (1 << lzwMinCodeSize) + 1;
+      var bitLength = lzwMinCodeSize + 1;
+
+      // Setup LZWTable
+      var table = lzwTable();
+
+      for (var i = 0; i < clearCode; i += 1) {
+        table.add(String.fromCharCode(i) );
+      }
+      table.add(String.fromCharCode(clearCode) );
+      table.add(String.fromCharCode(endCode) );
+
+      var byteOut = byteArrayOutputStream();
+      var bitOut = bitOutputStream(byteOut);
+
+      // clear code
+      bitOut.write(clearCode, bitLength);
+
+      var dataIndex = 0;
+
+      var s = String.fromCharCode(_data[dataIndex]);
+      dataIndex += 1;
+
+      while (dataIndex < _data.length) {
+
+        var c = String.fromCharCode(_data[dataIndex]);
+        dataIndex += 1;
+
+        if (table.contains(s + c) ) {
+
+          s = s + c;
+
+        } else {
+
+          bitOut.write(table.indexOf(s), bitLength);
+
+          if (table.size() < 0xfff) {
+
+            if (table.size() == (1 << bitLength) ) {
+              bitLength += 1;
+            }
+
+            table.add(s + c);
+          }
+
+          s = c;
+        }
+      }
+
+      bitOut.write(table.indexOf(s), bitLength);
+
+      // end code
+      bitOut.write(endCode, bitLength);
+
+      bitOut.flush();
+
+      return byteOut.toByteArray();
+    };
+
+    var lzwTable = function() {
+
+      var _map = {};
+      var _size = 0;
+
+      var _this = {};
+
+      _this.add = function(key) {
+        if (_this.contains(key) ) {
+          throw 'dup key:' + key;
+        }
+        _map[key] = _size;
+        _size += 1;
+      };
+
+      _this.size = function() {
+        return _size;
+      };
+
+      _this.indexOf = function(key) {
+        return _map[key];
+      };
+
+      _this.contains = function(key) {
+        return typeof _map[key] != 'undefined';
+      };
+
+      return _this;
+    };
+
+    return _this;
+  };
+
+  var createDataURL = function(width, height, getPixel) {
+    var gif = gifImage(width, height);
+    for (var y = 0; y < height; y += 1) {
+      for (var x = 0; x < width; x += 1) {
+        gif.setPixel(x, y, getPixel(x, y) );
+      }
+    }
+
+    var b = byteArrayOutputStream();
+    gif.write(b);
+
+    var base64 = base64EncodeOutputStream();
+    var bytes = b.toByteArray();
+    for (var i = 0; i < bytes.length; i += 1) {
+      base64.writeByte(bytes[i]);
+    }
+    base64.flush();
+
+    return 'data:image/gif;base64,' + base64;
+  };
+
+  //---------------------------------------------------------------------
+  // returns qrcode function.
+
+  return qrcode;
+}();
+
+// multibyte support
+!function() {
+
+  qrcode.stringToBytesFuncs['UTF-8'] = function(s) {
+    // http://stackoverflow.com/questions/18729405/how-to-convert-utf8-string-to-byte-array
+    function toUTF8Array(str) {
+      var utf8 = [];
+      for (var i=0; i < str.length; i++) {
+        var charcode = str.charCodeAt(i);
+        if (charcode < 0x80) utf8.push(charcode);
+        else if (charcode < 0x800) {
+          utf8.push(0xc0 | (charcode >> 6),
+              0x80 | (charcode & 0x3f));
+        }
+        else if (charcode < 0xd800 || charcode >= 0xe000) {
+          utf8.push(0xe0 | (charcode >> 12),
+              0x80 | ((charcode>>6) & 0x3f),
+              0x80 | (charcode & 0x3f));
+        }
+        // surrogate pair
+        else {
+          i++;
+          // UTF-16 encodes 0x10000-0x10FFFF by
+          // subtracting 0x10000 and splitting the
+          // 20 bits of 0x0-0xFFFFF into two halves
+          charcode = 0x10000 + (((charcode & 0x3ff)<<10)
+            | (str.charCodeAt(i) & 0x3ff));
+          utf8.push(0xf0 | (charcode >>18),
+              0x80 | ((charcode>>12) & 0x3f),
+              0x80 | ((charcode>>6) & 0x3f),
+              0x80 | (charcode & 0x3f));
+        }
+      }
+      return utf8;
+    }
+    return toUTF8Array(s);
+  };
+
+}();
+
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+      define([], factory);
+  } else if (typeof exports === 'object') {
+      module.exports = factory();
+  }
+}(function () {
+    return qrcode;
+}));
+
+</script>
+<script>
+/* ==========================================================================================
+   Mã dùng chung cho trang LÀM BÀI và trang GIÁO VIÊN (kiểm tra online lớp 6).
+   Script dung_de_online.py chèn nguyên file này vào cả hai trang — sửa ở đây, dựng lại là xong.
+   Không phụ thuộc thư viện nào (trừ qrcode.js, chỉ trang làm bài dùng).
+   ========================================================================================== */
+var KT = (function () {
+  'use strict';
+
+  var KHOA = {
+    ketQua: 'kt6.ketQua',            // [bản ghi]  — mọi lượt đã nộp trên máy này + bài GV đã nhập
+    dangLam: 'kt6.dangLam',          // {maDe: trạng thái lượt đang làm}
+    hocSinh: 'kt6.hocSinhGanNhat',   // {lop, truong} — điền sẵn cho lượt sau (không giữ tên)
+    moKhoaGV: 'kt6.giaoVienMoKhoa'   // hạn (ms) mở khoá trang giáo viên trên máy này
+  };
+
+  // ---------------------------------------------------------------- chữ & định dạng
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  /** Định dạng một dòng: **đậm**, *nghiêng*, ______ (chỗ trống). */
+  function md(s) {
+    return esc(s)
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/\*(.+?)\*/g, '<i>$1</i>')
+      .replace(/_{3,}/g, '<span class="cho-trong">$&</span>');
+  }
+  /** Định dạng đoạn văn: "\n\n" tách đoạn, "\n" xuống dòng. */
+  function mdKhoi(s) {
+    return String(s || '').split(/\n\s*\n/).map(function (p) {
+      return '<p>' + md(p.trim()).replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+  }
+  /** Điểm lưu dạng số nguyên phần trăm (875 = 8,75) → chuỗi kiểu Việt Nam. */
+  function soVN(phanTram) {
+    var s = (Math.round(phanTram) / 100).toFixed(2).replace(/\.?0+$/, '');
+    return s.replace('.', ',');
+  }
+  function thoiGian(giay) {
+    giay = Math.max(0, Math.round(giay));
+    var p = Math.floor(giay / 60), g = giay % 60;
+    return p + ' phút ' + (g < 10 ? '0' : '') + g + ' giây';
+  }
+  function dongHo(giay) {
+    giay = Math.max(0, Math.ceil(giay));
+    var p = Math.floor(giay / 60), g = giay % 60;
+    return (p < 10 ? '0' : '') + p + ':' + (g < 10 ? '0' : '') + g;
+  }
+  function ngayGio(ms) {
+    var d = new Date(ms), h = function (n) { return (n < 10 ? '0' : '') + n; };
+    return h(d.getDate()) + '/' + h(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + h(d.getHours()) + ':' + h(d.getMinutes());
+  }
+  function khongDau(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+  }
+
+  // ---------------------------------------------------------------- SHA-256 (đồng bộ, không cần HTTPS)
+  function sha256(chuoi) {
+    function xoay(v, n) { return (v >>> n) | (v << (32 - n)); }
+    var H = [], K = [], dem = 0;
+    for (var ung = 2; dem < 64; ung++) {
+      var nguyenTo = true;
+      for (var u = 2; u * u <= ung; u++) if (ung % u === 0) { nguyenTo = false; break; }
+      if (nguyenTo) {
+        if (dem < 8) H[dem] = (Math.pow(ung, 0.5) * 4294967296) | 0;
+        K[dem++] = (Math.pow(ung, 1 / 3) * 4294967296) | 0;
+      }
+    }
+    var b = new TextEncoder().encode(chuoi), l = b.length;
+    var dem64 = ((l + 9 + 63) >> 6) << 6, m = new Uint8Array(dem64);
+    m.set(b); m[l] = 0x80;
+    var dv = new DataView(m.buffer);
+    dv.setUint32(dem64 - 4, (l * 8) >>> 0);
+    dv.setUint32(dem64 - 8, Math.floor(l / 536870912));
+    var w = new Array(64);
+    for (var i = 0; i < dem64; i += 64) {
+      for (var j = 0; j < 16; j++) w[j] = dv.getUint32(i + j * 4) | 0;
+      for (j = 16; j < 64; j++) {
+        var s0 = xoay(w[j - 15], 7) ^ xoay(w[j - 15], 18) ^ (w[j - 15] >>> 3);
+        var s1 = xoay(w[j - 2], 17) ^ xoay(w[j - 2], 19) ^ (w[j - 2] >>> 10);
+        w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
+      }
+      var a = H[0], bb = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (j = 0; j < 64; j++) {
+        var t1 = (h + (xoay(e, 6) ^ xoay(e, 11) ^ xoay(e, 25)) + ((e & f) ^ (~e & g)) + K[j] + w[j]) | 0;
+        var t2 = ((xoay(a, 2) ^ xoay(a, 13) ^ xoay(a, 22)) + ((a & bb) ^ (a & c) ^ (bb & c))) | 0;
+        h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = bb; bb = a; a = (t1 + t2) | 0;
+      }
+      H[0] = (H[0] + a) | 0; H[1] = (H[1] + bb) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0;
+      H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+    }
+    return H.map(function (x) { return ('0000000' + (x >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  // Cùng công thức với dung_de_online.py
+  function bamPin(pin) { return sha256('kt6|pin|' + String(pin).trim()); }
+  function bamMaMoDe(maDe, ma) { return sha256('kt6|de|' + maDe + '|' + String(ma).trim().toUpperCase()); }
+
+  // ---------------------------------------------------------------- lưu trữ
+  function doc(khoa, macDinh) {
+    try { var v = JSON.parse(localStorage.getItem(khoa)); return v == null ? macDinh : v; }
+    catch (e) { return macDinh; }
+  }
+  function ghi(khoa, giaTri) {
+    try { localStorage.setItem(khoa, JSON.stringify(giaTri)); return true; }
+    catch (e) { return false; }
+  }
+
+  // ---------------------------------------------------------------- đề & chấm
+  /** Danh sách phẳng các câu theo thứ tự gốc: [{cau, nhom, phan}] */
+  function dsCau(de) {
+    var ds = [];
+    de.phan.forEach(function (phan) {
+      phan.nhom.forEach(function (nhom) {
+        nhom.cau.forEach(function (cau) { ds.push({ cau: cau, nhom: nhom, phan: phan }); });
+      });
+    });
+    return ds;
+  }
+  function chuanHoa(s) {
+    return String(s == null ? '' : s).normalize('NFC').toLowerCase()
+      .replace(/[‘’ʼ`´]/g, "'").replace(/[“”]/g, '"')
+      .replace(/\s+/g, ' ').trim().replace(/\s*[.!?]+$/, '').trim();
+  }
+  function daLam(cau, tl) {
+    if (cau.loai === 'chon') return typeof tl === 'number';
+    if (cau.loai === 'dien') return typeof tl === 'string' && tl.trim() !== '';
+    if (cau.loai === 'sapXep') return Array.isArray(tl) && tl.length > 0;
+    return false;
+  }
+  function cauGhep(cau, tl) {
+    var s = (tl || []).map(function (i) { return cau.manh[i]; }).join(' ');
+    return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+  }
+  function dung(cau, tl) {
+    if (!daLam(cau, tl)) return false;
+    if (cau.loai === 'chon') return tl === cau.dapAn;
+    var cua = chuanHoa(cau.loai === 'dien' ? tl : cauGhep(cau, tl));
+    return cau.dapAn.some(function (d) { return chuanHoa(d) === cua; });
+  }
+  /** Câu trả lời của HS thành chữ để hiển thị / xuất file. */
+  function hienThi(cau, tl) {
+    if (!daLam(cau, tl)) return '';
+    if (cau.loai === 'chon') return cau.phuongAn[tl] != null ? cau.phuongAn[tl].replace(/\*/g, '') : '?';
+    if (cau.loai === 'dien') return tl.trim();
+    return cauGhep(cau, tl) + (cau.cuoi || '');
+  }
+  function dapAnChu(cau) {
+    if (cau.loai === 'chon') return cau.phuongAn[cau.dapAn].replace(/\*/g, '');
+    if (cau.loai === 'sapXep') return cau.dapAn[0] + (cau.cuoi || '');
+    return cau.dapAn.join(' / ');
+  }
+  function phanTram(diem) { return Math.round(diem * 100); }
+  /** Chấm toàn bài. traLoi = {id: câu trả lời thô}. */
+  function cham(de, traLoi) {
+    var tong = 0, toiDa = 0, soDung = 0, chiTiet = [];
+    dsCau(de).forEach(function (x) {
+      var c = x.cau, tl = traLoi[c.id], ok = dung(c, tl), d = phanTram(c.diem);
+      toiDa += d; if (ok) { tong += d; soDung++; }
+      chiTiet.push({ id: c.id, loai: c.loai, traLoi: tl == null ? null : tl, hienThi: hienThi(c, tl),
+                     dung: ok, diem: ok ? d / 100 : 0, diemToiDa: d / 100 });
+    });
+    return { diem: tong, diemToiDa: toiDa, soDung: soDung, tongSoCau: chiTiet.length, chiTiet: chiTiet };
+  }
+
+  // ---------------------------------------------------------------- gói kết quả gọn cho mã QR
+  // Mảng vị trí (không dùng tên khoá) để mã QR nhỏ; trang giáo viên chấm lại từ câu trả lời thô.
+  function goiGon(bg, de) {
+    return [1, bg.de.maDe, bg.de.phienBan, bg.maLuot,
+      bg.hocSinh.hoTen, bg.hocSinh.gioiTinh, bg.hocSinh.lop, bg.hocSinh.truong,
+      Math.round(bg.batDau / 1000), Math.round(bg.nopLuc / 1000), bg.thoiGianChoPhepGiay,
+      bg.lyDoNop === 'het-gio' ? 'h' : 't', bg.giamSat.soLanRoiTrang, bg.giamSat.soLanThoatToanManHinh,
+      dsCau(de).map(function (x) { var t = bg.traLoiTho[x.cau.id]; return t == null ? null : t; }),
+      Math.round(bg.diem * 100)];
+  }
+  /** Gói gọn → bản ghi đầy đủ. de = đề tương ứng (có thể null nếu trang GV không có đề này). */
+  function moGoi(g, de, nguon) {
+    if (!Array.isArray(g) || g[0] !== 1) throw new Error('Mã kết quả không đúng định dạng.');
+    var bg = {
+      maLuot: g[3], hocSinh: { hoTen: g[4], gioiTinh: g[5], lop: g[6], truong: g[7] },
+      de: { maDe: g[1], phienBan: g[2], tieuDe: de ? de.tieuDe : g[1], mon: de ? de.mon : '' },
+      batDau: g[8] * 1000, nopLuc: g[9] * 1000, thoiGianLamGiay: g[9] - g[8], thoiGianChoPhepGiay: g[10],
+      lyDoNop: g[11] === 'h' ? 'het-gio' : 'tu-nop',
+      giamSat: { soLanRoiTrang: g[12], soLanThoatToanManHinh: g[13] },
+      traLoiTho: {}, nguon: nguon || 'nhap'
+    };
+    if (de && de.phienBan === g[2]) {
+      var ds = dsCau(de);
+      g[14].forEach(function (t, i) { if (ds[i] && t != null) bg.traLoiTho[ds[i].cau.id] = t; });
+      var kq = cham(de, bg.traLoiTho);
+      bg.diem = kq.diem / 100; bg.diemToiDa = kq.diemToiDa / 100; bg.soDung = kq.soDung;
+      bg.tongSoCau = kq.tongSoCau; bg.traLoi = kq.chiTiet;
+      if (kq.diem !== g[15]) bg.canhBao = 'Điểm chấm lại (' + soVN(kq.diem) + ') khác điểm trên máy học sinh (' + soVN(g[15]) + ').';
+    } else {
+      bg.diem = g[15] / 100; bg.diemToiDa = 10;
+      bg.canhBao = de ? 'Đề đã đổi phiên bản — giữ điểm của máy học sinh, không chấm lại được.'
+                      : 'Trang giáo viên không có đề này — giữ điểm của máy học sinh.';
+    }
+    return bg;
+  }
+  function b64url(bytes) {
+    var s = ''; for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function tuB64url(s) {
+    s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '=';
+    var bin = atob(s), b = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+    return b;
+  }
+  function quaLuong(bytes, luong) {
+    return new Response(new Blob([bytes]).stream().pipeThrough(luong)).arrayBuffer()
+      .then(function (ab) { return new Uint8Array(ab); });
+  }
+  /** Gói gọn → chuỗi mã ("z…" = đã nén deflate, "j…" = không nén). */
+  function maHoa(goi) {
+    var bytes = new TextEncoder().encode(JSON.stringify(goi));
+    if (typeof CompressionStream === 'undefined') return Promise.resolve('j' + b64url(bytes));
+    return quaLuong(bytes, new CompressionStream('deflate-raw'))
+      .then(function (z) { return 'z' + b64url(z); }, function () { return 'j' + b64url(bytes); });
+  }
+  function giaiMa(ma) {
+    ma = String(ma || '').trim();
+    var m = ma.match(/[#&?]nhap=([^&\s]+)/); if (m) ma = decodeURIComponent(m[1]);
+    var loai = ma.charAt(0), bytes = tuB64url(ma.slice(1));
+    var p = loai === 'z' ? quaLuong(bytes, new DecompressionStream('deflate-raw'))
+          : loai === 'j' ? Promise.resolve(bytes) : Promise.reject(new Error('Mã kết quả không đúng định dạng.'));
+    return p.then(function (b) { return JSON.parse(new TextDecoder().decode(b)); });
+  }
+
+  // ---------------------------------------------------------------- tải file
+  function taiFile(ten, noiDung, kieu) {
+    var blob = new Blob([noiDung], { type: kieu || 'application/json;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = ten;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+  function tenTep(s) {
+    return khongDau(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'khong-ten';
+  }
+
+  return {
+    KHOA: KHOA, esc: esc, md: md, mdKhoi: mdKhoi, soVN: soVN, thoiGian: thoiGian, dongHo: dongHo,
+    ngayGio: ngayGio, khongDau: khongDau, sha256: sha256, bamPin: bamPin, bamMaMoDe: bamMaMoDe,
+    doc: doc, ghi: ghi, dsCau: dsCau, chuanHoa: chuanHoa, daLam: daLam, cauGhep: cauGhep, dung: dung,
+    hienThi: hienThi, dapAnChu: dapAnChu, cham: cham, goiGon: goiGon, moGoi: moGoi,
+    maHoa: maHoa, giaiMa: giaiMa, taiFile: taiFile, tenTep: tenTep
+  };
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+  var DE = {"maDe":"tieng-anh-lop-6-kiem-tra-unit-01","phienBan":1,"mon":"Tiếng Anh","tieuDe":"Kiểm tra Unit 1 — My New School","phamVi":"Unit 1 — MY NEW SCHOOL (SGK Global Success 6, tập một, trang 6 – 15)","thoiGianPhut":45,"nguonDeGiay":"bài kiểm tra/tiếng anh/tieng-anh-lop-6-kiem-tra-unit-01.md","ghiChu":"Khác đề giấy: câu 26–28 đổi từ trả lời tự do sang trắc nghiệm 4 phương án (vẫn 0,5 điểm/câu); câu 33 (viết đoạn 1,5 điểm) thay bằng 6 câu tự chấm 33a–33f × 0,25 điểm (3 câu sắp xếp, 3 câu chọn) cùng chủ đề my school.","phan":[{"tieuDe":"A. PRONUNCIATION (1,0 point)","nhom":[{"huongDan":"Choose the word whose **bold** part is pronounced differently from that of the other three.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"1","loai":"chon","de":"","phuongAn":["sm**ar**t","cl**a**ss","st**ar**t","s**u**bject"],"dapAn":3,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*smart, class, start* có âm /ɑː/; *subject* /ˈsʌbdʒɪkt/ có âm /ʌ/."},{"id":"2","loai":"chon","de":"","phuongAn":["l**u**nch","M**o**nday","l**ar**ge","st**u**dy"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*lunch, Monday, study* có âm /ʌ/; *large* /lɑːdʒ/ có âm /ɑː/."},{"id":"3","loai":"chon","de":"","phuongAn":["c**o**mpass","g**ar**den","cl**u**b","br**o**ther"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*compass, club, brother* có âm /ʌ/; *garden* /ˈɡɑːdn/ có âm /ɑː/."},{"id":"4","loai":"chon","de":"","phuongAn":["**ar**t","cl**a**ssroom","S**u**nday","c**ar**ton"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*art, classroom, carton* có âm /ɑː/; *Sunday* /ˈsʌndeɪ/ có âm /ʌ/."}]}]},{"tieuDe":"B. VOCABULARY & GRAMMAR (4,0 points)","nhom":[{"huongDan":"Choose the correct answer A, B, C, or D.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"5","loai":"chon","de":"My sister ______ English at Ngoc Lan Lower Secondary School.","phuongAn":["study","studies","studying","is study"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Chủ ngữ *My sister* thay được bằng *she* → động từ thêm *-es*: *study → studies*."},{"id":"6","loai":"chon","de":"______ your friends go to school by bus every day?","phuongAn":["Do","Does","Are","Is"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Chủ ngữ *your friends* là số nhiều (= *they*) → câu hỏi dùng trợ động từ *Do*."},{"id":"7","loai":"chon","de":"Nam doesn't ______ his homework after school.","phuongAn":["does","do","doing","to do"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Đã có *doesn't* thì động từ chính về nguyên thể: *do*."},{"id":"8","loai":"chon","de":"Nga ______ her bicycle to school.","phuongAn":["rides usually","usually rides","usually ride","ride usually"],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Sách dạy: *\"We usually place the adverb of frequency before the main verb.\"* Chủ ngữ *Nga* = *she* nên động từ còn phải thêm *-s*: *usually rides*."},{"id":"9","loai":"chon","de":"Students at my school ______ a uniform on Mondays.","phuongAn":["do","play","wear","study"],"dapAn":2,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Cụm từ cố định trong Unit 1: *wear + a uniform* (mặc đồng phục)."},{"id":"10","loai":"chon","de":"Sunrise is a ______ school. The students study and live there.","phuongAn":["boarding","international","large","new"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*Boarding school* là trường nội trú — học sinh *study and live there*, đúng như bài đọc Skills 1."}]},{"huongDan":"Write ONE word from the box in each gap. There is ONE extra word.","nguLieu":null,"hopTu":["homework","library","lunch","playground","uniform"],"xaoCau":true,"cau":[{"id":"11","loai":"dien","de":"The students always look smart in their school ______.","dapAn":["uniform"],"diem":0.25,"giaiThich":"*Look smart in their school uniform*: trông gọn gàng trong bộ đồng phục."},{"id":"12","loai":"dien","de":"I do my ______ after school every day.","dapAn":["homework"],"diem":0.25,"giaiThich":"Cụm *do my homework* — làm bài tập về nhà."},{"id":"13","loai":"dien","de":"My friends and I have ______ at school at twelve o'clock.","dapAn":["lunch"],"diem":0.25,"giaiThich":"Mười hai giờ trưa là giờ ăn trưa: *have lunch*."},{"id":"14","loai":"dien","de":"There are many books in our school ______.","dapAn":["library"],"diem":0.25,"giaiThich":"Nơi có nhiều sách trong trường là *library* (thư viện). Từ thừa là *playground*."}]},{"huongDan":"Write the correct form of the verbs in brackets.","nguLieu":"Lan **(15)** ______ a new student at Hoa Binh Lower Secondary School. Her school **(16)** ______ a large playground and a new library. Lan **(17)** ______ to school by bus. She and her friends **(18)** ______ their bicycles to school every day. Does she **(19)** ______ her new school? Yes, she does. She **(20)** ______ English with her favourite teacher, Miss Hoa.","hopTu":null,"xaoCau":false,"cau":[{"id":"15","loai":"dien","de":"(be)","dapAn":["is"],"diem":0.25,"giaiThich":"*Lan* = *she* → động từ *be* là *is*."},{"id":"16","loai":"dien","de":"(have)","dapAn":["has"],"diem":0.25,"giaiThich":"*Her school* = *it* → *have* đổi thành *has*."},{"id":"17","loai":"dien","de":"(not / go)","dapAn":["doesn't go","does not go"],"diem":0.25,"giaiThich":"Phủ định với chủ ngữ ngôi thứ ba số ít: *doesn't* + động từ nguyên thể → *doesn't go*."},{"id":"18","loai":"dien","de":"(ride)","dapAn":["ride"],"diem":0.25,"giaiThich":"Chủ ngữ *She and her friends* = *they* → động từ giữ nguyên thể: *ride*."},{"id":"19","loai":"dien","de":"(like)","dapAn":["like"],"diem":0.25,"giaiThich":"Đã có *Does* ở đầu câu thì động từ chính về nguyên thể: *like*."},{"id":"20","loai":"dien","de":"(study)","dapAn":["studies"],"diem":0.25,"giaiThich":"Chủ ngữ *She* → thêm *-es*; *-y* sau phụ âm đổi thành *-i*: *study → studies*."}]}]},{"tieuDe":"C. READING (2,5 points)","nhom":[{"huongDan":"Read the passage. Choose True or False.","nguLieu":"**MY NEW SCHOOL**\n\nMy name is Mai. I am a new student at Ngoc Lan Lower Secondary School. My school is in the centre of a small town in Bac Giang. It is not a boarding school. I go home after class every day. My school has twelve classes, a computer room, a library and a big playground. I usually cycle to school with my classmates. This year we study new subjects: maths, English, science, history and music. My favourite subject is English because our teacher often plays games with us. At break time, my friends and I play football in the playground. I never have lunch at school, but I sometimes do my homework in the library.","hopTu":null,"xaoCau":true,"cau":[{"id":"21","loai":"chon","de":"Mai's school is in the centre of a small town.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"My school is in the centre of a small town in Bac Giang.\"*"},{"id":"22","loai":"chon","de":"Mai lives at her school.","phuongAn":["True","False"],"dapAn":1,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"It is not a boarding school. I go home after class every day.\"* — Mai không ở lại trường."},{"id":"23","loai":"chon","de":"There is a library at Mai's school.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"My school has twelve classes, a computer room, a library and a big playground.\"*"},{"id":"24","loai":"chon","de":"Mai walks to school every day.","phuongAn":["True","False"],"dapAn":1,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"I usually cycle to school with my classmates.\"* — Mai đi xe đạp, không đi bộ."},{"id":"25","loai":"chon","de":"Mai sometimes does her homework in the library.","phuongAn":["True","False"],"dapAn":0,"xaoPhuongAn":false,"diem":0.2,"giaiThich":"Bài viết: *\"I sometimes do my homework in the library.\"*"}]},{"huongDan":"Read the passage again. Choose the correct answer A, B, C, or D.","nguLieu":"**MY NEW SCHOOL**\n\nMy name is Mai. I am a new student at Ngoc Lan Lower Secondary School. My school is in the centre of a small town in Bac Giang. It is not a boarding school. I go home after class every day. My school has twelve classes, a computer room, a library and a big playground. I usually cycle to school with my classmates. This year we study new subjects: maths, English, science, history and music. My favourite subject is English because our teacher often plays games with us. At break time, my friends and I play football in the playground. I never have lunch at school, but I sometimes do my homework in the library.","hopTu":null,"xaoCau":true,"cau":[{"id":"26","loai":"chon","de":"Where is Mai's school?","phuongAn":["In the centre of a small town in Bac Giang.","In the centre of a big city in Bac Giang.","In a small town in Bac Ninh.","Next to a boarding school in Bac Giang."],"dapAn":0,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Câu trả lời nằm ở câu *\"My school is in the centre of a small town in Bac Giang.\"* — phải khớp cả *small town* lẫn *Bac Giang*."},{"id":"27","loai":"chon","de":"How does Mai go to school?","phuongAn":["She walks to school.","She usually cycles to school with her classmates.","She goes to school by bus.","She rides a bicycle to school with her teacher."],"dapAn":1,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Bài viết: *\"I usually cycle to school with my classmates.\"* — Mai đi xe đạp cùng bạn cùng lớp, không phải cùng thầy cô."},{"id":"28","loai":"chon","de":"Why is English Mai's favourite subject?","phuongAn":["Because she does her homework in the library.","Because her teacher often plays games with the students.","Because she plays football with her friends at break time.","Because English is a new subject this year."],"dapAn":1,"xaoPhuongAn":true,"diem":0.5,"giaiThich":"Phải nối câu *\"My favourite subject is English\"* với vế *\"because our teacher often plays games with us\"*. Các phương án khác đều có trong bài nhưng không phải lí do Mai thích môn English."}]}]},{"tieuDe":"D. WRITING (2,5 points)","nhom":[{"huongDan":"Arrange the words to make correct sentences.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"29","loai":"sapXep","de":"","manh":["to","school","Duy","cycles","every","day"],"cuoi":".","dapAn":["Duy cycles to school every day","Every day Duy cycles to school"],"diem":0.25,"giaiThich":"Chủ ngữ *Duy* đứng đầu, động từ *cycles* có *-s*, cụm chỉ thời gian *every day* đứng cuối câu."},{"id":"30","loai":"sapXep","de":"","manh":["never","we","lunch","have","at","school"],"cuoi":".","dapAn":["We never have lunch at school","At school we never have lunch"],"diem":0.25,"giaiThich":"Trạng từ tần suất *never* đứng trước động từ chính *have*."},{"id":"31","loai":"sapXep","de":"","manh":["your","does","where","live","friend"],"cuoi":"?","dapAn":["Where does your friend live"],"diem":0.25,"giaiThich":"Câu hỏi có từ để hỏi: *Where* + *does* + chủ ngữ + động từ nguyên thể."},{"id":"32","loai":"sapXep","de":"","manh":["usually","smart","look","in","uniforms","students","their"],"cuoi":".","dapAn":["Students usually look smart in their uniforms"],"diem":0.25,"giaiThich":"*usually* đứng trước động từ chính *look*; *look smart in their uniforms* là cụm có trong Getting Started."}]},{"huongDan":"My school: arrange the words to make correct sentences.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"33a","loai":"sapXep","de":"","manh":["school","starts","at","seven","my","o'clock"],"cuoi":".","dapAn":["My school starts at seven o'clock"],"diem":0.25,"giaiThich":"*My school* = *it* nên *start* thêm *-s*: *starts*; giờ giấc đặt sau *at*."},{"id":"33b","loai":"sapXep","de":"","manh":["always","homework","I","my","do","after","school"],"cuoi":".","dapAn":["I always do my homework after school","After school I always do my homework"],"diem":0.25,"giaiThich":"*always* đứng trước động từ chính *do*; cụm *do my homework* không tách rời."},{"id":"33c","loai":"sapXep","de":"","manh":["has","a","school","my","library","big"],"cuoi":".","dapAn":["My school has a big library"],"diem":0.25,"giaiThich":"*My school* = *it* → dùng *has*; tính từ *big* đứng trước danh từ *library*."}]},{"huongDan":"My school: choose the correct answer A, B, C, or D.","nguLieu":null,"hopTu":null,"xaoCau":true,"cau":[{"id":"33d","loai":"chon","de":"Choose the correct sentence.","phuongAn":["My school have a large playground.","My school has a large playground.","My school is have a large playground.","My school having a large playground."],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*My school* = *it* → *have* đổi thành *has*; không thêm *is* trước động từ thường."},{"id":"33e","loai":"chon","de":"Choose the correct sentence.","phuongAn":["We play usually football at break time.","We usually play football at break time.","We usually plays football at break time.","We are usually play football at break time."],"dapAn":1,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"Trạng từ tần suất đứng trước động từ chính; chủ ngữ *We* nên *play* giữ nguyên thể, không thêm *-s*."},{"id":"33f","loai":"chon","de":"My school is Ngoc Lan Lower Secondary School. It is in the centre of my town. I like my school because ______.","phuongAn":["my classmates often help me with my homework","my classmates often helps me with my homework","my classmates help often me with my homework","I never like my classmates"],"dapAn":0,"xaoPhuongAn":true,"diem":0.25,"giaiThich":"*my classmates* là số nhiều nên *help* không thêm *-s*, và *often* đứng trước *help*. Phương án cuối đúng ngữ pháp nhưng trái nghĩa với *I like my school because…*."}]}]}]};
+  var CH = {"pinBam":"328164a80c9db1079a1ad365804aaba77bed5aea2121f5f5efc3ba213d09ad24","maMoDeBam":"eb58787ab353c7456dde395c7271e8f3532dc55810e22e7accaa2c84aa8511ff","urlGiaoVien":"https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/giao-vien.html","dungLuc":1790670861};   // {pinBam, maMoDeBam, urlGiaoVien, dungLuc}
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var DS = KT.dsCau(DE), THEO_ID = {};
+  DS.forEach(function (x) { THEO_ID[x.cau.id] = x; });
+
+  var TT = null;          // trạng thái lượt đang làm (lưu ở kt6.dangLam[maDe])
+  var dangNop = false, dangRoi = false, hoTroTMH = false, henGio = null, daBao = {};
+
+  // ------------------------------------------------------------ tiện ích giao diện
+  function hien(id) {
+    ['man-thong-tin', 'man-lam-bai', 'man-ket-qua'].forEach(function (m) { $('#' + m).classList.toggle('an', m !== id); });
+    window.scrollTo(0, 0);
+  }
+  function moHop(html) { $('#hop').innerHTML = html; $('#phu').classList.remove('an'); }
+  function dongHop() { $('#phu').classList.add('an'); $('#hop').innerHTML = ''; }
+  var henThongBao = null;
+  function thongBao(chu, ms) {
+    var tb = $('#thong-bao'); tb.textContent = chu; tb.classList.remove('an');
+    clearTimeout(henThongBao); henThongBao = setTimeout(function () { tb.classList.add('an'); }, ms || 3500);
+  }
+  /** Hộp hỏi PIN giáo viên. Trả về Promise<boolean>. */
+  function hoiPin(loiDan) {
+    return new Promise(function (xong) {
+      moHop('<h3>Dành cho giáo viên</h3><p>' + KT.esc(loiDan) + '</p>' +
+        '<input class="o" id="o-pin" type="password" inputmode="numeric" autocomplete="off" placeholder="Mã PIN">' +
+        '<div class="loi" id="loi-pin"></div>' +
+        '<div class="hang-nut"><button type="button" class="nut-phu" id="pin-huy">Huỷ</button>' +
+        '<button type="button" class="nut-chinh" style="margin:0" id="pin-ok">Xác nhận</button></div>');
+      var o = $('#o-pin'); o.focus();
+      function thu() {
+        if (KT.bamPin(o.value) === CH.pinBam) { dongHop(); xong(true); }
+        else { $('#loi-pin').textContent = 'Mã PIN chưa đúng.'; o.select(); }
+      }
+      $('#pin-ok').onclick = thu;
+      o.onkeydown = function (e) { if (e.key === 'Enter') thu(); };
+      $('#pin-huy').onclick = function () { dongHop(); xong(false); };
+    });
+  }
+
+  // ------------------------------------------------------------ lưu trạng thái
+  function luuTT() {
+    var tatCa = KT.doc(KT.KHOA.dangLam, {});
+    tatCa[DE.maDe] = TT;
+    if (!KT.ghi(KT.KHOA.dangLam, tatCa)) thongBao('⚠️ Không lưu được bài vào máy (bộ nhớ trình duyệt bị chặn hoặc đầy). Báo thầy cô ngay!', 6000);
+  }
+  function xoaTT() {
+    var tatCa = KT.doc(KT.KHOA.dangLam, {}); delete tatCa[DE.maDe]; KT.ghi(KT.KHOA.dangLam, tatCa);
+  }
+  function suKien(loai) { TT.suKien.push({ t: Date.now(), loai: loai }); if (TT.suKien.length > 300) TT.suKien.shift(); }
+  function ketQuaCuoi() {
+    var ds = KT.doc(KT.KHOA.ketQua, []).filter(function (b) { return b.de && b.de.maDe === DE.maDe && b.nguon === 'may-nay'; });
+    return ds.length ? ds[ds.length - 1] : null;
+  }
+
+  // ------------------------------------------------------------ xáo trộn có hạt giống (tải lại trang vẫn đúng thứ tự cũ)
+  function prng(hat) {
+    var a = parseInt(KT.sha256(hat).slice(0, 8), 16);
+    return function () {
+      a = (a + 0x6D2B79F5) | 0; var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function xao(mang, r) {
+    var m = mang.slice();
+    for (var i = m.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = m[i]; m[i] = m[j]; m[j] = t; }
+    return m;
+  }
+  function taoThuTu(maLuot) {
+    var r = prng(maLuot), thuTu = [], hoanVi = {};
+    DE.phan.forEach(function (p) {
+      p.nhom.forEach(function (n) {
+        var ids = n.cau.map(function (c) { return c.id; });
+        thuTu.push(n.xaoCau === false ? ids : xao(ids, r));
+        n.cau.forEach(function (c) {
+          if (c.loai === 'chon') {
+            var goc = c.phuongAn.map(function (_, i) { return i; });
+            hoanVi[c.id] = c.xaoPhuongAn === false ? goc : xao(goc, r);
+          }
+        });
+      });
+    });
+    return { thuTu: thuTu, hoanVi: hoanVi };
+  }
+
+  // ------------------------------------------------------------ MÀN 1
+  function manThongTin() {
+    $('#tt-mon').textContent = 'Môn ' + DE.mon + ' · Lớp 6';
+    $('#tt-tieu-de').textContent = DE.tieuDe;
+    $('#tt-thong-so').innerHTML =
+      '<li>⏱️ <b>' + DE.thoiGianPhut + ' phút</b></li><li>📝 <b>' + DS.length + ' câu</b></li><li>🎯 <b>10 điểm</b></li>' +
+      (DE.phamVi ? '<li class="nho" style="flex-basis:100%">' + KT.esc(DE.phamVi) + '</li>' : '');
+    var cu = KT.doc(KT.KHOA.hocSinh, {});
+    if (cu.lop) $('#hs-lop').value = cu.lop;
+    if (cu.truong) $('#hs-truong').value = cu.truong;
+    $('#hs-gioi').onchange = function () {
+      Array.prototype.forEach.call($('#hs-gioi').querySelectorAll('label'), function (l) { l.classList.toggle('chon', l.querySelector('input').checked); });
+    };
+    $('#form-hs').onsubmit = function (e) { e.preventDefault(); batDau(); };
+    hien('man-thong-tin');
+  }
+  function gon(s) { return String(s || '').replace(/\s+/g, ' ').trim(); }
+  function batDau() {
+    var ten = gon($('#hs-ten').value), lop = gon($('#hs-lop').value).toUpperCase(), truong = gon($('#hs-truong').value);
+    var gioi = ($('#hs-gioi input:checked') || {}).value, ma = $('#hs-ma').value, loi = $('#hs-loi');
+    if (ten.split(' ').length < 2) { loi.textContent = 'Em nhập đầy đủ họ và tên nhé.'; $('#hs-ten').focus(); return; }
+    if (!gioi) { loi.textContent = 'Em chọn giới tính nhé.'; return; }
+    if (!lop) { loi.textContent = 'Em nhập lớp nhé.'; $('#hs-lop').focus(); return; }
+    if (!truong) { loi.textContent = 'Em nhập tên trường nhé.'; $('#hs-truong').focus(); return; }
+    if (KT.bamMaMoDe(DE.maDe, ma) !== CH.maMoDeBam) { loi.textContent = 'Mã mở đề chưa đúng — em nhìn lại mã trên bảng.'; $('#hs-ma').select(); return; }
+    loi.textContent = '';
+    KT.ghi(KT.KHOA.hocSinh, { lop: lop, truong: truong });
+    var maLuot = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+    var tt = taoThuTu(maLuot);
+    TT = { maLuot: maLuot, maDe: DE.maDe, phienBan: DE.phienBan,
+           hocSinh: { hoTen: ten, gioiTinh: gioi, lop: lop, truong: truong },
+           batDau: Date.now(), thoiGianChoPhepGiay: DE.thoiGianPhut * 60,
+           thuTu: tt.thuTu, hoanVi: tt.hoanVi, traLoi: {}, suKien: [],
+           soLanRoiTrang: 0, soLanThoatToanManHinh: 0, toanManHinh: null };
+    suKien('bat-dau');
+    luuTT();
+    vaoToanManHinh().then(function (ok) {
+      TT.toanManHinh = ok ? 'co' : 'khong-ho-tro'; luuTT();
+      vaoLamBai();
+    });
+  }
+
+  // ------------------------------------------------------------ toàn màn hình & rời trang
+  function dangTMH() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function vaoToanManHinh() {
+    var el = document.documentElement, f = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!f) return Promise.resolve(false);
+    try { return Promise.resolve(f.call(el)).then(function () { return true; }, function () { return false; }); }
+    catch (e) { return Promise.resolve(false); }
+  }
+  function thoatToanManHinh() {
+    if (!dangTMH()) return;
+    var f = document.exitFullscreen || document.webkitExitFullscreen; try { f && f.call(document); } catch (e) {}
+  }
+  function dangLamBai() { return TT && !dangNop && !$('#man-lam-bai').classList.contains('an'); }
+  function khiDoiTMH() {
+    if (!dangLamBai() || TT.toanManHinh !== 'co' || dangTMH()) return;
+    TT.soLanThoatToanManHinh++; suKien('thoat-toan-man-hinh'); luuTT();
+    moHop('<h3>⚠️ Em đã thoát chế độ toàn màn hình</h3><p>Máy đã ghi lại lần thoát này (lần thứ <b>' + TT.soLanThoatToanManHinh +
+      '</b>). Đồng hồ vẫn đang chạy.</p><button type="button" class="nut-chinh" id="ve-tmh">Quay lại làm bài</button>');
+    $('#ve-tmh').onclick = function () { vaoToanManHinh(); dongHop(); };
+  }
+  // Tải lại / đóng trang: trình duyệt bắn pagehide rồi mới tới visibilitychange — không tính là "rời trang"
+  // (lần mở lại được ghi riêng là sự kiện 'mo-lai-trang'), và không ghi đè trạng thái đã lưu.
+  var dangDongTrang = false;
+  window.addEventListener('pagehide', function () { dangDongTrang = true; });
+  window.addEventListener('pageshow', function () { dangDongTrang = false; });
+  function roiTrang() {
+    if (!dangLamBai() || dangRoi || dangDongTrang) return;
+    dangRoi = true; TT.soLanRoiTrang++; suKien('roi-trang'); luuTT();
+  }
+  function veTrang() {
+    if (!dangRoi || !TT) return;
+    dangRoi = false; suKien('quay-lai');
+    if (dangLamBai()) { luuTT(); thongBao('⚠️ Em vừa rời trang bài làm. Máy đã ghi lại: ' + TT.soLanRoiTrang + ' lần.', 4500); }
+  }
+  document.addEventListener('fullscreenchange', khiDoiTMH);
+  document.addEventListener('webkitfullscreenchange', khiDoiTMH);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) roiTrang(); else veTrang(); });
+  window.addEventListener('blur', roiTrang);
+  window.addEventListener('focus', veTrang);
+  window.addEventListener('beforeunload', function (e) { if (dangLamBai()) { e.preventDefault(); e.returnValue = ''; } });
+
+  // ------------------------------------------------------------ MÀN 2: vẽ đề
+  function soHienThi() {  // id → số câu học sinh nhìn thấy (1, 2, 3… theo thứ tự đã xáo)
+    var m = {}, k = 0; TT.thuTu.forEach(function (ids) { ids.forEach(function (id) { m[id] = ++k; }); }); return m;
+  }
+  function veCau(cau, so, xemLai) {
+    var tl = TT.traLoi[cau.id], h = '';
+    var kq = xemLai ? KT.dung(cau, tl) : null;
+    h += '<div class="de-cau"><span class="so">Câu ' + so + '.</span>';
+    if (cau.de) h += KT.md(cau.de);
+    h += ' <span class="diem-cau">(' + KT.soVN(Math.round(cau.diem * 100)) + ' đ)</span>';
+    if (xemLai) h += '<span class="the-kq ' + (kq ? 'dung">✓ Đúng' : 'sai">✗ ' + (KT.daLam(cau, tl) ? 'Sai' : 'Chưa làm')) + '</span>';
+    h += '</div>';
+    if (cau.loai === 'chon') {
+      var hv = TT.hoanVi[cau.id], ngan = cau.phuongAn.every(function (p) { return p.replace(/\*/g, '').length <= 14; });
+      h += '<div class="cac-pa' + (ngan ? ' hai' : '') + '">';
+      hv.forEach(function (goc, vt) {
+        var lop = 'pa';
+        if (!xemLai && tl === goc) lop += ' chon';
+        if (xemLai && goc === cau.dapAn) lop += ' la-dap-an';
+        if (xemLai && tl === goc && goc !== cau.dapAn) lop += ' chon-sai';
+        h += '<button type="button" class="' + lop + '" data-id="' + KT.esc(cau.id) + '" data-goc="' + goc + '"' + (xemLai ? ' disabled' : '') + '>' +
+             '<span class="chu">' + 'ABCDEFGH'.charAt(vt) + '.</span><span>' + KT.md(cau.phuongAn[goc]) + '</span></button>';
+      });
+      h += '</div>';
+    } else if (cau.loai === 'dien') {
+      if (xemLai) {
+        h += '<div class="dong-tl">Em viết: <b>' + (KT.daLam(cau, tl) ? KT.esc(tl) : '<i>(bỏ trống)</i>') + '</b></div>';
+      } else {
+        h += '<input class="o o-dien" data-id="' + KT.esc(cau.id) + '" value="' + KT.esc(tl || '') + '" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Viết câu trả lời">';
+      }
+    } else if (cau.loai === 'sapXep') {
+      var chon = tl || [];
+      if (xemLai) {
+        h += '<div class="dong-tl">Em ghép: <b>' + (chon.length ? KT.esc(KT.hienThi(cau, chon)) : '<i>(bỏ trống)</i>') + '</b></div>';
+      } else {
+        h += '<div class="ghep" data-ghep="' + KT.esc(cau.id) + '">' + (chon.length ? '' : '<span class="goi-y">Chạm vào các từ bên dưới theo đúng thứ tự</span>');
+        chon.forEach(function (i, vt) {
+          var chu = cau.manh[i]; if (vt === 0) chu = chu.charAt(0).toUpperCase() + chu.slice(1);
+          h += '<button type="button" class="manh" data-bo="' + KT.esc(cau.id) + '" data-vt="' + vt + '">' + KT.esc(chu) + '</button>';
+        });
+        if (chon.length === cau.manh.length) h += '<b>' + KT.esc(cau.cuoi || '') + '</b>';
+        h += '</div><div class="kho' + (chon.length === cau.manh.length ? ' an' : '') + '">';
+        cau.manh.forEach(function (m, i) {
+          h += '<button type="button" class="manh' + (chon.indexOf(i) >= 0 ? ' da-dung' : '') + '" data-them="' + KT.esc(cau.id) + '" data-i="' + i + '">' + KT.esc(m) + '</button>';
+        });
+        h += '</div><button type="button" class="xoa-ghep nut-phu" data-xoa="' + KT.esc(cau.id) + '">↺ Làm lại câu này</button>';
+      }
+    }
+    if (xemLai) {
+      if (!kq && cau.loai !== 'chon') h += '<div class="dong-tl">Đáp án đúng: <b>' + KT.esc(KT.dapAnChu(cau)) + '</b></div>';
+      if (cau.giaiThich) h += '<div class="giai-thich">💡 ' + KT.md(cau.giaiThich) + '</div>';
+    }
+    var lopCau = 'cau' + (xemLai ? (kq ? ' dung' : ' sai') : (KT.daLam(cau, tl) ? ' xong' : ''));
+    return '<section class="' + lopCau + '" id="cau-' + KT.esc(cau.id) + '">' + h + '</section>';
+  }
+  /** Vẽ toàn bộ đề theo thứ tự của lượt. xemLai = true: bản xem lại sau khi nộp (khoá, tô đúng/sai). */
+  function veDe(xemLai) {
+    var so = soHienThi(), h = '', k = 0;
+    DE.phan.forEach(function (p) {
+      h += '<h2>' + KT.md(p.tieuDe) + '</h2>';
+      p.nhom.forEach(function (n) {
+        var ids = TT.thuTu[k++];
+        if (n.huongDan) h += '<p class="huong-dan"><b>' + KT.md(n.huongDan) + '</b></p>';
+        if (n.hopTu && n.hopTu.length) h += '<div class="hop-tu">' + n.hopTu.map(function (t) { return '<span>' + KT.esc(t) + '</span>'; }).join('') + '</div>';
+        if (n.nguLieu) h += '<div class="ngu-lieu">' + KT.mdKhoi(n.nguLieu) + '</div>';
+        ids.forEach(function (id) { h += veCau(THEO_ID[id].cau, so[id], xemLai); });
+      });
+    });
+    return h;
+  }
+  function capNhatTienDo() {
+    var n = 0; DS.forEach(function (x) { if (KT.daLam(x.cau, TT.traLoi[x.cau.id])) n++; });
+    $('#so-da-lam').textContent = n; $('#so-tong').textContent = DS.length;
+    return n;
+  }
+  function veLuoi() {
+    var so = soHienThi(), ids = [].concat.apply([], TT.thuTu), h = '<div class="nho" style="margin-bottom:6px">Chạm số câu để đến câu đó. Ô xanh = đã làm.</div>';
+    ids.forEach(function (id) {
+      h += '<button type="button" class="o-so' + (KT.daLam(THEO_ID[id].cau, TT.traLoi[id]) ? ' xong' : '') + '" data-den="' + KT.esc(id) + '">' + so[id] + '</button>';
+    });
+    $('#luoi').innerHTML = h;
+  }
+  function veLaiCau(id) {
+    var cu = document.getElementById('cau-' + id), so = soHienThi()[id];
+    var tam = document.createElement('div'); tam.innerHTML = veCau(THEO_ID[id].cau, so, false);
+    cu.replaceWith(tam.firstChild);
+  }
+  function traLoi(id, giaTri, veLai) {
+    if (dangNop) return;
+    if (giaTri === null || giaTri === '' || (Array.isArray(giaTri) && !giaTri.length)) delete TT.traLoi[id];
+    else TT.traLoi[id] = giaTri;
+    luuTT();
+    if (veLai) veLaiCau(id);
+    else document.getElementById('cau-' + id).classList.toggle('xong', KT.daLam(THEO_ID[id].cau, TT.traLoi[id]));
+    capNhatTienDo();
+    if (!$('#luoi').classList.contains('an')) veLuoi();
+  }
+  function ganSuKienDe() {
+    var vung = $('#vung-de');
+    vung.onclick = function (e) {
+      var b = e.target.closest('button'); if (!b || dangNop) return;
+      if (b.dataset.goc != null) traLoi(b.dataset.id, +b.dataset.goc, true);
+      else if (b.dataset.them != null) {
+        var id = b.dataset.them, ds = (TT.traLoi[id] || []).slice(), i = +b.dataset.i;
+        if (ds.indexOf(i) < 0) ds.push(i); traLoi(id, ds, true);
+      } else if (b.dataset.bo != null) {
+        var ds2 = (TT.traLoi[b.dataset.bo] || []).slice(); ds2.splice(+b.dataset.vt, 1); traLoi(b.dataset.bo, ds2, true);
+      } else if (b.dataset.xoa != null) traLoi(b.dataset.xoa, null, true);
+    };
+    vung.oninput = function (e) { var o = e.target; if (o.dataset && o.dataset.id) traLoi(o.dataset.id, o.value, false); };
+    $('#nut-luoi').onclick = function () { var l = $('#luoi'); l.classList.toggle('an'); if (!l.classList.contains('an')) veLuoi(); };
+    $('#luoi').onclick = function (e) {
+      var b = e.target.closest('[data-den]'); if (!b) return;
+      $('#luoi').classList.add('an');
+      document.getElementById('cau-' + b.dataset.den).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    $('#nut-nop').onclick = hoiNop;
+  }
+  function vaoLamBai(moLai) {
+    document.body.classList.add('dang-lam');
+    $('#ten-hs-thanh').textContent = TT.hocSinh.hoTen + ' · ' + TT.hocSinh.lop;
+    $('#vung-de').innerHTML = '<div class="the" style="margin-top:4px"><div class="nho">Môn ' + KT.esc(DE.mon) + '</div><h1>' + KT.esc(DE.tieuDe) +
+      '</h1><div class="nho">' + KT.esc(TT.hocSinh.hoTen) + ' · Lớp ' + KT.esc(TT.hocSinh.lop) + ' · ' + KT.esc(TT.hocSinh.truong) + '</div></div>' + veDe(false) +
+      '<button type="button" class="nut-chinh" id="nut-nop-cuoi">Nộp bài</button>';
+    $('#nut-nop-cuoi').onclick = hoiNop;
+    ganSuKienDe(); capNhatTienDo(); hien('man-lam-bai');
+    clearInterval(henGio); henGio = setInterval(nhipDongHo, 500); nhipDongHo();
+    if (moLai) {
+      suKien('mo-lai-trang'); luuTT();
+      moHop('<h3>Tiếp tục bài làm</h3><p>Bài làm của <b>' + KT.esc(TT.hocSinh.hoTen) + '</b> vẫn được giữ nguyên. Đồng hồ vẫn chạy trong lúc trang bị đóng.</p>' +
+            '<p>Còn lại: <b>' + KT.dongHo(conLai() / 1000) + '</b></p><button type="button" class="nut-chinh" id="tiep-tuc">Tiếp tục làm bài</button>');
+      $('#tiep-tuc').onclick = function () {
+        dongHop();
+        if (TT.toanManHinh === 'co') vaoToanManHinh();
+      };
+    }
+  }
+  function conLai() { return TT.thoiGianChoPhepGiay * 1000 - (Date.now() - TT.batDau); }
+  function nhipDongHo() {
+    if (!TT || dangNop) return;
+    var ms = conLai(), dh = $('#dong-ho');
+    dh.textContent = KT.dongHo(ms / 1000);
+    dh.classList.toggle('sap-het', ms <= 5 * 60000 && ms > 60000);
+    dh.classList.toggle('gap', ms <= 60000);
+    if (ms <= 5 * 60000 && ms > 60000 && !daBao.nam) { daBao.nam = 1; thongBao('⏰ Còn 5 phút — em soát lại bài nhé.', 5000); }
+    if (ms <= 60000 && ms > 0 && !daBao.mot) { daBao.mot = 1; thongBao('⏰ Còn 1 phút! Hết giờ máy tự nộp bài.', 5000); }
+    if (ms <= 0) nopBai('het-gio');
+  }
+
+  // ------------------------------------------------------------ nộp bài
+  function hoiNop() {
+    var n = capNhatTienDo(), con = DS.length - n;
+    moHop('<h3>Nộp bài?</h3><p>' + (con ? 'Em còn <b>' + con + ' câu chưa làm</b>. ' : 'Em đã làm hết các câu. ') +
+          'Nộp rồi thì <b>không sửa được nữa</b>.</p><div class="hang-nut"><button type="button" class="nut-phu" id="lam-tiep">Làm tiếp</button>' +
+          '<button type="button" class="nut-chinh" style="margin:0" id="nop-that">Nộp bài</button></div>');
+    $('#lam-tiep').onclick = dongHop;
+    $('#nop-that').onclick = function () { dongHop(); nopBai('tu-nop'); };
+  }
+  function nopBai(lyDo) {
+    if (dangNop) return;
+    dangNop = true; clearInterval(henGio);
+    var nopLuc = Math.min(Date.now(), TT.batDau + TT.thoiGianChoPhepGiay * 1000);
+    suKien(lyDo === 'het-gio' ? 'het-gio' : 'nop-bai');
+    var kq = KT.cham(DE, TT.traLoi);
+    var bg = {
+      phienBanDuLieu: 1, maLuot: TT.maLuot,
+      hocSinh: TT.hocSinh,
+      de: { maDe: DE.maDe, phienBan: DE.phienBan, tieuDe: DE.tieuDe, mon: DE.mon },
+      batDau: TT.batDau, nopLuc: nopLuc,
+      thoiGianLamGiay: Math.round((nopLuc - TT.batDau) / 1000), thoiGianChoPhepGiay: TT.thoiGianChoPhepGiay,
+      lyDoNop: lyDo,
+      diem: kq.diem / 100, diemToiDa: kq.diemToiDa / 100, soDung: kq.soDung, tongSoCau: kq.tongSoCau,
+      traLoi: kq.chiTiet, traLoiTho: TT.traLoi,
+      thuTu: TT.thuTu, hoanVi: TT.hoanVi,
+      giamSat: { soLanRoiTrang: TT.soLanRoiTrang, soLanThoatToanManHinh: TT.soLanThoatToanManHinh,
+                 toanManHinh: TT.toanManHinh, suKien: TT.suKien },
+      thietBi: navigator.userAgent.slice(0, 160),
+      nguon: 'may-nay'
+    };
+    var ds = KT.doc(KT.KHOA.ketQua, []);
+    ds.push(bg);
+    if (!KT.ghi(KT.KHOA.ketQua, ds)) thongBao('⚠️ Không lưu được kết quả vào máy! Em đưa mã QR / tải file cho thầy cô ngay.', 8000);
+    xoaTT();
+    document.body.classList.remove('dang-lam');
+    thoatToanManHinh();
+    manKetQua(bg);
+    if (lyDo === 'het-gio') {
+      moHop('<h3>⏰ Hết giờ làm bài</h3><p>Máy đã tự nộp bài của em.</p><button type="button" class="nut-chinh" id="dong-het-gio">Xem kết quả</button>');
+      $('#dong-het-gio').onclick = dongHop;
+    }
+  }
+
+  // ------------------------------------------------------------ MÀN 3: kết quả
+  function manKetQua(bg) {
+    TT = { thuTu: bg.thuTu, hoanVi: bg.hoanVi, traLoi: bg.traLoiTho || {} };   // để vẽ bản xem lại
+    var hs = bg.hocSinh, gs = bg.giamSat || {};
+    var h = '<div class="the"><div class="nho">Môn ' + KT.esc(bg.de.mon) + ' · ' + KT.esc(bg.de.tieuDe) + '</div>' +
+      '<h1>Em đã nộp bài</h1><div class="diem-lon">' + KT.soVN(bg.diem * 100) + ' <small>/ ' + KT.soVN(bg.diemToiDa * 100) + ' điểm</small></div>' +
+      '<p style="text-align:center;margin:0">Đúng <b>' + bg.soDung + '/' + bg.tongSoCau + '</b> câu</p>' +
+      '<table class="bang-tt">' +
+      '<tr><td>Họ và tên</td><td><b>' + KT.esc(hs.hoTen) + '</b> (' + KT.esc(hs.gioiTinh) + ')</td></tr>' +
+      '<tr><td>Lớp · Trường</td><td>' + KT.esc(hs.lop) + ' · ' + KT.esc(hs.truong) + '</td></tr>' +
+      '<tr><td>Bắt đầu · Nộp lúc</td><td>' + KT.ngayGio(bg.batDau) + ' → ' + KT.ngayGio(bg.nopLuc) + '</td></tr>' +
+      '<tr><td>Thời gian làm</td><td>' + KT.thoiGian(bg.thoiGianLamGiay) + ' / ' + (bg.thoiGianChoPhepGiay / 60) + ' phút' +
+        (bg.lyDoNop === 'het-gio' ? ' — <b>hết giờ, máy tự nộp</b>' : '') + '</td></tr>' +
+      '<tr><td>Rời trang bài làm</td><td>' + gs.soLanRoiTrang + ' lần' + (gs.toanManHinh === 'co' ? ' · thoát toàn màn hình ' + gs.soLanThoatToanManHinh + ' lần' : '') + '</td></tr>' +
+      '<tr><td>Mã bài</td><td><code>' + KT.esc(bg.maLuot) + '</code></td></tr></table></div>' +
+      '<div class="the" style="text-align:center"><h2 style="margin-top:0">📲 Gửi kết quả cho thầy cô</h2>' +
+      '<p class="nho" style="margin:0">Đưa màn hình này để thầy cô quét mã QR bằng camera điện thoại.</p>' +
+      '<div class="qr" id="qr"><span class="nho">Đang tạo mã…</span></div>' +
+      '<div class="hang-nut"><button type="button" class="nut-phu" id="tai-kq">💾 Tải file kết quả</button>' +
+      '<button type="button" class="nut-phu" id="chep-ma">📋 Sao chép mã</button></div></div>' +
+      '<h2>Xem lại bài làm</h2><div class="xem-lai">' + veDe(true) + '</div>' +
+      '<div class="chan"><button type="button" id="hs-khac">Giáo viên: cho học sinh khác làm bài trên máy này</button></div>';
+    $('#man-ket-qua').innerHTML = h;
+    hien('man-ket-qua');
+    var ma = null;
+    KT.maHoa(KT.goiGon(bg, DE)).then(function (m) {
+      ma = m;
+      var url = CH.urlGiaoVien + '#nhap=' + m;
+      try {
+        var qr = qrcode(0, 'L'); qr.addData(url, 'Byte'); qr.make();
+        $('#qr').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 4, scalable: true });
+        $('#qr').dataset.url = url;
+      } catch (e) { $('#qr').innerHTML = '<span class="nho">Không tạo được mã QR — dùng nút tải file hoặc sao chép mã.</span>'; }
+    });
+    $('#tai-kq').onclick = function () {
+      KT.taiFile('ket-qua-' + KT.tenTep(bg.de.maDe) + '-' + KT.tenTep(hs.lop) + '-' + KT.tenTep(hs.hoTen) + '.json', JSON.stringify(bg, null, 1));
+    };
+    $('#chep-ma').onclick = function () {
+      if (!ma) return;
+      var xong = function () { thongBao('Đã sao chép mã kết quả. Em dán gửi cho thầy cô.'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ma).then(xong, function () { hienMa(ma); });
+      else hienMa(ma);
+    };
+    $('#hs-khac').onclick = function () {
+      hoiPin('Nhập mã PIN để mở lượt làm bài mới trên máy này. Kết quả vừa rồi vẫn được giữ trong máy.').then(function (ok) {
+        if (!ok) return;
+        var ds = KT.doc(KT.KHOA.ketQua, []);
+        ds.forEach(function (b) { if (b.maLuot === bg.maLuot) b.daMoLuotMoi = true; });
+        KT.ghi(KT.KHOA.ketQua, ds);
+        location.reload();
+      });
+    };
+  }
+  function hienMa(ma) {
+    moHop('<h3>Mã kết quả</h3><p class="nho">Chép toàn bộ đoạn mã này gửi thầy cô.</p><textarea class="o" rows="6" readonly style="font:12px monospace;word-break:break-all">' +
+          KT.esc(ma) + '</textarea><button type="button" class="nut-chinh" id="dong-ma">Đóng</button>');
+    $('#hop textarea').select(); $('#dong-ma').onclick = dongHop;
+  }
+
+  // ------------------------------------------------------------ khởi động
+  function khoiDong() {
+    var dl = KT.doc(KT.KHOA.dangLam, {})[DE.maDe];
+    if (dl && dl.phienBan === DE.phienBan && dl.maLuot) {
+      TT = dl;
+      if (conLai() <= 0) { vaoLamBai(false); nopBai('het-gio'); }
+      else vaoLamBai(true);
+      return;
+    }
+    var cuoi = ketQuaCuoi();
+    if (cuoi && !cuoi.daMoLuotMoi) { manKetQua(cuoi); return; }
+    manThongTin();
+  }
+  // Cho script kiểm thử (thu_lam_bai.py) đọc được — học sinh không dùng.
+  window.__KT_TRANG = { DE: DE, trangThai: function () { return TT; }, nopBai: nopBai };
+  khoiDong();
+})();
+</script>
+</body>
+</html>
