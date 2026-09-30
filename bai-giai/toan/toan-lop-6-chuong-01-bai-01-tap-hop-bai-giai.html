@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 1. Tập hợp — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:8}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.nhan:not(.nb):not(.th):not(.vd):not(.vdc){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương I. Tập hợp các số tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 1. Tập hợp — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương I. Tập hợp các số tự nhiên</div><h1>Bài 1. Tập hợp — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → đáp số</b> ngay, kèm <b>bẫy học sinh hay mắc</b> và <b>ghi chú dạy</b>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-tap-hop"><b class="ten">Tập hợp, phần tử</b>
+      Một <b>tập hợp</b> (gọi tắt là <b>tập</b>) bao gồm những đối tượng nhất định. Các đối tượng ấy được gọi là những <b>phần tử</b> của tập hợp. Tên tập hợp thường đặt bằng chữ cái in hoa.</div>
+    <div class="kt" id="kt-thuoc"><b class="ten">Kí hiệu ∈ và ∉</b>
+      <span class="m">x</span> là một phần tử của tập <span class="m">A</span>: kí hiệu <span class="m">x ∈ A</span> (đọc là “<i>x</i> thuộc <i>A</i>”).<br>
+      <span class="m">y</span> không là phần tử của tập <span class="m">A</span>: kí hiệu <span class="m">y ∉ A</span> (đọc là “<i>y</i> không thuộc <i>A</i>”).</div>
+    <div class="kt" id="kt-liet-ke"><b class="ten">Cách 1 — Liệt kê</b>
+      Viết các phần tử trong dấu ngoặc <span class="m up">{ }</span> <b>theo thứ tự tuỳ ý</b> nhưng <b>mỗi phần tử chỉ viết một lần</b>, cách nhau bởi dấu “;”.<br>
+      Ví dụ: <span class="m">P = <span class="up">{0; 1; 2; 3; 4; 5}</span></span>.</div>
+    <div class="kt" id="kt-dau-hieu"><b class="ten">Cách 2 — Nêu dấu hiệu đặc trưng</b>
+      Ví dụ: <span class="m">P = {n | n</span> là số tự nhiên nhỏ hơn 6<span class="m">}</span>, hay <span class="m">P = {n ∈ <span class="up">ℕ</span> | n &lt; <span class="up">6</span>}</span>.</div>
+    <div class="kt" id="kt-N"><b class="ten">Tập ℕ và ℕ*</b>
+      <span class="m"><span class="up">ℕ = {0; 1; 2; 3; …}</span></span> là tập các số tự nhiên (<b>có số 0</b>).<br>
+      <span class="m"><span class="up">ℕ<sup>*</sup> = {1; 2; 3; …}</span></span> là tập các số tự nhiên <b>khác 0</b>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 1. Tập hợp.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thuộc / không thuộc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Gọi <span class="m">B</span> là tập hợp các bạn tổ trưởng trong lớp em. Em hãy chỉ ra một bạn thuộc tập <span class="m">B</span> và một bạn không thuộc tập <span class="m">B</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em hãy nghĩ về lớp mình trước đã nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Phần tử của tập <span class="m">B</span> là những bạn <b>là tổ trưởng</b>. Bạn nào không làm tổ trưởng thì không nằm trong <span class="m">B</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu tập B gồm những ai</h4>
+      <p>Tập <span class="m">B</span> chỉ gồm các bạn <b>đang làm tổ trưởng</b>. Chẳng hạn lớp em có 4 tổ, tổ trưởng là Lan, Minh, Hà, Tuấn thì <span class="m">B</span> = {Lan; Minh; Hà; Tuấn}.</p>
+      <p class="vi-sao">Muốn biết ai thuộc tập hợp, phải xem người đó có đúng “đặc điểm” của tập không — ở đây đặc điểm là “là tổ trưởng”.</p></div>
+    <div class="buoc" data-so="2"><h4>Chỉ ra một bạn thuộc B</h4>
+      <p>Lan là tổ trưởng nên Lan <b>thuộc</b> <span class="m">B</span>, viết: <span class="m">Lan ∈ B</span>.</p>
+      <a class="xem-lai" href="#kt-thuoc">📌 Xem lại: kí hiệu ∈, ∉</a></div>
+    <div class="buoc" data-so="3"><h4>Chỉ ra một bạn không thuộc B</h4>
+      <p>Hùng không là tổ trưởng nên Hùng <b>không thuộc</b> <span class="m">B</span>, viết: <span class="m">Hùng ∉ B</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ theo lớp em. Chỉ cần: bạn là tổ trưởng → dùng <span class="m">∈</span>; bạn không là tổ trưởng → dùng <span class="m">∉</span>.</div>
+    <div class="bay">Viết ngược kí hiệu: <span class="m">B ∈ Lan</span> là <b>sai</b>. Phần tử luôn đứng <b>trước</b>, tập hợp đứng <b>sau</b> kí hiệu ∈.</div>
+    <div class="gv-note">Bài mở, không có đáp án duy nhất. Nên cho 2–3 HS nói tên thật trong lớp, cả lớp đọc to “… thuộc <i>B</i>”, “… không thuộc <i>B</i>” để luyện cách đọc kí hiệu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy tưởng tượng tập <span class="m">B</span> là một <b>chiếc ghế dài chỉ dành cho tổ trưởng</b>. Bạn nào được ngồi lên ghế thì “thuộc <i>B</i>”, bạn nào không được ngồi thì “không thuộc <i>B</i>”.</div>
+  </div>
+</article>
+
+<article class="the bai" id="ch" data-ten="Câu hỏi" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu hỏi</span><span class="nhan th">Thông hiểu</span><span class="nhan">Liệt kê phần tử</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi mô tả tập hợp <span class="m">L</span> các chữ cái trong từ NHA TRANG bằng cách liệt kê các phần tử, bạn Nam viết:</p>
+    <p style="text-align:center"><span class="m">L = <span class="up">{N; H; A; T; R; A; N; G}</span></span>.</p>
+    <p>Theo em, bạn Nam viết đúng hay sai?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em hãy đếm xem có chữ nào bị viết lặp lại không.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại quy tắc liệt kê: mỗi phần tử được viết <b>mấy lần</b>?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhớ lại quy tắc liệt kê</h4>
+      <p>Khi liệt kê, <b>mỗi phần tử chỉ được viết một lần</b>.</p>
+      <a class="xem-lai" href="#kt-liet-ke">📌 Xem lại: cách liệt kê</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra cách viết của Nam</h4>
+      <p>Trong <span class="m up">{N; H; <u>A</u>; T; R; <u>A</u>; <u>N</u>; G}</span>, chữ <b>A</b> viết 2 lần, chữ <b>N</b> viết 2 lần.</p>
+      <p class="vi-sao">Từ NHA TRANG có 8 chữ, nhưng chỉ có 6 chữ cái <b>khác nhau</b>. Tập hợp chỉ quan tâm “có những chữ cái nào”, không quan tâm chữ đó xuất hiện mấy lần.</p></div>
+    <div class="buoc" data-so="3"><h4>Kết luận và viết lại cho đúng</h4>
+      <p>Bạn Nam viết <b>sai</b>. Viết đúng: <span class="m">L = <span class="up">{N; H; A; T; R; G}</span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nam viết <b>sai</b> vì chữ A và chữ N bị viết hai lần. Sửa lại: <span class="m">L = <span class="up">{N; H; A; T; R; G}</span></span>.</div>
+    <div class="bay">Nghĩ rằng phải giữ đúng thứ tự trong từ. Thật ra thứ tự là <b>tuỳ ý</b>: <span class="m up">{G; R; T; A; H; N}</span> cũng đúng.</div>
+    <div class="gv-note">Có thể hỏi thêm: “Tập <i>L</i> có mấy phần tử?” (6) để HS thấy rõ số chữ trong từ ≠ số phần tử của tập.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Giống như <b>điểm danh</b>: bạn A đã có tên trong danh sách rồi thì không ghi tên bạn ấy lần thứ hai. Tập hợp là “danh sách điểm danh” — mỗi thành viên chỉ có mặt một lần.</div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu hiệu → liệt kê</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết các tập hợp sau bằng cách liệt kê các phần tử của chúng:</p>
+    <p style="text-align:center"><span class="m">A = {x ∈ <span class="up">ℕ</span> | x &lt; <span class="up">5</span>}</span>; &nbsp;&nbsp; <span class="m">B = {x ∈ <span class="up">ℕ<sup>*</sup></span> | x &lt; <span class="up">5</span>}</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Để ý kĩ: hai tập chỉ khác nhau đúng một kí hiệu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m up">ℕ</span> và <span class="m up">ℕ<sup>*</sup></span> khác nhau ở số nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc hiểu kí hiệu của tập A</h4>
+      <p><span class="m">A = {x ∈ <span class="up">ℕ</span> | x &lt; <span class="up">5</span>}</span> đọc là: “<i>A</i> là tập các số tự nhiên <i>x</i> sao cho <i>x</i> nhỏ hơn 5”.</p>
+      <p class="vi-sao">Phần trước dấu “|” cho biết <i>x</i> lấy từ đâu (số tự nhiên), phần sau cho biết điều kiện (<i>x</i> &lt; 5).</p></div>
+    <div class="buoc" data-so="2"><h4>Liệt kê tập A</h4>
+      <p>Các số tự nhiên nhỏ hơn 5 là 0; 1; 2; 3; 4. Vậy <span class="m">A = <span class="up">{0; 1; 2; 3; 4}</span></span>.</p>
+      <p class="vi-sao">Tập <span class="m up">ℕ</span> bắt đầu từ <b>0</b>, nên 0 cũng là số tự nhiên nhỏ hơn 5.</p>
+      <a class="xem-lai" href="#kt-N">📌 Xem lại: tập ℕ và ℕ*</a></div>
+    <div class="buoc" data-so="3"><h4>Liệt kê tập B</h4>
+      <p><span class="m up">ℕ<sup>*</sup></span> là các số tự nhiên <b>khác 0</b>, nên bỏ số 0 đi: <span class="m">B = <span class="up">{1; 2; 3; 4}</span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">A = <span class="up">{0; 1; 2; 3; 4}</span></span>; &nbsp; <span class="m">B = <span class="up">{1; 2; 3; 4}</span></span>.</div>
+    <div class="bay">① Quên số 0 ở tập <i>A</i>. ② Lấy cả số 5 (“nhỏ hơn 5” thì <b>không</b> có 5). ③ Quên bỏ 0 ở tập <i>B</i>.</div>
+    <div class="gv-note">Đây là bài đầu tiên HS gặp dấu “|”. Nên yêu cầu HS <b>đọc thành lời</b> kí hiệu trước khi liệt kê.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Dấu sao <b>*</b> trên chữ ℕ giống như biển “<b>cấm số 0</b>”. ℕ thì có đủ 0; 1; 2; …, còn ℕ* thì số 0 bị mời ra ngoài.</div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hai cách mô tả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Gọi <span class="m">M</span> là tập hợp các số tự nhiên lớn hơn 6 và nhỏ hơn 10.</p>
+    <p>a) Thay dấu “?” bằng kí hiệu <span class="m">∈</span> hoặc <span class="m">∉</span>: &nbsp; <span class="m"><span class="up">5</span> ? M</span>; &nbsp; <span class="m"><span class="up">9</span> ? M</span>.</p>
+    <p>b) Mô tả tập hợp <span class="m">M</span> bằng hai cách.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh câu a</b>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">5</span> ? M</span><button class="chon" data-dung="0">∈</button><button class="chon" data-dung="1">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 5 không lớn hơn 6." data-sai-txt="Chưa đúng — 5 có lớn hơn 6 không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">9</span> ? M</span><button class="chon" data-dung="1">∈</button><button class="chon" data-dung="0">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 9 lớn hơn 6 và nhỏ hơn 10." data-sai-txt="Chưa đúng — 9 có nằm giữa 6 và 10 không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Làm câu a bằng nút ∈ / ∉ ở trên, rồi tự viết câu b ra giấy nháp.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hãy tìm hết các số tự nhiên nằm <b>giữa</b> 6 và 10 trước (không lấy 6, không lấy 10).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các phần tử của M</h4>
+      <p>Số tự nhiên lớn hơn 6 và nhỏ hơn 10 là: 7; 8; 9.</p>
+      <svg viewBox="0 0 520 70" role="img" aria-label="Tia số từ 5 đến 10, các số 7, 8, 9 được tô màu">
+        <line x1="20" y1="30" x2="505" y2="30" stroke="#5c6577" stroke-width="2"/>
+        <polygon points="505,25 515,30 505,35" fill="#5c6577"/>
+        <g font-family="Segoe UI,Arial" font-size="17" text-anchor="middle" fill="#1f2430">
+          <line x1="40" y1="24" x2="40" y2="36" stroke="#5c6577" stroke-width="2"/><text x="40" y="60">5</text>
+          <circle cx="130" cy="30" r="8" fill="#fff" stroke="#c93c3c" stroke-width="2.5"/><text x="130" y="60" fill="#c93c3c">6</text>
+          <circle cx="220" cy="30" r="9" fill="#0f8a68"/><text x="220" y="60" font-weight="700" fill="#0f8a68">7</text>
+          <circle cx="310" cy="30" r="9" fill="#0f8a68"/><text x="310" y="60" font-weight="700" fill="#0f8a68">8</text>
+          <circle cx="400" cy="30" r="9" fill="#0f8a68"/><text x="400" y="60" font-weight="700" fill="#0f8a68">9</text>
+          <circle cx="490" cy="30" r="8" fill="#fff" stroke="#c93c3c" stroke-width="2.5"/><text x="490" y="60" fill="#c93c3c">10</text>
+        </g>
+      </svg>
+      <p class="vi-sao">“Lớn hơn 6” nên <b>không lấy 6</b>; “nhỏ hơn 10” nên <b>không lấy 10</b>. Chỉ còn 7, 8, 9 (chấm xanh).</p></div>
+    <div class="buoc" data-so="2"><h4>Câu a — điền ∈ hoặc ∉</h4>
+      <p>5 không có trong {7; 8; 9} nên <span class="m"><span class="up">5</span> ∉ M</span>. &nbsp; 9 có trong {7; 8; 9} nên <span class="m"><span class="up">9</span> ∈ M</span>.</p>
+      <a class="xem-lai" href="#kt-thuoc">📌 Xem lại: kí hiệu ∈, ∉</a></div>
+    <div class="buoc" data-so="3"><h4>Câu b — Cách 1: liệt kê</h4>
+      <p><span class="m">M = <span class="up">{7; 8; 9}</span></span>.</p></div>
+    <div class="buoc" data-so="4"><h4>Câu b — Cách 2: nêu dấu hiệu đặc trưng</h4>
+      <p><span class="m">M = {x ∈ <span class="up">ℕ</span> | x &gt; <span class="up">6</span></span> và <span class="m">x &lt; <span class="up">10</span>}</span>.</p>
+      <p class="vi-sao">Ta chỉ cần viết lại đúng lời của đề bằng kí hiệu: “số tự nhiên” → <span class="m">x ∈ <span class="up">ℕ</span></span>; “lớn hơn 6 và nhỏ hơn 10” → <span class="m">x &gt; <span class="up">6</span></span> và <span class="m">x &lt; <span class="up">10</span></span>.</p>
+      <a class="xem-lai" href="#kt-dau-hieu">📌 Xem lại: cách nêu dấu hiệu đặc trưng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="up">5</span> ∉ M</span>; <span class="m"><span class="up">9</span> ∈ M</span>.<br>b) <span class="m">M = <span class="up">{7; 8; 9}</span></span> hoặc <span class="m">M = {x ∈ <span class="up">ℕ</span> | x &gt; <span class="up">6</span></span> và <span class="m">x &lt; <span class="up">10</span>}</span>.</div>
+    <div class="bay">Lấy luôn cả 6 và 10 vào tập <i>M</i>. “Lớn hơn”, “nhỏ hơn” <b>không</b> bao gồm chính số đó.</div>
+    <div class="gv-note">Cách 2 có thể chấp nhận cách viết bằng lời: <i>M</i> = {<i>x</i> | <i>x</i> là số tự nhiên lớn hơn 6 và nhỏ hơn 10}.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hình dung 6 và 10 là <b>hai cánh cổng</b>. Tập <i>M</i> là những bạn đứng <b>bên trong</b> hai cánh cổng, còn hai cánh cổng thì không tính: đó là 7, 8, 9.</div>
+  </div>
+</article>
+
+<article class="the bai" id="b11" data-ten="Bài 1.1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thuộc / không thuộc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho hai tập hợp: <span class="m">A = {a; b; c; x; y}</span> và <span class="m">B = {b; d; y; t; u; v}</span>.</p>
+    <p>Dùng kí hiệu “<span class="m">∈</span>” hoặc “<span class="m">∉</span>” để trả lời câu hỏi: Mỗi phần tử <span class="m">a, b, x, u</span> thuộc tập hợp nào và <i>không</i> thuộc tập hợp nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với mỗi chữ, em hãy dò trong <i>A</i> rồi dò trong <i>B</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi chữ cần <b>hai câu trả lời</b>: một cho tập <i>A</i>, một cho tập <i>B</i>. Có chữ nằm trong cả hai tập đấy!</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ hai tập ra cho dễ nhìn</h4>
+      <svg viewBox="0 0 440 212" role="img" aria-label="Sơ đồ Venn: A chứa a, c, x; B chứa d, t, u, v; phần chung chứa b, y">
+        <ellipse cx="160" cy="100" rx="130" ry="80" fill="#e8f0ff" fill-opacity=".8" stroke="#2f6fdb" stroke-width="2.5"/>
+        <ellipse cx="280" cy="100" rx="130" ry="80" fill="#e6f7f1" fill-opacity=".6" stroke="#0f8a68" stroke-width="2.5"/>
+        <g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="22" text-anchor="middle" fill="#1f2430">
+          <text x="40" y="30" fill="#2f6fdb" font-weight="700" font-size="24">A</text>
+          <text x="405" y="30" fill="#0f8a68" font-weight="700" font-size="24">B</text>
+          <text x="80" y="85" font-weight="700" fill="#c93c3c">a</text><text x="85" y="138">c</text><text x="122" y="112" font-weight="700" fill="#c93c3c">x</text>
+          <text x="220" y="82" font-weight="700" fill="#c93c3c">b</text><text x="220" y="132">y</text>
+          <text x="322" y="78">d</text><text x="368" y="104">t</text><text x="318" y="138" font-weight="700" fill="#c93c3c">u</text><text x="362" y="146">v</text>
+        </g>
+        <text x="220" y="206" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">phần chung (giữa): có mặt ở cả A và B · chữ đỏ: các chữ đề hỏi</text>
+      </svg>
+      <p class="vi-sao">Chữ nào có mặt ở cả hai tập (<i>b</i>, <i>y</i>) thì đặt vào phần chung. Nhìn hình là biết ngay chữ nào thuộc tập nào.</p></div>
+    <div class="buoc" data-so="2"><h4>Xét từng chữ</h4>
+      <table>
+        <tr><th>Phần tử</th><th>Có trong A?</th><th>Có trong B?</th><th>Viết</th></tr>
+        <tr><td class="m">a</td><td>có</td><td>không</td><td><span class="m">a ∈ A</span>; <span class="m">a ∉ B</span></td></tr>
+        <tr><td class="m">b</td><td>có</td><td>có</td><td><span class="m">b ∈ A</span>; <span class="m">b ∈ B</span></td></tr>
+        <tr><td class="m">x</td><td>có</td><td>không</td><td><span class="m">x ∈ A</span>; <span class="m">x ∉ B</span></td></tr>
+        <tr><td class="m">u</td><td>không</td><td>có</td><td><span class="m">u ∉ A</span>; <span class="m">u ∈ B</span></td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-thuoc">📌 Xem lại: kí hiệu ∈, ∉</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">a ∈ A, a ∉ B</span>; &nbsp; <span class="m">b ∈ A, b ∈ B</span>; &nbsp; <span class="m">x ∈ A, x ∉ B</span>; &nbsp; <span class="m">u ∉ A, u ∈ B</span>.</div>
+    <div class="bay">Với chữ <i>b</i>, chỉ trả lời “<i>b</i> ∈ <i>A</i>” rồi dừng. Một phần tử có thể thuộc <b>cả hai</b> tập, nên phải xét đủ cả <i>A</i> lẫn <i>B</i>.</div>
+    <div class="gv-note">Sơ đồ Venn hai tập giao nhau ở đây chỉ dùng làm hình trực quan. Khái niệm “giao của hai tập hợp” chỉ nằm ở mục <i>Em có biết?</i>, không bắt buộc.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Coi <i>A</i> là <b>CLB Bóng đá</b>, <i>B</i> là <b>CLB Cờ vua</b>. Một bạn có thể chỉ ở CLB Bóng đá (như <i>a</i>, <i>x</i>), chỉ ở CLB Cờ vua (như <i>u</i>), hoặc tham gia cả hai (như <i>b</i>).</div>
+  </div>
+</article>
+
+<article class="the bai" id="b12" data-ten="Bài 1.2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1.2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu hiệu đặc trưng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho tập hợp <span class="m">U = {x ∈ <span class="up">ℕ</span> | x</span> chia hết cho <span class="m"><span class="up">3</span>}</span>.</p>
+    <p>Trong các số 3; 5; 6; 0; 7, số nào thuộc và số nào không thuộc tập <span class="m">U</span>?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — bấm ∈ hoặc ∉</b>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">3</span> ? U</span><button class="chon" data-dung="1">∈</button><button class="chon" data-dung="0">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 3 : 3 = 1." data-sai-txt="Thử lại: 3 : 3 = ?"></span></div>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">5</span> ? U</span><button class="chon" data-dung="0">∈</button><button class="chon" data-dung="1">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 5 : 3 còn dư 2." data-sai-txt="Thử lại: 5 chia 3 có dư không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">6</span> ? U</span><button class="chon" data-dung="1">∈</button><button class="chon" data-dung="0">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 6 : 3 = 2." data-sai-txt="Thử lại: 6 : 3 = ?"></span></div>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">0</span> ? U</span><button class="chon" data-dung="1">∈</button><button class="chon" data-dung="0">∉</button><span class="phan-hoi" data-dung-txt="Giỏi quá! 0 : 3 = 0, không dư." data-sai-txt="Bẫy đấy! Thử tính 0 : 3 = ? Có dư không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung m"><span class="up">7</span> ? U</span><button class="chon" data-dung="0">∈</button><button class="chon" data-dung="1">∉</button><span class="phan-hoi" data-dung-txt="Đúng! 7 : 3 còn dư 1." data-sai-txt="Thử lại: 7 chia 3 có dư không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bấm thử ∈ / ∉ ở trên — nhớ tự giải thích <b>vì sao</b> trước khi bấm nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi số, em thử chia cho 3. Chia hết (không dư) → thuộc <i>U</i>. Còn dư → không thuộc <i>U</i>. Cẩn thận với số 0!</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu tập U</h4>
+      <p><i>U</i> gồm các số tự nhiên <b>chia hết cho 3</b>. Muốn biết một số có thuộc <i>U</i> hay không, ta chỉ cần kiểm tra số đó có chia hết cho 3 không.</p>
+      <p class="vi-sao">Tập <i>U</i> được cho bằng <b>dấu hiệu đặc trưng</b>, nên ta dùng chính dấu hiệu đó để kiểm tra từng số.</p>
+      <a class="xem-lai" href="#kt-dau-hieu">📌 Xem lại: cách nêu dấu hiệu đặc trưng</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra từng số</h4>
+      <table>
+        <tr><th>Số</th><th>Chia cho 3</th><th>Kết luận</th></tr>
+        <tr><td>3</td><td>3 : 3 = 1, không dư</td><td><span class="m"><span class="up">3</span> ∈ U</span></td></tr>
+        <tr><td>5</td><td>5 : 3 = 1, dư 2</td><td><span class="m"><span class="up">5</span> ∉ U</span></td></tr>
+        <tr><td>6</td><td>6 : 3 = 2, không dư</td><td><span class="m"><span class="up">6</span> ∈ U</span></td></tr>
+        <tr><td>0</td><td>0 : 3 = 0, không dư</td><td><span class="m"><span class="up">0</span> ∈ U</span></td></tr>
+        <tr><td>7</td><td>7 : 3 = 2, dư 1</td><td><span class="m"><span class="up">7</span> ∉ U</span></td></tr>
+      </table>
+      <p class="vi-sao">Số 0 chia cho 3 được 0 và không dư, nên 0 chia hết cho 3. Ngoài ra 0 là số tự nhiên, nên 0 thuộc <i>U</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các số <b>thuộc</b> <i>U</i>: 3; 6; 0 &nbsp; (<span class="m"><span class="up">3</span> ∈ U, <span class="up">6</span> ∈ U, <span class="up">0</span> ∈ U</span>).<br>Các số <b>không thuộc</b> <i>U</i>: 5; 7 &nbsp; (<span class="m"><span class="up">5</span> ∉ U, <span class="up">7</span> ∉ U</span>).</div>
+    <div class="bay">Cho rằng số 0 không chia hết cho 3 (“0 thì làm sao chia được”). Thật ra 0 : 3 = 0, không dư, nên <b>0 ∈ <i>U</i></b>.</div>
+    <div class="gv-note">Ở Bài 1, HS mới dùng “chia hết” theo nghĩa phép chia không dư đã học ở tiểu học; dấu hiệu chia hết cho 3 sẽ học ở Chương II — không cần dùng ở đây.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Chia hết cho 3 nghĩa là chia đều cho <b>3 bạn</b> mà không thừa cái kẹo nào. 6 cái kẹo → mỗi bạn 2, không thừa. 5 cái → thừa 2. <b>0 cái kẹo</b> → mỗi bạn 0 cái, cũng không thừa cái nào!</div>
+  </div>
+</article>
+
+<article class="the bai" id="b13" data-ten="Bài 1.3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1.3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Liệt kê phần tử</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng cách liệt kê các phần tử, hãy viết các tập hợp sau:</p>
+    <p>a) Tập hợp <span class="m">K</span> các số tự nhiên nhỏ hơn 7;</p>
+    <p>b) Tập hợp <span class="m">D</span> tên các tháng (dương lịch) có 30 ngày;</p>
+    <p>c) Tập hợp <span class="m">M</span> các chữ cái tiếng Việt trong từ “ĐIỆN BIÊN PHỦ”.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu c có hai cái bẫy — em thử tìm xem!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) Đừng quên số 0. b) Đếm trên nắm tay hoặc xem lịch. c) Dấu thanh (sắc, huyền, hỏi, ngã, nặng) <b>không phải</b> chữ cái; chữ nào lặp lại chỉ viết một lần.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — số tự nhiên nhỏ hơn 7</h4>
+      <p><span class="m">K = <span class="up">{0; 1; 2; 3; 4; 5; 6}</span></span>.</p>
+      <p class="vi-sao">Số tự nhiên bắt đầu từ 0; “nhỏ hơn 7” thì không lấy 7.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu b — các tháng có 30 ngày</h4>
+      <p>Đếm các khớp trên nắm tay: tháng rơi vào <b>chỗ lõm</b> (trừ tháng Hai) có 30 ngày. Đó là tháng Tư, tháng Sáu, tháng Chín, tháng Mười một.</p>
+      <p><span class="m">D =</span> {tháng Tư; tháng Sáu; tháng Chín; tháng Mười một}.</p>
+      <p class="vi-sao">Tháng Hai chỉ có 28 hoặc 29 ngày nên <b>không</b> thuộc <i>D</i>.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu c — tách từng chữ cái</h4>
+      <p>ĐIỆN BIÊN PHỦ gồm các chữ: Đ, I, <b>Ê</b>, N, B, I, <b>Ê</b>, N, P, H, <b>U</b>.</p>
+      <p class="vi-sao">“Ệ” là chữ <b>Ê</b> cộng dấu nặng, “Ủ” là chữ <b>U</b> cộng dấu hỏi. Dấu thanh không phải chữ cái, nên ta chỉ ghi Ê và U.</p></div>
+    <div class="buoc" data-so="4"><h4>Câu c — bỏ các chữ lặp lại</h4>
+      <p>I, Ê, N xuất hiện hai lần → chỉ viết một lần. Vậy <span class="m">M =</span> {Đ; I; Ê; N; B; P; H; U}.</p>
+      <a class="xem-lai" href="#kt-liet-ke">📌 Xem lại: mỗi phần tử chỉ viết một lần</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">K = <span class="up">{0; 1; 2; 3; 4; 5; 6}</span></span>.<br>b) <span class="m">D</span> = {tháng Tư; tháng Sáu; tháng Chín; tháng Mười một}.<br>c) <span class="m">M</span> = {Đ; I; Ê; N; B; P; H; U}.</div>
+    <div class="bay">Câu c: viết cả “Ệ”, “Ủ” (có dấu thanh) hoặc viết “Đ” thành “D”. Đ và D là <b>hai chữ cái khác nhau</b> trong tiếng Việt, còn dấu thanh không phải chữ cái.</div>
+    <div class="gv-note">Câu c: tập <i>M</i> có 8 phần tử. Nếu HS viết E thay cho Ê thì cần sửa, vì E và Ê là hai chữ cái khác nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy nghĩ đến <b>bộ chữ cái nam châm</b> hồi lớp 1: để ghép chữ “Ệ” em dùng miếng chữ <b>Ê</b> rồi thêm dấu nặng. Tập hợp chỉ hỏi “em đã dùng những <b>miếng chữ</b> nào”, không tính dấu.</div>
+  </div>
+</article>
+
+<article class="the bai" id="b14" data-ten="Bài 1.4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dấu hiệu đặc trưng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng cách nêu dấu hiệu đặc trưng, hãy viết tập hợp <span class="m">A</span> các số tự nhiên nhỏ hơn 10.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em nhìn lại ví dụ tập <i>P</i> trong SGK rồi bắt chước nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> SGK viết tập các số tự nhiên nhỏ hơn 6 là <span class="m">P = {n ∈ <span class="up">ℕ</span> | n &lt; <span class="up">6</span>}</span>. Bài này chỉ đổi số 6 thành số nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tách đề thành hai ý</h4>
+      <p>“các <b>số tự nhiên</b>” → <span class="m">n ∈ <span class="up">ℕ</span></span>; &nbsp; “<b>nhỏ hơn 10</b>” → <span class="m">n &lt; <span class="up">10</span></span>.</p>
+      <p class="vi-sao">Nêu dấu hiệu đặc trưng tức là viết ra <b>điều kiện</b> mà mọi phần tử đều thoả mãn, thay vì kể tên từng phần tử.</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép lại</h4>
+      <p><span class="m">A = {n ∈ <span class="up">ℕ</span> | n &lt; <span class="up">10</span>}</span>.</p>
+      <a class="xem-lai" href="#kt-dau-hieu">📌 Xem lại: cách nêu dấu hiệu đặc trưng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">A = {n ∈ <span class="up">ℕ</span> | n &lt; <span class="up">10</span>}</span> &nbsp; (hoặc <span class="m">A = {n | n</span> là số tự nhiên nhỏ hơn 10<span class="m">}</span>).</div>
+    <div class="bay">Viết <span class="m">A = <span class="up">{0; 1; 2; …; 9}</span></span> — đó là cách <b>liệt kê</b>, đề yêu cầu cách <b>nêu dấu hiệu</b>. Dùng chữ <i>x</i> thay cho <i>n</i> vẫn đúng.</div>
+    <div class="gv-note">Chấp nhận mọi tên biến (<i>n</i>, <i>x</i>, …). Có thể hỏi thêm: “Tập <i>A</i> có bao nhiêu phần tử?” (10 phần tử: từ 0 đến 9).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Liệt kê giống như <b>đọc tên từng bạn</b> trong đội. Nêu dấu hiệu giống như nói “<b>đội gồm các bạn cao dưới 1m50</b>” — không cần kể tên, ai đúng điều kiện là thuộc đội.</div>
+  </div>
+</article>
+
+<article class="the bai" id="b15" data-ten="Bài 1.5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 1.5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Liệt kê phần tử</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hệ Mặt Trời gồm có Mặt Trời ở trung tâm và 8 thiên thể quay quanh Mặt Trời gọi là các hành tinh, đó là Thuỷ tinh, Kim tinh, Trái Đất, Hoả tinh, Mộc tinh, Thổ tinh, Thiên Vương tinh và Hải Vương tinh.</p>
+    <p>Gọi <span class="m">S</span> là tập các hành tinh của Hệ Mặt Trời. Hãy viết tập <span class="m">S</span> bằng cách liệt kê các phần tử của <span class="m">S</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc kĩ đề: cái gì là hành tinh, cái gì không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đề nói có <b>8</b> hành tinh. Mặt Trời có phải hành tinh không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các phần tử trong đề</h4>
+      <p>Đề đã kể tên 8 hành tinh: Thuỷ tinh, Kim tinh, Trái Đất, Hoả tinh, Mộc tinh, Thổ tinh, Thiên Vương tinh, Hải Vương tinh.</p>
+      <p class="vi-sao">Mặt Trời ở trung tâm, các hành tinh quay quanh nó — Mặt Trời <b>không phải</b> hành tinh, nên không thuộc <i>S</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết tập S</h4>
+      <p><span class="m">S</span> = {Thuỷ tinh; Kim tinh; Trái Đất; Hoả tinh; Mộc tinh; Thổ tinh; Thiên Vương tinh; Hải Vương tinh}.</p>
+      <p class="vi-sao">Phần tử của tập hợp không nhất thiết là số — ở đây mỗi phần tử là <b>tên một hành tinh</b>. Các phần tử cách nhau bởi dấu “;”.</p>
+      <a class="xem-lai" href="#kt-liet-ke">📌 Xem lại: cách liệt kê</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">S</span> = {Thuỷ tinh; Kim tinh; Trái Đất; Hoả tinh; Mộc tinh; Thổ tinh; Thiên Vương tinh; Hải Vương tinh}.</div>
+    <div class="bay">Thêm “Mặt Trời” vào tập <i>S</i>. Kiểm tra lại: tập <i>S</i> phải có đúng <b>8</b> phần tử.</div>
+    <div class="gv-note">Thứ tự liệt kê tuỳ ý, nhưng nên khuyến khích HS viết theo thứ tự xa dần Mặt Trời như đề cho để dễ kiểm tra đủ/thiếu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Mặt Trời giống như <b>cô giáo đứng giữa sân</b>, 8 hành tinh là <b>8 bạn chạy vòng quanh</b>. Tập <i>S</i> là “các bạn chạy vòng quanh” — cô giáo không nằm trong đó.</div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 1. Tập hợp — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c01-b01';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  bais.forEach(function(bai){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + bai.id; a.dataset.chip = bai.id;
+    a.textContent = bai.dataset.chip || bai.dataset.ten.replace(/^Bài /, ''); nav.appendChild(a);
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    tr.cells[0].firstChild.textContent = bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0);
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      bai.querySelector('.them').classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + ' bài';
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+</body>
+</html>

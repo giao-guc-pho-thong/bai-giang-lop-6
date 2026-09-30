@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 2. Cách ghi số tự nhiên — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:8}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.nhan:not(.nb):not(.th):not(.vd):not(.vdc){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương I. Tập hợp các số tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 2. Cách ghi số tự nhiên — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương I. Tập hợp các số tự nhiên</div><h1>Bài 2. Cách ghi số tự nhiên — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → đáp số</b> ngay, kèm <b>bẫy học sinh hay mắc</b> và <b>ghi chú dạy</b>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-thap-phan"><b class="ten">Hệ thập phân</b>
+      Mỗi số tự nhiên được viết bằng một dãy <b>chữ số</b> lấy trong 10 chữ số 0; 1; 2; 3; 4; 5; 6; 7; 8; 9. Vị trí của chữ số trong dãy gọi là <b>hàng</b>.<br>
+      Cứ <b>10 đơn vị ở một hàng thì bằng 1 đơn vị ở hàng liền trước nó</b> (10 chục = 1 trăm; 10 trăm = 1 nghìn; …).</div>
+    <div class="kt" id="kt-quy-uoc"><b class="ten">Quy ước khi viết số</b>
+      ① Số tự nhiên khác 0 thì <b>chữ số đầu tiên (bên trái) khác 0</b>.<br>
+      ② Số có từ bốn chữ số trở lên thì viết tách từng <b>lớp</b> — mỗi lớp 3 chữ số, kể từ phải sang trái. Các lớp: đơn vị, nghìn, triệu, tỉ.</div>
+    <div class="kt" id="kt-gia-tri"><b class="ten">Giá trị chữ số — tổng giá trị</b>
+      Giá trị của một chữ số = chữ số đó × giá trị của hàng nó đứng.<br>
+      Mỗi số tự nhiên đều viết được thành <b>tổng giá trị các chữ số của nó</b>. Ví dụ: 236 = (2 × 100) + (3 × 10) + 6.</div>
+    <div class="kt" id="kt-la-ma"><b class="ten">Số La Mã (không quá 30)</b>
+      Dùng 5 thành phần: <span class="lm">I</span> = 1; <span class="lm">V</span> = 5; <span class="lm">X</span> = 10; <span class="lm">IV</span> = 4; <span class="lm">IX</span> = 9. Giá trị mỗi thành phần <b>không thay đổi</b> dù đứng ở vị trí nào.<br>
+      Số từ 11 đến 20: thêm <span class="lm">X</span> vào bên trái các số từ <span class="lm">I</span> đến <span class="lm">X</span>. Số từ 21 đến 30: thêm <span class="lm">XX</span>.</div>
+    <div class="kt" id="kt-la-ma-doc"><b class="ten">Đọc số La Mã</b>
+      Mỗi số La Mã = <b>tổng giá trị các thành phần</b> viết nên nó. Ví dụ: <span class="lm">XXIV</span> gồm <span class="lm">X</span>, <span class="lm">X</span>, <span class="lm">IV</span> → 10 + 10 + 4 = 24.<br>
+      Không có số La Mã nào biểu diễn số 0.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 2. Cách ghi số tự nhiên.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (mục 1)" data-muc="th" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 1)</span><span class="nhan th">Thông hiểu</span><span class="nhan">Viết số từ chữ số cho trước</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ dùng ba chữ số 0; 1 và 2, hãy viết tất cả các số tự nhiên có ba chữ số, mỗi chữ số chỉ viết một lần.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chữ số nào <b>không được</b> đứng đầu? Em thử viết hết ra nháp xem được mấy số.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn chữ số hàng trăm trước (chỉ có thể là 1 hoặc 2), rồi xếp hai chữ số còn lại vào hàng chục và hàng đơn vị.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn chữ số hàng trăm</h4>
+      <p>Hàng trăm chỉ có thể là <b>1</b> hoặc <b>2</b>.</p>
+      <p class="vi-sao">Số có ba chữ số thì chữ số đầu tiên phải khác 0 (nếu 0 đứng đầu, như 012, thì thực chất đó là số 12 — chỉ có hai chữ số).</p>
+      <a class="xem-lai" href="#kt-quy-uoc">📌 Xem lại: quy ước khi viết số</a></div>
+    <div class="buoc" data-so="2"><h4>Xếp hai chữ số còn lại</h4>
+      <p>Hàng trăm là 1 → còn 0 và 2: được <b>102</b> và <b>120</b>.</p>
+      <p>Hàng trăm là 2 → còn 0 và 1: được <b>201</b> và <b>210</b>.</p>
+      <p class="vi-sao">Làm theo thứ tự như vậy thì không sót số nào và không viết trùng số nào.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có 4 số: 102; 120; 201; 210.</div>
+    <div class="bay">Viết thêm 012 và 021 — đây không phải số có ba chữ số vì chữ số 0 đứng đầu.</div>
+    <div class="gv-note">Khuyến khích HS trình bày theo thứ tự (chọn hàng trăm trước) để hình thành thói quen liệt kê không bỏ sót — kĩ năng sẽ dùng lại nhiều lần.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Giống như xếp 3 bạn vào 3 ghế, nhưng bạn "Số 0" <b>không được ngồi ghế đầu</b>. Ghế đầu chỉ có 2 cách chọn, mỗi cách lại có 2 cách xếp hai bạn còn lại → 4 cách.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Giá trị chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong số 32 019, ta thấy: “Chữ số 2 nằm ở hàng nghìn và có giá trị bằng 2 × 1 000 = 2 000”.</p>
+    <p>Hãy phát biểu theo mẫu câu đó đối với các chữ số còn lại.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm hàng của từng chữ số trước, rồi mới tính giá trị.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ bảng hàng: chục nghìn – nghìn – trăm – chục – đơn vị, rồi điền từng chữ số của 32 019 vào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đặt số vào bảng hàng</h4>
+      <table>
+        <tr><th>Chục nghìn</th><th>Nghìn</th><th>Trăm</th><th>Chục</th><th>Đơn vị</th></tr>
+        <tr><td><b>3</b></td><td>2</td><td><b>0</b></td><td><b>1</b></td><td><b>9</b></td></tr>
+      </table>
+      <p class="vi-sao">Đếm từ phải sang trái: hàng đơn vị, chục, trăm, nghìn, chục nghìn. Biết hàng thì biết ngay giá trị.</p></div>
+    <div class="buoc" data-so="2"><h4>Phát biểu theo mẫu</h4>
+      <p>• Chữ số 3 nằm ở hàng chục nghìn và có giá trị bằng 3 × 10 000 = 30 000.</p>
+      <p>• Chữ số 0 nằm ở hàng trăm và có giá trị bằng 0 × 100 = 0.</p>
+      <p>• Chữ số 1 nằm ở hàng chục và có giá trị bằng 1 × 10 = 10.</p>
+      <p>• Chữ số 9 nằm ở hàng đơn vị và có giá trị bằng 9.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: giá trị chữ số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">3 → hàng chục nghìn, giá trị 30 000; 0 → hàng trăm, giá trị 0; 1 → hàng chục, giá trị 10; 9 → hàng đơn vị, giá trị 9.</div>
+    <div class="bay">Bỏ qua chữ số 0. Chữ số 0 vẫn chiếm một hàng (hàng trăm) — nhờ nó mà chữ số 3 và 2 mới đứng đúng hàng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Mỗi hàng giống một <b>ngăn tủ</b>: ngăn đơn vị đựng viên bi lẻ, ngăn chục đựng túi 10 viên, ngăn trăm đựng hộp 100 viên… Chữ số cho biết ngăn đó có mấy túi / hộp.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tổng giá trị các chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết số 32 019 thành tổng giá trị các chữ số của nó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dùng luôn kết quả của HĐ1 nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cộng tất cả các giá trị em vừa tìm ở HĐ1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cộng giá trị các chữ số</h4>
+      <p>32 019 = 30 000 + 2 000 + 0 + 10 + 9</p>
+      <p>hay 32 019 = (3 × 10 000) + (2 × 1 000) + (0 × 100) + (1 × 10) + 9.</p>
+      <p class="vi-sao">Số 32 019 gồm 3 chục nghìn, 2 nghìn, 0 trăm, 1 chục và 9 đơn vị — gộp lại chính là số đó.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: tổng giá trị các chữ số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">32 019 = (3 × 10 000) + (2 × 1 000) + (0 × 100) + (1 × 10) + 9.</div>
+    <div class="bay">Viết 32 019 = 3 + 2 + 0 + 1 + 9 — đó là tổng <b>các chữ số</b>, không phải tổng <b>giá trị</b> các chữ số.</div>
+    <div class="gv-note">Chấp nhận cả cách viết 30 000 + 2 000 + 0 + 10 + 9. Số hạng 0 × 100 có thể bỏ, nhưng nên giữ để HS thấy đủ các hàng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt" data-ten="Luyện tập" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tổng giá trị các chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết số 34 604 thành tổng giá trị các chữ số của nó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Làm giống hệt HĐ2 — em tự làm được!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 34 604 có 5 chữ số: hàng chục nghìn, nghìn, trăm, chục, đơn vị.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định hàng của từng chữ số</h4>
+      <p>3 – hàng chục nghìn; 4 – hàng nghìn; 6 – hàng trăm; 0 – hàng chục; 4 – hàng đơn vị.</p>
+      <p class="vi-sao">Số 34 604 có hai chữ số 4 nhưng ở hai hàng khác nhau, nên giá trị khác nhau: 4 000 và 4.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết thành tổng</h4>
+      <p>34 604 = (3 × 10 000) + (4 × 1 000) + (6 × 100) + (0 × 10) + 4.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: tổng giá trị các chữ số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">34 604 = (3 × 10 000) + (4 × 1 000) + (6 × 100) + (0 × 10) + 4 &nbsp;(= 30 000 + 4 000 + 600 + 0 + 4).</div>
+    <div class="bay">Cho hai chữ số 4 cùng giá trị. Cùng là chữ số 4, nhưng đứng ở hàng nghìn thì là 4 000, ở hàng đơn vị thì chỉ là 4.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd" data-ten="Vận dụng" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bác Hoa đi chợ. Bác chỉ mang ba loại tiền: loại (có mệnh giá) 1 nghìn (1 000) đồng, loại 10 nghìn (10 000) đồng và loại 100 nghìn (100 000) đồng. Tổng số tiền bác phải trả là 492 nghìn đồng. Nếu mỗi loại tiền, bác mang theo không quá 9 tờ thì bác sẽ phải trả bao nhiêu tờ tiền mỗi loại, mà người bán không phải trả lại tiền thừa?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba loại tiền 1 nghìn, 10 nghìn, 100 nghìn giống với hàng nào của một số?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tính theo đơn vị “nghìn đồng”: tờ 1 nghìn giống hàng đơn vị, tờ 10 nghìn giống hàng chục, tờ 100 nghìn giống hàng trăm của số 492.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết 492 thành tổng giá trị các chữ số</h4>
+      <p>492 = (4 × 100) + (9 × 10) + 2.</p>
+      <p class="vi-sao">Mỗi loại tiền không quá 9 tờ — giống như mỗi hàng chỉ có chữ số từ 0 đến 9. Vì vậy số tờ mỗi loại chính là chữ số ở hàng tương ứng.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: tổng giá trị các chữ số</a></div>
+    <div class="buoc" data-so="2"><h4>Đổi ra số tờ tiền</h4>
+      <table>
+        <tr><th>Loại tiền</th><th>Giống hàng</th><th>Số tờ</th><th>Thành tiền</th></tr>
+        <tr><td>100 nghìn đồng</td><td>trăm</td><td><b>4</b></td><td>400 nghìn</td></tr>
+        <tr><td>10 nghìn đồng</td><td>chục</td><td><b>9</b></td><td>90 nghìn</td></tr>
+        <tr><td>1 nghìn đồng</td><td>đơn vị</td><td><b>2</b></td><td>2 nghìn</td></tr>
+      </table>
+      <p>Kiểm tra: 400 + 90 + 2 = 492 (nghìn đồng) ✓</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bác trả 4 tờ loại 100 nghìn đồng, 9 tờ loại 10 nghìn đồng và 2 tờ loại 1 nghìn đồng.</div>
+    <div class="bay">Trả 49 tờ 10 nghìn và 2 tờ 1 nghìn — đúng số tiền nhưng vi phạm điều kiện “mỗi loại không quá 9 tờ”.</div>
+    <div class="gv-note">Đây là cách duy nhất: tờ 1 nghìn phải là 2 tờ (vì các loại kia luôn cho số tròn chục nghìn), còn lại 490 nghìn → 9 tờ 10 nghìn và 4 tờ 100 nghìn. Có thể hỏi HS vì sao không có cách khác.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Đây chính là “đổi tiền theo hàng”: 10 tờ 1 nghìn đổi được 1 tờ 10 nghìn, 10 tờ 10 nghìn đổi được 1 tờ 100 nghìn — giống quy tắc 10 đơn vị ở một hàng bằng 1 đơn vị ở hàng liền trước.</div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (mục 2)" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 2)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số La Mã</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a) Viết các số 14 và 27 bằng số La Mã.</p><p>b) Đọc các số La Mã <span class="lm">XVI</span>, <span class="lm">XXII</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tách số thành chục và đơn vị trước khi viết La Mã.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 14 = 10 + 4, 27 = 20 + 7. Nhớ: 4 là <span class="lm">IV</span>, không phải <span class="lm">IIII</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — viết số La Mã</h4>
+      <p>14 = 10 + 4 → <span class="lm">X</span> + <span class="lm">IV</span> = <span class="lm">XIV</span>.</p>
+      <p>27 = 20 + 7 → <span class="lm">XX</span> + <span class="lm">VII</span> = <span class="lm">XXVII</span>.</p>
+      <p class="vi-sao">Số từ 11 đến 20 thêm <span class="lm">X</span> vào bên trái, số từ 21 đến 30 thêm <span class="lm">XX</span> vào bên trái số La Mã của phần đơn vị.</p>
+      <a class="xem-lai" href="#kt-la-ma">📌 Xem lại: cách viết số La Mã</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — đọc số La Mã</h4>
+      <p><span class="lm">XVI</span> = <span class="lm">X</span> + <span class="lm">V</span> + <span class="lm">I</span> = 10 + 5 + 1 = 16.</p>
+      <p><span class="lm">XXII</span> = <span class="lm">X</span> + <span class="lm">X</span> + <span class="lm">I</span> + <span class="lm">I</span> = 10 + 10 + 1 + 1 = 22.</p>
+      <a class="xem-lai" href="#kt-la-ma-doc">📌 Xem lại: đọc số La Mã</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 14 = <span class="lm">XIV</span>; 27 = <span class="lm">XXVII</span>. &nbsp; b) <span class="lm">XVI</span> = 16; <span class="lm">XXII</span> = 22.</div>
+    <div class="bay">Viết 14 là <span class="lm">XIIII</span>. Số 4 phải dùng thành phần <span class="lm">IV</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Số La Mã</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sử dụng đúng 7 que tính, em xếp được những số La Mã nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi chữ số La Mã cần mấy que tính? Em thử xếp bằng que tăm thật xem!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="lm">I</span> cần 1 que; <span class="lm">V</span> cần 2 que; <span class="lm">X</span> cần 2 que. Chỉ xét các số La Mã từ 1 đến 30 đã học.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm que cho mỗi chữ số La Mã</h4>
+      <p><span class="lm">I</span> → 1 que; &nbsp; <span class="lm">V</span> → 2 que; &nbsp; <span class="lm">X</span> → 2 que.</p>
+      <p class="vi-sao">Số 7 que là số lẻ, mà <span class="lm">V</span> và <span class="lm">X</span> đều tốn số que chẵn, nên số cần tìm phải có <b>số lẻ</b> chữ <span class="lm">I</span> (1 hoặc 3 chữ <span class="lm">I</span>).</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm các số dùng đúng 7 que</h4>
+      <table>
+        <tr><th>Số La Mã</th><th>Đếm que</th><th>Giá trị</th></tr>
+        <tr><td class="lm">XVIII</td><td>2 + 2 + 1 + 1 + 1 = 7</td><td>18</td></tr>
+        <tr><td class="lm">XXIII</td><td>2 + 2 + 1 + 1 + 1 = 7</td><td>23</td></tr>
+        <tr><td class="lm">XXIV</td><td>2 + 2 + 1 + 2 = 7</td><td>24</td></tr>
+        <tr><td class="lm">XXVI</td><td>2 + 2 + 2 + 1 = 7</td><td>26</td></tr>
+        <tr><td class="lm">XXIX</td><td>2 + 2 + 1 + 2 = 7</td><td>29</td></tr>
+      </table>
+      <p class="vi-sao">Các số còn lại từ 1 đến 30 đều dùng ít hơn hoặc nhiều hơn 7 que (ví dụ <span class="lm">XXVII</span> cần 8 que).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Xếp được 5 số: <span class="lm">XVIII</span> (18); <span class="lm">XXIII</span> (23); <span class="lm">XXIV</span> (24); <span class="lm">XXVI</span> (26); <span class="lm">XXIX</span> (29).</div>
+    <div class="bay">Đếm <span class="lm">V</span> là 1 que. Chữ <span class="lm">V</span> cần 2 que chéo nhau, giống <span class="lm">X</span>.</div>
+    <div class="gv-note">Giới hạn trong các số La Mã từ 1 đến 30 (phạm vi SGK). Nên cho HS xếp que thật theo nhóm, nhóm nào tìm đủ 5 số trước thắng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b16" data-ten="Bài 1.6" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đọc số, giá trị chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho các số: 27 501; 106 712; 7 110 385; 2 915 404 267 (viết trong hệ thập phân).</p>
+    <p>a) Đọc mỗi số đã cho;</p><p>b) Chữ số 7 trong mỗi số đã cho có giá trị là bao nhiêu?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tách số thành từng lớp 3 chữ số (từ phải sang) rồi mới đọc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc từng lớp từ trái sang phải, sau mỗi lớp đọc tên lớp: tỉ, triệu, nghìn. Để tìm giá trị chữ số 7, xem nó ở hàng nào trong lớp nào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — đọc số</h4>
+      <p>• 27 501: hai mươi bảy nghìn năm trăm linh một.</p>
+      <p>• 106 712: một trăm linh sáu nghìn bảy trăm mười hai.</p>
+      <p>• 7 110 385: bảy triệu một trăm mười nghìn ba trăm tám mươi lăm.</p>
+      <p>• 2 915 404 267: hai tỉ chín trăm mười lăm triệu bốn trăm linh bốn nghìn hai trăm sáu mươi bảy.</p>
+      <p class="vi-sao">Khoảng trống giữa các nhóm 3 chữ số chính là ranh giới giữa các lớp — nhìn vào là biết đọc “nghìn”, “triệu”, “tỉ” ở đâu.</p>
+      <a class="xem-lai" href="#kt-quy-uoc">📌 Xem lại: lớp và hàng</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — giá trị chữ số 7</h4>
+      <table>
+        <tr><th>Số</th><th>Chữ số 7 ở hàng</th><th>Giá trị</th></tr>
+        <tr><td>2<b>7</b> 501</td><td>nghìn</td><td>7 000</td></tr>
+        <tr><td>106 <b>7</b>12</td><td>trăm</td><td>700</td></tr>
+        <tr><td><b>7</b> 110 385</td><td>triệu</td><td>7 000 000</td></tr>
+        <tr><td>2 915 404 26<b>7</b></td><td>đơn vị</td><td>7</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: giá trị chữ số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 27 501: hai mươi bảy nghìn năm trăm linh một; 106 712: một trăm linh sáu nghìn bảy trăm mười hai; 7 110 385: bảy triệu một trăm mười nghìn ba trăm tám mươi lăm; 2 915 404 267: hai tỉ chín trăm mười lăm triệu bốn trăm linh bốn nghìn hai trăm sáu mươi bảy.<br>b) Giá trị của chữ số 7 lần lượt là: 7 000; 700; 7 000 000; 7.</div>
+    <div class="bay">Đọc “linh” sai chỗ hoặc bỏ sót: 106 712 đọc là “một trăm <b>linh</b> sáu nghìn…”, 404 đọc là “bốn trăm <b>linh</b> bốn”.</div>
+    <div class="gv-note">Câu a nên cho HS đọc to từng số, cả lớp nghe và sửa chỗ đọc “linh”, “mươi / mười”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b17" data-ten="Bài 1.7" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.7</span><span class="nhan nb">Nhận biết</span><span class="nhan">Giá trị chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chữ số 4 đứng ở hàng nào trong một số tự nhiên nếu nó có giá trị bằng: a) 400; &nbsp; b) 40; &nbsp; c) 4.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — chọn hàng</b>
+    <div class="cau-thu"><span class="noi-dung">a) 400</span><button class="chon chu" data-dung="1">Trăm</button><button class="chon chu" data-dung="0">Chục</button><button class="chon chu" data-dung="0">Đơn vị</button><span class="phan-hoi" data-dung-txt="Đúng! 4 × 100 = 400." data-sai-txt="Thử lại: 4 × ? = 400"></span></div>
+    <div class="cau-thu"><span class="noi-dung">b) 40</span><button class="chon chu" data-dung="0">Trăm</button><button class="chon chu" data-dung="1">Chục</button><button class="chon chu" data-dung="0">Đơn vị</button><span class="phan-hoi" data-dung-txt="Đúng! 4 × 10 = 40." data-sai-txt="Thử lại: 4 × ? = 40"></span></div>
+    <div class="cau-thu"><span class="noi-dung">c) 4</span><button class="chon chu" data-dung="0">Trăm</button><button class="chon chu" data-dung="0">Chục</button><button class="chon chu" data-dung="1">Đơn vị</button><span class="phan-hoi" data-dung-txt="Đúng! Hàng đơn vị: giá trị bằng chính nó." data-sai-txt="Thử lại: chữ số giữ nguyên giá trị khi ở hàng nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giá trị = 4 × giá trị của hàng. Vậy hàng nào nhân 4 ra 400?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hàng trăm có giá trị 100, hàng chục 10, hàng đơn vị 1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm hàng từ giá trị</h4>
+      <p>a) 400 = 4 × 100 → chữ số 4 ở <b>hàng trăm</b>.</p>
+      <p>b) 40 = 4 × 10 → chữ số 4 ở <b>hàng chục</b>.</p>
+      <p>c) 4 = 4 × 1 → chữ số 4 ở <b>hàng đơn vị</b>.</p>
+      <p class="vi-sao">Làm ngược lại HĐ1: biết giá trị thì chia ra xem chữ số được nhân với 100, 10 hay 1.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: giá trị chữ số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Hàng trăm; &nbsp; b) Hàng chục; &nbsp; c) Hàng đơn vị.</div>
+    <div class="bay">Đếm số chữ số 0 trong 400 rồi nói “hàng thứ 2”. Cần gọi đúng tên hàng: trăm, chục, đơn vị.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b18" data-ten="Bài 1.8" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.8</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số La Mã</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc các số La Mã: <span class="lm">XIV</span>; <span class="lm">XVI</span>; <span class="lm">XXIII</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tách số La Mã thành các thành phần, nhớ <span class="lm">IV</span> là một thành phần.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cộng giá trị các thành phần: <span class="lm">X</span> = 10; <span class="lm">V</span> = 5; <span class="lm">I</span> = 1; <span class="lm">IV</span> = 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tách thành phần và cộng</h4>
+      <p><span class="lm">XIV</span> = <span class="lm">X</span> + <span class="lm">IV</span> = 10 + 4 = <b>14</b>.</p>
+      <p><span class="lm">XVI</span> = <span class="lm">X</span> + <span class="lm">V</span> + <span class="lm">I</span> = 10 + 5 + 1 = <b>16</b>.</p>
+      <p><span class="lm">XXIII</span> = <span class="lm">X</span> + <span class="lm">X</span> + <span class="lm">I</span> + <span class="lm">I</span> + <span class="lm">I</span> = 10 + 10 + 1 + 1 + 1 = <b>23</b>.</p>
+      <p class="vi-sao"><span class="lm">XIV</span> và <span class="lm">XVI</span> có cùng các chữ nhưng khác thứ tự: <span class="lm">IV</span> (I đứng trước V) là một thành phần bằng 4, còn <span class="lm">VI</span> là <span class="lm">V</span> rồi <span class="lm">I</span>, bằng 6.</p>
+      <a class="xem-lai" href="#kt-la-ma-doc">📌 Xem lại: đọc số La Mã</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="lm">XIV</span> = 14; &nbsp; <span class="lm">XVI</span> = 16; &nbsp; <span class="lm">XXIII</span> = 23.</div>
+    <div class="bay">Đọc <span class="lm">XIV</span> = 10 + 1 + 5 = 16. Phải nhận ra <span class="lm">IV</span> là <b>một</b> thành phần có giá trị 4.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b19" data-ten="Bài 1.9" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1.9</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số La Mã</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết các số sau bằng số La Mã: 18; 25.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tách mỗi số thành phần chục và phần đơn vị.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 18 = 10 + 8; 25 = 20 + 5.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết từng phần rồi ghép</h4>
+      <p>18 = 10 + 8 → <span class="lm">X</span> + <span class="lm">VIII</span> = <span class="lm">XVIII</span>.</p>
+      <p>25 = 20 + 5 → <span class="lm">XX</span> + <span class="lm">V</span> = <span class="lm">XXV</span>.</p>
+      <a class="xem-lai" href="#kt-la-ma">📌 Xem lại: cách viết số La Mã</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">18 = <span class="lm">XVIII</span>; &nbsp; 25 = <span class="lm">XXV</span>.</div>
+    <div class="bay">Viết 18 là <span class="lm">XIIX</span>. Trong SGK, các số từ 11 đến 20 được viết bằng cách thêm <span class="lm">X</span> vào bên trái số từ <span class="lm">I</span> đến <span class="lm">X</span>, nên 18 = <span class="lm">X</span> + <span class="lm">VIII</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b110" data-ten="Bài 1.10" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1.10</span><span class="nhan th">Thông hiểu</span><span class="nhan">Viết số theo điều kiện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một số tự nhiên được viết bởi ba chữ số 0 và ba chữ số 9 nằm xen kẽ nhau. Đó là số nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có hai cách xếp xen kẽ — nhưng một cách bị loại. Vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xen kẽ thì chỉ có hai kiểu: bắt đầu bằng 9, hoặc bắt đầu bằng 0.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Liệt kê hai cách xen kẽ</h4>
+      <p>Bắt đầu bằng 9: <b>909 090</b>. &nbsp; Bắt đầu bằng 0: 090 909.</p></div>
+    <div class="buoc" data-so="2"><h4>Loại cách không hợp lệ</h4>
+      <p>Số tự nhiên khác 0 thì chữ số đầu tiên phải khác 0, nên loại 090 909. Số cần tìm là <b>909 090</b>.</p>
+      <p class="vi-sao">Nếu viết 090 909 thì thực chất đó là số 90 909 — chỉ có hai chữ số 0, không đủ ba chữ số 0 như đề yêu cầu.</p>
+      <a class="xem-lai" href="#kt-quy-uoc">📌 Xem lại: quy ước khi viết số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đó là 909 090.</div>
+    <div class="bay">Trả lời cả 090 909. Chữ số 0 không được đứng đầu một số tự nhiên khác 0.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b111" data-ten="Bài 1.11" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1.11</span><span class="nhan th">Thông hiểu</span><span class="nhan">Viết số theo điều kiện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng các chữ số 0; 3 và 5, viết một số tự nhiên có ba chữ số khác nhau mà chữ số 5 có giá trị là 50.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chữ số 5 có giá trị 50 thì nó đứng ở hàng nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 50 = 5 × 10. Chữ số 5 phải ở hàng chục; hai chữ số còn lại xếp vào hàng trăm và hàng đơn vị.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đặt chữ số 5</h4>
+      <p>50 = 5 × 10, nên chữ số 5 đứng ở <b>hàng chục</b>: số có dạng ▢ 5 ▢.</p>
+      <a class="xem-lai" href="#kt-gia-tri">📌 Xem lại: giá trị chữ số</a></div>
+    <div class="buoc" data-so="2"><h4>Xếp 0 và 3</h4>
+      <p>Hàng trăm không được là 0, nên hàng trăm là 3, hàng đơn vị là 0. Số cần tìm là <b>350</b>.</p>
+      <p class="vi-sao">Nếu viết 053 thì 0 đứng đầu — không phải số có ba chữ số.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đó là 350.</div>
+    <div class="bay">Viết 503 hoặc 305: ở đó chữ số 5 có giá trị 500 hoặc 5, không phải 50.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b112" data-ten="Bài 1.12" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 1.12</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong một cửa hàng bánh kẹo, người ta đóng gói kẹo thành các loại: mỗi gói có 10 cái kẹo; mỗi hộp có 10 gói; mỗi thùng có 10 hộp. Một người mua 9 thùng, 9 hộp và 9 gói kẹo. Hỏi người đó đã mua tất cả bao nhiêu cái kẹo?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một thùng có bao nhiêu cái kẹo? Một hộp có bao nhiêu cái kẹo?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tính số kẹo trong 1 gói, 1 hộp, 1 thùng trước. Để ý: gói – hộp – thùng giống hàng chục – trăm – nghìn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Số kẹo trong mỗi loại</h4>
+      <p>1 gói = 10 cái; &nbsp; 1 hộp = 10 gói = 10 × 10 = 100 cái; &nbsp; 1 thùng = 10 hộp = 10 × 100 = 1 000 cái.</p>
+      <p class="vi-sao">Cứ 10 cái gộp thành 1 gói, 10 gói gộp thành 1 hộp… đúng như hệ thập phân: 10 đơn vị ở hàng này bằng 1 đơn vị ở hàng liền trước.</p>
+      <a class="xem-lai" href="#kt-thap-phan">📌 Xem lại: hệ thập phân</a></div>
+    <div class="buoc" data-so="2"><h4>Tính tổng số kẹo</h4>
+      <p>9 thùng: 9 × 1 000 = 9 000 cái; &nbsp; 9 hộp: 9 × 100 = 900 cái; &nbsp; 9 gói: 9 × 10 = 90 cái.</p>
+      <p>Tổng: 9 000 + 900 + 90 = <b>9 990</b> cái kẹo.</p>
+      <p class="vi-sao">Có thể viết ngay: 9 nghìn, 9 trăm, 9 chục và 0 đơn vị → số 9 990.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Người đó đã mua tất cả 9 990 cái kẹo.</div>
+    <div class="bay">Viết 999 (quên rằng gói đã có 10 cái, nên phải thêm một chữ số 0 ở hàng đơn vị).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Tưởng tượng cái kẹo là <b>đơn vị</b>, gói là <b>chục</b>, hộp là <b>trăm</b>, thùng là <b>nghìn</b>. Mua 9 thùng, 9 hộp, 9 gói và 0 kẹo lẻ → viết các chữ số 9, 9, 9, 0 vào đúng hàng: 9 990.</div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 2. Cách ghi số tự nhiên — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c01-b02';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  bais.forEach(function(bai){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + bai.id; a.dataset.chip = bai.id;
+    a.textContent = bai.dataset.chip || bai.dataset.ten.replace(/^Bài /, ''); nav.appendChild(a);
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    tr.cells[0].firstChild.textContent = bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0);
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      bai.querySelector('.them').classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + ' bài';
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+</body>
+</html>
