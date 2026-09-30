@@ -81,6 +81,8 @@ th{background:#f3f5fa}
 .nhan.nb{background:var(--green-soft); color:var(--green)}
 .nhan.th{background:var(--brand-soft); color:var(--brand)}
 .nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
 .trang-thai{margin-left:auto; font-size:13px; font-weight:700}
 .de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
 .de p{margin:.3em 0}
@@ -149,7 +151,7 @@ body[data-mode="gv"] .ket{display:contents}
 body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
 body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
 body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
-body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:8}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
 body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
 body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
 .nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
@@ -178,6 +180,38 @@ body[data-mode="gv"] .gv-note{display:block}
 .dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
 body[data-mode="gv"] .de{font-size:17px}
 
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
 .chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
 
 @media (max-width:560px){
@@ -191,7 +225,7 @@ body[data-mode="gv"] .de{font-size:17px}
 @media print{
   /* Ban in: chi co de bai va dap so */
   .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
-  .hieu-chua,.nut-buoc-gv,.trang-thai,.nhan:not(.nb):not(.th):not(.vd):not(.vdc){display:none !important}
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
   .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
   body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
   .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
@@ -201,7 +235,7 @@ body[data-mode="gv"] .de{font-size:17px}
 }
 </style>
 </head>
-<body data-mode="hs">
+<body data-mode="hs" data-mon="toan" data-bang="co">
 
 <header class="top">
   <div class="top-in">
@@ -232,7 +266,7 @@ body[data-mode="gv"] .de{font-size:17px}
 </section>
 <section class="the huong-dan chi-gv">
   <h2>🧑‍🏫 Chế độ giáo viên</h2>
-  <p style="margin:0">Mỗi bài hiện <b>đề → đáp số</b> ngay, kèm <b>bẫy học sinh hay mắc</b> và <b>ghi chú dạy</b>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
   <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
 </section>
 
@@ -592,11 +626,19 @@ body[data-mode="gv"] .de{font-size:17px}
   var bais = [].slice.call(document.querySelectorAll('.bai'));
 
   // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
-  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao'};
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
   var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
   bais.forEach(function(bai){
-    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + bai.id; a.dataset.chip = bai.id;
-    a.textContent = bai.dataset.chip || bai.dataset.ten.replace(/^Bài /, ''); nav.appendChild(a);
     var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
     tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
     tr.cells[0].firstChild.textContent = bai.dataset.ten;
@@ -633,14 +675,19 @@ body[data-mode="gv"] .de{font-size:17px}
     var n = 0;
     bais.forEach(function(bai){
       var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
-      chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0);
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
       tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
       tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
       bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
-      bai.querySelector('.them').classList.toggle('hien', s === 0);
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
       if (s === 1) n++;
     });
-    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + ' bài';
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
     document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
   }
 
