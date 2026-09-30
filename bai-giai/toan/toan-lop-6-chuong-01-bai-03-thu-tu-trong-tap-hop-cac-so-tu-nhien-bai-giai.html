@@ -209,6 +209,12 @@ body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
 body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
 body[data-mon="ngu-van"] .de{font-size:17.5px}
 body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
 .chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
 body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
 
@@ -624,7 +630,8 @@ body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-d
   bais.forEach(function(bai){
     var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
     tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
-    tr.cells[0].firstChild.textContent = bai.dataset.ten;
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
     tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
     bang.appendChild(tr);
   });
