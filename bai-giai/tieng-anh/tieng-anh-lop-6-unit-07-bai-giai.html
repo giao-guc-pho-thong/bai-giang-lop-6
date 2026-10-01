@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 7. Television — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập hai</div>
+    <div class="hang1">
+      <h1>Unit 7. Television — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập hai</div><h1>Unit 7. Television — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-wh"><b class="ten"><i>Wh</i>-question words — Remember!</b>
+      <span class="en">Each question word is used for a specific piece of information.</span><br>
+      → Mỗi từ để hỏi dùng cho <b>một loại thông tin riêng</b>: <span class="en">When</span> – thời gian · <span class="en">Where</span> – nơi chốn · <span class="en">Who</span> – người · <span class="en">What</span> – sự vật · <span class="en">Why</span> – lí do · <span class="en">How many</span> – số lượng · <span class="en">How often</span> – mức độ thường xuyên (bài 2, A Closer Look 2).<br>
+      Sau từ để hỏi là <b>trợ động từ</b>: <span class="en">How often <b>do</b> you watch TV?</span></div>
+    <div class="kt" id="kt-conj"><b class="ten">Conjunctions in compound sentences — Remember!</b>
+      <span class="en">We use a conjunction to combine two clauses into a compound sentence.</span><br>
+      Ví dụ: <span class="en">I like watching cartoons, <b>but</b> my brother likes watching sports. · I enjoy sports, <b>so</b> I spend a lot of time outdoors. · I'm helping decorate the house, <b>and</b> my brother is busy cooking.</span><br>
+      → <b>and</b>: thêm ý cùng chiều · <b>but</b>: hai ý trái ngược · <b>so</b>: đứng trước <b>kết quả</b> (ý trước là nguyên nhân).</div>
+    <div class="kt" id="kt-tu-vung"><b class="ten">TV programmes — từ vựng chủ đề (Glossary Unit 7)</b>
+      <span class="en">animated film</span> /ˈænɪmeɪtɪd fɪlm/ phim hoạt hình · <span class="en">cartoon</span> /kɑːˈtuːn/ phim hoạt hình · <span class="en">channel</span> /ˈtʃænl/ kênh · <span class="en">character</span> /ˈkærəktə/ nhân vật · <span class="en">comedy</span> /ˈkɒmədi/ phim hài · <span class="en">talent show</span> /ˈtælənt ʃəu/ cuộc thi tài năng · <span class="en">viewer</span> /ˈvjuːə/ người xem · <span class="en">educational</span> /ˌedʒuˈkeɪʃənl/ mang tính giáo dục · <span class="en">live</span> /laɪv/ (truyền) trực tiếp · <span class="en">cute</span> /kjuːt/ xinh xắn · <span class="en">funny</span> /ˈfʌni/ buồn cười · <span class="en">clever</span> /ˈklevə/ thông minh</div>
+    <div class="kt" id="kt-am"><b class="ten">Pronunciation — hai âm của chữ th</b>
+      /θ/: <span class="en">theatre, earth, anything, both, through</span> — hơi đi qua kẽ lưỡi và răng, <b>không rung</b> cổ họng.<br>
+      /ð/: <span class="en">there, them, neither, weather, than</span> — cùng vị trí lưỡi nhưng <b>có rung</b> cổ họng.<br>
+      Cả hai đều viết là <b>th</b>; đặt đầu lưỡi giữa hai hàm răng, đừng đọc thành “t” hay “d”.</div>
+    <div class="kt" id="kt-everyday"><b class="ten">Asking for and giving information about TV programmes</b>
+      <span class="en">A: <b>What</b>'s your favourite TV programme? — B: The animal programme. — A: <b>Why</b> do you like it? — B: Because I can see the animals in their real life.</span></div>
+    <div class="kt" id="kt-tv-guide"><b class="ten">Nói về chương trình yêu thích (Skills 1)</b>
+      <span class="en">My favourite programme is … · It's on … · It's about … · I like it because it …</span></div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập hai — Unit 7. Television (trang 6 – 15).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — What's on today?<small>Trang 6 – 7</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 2, tập hai)</p>
+    <p class="en" lang="en">Phong: What are you watching, Hung? — Hung: The Voice Kids. — Phong: That music talent show is very interesting. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phong và Hung nhắc tới bao nhiêu chương trình ti vi? Em đếm thử xem.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghe và đọc theo. Gạch chân tên các chương trình (in nghiêng trong sách) và các tính từ dùng để <b>khen</b> chúng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">What are you watching, Hung?</td><td>Cậu đang xem gì thế, Hung?</td></tr>
+        <tr><td class="en" lang="en">That music talent show is very interesting.</td><td>Chương trình thi tài năng âm nhạc ấy rất hay.</td></tr>
+        <tr><td class="en" lang="en">What programme do you often watch, Phong?</td><td>Cậu hay xem chương trình gì, Phong?</td></tr>
+        <tr><td class="en" lang="en">I like animated films like The Lion King.</td><td>Tớ thích phim hoạt hình như <i>Vua sư tử</i>.</td></tr>
+        <tr><td class="en" lang="en">I often watch them with my little brother, but he prefers cartoons.</td><td>Tớ hay xem cùng em trai, nhưng em ấy thích phim hoạt hình ngắn hơn.</td></tr>
+        <tr><td class="en" lang="en">Jerry's a clever character.</td><td>Jerry là một nhân vật thông minh.</td></tr>
+        <tr><td class="en" lang="en">This channel has many educational programmes.</td><td>Kênh này có nhiều chương trình giáo dục.</td></tr>
+      </table>
+      <p class="vi-sao">Câu <span class="en">…, but he prefers cartoons</span> dùng liên từ <b>but</b> — đúng điểm ngữ pháp em sẽ học ở A Closer Look 2.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Nắm ý chính: Phong và Hung nói về các chương trình ti vi — <i>The Voice Kids</i> (thi tài năng âm nhạc), phim hoạt hình <i>The Lion King</i>, <i>Tom and Jerry</i>, và <i>English in a Minute</i> trên kênh <i>VTV7</i>.</div>
+    <div class="bay">Đọc tên <i>Phong, Hung</i> theo kiểu tiếng Anh. Tên người Việt — đọc như tiếng Việt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Choose A, B, C</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Choose the correct answer A, B, or C.</span></p>
+    <p class="en" lang="en">1. Phong and Hung are talking about ______. A. The Voice Kids programme B. English in a Minute programme C. different TV programmes</p>
+    <p class="en" lang="en">2. Phong likes ______. A. animated films B. cartoons C. talent shows</p>
+    <p class="en" lang="en">3. When you're viewing a TV programme, you say: “I'm ______ TV.” A. watching B. seeing C. looking</p>
+    <p class="en" lang="en">4. When a programme teaches you something, it's ______. A. educational B. funny C. clever</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">2. Phong likes</span><button class="chon chu" data-dung="1">animated films</button><button class="chon chu" data-dung="0">cartoons</button><button class="chon chu" data-dung="0">talent shows</button><span class="phan-hoi" data-dung-txt="Đúng! “I like animated films like The Lion King.”" data-sai-txt="Ai trong nhà Phong thích cartoons — Phong hay em trai Phong?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">3. I'm ___ TV.</span><button class="chon chu" data-dung="1">watching</button><button class="chon chu" data-dung="0">seeing</button><button class="chon chu" data-dung="0">looking</button><span class="phan-hoi" data-dung-txt="Đúng! Xem ti vi là watch TV." data-sai-txt="Đọc lại câu đầu tiên Phong hỏi Hung."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 1 hỏi cả đoạn hội thoại nói về <b>gì</b> — một chương trình hay nhiều chương trình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: đọc kĩ câu <span class="en">but he prefers cartoons</span> — <span class="en">he</span> là ai?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1, 2: tìm trong hội thoại</h4>
+      <blockquote class="trich"><p>Films. I like animated films like The Lion King.</p><p>I often watch them with my little brother, but he prefers cartoons.</p></blockquote>
+      <p>1. Hai bạn nói về nhiều chương trình (<i>The Voice Kids, The Lion King, Tom and Jerry, English in a Minute</i>) → <b>C</b>. &nbsp; 2. Phong thích <b>animated films</b> → <b>A</b>; người thích <i>cartoons</i> là em trai Phong.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu 3, 4: chọn từ đúng nghĩa</h4>
+      <p>3. “Xem ti vi” tiếng Anh là <span class="en">watch TV</span> → <b>A</b> (câu đầu bài: <span class="en">What are you watching?</span>). &nbsp; 4. Chương trình dạy em điều gì đó → <span class="en"><b>educational</b></span> (mang tính giáo dục) → <b>A</b>.</p>
+      <p class="vi-sao"><span class="en">see</span> là nhìn thấy (không chủ ý), <span class="en">look</span> phải đi với <span class="en">at</span>; chỉ <span class="en">watch</span> đi với <span class="en">TV</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. C &nbsp; 2. A &nbsp; 3. A &nbsp; 4. A</div>
+    <div class="bay">Câu 1 chọn A vì <i>The Voice Kids</i> xuất hiện đầu tiên. Bài nói về <b>nhiều</b> chương trình, không chỉ một.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the conversation again and match 1-5 with a-e.</span></p>
+    <p class="en" lang="en">1. The Voice Kids 2. The Lion King 3. Tom and Jerry 4. VTV7 5. English in a Minute | a. animated film b. channel c. music talent show d. educational programme e. cartoon</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong hội thoại, mỗi tên chương trình đều có một từ đứng ngay cạnh cho biết nó là loại gì. Tìm thử!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">VTV7</span> không phải chương trình — Phong gọi nó là <span class="en">This channel</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dòng hội thoại làm căn cứ</h4>
+      <table>
+        <tr><th>Tên</th><th>Căn cứ</th></tr>
+        <tr><td>1</td><td class="en" lang="en">That music talent show is very interesting.</td></tr>
+        <tr><td>2</td><td class="en" lang="en">I like animated films like The Lion King.</td></tr>
+        <tr><td>3</td><td class="en" lang="en">but he prefers cartoons.</td></tr>
+        <tr><td>4, 5</td><td class="en" lang="en">I watch English in a Minute on VTV7. This channel has many educational programmes.</td></tr>
+      </table>
+      <p class="vi-sao">Câu 3: Hung hỏi lại <span class="en">Tom and Jerry?</span> ngay sau chữ <span class="en">cartoons</span> → <i>Tom and Jerry</i> là một <span class="en">cartoon</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – c &nbsp; 2 – a &nbsp; 3 – e &nbsp; 4 – b &nbsp; 5 – d</div>
+    <div class="bay">Đảo 2 và 3 vì cả <span class="en">animated film</span> lẫn <span class="en">cartoon</span> đều nghĩa là phim hoạt hình. Phải xem trong bài từ nào đi với tên nào.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Adjectives</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Find and write the adjectives in the conversation which describe the programmes and character below.</span></p>
+    <p class="en" lang="en">1. The Voice Kids ______ 2. animated films ______ 3. Jerry the mouse ______ 4. programmes on VTV7 ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tính từ hay đứng sau <i>is / are / 's</i>. Mỗi câu chỉ cần một từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: Hung nói về phim hoạt hình bằng câu <span class="en">They're …</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm tính từ đi cùng từng chương trình</h4>
+      <table>
+        <tr><th>Câu</th><th>Căn cứ</th><th>Tính từ</th></tr>
+        <tr><td>1</td><td class="en" lang="en">That music talent show is very interesting.</td><td class="en">interesting</td></tr>
+        <tr><td>2</td><td class="en" lang="en">I love them, too. They're wonderful.</td><td class="en">wonderful</td></tr>
+        <tr><td>3</td><td class="en" lang="en">Jerry's a clever character.</td><td class="en">clever</td></tr>
+        <tr><td>4</td><td class="en" lang="en">This channel has many educational programmes.</td><td class="en">educational</td></tr>
+      </table>
+      <p class="vi-sao">Câu 2: <span class="en">They</span> thay cho <span class="en">animated films</span> mà Phong vừa nói. Câu 4: tính từ đứng <b>trước</b> danh từ <span class="en">programmes</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. interesting &nbsp; 2. wonderful &nbsp; 3. clever &nbsp; 4. educational</div>
+    <div class="bay">Câu 1 ghi <span class="en">music</span> — <i>music</i> chỉ loại chương trình (<span class="en">music talent show</span>), không phải tính từ khen chê.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Interview</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Work in groups. Interview your partners about their favourite TV programmes and report to the class.</span></p>
+    <p class="en" lang="en">Example: In our group, Mai likes sports programmes on TV. Binh likes …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hỏi xong, em kể lại về bạn — động từ sau tên bạn cần thêm gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi bằng <span class="en">What's your favourite TV programme?</span> rồi báo cáo bằng <span class="en">[Tên] likes …</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phỏng vấn</h4>
+      <p class="en">A: What's your favourite TV programme?<br>B: I like cartoons. My favourite is Tom and Jerry.</p></div>
+    <div class="buoc" data-so="2"><h4>Báo cáo trước lớp</h4>
+      <p class="en">In our group, Mai likes sports programmes on TV. Binh likes cartoons. Lan likes music talent shows.</p>
+      <p class="vi-sao">Báo cáo về bạn (= he / she) → <span class="en">like<b>s</b></span>. Quy tắc của Unit 1 vẫn dùng mọi lúc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">In our group, Mai likes sports programmes on TV. Binh likes cartoons. Lan likes music talent shows.</span></div>
+    <div class="bay">Báo cáo <span class="en">Binh like cartoons</span> — quên <i>s</i> ở ngôi thứ ba.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 8</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Definitions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Write the words / phrases in the box next to the definitions.</span></p>
+    <p class="en" lang="en">talent show · viewer · comedy · character · educational programme</p>
+    <p class="en" lang="en">1. an animal or a person in a film ______ 2. a programme which teaches maths, English, etc. ______ 3. a film / show which makes people laugh ______ 4. a competition to choose the best performer ______ 5. a person who watches TV ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm <b>từ khoá</b> trong mỗi định nghĩa: “người”, “làm cười”, “chọn người giỏi nhất”…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">laugh</span> = cười; <span class="en">teaches</span> = dạy; <span class="en">watches</span> = xem.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép theo nghĩa</h4>
+      <p>1. con vật hoặc người trong phim → <span class="en"><b>character</b></span> (nhân vật). &nbsp; 2. chương trình dạy toán, tiếng Anh… → <span class="en"><b>educational programme</b></span>. &nbsp; 3. phim / chương trình làm người ta cười → <span class="en"><b>comedy</b></span>. &nbsp; 4. cuộc thi chọn người biểu diễn giỏi nhất → <span class="en"><b>talent show</b></span>. &nbsp; 5. người xem ti vi → <span class="en"><b>viewer</b></span>.</p>
+      <p class="vi-sao"><span class="en">view</span> = xem, thêm <span class="en">-er</span> → người xem (như <span class="en">teach → teacher</span>).</p>
+      <a class="xem-lai" href="#kt-tu-vung">📌 Xem lại: từ vựng TV programmes</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. character &nbsp; 2. educational programme &nbsp; 3. comedy &nbsp; 4. talent show &nbsp; 5. viewer</div>
+    <div class="bay">Câu 1 điền <span class="en">viewer</span> vì thấy chữ “person”. Đọc hết: <span class="en">in a film</span> — người <b>trong</b> phim là nhân vật, người xem thì ngồi ngoài.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the blanks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the sentences with the words / phrases in the box.</span></p>
+    <p class="en" lang="en">character · animated films · viewers · comedies · game show · channel</p>
+    <p class="en" lang="en">1. Do you watch Bibi, the popular ______ for children? 2. Which ______ do you prefer: Jerry the mouse or Tom the cat? 3. I love ______ like Happy Feet and Coco. 4. I love Children are Always Right, a ______ for kids. 5. My father often watches ______. They're so funny. 6. A popular programme has a lot of ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hộp có cả từ số ít và số nhiều. Nhìn từ đứng trước chỗ trống: <i>a</i>, <i>the</i>, <i>a lot of</i>…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: <i>Bibi</i> là tên một kênh ti vi cho trẻ em (xem Communication bài 3). Câu 4: tra bảng TV guide ở Skills 1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Số ít hay số nhiều</h4>
+      <p>Sau <span class="en">the popular</span>, <span class="en">Which</span>, <span class="en">a</span> → danh từ số ít (câu 1, 2, 4). Sau <span class="en">love … like</span>, <span class="en">watches … They're</span>, <span class="en">a lot of</span> → số nhiều (câu 3, 5, 6).</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn theo nghĩa</h4>
+      <p>1. <span class="en">Bibi, the popular <b>channel</b> for children</span>. &nbsp; 2. <span class="en">Which <b>character</b> do you prefer: Jerry the mouse or Tom the cat?</span> &nbsp; 3. <span class="en">I love <b>animated films</b> like Happy Feet and Coco.</span> &nbsp; 4. <span class="en">a <b>game show</b> for kids</span>. &nbsp; 5. <span class="en">My father often watches <b>comedies</b>. They're so funny.</span> &nbsp; 6. <span class="en">a lot of <b>viewers</b></span>.</p>
+      <p class="vi-sao">Câu 4: TV guide ở Skills 1 ghi rõ <span class="en">Game show: Children are Always Right</span>. Câu 5: <span class="en">so funny</span> → phim hài.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. channel &nbsp; 2. character &nbsp; 3. animated films &nbsp; 4. game show &nbsp; 5. comedies &nbsp; 6. viewers</div>
+    <div class="bay">Câu 1 điền <span class="en">game show</span> vì không biết <i>Bibi</i>. <span class="en">Bibi in Viet Nam shows international and Vietnamese cartoons</span> — một kênh phát nhiều phim, không phải một trò chơi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Adjectives</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Complete the sentences with the adjectives in the box.</span></p>
+    <p class="en" lang="en">popular · cute · live · educational · boring · funny</p>
+    <p class="en" lang="en">1. The most ______ channel for children is the Cartoon Network. 2. This film is very ______. I don't want to watch it. 3. Cat Kitty is a very ______ character. Children love her. 4. You can watch this programme at the same time it happens. It's ______. 5. Comedies are ______. People laugh a lot when they watch them. 6. We learn a lot from Discovery Channel. This channel is ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu đều có một câu phụ giải thích — đọc nó là đoán được tính từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4: xem chương trình <b>cùng lúc</b> nó đang diễn ra — truyền hình gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc câu giải thích</h4>
+      <table>
+        <tr><th>Câu</th><th>Manh mối</th><th>Tính từ</th></tr>
+        <tr><td>1</td><td>kênh được trẻ em yêu thích nhất</td><td class="en">popular</td></tr>
+        <tr><td>2</td><td class="en">I don't want to watch it.</td><td class="en">boring</td></tr>
+        <tr><td>3</td><td class="en">Children love her.</td><td class="en">cute</td></tr>
+        <tr><td>4</td><td class="en">at the same time it happens</td><td class="en">live</td></tr>
+        <tr><td>5</td><td class="en">People laugh a lot</td><td class="en">funny</td></tr>
+        <tr><td>6</td><td class="en">We learn a lot</td><td class="en">educational</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">live</span> ở đây là tính từ, đọc /laɪv/ (Glossary) — khác động từ <span class="en">live</span> (sống).</p>
+      <a class="xem-lai" href="#kt-tu-vung">📌 Xem lại: từ vựng TV programmes</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. popular &nbsp; 2. boring &nbsp; 3. cute &nbsp; 4. live &nbsp; 5. funny &nbsp; 6. educational</div>
+    <div class="bay">Câu 4 đọc <span class="en">live</span> thành /lɪv/ như “sống”. Tính từ “trực tiếp” đọc /laɪv/.</div>
+    <div class="gv-note">Câu 1 có <span class="en">The most popular</span> — dạng so sánh nhất với tính từ dài, không phải điểm ngữ pháp lớp 6 (Unit 12 chỉ dạy tính từ ngắn). HS chỉ cần hiểu nghĩa “được yêu thích nhất”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen and repeat the words.</span> 🎧 (Track 3, tập hai)</p>
+    <p class="en" lang="en">/θ/: theatre · earth · anything · both · through | /ð/: there · them · neither · weather · than</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt tay lên cổ khi đọc <i>both</i> rồi <i>them</i>. Lần nào cổ họng rung?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả hai âm: đầu lưỡi đặt nhẹ giữa hai hàm răng. Khác nhau chỉ ở chỗ <b>có rung</b> hay <b>không rung</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân biệt hai âm</h4>
+      <p><b>/θ/</b>: thổi hơi qua kẽ lưỡi – răng, cổ họng <b>không rung</b>: <span class="en">theatre, both, through</span>.</p>
+      <p><b>/ð/</b>: cùng vị trí, cổ họng <b>rung</b>: <span class="en">there, them, weather</span>.</p>
+      <p class="vi-sao">Tiếng Việt không có hai âm này, nên HS hay đọc <span class="en">three</span> thành “tri”, <span class="en">them</span> thành “dem”. Nhớ: lưỡi phải <b>thò ra</b> giữa răng.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /θ/ và /ð/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và nhắc lại. /θ/ (không rung): theatre, earth, anything, both, through. /ð/ (rung): there, them, neither, weather, than.</div>
+    <div class="bay">Đọc <span class="en">earth, both</span> mà nuốt mất âm cuối /θ/. Âm <i>th</i> ở cuối từ vẫn phải thò lưỡi ra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tongue Twister</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Tongue Twister</span> — <span lang="en">Take turns to read the sentences quickly and correctly.</span></p>
+    <p class="en" lang="en">1. They are thinking about the weather there. 2. The new theatre opens on Thursday the third.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc chậm trước, đúng rồi mới tăng tốc. Mỗi câu có bao nhiêu chữ <i>th</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đánh dấu trước: chữ <i>th</i> nào đọc /θ/, chữ nào đọc /ð/.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân loại các chữ th</h4>
+      <table>
+        <tr><th>Câu</th><th>/θ/</th><th>/ð/</th></tr>
+        <tr><td>1</td><td class="en">thinking</td><td class="en">They, the, weather, there</td></tr>
+        <tr><td>2</td><td class="en">theatre, Thursday, third</td><td class="en">The, the</td></tr>
+      </table>
+      <p class="vi-sao">Những từ nhỏ hay dùng (<span class="en">the, they, there, them</span>) đều đọc /ð/ — có rung.</p></div>
+    <div class="buoc" data-so="2"><h4>Luyện đọc nhanh</h4>
+      <p>Đọc từng cụm: <span class="en">They are thinking</span> / <span class="en">about the weather there</span>. Đọc đúng 3 lần liền rồi mới đọc nhanh.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài luyện đọc, không có câu hỏi phải trả lời. Câu 1: /θ/ thinking; /ð/ They, the, weather, there. Câu 2: /θ/ theatre, Thursday, third; /ð/ The, the.</div>
+    <div class="bay">Đọc <span class="en">Thursday</span> thành “thớt-xđây” bằng âm “th” tiếng Việt (bật hơi). Đúng là /θ/ — lưỡi giữa răng, thổi hơi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small><i>Wh</i>-question words · Conjunctions <i>and, but, so</i> · Trang 9 – 10</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Question words</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Read the conversation and underline the question words.</span></p>
+    <p class="en" lang="en">Hi, Phong. What are you doing tomorrow? — I'm going to a book exhibition. — Where is it? — It's in Van Ho street. — How long is it on? — From the 4ᵗʰ to the 7ᵗʰ January.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ để hỏi luôn đứng <b>đầu</b> câu hỏi. Có mấy câu hỏi trong đoạn hội thoại?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có ba câu hỏi (ba dấu “?”). Một từ để hỏi gồm <b>hai chữ</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm từ đầu mỗi câu hỏi</h4>
+      <blockquote class="trich"><p>What are you doing tomorrow?</p><p>Where is it?</p><p>How long is it on?</p></blockquote>
+      <p class="vi-sao">Nhìn câu trả lời để kiểm tra: <span class="en">a book exhibition</span> (sự vật → What), <span class="en">in Van Ho street</span> (nơi chốn → Where), <span class="en">From the 4ᵗʰ to the 7ᵗʰ January</span> (bao lâu → How long).</p>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Wh-question words</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">What, Where, How long</div>
+    <div class="bay">Chỉ gạch <span class="en">How</span> mà bỏ <span class="en">long</span>. <span class="en">How long</span> là một cụm từ để hỏi (hỏi khoảng thời gian).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Question words</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Match each question word with the information it needs.</span></p>
+    <p class="en" lang="en">When · How many · How often · What · Where · Who · Why | thing · time · person · reason · repetition · number · place</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">How often</span><button class="chon chu" data-dung="0">time</button><button class="chon chu" data-dung="1">repetition</button><button class="chon chu" data-dung="0">number</button><span class="phan-hoi" data-dung-txt="Đúng! How often hỏi bao lâu một lần — sự lặp lại." data-sai-txt="Câu trả lời của How often là “Two or three times a week” — đó là sự lặp lại hay một con số đếm đồ vật?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">How many</span><button class="chon chu" data-dung="1">number</button><button class="chon chu" data-dung="0">repetition</button><button class="chon chu" data-dung="0">thing</button><span class="phan-hoi" data-dung-txt="Đúng! How many hỏi số lượng." data-sai-txt="“How many days a week…?” — câu trả lời là “five”. Đó là gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tự trả lời thử từng câu hỏi: “Khi nào?” → em sẽ nói một giờ, một ngày… đó là loại thông tin gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">repetition</span> = sự lặp lại; <span class="en">reason</span> = lí do.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép từ để hỏi với loại thông tin</h4>
+      <table>
+        <tr><th>Question word</th><th>Information</th><th>Nghĩa</th></tr>
+        <tr><td class="en">When</td><td class="en">time</td><td>khi nào – thời gian</td></tr>
+        <tr><td class="en">How many</td><td class="en">number</td><td>bao nhiêu – số lượng</td></tr>
+        <tr><td class="en">How often</td><td class="en">repetition</td><td>bao lâu một lần – sự lặp lại</td></tr>
+        <tr><td class="en">What</td><td class="en">thing</td><td>cái gì – sự vật</td></tr>
+        <tr><td class="en">Where</td><td class="en">place</td><td>ở đâu – nơi chốn</td></tr>
+        <tr><td class="en">Who</td><td class="en">person</td><td>ai – người</td></tr>
+        <tr><td class="en">Why</td><td class="en">reason</td><td>tại sao – lí do</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Each question word is used for a specific piece of information.</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">When – time; How many – number; How often – repetition; What – thing; Where – place; Who – person; Why – reason</div>
+    <div class="bay">Lẫn <span class="en">How many</span> với <span class="en">How often</span>: <i>How many</i> hỏi <b>số lượng</b>, <i>How often</i> hỏi <b>mức độ thường xuyên</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Question words</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Use the question words in the box to complete the conversations. Then listen and check your answers.</span> 🎧 (Track 4, tập hai)</p>
+    <p class="en" lang="en">When · Who · What · Where · How often</p>
+    <p class="en" lang="en">Conversation 1 — A: ______ do you watch TV? B: Not very often. Two or three times a week. A: ______ do you watch? B: It depends. But I like talent shows the most.</p>
+    <p class="en" lang="en">Conversation 2 — A: ______ do you like the most in Doraemon? B: Nobita. He's so funny.</p>
+    <p class="en" lang="en">Conversation 3 — A: ______ do you play football? B: Usually on Saturday or Sunday. A: ______ do you play? B: In the yard.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc <b>câu trả lời B</b> trước — nó cho biết A đã hỏi loại thông tin gì.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 5 chỗ trống, 5 từ trong hộp — mỗi từ dùng đúng một lần.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhìn câu trả lời, đoán loại thông tin</h4>
+      <table>
+        <tr><th>Chỗ trống</th><th>Câu trả lời</th><th>Thông tin</th><th>Từ để hỏi</th></tr>
+        <tr><td>Hội thoại 1 (a)</td><td class="en" lang="en">Two or three times a week.</td><td>sự lặp lại</td><td class="en"><b>How often</b></td></tr>
+        <tr><td>Hội thoại 1 (b)</td><td class="en" lang="en">But I like talent shows the most.</td><td>sự vật (chương trình)</td><td class="en"><b>What</b></td></tr>
+        <tr><td>Hội thoại 2</td><td class="en" lang="en">Nobita. He's so funny.</td><td>người (nhân vật)</td><td class="en"><b>Who</b></td></tr>
+        <tr><td>Hội thoại 3 (a)</td><td class="en" lang="en">Usually on Saturday or Sunday.</td><td>thời gian</td><td class="en"><b>When</b></td></tr>
+        <tr><td>Hội thoại 3 (b)</td><td class="en" lang="en">In the yard.</td><td>nơi chốn</td><td class="en"><b>Where</b></td></tr>
+      </table>
+      <p class="vi-sao">Sau mỗi từ để hỏi đều có trợ động từ <span class="en">do</span>: <span class="en">How often <b>do</b> you watch TV?</span> — không nói <span class="en">How often you watch TV?</span></p>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Wh-question words</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Conversation 1: How often; What. &nbsp; Conversation 2: Who. &nbsp; Conversation 3: When; Where.</div>
+    <div class="bay">Hội thoại 2 điền <span class="en">What</span> vì nghĩ tới “nhân vật nào”. Câu trả lời là tên người (<span class="en">Nobita</span>) → <span class="en">Who</span>.</div>
+    <div class="gv-note">Các hội thoại in đầy đủ trong SGK nên đáp án suy chắc chắn từ câu trả lời B; Track 4 (tập hai) dùng để HS tự kiểm tra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Conjunctions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Match the beginnings with the endings.</span></p>
+    <p class="en" lang="en">1. I like animal programmes, 2. I'll get up early tomorrow, 3. Sometimes we read books, 4. My little brother can colour pictures, 5. We love outdoor activities,</p>
+    <p class="en" lang="en">a. so I can be at the stadium on time. b. but he can't draw. c. and my brother likes them, too. d. so we spend every Saturday playing sports. e. and sometimes we play sports.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — câu 4 nối với?</b>
+    <div class="cau-thu"><span class="noi-dung en">4. My little brother can colour pictures,</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">b</button><button class="chon chu" data-dung="0">c</button><button class="chon chu" data-dung="0">d</button><button class="chon chu" data-dung="0">e</button><span class="phan-hoi" data-dung-txt="Đúng! can colour ↔ can't draw — hai ý trái ngược nên dùng but." data-sai-txt="Vế sau có nhắc lại “he” — tức em trai. Vế nào nói về he?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có hai vế bắt đầu bằng <i>and</i>, hai vế bắt đầu bằng <i>so</i>. Phân biệt chúng bằng <b>nghĩa</b>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">but</span> nối hai ý <b>trái ngược</b>; <span class="en">so</span> đứng trước <b>kết quả</b>; <span class="en">and</span> thêm một ý cùng chiều.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép vế có but trước (chỉ có một)</h4>
+      <p>4 – b: <span class="en">My little brother can colour pictures, but he can't draw.</span> — <i>can</i> ↔ <i>can't</i> trái ngược.</p></div>
+    <div class="buoc" data-so="2"><h4>Hai vế so: nguyên nhân → kết quả</h4>
+      <p>2 – a: dậy sớm → đến sân vận động đúng giờ. &nbsp; 5 – d: thích hoạt động ngoài trời → thứ Bảy nào cũng chơi thể thao.</p>
+      <p class="vi-sao">Thử đọc ngược “5 – a”: thích hoạt động ngoài trời → đến sân vận động đúng giờ? Không hợp lí bằng. Nối <i>so</i> phải là <b>kết quả</b> của vế trước.</p></div>
+    <div class="buoc" data-so="3"><h4>Hai vế and</h4>
+      <p>1 – c: <span class="en">them</span> thay cho <span class="en">animal programmes</span>. &nbsp; 3 – e: <span class="en">Sometimes … and sometimes …</span> — hai việc thỉnh thoảng làm.</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: Conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – c &nbsp; 2 – a &nbsp; 3 – e &nbsp; 4 – b &nbsp; 5 – d</div>
+    <div class="bay">Ghép 1 – e: câu đọc vẫn “xuôi” nhưng <span class="en">them</span> ở vế c cần một danh từ số nhiều phía trước để thay thế — chỉ câu 1 có (<span class="en">animal programmes</span>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Conjunctions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Use and, but or so to complete the sentences.</span></p>
+    <p class="en" lang="en">1. I'm tired, ______ I'll go to bed early. 2. My sister is good at school, ______ I'm not. 3. We trained hard, ______ we won the game. 4. The programme is interesting, ______ it's too long. 5. I'll write him some instructions, ______ I hope he'll follow them.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">3. We trained hard, ___ we won the game.</span><button class="chon chu" data-dung="0">and</button><button class="chon chu" data-dung="0">but</button><button class="chon chu" data-dung="1">so</button><span class="phan-hoi" data-dung-txt="Đúng! Tập chăm → kết quả là thắng." data-sai-txt="Thắng trận là kết quả của việc gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">4. … interesting, ___ it's too long.</span><button class="chon chu" data-dung="0">and</button><button class="chon chu" data-dung="1">but</button><button class="chon chu" data-dung="0">so</button><span class="phan-hoi" data-dung-txt="Đúng! Hay (tốt) ↔ quá dài (chưa tốt): trái ngược." data-sai-txt="“interesting” là ý khen; “too long” là khen hay chê?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với mỗi câu, tự hỏi: hai vế <b>cùng chiều</b>, <b>trái ngược</b>, hay <b>nguyên nhân → kết quả</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ <span class="en">too</span> (quá) thường mang ý chê — đặt cạnh một lời khen thì là hai ý trái ngược.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét quan hệ hai vế</h4>
+      <p>1. mệt → đi ngủ sớm (kết quả) → <b>so</b>. &nbsp; 2. chị học giỏi ↔ em thì không → <b>but</b>. &nbsp; 3. tập chăm → thắng (kết quả) → <b>so</b>. &nbsp; 4. hay ↔ quá dài → <b>but</b>. &nbsp; 5. viết hướng dẫn <b>và</b> mong bạn ấy làm theo — thêm một ý → <b>and</b>.</p>
+      <p class="vi-sao">Câu 5 không phải <i>so</i>: “hi vọng” không phải kết quả chắc chắn của việc viết hướng dẫn; đó chỉ là thêm một ý nữa của người nói.</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: Conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. so &nbsp; 2. but &nbsp; 3. so &nbsp; 4. but &nbsp; 5. and</div>
+    <div class="bay">Đặt <i>so</i> trước nguyên nhân (như tiếng Việt “vì”): <span class="en">We won the game, so we trained hard</span> là sai nghĩa. <i>so</i> đứng trước <b>kết quả</b>.</div>
+    <div class="gv-note">Câu 1 và câu 5 có <span class="en">I'll / he'll</span> (will — Unit 10). HS chỉ cần hiểu nghĩa “sẽ”, không phải điểm ngữ pháp Unit 7.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Asking for and giving information about TV programmes<small>Trang 11</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read the conversation. Pay attention to the highlighted words.</span> 🎧 (Track 5, tập hai)</p>
+    <p class="en" lang="en">A: What's your favourite TV programme? B: The animal programme. A: Why do you like it? B: Because I can see the animals in their real life.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai từ in đậm là hai từ để hỏi. Câu trả lời cho <i>Why</i> bắt đầu bằng chữ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi <span class="en">What</span> → trả lời tên chương trình; hỏi <span class="en">Why</span> → trả lời bằng <span class="en">Because …</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai cặp hỏi – đáp cần nhớ</h4>
+      <p><span class="en"><b>What</b>'s your favourite TV programme?</span> — Chương trình ti vi yêu thích của bạn là gì? &nbsp; <span class="en"><b>Why</b> do you like it? — Because …</span> — Vì sao bạn thích nó? — Vì …</p>
+      <a class="xem-lai" href="#kt-everyday">📌 Xem lại: Asking for and giving information about TV programmes</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Mẫu: <span class="en">What's your favourite TV programme?</span> → tên chương trình; <span class="en">Why do you like it?</span> → <span class="en">Because …</span></div>
+    <div class="bay">Trả lời <i>Why</i> bằng <span class="en">So …</span>. Lí do đi với <span class="en">Because</span>; <i>so</i> dùng cho kết quả.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Make a similar conversation about your favourite TV programme.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chương trình em hay xem nhất là gì? Em thích nó vì điều gì cụ thể?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Giữ nguyên hai câu hỏi của bài 1, chỉ thay câu trả lời.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hội thoại theo mẫu</h4>
+      <p class="en">A: What's your favourite TV programme?<br>B: Tom and Jerry.<br>A: Why do you like it?<br>B: Because it's very funny. Jerry is a clever character.</p>
+      <p class="vi-sao">Lí do nên dùng tính từ của Unit: <span class="en">funny, educational, interesting, cute</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: What's your favourite TV programme? — B: Tom and Jerry. — A: Why do you like it? — B: Because it's very funny.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Facts</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in groups. Discuss and complete the facts with the countries in the box.</span></p>
+    <p class="en" lang="en">the USA · Viet Nam · Japan · Iceland</p>
+    <p class="en" lang="en">1. Pokémon cartoons are from ______. 2. Bibi in ______ shows international and Vietnamese cartoons. 3. In ______, there was no TV on Thursdays before 1986. 4. Discovery Channel makes education fun for children in ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu nào em chắc chắn nhất? Điền câu đó trước, rồi loại trừ dần.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2 có chữ <span class="en">Vietnamese cartoons</span>. Câu 1: <i>Pokémon</i> là phim hoạt hình của nước nào ở châu Á?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu dễ trước</h4>
+      <p>2. Kênh <i>Bibi</i> chiếu phim hoạt hình Việt Nam → <b>Viet Nam</b>. &nbsp; 1. <i>Pokémon</i> là hoạt hình Nhật Bản → <b>Japan</b>. &nbsp; 4. <i>Discovery Channel</i> là kênh của Mĩ → <b>the USA</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu còn lại</h4>
+      <p>3. Còn lại <b>Iceland</b> (Ai-xơ-len): trước năm 1986, nước này không phát sóng ti vi vào thứ Năm.</p>
+      <p class="vi-sao">Câu 3 có <span class="en">there was</span> — quá khứ của <i>there is</i>, em sẽ học ở Unit 8.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Japan &nbsp; 2. Viet Nam &nbsp; 3. Iceland &nbsp; 4. the USA</div>
+    <div class="bay">Viết <span class="en">Vietnam</span> liền. Sách viết <span class="en">Viet Nam</span> — bài kiểm tra chấm theo sách.</div>
+    <div class="gv-note">Đây là câu kiến thức chung, SGK không có bài đọc làm căn cứ; HS làm được bằng loại trừ (câu 2 → câu 1 → câu 4 → câu 3).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Tick</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Read about the two TV programmes and tick (✓) the correct programme in the table. You may tick both.</span></p>
+    <p class="en" lang="en">1. It's educational. 2. It has viewers from 80 countries. 3. Its main character is a clever fox. 4. Both parents and children enjoy it. 5. It's a cartoon.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — câu 1 “It's educational”</b>
+    <div class="cau-thu"><span class="noi-dung">1.</span><button class="chon chu" data-dung="0">Let's Learn</button><button class="chon chu" data-dung="0">Hello Fatty</button><button class="chon chu" data-dung="1">Cả hai</button><span class="phan-hoi" data-dung-txt="Đúng! Let's Learn “is an educational TV programme”, Hello Fatty “is funny and educational”." data-sai-txt="Đọc câu cuối của đoạn Hello Fatty."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề nói “You may tick both” — có câu nào đúng với <b>cả hai</b> chương trình không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc câu cuối của mỗi đoạn — câu cuối đoạn <i>Hello Fatty</i> có một tính từ quan trọng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm căn cứ cho từng câu</h4>
+      <table>
+        <tr><th>Câu</th><th>Căn cứ</th></tr>
+        <tr><td>1</td><td class="en" lang="en">Let's Learn is an educational TV programme. … It's funny and educational.</td></tr>
+        <tr><td>2</td><td class="en" lang="en">People in 80 countries watch it today.</td></tr>
+        <tr><td>3</td><td class="en" lang="en">It's about a clever fox called Fatty and his friend.</td></tr>
+        <tr><td>4</td><td class="en">Both children and their parents like it.</td></tr>
+        <tr><td>5</td><td class="en" lang="en">Hello Fatty is a popular TV cartoon.</td></tr>
+      </table>
+      <p class="vi-sao">Câu 4: <i>Hello Fatty</i> chỉ nói <span class="en">Children around the world enjoy this programme</span> — không nhắc tới bố mẹ, nên chỉ tick <i>Let's Learn</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Cả hai (Let's Learn ✓, Hello Fatty ✓) &nbsp; 2. Let's Learn &nbsp; 3. Hello Fatty &nbsp; 4. Let's Learn &nbsp; 5. Hello Fatty</div>
+    <div class="bay">Câu 1 chỉ tick <i>Let's Learn</i> vì đoạn ấy viết chữ <i>educational</i> ngay câu đầu. Từ cuối đoạn <i>Hello Fatty</i> cũng là <span class="en">educational</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Work in groups. Tell your group which programme in 4 you prefer and why.</span></p>
+    <p class="en" lang="en">Example: I like Let's Learn because it has cute characters and fun songs.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em thích bài hát vui hay chú cáo thông minh hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mẫu: <span class="en">I like … because it …</span> — lí do lấy từ bài đọc ở bài 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nói theo mẫu</h4>
+      <p class="en">I like Hello Fatty because it's funny and educational. Fatty is a clever fox, and he goes to different places with his friend.</p>
+      <p class="vi-sao">Sau <span class="en">because it</span> động từ chia ngôi thứ ba: <span class="en">it <b>has</b>, it <b>is</b></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">I like Hello Fatty because it's funny and educational.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading a TV guide · Speaking<small>Trang 12 – 13</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Questions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Read the first two columns of the TV guide and answer the questions.</span></p>
+    <p class="en" lang="en">1. What's in the Wildlife programme? 2. Is The Fox Teacher a comedy? 3. What time is the Sports programme? 4. Can we watch a game show at 10.30? 5. What is the topic of the Science programme?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề chỉ cho đọc <b>hai cột đầu</b>: TIME và PROGRAMME. Câu trả lời nằm hết ở đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cột PROGRAMME ghi <b>loại chương trình</b> (in đậm) rồi đến <b>tên</b> (in nghiêng).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai cột đầu của TV guide</h4>
+      <table>
+        <tr><th>TIME</th><th>PROGRAMME</th></tr>
+        <tr><td>8.00</td><td class="en" lang="en">Wildlife: Cuc Phuong Forest</td></tr>
+        <tr><td>9.00</td><td class="en" lang="en">Comedy: The Fox Teacher</td></tr>
+        <tr><td>10.30</td><td class="en" lang="en">Sports: The Pig Race</td></tr>
+        <tr><td>11.00</td><td class="en" lang="en">Game show: Children are Always Right</td></tr>
+        <tr><td>12.15</td><td class="en" lang="en">Science: The Dolphins</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Trả lời</h4>
+      <p>Câu 2, 4 là câu hỏi Yes/No → <span class="en">Yes, it is. / No, we can't.</span> Câu 4: lúc 10.30 là chương trình thể thao, game show chiếu lúc 11.00.</p>
+      <p class="vi-sao">Trả lời câu hỏi bằng <span class="en">Can we…?</span> thì dùng lại <span class="en">can</span>: <span class="en">No, we can't.</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Cuc Phuong Forest. &nbsp; 2. Yes, it is. &nbsp; 3. It's at 10.30. &nbsp; 4. No, we can't. (The game show is at 11.00.) &nbsp; 5. The dolphins.</div>
+    <div class="bay">Câu 4 trả lời <span class="en">No, it isn't</span> — câu hỏi bắt đầu bằng <span class="en">Can we</span> thì đáp bằng <span class="en">we can / we can't</span>.</div>
+    <div class="gv-note">Câu 1 chấp nhận cả câu trả lời từ cột thứ ba (<span class="en">plants, flowers, and animals</span>), nhưng đề yêu cầu đọc hai cột đầu nên đáp án chuẩn là tên chương trình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Read the TV guide in 1 and write the programmes that these people may choose to watch.</span></p>
+    <p class="en" lang="en">1. Phong wants to know more about dogs and cats. 2. Bob likes programmes that make him laugh. 3. Nga loves learning about plants and animals. 4. Minh likes watching races. 5. Linh is interested in sea animals.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bây giờ mới cần đọc cột thứ ba (DESCRIPTION). Mỗi người cần một từ khoá.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">dogs and cats</span> = <span class="en">pets</span>; <span class="en">laugh</span> → <span class="en">comedy</span>; <span class="en">sea animals</span> → con vật sống dưới biển.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép từ khoá với phần mô tả</h4>
+      <table>
+        <tr><th>Người</th><th>Căn cứ trong TV guide</th></tr>
+        <tr><td>1. Phong</td><td class="en" lang="en">try to answer interesting questions about pets.</td></tr>
+        <tr><td>2. Bob</td><td class="en" lang="en">Have a lot of fun with a fox teacher and his students</td></tr>
+        <tr><td>3. Nga</td><td class="en" lang="en">Watch the colourful world of plants, flowers, and animals in their real life.</td></tr>
+        <tr><td>4. Minh</td><td class="en" lang="en">Watch the cute pigs compete in the most exciting races.</td></tr>
+        <tr><td>5. Linh</td><td class="en" lang="en">intelligent dolphins in their natural life - the sea.</td></tr>
+      </table>
+      <p class="vi-sao">Phong muốn biết về chó mèo — tức thú cưng (<span class="en">pets</span>). Chương trình ấy không có chữ “dogs” hay “cats” mà dùng từ khái quát <span class="en">pets</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Children are Always Right (game show) &nbsp; 2. The Fox Teacher (comedy) &nbsp; 3. Cuc Phuong Forest (wildlife) &nbsp; 4. The Pig Race (sports) &nbsp; 5. The Dolphins (science)</div>
+    <div class="bay">Câu 1 chọn <i>Cuc Phuong Forest</i> vì có chữ <span class="en">animals</span>. Chó mèo là thú nuôi trong nhà, không phải thú hoang trong rừng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in groups. Share your table in 2 with your group and see if they agree with you.</span></p>
+    <p class="en" lang="en">Example: A: I think the best programme for Phong is the game show Children are Always Right. B: I agree. He wants to know more about pets.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bạn có đồng ý với em không? Nếu không, bạn đưa ra lí do gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai câu cần dùng: <span class="en">I think the best programme for … is …</span> và <span class="en">I agree. / I don't agree.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nói theo mẫu SGK</h4>
+      <p class="en">A: I think the best programme for Linh is The Dolphins.<br>B: I agree. She is interested in sea animals.</p>
+      <p class="vi-sao">Lí do nhắc lại thông tin của người đó, đổi chủ ngữ thành <span class="en">he / she</span> → động từ thêm s: <span class="en">She like<b>s</b>…, He want<b>s</b>…</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: I think the best programme for Linh is The Dolphins. — B: I agree. She is interested in sea animals.</span></div>
+    <div class="gv-note"><span class="en">the best</span> là cụm có sẵn trong mẫu SGK; so sánh nhất là điểm ngữ pháp Unit 12 — HS dùng như một cụm cố định.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Talk</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Work in groups. Tell your group about your favourite TV programme. Your talk should include:</span></p>
+    <p class="en" lang="en">the name of the programme · the channel it is on · the content of the programme · the reason you like it</p>
+    <p class="en" lang="en">My favourite programme is … · It's on … · It's about … · I like it because it …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn ô trong sách là bốn câu em sẽ nói. Điền xong bốn ô là có bài nói.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghi ra giấy 4 ý ngắn (tên – kênh – nội dung – lí do) rồi ghép vào 4 câu gợi ý.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi 4 ý</h4>
+      <table><tr><th>Ý</th><th>Ví dụ</th></tr>
+        <tr><td>Tên chương trình</td><td class="en">English in a Minute</td></tr>
+        <tr><td>Kênh</td><td class="en">VTV7</td></tr>
+        <tr><td>Nội dung</td><td class="en">useful English words and sentences</td></tr>
+        <tr><td>Lí do</td><td class="en">short, educational</td></tr></table></div>
+    <div class="buoc" data-so="2"><h4>Nói thành bài</h4>
+      <p class="en">My favourite programme is English in a Minute. It's on VTV7. It's about useful English words and sentences. I like it because it is short and educational, so I watch it every day.</p>
+      <p class="vi-sao">Thêm một liên từ (<span class="en">and, but, so</span>) để bài nói liền mạch — đúng điểm ngữ pháp vừa học.</p>
+      <a class="xem-lai" href="#kt-tv-guide">📌 Xem lại: khung câu nói về chương trình yêu thích</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Bài nói tốt có đủ 4 ý: tên chương trình, kênh, nội dung, lí do. Mẫu: <span class="en">My favourite programme is English in a Minute. It's on VTV7. It's about useful English words and sentences. I like it because it is short and educational.</span></div>
+    <div class="bay">Nói <span class="en">I like it because it educational</span> — thiếu <i>is</i>. Tính từ cần động từ <i>be</i> đi trước.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Trang 13</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Tick</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and tick (✓) the correct channel for each programme.</span> 🎧 (Track 6, tập hai)</p>
+    <p class="en" lang="en">Green Summer · My Childhood · Harry Potter · English and Fun | CHANNEL 1 · CHANNEL 2 · CHANNEL 3</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn chương trình, ba kênh. Trước khi nghe, đọc to bốn cái tên để tai quen.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trong bài nghe, tên kênh thường đi cùng một con số: <span class="en">Channel <b>one</b> / <b>two</b> / <b>three</b></span>. Nghe tên chương trình rồi chờ con số ngay trước hoặc sau nó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuẩn bị trước khi nghe</h4>
+      <table><tr><th>Chương trình</th><th>Nghĩa tên</th><th>Chờ nghe</th></tr>
+        <tr><td class="en">Green Summer</td><td>Mùa hè xanh</td><td>số kênh: 1, 2 hay 3</td></tr>
+        <tr><td class="en">My Childhood</td><td>Tuổi thơ tôi</td><td>số kênh</td></tr>
+        <tr><td class="en">Harry Potter</td><td>tên một bộ phim</td><td>số kênh</td></tr>
+        <tr><td class="en">English and Fun</td><td>Tiếng Anh và niềm vui</td><td>số kênh</td></tr></table>
+      <p class="vi-sao">Một kênh có thể có nhiều chương trình — đừng nghĩ mỗi kênh chỉ được tick một lần.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 6 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>. Em nghe băng, tick kênh cho từng chương trình rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Đoán theo tên (ví dụ “Harry Potter là phim nên chắc ở kênh phim”). Chỉ bài nghe mới cho biết chương trình nào ở kênh nào.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu đáp án bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — True / False</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen again and tick (✓) T (True) or F (False).</span> 🎧 (Track 7, tập hai)</p>
+    <p class="en" lang="en">1. Green Summer is a music programme. 2. My Childhood is the story of a girl and her dog. 3. Children love Harry Potter. 4. English and Fun is at five o'clock.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gạch chân trong mỗi câu một từ dễ “sai”: <i>music</i>, <i>girl … dog</i>, <i>love</i>, <i>five</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu T/F thường “đánh tráo” một chi tiết nhỏ: loại chương trình, nhân vật (girl hay boy? dog hay cat?), giờ chiếu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Từ khoá cần chờ nghe</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th><th>Loại thông tin</th></tr>
+        <tr><td>1</td><td class="en">Green Summer — music?</td><td>loại chương trình</td></tr>
+        <tr><td>2</td><td class="en">My Childhood — a girl? her dog?</td><td>nhân vật</td></tr>
+        <tr><td>3</td><td class="en">Harry Potter — children love?</td><td>ai thích</td></tr>
+        <tr><td>4</td><td class="en">English and Fun — five o'clock?</td><td>giờ chiếu (số)</td></tr></table>
+      <p class="vi-sao">Câu 4 là con số — khi nghe, ghi ngay giờ em nghe được ra lề rồi so với <i>five o'clock</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 7 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>. Em nghe băng, tick T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Chọn T chỉ vì nghe thấy đúng từ <i>music</i> hay <i>five</i>. Phải nghe xem từ đó có đi với <b>đúng chương trình</b> trong câu không.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / sách giáo viên. Không suy đáp án từ tên chương trình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Survey</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the questions and circle the right answers for yourself.</span></p>
+    <p class="en" lang="en">1. How much do you like watching TV? 2. How many hours a day do you watch TV? 3. When do you watch TV the most? 4. Do you watch TV when you are eating? 5. What TV programme do you watch the most?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khoanh thật lòng — 5 câu trả lời này là “nguyên liệu” cho đoạn văn ở bài 4.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">So so</span> = bình thường; <span class="en">Less than one hour</span> = ít hơn một giờ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu từng câu hỏi</h4>
+      <p>1. Em thích xem ti vi đến mức nào? &nbsp; 2. Mỗi ngày em xem mấy giờ? &nbsp; 3. Em xem nhiều nhất vào buổi nào? &nbsp; 4. Em có xem ti vi khi đang ăn không? &nbsp; 5. Em xem chương trình nào nhiều nhất?</p>
+      <p class="vi-sao">Mỗi từ để hỏi một loại thông tin (Remember! của Unit): <span class="en">How many</span> → số giờ; <span class="en">When</span> → buổi; <span class="en">What</span> → chương trình.</p>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Wh-question words</a></div>
+    <div class="buoc" data-so="2"><h4>Biến lựa chọn thành câu</h4>
+      <p>Ví dụ em khoanh 4B → <span class="en">I sometimes watch TV when I am eating.</span> (trạng từ tần suất đứng trước động từ chính).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án đúng – sai; mỗi em khoanh theo thói quen của mình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Paragraph</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write a paragraph of about 50 words about your TV-viewing habits. Use your answers in 3.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm câu trả lời ở bài 3 = năm câu trong đoạn. Nối chúng lại bằng <i>and, but, so</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự ý theo bài 3: thích xem đến đâu → mấy giờ mỗi ngày → buổi nào → có xem khi ăn không → chương trình nào, vì sao.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Biến 5 lựa chọn thành 5 câu</h4>
+      <p>1A → <span class="en">I like watching TV a lot.</span> · 2A → <span class="en">I watch TV for about one hour a day.</span> · 3C → <span class="en">I usually watch it in the evening.</span> · 4C → <span class="en">I never watch TV when I am eating.</span> · 5A → <span class="en">I watch cartoons …</span></p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu câu đầu thôi: <span class="en">I like watching TV a lot.</span> Phần còn lại em tự viết theo câu trả lời của mình nhé.</p></div>
+    <div class="buoc" data-so="3"><h4>Nối câu, đếm từ, soát lỗi</h4>
+      <p>Dùng ít nhất một liên từ: <span class="en">…, but I never watch TV when I am eating.</span> / <span class="en">…, so I watch them every day.</span> Đếm khoảng 50 từ (45 – 55 là ổn).</p>
+      <p class="vi-sao">Soát: trạng từ tần suất (<span class="en">usually, sometimes, never</span>) đứng trước động từ chính; <span class="en">so</span> đứng trước kết quả.</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: Conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) dùng đủ 5 ý từ câu trả lời ở bài 3; (2) dài khoảng 50 từ; (3) đúng thì hiện tại đơn và vị trí trạng từ tần suất; (4) có ít nhất một câu ghép với <i>and / but / so</i>; (5) đúng chính tả, có dấu chấm cuối câu.</div>
+    <div class="bay">Viết <span class="en">I watch usually TV in the evening</span> — sai vị trí trạng từ. Đúng: <span class="en">I usually watch TV in the evening.</span></div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở mẫu. Đoạn tham khảo dưới đây dành cho GV (đã đếm máy: 51 từ).</div>
+    <div class="tham-khao">
+    <p lang="en">I like watching TV a lot. I watch TV for about one hour a day. I usually watch it in the evening, but I never watch TV when I am eating. My favourite programmes are cartoons because they are funny. I also like science programmes, so I sometimes watch Discovery Channel.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 14 – 15</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Put the words / phrases in the box in the correct column. Add more words if you can.</span></p>
+    <p class="en" lang="en">educational · English in a Minute · interesting · animated films · sports · popular · wildlife · funny</p>
+    <p lang="en">Programmes | Adjectives describing programmes</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — wildlife thuộc cột nào?</b>
+    <div class="cau-thu"><span class="noi-dung en">wildlife</span><button class="chon chu" data-dung="1">Programmes</button><button class="chon chu" data-dung="0">Adjectives</button><span class="phan-hoi" data-dung-txt="Đúng! Wildlife là một loại chương trình (TV guide, Skills 1)." data-sai-txt="Xem lại TV guide ở Skills 1: “Wildlife: Cuc Phuong Forest” — đó là loại chương trình hay lời khen?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hỏi từng từ: đây là <b>tên / loại</b> chương trình, hay là lời <b>khen chê</b> chương trình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn từ là tính từ (thường kết thúc bằng <i>-al, -ing, -ar, -y</i>), bốn từ còn lại là chương trình.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia hai cột</h4>
+      <table><tr><th>Programmes</th><th>Adjectives describing programmes</th></tr>
+        <tr><td class="en">English in a Minute<br>animated films<br>sports<br>wildlife</td><td class="en">educational<br>interesting<br>popular<br>funny</td></tr></table></div>
+    <div class="buoc" data-so="2"><h4>Thêm từ</h4>
+      <p><b>Programmes</b>: <span class="en">cartoons, comedies, game shows, talent shows</span> · <b>Adjectives</b>: <span class="en">boring, cute, live, wonderful</span></p>
+      <p class="vi-sao">Tất cả các từ thêm đều có ở Getting Started và A Closer Look 1 của Unit này.</p>
+      <a class="xem-lai" href="#kt-tu-vung">📌 Xem lại: từ vựng TV programmes</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Programmes</b>: English in a Minute, animated films, sports, wildlife. <b>Adjectives</b>: educational, interesting, popular, funny. (Thêm, ví dụ: cartoons, comedies, game shows; boring, cute, live.)</div>
+    <div class="bay">Xếp <span class="en">sports</span> vào cột tính từ. Trong TV guide: <span class="en">Sports: The Pig Race</span> — đó là loại chương trình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Use the words in the box to complete the text.</span></p>
+    <p class="en" lang="en">viewers · funny · educational · sports · animal</p>
+    <p class="en" lang="en">VTV1 is a popular TV channel in Viet Nam. It attracts many (1) ______ because it has interesting programmes. The (2) ______ programmes show tigers and giraffes in nature. People watch races or football matches on (3) ______ programmes. Comedies make people laugh because they are (4) ______. Game shows are both fun and (5) ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu (2) nói về “hổ và hươu cao cổ” — chương trình gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">attracts many …</span> — thu hút nhiều <b>người</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm manh mối trong từng câu</h4>
+      <p>(1) thu hút nhiều <b>người xem</b> → <span class="en">viewers</span>. (2) hổ, hươu → <span class="en">animal</span>. (3) đua, bóng đá → <span class="en">sports</span>. (4) làm người ta cười → <span class="en">funny</span>. (5) <span class="en">both fun and …</span> — từ còn lại → <span class="en">educational</span>.</p>
+      <p class="vi-sao">Câu (2), (3) chỗ trống đứng trước <span class="en">programmes</span> → cần từ chỉ <b>loại</b> chương trình; câu (4), (5) sau <span class="en">are / both … and</span> → cần tính từ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(1) viewers &nbsp; (2) animal &nbsp; (3) sports &nbsp; (4) funny &nbsp; (5) educational</div>
+    <div class="bay">Câu (5) điền <span class="en">funny</span> vì game show vui. Nhưng <i>funny</i> đã dùng ở câu (4), và <span class="en">both fun and funny</span> lặp ý — cần ý khác: <span class="en">educational</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Question words</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Complete each question with a suitable question word.</span></p>
+    <p class="en" lang="en">1. – ______ days a week do you go to class? – I go to class five days a week.</p>
+    <p class="en" lang="en">2. – ______ did you watch on TV last night? – I watched The Fox Teacher.</p>
+    <p class="en" lang="en">3. – ______ do you like the Wildlife programme? – Because I love animals.</p>
+    <p class="en" lang="en">4. – ______ is your favourite person on TV? – I like Minh Phong in The Gift of Music.</p>
+    <p class="en" lang="en">5. – ______ hours a day do you watch TV? – About half an hour a day. I watch more at the weekend.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Như A Closer Look 2: đọc câu trả lời trước rồi mới chọn từ để hỏi.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1 và 5 có danh từ số nhiều ngay sau chỗ trống (<span class="en">days, hours</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu trả lời → loại thông tin</h4>
+      <p>1. <span class="en">five days</span> — số lượng → <b>How many</b>. &nbsp; 2. <span class="en">The Fox Teacher</span> — sự vật → <b>What</b>. &nbsp; 3. <span class="en">Because …</span> — lí do → <b>Why</b>. &nbsp; 4. <span class="en">Minh Phong</span> — người → <b>Who</b>. &nbsp; 5. <span class="en">half an hour</span> — số giờ → <b>How many</b>.</p>
+      <p class="vi-sao">Sau <span class="en">How many</span> là danh từ số nhiều: <span class="en">How many days / How many hours</span>.</p>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Wh-question words</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. How many &nbsp; 2. What &nbsp; 3. Why &nbsp; 4. Who &nbsp; 5. How many</div>
+    <div class="bay">Câu 1 điền <span class="en">How often</span> vì câu trả lời có <i>a week</i>. Chỗ trống đứng ngay trước <span class="en">days</span> — hỏi <b>bao nhiêu</b> ngày → <i>How many</i>.</div>
+    <div class="gv-note">Câu 2 có <span class="en">did you watch / I watched</span> (past simple — Unit 8). HS chỉ cần chọn từ để hỏi; thì quá khứ đơn sẽ học ngay ở Unit sau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Conjunctions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Use the conjunctions provided to connect the sentences.</span></p>
+    <p class="en" lang="en">1. Ocean Life is on at 7.30. Laughing out Loud comes next at 8.00. (and)</p>
+    <p class="en" lang="en">2. I like The Seven Kitties very much. I watch it every day. (so)</p>
+    <p class="en" lang="en">3. BBC One is a British channel. VTV1 is a Vietnamese channel. (but)</p>
+    <p class="en" lang="en">4. Along the Coast is a famous TV series. I don't like it. (but)</p>
+    <p class="en" lang="en">5. I have a lot of homework tonight. I can't watch Eight Feet Below. (so)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Liên từ đã cho sẵn — em chỉ cần ghép hai câu, đặt dấu phẩy trước liên từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bỏ dấu chấm của câu đầu, thay bằng <b>dấu phẩy + liên từ</b>; chữ đầu câu sau viết thường (trừ tên riêng).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép theo mẫu Remember!</h4>
+      <p class="en">1. Ocean Life is on at 7.30, and Laughing out Loud comes next at 8.00.<br>2. I like The Seven Kitties very much, so I watch it every day.<br>3. BBC One is a British channel, but VTV1 is a Vietnamese channel.<br>4. Along the Coast is a famous TV series, but I don't like it.<br>5. I have a lot of homework tonight, so I can't watch Eight Feet Below.</p>
+      <p class="vi-sao">Câu 2 và 5: vế trước là <b>nguyên nhân</b>, vế sau là <b>kết quả</b> → <i>so</i> đứng trước kết quả. Câu 4: “nổi tiếng” ↔ “tôi không thích” → trái ngược → <i>but</i>.</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: Conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Ocean Life is on at 7.30, and Laughing out Loud comes next at 8.00. &nbsp; 2. I like The Seven Kitties very much, so I watch it every day. &nbsp; 3. BBC One is a British channel, but VTV1 is a Vietnamese channel. &nbsp; 4. Along the Coast is a famous TV series, but I don't like it. &nbsp; 5. I have a lot of homework tonight, so I can't watch Eight Feet Below.</div>
+    <div class="bay">Câu 4 viết <span class="en">…, but I don't like.</span> — bỏ mất <span class="en">it</span>. <i>like</i> cần tân ngữ: <span class="en">I don't like <b>it</b></span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">How important is TV to you?</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>How important is TV to you?</b> Work in groups. Interview your friends, using the questions below. Take notes of their answers and then report the results to the class.</p>
+    <p class="en" lang="en">1. What do you do in your free time? 2. Where do you prefer to get information from? 3. How many hours a day do you watch TV? 4. Why do you watch TV? 5. How long do you think you can live without TV?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em đoán xem: trong nhóm em, bao nhiêu bạn chọn “Watching TV” ở câu 1?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ bảng 5 dòng (5 câu hỏi) × 4 cột (A, B, C, D), mỗi bạn trả lời thì đánh một vạch vào ô.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phỏng vấn và ghi chép</h4>
+      <p>Hỏi đúng câu hỏi trong SGK; ghi lại bằng vạch đếm. Bạn chọn D (<span class="en">Other</span>) thì ghi thêm câu trả lời của bạn ấy.</p>
+      <p class="vi-sao">5 câu hỏi dùng 5 từ để hỏi khác nhau (<span class="en">What, Where, How many, Why, How long</span>) — mỗi từ một loại thông tin.</p></div>
+    <div class="buoc" data-so="2"><h4>Báo cáo — khung câu</h4>
+      <p class="en">There are … friends in our group. … friends watch TV in their free time, but … friends read books. … friends watch TV for more than two hours a day. … friends watch TV because they like it.</p>
+      <p class="vi-sao">Báo cáo kết quả bằng con số + hiện tại đơn; nối hai kết quả trái ngược bằng <span class="en">but</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài báo cáo đạt yêu cầu khi: (1) phỏng vấn đủ 5 câu hỏi và ghi chép kết quả; (2) báo cáo bằng con số cụ thể; (3) đúng thì hiện tại đơn, có dùng <i>and / but / so</i>; (4) nêu được kết luận: ti vi quan trọng với nhóm bạn đến mức nào.</div>
+    <div class="gv-note">Khung câu chỉ dùng hiện tại đơn và liên từ của Unit 7 (chưa dùng quá khứ đơn — Unit 8). Kết quả mỗi nhóm khác nhau; chấm theo tiêu chí.</div>
+    <div class="tham-khao">
+    <p lang="en">There are six friends in our group. Four friends watch TV in their free time, but two friends read books. Three friends prefer to get information from television. Two friends watch TV for more than two hours a day. Five friends watch TV because they like it. TV is very important to our group.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 7. Television — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u07';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-07-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-07-bai-giai.nguon.html" data-phien-ban="e8076e37d068">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

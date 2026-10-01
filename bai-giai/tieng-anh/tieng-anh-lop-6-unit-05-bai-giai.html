@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 5. Natural Wonders of Viet Nam — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập một</div>
+    <div class="hang1">
+      <h1>Unit 5. Natural Wonders of Viet Nam — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập một</div><h1>Unit 5. Natural Wonders of Viet Nam — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-count"><b class="ten">Countable and uncountable nouns</b>
+      <span class="en">Countable nouns are for the people and things we can count using numbers. Countable nouns can be singular: <i>a rock, an island</i> …, or plural: <i>rocks, islands</i> …</span><br>
+      <span class="en">Uncountable nouns are for the things that we cannot count with numbers. They usually do not have a plural form: <i>cream, chocolate</i> …</span><br>
+      → Đếm được: có <i>a / an</i> hoặc thêm <i>-s</i>. Không đếm được: không có <i>a / an</i>, không thêm <i>-s</i> (<span class="en">water, butter, tea, milk, snow, luggage</span>).</div>
+    <div class="kt" id="kt-quant"><b class="ten">some / many / a few / much / a little — Remember!</b>
+      <span class="en">We use <i>some</i>, <i>many</i>, <i>a few</i> with countable nouns.</span><br>
+      <span class="en">We use <i>some</i>, <i>much</i>, <i>a little</i> with uncountable nouns.</span></div>
+    <div class="kt" id="kt-must"><b class="ten">must / mustn't — Remember!</b>
+      <span class="en">We use <i>must</i> to say that something is very necessary or very important.</span><br>
+      <span class="en">We use <i>mustn't</i> to say that doing something is not allowed.</span><br>
+      → Mọi chủ ngữ (I, you, he, she, it, we, they) đều dùng <i>must / mustn't</i>, động từ sau nó ở dạng <b>nguyên thể</b>, không có <i>to</i>, không thêm <i>-s</i>.</div>
+    <div class="kt" id="kt-vocab"><b class="ten">Things in nature · Travel items</b>
+      <span class="en">mountain, river, waterfall, forest, cave, desert, beach, island</span><br>
+      <span class="en">plaster, sleeping bag, backpack, compass, suncream, scissors</span></div>
+    <div class="kt" id="kt-am"><b class="ten">Sounds /t/ and /d/</b>
+      /t/: <span class="en">mountain, waterfall, desert, plaster</span> &nbsp; /d/: <span class="en">wonder, island, guide, holiday</span><br>
+      /t/ bật hơi, dây thanh <b>không rung</b>; /d/ dây thanh <b>rung</b> (đặt tay lên cổ để thử). Glossary: <span class="en">desert</span> /ˈdezət/, <span class="en">island</span> /ˈaɪlənd/ (chữ <b>s</b> câm).</div>
+    <div class="kt" id="kt-appoint"><b class="ten">Making and accepting appointments</b>
+      <span class="en">Steven: Duong, <b>let's go for a picnic</b> this Sunday. — Duong: <b>That's fine</b>. What time can we meet? — Steven: <b>How about</b> 9 o'clock? — Duong: <b>Sure</b>. I'll meet you at that time.</span></div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập một — Unit 5. Natural Wonders of Viet Nam (trang 48 – 57).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — Geography Club<small>Trang 48 – 49</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 31, tập một)</p>
+    <p class="en" lang="en">Alice: Hello, welcome to our Geography Club. — Alice: Come in, Elena. We're just starting now. But remember you must always be on time. — Elena: Sure. Sorry. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu lạc bộ đang nói về những kì quan nào? Bạn nào đến muộn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân tên các kì quan (<span class="en">Ganh Da Dia, Ha Long Bay, Tuan Chau</span>) và câu có <span class="en">must</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">But remember you must always be on time.</td><td>Nhưng nhớ là bạn luôn phải đến đúng giờ nhé.</td></tr>
+        <tr><td class="en" lang="en">It's Ganh Da Dia in Dak Lak.</td><td>Đó là Gành Đá Đĩa ở Đắk Lắk.</td></tr>
+        <tr><td class="en" lang="en">Wow. It looks amazing!</td><td>Ồ, trông tuyệt quá!</td></tr>
+        <tr><td class="en" lang="en">It has many islands.</td><td>Nó có nhiều đảo.</td></tr>
+        <tr><td class="en" lang="en">The scenery is wonderful.</td><td>Phong cảnh thật tuyệt.</td></tr>
+        <tr><td class="en" lang="en">This picture shows Tuan Chau, a large island.</td><td>Bức ảnh này là Tuần Châu, một hòn đảo lớn.</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">must</span> = phải — điểm ngữ pháp của Unit này (A Closer Look 2). <span class="en">I'm going to talk about…</span> nghĩa là “Hôm nay tớ sẽ nói về…” — em chỉ cần hiểu, chưa phải học cấu trúc này.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Ý chính: Alice giới thiệu một số kì quan thiên nhiên của Việt Nam ở câu lạc bộ Địa lí — ảnh 1 là Gành Đá Đĩa (Đắk Lắk), ảnh 2 là vịnh Hạ Long với đảo Tuần Châu; Elena đến muộn và được nhắc phải đúng giờ.</div>
+    <div class="bay">Đọc <i>Ha Long, Dak Lak, Tuan Chau</i> theo kiểu tiếng Anh. Tên địa danh Việt Nam đọc như tiếng Việt: “Hạ Long”, “Đắk Lắk”, “Tuần Châu”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the gaps</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the following sentences with the words from the box.</span></p>
+    <p class="en" lang="en">scenery · natural · wonders · amazing · islands</p>
+    <p class="en" lang="en">1. People didn't make Ganh Da Dia. They are ______ rocks. &nbsp; 2. Ha Long Bay has thousands of big and small ______. &nbsp; 3. Ha Long Bay is charming and the ______ is wonderful. &nbsp; 4. Ganh Da Dia has ______ rock columns of different shapes and sizes. &nbsp; 5. There are many natural and man-made ______ in Viet Nam.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hộp có hai tính từ (<i>natural, amazing</i>) và ba danh từ. Chỗ trống nào đứng trước danh từ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: “người ta không làm ra” → đá <b>tự nhiên</b>. Câu 5: <span class="en">man-made</span> = nhân tạo (Glossary), đối lập với <span class="en">natural</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm loại từ cho mỗi chỗ trống</h4>
+      <p>Cần tính từ (đứng trước danh từ): câu 1 (<span class="en">___ rocks</span>), câu 4 (<span class="en">___ rock columns</span>). Cần danh từ số nhiều: câu 2 (<span class="en">thousands of ___</span>), câu 5 (<span class="en">many … ___</span>). Cần danh từ số ít: câu 3 (<span class="en">the ___ is</span>).</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn theo nghĩa</h4>
+      <p>1. <span class="en">They are <b>natural</b> rocks.</span> &nbsp; 2. <span class="en">thousands of big and small <b>islands</b></span> &nbsp; 3. <span class="en">the <b>scenery</b> is wonderful</span> &nbsp; 4. <span class="en"><b>amazing</b> rock columns</span> &nbsp; 5. <span class="en">natural and man-made <b>wonders</b></span></p>
+      <p class="vi-sao">Câu 3 động từ là <span class="en">is</span> (số ít) → <span class="en">scenery</span>, không phải <span class="en">islands</span> hay <span class="en">wonders</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. natural &nbsp; 2. islands &nbsp; 3. scenery &nbsp; 4. amazing &nbsp; 5. wonders</div>
+    <div class="bay">Câu 1 và câu 4 đổi chỗ cho nhau. Câu 1 có ý “người ta không làm ra” → <span class="en">natural</span>; câu 4 khen hình dáng cột đá → <span class="en">amazing</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Listen and repeat the words, then label the pictures.</span> 🎧 (Track 32, tập một)</p>
+    <p class="en" lang="en">1. mountain &nbsp; 2. river &nbsp; 3. waterfall &nbsp; 4. forest &nbsp; 5. cave &nbsp; 6. desert &nbsp; 7. beach &nbsp; 8. island</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn tranh trong SGK: tranh nào có cát, tranh nào có nước đổ xuống, tranh nào ở trong lòng núi?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">water + fall</span> = nước + rơi xuống. <span class="en">desert</span> /ˈdezət/ = sa mạc; <span class="en">island</span> /ˈaɪlənd/ = đảo.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của từ</h4>
+      <p><span class="en">mountain</span>: núi · <span class="en">river</span>: sông · <span class="en">waterfall</span> /ˈwɔːtəfɔːl/: thác nước · <span class="en">forest</span>: rừng · <span class="en">cave</span>: hang động · <span class="en">desert</span>: sa mạc · <span class="en">beach</span>: bãi biển · <span class="en">island</span>: đảo</p></div>
+    <div class="buoc" data-so="2"><h4>Gắn tên cho tranh (theo thứ tự chữ cái trong SGK)</h4>
+      <p>a – cồn cát có lạc đà → <span class="en">desert</span> · b – đảo nhỏ có dừa → <span class="en">island</span> · c – nhũ đá trong lòng núi → <span class="en">cave</span> · d – dòng sông uốn lượn → <span class="en">river</span> · e – thác trắng xoá → <span class="en">waterfall</span> · f – núi phủ tuyết → <span class="en">mountain</span> · g – rừng rậm → <span class="en">forest</span> · h – bãi cát trắng → <span class="en">beach</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. desert &nbsp; b. island &nbsp; c. cave &nbsp; d. river &nbsp; e. waterfall &nbsp; f. mountain &nbsp; g. forest &nbsp; h. beach (theo tranh SGK)</div>
+    <div class="bay">Nhầm <span class="en">island</span> (đảo) với <span class="en">beach</span> (bãi biển) vì tranh nào cũng có biển và dừa. Đảo là cả khối đất <b>giữa biển</b>; bãi biển là dải cát <b>bên bờ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quiz</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">QUIZ</span></p>
+    <p lang="en"><b>Work in groups. Choose the correct answer to each of the questions.</b></p>
+    <p class="en" lang="en">1. Which is an island in Viet Nam? A. Con Dao. B. Son Doong.</p>
+    <p class="en" lang="en">2. Where is Mount Fansipan? A. In Lao Cai. B. In Quang Tri.</p>
+    <p class="en" lang="en">3. Which of the following is a national park? A. Thong Nhat Park. B. Cat Tien Park.</p>
+    <p class="en" lang="en">4. Which of the following wonders is a cave? A. Cuc Phuong. B. Phong Nha.</p>
+    <p class="en" lang="en">5. Which waterfall is in Cao Bang? A. Giang Dien Waterfall. B. Ban Gioc Waterfall.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">1. island</span><button class="chon chu" data-dung="1">Con Dao</button><button class="chon chu" data-dung="0">Son Doong</button><span class="phan-hoi" data-dung-txt="Đúng! Côn Đảo — chữ “Đảo” ngay trong tên." data-sai-txt="Sơn Đoòng là một hang động. Tên nào có chữ “Đảo”?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">5. Cao Bang</span><button class="chon chu" data-dung="0">Giang Dien</button><button class="chon chu" data-dung="1">Ban Gioc</button><span class="phan-hoi" data-dung-txt="Đúng! Thác Bản Giốc ở Cao Bằng." data-sai-txt="Looking Back bài 2 có ghép một tên thác với “waterfall” — tên nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu hỏi nào em biết chắc? Làm câu đó trước, rồi đoán dần các câu còn lại.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc tên theo tiếng Việt: Côn Đảo, Sơn Đoòng, Phong Nha, Bản Giốc, Cát Tiên. Tên gọi thường đã nói lên đó là đảo, hang hay vườn quốc gia.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dựa vào hiểu biết địa lí</h4>
+      <p>1. Côn Đảo là một quần đảo (Sơn Đoòng là hang động). 2. Đỉnh Phan-xi-păng ở Lào Cai. 3. Cát Tiên là vườn quốc gia (Thống Nhất là công viên trong thành phố). 4. Phong Nha là động (Cúc Phương là rừng quốc gia). 5. Thác Bản Giốc ở Cao Bằng.</p>
+      <p class="vi-sao">Looking Back bài 2 của Unit này cũng ghép: <span class="en">Con Dao – island, Cuc Phuong – forest, Ban Gioc – waterfall, Fansipan – mount</span> — khớp với các đáp án trên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. A (Con Dao) &nbsp; 2. A (In Lao Cai) &nbsp; 3. B (Cat Tien Park) &nbsp; 4. B (Phong Nha) &nbsp; 5. B (Ban Gioc Waterfall)</div>
+    <div class="bay">Câu 3 chọn <span class="en">Thong Nhat Park</span> vì có chữ <i>Park</i>. Cả hai đều có chữ <i>Park</i>; <span class="en">a national park</span> là vườn quốc gia — rừng được bảo vệ, như Cát Tiên.</div>
+    <div class="gv-note">Đây là câu hỏi kiến thức chung (không có trong bài đọc). Câu 2: Fansipan thuộc Lào Cai theo SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 50 – 51</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Travel items</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Write a word under each picture. Practise saying the words.</span></p>
+    <p class="en" lang="en">plaster · sleeping bag · backpack · compass · suncream · scissors</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sáu đồ vật mang theo khi đi du lịch — em đã có món nào trong ba lô của mình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">sun + cream</span> = kem chống nắng; <span class="en">back + pack</span> = túi đeo sau lưng. <span class="en">compass</span> ở Unit 1 là com-pa, ở đây là <b>la bàn</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của từ (Glossary Unit 5)</h4>
+      <p><span class="en">plaster</span> /ˈplɑːstə/: băng, gạc y tế · <span class="en">suncream</span> /ˈsʌnkriːm/: kem chống nắng · <span class="en">sleeping bag</span>: túi ngủ · <span class="en">scissors</span>: cái kéo · <span class="en">backpack</span> /ˈbækpæk/: ba-lô · <span class="en">compass</span> /ˈkʌmpəs/: la bàn</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép với tranh (theo thứ tự đánh số trong SGK)</h4>
+      <p>1 – băng gạc → <span class="en">plaster</span> · 2 – tuýp kem → <span class="en">suncream</span> · 3 – túi ngủ → <span class="en">sleeping bag</span> · 4 – kéo → <span class="en">scissors</span> · 5 – ba lô → <span class="en">backpack</span> · 6 – la bàn → <span class="en">compass</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. plaster &nbsp; 2. suncream &nbsp; 3. sleeping bag &nbsp; 4. scissors &nbsp; 5. backpack &nbsp; 6. compass (theo tranh SGK)</div>
+    <div class="bay">Viết <span class="en">scissor</span> thiếu <b>s</b>. Cái kéo có hai lưỡi nên tiếng Anh luôn dùng <span class="en">scissors</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the blanks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the following sentences. Use the words in <b>1</b>.</span></p>
+    <p class="en" lang="en">1. We're lost. Please give me the ______. &nbsp; 2. It's so sunny today. I need to put on some ______. &nbsp; 3. A ______ is very useful when you go camping overnight. &nbsp; 4. I've finished packing. All my things are in my ______. &nbsp; 5. My foot hurts. I need to put a ______ on my foot.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu kể một tình huống: lạc đường, trời nắng, đi cắm trại, xếp đồ, đau chân. Cần đồ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2 có <span class="en">some</span> + chỗ trống → danh từ không đếm được (kem). Câu 3 và câu 5 có <span class="en">a</span> → danh từ đếm được số ít.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép tình huống với đồ vật</h4>
+      <p>1. lạc đường → <span class="en"><b>compass</b></span> (la bàn) &nbsp; 2. trời nắng → <span class="en"><b>suncream</b></span> &nbsp; 3. cắm trại qua đêm → <span class="en"><b>sleeping bag</b></span> &nbsp; 4. xếp đồ xong, mọi thứ ở trong → <span class="en"><b>backpack</b></span> &nbsp; 5. đau chân → <span class="en"><b>plaster</b></span></p>
+      <p class="vi-sao"><span class="en">some suncream</span>: <i>cream</i> là ví dụ danh từ không đếm được trong sách — nên <span class="en">some</span> đứng trước, không có <i>a</i>.</p>
+      <a class="xem-lai" href="#kt-count">📌 Xem lại: countable and uncountable nouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. compass &nbsp; 2. suncream &nbsp; 3. sleeping bag &nbsp; 4. backpack &nbsp; 5. plaster</div>
+    <div class="bay">Câu 4 điền <span class="en">sleeping bag</span> vì nghĩ “đồ đạc cuộn trong túi ngủ”. <span class="en">All my things are in my …</span> — thứ chứa <b>tất cả</b> đồ là ba lô.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Ranking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Now put the items in order of usefulness. Number <b>1</b> is the most useful, number <b>6</b> is the least useful on holiday.</span></p>
+    <p class="en" lang="en">plaster · compass · sleeping bag · scissors · backpack · suncream</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu chỉ được mang <b>một</b> món khi đi chơi xa, em mang món nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ đến một chuyến đi cụ thể (đi biển? leo núi?). Mỗi chuyến cần đồ khác nhau.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp theo chuyến đi của em</h4>
+      <p>Ví dụ đi biển: 1. <span class="en">suncream</span> 2. <span class="en">backpack</span> 3. <span class="en">plaster</span> 4. <span class="en">scissors</span> 5. <span class="en">compass</span> 6. <span class="en">sleeping bag</span></p>
+      <p class="vi-sao">Không có thứ tự đúng – sai; quan trọng là em nói được lí do: <span class="en">I need suncream because it's sunny.</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Ví dụ (đi biển): 1. suncream 2. backpack 3. plaster 4. scissors 5. compass 6. sleeping bag.</div>
+    <div class="gv-note">Đề dùng <span class="en">the most useful / the least useful</span> — HS chỉ cần hiểu “hữu ích nhất / ít hữu ích nhất”; so sánh nhất học ở Unit 12.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen and repeat the words.</span> 🎧 (Track 33, tập một)</p>
+    <p class="en" lang="en">/t/: mountain · waterfall · desert · plaster &nbsp;&nbsp; /d/: wonder · island · guide · holiday</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt tay lên cổ khi đọc <i>t</i> và <i>d</i>. Âm nào làm cổ rung?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> /t/ không rung, bật hơi mạnh. /d/ có rung, hơi nhẹ hơn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chỗ chứa âm trong từng từ</h4>
+      <table>
+        <tr><th>/t/</th><th>/d/</th></tr>
+        <tr><td><span class="en">moun<b>t</b>ain, wa<b>t</b>erfall, deser<b>t</b>, plas<b>t</b>er</span></td><td><span class="en">won<b>d</b>er, islan<b>d</b>, gui<b>d</b>e, holi<b>d</b>ay</span></td></tr>
+      </table>
+      <p class="vi-sao">Ba từ có âm ở <b>cuối</b>: <span class="en">desert</span> /ˈdezət/, <span class="en">island</span> /ˈaɪlənd/, <span class="en">guide</span>. Phải giữ âm cuối, đừng nuốt mất. Chữ <b>s</b> trong <span class="en">island</span> không đọc.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /t/ và /d/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và nhắc lại, không có câu hỏi phải trả lời. /t/: mountain, waterfall, desert, plaster. /d/: wonder, island, guide, holiday.</div>
+    <div class="bay">Đọc <span class="en">island</span> là “ít-len” (có âm s) hoặc bỏ âm /d/ cuối. Đúng là /ˈaɪlənd/: “ai-lần(d)”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Listen and repeat. Pay attention to the bold-typed parts of the words.</span> 🎧 (Track 34, tập một)</p>
+    <p class="en" lang="en">1. – Where's my hat? – Oh, it's on your head. &nbsp; 2. Where do they stay on their holiday? &nbsp; 3. I need some meat for my cat. &nbsp; 4. The Sahara is a very hot desert. &nbsp; 5. I want to explore the island by boat.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Các chữ in đậm đa số nằm ở <b>cuối</b> từ. Âm cuối tiếng Việt hay bị “nuốt” — em giữ được không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chữ <b>t</b> in đậm đọc /t/, chữ <b>d</b> in đậm đọc /d/.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp các phần in đậm</h4>
+      <table>
+        <tr><th>Câu</th><th>/t/</th><th>/d/</th></tr>
+        <tr><td>1</td><td class="en">hat</td><td class="en">head</td></tr>
+        <tr><td>2</td><td>–</td><td class="en">do, holiday</td></tr>
+        <tr><td>3</td><td class="en">meat, cat</td><td class="en">need</td></tr>
+        <tr><td>4</td><td class="en">hot, desert (cuối)</td><td class="en">desert (đầu)</td></tr>
+        <tr><td>5</td><td class="en">want, boat</td><td class="en">island</td></tr>
+      </table>
+      <p class="vi-sao">Câu 4 có <span class="en">hot desert</span>: /t/ cuối của <i>hot</i> đứng ngay trước /d/ đầu của <i>desert</i> — đọc chậm cho rõ cả hai âm.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /t/ và /d/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">/t/: hat, meat, cat, hot, desert (cuối từ), want, boat. &nbsp; /d/: head, do, holiday, need, desert (đầu từ), island.</div>
+    <div class="bay">Đọc <span class="en">hat</span> và <span class="en">head</span> giống nhau vì nuốt âm cuối. Cặp này khác nhau đúng ở /t/ – /d/ cuối từ.</div>
+    <div class="gv-note">Bảng xếp theo các chữ in đậm của SGK; HS vẫn nên nghe Track 34 (tập một) để luyện.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small>Countable / uncountable nouns · must / mustn't · Trang 51 – 52</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">C / U</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Is the underlined noun countable or uncountable? Write C (countable) or U (uncountable).</span></p>
+    <p class="en" lang="en">1. The children are very tired after a <u>day</u> of fun. &nbsp; 2. Be careful! The <u>water</u> is deep. &nbsp; 3. My mother uses real <u>butter</u> in the cakes she bakes. &nbsp; 4. Remember to bring the necessary travel <u>items</u>. &nbsp; 5. – How about meeting in the canteen for some <u>tea</u>? – Sure. What time?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — C hay U?</b>
+    <div class="cau-thu"><span class="noi-dung en">1. day</span><button class="chon chu" data-dung="1">C</button><button class="chon chu" data-dung="0">U</button><span class="phan-hoi" data-dung-txt="Đúng! a day, two days." data-sai-txt="Trước day có chữ gì? Có nói được “two days” không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">2. water</span><button class="chon chu" data-dung="0">C</button><button class="chon chu" data-dung="1">U</button><span class="phan-hoi" data-dung-txt="Đúng! Nước không đếm bằng số." data-sai-txt="Em có đếm được “một nước, hai nước” không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">4. items</span><button class="chon chu" data-dung="1">C</button><button class="chon chu" data-dung="0">U</button><span class="phan-hoi" data-dung-txt="Đúng! Có đuôi -s số nhiều." data-sai-txt="Nhìn đuôi của từ items — có chữ gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thử đặt số đếm trước danh từ: “hai ngày” được không? “hai nước” được không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dấu hiệu đếm được: có <span class="en">a / an</span> phía trước hoặc có đuôi <b>-s</b> số nhiều.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm dấu hiệu trong câu</h4>
+      <p>1. <span class="en"><b>a</b> day</span> → C. &nbsp; 4. <span class="en">item<b>s</b></span> (số nhiều) → C.</p>
+      <p>2. <span class="en">water</span>, 3. <span class="en">butter</span>, 5. <span class="en">tea</span> — chất lỏng, chất ăn, không đếm bằng số, không có <i>a</i>, không có <i>-s</i> → U.</p>
+      <p class="vi-sao">Câu 5 có <span class="en">some tea</span>: <span class="en">some</span> đi được với cả hai loại, nên phải nhìn chính danh từ <i>tea</i>.</p>
+      <a class="xem-lai" href="#kt-count">📌 Xem lại: countable and uncountable nouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. C &nbsp; 2. U &nbsp; 3. U &nbsp; 4. C &nbsp; 5. U</div>
+    <div class="bay">Câu 3 viết C vì “bơ là một miếng, đếm được”. Tiếng Anh coi <span class="en">butter</span> là chất — không đếm được, giống <span class="en">cream</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quantifiers</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Choose the correct option for each sentence.</span></p>
+    <p class="en" lang="en">1. I have ______ questions to ask you. A. a few B. a little</p>
+    <p class="en" lang="en">2. Australia is very nice. It has ______ natural wonders. A. much B. many</p>
+    <p class="en" lang="en">3. This is a difficult lesson, so only ______ students can understand it. A. a few B. many</p>
+    <p class="en" lang="en">4. It is a very dry area. There isn't ______ rain in summer. A. a little B. much</p>
+    <p class="en" lang="en">5. We've got very ______ time before our train leaves. We must hurry up! A. little B. much</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">1. ___ questions</span><button class="chon chu" data-dung="1">a few</button><button class="chon chu" data-dung="0">a little</button><span class="phan-hoi" data-dung-txt="Đúng! questions đếm được → a few." data-sai-txt="questions có đuôi -s — đếm được hay không? a little đi với loại nào?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">2. ___ natural wonders</span><button class="chon chu" data-dung="0">much</button><button class="chon chu" data-dung="1">many</button><span class="phan-hoi" data-dung-txt="Đúng! wonders đếm được → many." data-sai-txt="Remember!: much đi với danh từ đếm được hay không đếm được?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bước 1: danh từ sau chỗ trống đếm được hay không. Bước 2: mới chọn từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 có <span class="en">only</span> và <span class="en">difficult lesson</span> → chỉ <b>vài</b> học sinh. Câu 5: “gần như không còn thời gian” → <span class="en">very little</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Danh từ đếm được: a few / many</h4>
+      <p>1. <span class="en">questions</span> → <span class="en"><b>a few</b></span>. &nbsp; 2. <span class="en">natural wonders</span> → <span class="en"><b>many</b></span>. &nbsp; 3. <span class="en">students</span> — cả hai đều đi được, nhưng nghĩa: bài khó, <span class="en">only</span> → chỉ <span class="en"><b>a few</b></span> (một vài).</p>
+      <a class="xem-lai" href="#kt-quant">📌 Xem lại: some / many / a few / much / a little</a></div>
+    <div class="buoc" data-so="2"><h4>Danh từ không đếm được: much / a little</h4>
+      <p>4. <span class="en">rain</span>, câu phủ định <span class="en">There isn't</span> → <span class="en"><b>much</b></span>. &nbsp; 5. <span class="en">time</span>, phía trước đã có <span class="en">very</span> → <span class="en">very <b>little</b> time</span> (rất ít thời gian — nên phải nhanh lên).</p>
+      <p class="vi-sao">Câu 5: <span class="en">a little</span> = một ít (vẫn còn); <span class="en">little</span> = rất ít, gần như không có. <span class="en">We must hurry up!</span> cho thấy thời gian gần như hết.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. A (a few) &nbsp; 2. B (many) &nbsp; 3. A (a few) &nbsp; 4. B (much) &nbsp; 5. A (little)</div>
+    <div class="bay">Câu 3 chọn <span class="en">many</span> vì <span class="en">students</span> đếm được. Ngữ pháp đúng nhưng nghĩa sai: bài <b>khó</b> và có chữ <span class="en">only</span> thì chỉ <b>vài</b> bạn hiểu.</div>
+    <div class="gv-note">Câu 5 dùng <span class="en">little</span> (không có <i>a</i>) — khung Remember! chỉ in <i>a little</i>; GV nên giảng thêm sự khác nhau về nghĩa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quantifiers</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Fill each blank with <i>a</i>, <i>any</i>, <i>some</i>, <i>much</i> or <i>many</i>.</span></p>
+    <p class="en" lang="en">1. How ______ books are there in your bag? &nbsp; 2. There isn't ______ milk in the fridge. It's empty. &nbsp; 3. How ______ sugar do you need for your tea, Mum? &nbsp; 4. We need to buy ______ new furniture for the house. &nbsp; 5. There is ______ big cave in this area.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm từ <i>a, any, some, much, many</i> — mỗi từ dùng đúng một lần. Câu nào là câu hỏi <i>How ___</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">How many</span> + danh từ đếm được; <span class="en">How much</span> + danh từ không đếm được. Câu phủ định <span class="en">There isn't</span> dùng <span class="en">any</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu hỏi How …</h4>
+      <p>1. <span class="en">books</span> (đếm được) → <span class="en">How <b>many</b></span>. &nbsp; 3. <span class="en">sugar</span> (không đếm được) → <span class="en">How <b>much</b></span>.</p>
+      <a class="xem-lai" href="#kt-quant">📌 Xem lại: some / many / a few / much / a little</a></div>
+    <div class="buoc" data-so="2"><h4>Các câu còn lại</h4>
+      <p>2. Câu phủ định <span class="en">There isn't … It's empty.</span> → <span class="en"><b>any</b> milk</span>. &nbsp; 4. Câu khẳng định, <span class="en">furniture</span> không đếm được → <span class="en"><b>some</b> new furniture</span>. &nbsp; 5. <span class="en">There is … big cave</span> — số ít, đếm được → <span class="en"><b>a</b> big cave</span>.</p>
+      <p class="vi-sao">Câu 5: trước <span class="en">big</span> (phụ âm /b/) dùng <span class="en">a</span>. <span class="en">furniture</span> (đồ đạc trong nhà) không thêm -s.</p>
+      <a class="xem-lai" href="#kt-count">📌 Xem lại: countable and uncountable nouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. many &nbsp; 2. any &nbsp; 3. much &nbsp; 4. some &nbsp; 5. a</div>
+    <div class="bay">Câu 2 điền <span class="en">some</span>. Câu phủ định (<span class="en">isn't</span>) dùng <span class="en">any</span>; <span class="en">some</span> dùng ở câu khẳng định như câu 4.</div>
+    <div class="gv-note"><span class="en">some / any</span> là điểm ngữ pháp chính của Unit 6; ở đây HS chỉ cần nhận ra câu phủ định → <i>any</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">must / mustn't</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Fill each blank with <i>must</i> or <i>mustn't</i>.</span></p>
+    <p class="en" lang="en">1. You ______ leave the hotel room before 12 o'clock. &nbsp; 2. You ______ make lots of noise in the museum. &nbsp; 3. My mum says you ______ always tell the truth. &nbsp; 4. You know you ______ go to bed with your shoes on. &nbsp; 5. I want to speak English better. I ______ practise more.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">2. make lots of noise in the museum</span><button class="chon chu" data-dung="0">must</button><button class="chon chu" data-dung="1">mustn't</button><span class="phan-hoi" data-dung-txt="Đúng! Gây ồn ở bảo tàng là bị cấm." data-sai-txt="Ở bảo tàng, gây ồn là việc cần làm hay việc không được phép?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">4. go to bed with your shoes on</span><button class="chon chu" data-dung="0">must</button><button class="chon chu" data-dung="1">mustn't</button><span class="phan-hoi" data-dung-txt="Đúng! Không được đi giày lên giường." data-sai-txt="Đi ngủ mà vẫn đi giày — nên hay không nên?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu là một <b>việc cần làm</b> hay một <b>việc bị cấm</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">must</span> = rất cần, rất quan trọng; <span class="en">mustn't</span> = <b>không được phép</b> (cấm).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Việc cần làm → must</h4>
+      <p>1. trả phòng khách sạn trước 12 giờ (quy định) → <span class="en"><b>must</b></span>. &nbsp; 3. luôn nói thật → <span class="en"><b>must</b></span>. &nbsp; 5. muốn nói tiếng Anh giỏi hơn → phải luyện nhiều hơn: <span class="en"><b>must</b></span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Việc bị cấm → mustn't</h4>
+      <p>2. gây ồn trong bảo tàng → <span class="en"><b>mustn't</b></span>. &nbsp; 4. đi ngủ mà vẫn đi giày → <span class="en"><b>mustn't</b></span>.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. must &nbsp; 2. mustn't &nbsp; 3. must &nbsp; 4. mustn't &nbsp; 5. must</div>
+    <div class="bay">Hiểu <span class="en">mustn't</span> là “không cần”. Sách viết rõ: <span class="en">mustn't</span> = <span class="en">not allowed</span> — <b>không được phép</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Rules</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Read the classroom rules below. Write some more rules for you and your classmates.</span></p>
+    <p class="en" lang="en">1. We must arrive on time. &nbsp; 2. We mustn't pick flowers in the school garden. &nbsp; 3. We must ______. &nbsp; 4. We mustn't ______. &nbsp; 5. ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lớp em có nội quy gì? Điều gì cô giáo luôn nhắc, điều gì bị cấm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Sau <span class="en">must / mustn't</span> là động từ nguyên thể: <span class="en">do, listen, wear, run, eat…</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết thêm nội quy</h4>
+      <p class="en">3. We must do our homework.<br>4. We mustn't run in the classroom.<br>5. We must wear our uniforms on Monday.</p>
+      <p class="vi-sao">Không thêm <i>to</i> và không chia động từ sau <span class="en">must</span>: <span class="en">must <b>do</b></span>, không viết <span class="en">must to do</span> hay <span class="en">must does</span>.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: 3. We must do our homework. &nbsp; 4. We mustn't run in the classroom. &nbsp; 5. We must wear our uniforms on Monday. (Hoặc: We mustn't eat in class.)</div>
+    <div class="bay">Viết <span class="en">We must to listen to the teacher.</span> Sau <span class="en">must</span> không có <i>to</i>: <span class="en">We must listen to the teacher.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Making and accepting appointments · A travel guide<small>Trang 53</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read the short conversation below, paying attention to the highlighted parts.</span> 🎧 (Track 35, tập một)</p>
+    <p class="en" lang="en">Steven: Duong, let's go for a picnic this Sunday. — Duong: That's fine. What time can we meet? — Steven: How about 9 o'clock? — Duong: Sure. I'll meet you at that time.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn cụm in đậm: cụm nào để <b>rủ</b>, cụm nào để <b>đồng ý</b>, cụm nào để <b>đề nghị giờ</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Một cuộc hẹn có ba bước: rủ → hỏi giờ → chốt giờ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chức năng của từng cụm</h4>
+      <table>
+        <tr><th>Cụm</th><th>Dùng để</th></tr>
+        <tr><td class="en">let's go for a picnic</td><td>rủ: mình cùng đi dã ngoại nhé</td></tr>
+        <tr><td class="en">That's fine.</td><td>đồng ý: được đấy</td></tr>
+        <tr><td class="en">How about 9 o'clock?</td><td>đề nghị giờ: 9 giờ thì sao?</td></tr>
+        <tr><td class="en">Sure.</td><td>đồng ý: chắc chắn rồi</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">let's</span> em đã học ở Unit 4 (Getting Started). <span class="en">I'll meet you…</span> (tớ sẽ gặp cậu…) — dùng nguyên câu, cấu trúc <i>will</i> học ở Unit 10.</p>
+      <a class="xem-lai" href="#kt-appoint">📌 Xem lại: making and accepting appointments</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Rủ: <span class="en">let's …</span> · Đồng ý: <span class="en">That's fine. / Sure.</span> · Hỏi giờ: <span class="en">What time can we meet?</span> · Đề nghị giờ: <span class="en">How about …?</span></div>
+    <div class="bay">Đọc <i>Duong</i> theo kiểu tiếng Anh (“đu-ông”). Đây là tên Việt — đọc “Dương”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Make a short conversation, following the example in <b>1</b>.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cuối tuần này em muốn rủ bạn đi đâu? Mấy giờ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Giữ khung bốn lượt lời ở bài 1, thay hoạt động và giờ hẹn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Luyện theo mẫu</h4>
+      <p class="en">A: Mai, let's go to the park this Saturday.<br>B: That's fine. What time can we meet?<br>A: How about 8 o'clock?<br>B: Sure.</p>
+      <a class="xem-lai" href="#kt-appoint">📌 Xem lại: making and accepting appointments</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Mai, let's go to the park this Saturday. — B: That's fine. What time can we meet? — A: How about 8 o'clock? — B: Sure.</span></div>
+    <div class="bay">Nói <span class="en">How about at 8 o'clock?</span> hay <span class="en">Let's to go…</span>. Theo mẫu sách: <span class="en">How about 9 o'clock?</span>, <span class="en">let's go…</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the travel guide entry.</span></p>
+    <p class="en" lang="en">GLOBAL TRAVEL GUIDES — The Himalayas is a mountain range. It's very special. … When visiting the Himalayas, remember to follow these rules. …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài hướng dẫn có năm quy định. Đếm xem mấy câu <i>must</i>, mấy câu <i>mustn't</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">mountain range</span> /ˈmaʊntən ˌreɪndʒ/ = dãy núi; <span class="en">litter</span> /ˈlɪtə/ = vứt rác bừa bãi (Glossary).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc các quy định</h4>
+      <blockquote class="trich"><p>You must ask before you visit the area.</p><p>You mustn't travel alone. Always go in a group.</p><p>You mustn't litter.</p><p>You must bring only the necessary things.</p><p>You must bring the right clothes too. Don't bring shorts or T-shirts!</p></blockquote>
+      <p class="vi-sao">Ba câu <span class="en">must</span> (xin phép trước, chỉ mang đồ cần thiết, mang quần áo phù hợp), hai câu <span class="en">mustn't</span> (không đi một mình, không xả rác). <span class="en">the world's highest mountain</span> = ngọn núi cao nhất thế giới — chỉ cần hiểu nghĩa.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài đọc, không có câu hỏi phải trả lời. Ý chính: dãy Himalaya có đỉnh Everest; khi đến đó phải xin phép trước, chỉ mang đồ cần thiết và quần áo phù hợp; không được đi một mình, không được xả rác.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Must / Mustn't list</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Now make a list of the things you must bring to the Himalayas. Then add things you mustn't bring.</span></p>
+    <p class="en" lang="en">MUST: compass | MUSTN'T: bicycle</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Himalaya lạnh và có tuyết. Đồ nào giúp em an toàn, đồ nào chỉ làm ba lô nặng thêm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bài đọc đã cho sẵn hai thứ không được mang: <span class="en">shorts, T-shirts</span>. Đồ phải mang: nhớ lại các <span class="en">travel items</span> ở A Closer Look 1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lấy ý từ bài đọc</h4>
+      <blockquote class="trich"><p>You must bring the right clothes too. Don't bring shorts or T-shirts!</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Thêm đồ theo hiểu biết của em</h4>
+      <table><tr><th>MUST</th><th>MUSTN'T</th></tr>
+        <tr><td class="en">compass<br>warm clothes / a warm coat<br>a backpack<br>a sleeping bag<br>plasters</td><td class="en">bicycle<br>shorts<br>T-shirts<br>heavy things</td></tr></table>
+      <p class="vi-sao">Theo quy định <span class="en">You must bring only the necessary things</span>, những đồ nặng, không cần thiết cũng thuộc cột MUSTN'T.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều đáp án. Theo bài đọc — MUSTN'T: shorts, T-shirts (và bicycle đã cho). MUST (ví dụ): compass, warm clothes, a backpack, a sleeping bag, plasters.</div>
+    <div class="bay">Cho <span class="en">suncream</span> hay <span class="en">scissors</span> vào cột MUSTN'T chỉ vì “không cần lắm”. Cột MUSTN'T là đồ <b>không được</b> mang — chọn đồ trái với quy định (quần đùi, áo phông, đồ nặng).</div>
+    <div class="gv-note">Cột MUST chấp nhận mọi đồ hợp lí với chuyến leo núi lạnh, miễn HS giải thích được.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Role-play</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Role-play being a tour guide and a tourist. Tell your partner what to prepare for their trip to the Himalayas, and give reasons.</span></p>
+    <p class="en" lang="en">A: I'd like to go to the Himalayas next month. — B: OK. I think you must bring a waterproof coat. It's cold and rainy there! — A: Yes. Anything else? — B: You must …, and you mustn't …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em là hướng dẫn viên: mỗi lời khuyên đều phải kèm <b>lí do</b>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng danh sách ở bài 4. Lí do ngắn: <span class="en">It's cold there. / It's very important. / They are heavy.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đóng vai theo mẫu</h4>
+      <p class="en">A: I'd like to go to the Himalayas next month.<br>B: OK. I think you must bring a compass. It's easy to get lost there.<br>A: Yes. Anything else?<br>B: You must bring warm clothes, and you mustn't travel alone. Always go in a group.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">B: You must bring warm clothes. It's cold there. And you mustn't travel alone.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading · Speaking<small>Trang 54</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Reading — Predict</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Before you read, look at the pictures below. Make predictions about the reading. Then read and check your ideas.</span></p>
+    <p class="en" lang="en">1. What is the reading about? &nbsp; 2. What do you know about these places?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn hai bức ảnh trong SGK: một nơi có nhiều đảo đá, một nơi có đồi cát. Em đoán đó là đâu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc nhanh hai chữ in đậm ở đầu mỗi đoạn — đó là tên hai nơi.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kiểm tra dự đoán bằng câu đầu mỗi đoạn</h4>
+      <blockquote class="trich"><p>Ha Long Bay is in Quang Ninh.</p><p>Mui Ne is popular for its amazing landscapes.</p></blockquote>
+      <p class="vi-sao">Đoán trước giúp em đọc nhanh hơn. Đoán sai cũng không sao — quan trọng là em kiểm lại.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Bài đọc nói về hai kì quan thiên nhiên của Việt Nam: vịnh Hạ Long và Mũi Né. &nbsp; 2. Mỗi em nói điều mình biết (không có đáp án duy nhất), ví dụ: <span class="en">Ha Long Bay has many islands. Mui Ne has sand dunes.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the sentences, using the words from the box.</span></p>
+    <p class="en" lang="en">desert · wonder · visit · islands · remember</p>
+    <p class="en" lang="en">1. Ha Long Bay is famous for its beautiful ______. &nbsp; 2. Ha Long Bay is the number one natural ______ in Viet Nam. &nbsp; 3. A ______ is a large area of land with very little water. &nbsp; 4. ______ to bring an umbrella, as it often rains there. &nbsp; 5. A lot of people ______ Ly Son Island in the summer.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 3 là một định nghĩa — “vùng đất rộng, rất ít nước” là gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4 bắt đầu bằng chỗ trống và có <span class="en">to bring</span> → một động từ ở đầu câu. Câu 5 cần động từ sau <span class="en">A lot of people</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đối chiếu với bài đọc</h4>
+      <blockquote class="trich"><p>It has many islands and caves.</p><p>Ha Long Bay is Viet Nam's best natural wonder.</p><p>It's like a desert here.</p><p>Remember to wear suncream and bring water.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Điền từ</h4>
+      <p>1. <span class="en">beautiful <b>islands</b></span> &nbsp; 2. <span class="en">natural <b>wonder</b></span> (số ít vì có <span class="en">the number one</span>) &nbsp; 3. <span class="en">A <b>desert</b></span> &nbsp; 4. <span class="en"><b>Remember</b> to bring an umbrella</span> &nbsp; 5. <span class="en">A lot of people <b>visit</b> Ly Son Island</span></p>
+      <p class="vi-sao"><span class="en">Viet Nam's best natural wonder</span> trong bài = <span class="en">the number one natural wonder</span> trong câu 2.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. islands &nbsp; 2. wonder &nbsp; 3. desert &nbsp; 4. Remember &nbsp; 5. visit</div>
+    <div class="bay">Câu 5 viết <span class="en">visits</span>. <span class="en">A lot of people</span> là số nhiều → <span class="en">visit</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Questions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the text again. Answer the following questions.</span></p>
+    <p class="en" lang="en">1. Where is Ha Long Bay? &nbsp; 2. What can you do at Ha Long Bay? &nbsp; 3. Is there a desert in Mui Ne? &nbsp; 4. Where can you have a picnic in Mui Ne? &nbsp; 5. What is the best time to visit the Mui Ne Sand Dunes?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 3 hỏi “có sa mạc không?” — bài viết <i>It's like a desert</i>. <i>like</i> nghĩa là gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1, 2 tìm ở đoạn Ha Long; câu 3, 4, 5 tìm ở đoạn Mui Ne. <span class="en">like</span> ở đây = <b>giống như</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu căn cứ</h4>
+      <table>
+        <tr><th>Câu</th><th>Dòng trong bài</th></tr>
+        <tr><td>1</td><td class="en" lang="en">Ha Long Bay is in Quang Ninh.</td></tr>
+        <tr><td>2</td><td class="en" lang="en">There you can enjoy great seafood. And you can join in exciting activities.</td></tr>
+        <tr><td>3</td><td class="en" lang="en">It's like a desert here.</td></tr>
+        <tr><td>4</td><td class="en" lang="en">You can also fly kites, or have a picnic by the beach.</td></tr>
+        <tr><td>5</td><td class="en" lang="en">The best time to visit the Mui Ne Sand Dunes is early morning or late afternoon.</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Viết câu trả lời</h4>
+      <p class="vi-sao">Câu 3: “giống như sa mạc” nghĩa là <b>không phải</b> sa mạc thật → <span class="en">No, there isn't.</span> Câu hỏi <span class="en">Is there…?</span> trả lời bằng <span class="en">there is / there isn't</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. It is in Quang Ninh. &nbsp; 2. You can enjoy great seafood and join in exciting activities. &nbsp; 3. No, there isn't. It's only like a desert. &nbsp; 4. You can have a picnic by the beach. &nbsp; 5. It is early morning or late afternoon.</div>
+    <div class="bay">Câu 3 trả lời <span class="en">Yes, there is.</span> vì thấy chữ <span class="en">desert</span> trong bài. <span class="en">like a desert</span> = <b>giống</b> sa mạc, không phải sa mạc.</div>
+    <div class="gv-note">Câu 3 có tài liệu chấp nhận “Yes” theo nghĩa rộng (đồi cát); bám bài đọc, đáp án hợp lí là “No — it's like a desert”. Câu 5 có <span class="en">the best</span> — chỉ cần hiểu nghĩa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Notes</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Work in pairs. Make notes about one of the places in the reading. You can add your own ideas.</span></p>
+    <p class="en" lang="en">Ha Long Bay: – interesting islands | Mui Ne: – a beautiful place</p>
+    <p lang="en"><b>Then tell your partner about the place.</b> <span class="en">Example: Ha Long Bay has a lot of interesting islands. It …</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn một nơi — Hạ Long hay Mũi Né — và ghi thêm ba ý từ bài đọc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghi chú chỉ cần cụm từ: <span class="en">caves, Tuan Chau, great seafood…</span> Khi nói, biến cụm từ thành câu: <span class="en">It has…, You can…</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi chú từ bài đọc</h4>
+      <table><tr><th>Ha Long Bay</th><th>Mui Ne</th></tr>
+        <tr><td class="en">– interesting islands<br>– caves<br>– Tuan Chau: beautiful beaches<br>– great seafood, exciting activities</td><td class="en">– a beautiful place<br>– sand of different colours<br>– ride a bike down the slopes<br>– fly kites, have a picnic</td></tr></table></div>
+    <div class="buoc" data-so="2"><h4>Nói với bạn</h4>
+      <p class="en">Ha Long Bay has a lot of interesting islands. It has many caves too. You can enjoy great seafood there.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">Ha Long Bay has a lot of interesting islands. It has many caves too. You can enjoy great seafood there.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Tour guide</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Some foreign visitors are visiting your city / town / area. You are their tour guide. Tell them some interesting things about the place as well as what they must and mustn't do there.</span></p>
+    <p class="en" lang="en">Example: – You must follow all the rules. – You mustn't take photos when you are in the City Museum.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khách nước ngoài đến quê em: em giới thiệu điều gì trước, và dặn họ điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai phần: giới thiệu (<span class="en">It has… / You can…</span>) và dặn dò (<span class="en">You must… / You mustn't…</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Giới thiệu nơi chốn</h4>
+      <p class="en">Welcome to our town. It has a beautiful lake and an old temple. You can ride a bike around the lake.</p></div>
+    <div class="buoc" data-so="2"><h4>Dặn dò bằng must / mustn't</h4>
+      <p class="en">You must wear the right clothes in the temple. You mustn't litter in the park.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">Welcome to our town. It has a beautiful lake and an old temple. You can ride a bike around the lake. You must wear the right clothes in the temple. You mustn't litter in the park.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Trang 55</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Listening — Discuss</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Work in groups. Discuss the question.</span></p>
+    <p class="en" lang="en">What do you know about Phu Quoc Island?</p>
+    <p lang="en"><b>Listen to the talk and check your answers.</b> 🎧 (Track 36, tập một)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em biết gì về đảo Phú Quốc: ở đâu, có gì, du khách làm gì ở đó?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nói bằng các mẫu câu đã học: <span class="en">It is an island. It has… You can…</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thảo luận trước khi nghe</h4>
+      <p class="en">I think Phu Quoc is an island in Viet Nam. It has beautiful beaches. You can swim there.</p>
+      <p class="vi-sao">Ghi các ý của nhóm ra giấy — lúc nghe, em đánh dấu ý nào bài nghe có nhắc tới.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghe và kiểm tra</h4>
+      <p>Nghe Track 36 (tập một). Chờ các từ khoá về thiên nhiên (<span class="en">beach, forest</span>) và hoạt động (<span class="en">visit, swim, buy</span>).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Phần thảo luận: mỗi nhóm nói khác nhau. 🎧 Phần kiểm tra: đáp án nằm trong bài nghe Track 36 (tập một) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>; em nghe băng để tự kiểm tra.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe hoặc sách giáo viên. Không suy nội dung bài nghe từ ảnh minh hoạ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — T/F</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen again and tick (✓) T (True) or F (False).</span> 🎧 (Track 37, tập một)</p>
+    <p class="en" lang="en">1. Phu Quoc is a very beautiful island in Viet Nam. &nbsp; 2. There are no green forests in Phu Quoc. &nbsp; 3. Tourists can visit fishing villages and national parks there. &nbsp; 4. You cannot play water sports in Phu Quoc. &nbsp; 5. People sell interesting things at the markets.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu có từ phủ định: <i>no, cannot</i>. Nghe kĩ — bài nghe nói “có” hay “không”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với câu có <span class="en">no / cannot</span>: nếu bài nghe nói điều <b>ngược lại</b> (có rừng, chơi được) thì câu đó là F.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuẩn bị từ khoá</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th></tr>
+        <tr><td>1</td><td class="en">beautiful island</td></tr>
+        <tr><td>2</td><td class="en">green forests</td></tr>
+        <tr><td>3</td><td class="en">fishing villages, national parks</td></tr>
+        <tr><td>4</td><td class="en">water sports</td></tr>
+        <tr><td>5</td><td class="en">markets, sell</td></tr></table>
+      <p class="vi-sao">Từ mới: <span class="en">fishing village</span> = làng chài; <span class="en">water sports</span> = thể thao dưới nước (bơi, lặn…). Câu 3 có <b>hai</b> địa điểm — cả hai phải được nhắc tới thì câu mới T.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 37 (tập một). SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b> — em nghe băng, đánh dấu T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Trả lời theo hiểu biết riêng về Phú Quốc hoặc theo ảnh SGK mà không nghe. Bài tập chấm điều <b>bài nghe nói</b> — chỉ bài nghe mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Network</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Fill each blank in the network with the information about a travel attraction you know.</span></p>
+    <p class="en" lang="en">(1) Name of the attraction: ______ &nbsp; (2) Where is it? ______ &nbsp; (3) How can you go there? ______ &nbsp; (4) What is special about it? ______ &nbsp; (5) What can you do there? ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn một nơi em đã đến hoặc biết rõ — năm ô cần điền là năm câu hỏi.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có thể chọn Hạ Long hoặc Mũi Né và dùng thông tin trong bài đọc Skills 1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi chú ngắn cho mỗi ô</h4>
+      <p class="en">(1) Ha Long Bay &nbsp; (2) in Quang Ninh &nbsp; (3) by bus / by car &nbsp; (4) many islands and caves &nbsp; (5) swim, eat seafood, visit the caves by boat</p>
+      <p class="vi-sao">Ghi chú là cụm từ ngắn; sang bài 4 em mới viết thành câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: (1) Ha Long Bay (2) in Quang Ninh (3) by bus / by car (4) many islands and caves (5) swim, eat seafood, visit the caves by boat.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Paragraph</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Use the notes in <b>3</b> to write a paragraph of about 50 words.</span></p>
+    <p class="en" lang="en">You can begin your paragraph with: I am writing about ______ It is in ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm ô ghi chú ở bài 3 → năm câu. Còn thiếu từ thì thêm một câu nữa.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự đúng theo năm ô: tên → ở đâu → đi bằng gì → có gì đặc biệt → làm gì. Có thể thêm một câu <span class="en">must / mustn't</span> cho khách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Biến ghi chú thành câu</h4>
+      <p>(2) → <span class="en">It is in …</span> · (3) → <span class="en">You can go there by …</span> · (4) → <span class="en">It is special because it has …</span> · (5) → <span class="en">You can …</span></p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu câu đầu thôi: <span class="en">I am writing about Ha Long Bay.</span> Phần còn lại em tự viết về nơi em chọn nhé.</p></div>
+    <div class="buoc" data-so="3"><h4>Đếm từ và soát lỗi</h4>
+      <p>Khoảng 50 từ (45 – 55). Soát: danh từ đếm được số nhiều có <i>-s</i> (<span class="en">islands, caves</span>); danh từ không đếm được không có <i>-s</i> (<span class="en">seafood, water</span>); sau <span class="en">can / must</span> là động từ nguyên thể.</p>
+      <a class="xem-lai" href="#kt-count">📌 Xem lại: countable and uncountable nouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) mở đầu bằng <span class="en">I am writing about … It is in …</span>; (2) có đủ năm ý của bài 3; (3) dài khoảng 50 từ; (4) đúng thì hiện tại đơn, <span class="en">can / must</span> + động từ nguyên thể, danh từ đếm được / không đếm được đúng dạng.</div>
+    <div class="bay">Viết <span class="en">many seafoods</span> hoặc <span class="en">You can swims</span>. <span class="en">seafood</span> không đếm được; sau <span class="en">can</span> là động từ nguyên thể.</div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở mẫu. Đoạn tham khảo dưới đây dành cho GV (đã đếm máy: 54 từ).</div>
+    <div class="tham-khao">
+    <p lang="en">I am writing about Ha Long Bay. It is in Quang Ninh. You can go there by bus or by car. It is special because it has many islands and caves. You can swim at the beaches on Tuan Chau Island, eat great seafood and visit the caves by boat. You mustn't litter there.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 56 – 57</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Write the name for each picture.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sáu cảnh thiên nhiên — em đã học tên tất cả ở Getting Started bài 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn tranh SGK: thác nhiều tầng, hang chiếu đèn, đồi cát, dòng sông giữa rừng, bãi cát có chòi lá, đảo nhỏ giữa biển.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên theo tranh</h4>
+      <p>1. thác nước → <span class="en">waterfall</span> · 2. hang động → <span class="en">cave</span> · 3. đồi cát → <span class="en">desert</span> · 4. dòng sông → <span class="en">river</span> · 5. bãi biển → <span class="en">beach</span> · 6. hòn đảo → <span class="en">island</span></p>
+      <a class="xem-lai" href="#kt-vocab">📌 Xem lại: things in nature</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. waterfall &nbsp; 2. cave &nbsp; 3. desert &nbsp; 4. river &nbsp; 5. beach &nbsp; 6. island</div>
+    <div class="bay">Viết <span class="en">iland</span> hay <span class="en">desart</span>. Chính tả đúng: <span class="en">island</span> (có <b>s</b> câm), <span class="en">desert</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Match the name of a natural wonder in column A with a word indicating it in column B. <b>1</b> is an example.</span></p>
+    <p class="en" lang="en">A: 1. Fansipan 2. Ban Gioc 3. Ha Long 4. Cuc Phuong 5. The Sahara 6. Con Dao | B: a. bay b. island c. waterfall d. mount e. forest f. desert</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi cái tên đã “nói” nó là gì: Vịnh Hạ Long, Thác Bản Giốc, Rừng Cúc Phương…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại bài Quiz ở Getting Started bài 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép tên với loại kì quan</h4>
+      <p>1. Phan-xi-păng → <span class="en">mount</span> (ví dụ) · 2. Bản Giốc → <span class="en">waterfall</span> · 3. Hạ Long → <span class="en">bay</span> · 4. Cúc Phương → <span class="en">forest</span> · 5. Sahara → <span class="en">desert</span> · 6. Côn Đảo → <span class="en">island</span></p>
+      <p class="vi-sao"><span class="en">The Sahara</span> em đã gặp ở A Closer Look 1 bài 5: <span class="en">The Sahara is a very hot desert.</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – d (ví dụ) &nbsp; 2 – c &nbsp; 3 – a &nbsp; 4 – e &nbsp; 5 – f &nbsp; 6 – b</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Travel items</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Write the words.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm đồ du lịch — đã học ở A Closer Look 1 bài 1.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn tranh SGK: kéo, túi ngủ, la bàn, ba lô, băng dán vết thương.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên theo tranh</h4>
+      <p>1. kéo → <span class="en">scissors</span> · 2. túi ngủ → <span class="en">sleeping bag</span> · 3. la bàn → <span class="en">compass</span> · 4. ba lô → <span class="en">backpack</span> · 5. băng dán → <span class="en">plaster</span></p>
+      <a class="xem-lai" href="#kt-vocab">📌 Xem lại: travel items</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. scissors &nbsp; 2. sleeping bag &nbsp; 3. compass &nbsp; 4. backpack &nbsp; 5. plaster (tranh có hai miếng: plasters)</div>
+    <div class="bay">Viết <span class="en">back pack</span> tách đôi hoặc <span class="en">sleepingbag</span> viết liền. Sách viết <span class="en">backpack</span> (liền) và <span class="en">sleeping bag</span> (tách).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Find the mistake</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Find the mistake in each sentence and correct it.</span></p>
+    <p class="en" lang="en">Example: There is some wonderful camping sites in our area. is → are</p>
+    <p class="en" lang="en">1. How many candles is on that birthday cake? &nbsp; 2. There are so much snow on the road. &nbsp; 3. Michael can play different musical instrument. &nbsp; 4. There are not much milk left in the fridge. &nbsp; 5. Don't take too much luggages on your trip.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu chỉ có <b>một</b> lỗi. Nhìn danh từ: đếm được hay không, số ít hay số nhiều — rồi soi động từ đứng trước nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Danh từ không đếm được (<span class="en">snow, milk, luggage</span>) đi với <span class="en">is</span> và không thêm <i>-s</i>. Danh từ đếm được số nhiều đi với <span class="en">are</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lỗi ở động từ be (câu 1, 2, 4)</h4>
+      <p>1. <span class="en">candles</span> số nhiều → <span class="en">is → <b>are</b></span>. &nbsp; 2. <span class="en">snow</span> không đếm được → <span class="en">are → <b>is</b></span>. &nbsp; 4. <span class="en">milk</span> không đếm được → <span class="en">are → <b>is</b></span>.</p>
+      <p class="vi-sao">Câu 2 và 4 đã có <span class="en">much</span> — dấu hiệu danh từ không đếm được — nên động từ phải là <span class="en">is</span>.</p>
+      <a class="xem-lai" href="#kt-quant">📌 Xem lại: much đi với danh từ không đếm được</a></div>
+    <div class="buoc" data-so="2"><h4>Lỗi ở danh từ (câu 3, 5)</h4>
+      <p>3. <span class="en">different</span> (nhiều loại khác nhau) → danh từ số nhiều: <span class="en">instrument → <b>instruments</b></span>. &nbsp; 5. <span class="en">luggage</span> (hành lí) không đếm được → <span class="en">luggages → <b>luggage</b></span>.</p>
+      <a class="xem-lai" href="#kt-count">📌 Xem lại: countable and uncountable nouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. is → are &nbsp; 2. are → is &nbsp; 3. instrument → instruments &nbsp; 4. are → is &nbsp; 5. luggages → luggage</div>
+    <div class="bay">Câu 2 sửa <span class="en">much → many</span>. Lỗi không ở <span class="en">much</span>: <span class="en">snow</span> không đếm được nên <span class="en">much</span> đúng; sai là <span class="en">are</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">must / mustn't</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Complete the dialogue, using <i>must</i> or <i>mustn't</i>.</span></p>
+    <p class="en" lang="en">A: It's dangerous to go hiking there. You (1) ______ tell someone where you are going. — B: Yes. And I (2) ______ take a warm coat. It's very cold there. — A: Right. But you (3) ______ bring any heavy or unnecessary things with you. — B: OK, and I (4) ______ take a mobile phone. It's very important. — A: And you (5) ______ forget to bring a compass.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 5 có <i>forget</i> (quên). “Không được quên” là <i>must</i> hay <i>mustn't</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 có <span class="en">But</span> và <span class="en">heavy or unnecessary</span> → ngược với hai câu trước. Câu 4 có <span class="en">It's very important</span> → đúng chữ trong khung Remember! của <i>must</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Việc cần làm</h4>
+      <p>1. Đi bộ đường dài nguy hiểm → phải báo cho ai đó: <span class="en"><b>must</b></span>. &nbsp; 2. Trời rất lạnh → phải mang áo ấm: <span class="en"><b>must</b></span>. &nbsp; 4. <span class="en">It's very important</span> → <span class="en"><b>must</b></span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Việc không được làm</h4>
+      <p>3. mang đồ nặng, không cần thiết → <span class="en"><b>mustn't</b></span>. &nbsp; 5. <span class="en">mustn't forget</span> = không được quên → phải nhớ mang la bàn.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. must &nbsp; 2. must &nbsp; 3. mustn't &nbsp; 4. must &nbsp; 5. mustn't</div>
+    <div class="bay">Câu 5 chọn <span class="en">must</span> vì nghĩ “phải mang la bàn”. Nhưng động từ là <span class="en">forget</span> (quên): <span class="en">must forget</span> = phải quên — sai nghĩa. Đúng: <span class="en">mustn't forget</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">Dream destination</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>DREAM DESTINATION</b></p>
+    <p lang="en">1. In groups, make a poster about a natural wonder you would like to visit. Then give some information about it:</p>
+    <p class="en" lang="en">what the natural wonder is · where it is · how you can go there · what it is special about · what you can do there</p>
+    <p lang="en">2. Introduce the attraction to your class.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu được chọn một kì quan thiên nhiên để cả nhóm cùng đến, các em chọn nơi nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Năm ý của áp phích giống hệt năm ô ở Skills 2 bài 3 — dùng lại cách làm đó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Làm áp phích</h4>
+      <p>Tên kì quan thật to ở giữa; dán ảnh / vẽ tranh; năm ô thông tin xung quanh. Thêm một khẩu hiệu như mẫu SGK: <span class="en">JOIN US NOW!</span></p></div>
+    <div class="buoc" data-so="2"><h4>Giới thiệu trước lớp — khung câu</h4>
+      <p class="en">Our dream destination is … It is a … (waterfall / cave / island…). It is in … You can go there by … It is special because … You can … there. You must … and you mustn't …</p>
+      <p class="vi-sao">Mỗi bạn trong nhóm nói một hai câu. Dùng đúng ngữ pháp của Unit: <span class="en">must / mustn't</span>, danh từ đếm được / không đếm được.</p>
+      <a class="xem-lai" href="#kt-must">📌 Xem lại: must / mustn't</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sản phẩm đạt yêu cầu khi: (1) áp phích có đủ năm ý (là gì, ở đâu, đi bằng gì, có gì đặc biệt, làm gì ở đó); (2) có tranh / ảnh minh hoạ; (3) phần giới thiệu nói đúng ngữ pháp đã học, có ít nhất một câu <span class="en">must / mustn't</span>; (4) mỗi bạn trong nhóm trình bày một phần.</div>
+    <div class="tham-khao">
+    <p lang="en">Our dream destination is Phong Nha Cave. It is a beautiful cave in the centre of Viet Nam. You can go there by train or by bus. It is special because it has a river inside. You can visit the cave by boat. You must follow the rules, and you mustn't litter in the cave.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 5. Natural Wonders of Viet Nam — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u05';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-05-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-05-bai-giai.nguon.html" data-phien-ban="5ea3c028142f">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 5. Những nẻo đường xứ sở — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập một</div>
+    <div class="hang1">
+      <h1>Bài 5. Những nẻo đường xứ sở — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập một</div><h1>Bài 5. Những nẻo đường xứ sở — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-ki"><b class="ten">Kí</b>
+      Kí là loại tác phẩm văn học chú trọng ghi chép sự thực.<br>
+      Trong kí có kể sự việc, tả người, tả cảnh, cung cấp thông tin và thể hiện cảm xúc, suy nghĩ của người viết. Có những tác phẩm nghiêng về kể sự việc, có những tác phẩm nghiêng về thể hiện cảm xúc.<br>
+      Với một số thể loại kí, tác giả thường là người trực tiếp tham gia hoặc chứng kiến sự việc. Sự việc thường được kể theo trình tự thời gian. Tác giả có thể xưng “tôi”, có vai trò như người kể chuyện. Khi kể, tác giả kết hợp trình bày suy nghĩ, cảm xúc, sự quan sát, liên tưởng, tưởng tượng của mình về sự việc.</div>
+    <div class="kt" id="kt-du-ki"><b class="ten">Du kí</b>
+      Du kí là thể loại kí ghi chép về những chuyến đi tới các vùng đất, các xứ sở nào đó. Người viết kể lại hoặc miêu tả những điều mắt thấy tai nghe trên hành trình của mình.</div>
+    <div class="kt" id="kt-ngoac-kep"><b class="ten">Dấu ngoặc kép</b>
+      Dấu ngoặc kép có nhiều công dụng. Bên cạnh việc dùng để đánh dấu từ ngữ, đoạn dẫn trực tiếp, lời đối thoại hoặc đánh dấu tên tác phẩm, tờ báo, tập san,… được dẫn, dấu ngoặc kép còn được dùng để đánh dấu từ ngữ được hiểu theo nghĩa đặc biệt.<br>
+      <i>Ví dụ của SGK:</i> Cộng đồng én thoải mái sống “cuộc đời” của chúng, không mảy may để ý đến sự hiện diện của nhóm du khách. — Trong câu trên, tác giả đã dùng từ <i>cuộc đời</i> vốn thường dùng cho con người để nói về loài én. Từ <i>cuộc đời</i> ở đây được hiểu theo nghĩa đặc biệt: loài én cũng có đời sống như con người.</div>
+    <div class="kt" id="kt-an-du"><b class="ten">Ẩn dụ (ôn lại từ Bài 2)</b>
+      Ẩn dụ là biện pháp tu từ gọi tên sự vật, hiện tượng này bằng tên sự vật, hiện tượng khác có nét tương đồng với nó, nhằm tăng khả năng gợi hình, gợi cảm cho sự diễn đạt.</div>
+    <div class="kt" id="kt-ta-canh"><b class="ten">Yêu cầu đối với bài văn tả cảnh sinh hoạt</b>
+      Giới thiệu được cảnh sinh hoạt. · Tả bao quát quang cảnh (không gian, thời gian, hoạt động chính). · Tả hoạt động cụ thể của con người. · Sử dụng từ ngữ phù hợp để miêu tả cảnh sinh hoạt một cách rõ nét, sinh động. · Nêu được cảm nghĩ về cảnh sinh hoạt.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập một — Bài 5. Những nẻo đường xứ sở (Tri thức ngữ văn, Thực hành tiếng Việt trang 118, Viết); định nghĩa ẩn dụ: Tri thức ngữ văn Bài 2.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-vb1" data-chip="Văn bản 1">Văn bản 1. Cô Tô<small>Trích, Nguyễn Tuân</small></h2>
+
+<article class="the bai" id="v1-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Kể tên những nơi em đã từng được đến tham quan. Chia sẻ một số điều em quan sát được từ những chuyến đi đó.</p>
+    <p><b>2.</b> Tìm quần đảo Cô Tô trên bản đồ Việt Nam và nói về vị trí của quần đảo này.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một chuyến đi để lại gì trong em: một cái tên, hay một hình ảnh em vẫn còn nhìn thấy rõ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: đừng chỉ đọc một danh sách tên — chọn <b>một</b> nơi và kể một điều em tận mắt thấy ở đó. Câu 2: đọc chú thích số (1) ngay dưới văn bản trước khi mở bản đồ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể một nơi bằng một chi tiết cụ thể</h4>
+      <p>Thay vì “em đã đi Hạ Long, đẹp lắm”, hãy nói: em thấy gì, nghe gì, lúc nào em thấy thích nhất. Một con thuyền, một mùi hương, một tiếng rao cũng được.</p>
+      <p class="vi-sao">Bài kí em sắp đọc được viết đúng theo cách ấy: nhà văn ghi lại những điều <b>mắt thấy tai nghe</b> trong chuyến đi của mình. Kể được một chi tiết thật là em đã bắt đầu “viết kí” rồi.</p>
+      <a class="xem-lai" href="#kt-du-ki">📌 Xem lại: du kí</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm Cô Tô theo chú thích của sách</h4>
+      <blockquote class="trich"><p>Cô Tô: một quần đảo gồm hơn 50 đảo nhỏ, thuộc tỉnh Quảng Ninh, diện tích trên 47,3 km².</p><cite>— Chú thích (1), trang 110</cite></blockquote>
+      <p>Trên bản đồ, tìm tỉnh Quảng Ninh ở phía đông bắc nước ta, rồi nhìn ra biển. Ngay trong văn bản, nhà văn cũng nhắc tới vùng biển ấy: “Từ khi có vịnh Bắc Bộ và từ khi quần đảo Cô Tô mang lấy dấu hiệu của sự sống con người”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu 1: Câu trả lời của mỗi em sẽ khác nhau. Một câu trả lời tốt kể được tên nơi đã đến và ít nhất một điều cụ thể em quan sát được (cảnh vật, con người, âm thanh, món ăn…). Câu 2: Cô Tô là một quần đảo gồm hơn 50 đảo nhỏ, <b>thuộc tỉnh Quảng Ninh</b>, nằm giữa vùng biển <b>vịnh Bắc Bộ</b>; quần đảo nổi tiếng với cảnh biển đẹp và những đặc sản biển như ngọc trai, san hô, hải sâm.</div>
+    <div class="gv-note">Hoạt động khởi động. Câu 2 nên cho HS dùng bản đồ hành chính Việt Nam (Atlat hoặc bản đồ treo tường); thông tin vị trí chỉ cần dừng ở mức chú thích SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hành trình của người viết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Qua bài kí <i>Cô Tô</i>, nhà văn đã đưa người đọc đến những nơi nào và gặp gỡ những ai?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hãy đi theo bước chân nhà văn: ông đứng ở đâu, và ông dừng lại bên cạnh ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân các từ chỉ nơi chốn (bãi cát, đồn, mũi đảo, giếng…) và các từ chỉ người. Bài kí có những mốc thời gian rõ ràng — lần theo chúng sẽ không sót.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những nơi nhà văn đã đến</h4>
+      <blockquote class="trich"><p>Hình như gió bão chờ chúng tôi lọt hết vào trận địa cánh cung bãi cát, rồi mới tăng thêm hoả lực của gió.</p>
+        <p>Chúng tôi leo dốc lên đồn Cô Tô hỏi thăm sức khoẻ anh em bộ binh và hải quân cùng đóng sát nhau trong cái đồn khố xanh cũ ấy.</p>
+        <p>Còn tối đất, cố đi mãi trên đá đầu sư, ra thấu đầu mũi đảo.</p>
+        <p>Cái giếng nước ngọt đảo Thanh Luân sớm nay có không biết bao nhiêu là người đến gánh và múc.</p></blockquote>
+      <p>Bãi cát lúc bão nổi → đảo trong đêm bão (cửa kính gác đảo uỷ vỡ tung) → đồn Cô Tô, nóc đồn → đầu mũi đảo Thanh Luân lúc bình minh → giếng nước ngọt ở ria đảo.</p></div>
+    <div class="buoc" data-so="2"><h4>Những người nhà văn gặp</h4>
+      <blockquote class="trich"><p>Anh hùng Châu Hoà Mãn cùng bốn bạn xã viên đi chung một thuyền. Anh quẩy nước bên bờ giếng, tôi né ra một bên.</p></blockquote>
+      <p class="vi-sao">Để ý: nhà văn không chỉ “đi xem” mà <b>sống cùng</b> người trên đảo — ông lên đồn hỏi thăm bộ đội, ông cũng “múc gầu nước giếng dội lên đầu” như mọi người, ông nghe tận tai lời anh Châu Hoà Mãn. Chính vì có mặt ở đó, ông mới ghi lại được những điều rất thật.</p>
+      <a class="xem-lai" href="#kt-ki">📌 Xem lại: kí</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhà văn đưa người đọc đến <b>bãi cát</b> trên đảo khi gió bão nổi, qua <b>đêm bão</b> trên đảo (cửa kính gác đảo uỷ vỡ tung), lên <b>đồn Cô Tô</b> và trèo lên nóc đồn ngắm toàn cảnh đảo, ra <b>đầu mũi đảo Thanh Luân</b> “rình mặt trời lên”, rồi đến <b>cái giếng nước ngọt</b> ở ria đảo. Người đọc được gặp anh em <b>bộ binh và hải quân</b> đóng ở đồn Cô Tô; những <b>người lao động</b> đến gánh, múc, tắm quanh giếng; thuyền của <b>hợp tác xã Bắc Loan Đầu</b>; <b>Anh hùng Châu Hoà Mãn</b> cùng bốn bạn xã viên; và <b>chị Châu Hoà Mãn</b> địu con. Từ cơn bão dữ đến buổi sớm bình yên bên giếng, Cô Tô hiện ra đủ cả trời, biển và người.</div>
+    <div class="bay">Chỉ kể các nơi chốn mà quên vế thứ hai: <b>gặp gỡ những ai</b>. Hoặc bỏ sót bộ đội ở đồn — họ xuất hiện chỉ trong một câu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Từ ngữ miêu tả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm những từ ngữ miêu tả sự dữ dội của trận bão. Những từ ngữ nào cho thấy rõ nhất việc tác giả có chủ ý miêu tả trận bão giống như một trận chiến?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc đoạn đầu và thử bịt tai lại: em vẫn nghe thấy tiếng súng chứ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Làm hai lượt. Lượt một: gạch mọi từ ngữ cho thấy gió, sóng, cát mạnh và đáng sợ. Lượt hai: khoanh riêng những từ ngữ vốn thuộc về chiến trận, súng đạn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lượt một: sự dữ dội của trận bão</h4>
+      <blockquote class="trich"><p>Gió liên thanh quạt lia lịa vào gối vào ngang thắt lưng, đẩy cả người chạy theo luồng cát mà bạt ra phía sát bờ biển</p>
+        <p>Kính bị thứ gió cấp 11 ép, vỡ tung.</p>
+        <p>Tiếng gió càng ghê rợn mỗi khi nó thốc vào, vuốt qua những gờ kính nhọn còn dắt ở ô cửa vỡ. Nó rít lên rú lên như cái kiểu người ta vẫn thường gọi là quỷ khốc thần kinh.</p></blockquote>
+      <p>Gió “quạt lia lịa”, “đẩy cả người”, “bạt ra”; gió “thốc vào”, “rít lên rú lên”; kính “bung hết”, “vỡ tung”; sóng “âm âm rền rền”; trời đất “trắng mù mù”.</p></div>
+    <div class="buoc" data-so="2"><h4>Lượt hai: những từ ngữ của chiến trận</h4>
+      <blockquote class="trich"><p>Hình như gió bão chờ chúng tôi lọt hết vào trận địa cánh cung bãi cát, rồi mới tăng thêm hoả lực của gió. Mỗi viên cát bắn vào má vào gáy lúc này buốt như một viên đạn mũi kim. Gió bắn rát từng chập. Chốc chốc gió ngừng trong tích tắc như để thay băng đạn</p><cite>— Đoạn đầu văn bản</cite></blockquote>
+      <p class="vi-sao">Đếm thử: chỉ trong bốn câu đã có <i>trận địa, hoả lực, bắn, viên đạn, bắn rát, băng đạn</i>. Rồi tiếp đó là <i>liên thanh</i>, <i>kẻ thù</i>, <i>thả hơi ngạt</i>, <i>trống trận</i>. Không phải ngẫu nhiên — nhà văn dựng cả một trận đánh: bãi cát là chiến trường, gió là quân giặc, cát là đạn, còn người là lính đang bị vây.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những từ ngữ miêu tả sự dữ dội của trận bão: gió “tăng thêm hoả lực”, cát “buốt như một viên đạn mũi kim”, “Gió bắn rát từng chập”, “gió giật”, gió “liên thanh quạt lia lịa”, “đẩy cả người chạy theo luồng cát mà bạt ra”, “trời đất trắng mù mù”, sóng “âm âm rền rền”, cửa kính “bung hết”, “vỡ tung”, tiếng gió “ghê rợn”, “thốc vào”, “rít lên rú lên”, “quỷ khốc thần kinh”. Những từ ngữ cho thấy rõ nhất chủ ý tả trận bão như <b>một trận chiến</b>: <b>trận địa, hoả lực, bắn, viên đạn mũi kim, bắn rát, thay băng đạn, liên thanh, kẻ thù, thả hơi ngạt, trống trận</b>. Nhờ những chữ ấy, cơn bão không còn là thời tiết nữa mà là một đội quân hung hãn đang tấn công con người.</div>
+    <div class="bay">Chỉ chép lại cả đoạn văn mà không tách được hai nhóm từ ngữ — đề hỏi hai ý: từ ngữ tả sự dữ dội nói chung, và riêng những từ ngữ <b>của chiến trận</b>.</div>
+    <div class="gv-note">Chú thích SGK giải nghĩa sẵn <i>trận địa</i>, <i>hoả lực</i> (“ở đây nói về sức mạnh của gió”), <i>băng đạn</i> — nên cho HS đọc chú thích trước khi làm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Thử đọc to đoạn văn bằng giọng của một phóng viên chiến trường. Em sẽ thấy nó hợp đến lạ — vì Nguyễn Tuân đã viết nó như một bản tin từ mặt trận.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cảnh biển sau bão</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Biển sau bão hiện lên như thế nào (qua hình ảnh bầu trời, cây, nước biển, mặt trời,…)?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bão tan rồi. Mọi thứ trở lại như cũ — hay đẹp hơn cũ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn bắt đầu bằng “Ngày thứ năm trên đảo Cô Tô” và đoạn tả mặt trời lên. Với mỗi sự vật (bầu trời, cây, nước biển, cát, mặt trời, chim), ghi một hai từ ngữ tả nó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bầu trời, cây, nước biển, cát</h4>
+      <blockquote class="trich"><p>Ngày thứ năm trên đảo Cô Tô là một ngày trong trẻo sáng sủa.</p>
+        <p>Cây trên núi đảo lại thêm xanh mượt, nước biển lại lam biếc đặm đà hơn hết cả mọi khi, và cát lại vàng giòn hơn nữa.</p></blockquote>
+      <p class="vi-sao">Để ý chữ “lại” được nhắc ba lần, rồi “thêm”, “hơn hết cả mọi khi”, “hơn nữa”: sau bão, cảnh vật không chỉ trở về mà còn <b>đẹp hơn trước</b>. Cát mà “vàng giòn” — màu sắc như có thể nghe được, nếm được.</p></div>
+    <div class="buoc" data-so="2"><h4>Mặt trời và chân trời</h4>
+      <blockquote class="trich"><p>Sau trận bão, chân trời, ngấn bể, sạch như tấm kính lau hết mây hết bụi. Mặt giời nhú lên dần dần, rồi lên cho kì hết. Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn.</p>
+        <p>Vài chiếc nhạn mùa thu chao đi chao lại trên mâm bể sáng dần lên cái chất bạc nén. Một con hải âu bay ngang, là là nhịp cánh.</p></blockquote>
+      <p>Bầu trời sạch bong; mặt trời tròn, hồng, đầy đặn; mặt biển sáng dần lên như bạc; cánh chim chao lượn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Biển sau bão hiện lên <b>trong trẻo, tươi sáng và tràn đầy sức sống</b>. Bầu trời “trong sáng”, một ngày “trong trẻo sáng sủa”; cây trên núi đảo “lại thêm xanh mượt”, nước biển “lam biếc đặm đà hơn hết cả mọi khi”, cát “vàng giòn hơn nữa”, lưới của người chài “càng thêm nặng”. Chân trời, ngấn bể “sạch như tấm kính lau hết mây hết bụi”; mặt trời “Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn”, đặt trên mặt biển sáng như “một mâm bạc”; nhạn “chao đi chao lại”, hải âu “là là nhịp cánh”. Như thể cơn bão vừa gột rửa đất trời, để Cô Tô hiện ra đẹp hơn bao giờ hết.</div>
+    <div class="bay">Chỉ kể tên sự vật (có trời, có cây, có biển) mà không dẫn từ ngữ miêu tả <b>màu sắc, đường nét</b> của chúng — đề hỏi biển “hiện lên như thế nào”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Trận bão và buổi bình minh đứng sát nhau trong cùng một bài kí. Đặt cạnh tiếng gió “rít lên rú lên”, một con hải âu “là là nhịp cánh” bỗng nghe yên lành biết bao.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Thời điểm và vị trí quan sát</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, để nhận ra vẻ đẹp của Cô Tô, nhà văn đã quan sát cảnh thiên nhiên và hoạt động của con người trên đảo ở những thời điểm nào và từ những vị trí nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn thấy toàn cảnh đảo thì phải đứng ở đâu? Muốn thấy mặt trời nhú lên thì phải dậy lúc mấy giờ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ hai cột: <i>Thời điểm</i> · <i>Vị trí</i>. Tìm những chữ như “canh một”, “ngày thứ năm”, “canh tư”, “một vài con sào”; và những chữ như “nóc đồn”, “đầu mũi đảo”, “giếng”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập bảng thời điểm — vị trí</h4>
+      <table>
+        <tr><th>Thời điểm</th><th>Vị trí</th><th>Nhà văn thấy gì</th></tr>
+        <tr><td>Lúc gió bão nổi; cuối canh một sang canh hai</td><td>Giữa bãi cát; trên đảo trong đêm bão</td><td>Gió, cát, sóng tấn công; cửa kính vỡ tung</td></tr>
+        <tr><td>Ngày thứ năm (sau bão)</td><td>Trên nóc đồn Cô Tô</td><td>Toàn cảnh đảo, “bốn phương tám hướng”</td></tr>
+        <tr><td>Ngày thứ sáu, dậy từ canh tư</td><td>Đầu mũi đảo Thanh Luân</td><td>Mặt trời lên trên biển</td></tr>
+        <tr><td>Khi mặt trời đã lên một vài con sào</td><td>Bên giếng nước ngọt</td><td>Người dân gánh, múc, tắm; thuyền chuẩn bị ra khơi</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Nhận ra cách quan sát</h4>
+      <blockquote class="trich"><p>Trèo lên nóc đồn, nhìn ra bao la Thái Bình Dương bốn phương tám hướng, quay gót 180 độ mà ngắm cả toàn cảnh đảo Cô Tô.</p>
+        <p>Tôi dậy từ canh tư. Còn tối đất, cố đi mãi trên đá đầu sư, ra thấu đầu mũi đảo. Và ngồi đó rình mặt trời lên.</p></blockquote>
+      <p class="vi-sao">Chữ “rình” rất đắt: nhà văn không tình cờ gặp cảnh đẹp mà <b>chủ động chờ</b> nó, dậy từ khi “Còn tối đất”. Có lúc ông đứng trên cao để thấy cái bao la, có lúc ngồi yên để bắt một khoảnh khắc, có lúc đứng lẫn vào đám đông bên giếng để thấy hơi ấm con người.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhà văn quan sát Cô Tô ở <b>nhiều thời điểm</b> và từ <b>nhiều vị trí</b>: lúc gió bão nổi thì đứng giữa bãi cát, đến “Cuối canh một sang canh hai” thì ở trên đảo nghe gió thốc vào ô cửa vỡ; ngày thứ năm, khi trời đã trong, ông “Trèo lên nóc đồn” nhìn “bốn phương tám hướng” để ngắm toàn cảnh đảo; ngày thứ sáu, ông “dậy từ canh tư”, ra tận “đầu mũi đảo” ngồi “rình mặt trời lên”; khi mặt trời đã lên “một vài con sào”, ông ở bên giếng nước ngọt, giữa những người đang gánh, múc, tắm. Lúc ở trên cao nhìn xa, lúc ngồi yên chờ đợi, lúc hoà vào dòng người — nhờ thế vẻ đẹp của Cô Tô hiện lên trọn vẹn: cả dữ dội lẫn bình yên, cả thiên nhiên lẫn con người.</div>
+    <div class="bay">Trả lời thiếu một vế: kể thời điểm mà quên vị trí (hoặc ngược lại). Đề hỏi cả hai: <b>thời điểm nào</b> và <b>từ những vị trí nào</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c5" data-ten="Câu 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Câu văn bộc lộ tình cảm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra một câu văn thể hiện sự yêu mến đặc biệt của tác giả đối với Cô Tô trong đoạn văn từ <i>Ngày thứ năm trên đảo Cô Tô</i> đến <i>theo mùa sóng ở đây</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong đoạn này có một câu nhà văn tự nói ra lòng mình. Chữ nào chỉ tình cảm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm câu có từ chỉ tình cảm (yêu, mến, thương…). Câu ấy nằm ở cuối đoạn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu văn</h4>
+      <blockquote class="trich"><p>Nhìn rõ cả Tô Bắc, Tô Trung, Tô Nam, mà càng thấy yêu mến hòn đảo như bất cứ người chài nào đã từng đẻ ra và lớn lên theo mùa sóng ở đây.</p><cite>— Câu cuối đoạn</cite></blockquote>
+      <p class="vi-sao">Vì sao gọi là yêu mến “đặc biệt”? Vì nhà văn chỉ là người đến thăm, vậy mà ông thấy mình yêu đảo <b>như người chài sinh ra ở đó</b>. Chữ “càng” cho thấy tình yêu ấy lớn dần lên theo từng điều ông thấy.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu văn: <b>“Nhìn rõ cả Tô Bắc, Tô Trung, Tô Nam, mà càng thấy yêu mến hòn đảo như bất cứ người chài nào đã từng đẻ ra và lớn lên theo mùa sóng ở đây.”</b> Một người khách từ đất liền tới mà thấy mình yêu hòn đảo như chính người con của đảo — đó là một tình yêu đặc biệt, gắn bó và sâu nặng.</div>
+    <div class="bay">Chọn câu tả cảnh đẹp (cây “xanh mượt”, nước biển “lam biếc”) — câu ấy cho thấy cảnh đẹp, nhưng chưa trực tiếp nói lên tình cảm. Đề hỏi câu <b>thể hiện sự yêu mến</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Tưởng tượng, đánh giá chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hình dung khung cảnh Cô Tô sẽ như thế nào nếu thiếu chi tiết miêu tả giếng nước ngọt và hoạt động của con người quanh giếng?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thử lấy tay che đi hai đoạn cuối của bài kí. Cô Tô còn lại những gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Liệt kê những gì còn lại khi bỏ cái giếng đi (bão, trời trong, mặt trời lên…). Rồi đọc đoạn tả cái giếng: ở đó có ai, có âm thanh gì, có việc gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cái giếng đem lại điều gì</h4>
+      <blockquote class="trich"><p>Cái giếng nước ngọt ở ria một hòn đảo giữa biển, cái sinh hoạt của nó vui như một cái bến và đậm đà mát nhẹ hơn mọi cái chợ trong đất liền.</p>
+        <p>Từ đoàn thuyền sắp ra khơi đến cái giếng ngọt, thùng và cong và gánh nối tiếp đi đi về về.</p></blockquote>
+      <p class="vi-sao">Thẻ 🔎 của SGK gọi đây là “nơi đông vui và gợi sức sống nhất trên đảo”. Nước ngọt giữa biển mặn là thứ quý nhất — anh Châu Hoà Mãn quẩy 15 gánh mà vẫn dặn “Vo gạo bằng nước biển thôi”. Cái giếng cho ta thấy người Cô Tô sống, làm việc, lo toan ra sao.</p></div>
+    <div class="buoc" data-so="2"><h4>Hình dung khi thiếu nó</h4>
+      <p>Chỉ còn trời, biển, gió, mặt trời: rất đẹp, nhưng giống một bức tranh phong cảnh không có người — đẹp mà vắng, mà lạnh.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Nếu thiếu cái giếng nước ngọt, Cô Tô chỉ còn là thiên nhiên — một trận bão dữ dội, một bầu trời trong trẻo, một mặt trời “Tròn trĩnh phúc hậu”. Cảnh vẫn đẹp, nhưng giống một tấm bưu ảnh: đẹp mà vắng người, thiếu hơi ấm. Chính cái giếng “vui như một cái bến”, với “không biết bao nhiêu là người đến gánh và múc”, với “thùng và cong và gánh nối tiếp đi đi về về”, với anh hùng Châu Hoà Mãn chuẩn bị nước cho chuyến ra khơi mười ngày, mới cho thấy cuộc sống lao động bình dị, nhộn nhịp của người dân trên đảo. Con người làm cho Cô Tô trở thành một nơi <b>đang sống</b>, chứ không chỉ là một cảnh đẹp.</div>
+    <div class="bay">Chỉ nói “khung cảnh sẽ kém hay hơn” mà không chỉ ra được cái giếng đã đem lại điều gì cụ thể (con người, sự đông vui, nhịp sống lao động).</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi hình dung có lí, miễn HS nhận ra vai trò của con người trong bức tranh Cô Tô và dẫn được chi tiết quanh cái giếng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c7" data-ten="Câu 7" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa của kết thúc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kết thúc bài kí <i>Cô Tô</i> là suy nghĩ của tác giả về hình ảnh chị Châu Hoà Mãn: “Trông chị Châu Hoà Mãn địu con, thấy nó dịu dàng yên tâm như cái hình ảnh biển cả là mẹ hiền mớm cá cho lũ con lành”. Cách kết thúc này cho thấy tình cảm của tác giả với biển và những con người bình dị trên đảo như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài kí mở đầu bằng một trận chiến. Nó khép lại bằng hình ảnh gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu văn có hai người mẹ: một người mẹ thật (chị Châu Hoà Mãn) và một “người mẹ” là biển cả. Biển “mớm cá” cho ai?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai người mẹ trong một câu</h4>
+      <blockquote class="trich"><p>Trông chị Châu Hoà Mãn địu con, thấy nó dịu dàng yên tâm như cái hình ảnh biển cả là mẹ hiền mớm cá cho lũ con lành.</p><cite>— Câu kết bài kí</cite></blockquote>
+      <p>Chị địu con trên lưng, dịu dàng, yên tâm. Biển cũng như một người mẹ hiền nuôi những đứa con là người dân trên đảo.</p>
+      <p class="vi-sao">Biển ở đầu bài là “kẻ thù” đang “thả hơi ngạt”; biển ở cuối bài là “mẹ hiền”. Cùng một biển cả, nhưng nhà văn đã nhìn thấy cả hai gương mặt — và chọn khép bài kí bằng gương mặt hiền hậu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cách kết thúc ấy cho thấy nhà văn <b>yêu biển và biết ơn biển</b>: biển cả được ví như “mẹ hiền mớm cá cho lũ con lành”, nuôi sống người dân trên đảo. Đồng thời, ông nhìn những con người lao động bình dị bằng ánh mắt <b>trìu mến, trân trọng</b>: một người mẹ địu con giữa buổi sớm bên giếng nước cũng đủ để ông thấy “dịu dàng yên tâm”. Khép lại bài kí sau cơn bão dữ bằng hình ảnh hai người mẹ hiền — người mẹ trên đảo và người mẹ biển cả — nhà văn để lại trong lòng người đọc một cảm giác bình yên, ấm áp về Cô Tô.</div>
+    <div class="bay">Chỉ nói về chị Châu Hoà Mãn mà quên phần tình cảm của tác giả <b>với biển</b> — đề hỏi cả hai: với biển và với những con người bình dị.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn về hình ảnh so sánh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong <i>Cô Tô</i>, mặt trời lúc bình minh được ví như lòng đỏ quả trứng thiên nhiên đầy đặn. Viết đoạn văn (khoảng 5 – 7 câu) chỉ ra ý nghĩa của hình ảnh so sánh đó (có thể liên hệ với cách miêu tả mặt trời lúc bình minh của các tác phẩm khác mà em biết).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vì sao lại là quả trứng — mà không phải quả bóng, hay cái mâm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba câu hỏi nhỏ dẫn đường: Mặt trời và lòng đỏ quả trứng giống nhau ở những điểm nào? Hình ảnh ấy làm buổi bình minh hiện ra thế nào? Nó cho thấy nhà văn nhìn thiên nhiên bằng tình cảm gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm “chất liệu” trong văn bản</h4>
+      <blockquote class="trich"><p>Mặt giời nhú lên dần dần, rồi lên cho kì hết. Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn. Quả trứng hồng hào thăm thẳm, và đường bệ</p></blockquote>
+      <p class="vi-sao">Điểm giống: tròn, đầy đặn, màu đỏ hồng, tươi mới. Nhưng còn hai chữ “phúc hậu” — vốn để nói về gương mặt hiền lành của con người. Lòng đỏ quả trứng cũng là thứ quen thuộc trong bữa cơm mỗi nhà: cảnh trời biển bao la bỗng gần gũi như trong bếp nhà mình.</p></div>
+    <div class="buoc" data-so="2"><h4>Liên hệ với tác phẩm khác (nếu muốn)</h4>
+      <p>Em có thể nhớ lại những bài đã học: “Mặt trời mới nhô cao” trong <i>Chuyện cổ tích về loài người</i> (Xuân Quỳnh); “bình minh vàng” trong <i>Mây và sóng</i> (Ta-go); hay mặt trời ló ra “như gương mặt rực rỡ ló ra khỏi tấm khăn voan” trong <i>Những người bạn</i> (Nguyễn Nhật Ánh). Mỗi tác giả nhìn mặt trời một kiểu — Nguyễn Tuân thì dừng lại ngắm thật lâu, vẽ cả hình, cả màu.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Trong bài kí Cô Tô, có một khoảnh khắc Nguyễn Tuân đã thức dậy từ canh tư để chờ: lúc mặt trời nhú lên trên biển, tròn như lòng đỏ một quả trứng.</i></p>
+      <p>Tiếp theo: nêu điểm giống → cái hay của hình ảnh → (liên hệ) → tình cảm của nhà văn. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) nêu đúng hình ảnh so sánh mặt trời “như lòng đỏ một quả trứng thiên nhiên đầy đặn”; (2) chỉ ra được nét giống nhau (tròn, đầy đặn, đỏ hồng, tươi mới); (3) nói được ý nghĩa: cảnh bình minh hiện ra rực rỡ, ấm áp, gần gũi, và cho thấy tình yêu thiên nhiên của nhà văn; (4) nếu liên hệ thì nêu đúng tên tác phẩm và hình ảnh; (5) là một đoạn văn khoảng 5 – 7 câu, diễn đạt mạch lạc.</div>
+    <div class="bay">Chỉ tả lại cảnh mặt trời mọc mà không nói <b>ý nghĩa</b> của hình ảnh so sánh — đề yêu cầu “chỉ ra ý nghĩa”.</div>
+    <div class="gv-note">Đoạn tham khảo dưới đây chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn có 7 câu.</div>
+    <div class="tham-khao">
+    <p>Trong bài kí <i>Cô Tô</i>, Nguyễn Tuân tả mặt trời lúc bình minh “Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn”. Mặt trời và lòng đỏ quả trứng giống nhau ở dáng tròn trịa, ở sắc đỏ hồng và vẻ đầy đặn, căng tràn. Hình ảnh ấy giúp người đọc thấy ngay một vầng mặt trời vừa nhô lên, chưa chói gắt, tươi mới như vừa được sinh ra sau đêm bão. Lòng đỏ quả trứng lại là thứ quen thuộc trong bữa cơm mỗi nhà, nên cảnh trời biển bao la bỗng trở nên gần gũi, ấm áp. Hai chữ “phúc hậu” còn khiến mặt trời giống một gương mặt hiền lành, mang bình yên đến cho những người chài lưới. Nếu trong bài thơ <i>Mây và sóng</i>, em bé chỉ gọi gọn là “bình minh vàng”, thì Nguyễn Tuân dừng lại ngắm thật lâu để vẽ cả hình dáng lẫn màu sắc của mặt trời. Qua hình ảnh so sánh ấy, em thấy một tấm lòng yêu thiên nhiên Cô Tô, biết nâng niu từng khoảnh khắc đẹp của đất trời.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv1" data-chip="Tiếng Việt ①">Thực hành tiếng Việt<small>Biện pháp tu từ (sau Văn bản 1)</small></h2>
+
+<article class="the bai" id="tv1-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ẩn dụ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc các câu sau và trả lời câu hỏi:</p>
+    <p>– <i><b>Quả trứng hồng hào thăm thẳm, và đường bệ</b> đặt lên một <b>mâm bạc</b> đường kính mâm rộng bằng cả một cái chân trời màu ngọc trai nước biển hửng hồng.</i></p>
+    <p>– <i>Vài chiếc nhạn mùa thu chao đi chao lại trên <b>mâm bể</b> sáng dần lên <b>cái chất bạc nén</b>.</i></p>
+    <p>a. Những từ ngữ in đậm trong các câu trên ngầm chỉ những sự vật nào?</p>
+    <p>b. Trong những câu trên, tác giả đã sử dụng biện pháp tu từ nào? Nêu tác dụng của việc sử dụng biện pháp tu từ đó.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — mỗi từ ngữ ngầm chỉ gì?</b>
+    <div class="cau-thu"><span class="noi-dung">Quả trứng hồng hào thăm thẳm, và đường bệ</span><button class="chon chu" data-dung="1">mặt trời</button><button class="chon chu" data-dung="0">mặt biển</button><button class="chon chu" data-dung="0">mâm lễ vật</button><span class="phan-hoi" data-dung-txt="Đúng! Câu ngay trước vừa ví mặt trời “như lòng đỏ một quả trứng”." data-sai-txt="Thử lại: đọc câu đứng ngay trước câu này trong văn bản."></span></div>
+    <div class="cau-thu"><span class="noi-dung">mâm bể</span><button class="chon chu" data-dung="0">mặt trời</button><button class="chon chu" data-dung="1">mặt biển</button><button class="chon chu" data-dung="0">chân trời</button><span class="phan-hoi" data-dung-txt="Đúng! “bể” là biển; mặt biển phẳng, rộng như một cái mâm." data-sai-txt="Thử lại: “bể” trong bài này nghĩa là gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong câu không hề có chữ “mặt trời”, cũng không có chữ “biển”. Vậy mà ta vẫn thấy cả hai. Vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại câu đứng ngay trước: “Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn.” Câu này đang tả gì? Còn chữ “bể” trong bài kí nghĩa là gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — Tìm sự vật được ngầm chỉ</h4>
+      <table>
+        <tr><th>Từ ngữ in đậm</th><th>Ngầm chỉ</th><th>Nét giống nhau</th></tr>
+        <tr><td>Quả trứng hồng hào thăm thẳm, và đường bệ</td><td>mặt trời lúc mới mọc</td><td>tròn, hồng, đầy đặn</td></tr>
+        <tr><td>mâm bạc</td><td>mặt biển rộng tới tận chân trời</td><td>phẳng, tròn rộng, sáng ánh bạc</td></tr>
+        <tr><td>mâm bể</td><td>mặt biển</td><td>phẳng, rộng như cái mâm</td></tr>
+        <tr><td>cái chất bạc nén</td><td>ánh sáng trắng bạc dần hiện trên mặt biển</td><td>sáng, trắng, lấp lánh như bạc</td></tr>
+      </table>
+      <p class="vi-sao">Câu trước vừa so sánh mặt trời “như lòng đỏ một quả trứng” (có từ <i>như</i>). Sang câu này, nhà văn bỏ hẳn chữ <i>mặt trời</i>, gọi thẳng nó là “quả trứng” — người đọc vẫn hiểu, vì đã được chuẩn bị từ câu trước.</p></div>
+    <div class="buoc" data-so="2"><h4>b — Gọi tên biện pháp và nói tác dụng</h4>
+      <p>Gọi mặt trời bằng tên “quả trứng”, gọi mặt biển bằng tên “mâm bạc”, “mâm bể”, dựa trên nét giống nhau → <b>ẩn dụ</b>.</p>
+      <blockquote class="trich"><p>Y như một mâm lễ phẩm tiến ra từ trong bình minh để mừng cho sự trường thọ của tất cả những người chài lưới trên muôn thuở Biển Đông.</p><cite>— Câu tiếp theo trong văn bản</cite></blockquote>
+      <p class="vi-sao">Quả trứng đặt trên mâm bạc — cả cảnh bình minh thành một <b>mâm lễ vật</b> dâng lên. Ẩn dụ không chỉ vẽ hình, vẽ màu mà còn cho cảnh một vẻ <b>trang trọng</b>, thiêng liêng.</p>
+      <a class="xem-lai" href="#kt-an-du">📌 Xem lại: ẩn dụ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. “Quả trứng hồng hào thăm thẳm, và đường bệ” ngầm chỉ <b>mặt trời</b> lúc mới mọc; “mâm bạc” chỉ <b>mặt biển</b> rộng tới tận chân trời, sáng lên lúc bình minh; “mâm bể” chỉ <b>mặt biển</b>; “cái chất bạc nén” chỉ <b>ánh sáng trắng bạc</b> dần hiện lên trên mặt biển. b. Tác giả dùng biện pháp tu từ <b>ẩn dụ</b>. Tác dụng: gợi tả mặt trời tròn trịa, hồng tươi, uy nghi; mặt biển phẳng, rộng, sáng lấp lánh như bạc; cả cảnh bình minh như một mâm lễ vật lớn của thiên nhiên — vừa rực rỡ vừa trang trọng. Cách gọi tên ấy cho thấy nhà văn quan sát rất tinh và trân trọng vẻ đẹp của biển trời Cô Tô.</div>
+    <div class="bay">Gọi là “so sánh”. Trong hai câu này không có từ so sánh (<i>như, là, tựa</i>…) và vế được so sánh (mặt trời, mặt biển) đã bị <b>giấu đi</b> — đó là dấu hiệu của ẩn dụ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh, ẩn dụ, nhân hoá</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra và nêu tác dụng của những biện pháp tu từ được tác giả sử dụng trong các câu sau:</p>
+    <p>a. <i>Mỗi viên cát bắn vào má vào gáy lúc này buốt như một viên đạn mũi kim.</i></p>
+    <p>b. <i>Hình như gió bão chờ chúng tôi lọt hết vào trận địa cánh cung bãi cát, rồi mới tăng thêm hoả lực của gió.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — câu a dùng biện pháp gì?</b>
+    <div class="cau-thu"><span class="noi-dung">buốt như một viên đạn mũi kim</span><button class="chon chu" data-dung="1">So sánh</button><button class="chon chu" data-dung="0">Ẩn dụ</button><button class="chon chu" data-dung="0">Nhân hoá</button><span class="phan-hoi" data-dung-txt="Đúng! Có đủ hai vế và từ so sánh “như”." data-sai-txt="Thử lại: trong câu có từ so sánh nào không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu a có chữ “như”. Câu b không có — nhưng gió bão lại biết “chờ”. Ai mới biết chờ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a: tìm từ so sánh. Câu b: đọc chú thích của <i>trận địa</i>, <i>hoả lực</i> — hai từ này vốn chỉ gì, ở đây chỉ gì? Và động từ “chờ” vốn là hoạt động của ai?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — So sánh</h4>
+      <p>Viên cát bắn vào má, vào gáy (vế được so sánh) — buốt <b>như</b> — một viên đạn mũi kim (vế dùng để so sánh).</p>
+      <p class="vi-sao">Ai cũng biết hạt cát nhỏ xíu. Ví nó với “viên đạn mũi kim”, nhà văn khiến người đọc cảm được cái đau buốt châm chích trên da, và hiểu gió phải mạnh đến mức nào mới biến hạt cát thành đạn.</p></div>
+    <div class="buoc" data-so="2"><h4>b — Ẩn dụ và nhân hoá</h4>
+      <blockquote class="trich"><p>Trận địa: khu vực địa hình dùng để bố trí lực lượng chiến đấu.</p>
+        <p>Hoả lực: sức mạnh gây sát thương và phá hoại của bom đạn, chất nổ, chất cháy dùng trong chiến đấu; ở đây nói về sức mạnh của gió.</p><cite>— Chú thích (2), (3), trang 110</cite></blockquote>
+      <p>Bãi cát được gọi là “trận địa”, sức gió được gọi là “hoả lực” → <b>ẩn dụ</b>. Gió bão biết “chờ” người lọt hết vào rồi mới tấn công → <b>nhân hoá</b> (gió hành động như một kẻ địch có tính toán).</p>
+      <p class="vi-sao">Hai biện pháp cùng làm một việc: biến trận bão thành một trận đánh có mưu tính, và đặt con người vào thế những người lính đang bị phục kích.</p>
+      <a class="xem-lai" href="#kt-an-du">📌 Xem lại: ẩn dụ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Biện pháp <b>so sánh</b>: viên cát bắn vào má, vào gáy buốt “như một viên đạn mũi kim”. Tác dụng: người đọc cảm nhận được cái đau buốt cụ thể trên da thịt, thấy sức gió bão dữ dội đến mức từng hạt cát nhỏ cũng hoá thành “đạn”. b. Biện pháp <b>ẩn dụ</b>: bãi cát được gọi là “trận địa”, sức mạnh của gió được gọi là “hoả lực”; kết hợp <b>nhân hoá</b>: gió bão biết “chờ” người lọt hết vào trận địa rồi mới tấn công. Tác dụng: trận bão hiện lên như một trận chiến có tính toán, hung hãn, nguy hiểm; con người như những người lính đang đối mặt với kẻ thù — câu văn vì thế vừa sinh động vừa gây ấn tượng mạnh.</div>
+    <div class="bay">Ở câu b chỉ tìm được một biện pháp. SGK hỏi “những biện pháp tu từ” — câu b có cả ẩn dụ (<i>trận địa, hoả lực</i>) lẫn nhân hoá (<i>gió bão chờ</i>).</div>
+    <div class="gv-note">SGK không gọi tên biện pháp ở câu b. Gợi ý trả lời xếp “trận địa”, “hoả lực” vào ẩn dụ (theo chú thích SGK: “ở đây nói về sức mạnh của gió”) và “gió bão chờ” vào nhân hoá — thống nhất với bài giảng Bài 5. Chấp nhận HS chỉ nêu một trong hai nếu giải thích đúng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c3" data-ten="Câu 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tìm câu so sánh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong <i>Cô Tô</i>, Nguyễn Tuân sử dụng nhiều hình ảnh so sánh sinh động. Hãy tìm ba câu văn sử dụng biện pháp tu từ so sánh trong văn bản này và nêu tác dụng trong từng trường hợp.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nguyễn Tuân dùng chữ “như” rất nhiều. Em tìm được bao nhiêu câu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lướt văn bản tìm chữ <i>như</i>. Cẩn thận: không phải chữ <i>như</i> nào cũng là so sánh (“Hình như”, “trong sáng như vậy” không phải). Câu so sánh phải có hai sự vật được đặt cạnh nhau vì có nét giống.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lọc các câu có so sánh</h4>
+      <blockquote class="trich"><p>Sau trận bão, chân trời, ngấn bể, sạch như tấm kính lau hết mây hết bụi.</p>
+        <p>Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn.</p>
+        <p>Cái giếng nước ngọt ở ria một hòn đảo giữa biển, cái sinh hoạt của nó vui như một cái bến và đậm đà mát nhẹ hơn mọi cái chợ trong đất liền.</p>
+        <p>Sóng thúc lẫn nhau mà vào bờ âm âm rền rền như vua thuỷ cho các loài thuỷ tộc rung thêm trống trận.</p></blockquote>
+      <p class="vi-sao">Ngoài bốn câu trên, văn bản còn những câu so sánh khác: cát “buốt như một viên đạn mũi kim” (đã gặp ở câu 2), gió ngừng “như để thay băng đạn”, trời đất trắng mù “như là kẻ thù đã bắt đầu thả hơi ngạt”, gió “rít lên rú lên như cái kiểu người ta vẫn thường gọi là quỷ khốc thần kinh”, “Y như một mâm lễ phẩm…”, chị Châu Hoà Mãn địu con “như cái hình ảnh biển cả là mẹ hiền”. Em chọn ba câu nào cũng được.</p></div>
+    <div class="buoc" data-so="2"><h4>Nói tác dụng cho từng câu</h4>
+      <p>Mỗi câu, hỏi: hai sự vật giống nhau ở điểm nào? Nhờ so sánh, người đọc thấy rõ thêm điều gì?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ ba câu: (1) “Sau trận bão, chân trời, ngấn bể, sạch như tấm kính lau hết mây hết bụi.” — so sánh chân trời, ngấn bể với tấm kính vừa lau, gợi bầu trời và mặt biển sau bão trong vắt, sáng bóng, không một gợn mây. (2) “Tròn trĩnh phúc hậu như lòng đỏ một quả trứng thiên nhiên đầy đặn.” — so sánh mặt trời với lòng đỏ quả trứng, gợi mặt trời tròn, đỏ hồng, đầy đặn, tươi mới và gần gũi. (3) “Cái giếng nước ngọt ở ria một hòn đảo giữa biển, cái sinh hoạt của nó vui như một cái bến và đậm đà mát nhẹ hơn mọi cái chợ trong đất liền.” — so sánh cảnh sinh hoạt quanh giếng với một cái bến, một cái chợ, gợi sự đông vui, tấp nập, thân tình của người dân trên đảo. (Có thể chọn câu khác, ví dụ: sóng “âm âm rền rền như vua thuỷ cho các loài thuỷ tộc rung thêm trống trận” — gợi tiếng sóng dồn dập, vang rền như tiếng trống trận.)</div>
+    <div class="bay">Chọn câu “Hình như gió bão chờ chúng tôi…” vì thấy có chữ “như”. “Hình như” chỉ sự phỏng đoán, không phải từ so sánh.</div>
+    <div class="gv-note">Đã lọc bằng máy các câu có chữ “như” trong văn bản (bỏ thẻ 🔎 và chú thích): 15 câu; loại “Hình như…”, “trong sáng như vậy”, “tắm như mọi người lao động bình thường” (so sánh ngang bằng thông thường, ít giá trị gợi hình). Chấp nhận bất kì ba câu so sánh có trong văn bản kèm tác dụng hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn tả cảnh có so sánh, ẩn dụ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) về một cảnh đẹp thiên nhiên trong đó có sử dụng biện pháp tu từ so sánh hoặc ẩn dụ.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cảnh đẹp nhất em từng thấy — nó giống cái gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một cảnh em <b>thật sự đã thấy</b> (cánh đồng, dòng sông, bãi biển, vườn nhà lúc sớm…). Ghi ra ba chi tiết. Chọn một chi tiết và tự hỏi: nó giống với cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn cảnh, chọn chi tiết</h4>
+      <p>Ví dụ: cánh đồng lúa lúc chiều — màu lúa, gió thổi qua lúa, mặt trời lặn, cánh cò.</p></div>
+    <div class="buoc" data-so="2"><h4>Biến một chi tiết thành so sánh hoặc ẩn dụ</h4>
+      <p>So sánh: có từ <i>như</i> (lúa xanh <i>như</i> tấm thảm). Ẩn dụ: gọi thẳng bằng tên sự vật giống nó (gọi cánh đồng là <i>biển lúa</i>, gọi lúa gợn là <i>sóng</i>).</p>
+      <p class="vi-sao">Hai vế phải <b>thật sự giống nhau</b> ở một điểm em chỉ ra được (màu, hình, chuyển động). So sánh gượng ép thì câu văn không sáng lên mà lại rối.</p>
+      <a class="xem-lai" href="#kt-an-du">📌 Xem lại: ẩn dụ</a></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Chiều nào tan học, em cũng dừng xe bên bờ đê để ngắm cánh đồng lúa quê mình.</i></p>
+      <p>Tiếp theo: tả hai, ba chi tiết (có ít nhất một so sánh hoặc ẩn dụ) → câu cuối nói cảm xúc của em. Gạch chân phép tu từ đã dùng. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) tả một cảnh đẹp thiên nhiên cụ thể; (2) có ít nhất một phép so sánh hoặc ẩn dụ đúng, hai vế có nét giống nhau rõ ràng; (3) có câu thể hiện cảm xúc của người viết; (4) là một đoạn văn khoảng 5 – 7 câu, đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Viết thành nhiều đoạn (xuống dòng sau mỗi câu). Đề yêu cầu <b>một</b> đoạn văn: lùi đầu dòng một lần, viết liền đến dấu chấm cuối.</div>
+    <div class="gv-note">Đoạn tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn có 7 câu. So sánh: “xanh mướt như một tấm thảm nhung”, “đỏ ối như một quả cam chín”; ẩn dụ: “những đợt sóng nhỏ” (lúa gợn theo gió), “biển lúa” (cánh đồng).</div>
+    <div class="tham-khao">
+    <p>Chiều nào tan học, em cũng dừng xe bên bờ đê để ngắm cánh đồng lúa quê mình. Lúa đang thì con gái, xanh mướt như một tấm thảm nhung trải dài tới tận chân trời. Mỗi khi gió thổi qua, cả cánh đồng lại gợn lên những đợt sóng nhỏ, xô nhau chạy mãi về phía rặng tre xa. Mặt trời đỏ ối như một quả cam chín đang từ từ lặn xuống sau luỹ tre làng. Mấy cánh cò trắng chao nghiêng trên biển lúa mênh mông rồi sà xuống, điểm lên nền xanh những chấm sáng nhỏ xinh. Hương lúa non thơm ngai ngái theo gió bay vào tận mũi. Đứng giữa khung cảnh ấy, em thấy lòng mình nhẹ tênh và thêm yêu cánh đồng đã nuôi lớn bao thế hệ người quê em.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb2" data-chip="Văn bản 2">Văn bản 2. Hang Én<small>Hà My</small></h2>
+
+<article class="the bai" id="v2-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Liên tưởng, tưởng tượng</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Nhan đề <i>Hang Én</i> gợi cho em liên tưởng gì?</p>
+    <p><b>2.</b> Tưởng tượng mình là nhà thám hiểm đi khám phá những khu bảo tồn thiên nhiên kì thú. Hãy chia sẻ cảm giác của em về điều đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một cái hang mang tên một loài chim. Em đoán xem vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: nghĩ đến chim én — chúng sống ở đâu, bay thế nào? Một cái hang được gọi bằng tên chúng thì có lẽ có gì bên trong? Câu 2: nói thật cảm giác — có thể vừa háo hức vừa hơi sợ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán trước khi đọc</h4>
+      <p>Có thể là một cái hang có rất nhiều chim én; có thể là hang rộng, có cửa thông lên trời để én bay ra bay vào; có thể là nơi hoang sơ, ít người đến.</p>
+      <p class="vi-sao">Đọc xong, em quay lại so với dự đoán của mình. Văn bản sẽ trả lời: trong hang có “hàng vạn con chim én”.</p></div>
+    <div class="buoc" data-so="2"><h4>Đặt mình vào vai nhà thám hiểm</h4>
+      <p>Em sẽ phải đi bộ, lội suối, leo dốc; em sẽ thấy những điều chưa ai kể. Em thấy thế nào: tò mò, phấn khích, hồi hộp, hơi lo?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. Câu 1: nhan đề có thể gợi một cái hang có nhiều chim én sinh sống, một nơi hoang sơ, rộng lớn, có cửa mở ra bầu trời. Câu 2: một câu trả lời tốt nói được cảm giác thật của em (háo hức, tò mò, hồi hộp, có cả chút lo lắng) và nêu một điều cụ thể em mong được thấy hoặc được làm khi khám phá thiên nhiên.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Nên ghi lại dự đoán của HS trên bảng để đối chiếu sau khi đọc.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trình tự kể</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhân vật “tôi” đã kể về hành trình khám phá hang Én theo trình tự nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người viết đi đến đâu thì kể đến đó — hay kể nhảy cóc?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân các chữ mở đầu mỗi đoạn: “Đường tới hang Én”, “Hành trình ấy khởi đầu từ”, “Đi hết dốc Ba Giàn”, “Muốn vào hang”, “Vòng ra sau hang”, “Khi bóng tối trùm kín”, “Năm giờ”…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lần theo bước chân</h4>
+      <blockquote class="trich"><p>Hành trình ấy khởi đầu từ con dốc Ba Giàn dài gần 2 km.</p>
+        <p>Đi hết dốc Ba Giàn là tới thung lũng Rào Thương, được bao quanh bởi con suối cùng tên.</p>
+        <p>Muốn vào hang, phải lội qua sông; rồi trèo ngược vách đá hiểm trở, cao mấy chục mét.</p>
+        <p>Vịn đá lần xuống chân dốc, chúng tôi ngồi bè qua sông để đến lòng hang chính.</p></blockquote>
+      <p>Rừng nguyên sinh → dốc Ba Giàn → thung lũng Rào Thương, lội suối → cửa hang, lội sông, trèo vách đá, ngồi bè → lòng hang chính → đàn én → vòng ra sau hang.</p></div>
+    <div class="buoc" data-so="2"><h4>Lần theo thời gian ở trong hang</h4>
+      <blockquote class="trich"><p>Khi bóng tối trùm kín lòng hang Én, thì khoảng trời phía trên cửa hang thứ hai vẫn sáng rất lâu</p>
+        <p>Nửa đêm thức dậy, vẫn nghe tiếng chim chíu chít</p>
+        <p>Năm giờ, đã thấy sáng bừng cả lòng hang</p></blockquote>
+      <p class="vi-sao">Khi đã dừng chân trong hang, người viết chuyển sang kể theo giờ giấc: chiều tối → nửa đêm → năm giờ sáng. Đó đúng là điều Tri thức ngữ văn nói: trong kí, sự việc thường được kể theo trình tự thời gian.</p>
+      <a class="xem-lai" href="#kt-ki">📌 Xem lại: kí</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhân vật “tôi” kể theo <b>trình tự của hành trình</b> — đi đến đâu kể đến đó: xuyên rừng nguyên sinh, leo dốc Ba Giàn, qua thung lũng Rào Thương, lội suối; tới cửa hang, lội sông, trèo vách đá, ngồi bè vào lòng hang chính; gặp đàn én; vòng ra sau hang. Khi đã nghỉ lại trong hang, người viết kể theo <b>trình tự thời gian</b>: lúc bóng tối trùm kín lòng hang, nửa đêm thức dậy, rồi năm giờ sáng hôm sau. Bước chân và thời gian cùng dẫn người đọc đi, khiến ta như đang theo sát nhà văn trong chuyến khám phá.</div>
+    <div class="bay">Trả lời chung chung “kể theo trình tự thời gian” mà không chỉ ra các chặng cụ thể của hành trình.</div>
+    <div class="gv-note">Thứ tự kể không hoàn toàn trùng giờ giấc thật: chuyện chú én bị thương (bữa tối, sáng hôm sau) được kể trước đoạn đêm trong hang; đoạn “Vòng ra sau hang” viết với người đọc (“bạn”), không có mốc giờ. Chấp nhận câu trả lời “trình tự không gian của hành trình kết hợp trình tự thời gian”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chi tiết miêu tả, cảm nhận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm những chi tiết miêu tả địa hình, cây cối, loài vật trên đường đến hang Én. Những chi tiết này gợi cho em cảm nhận gì về rừng nguyên sinh?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đường thì khó đi — vậy sao người viết lại thấy “thích nhất” và “yêu vô cùng”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc ba đoạn đầu (trước khi vào hang). Kẻ ba cột: <i>Địa hình</i> · <i>Cây cối</i> · <i>Loài vật</i>. Rồi tự hỏi: rừng này dễ hay khó đi? Đẹp hay không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Địa hình và cây cối</h4>
+      <blockquote class="trich"><p>Dốc cao và gập ghềnh. Đường mòn vừa một người đi, khá trơn, nhiều chặng có cây đổ chắn ngang hoặc những vòm dây leo giăng kín. Rất nhiều cây cổ thụ tán cao vút, thân đầy các loại tầm gửi, có cả phong lan đang nở hoa.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Loài vật</h4>
+      <blockquote class="trich"><p>Nhiều quãng suối còn nhìn rõ đàn cá bơi liêu xiêu giữa dòng nước chảy xiết như những chiếc lá trúc khô. Yêu vô cùng những đàn bướm đủ màu – vàng, trắng, xanh đen – gặp ven đường, ven suối.</p></blockquote>
+      <p class="vi-sao">Để ý hai mặt đứng cạnh nhau: dốc “gập ghềnh”, đường “khá trơn”, có “sên, vắt” — nhưng cũng có phong lan nở hoa, nước suối “trong vắt, mát lạnh”, bướm “quấn quýt cả vào chân người”. Rừng vừa làm khó người đi, vừa thưởng cho họ những điều đẹp đẽ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Địa hình:</b> rừng nguyên sinh với “nhiều đoạn dốc cao, ngoằn ngoèo”, phải “lội khoảng ba mươi quãng suối và sông”; dốc Ba Giàn dài gần 2 km, “cao và gập ghềnh”; đường mòn “vừa một người đi, khá trơn”, có cây đổ chắn ngang, vòm dây leo giăng kín; thung lũng Rào Thương với suối nước “trong vắt, mát lạnh”, thấy cả “làn đá cuội nơi đáy suối”. <b>Cây cối:</b> cây cổ thụ “tán cao vút”, thân đầy tầm gửi, “có cả phong lan đang nở hoa”; thảm cỏ, cây cối “rậm rạp, lúp xúp”. <b>Loài vật:</b> “sên, vắt, nhiều loài côn trùng và chim chóc”; “tiếng chim kêu đủ giọng”; đàn cá “bơi liêu xiêu”; “những đàn bướm đủ màu” đậu thành từng vạt, bay lên “quấn quýt cả vào chân người”. Những chi tiết ấy cho em cảm nhận rừng nguyên sinh <b>hoang sơ, hiểm trở</b> nhưng cũng <b>giàu có, tràn đầy sức sống và đẹp như “một giấc mộng đẹp”</b> — một thế giới còn nguyên vẹn như “thuở sơ khai”.</div>
+    <div class="bay">Chỉ tìm chi tiết mà quên vế thứ hai: <b>cảm nhận</b> của em về rừng nguyên sinh. Hoặc chỉ thấy rừng đẹp mà bỏ qua vẻ hiểm trở (dốc cao, đường trơn, sên, vắt).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sự sống của tự nhiên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Qua bài kí, em hiểu được gì về sự “sống” của đá và cuộc sống của loài én chưa “biết sợ con người”?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đá thì làm sao mà “sống”? Còn én — vì sao chúng chưa biết sợ người?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với đá: đọc lời khẳng định của Hô-oát Lim-bơ. Với én: đọc đoạn bắt đầu bằng “Trong hang Én, hàng vạn con chim én”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sự “sống” của đá</h4>
+      <blockquote class="trich"><p>mỗi xen-ti-mét đá kia phải qua cả trăm triệu năm bào mòn hay bồi đắp mới nên. Và tất cả măng đá, nhũ đá, ngọc động ấy vẫn “sống” trong hành trình tạo tác của tự nhiên.</p></blockquote>
+      <p class="vi-sao">Đá không thở, không lớn như cây; nhưng đá vẫn đang được nước bào mòn, được bồi đắp thêm từng chút — rất chậm, qua hàng trăm triệu năm. Chữ “sống” đặt trong ngoặc kép vì nó được hiểu theo nghĩa đặc biệt.</p>
+      <a class="xem-lai" href="#kt-ngoac-kep">📌 Xem lại: dấu ngoặc kép</a></div>
+    <div class="buoc" data-so="2"><h4>Cuộc sống của loài én</h4>
+      <blockquote class="trich"><p>Trong hang Én, hàng vạn con chim én vẫn hồn nhiên cư ngụ và chưa phải biết sợ con người.</p>
+        <p>Én bố mẹ tấp nập đi, về, mải mốt mớm mồi cho con; én anh chị rập rờn bay đôi; én ra ràng chấp chới vỗ cánh bên rìa hốc đá…</p></blockquote>
+      <p class="vi-sao">Én “chưa phải biết sợ” vì con người ở đây chưa làm hại chúng: nhóm du khách sống lặng lẽ bên cạnh, còn để chú én bị thương “mổ cơm ăn trong lòng tay tôi”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đá cũng có sự “sống” theo cách riêng: “mỗi xen-ti-mét đá kia phải qua cả trăm triệu năm bào mòn hay bồi đắp mới nên”, và măng đá, nhũ đá, ngọc động vẫn đang tiếp tục được tự nhiên tạo tác, đổi thay từng chút một. Còn loài én thì sống một cuộc sống <b>tự do, hồn nhiên, sum vầy</b>: hàng vạn con “hồn nhiên cư ngụ”, én bố mẹ “mải mốt mớm mồi cho con”, én anh chị “rập rờn bay đôi”, én non tập bay, én “thiếu niên” ngủ say trên mỏm đá, thậm chí đậu lên vai, lên tóc người. Chúng chưa biết sợ con người vì nơi đây thiên nhiên còn <b>nguyên sơ</b>, con người và loài vật sống <b>hoà hợp</b>, chưa làm hại nhau. Bài kí khiến em hiểu: thiên nhiên quanh ta đang sống, và cần được tôn trọng.</div>
+    <div class="bay">Hiểu “đá sống” theo nghĩa đen như sinh vật. Dấu ngoặc kép báo hiệu từ “sống” được dùng theo <b>nghĩa đặc biệt</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hình ảnh thể hiện tình cảm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hình ảnh nào trong bài thể hiện sự trân trọng, lòng biết ơn và tình yêu của con người với tự nhiên?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người ta gọi ai là “Mẹ”? Và cái gì thì được “ban tặng”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc câu mở đầu đoạn tả cửa hang. Chú ý những chữ được viết hoa và động từ đi kèm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm hình ảnh</h4>
+      <blockquote class="trich"><p>Hang Én giống như cái tổ khổng lồ và an toàn mà Mẹ Thiên Nhiên ban tặng cho con người, với không gian trú ẩn, nước, không khí, ánh sáng,…</p></blockquote>
+      <p class="vi-sao">Ba chỗ đáng chú ý: thiên nhiên được gọi là <b>Mẹ</b> (viết hoa, như tên một người thân); hang là <b>cái tổ</b> — nơi trú ẩn ấm áp; và hang được <b>ban tặng</b> — món quà mà người nhận phải biết ơn.</p></div>
+    <div class="buoc" data-so="2"><h4>Hình ảnh trong việc làm của con người</h4>
+      <blockquote class="trich"><p>Khi mắt đã quen với ánh đèn, nó ung dung mổ cơm ăn trong lòng tay tôi.</p>
+        <p>Có lẽ chỉ ngày mai thôi, đôi cánh ấy sẽ lành hẳn.</p></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình ảnh thể hiện rõ nhất: <b>“Hang Én giống như cái tổ khổng lồ và an toàn mà Mẹ Thiên Nhiên ban tặng cho con người”</b>. Gọi thiên nhiên là “Mẹ”, coi hang động là “cái tổ” che chở và là món quà được “ban tặng”, người viết bày tỏ sự trân trọng, lòng biết ơn và tình yêu với tự nhiên như với người mẹ đã cho mình nơi trú ẩn, nước, không khí, ánh sáng. Tình cảm ấy còn hiện lên trong việc làm: nhóm du khách để yên cho đàn én sống “cuộc đời” của chúng, cho chú én bị thương mổ cơm trong lòng tay và mong “đôi cánh ấy sẽ lành hẳn”.</div>
+    <div class="bay">Chọn một câu tả cảnh đẹp (trần hang “đẹp như mái vòm của một thánh đường”) — câu ấy cho thấy hang đẹp nhưng chưa thể hiện <b>lòng biết ơn</b> của con người.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Ta không bao giờ phá tổ của chính mình, cũng không làm hỏng món quà mẹ tặng. Gọi thiên nhiên là “Mẹ” là đã tự nhắc mình phải giữ gìn nó.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tâm trạng nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tâm trạng của du khách khi sống trong không gian hang Én, thiếu thốn các tiện nghi thông thường được miêu tả qua những chi tiết nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Không điện, không giường, phân chim rơi trên mái lều — vậy mà có ai than phiền không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc hai đoạn cuối: đêm trong hang và năm giờ sáng. Gạch chân các động từ chỉ hành động của du khách (ngồi, nghe, nhoài, chạy, vục, hít…).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đêm trong hang</h4>
+      <blockquote class="trich"><p>Tôi ngồi bệt trên cát, trước mặt là khoảng sông lấp lánh, trên cao là trần hang tối thẫm và một khoảng trời thăm thẳm đầy sao. Tứ bề tiếng chim líu ríu như ru nhau và ru người.</p>
+        <p>Nửa đêm thức dậy, vẫn nghe tiếng chim chíu chít, tiếng nước chảy âm âm – và cả tiếng phân chim rơi lộp độp trên mái lều.</p></blockquote>
+      <p class="vi-sao">“Ngồi bệt trên cát” — tư thế thoải mái của người thấy mình như ở nhà. Đến cả “tiếng phân chim rơi lộp độp” cũng được kể như một âm thanh vui tai, không có lời than nào.</p></div>
+    <div class="buoc" data-so="2"><h4>Buổi sáng</h4>
+      <blockquote class="trich"><p>Ai nấy nhoài ra khỏi lều, chân trần chạy quanh sông, rồi ngồi ngay bên bờ cát vục nước rửa mặt, hít căng lồng ngực thứ không khí mát lành, tinh khiết…</p></blockquote>
+      <p class="vi-sao">Một chuỗi động từ nhanh, náo nức: <i>nhoài, chạy, vục, hít căng</i>. Thẻ 🔎 của SGK gọi đó là “sự hoà mình của du khách với thiên nhiên”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Dù thiếu thốn tiện nghi, du khách vẫn <b>thư thái, vui sướng, háo hức và hoà mình</b> vào thiên nhiên. Đêm xuống, “tôi” “ngồi bệt trên cát”, ngắm “khoảng sông lấp lánh”, “khoảng trời thăm thẳm đầy sao”, nghe “tiếng chim líu ríu như ru nhau và ru người”; nửa đêm thức dậy vẫn lắng nghe tiếng chim, tiếng nước, “cả tiếng phân chim rơi lộp độp trên mái lều” mà không hề phiền lòng. Sáng ra, “Ai nấy nhoài ra khỏi lều, chân trần chạy quanh sông”, “vục nước rửa mặt”, “hít căng lồng ngực thứ không khí mát lành, tinh khiết”. Thiếu đèn điện, thiếu giường êm, họ lại có được thứ quý hơn: sự gần gũi trọn vẹn với thiên nhiên.</div>
+    <div class="bay">Chỉ tả cảnh hang ban đêm, ban sáng mà không nói <b>tâm trạng</b> của du khách — đề hỏi tâm trạng được miêu tả qua chi tiết nào.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cách cảm nhận của tác giả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cách tác giả cảm nhận về cuộc sống hoang dã có làm cho người đọc khiếp sợ tự nhiên không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hang sâu, sông ngầm, vách đá cao hàng chục mét. Đọc xong, em thấy sợ hay thấy muốn đến?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Để ý cách tác giả <b>gọi</b> thiên nhiên và loài vật: Mẹ Thiên Nhiên, cái tổ, bạn én, chú én… Những cách gọi ấy gợi cảm giác gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những cách gọi thân thương</h4>
+      <blockquote class="trich"><p>Nhiều bạn én thiếu niên ngủ nướng, say giấc ngay trên những mỏm đá thấp dọc lối đi. Nếu đặt lên vai, bạn sẽ rúc vào tóc hoặc đậu trên đầu mình để… ngủ tiếp!</p></blockquote>
+      <p class="vi-sao">Én được gọi là “bạn”, được tả như những cô cậu bé ngủ nướng. Dấu chấm lửng và dấu chấm than ở cuối câu như một tiếng cười khẽ của người viết.</p></div>
+    <div class="buoc" data-so="2"><h4>Cái hiểm trở được kể nhẹ nhàng</h4>
+      <p>Hang có vách đá “hiểm trở”, sông “sâu quá thắt lưng” — tác giả không giấu. Nhưng ngay sau đó là “bãi tắm thiên nhiên hoàn hảo”, là “giấc mộng đẹp”, là tiếng chim “ru người”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Không.</b> Cách tác giả cảm nhận khiến người đọc thấy thiên nhiên hoang dã <b>thân thiện, gần gũi và đáng yêu</b>, chứ không đáng sợ. Tác giả gọi thiên nhiên là “Mẹ Thiên Nhiên”, gọi hang là “cái tổ khổng lồ và an toàn”, gọi én là “bạn én thiếu niên”, “chú én”; đi trong rừng như “đi trong một giấc mộng đẹp”; tiếng chim “ru nhau và ru người”. Ngay cả những chỗ hiểm trở (dốc cao, vách đá, sông sâu) cũng được kể như những thử thách thú vị của “một hành trình khám phá thú vị”. Đọc xong, người đọc không khiếp sợ mà muốn được đến, được ngắm và được giữ gìn vẻ đẹp ấy.</div>
+    <div class="bay">Trả lời “không” mà không nêu lí do bằng chi tiết. Đề có “Vì sao?” — lí do phải lấy từ cách tác giả tả, gọi tên thiên nhiên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c7" data-ten="Câu 7" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Ý nghĩa của hành trình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có ý kiến cho rằng hành trình khám phá hang Én thích hợp với những người ưa mạo hiểm. Theo em, hành trình này còn đánh thức những điều gì ở con người?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ưa mạo hiểm thì đi được. Nhưng đi xong, người ta mang về những gì khác nữa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại những gì người viết đã cảm thấy và đã làm: ngắm đá trăm triệu năm, chăm chú én bị thương, ngồi bệt trên cát nghe chim ru… Mỗi việc ấy đánh thức điều gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm “điều được đánh thức” trong chính văn bản</h4>
+      <blockquote class="trich"><p>Bạn sẽ thấy những “thương hải tang điền” còn hiện hữu trên dải hoá thạch sò, ốc, san hô,… nơi vách đá.</p>
+        <p>Có lẽ chỉ ngày mai thôi, đôi cánh ấy sẽ lành hẳn.</p></blockquote>
+      <p class="vi-sao">Hoá thạch đánh thức <b>sự tò mò, ham hiểu biết</b>; chú én bị thương đánh thức <b>lòng thương yêu loài vật</b>; cái “tổ” của “Mẹ Thiên Nhiên” đánh thức <b>lòng biết ơn</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Theo em, hành trình khám phá hang Én không chỉ dành cho người ưa mạo hiểm, mà còn đánh thức nhiều điều đẹp đẽ trong mỗi người. Đó là <b>sự tò mò, ham hiểu biết</b> trước những hoá thạch sò, ốc, những khối đá phải qua “cả trăm triệu năm” mới thành. Đó là <b>tình yêu thương loài vật</b>, như khi tác giả để chú én bị thương mổ cơm trong lòng tay mình và mong cánh nó lành. Đó là <b>lòng biết ơn và ý thức giữ gìn thiên nhiên</b> — “Mẹ Thiên Nhiên” đã ban tặng cho con người một “cái tổ khổng lồ và an toàn”. Và đó còn là <b>niềm tự hào</b> về một cảnh đẹp kì vĩ của đất nước mình.</div>
+    <div class="bay">Chỉ nêu một từ (“tình yêu thiên nhiên”) mà không có chi tiết nào trong bài kí làm căn cứ.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi ý có căn cứ (sự kiên trì, tinh thần đồng đội khi vượt dốc, lội sông, ý thức du lịch có trách nhiệm…).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn cảm nhận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) nêu cảm nhận của em về hang Én.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu chỉ được giữ lại một hình ảnh về hang Én trong trí nhớ, em giữ hình ảnh nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một ấn tượng chung (hùng vĩ? thơ mộng? gần gũi?), rồi tìm hai, ba chi tiết trong bài kí để chứng minh. Câu cuối nói điều em mong muốn hoặc suy nghĩ của em.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm “chất liệu” trong văn bản</h4>
+      <p>Số liệu: lòng hang “có thể chứa được hàng trăm người”, trần hang “tương đương với toà nhà bốn mươi tầng”. Cảnh: trần hang “đẹp như mái vòm của một thánh đường”, đá san hô như ruộng bậc thang. Loài vật: hàng vạn con én “hồn nhiên cư ngụ”. Âm thanh: “tiếng chim líu ríu như ru nhau và ru người”.</p>
+      <p class="vi-sao">Đoạn cảm nhận hay không phải đoạn kể lại cả bài kí, mà là đoạn có <b>một</b> ấn tượng rõ ràng, được chứng minh bằng vài chi tiết chọn lọc.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Đọc bài kí của Hà My, em thấy hang Én hiện lên vừa hùng vĩ vừa gần gũi như một ngôi nhà lớn của thiên nhiên.</i></p>
+      <p>Tiếp theo: chứng minh “hùng vĩ” bằng một chi tiết → “gần gũi” bằng một chi tiết → điều em thích nhất → mong muốn của em. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) nêu được ấn tượng, cảm nhận rõ ràng của em về hang Én; (2) có ít nhất hai chi tiết lấy từ bài kí (số liệu, cảnh vật, loài én, âm thanh…) làm căn cứ; (3) bày tỏ cảm xúc, mong muốn hoặc suy nghĩ thật của em; (4) là một đoạn văn khoảng 5 – 7 câu, đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Tóm tắt lại hành trình của tác giả thay vì nêu <b>cảm nhận của em</b> về hang Én.</div>
+    <div class="gv-note">Đoạn tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn có 6 câu.</div>
+    <div class="tham-khao">
+    <p>Đọc bài kí của Hà My, em thấy hang Én hiện lên vừa hùng vĩ vừa gần gũi như một ngôi nhà lớn của thiên nhiên. Lòng hang có thể chứa hàng trăm người, trần hang cao “tương đương với toà nhà bốn mươi tầng” và đẹp như mái vòm của một thánh đường. Em thích nhất cảnh hàng vạn con én “hồn nhiên cư ngụ và chưa phải biết sợ con người”, có chú còn ung dung mổ cơm trong lòng tay tác giả. Những dải đá san hô như ruộng bậc thang, những hoá thạch sò, ốc trên vách đá khiến em thấy hang Én giống một cuốn sách kể chuyện về hàng trăm triệu năm của đất trời. Đêm trong hang chỉ có tiếng chim líu ríu, tiếng nước chảy âm âm, vậy mà nghe thật yên bình. Em mong một ngày được tận mắt đến hang Én, và em hiểu rằng muốn giữ vẻ đẹp ấy, con người phải biết sống nhẹ nhàng, tôn trọng thiên nhiên như nhóm du khách trong bài.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv2" data-chip="Tiếng Việt ②">Thực hành tiếng Việt<small>Dấu câu · Biện pháp tu từ (sau Văn bản 2)</small></h2>
+
+<article class="the bai" id="tv2-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dấu ngoặc kép</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu công dụng của dấu ngoặc kép trong các câu sau:</p>
+    <p>a. <i>Cảm giác về một cuộc “ngược dòng” tìm về với thuở sơ khai đến với tôi ngay khi len lỏi qua cánh rừng nguyên sinh này.</i></p>
+    <p>b. <i>Hang có ba cửa lớn: cửa trước có hai lớp, vòm cửa ngoài dẫn vào một “sảnh chờ” rộng rãi; cửa trong lại thấp hẹp, sát ngay dải sông ngầm khá rộng, sâu quá thắt lưng.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cái hang thì có “sảnh chờ” như khách sạn sao? Dấu ngoặc kép đang nháy mắt với người đọc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi từ trong ngoặc kép, hỏi hai câu: Bình thường từ này chỉ gì? Ở đây nó được dùng để chỉ gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So nghĩa thường ngày với nghĩa trong câu</h4>
+      <table>
+        <tr><th>Từ</th><th>Nghĩa thường ngày</th><th>Nghĩa trong câu</th></tr>
+        <tr><td>ngược dòng</td><td>đi ngược chiều dòng nước</td><td>đi xuyên rừng nguyên sinh mà như quay ngược thời gian, trở về “thuở sơ khai”</td></tr>
+        <tr><td>sảnh chờ</td><td>phòng rộng để khách đợi (ở khách sạn, nhà ga, sân bay…)</td><td>khoảng không gian rộng rãi sau vòm cửa ngoài của hang</td></tr>
+      </table>
+      <p class="vi-sao">Hai nghĩa khác nhau nhưng có nét giống: “ngược dòng” nước — ngược dòng thời gian; nơi khách đợi trước khi vào trong — khoảng rộng trước khi vào lòng hang. Dấu ngoặc kép báo cho người đọc: “từ này đang được dùng theo một nghĩa khác thường đấy”.</p>
+      <a class="xem-lai" href="#kt-ngoac-kep">📌 Xem lại: dấu ngoặc kép</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trong cả hai câu, dấu ngoặc kép dùng để <b>đánh dấu từ ngữ được hiểu theo nghĩa đặc biệt</b>. a. “ngược dòng” vốn chỉ việc đi ngược chiều dòng nước; ở đây chỉ hành trình xuyên rừng nguyên sinh như quay ngược thời gian, tìm về “thuở sơ khai”. b. “sảnh chờ” vốn chỉ phòng rộng để khách đợi ở khách sạn, nhà ga…; ở đây chỉ khoảng không gian rộng rãi nằm sau vòm cửa ngoài của hang Én.</div>
+    <div class="bay">Trả lời “đánh dấu lời dẫn trực tiếp”. Ở đây không ai nói câu nào — từ trong ngoặc kép là chữ của chính người viết, được dùng theo nghĩa khác thường.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu phẩy, ngoặc kép, gạch ngang</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho biết công dụng của dấu phẩy, dấu ngoặc kép và dấu gạch ngang được dùng trong các đoạn trích sau:</p>
+    <p>a. <i>Giờ họ đã rời ra ngoài sống thành bản nhưng vẫn còn giữ lễ hội “ăn én”. Cũng nghe kể rằng, trong bản A-rem vẫn còn một vài người có bàn chân mỏng, ngón dẹt – dấu tích của bao nhiêu thế hệ leo vách đá, trần hang cao hàng trăm mét.</i></p>
+    <p>b. <i>Hô-oát Lim-bơ, người tìm ra hơn 500 hang động ở Việt Nam, trong đó có hang Sơn Đoòng lớn nhất thế giới, khẳng định rằng: mỗi xen-ti-mét đá kia phải qua cả trăm triệu năm bào mòn hay bồi đắp mới nên. Và tất cả măng đá, nhũ đá, ngọc động ấy vẫn “sống” trong hành trình tạo tác của tự nhiên.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi dấu câu là một tín hiệu nhỏ. Dấu gạch ngang ở đây đang mở ra điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đi lần lượt từng dấu. Với dấu phẩy, hỏi: nó tách những gì ra? Với dấu gạch ngang, đọc phần đứng sau nó: phần ấy đang giải thích cho cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoạn a</h4>
+      <p><b>Ngoặc kép</b> ở “ăn én”: đánh dấu tên gọi riêng của một lễ hội người A-rem còn giữ — một từ ngữ được dẫn lại theo cách gọi của họ.</p>
+      <p><b>Dấu phẩy</b> sau “Cũng nghe kể rằng”: tách phần mở đầu với phần chính của câu. Dấu phẩy trong “bàn chân mỏng, ngón dẹt” và “vách đá, trần hang”: ngăn cách các từ ngữ cùng loại đứng cạnh nhau.</p>
+      <p><b>Dấu gạch ngang</b>: đánh dấu phần giải thích — vì sao họ có bàn chân như thế (“dấu tích của bao nhiêu thế hệ leo vách đá”).</p></div>
+    <div class="buoc" data-so="2"><h4>Đoạn b</h4>
+      <p><b>Hai dấu phẩy</b> đặt quanh “người tìm ra hơn 500 hang động ở Việt Nam, trong đó có hang Sơn Đoòng lớn nhất thế giới”: tách phần giải thích cho biết Hô-oát Lim-bơ là ai. Dấu phẩy trong “măng đá, nhũ đá, ngọc động”: ngăn cách các từ ngữ cùng loại.</p>
+      <p><b>Ngoặc kép</b> ở “sống”: đánh dấu từ ngữ được hiểu theo nghĩa đặc biệt — đá không sống như sinh vật, nhưng vẫn đang được tự nhiên bào mòn, bồi đắp, đổi thay.</p>
+      <p class="vi-sao">Thử bỏ phần giữa hai dấu phẩy: “Hô-oát Lim-bơ khẳng định rằng…” — câu vẫn trọn ý. Phần bị bỏ chỉ là lời giải thích thêm, nên được hai dấu phẩy “ôm” lại.</p>
+      <a class="xem-lai" href="#kt-ngoac-kep">📌 Xem lại: dấu ngoặc kép</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Dấu <b>ngoặc kép</b> ở “ăn én” đánh dấu tên gọi riêng của lễ hội (từ ngữ được dẫn theo cách gọi của người A-rem). Dấu <b>phẩy</b> sau “Cũng nghe kể rằng” tách phần mở đầu với phần chính của câu; dấu phẩy trong “bàn chân mỏng, ngón dẹt”, “vách đá, trần hang” ngăn cách các từ ngữ cùng loại. Dấu <b>gạch ngang</b> đánh dấu phần giải thích: bàn chân mỏng, ngón dẹt là “dấu tích của bao nhiêu thế hệ leo vách đá, trần hang cao hàng trăm mét”. b. Hai dấu <b>phẩy</b> tách phần giải thích Hô-oát Lim-bơ là ai (“người tìm ra hơn 500 hang động ở Việt Nam, trong đó có hang Sơn Đoòng lớn nhất thế giới”); dấu phẩy trong “măng đá, nhũ đá, ngọc động” ngăn cách các từ ngữ cùng loại. Dấu <b>ngoặc kép</b> ở “sống” đánh dấu từ ngữ được hiểu theo <b>nghĩa đặc biệt</b>: đá vẫn đang được tự nhiên tạo tác, đổi thay như có sự sống.</div>
+    <div class="bay">Chỉ nêu công dụng của dấu ngoặc kép (vì vừa học) mà bỏ qua dấu phẩy và dấu gạch ngang — đề hỏi cả ba loại dấu.</div>
+    <div class="gv-note">Công dụng dấu phẩy, dấu gạch ngang là kiến thức tiểu học; diễn đạt bằng lời thường, không dùng thuật ngữ “trạng ngữ” (Bài 8). Ngoặc kép ở “ăn én” có thể chấp nhận cả cách hiểu “từ ngữ hiểu theo nghĩa đặc biệt” nếu HS giải thích hợp lí. Câu 2b của SGK bỏ phần “(Howard Limbert)” so với văn bản — giữ đúng chữ của đề.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c3" data-ten="Câu 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tìm và giải thích ngoặc kép</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm thêm những câu văn có sử dụng dấu ngoặc kép trong các văn bản <i>Cô Tô</i>, <i>Hang Én</i> và giải thích công dụng của dấu ngoặc kép trong từng trường hợp.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dấu ngoặc kép ở <i>Cô Tô</i> đứng quanh lời của ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lướt cả hai văn bản tìm dấu ngoặc kép. Với <i>Hang Én</i>, bỏ qua những chỗ đã gặp ở câu 1, câu 2 và trong khung 📌 (“cuộc đời”) để tìm chỗ còn lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trong <i>Cô Tô</i></h4>
+      <blockquote class="trich"><p>Anh quẩy 15 gánh cho thuyền anh: “Đi ra khơi, xa lắm mà. Có khi mười ngày mới về. Nước ngọt cho vào sạp, chỉ để uống. Vo gạo thổi cơm cũng không được lấy nước ngọt. Vo gạo bằng nước biển thôi”.</p></blockquote>
+      <p>Đây là lời của anh Châu Hoà Mãn được dẫn nguyên văn → ngoặc kép <b>đánh dấu lời dẫn trực tiếp</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Trong <i>Hang Én</i></h4>
+      <blockquote class="trich"><p>Bạn sẽ thấy những “thương hải tang điền” còn hiện hữu trên dải hoá thạch sò, ốc, san hô,… nơi vách đá.</p></blockquote>
+      <p>“Thương hải tang điền” (chú thích SGK: biển xanh biến thành nương dâu hoặc ngược lại) vốn nói về những biến đổi lớn lao; ở đây dùng để chỉ dấu vết của biển xưa còn in trên vách đá → <b>đánh dấu từ ngữ được dẫn, hiểu theo nghĩa đặc biệt</b>.</p>
+      <p class="vi-sao">Văn bản <i>Hang Én</i> có sáu chỗ dùng ngoặc kép: “ngược dòng”, “sảnh chờ”, “ăn én”, “cuộc đời”, “thương hải tang điền”, “sống”. Phần lớn là để đánh dấu từ ngữ hiểu theo nghĩa đặc biệt.</p>
+      <a class="xem-lai" href="#kt-ngoac-kep">📌 Xem lại: dấu ngoặc kép</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><i>Cô Tô</i>: Anh quẩy 15 gánh cho thuyền anh: “Đi ra khơi, xa lắm mà. Có khi mười ngày mới về. […] Vo gạo bằng nước biển thôi”. — dấu ngoặc kép <b>đánh dấu lời dẫn trực tiếp</b> (lời nói của anh Châu Hoà Mãn). <i>Hang Én</i>: Bạn sẽ thấy những “thương hải tang điền” còn hiện hữu trên dải hoá thạch sò, ốc, san hô,… nơi vách đá. — dấu ngoặc kép <b>đánh dấu từ ngữ được dẫn, hiểu theo nghĩa đặc biệt</b>: thành ngữ chỉ biển hoá đất liền ở đây chỉ dấu vết biển xưa còn in trên vách đá. Ngoài ra, câu “Cộng đồng én thoải mái sống ”cuộc đời“ của chúng” (khung 📌 của SGK) cũng dùng ngoặc kép để đánh dấu từ ngữ hiểu theo nghĩa đặc biệt.</div>
+    <div class="bay">Lấy lại các câu đã có trong câu 1, câu 2 (“ngược dòng”, “sảnh chờ”, “ăn én”, “sống”) — đề yêu cầu tìm <b>thêm</b>.</div>
+    <div class="gv-note">Đã tìm bằng máy: phần đọc văn bản <i>Cô Tô</i> chỉ có một chỗ dùng ngoặc kép (lời anh Châu Hoà Mãn); <i>Hang Én</i> có sáu chỗ. Câu hỏi trong SGK (phần Sau khi đọc) cũng dùng ngoặc kép — chấp nhận nếu HS tìm ở đó và giải thích đúng (đánh dấu từ ngữ được dẫn lại từ văn bản).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhân hoá</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Xác định và chỉ ra tác dụng của biện pháp tu từ nhân hoá trong những câu sau:</p>
+    <p>a. <i>Bữa tối, một chú én tò mò sa xuống bàn ăn, cánh bị thương không bay lên được.</i></p>
+    <p>b. <i>Sáng hôm sau, tôi vẫn thấy nó thản nhiên đi lại quanh lều với một bên cánh còn hơi sã xuống.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Tò mò”, “thản nhiên” — đó là tính nết của loài chim hay của con người?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân những từ vốn chỉ dùng để gọi người hoặc tả tính nết, trạng thái của người.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm từ ngữ nhân hoá</h4>
+      <p>a. Gọi con én là “<b>chú</b>”; tả nó “<b>tò mò</b>”. b. Tả nó “<b>thản nhiên</b> đi lại quanh lều”.</p>
+      <p class="vi-sao">“Chú” là cách gọi người; “tò mò”, “thản nhiên” là tính nết, thái độ của người. Đem dùng cho con én, tác giả biến nó thành một người bạn nhỏ.</p></div>
+    <div class="buoc" data-so="2"><h4>Tác dụng</h4>
+      <p>Chú én hiện lên đáng yêu, hồn nhiên; “thản nhiên” còn cho thấy nó tin cậy con người, không sợ hãi dù đang bị thương. Qua đó thấy tình cảm trìu mến của tác giả với loài én.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Nhân hoá qua cách gọi con én là “<b>chú</b>” và tả nó “<b>tò mò</b>” — những từ vốn dùng cho con người. b. Nhân hoá qua từ “<b>thản nhiên</b>” (thái độ bình thản của con người) dùng để tả con én đi lại quanh lều. Tác dụng: chú én hiện lên gần gũi, đáng yêu như một người bạn nhỏ hồn nhiên, tin cậy con người — dù bị thương vẫn ung dung, không sợ hãi; câu văn vì thế sinh động hơn, đồng thời bộc lộ tình cảm trìu mến của tác giả và sự gần gũi, hoà hợp giữa người với loài vật ở hang Én.</div>
+    <div class="bay">Chỉ ra từ ngữ nhân hoá nhưng quên nói <b>tác dụng</b>. Hãy luôn hỏi thêm: dùng như thế thì câu văn hay hơn ở chỗ nào?</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhận diện biện pháp tu từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra các biện pháp tu từ được sử dụng trong những câu sau và nêu tác dụng:</p>
+    <p>a. <i>Nhiều bạn én thiếu niên ngủ nướng, say giấc ngay trên những mỏm đá thấp dọc lối đi.</i></p>
+    <p>b. <i>Chúng đậu thành từng vạt như đám hoa lá ai ngẫu hứng xếp trên mặt đất.</i></p>
+    <p>c. <i>Cửa thứ hai thông lên mặt đất như cái giếng trời khổng lồ đón khí trời và ánh sáng.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — mỗi câu dùng biện pháp chính nào?</b>
+    <div class="cau-thu"><span class="noi-dung">a. bạn én thiếu niên ngủ nướng</span><button class="chon chu" data-dung="0">So sánh</button><button class="chon chu" data-dung="1">Nhân hoá</button><span class="phan-hoi" data-dung-txt="Đúng! “bạn”, “thiếu niên”, “ngủ nướng” vốn dùng cho người." data-sai-txt="Thử lại: câu này có từ so sánh không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">b. đậu thành từng vạt như đám hoa lá</span><button class="chon chu" data-dung="1">So sánh</button><button class="chon chu" data-dung="0">Nhân hoá</button><span class="phan-hoi" data-dung-txt="Đúng! Đàn bướm — như — đám hoa lá." data-sai-txt="Thử lại: tìm từ “như” trong câu."></span></div>
+    <div class="cau-thu"><span class="noi-dung">c. như cái giếng trời khổng lồ</span><button class="chon chu" data-dung="1">So sánh</button><button class="chon chu" data-dung="0">Nhân hoá</button><span class="phan-hoi" data-dung-txt="Đúng! Cửa hang — như — cái giếng trời." data-sai-txt="Thử lại: tìm từ “như” trong câu."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu, hai kiểu biện pháp. Câu nào có chữ “như”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu có từ <i>như</i> nối hai sự vật → so sánh. Câu dùng từ ngữ của người để tả con vật → nhân hoá. Câu b: “Chúng” là gì? Đọc câu đứng trước trong văn bản.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — Nhân hoá</h4>
+      <p>Én được gọi là “bạn”, ở tuổi “thiếu niên”, biết “ngủ nướng”, “say giấc” — toàn từ ngữ của con người.</p>
+      <p class="vi-sao">Bầy én non hiện lên như những cô cậu bé ham ngủ, vô tư, đáng yêu; cả cái hang bỗng vui như một ngôi nhà đông trẻ con.</p></div>
+    <div class="buoc" data-so="2"><h4>b, c — So sánh</h4>
+      <blockquote class="trich"><p>Yêu vô cùng những đàn bướm đủ màu – vàng, trắng, xanh đen – gặp ven đường, ven suối. Chúng đậu thành từng vạt như đám hoa lá ai ngẫu hứng xếp trên mặt đất.</p></blockquote>
+      <p>b. Đàn bướm (chúng) đậu thành từng vạt — <b>như</b> — đám hoa lá ai ngẫu hứng xếp trên mặt đất. c. Cửa thứ hai thông lên mặt đất — <b>như</b> — cái giếng trời khổng lồ.</p>
+      <p class="vi-sao">Ở câu c, chữ “đón” (đón khí trời và ánh sáng) cũng có dáng dấp nhân hoá, nhưng biện pháp chính của câu là so sánh.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>Nhân hoá</b>: gọi én là “bạn”, tả chúng ở tuổi “thiếu niên”, “ngủ nướng”, “say giấc”. Tác dụng: đàn én non hiện lên hồn nhiên, đáng yêu như những đứa trẻ ham ngủ; cảnh trong hang thêm vui, gần gũi; cho thấy tình cảm trìu mến của tác giả. b. <b>So sánh</b>: đàn bướm đậu thành từng vạt “như đám hoa lá ai ngẫu hứng xếp trên mặt đất”. Tác dụng: gợi màu sắc rực rỡ, nhiều màu của đàn bướm và vẻ đẹp tự nhiên, thơ mộng của con đường rừng. c. <b>So sánh</b>: cửa thứ hai của hang “như cái giếng trời khổng lồ”. Tác dụng: giúp người đọc hình dung cửa hang rất lớn, mở thẳng lên trời, đưa khí trời và ánh sáng vào lòng hang; gợi vẻ kì vĩ của hang Én.</div>
+    <div class="bay">Ở câu b, tưởng “Chúng” là chim én. Câu đứng trước trong văn bản đang tả “những đàn bướm đủ màu”.</div>
+    <div class="gv-note">Ở câu c, chấp nhận nếu HS nêu thêm nhân hoá ở chữ “đón”, miễn chỉ ra được so sánh là biện pháp chính.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb3" data-chip="Văn bản 3">Văn bản 3. Cửu Long Giang ta ơi<small>Trích, Nguyên Hồng</small></h2>
+
+<article class="the bai" id="v3-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhan đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, nhan đề bài thơ có gì đặc biệt? Nhan đề ấy gợi lên ấn tượng, cảm xúc gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc to nhan đề lên. Nghe giống một cái tên, hay giống một tiếng gọi?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc chú thích (3) để biết “Cửu Long Giang” là gì. Rồi chú ý hai chữ cuối của nhan đề: “ta ơi”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cửu Long Giang là gì</h4>
+      <blockquote class="trich"><p>Đoạn sông Mê Kông chảy qua Việt Nam gọi là sông Cửu Long (Cửu Long Giang).</p><cite>— Chú thích (3), trang 119</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Nghe hai chữ “ta ơi”</h4>
+      <p class="vi-sao">Nhan đề không phải một cái tên khô khan như “Sông Cửu Long”, mà là <b>một lời gọi</b>: gọi dòng sông như gọi một người thân. Chữ “ta” cho thấy dòng sông là <b>của chúng ta</b>; chữ “ơi” chứa cả nỗi thương mến, tha thiết.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhan đề đặc biệt vì nó là <b>một lời gọi</b> chứ không chỉ là tên một dòng sông: nhà thơ gọi đoạn sông Mê Kông chảy qua Việt Nam bằng cái tên Cửu Long Giang, kèm theo “ta ơi” như gọi một người thân thiết. Chữ “ta” khẳng định dòng sông là của chúng ta, của dân tộc ta; chữ “ơi” ngân lên tha thiết. Nhan đề gợi ấn tượng về một dòng sông lớn, gần gũi, và gợi cảm xúc <b>thân thương, tha thiết, tự hào</b>.</div>
+    <div class="bay">Chỉ giải thích “Cửu Long Giang là sông Cửu Long” mà không nói được cái đặc biệt của <b>cách gọi</b> “ta ơi” và cảm xúc nó gợi ra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hình ảnh, cảm xúc nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hình dung thế nào về “tấm bản đồ rực rỡ”? Nhân vật trong bài thơ có cảm xúc như thế nào khi nhìn tấm bản đồ ấy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một cậu bé mười tuổi lần đầu thấy cả đất nước trên một tấm bản đồ. Tim cậu thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc ba khổ đầu. Tìm những từ ngữ tả tấm bản đồ, thầy giáo, cây thước — và câu thơ nói thẳng về trái tim của “ta”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tấm bản đồ trong mắt cậu bé</h4>
+      <blockquote class="trich tho"><p>Mắt ngẩng lên trông bản đồ rực rỡ</p><p>Như đồng hoa bỗng gặp một đêm mơ.</p></blockquote>
+      <blockquote class="trich tho"><p>Bản đồ mới tường vôi cũng mới</p><p>Thầy giáo lớn sao, thước bảng cũng lớn sao</p><p>Gậy thần tiên và cánh tay đạo sĩ</p><p>Đưa ta đi sông núi tuyệt vời.</p></blockquote>
+      <p class="vi-sao">Tấm bản đồ được so sánh với “đồng hoa” — nhiều màu, tươi sáng; lại “gặp một đêm mơ” — kì diệu như trong giấc mơ. Cây thước thành “Gậy thần tiên” (chú thích SGK: hình ảnh ẩn dụ chỉ cây thước), tay thầy thành “cánh tay đạo sĩ”: cả lớp học biến thành một câu chuyện cổ tích.</p></div>
+    <div class="buoc" data-so="2"><h4>Cảm xúc của “ta”</h4>
+      <blockquote class="trich tho"><p>Tim đập mạnh hồn ngây không sao hiểu</p></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">“Tấm bản đồ rực rỡ” hiện ra trong em như một tấm bản đồ mới tinh, nhiều màu sắc tươi sáng, rực rỡ “Như đồng hoa bỗng gặp một đêm mơ” — vừa đẹp, vừa kì diệu như trong giấc mơ, mở ra trước mắt cậu bé cả “sông núi tuyệt vời” của đất nước. Khi nhìn tấm bản đồ ấy, nhân vật “ta” <b>ngỡ ngàng, say mê, háo hức</b>: “Tim đập mạnh hồn ngây không sao hiểu”; thầy giáo và thước bảng cũng như “lớn sao”, cây thước thành “Gậy thần tiên”, tay thầy thành “cánh tay đạo sĩ” đưa cậu đi khắp sông núi. Đó là niềm say mê hồn nhiên của tuổi thơ lần đầu được “nhìn thấy” Tổ quốc.</div>
+    <div class="bay">Chỉ tả tấm bản đồ mà quên vế thứ hai: <b>cảm xúc</b> của nhân vật. Câu thơ “Tim đập mạnh hồn ngây không sao hiểu” nói thẳng điều đó.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c3" data-ten="Câu 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tìm chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm những chi tiết miêu tả vẻ đẹp của dòng sông Mê Kông.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dòng sông chảy qua núi rồi về đồng bằng. Theo nó, cảnh vật thay đổi ra sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân mọi dòng thơ có chữ “Mê Kông” và những dòng ngay sau nó. Chia làm hai chặng: lúc sông chảy qua núi rừng, và lúc về tới Nam Bộ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chặng núi rừng: hùng vĩ, hoang sơ</h4>
+      <blockquote class="trich tho"><p>Mê Kông sông dài hơn hai ngàn cây số mông mênh</p></blockquote>
+      <blockquote class="trich tho"><p>Mê Kông chảy</p><p>Cây lao đá đổ</p><p>Lan hoang dứa mật thông nhựa lên hương</p><p>Những trưa hè ngun ngút nắng Trường Sơn</p><p>Ngẫm nghĩ voi đi</p><p>Thác Khôn cười trắng xoá</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Chặng đồng bằng: hiền hoà, trù phú</h4>
+      <blockquote class="trich tho"><p>Mê Kông chảy, Mê Kông cũng hát</p><p>Rừng núi lùi xa</p><p>Đất phẳng thở chan hoà.</p><p>Sóng toả chân trời buồm trắng.</p></blockquote>
+      <blockquote class="trich tho"><p>Chín nhánh Mê Kông phù sa nổi váng</p><p>Ruộng bãi Mê Kông trồng không hết lúa</p><p>Bến nước Mê Kông tôm cá ngợp thuyền</p></blockquote>
+      <p class="vi-sao">Đếm thử: chữ “Mê Kông” có mặt 8 lần trong đoạn trích. Nhà thơ gọi tên dòng sông nhiều lần như gọi một người thân, và mỗi lần gọi lại gắn với một vẻ đẹp mới.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những chi tiết miêu tả vẻ đẹp của sông Mê Kông: sông “dài hơn hai ngàn cây số mông mênh”; chảy qua nơi “Cây lao đá đổ”, “Lan hoang dứa mật thông nhựa lên hương”, “Những trưa hè ngun ngút nắng Trường Sơn”, “Ngẫm nghĩ voi đi”, “Thác Khôn cười trắng xoá”; “Mê Kông chảy, Mê Kông cũng hát”, “Đất phẳng thở chan hoà”, “Sóng toả chân trời buồm trắng”; về tới Nam Bộ là “Chín nhánh Mê Kông phù sa nổi váng”, “Ruộng bãi Mê Kông trồng không hết lúa”, “Bến nước Mê Kông tôm cá ngợp thuyền”, “Chín nhánh sông vàng”. Dòng sông hiện lên <b>dài rộng, hùng vĩ</b> khi qua núi rừng, <b>hiền hoà, tươi vui</b> khi ra đồng bằng, và <b>giàu có, trù phú</b>, nuôi sống cả một vùng đất.</div>
+    <div class="bay">Chép những dòng thơ về người nông dân (“gối đất nằm sương”) vào câu này — đó là chi tiết về con người (câu 4), không phải về dòng sông.</div>
+    <div class="gv-note">Đã đếm bằng máy: “Mê Kông” xuất hiện 8 lần trong phần văn bản thơ (không tính chú thích). Không bắt buộc HS gọi tên “điệp ngữ” ở câu này, nhưng HS đã học ở Bài 2 nên có thể dùng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hình ảnh con người</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hình ảnh người nông dân Nam Bộ được tác giả khắc hoạ qua những chi tiết nào? Những chi tiết đó gợi cho em cảm nhận gì về con người nơi đây?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Gối đất nằm sương” — thử tưởng tượng một đêm ngủ như thế.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc khổ thơ bắt đầu bằng “Mê Kông quặn đẻ” và khổ ngay sau đó. Mồ hôi của người nông dân đã biến cái gì thành cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những dòng thơ về người nông dân</h4>
+      <blockquote class="trich tho"><p>Nông dân Nam Bộ gối đất nằm sương</p><p>Mồ hôi vã bãi lầy thành đồng lúa</p><p>Thành những tên đọc lên nước mắt đều muốn ứa</p></blockquote>
+      <blockquote class="trich tho"><p>Những mặt đất</p><p>Cha ông ta nhắm mắt</p><p>Truyền cháu con không bao giờ chia cắt.</p></blockquote>
+      <p class="vi-sao">“Gối đất nằm sương”: lấy đất làm gối, lấy sương làm chăn — vất vả, dãi dầu. “Mồ hôi vã bãi lầy thành đồng lúa”: chính bàn tay họ làm nên ruộng đồng. Và những vùng đất ấy được cha ông “Truyền cháu con không bao giờ chia cắt” — thứ phải giữ bằng cả tấm lòng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Người nông dân Nam Bộ được khắc hoạ qua các chi tiết: “Nông dân Nam Bộ gối đất nằm sương” (ngủ giữa đất trời, dãi nắng dầm sương); “Mồ hôi vã bãi lầy thành đồng lúa” (bằng mồ hôi, họ biến bãi lầy thành ruộng lúa); những vùng đất họ khai phá thành “những tên đọc lên nước mắt đều muốn ứa”; và lời dặn của cha ông: “Truyền cháu con không bao giờ chia cắt”. Những chi tiết ấy gợi cho em cảm nhận về con người Nam Bộ <b>cần cù, chịu thương chịu khó</b>, không quản vất vả; họ <b>gắn bó máu thịt với đất đai</b> và một lòng giữ gìn mảnh đất ấy cho con cháu. Em thấy biết ơn và quý trọng họ.</div>
+    <div class="bay">Chỉ chép chi tiết mà quên vế thứ hai: <b>cảm nhận</b> của em về con người nơi đây.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c5" data-ten="Câu 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Cảm nhận hình ảnh thơ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bài thơ <i>Cửu Long Giang ta ơi</i> có nhiều hình ảnh sinh động, giàu sức gợi. Em thích những hình ảnh nào? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có dòng thơ nào em đọc xong thấy như nghe được, nhìn được, ngửi được?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một hoặc hai hình ảnh thôi. Chép đúng dòng thơ, rồi nói: hình ảnh ấy cho em thấy gì, nghe gì, cảm thấy gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một hình ảnh có âm thanh, có màu</h4>
+      <blockquote class="trich tho"><p>Thác Khôn cười trắng xoá</p></blockquote>
+      <p class="vi-sao">Thác nước được nhân hoá: biết “cười”. Tiếng nước đổ ầm ào thành tiếng cười, bọt nước tung lên thành màu “trắng xoá”. Chỉ bốn chữ mà có cả tiếng, cả màu, cả niềm vui.</p></div>
+    <div class="buoc" data-so="2"><h4>Một hình ảnh có hương</h4>
+      <blockquote class="trich tho"><p>Sầu riêng thơm dậy đất Thủ Biên</p><p>Suối mát dội trong lòng dừa trĩu quả.</p></blockquote>
+      <p class="vi-sao">Chữ “dậy” khiến mùi thơm như bốc lên, lan khắp cả vùng đất. “Suối mát” trong lòng quả dừa — nước dừa ngọt mát như cả một dòng suối.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Em thích nhất hình ảnh “Thác Khôn cười trắng xoá”. Thác nước được tả như một con người đang cười: tiếng nước đổ ầm ào trở thành tiếng cười vang, bọt nước tung lên trắng xoá như hàm răng trắng lấp lánh. Hình ảnh ấy làm dòng Mê Kông nơi núi rừng hiện lên vừa hùng vĩ vừa vui tươi, tràn đầy sức sống. Em cũng thích dòng thơ “Bến nước Mê Kông tôm cá ngợp thuyền”, vì chỉ một chữ “ngợp” đã cho thấy tôm cá nhiều đến tràn cả thuyền, gợi một vùng sông nước giàu có, no đủ.</div>
+    <div class="bay">Chỉ nói “em thích vì hay, vì đẹp” — câu trả lời phải nói được hình ảnh ấy <b>gợi ra điều gì</b> (âm thanh, màu sắc, cảm xúc).</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi hình ảnh có trong bài thơ, miễn HS chép đúng dòng thơ và giải thích được lí do. Có thể khuyến khích HS dùng các biện pháp đã học (so sánh, nhân hoá, ẩn dụ) để nói về hình ảnh mình chọn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Tình cảm của tác giả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu những cảm nhận của em về tình yêu của tác giả đối với dòng Mê Kông, với quê hương đất nước được thể hiện trong bài thơ.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khổ cuối: “Ta đã lớn”. Tình yêu thuở bé với tấm bản đồ đã lớn lên thành gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đi theo bài thơ từ đầu đến cuối: tình yêu ấy bắt đầu từ đâu (lớp học, tấm bản đồ)? Lớn lên qua những gì (dòng sông, đồng lúa, tên đất)? Và cuối cùng thành điều gì (khổ cuối)?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tình yêu bắt đầu từ tuổi thơ</h4>
+      <blockquote class="trich tho"><p>Ngày xưa ta đi học</p><p>Mười tuổi thơ nghe gió thổi mùa thu</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Tình yêu với những tên đất</h4>
+      <blockquote class="trich tho"><p>Thành những tên đọc lên nước mắt đều muốn ứa</p><p>Những Hà Tiên, Gia Định, Long Châu</p><p>Những Gò Công, Gò Vấp, Đồng Tháp, Cà Mau</p></blockquote>
+      <p class="vi-sao">Chỉ đọc lên một cái tên đất mà nước mắt “muốn ứa” — đó là thương nhớ đến tận đáy lòng. Lời gọi “Nam Bộ / Nam Bộ” lặp lại hai lần cũng như một tiếng gọi thiết tha.</p></div>
+    <div class="buoc" data-so="3"><h4>Tình yêu trưởng thành</h4>
+      <blockquote class="trich tho"><p>Ta đã lớn</p><p>Thầy giáo già đã khuất</p><p>Thước bảng to nay thành cán cờ sao</p><p>Những tên làm man mác tuổi thơ xưa</p><p>Đã thấm máu của bao hồn bất tử.</p></blockquote>
+      <p class="vi-sao">Cây thước ngày xưa là “Gậy thần tiên”; nay “thành cán cờ sao”. Những cái tên trên bản đồ ngày xưa chỉ làm “man mác tuổi thơ”; nay ta hiểu chúng “Đã thấm máu” của bao người. Tình yêu mơ mộng đã thành tình yêu có trách nhiệm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Tình yêu của nhà thơ với dòng Mê Kông và quê hương đất nước là một tình yêu <b>bắt đầu từ tuổi thơ và lớn lên cùng năm tháng</b>. Từ cậu bé mười tuổi “Tim đập mạnh” trước tấm bản đồ, nhà thơ yêu dòng sông hùng vĩ, trù phú, gọi tên “Mê Kông” hết lần này đến lần khác như gọi một người thân. Ông thương quý những người nông dân “gối đất nằm sương”, xúc động đến mức đọc tên đất thôi mà “nước mắt đều muốn ứa”. Đến khi “Ta đã lớn”, tình yêu ấy trở nên sâu sắc hơn: ông hiểu những tên đất từng làm “man mác tuổi thơ xưa” nay “Đã thấm máu của bao hồn bất tử”. Đó là tình yêu <b>tha thiết, tự hào và biết ơn</b> — yêu đất nước và nhớ ơn những người đã giữ gìn đất nước.</div>
+    <div class="bay">Chỉ nói “tác giả rất yêu quê hương” mà không dẫn dòng thơ nào. Một câu cảm nhận tốt luôn có chi tiết làm căn cứ.</div>
+    <div class="gv-note">Câu hỏi mở. SGK không in phần Trước khi đọc cho văn bản này (hoặc kho trích xuất không có) — nếu cần, đối chiếu PDF trang 119 – 121. Khổ cuối nhắc đến sự hi sinh trong chiến tranh; chỉ cần HS hiểu ở mức “đất nước được giữ gìn bằng máu của bao người”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet" data-chip="Viết">Viết<small>Viết bài văn tả cảnh sinh hoạt</small></h2>
+
+<article class="the bai" id="viet" data-ten="Bài viết" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tả cảnh sinh hoạt</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy quan sát và miêu tả một cảnh sinh hoạt mà mình đã chứng kiến hoặc tham gia và chia sẻ với người đọc.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tả cảnh sinh hoạt khác tả phong cảnh ở đâu? — Ở chỗ trong cảnh phải có <b>người</b>, và người phải đang <b>làm gì đó</b>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một cảnh em <b>đã ở đó</b>: gói bánh chưng ngày Tết, Trung thu ở quê, chợ cá, gặt lúa, lễ hội… Nhắm mắt lại nhớ: lúc đó có những ai, họ đang làm gì, em nghe thấy gì, ngửi thấy gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc bài tham khảo của SGK như người viết</h4>
+      <blockquote class="trich"><p>Bạn đã đi chợ phiên vùng cao bao giờ chưa? Chúng ta hãy cùng đến một buổi chợ phiên ở Lào Cai nhé. Chợ được họp vào sáng thứ Bảy hằng tuần.</p>
+        <p>Từ trên cao nhìn xuống, cả khu chợ như miếng thổ cẩm sặc sỡ khảm vào tấm áo của rừng núi và mây trời.</p>
+        <p>Chảo thắng cố to như cái thùng, luôn sôi sùng sục, nghi ngút khói, toả mùi thơm rất đặc biệt.</p><cite>— Một buổi chợ phiên vùng cao</cite></blockquote>
+      <p class="vi-sao">Mở bài bằng một câu hỏi để kéo người đọc vào. Tả bao quát “từ trên cao nhìn xuống” trước, rồi mới đi vào từng khu, từng người. Câu về chảo thắng cố có đủ hình dáng, âm thanh, mùi — tả bằng nhiều giác quan.</p>
+      <a class="xem-lai" href="#kt-ta-canh">📌 Xem lại: yêu cầu của bài văn tả cảnh sinh hoạt</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm ý bằng cụm từ ngắn</h4>
+      <p>Theo SGK: <b>thời gian, địa điểm</b> · <b>quang cảnh chung và những hoạt động cụ thể</b> · <b>những người tham gia và hành động, lời nói của họ</b>. Ví dụ (gói bánh chưng): chiều 28 Tết, sân nhà ông bà · lá dong xếp chồng, nồi to, cả nhà quây quần · bà rửa lá, mẹ ngâm gạo, ông gói, em lau lá, bố canh lửa.</p></div>
+    <div class="buoc" data-so="3"><h4>Lập dàn ý theo SGK</h4>
+      <p><b>Mở bài:</b> giới thiệu cảnh sinh hoạt. <b>Thân bài:</b> tả bao quát khung cảnh và ấn tượng chung → tả cụ thể theo trình tự thời gian, hoạt động của từng người → cảm xúc khi chứng kiến, tham gia. <b>Kết bài:</b> suy nghĩ, đánh giá của em.</p></div>
+    <div class="buoc" data-so="4"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu mở bài thôi, phần còn lại em tự viết nhé: <i>Tết nhà em chỉ thật sự bắt đầu vào buổi chiều hai mươi tám, khi ông trải chiếc chiếu cói ra giữa sân và gọi cả nhà ra gói bánh chưng.</i></p>
+      <p>Khi viết: tả hình dáng, màu sắc, âm thanh, mùi vị; dùng so sánh, nhân hoá cho sinh động; nói thật cảm xúc của em. Viết xong, đánh dấu những từ ngữ miêu tả và những từ ngữ thể hiện cảm nghĩ — thiếu loại nào thì bổ sung.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài văn đạt yêu cầu khi: (1) <b>giới thiệu được cảnh sinh hoạt</b> ở mở bài; (2) <b>tả bao quát quang cảnh</b>: không gian, thời gian, hoạt động chính; (3) <b>tả hoạt động cụ thể của con người</b> tham gia (hành động, lời nói), theo một trình tự hợp lí; (4) <b>dùng từ ngữ phù hợp</b>, tả bằng nhiều giác quan (hình dáng, màu sắc, âm thanh, mùi vị), có biện pháp tu từ như so sánh, nhân hoá để cảnh rõ nét, sinh động; (5) <b>nêu được cảm nghĩ</b> của người viết về cảnh sinh hoạt; (6) bố cục ba phần rõ ràng, đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Tả cảnh mà không có người (chỉ tả cây, trời, nhà cửa) — đó là tả phong cảnh, chưa phải cảnh sinh hoạt. Hoặc kể lại cả một ngày như một câu chuyện mà quên <b>tả</b>.</div>
+    <div class="gv-note">Đánh giá theo 6 tiêu chí trong ô Gợi ý trả lời (bám khung Yêu cầu và bảng Chỉnh sửa bài viết của SGK). Bài tham khảo dưới đây chỉ để GV đối chiếu mức độ; tránh phát cho HS chép — theo nguyên tắc không viết hộ bài văn.</div>
+    <div class="tham-khao">
+    <h5>Gói bánh chưng ngày Tết</h5>
+    <p>Tết nhà em chỉ thật sự bắt đầu vào buổi chiều hai mươi tám, khi ông trải chiếc chiếu cói ra giữa sân và gọi cả nhà ra gói bánh chưng. Năm nào cũng vậy, đó là buổi chiều em mong chờ nhất trong năm.</p>
+    <p>Sân nhà ông bà hôm ấy rộn ràng như một ngày hội nhỏ. Giữa chiếu, những tàu lá dong xanh mướt đã được rửa sạch, xếp thành chồng cao. Bên cạnh là chậu gạo nếp trắng ngần ngâm từ đêm trước, rổ đỗ xanh vàng ươm và đĩa thịt ba chỉ đã ướp hạt tiêu thơm nức. Mấy sợi lạt giang mềm vắt trên thành ghế, chờ đến lượt mình. Cô chú, anh chị từ khắp nơi về, người ngồi, người đứng, tiếng cười nói rôm rả cả một góc xóm.</p>
+    <p>Mỗi người một việc. Bà ngồi lau từng tàu lá, tay thoăn thoắt, vừa lau vừa dặn: “Lau nhẹ thôi kẻo rách lá, con ạ.” Mẹ đong gạo, chia đỗ thành từng phần đều nhau. Còn ông là “thợ cả”: ông đặt bốn tấm lá vào khuôn gỗ, rải một lớp gạo, một lớp đỗ, đặt miếng thịt vào giữa, rồi lại phủ đỗ, phủ gạo. Đôi bàn tay gầy guộc của ông gấp lá, buộc lạt nhanh và khéo đến lạ. Chỉ một lúc sau, chiếc bánh vuông vức như viên gạch xanh đã nằm ngay ngắn trên mâm. Em được ông cho gói thử một chiếc. Gạo cứ trào ra mép lá, chiếc bánh méo xệch như cái gối bẹp, cả nhà bật cười, nhưng ông vẫn xoa đầu em: “Lần đầu thế là khéo rồi.”</p>
+    <p>Chập tối, bố bắc chiếc nồi to nhất nhà lên bếp củi. Những chiếc bánh được xếp vào nồi, nước sôi lục bục suốt đêm. Ngọn lửa hồng liếm quanh đáy nồi, tí tách reo vui. Cả nhà quây quần bên bếp lửa, ông kể chuyện Tết ngày xưa, lũ trẻ chúng em nướng khoai, má đứa nào cũng đỏ hây hây. Mùi lá dong, mùi gạo nếp quyện vào nhau, ấm áp lan khắp sân nhà.</p>
+    <p>Gói bánh chưng không chỉ là làm ra một món ăn ngày Tết. Đó là lúc cả nhà được ngồi bên nhau, là lúc em hiểu vì sao ông bà vẫn giữ nếp nhà từ năm này qua năm khác. Em mong năm nào mình cũng được ngồi bên chiếc chiếu cói ấy, nghe tiếng cười của cả nhà và chờ những chiếc bánh xanh vuông vức chín thơm trong đêm.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Nói và nghe<small>Chia sẻ một trải nghiệm về nơi em sống hoặc từng đến</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Chia sẻ trải nghiệm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chia sẻ một trải nghiệm về nơi em sống hoặc từng đến (mục đích: chia sẻ trải nghiệm của bản thân về một vùng đất; người nghe: thầy cô, bạn bè, người thân và những người đang muốn đến thăm vùng đất mà em nói tới).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người nghe chưa từng đến nơi em kể. Em sẽ làm gì để họ “thấy” được nơi ấy?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn <b>một</b> trải nghiệm để lại nhiều ấn tượng nhất: con đường tới trường, một lần theo ông bà ra đồng, đi chợ phiên, về quê, du lịch cùng gia đình, tham quan cùng lớp… Có thể dùng lại chi tiết trong bài tả cảnh sinh hoạt em vừa viết.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi nói: ghi ý chính</h4>
+      <p>Theo SGK, bài nói cần: <b>hoàn cảnh</b> dẫn đến trải nghiệm (đi đâu, với ai, nhân dịp gì) → <b>khung cảnh</b> em quan sát được (nhộn nhịp, náo nhiệt hay yên tĩnh, hoang sơ…) → <b>trải nghiệm và ấn tượng nổi bật</b> của em. Ghi ra giấy bằng gạch đầu dòng; chuẩn bị tranh ảnh, đoạn phim ngắn nếu có.</p>
+      <p class="vi-sao">Tập trình bày một mình hoặc trước người thân và nhờ góp ý. Nói theo ý chính chứ không học thuộc — như vậy em mới nhìn được vào người nghe.</p></div>
+    <div class="buoc" data-so="2"><h4>Khi nói: kéo người nghe vào cùng</h4>
+      <p>Nói rõ ràng, nhấn vào điểm quan trọng. Đặt câu hỏi cho người nghe (như bài tham khảo chợ phiên: “Bạn đã đi chợ phiên vùng cao bao giờ chưa?”). Bày tỏ sự hào hứng; dùng cử chỉ, nét mặt; đưa ảnh, phim minh hoạ đúng lúc.</p></div>
+    <div class="buoc" data-so="3"><h4>Sau khi nói: trao đổi</h4>
+      <p><b>Người nghe:</b> hình dung điều được kể, nêu nhận xét, cảm xúc; hỏi thêm thông tin về lịch sử, địa lí, văn hoá của nơi được nói tới; góp ý về ngữ điệu, cách diễn đạt, sự tương tác. <b>Người nói:</b> lắng nghe, giải thích điều người nghe muốn rõ thêm, cảm ơn và tiếp thu góp ý với tinh thần cầu thị.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói đạt yêu cầu khi: (1) giới thiệu được hoàn cảnh dẫn đến trải nghiệm (nơi chốn, thời gian, cùng ai); (2) tả được khung cảnh nơi ấy bằng chi tiết cụ thể; (3) nêu được trải nghiệm và ấn tượng nổi bật của bản thân, thể hiện sự hào hứng; (4) nói rõ ràng, có tương tác với người nghe (câu hỏi, ánh mắt, cử chỉ), dùng tranh ảnh minh hoạ hợp lí nếu có; (5) biết lắng nghe, giải thích và tiếp thu góp ý sau khi nói.</div>
+    <div class="bay">Đọc lại nguyên bài văn tả cảnh đã viết. Nói khác viết: hãy dùng dàn ý gạch đầu dòng, nhìn người nghe và kể bằng giọng tự nhiên.</div>
+    <div class="gv-note">Có thể dùng 5 tiêu chí trong ô Gợi ý trả lời làm phiếu đánh giá đồng đẳng. HS không có điều kiện đi xa vẫn kể được về nơi mình sống (con đường tới trường, chợ quê) — nên nói rõ điều này để không em nào thấy thiệt thòi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cc" data-chip="Củng cố">Củng cố, mở rộng</h2>
+
+<article class="the bai" id="cc-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh hai bài kí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kẻ bảng vào vở theo mẫu và điền các thông tin về hai văn bản <i>Cô Tô</i>, <i>Hang Én</i>.</p>
+    <p>(Bảng gồm ba hàng: Hành trình khám phá của người kể chuyện · Những thông tin xác thực được ghi chép (địa danh, con người, số liệu,…) · Những biện pháp nghệ thuật nổi bật.)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai chuyến đi, hai vùng đất. Đặt cạnh nhau, chúng giống nhau ở chỗ nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng lại kết quả em đã làm: câu 1, 4 của <i>Cô Tô</i>; câu 1 của <i>Hang Én</i>; các câu Thực hành tiếng Việt. Hàng thứ hai: tìm tên riêng và con số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền bảng</h4>
+      <table>
+        <tr><th></th><th><i>Cô Tô</i></th><th><i>Hang Én</i></th></tr>
+        <tr><td>Hành trình khám phá</td><td>Nhiều ngày trên đảo: bão trên bãi cát và trong đêm → ngày thứ năm lên nóc đồn ngắm toàn cảnh → ngày thứ sáu ra mũi đảo đón mặt trời → bên giếng nước ngọt.</td><td>Đi bộ xuyên rừng nguyên sinh, dốc Ba Giàn, thung lũng Rào Thương → lội sông, trèo vách, ngồi bè vào hang → gặp đàn én → vòng ra sau hang → nghỉ đêm trong hang đến sáng.</td></tr>
+        <tr><td>Thông tin xác thực</td><td>Cô Tô, Tô Bắc, Tô Trung, Tô Nam, đảo Thanh Luân, vịnh Bắc Bộ; gió cấp 11; bãi dài ba ngàn thước; 18 thuyền, 15 gánh nước, sáu mươi vạn con hải sâm; hợp tác xã Bắc Loan Đầu; Anh hùng Châu Hoà Mãn.</td><td>Dốc Ba Giàn gần 2 km; khoảng ba mươi quãng suối và sông; thung lũng Rào Thương; lòng hang khoảng 110 m², trần hang 120 m, sông ngầm chừng 4 km; tộc người A-rem, lễ hội “ăn én”; Hô-oát Lim-bơ, hơn 500 hang động, hang Sơn Đoòng.</td></tr>
+        <tr><td>Biện pháp nghệ thuật</td><td>So sánh (như lòng đỏ một quả trứng, như tấm kính, như một cái bến); ẩn dụ (quả trứng, mâm bạc, mâm bể, trận địa, hoả lực); nhân hoá (gió bão chờ); nhiều từ ngữ của chiến trận.</td><td>Nhân hoá (Mẹ Thiên Nhiên, bạn én thiếu niên ngủ nướng, chú én tò mò); so sánh (như cái giếng trời khổng lồ, như đám hoa lá, như mái vòm của một thánh đường); dấu ngoặc kép đánh dấu từ ngữ theo nghĩa đặc biệt; nhiều số liệu cụ thể.</td></tr>
+      </table>
+      <p class="vi-sao">Hàng thứ hai cho thấy vì sao đây là <b>kí</b>: toàn tên thật, người thật, số liệu thật. Hàng thứ nhất cho thấy vì sao đây là <b>du kí</b>: người viết kể lại chuyến đi của chính mình.</p>
+      <a class="xem-lai" href="#kt-du-ki">📌 Xem lại: du kí</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Hành trình:</b> <i>Cô Tô</i> — nhiều ngày trên đảo: trận bão trên bãi cát và trong đêm, ngày thứ năm lên nóc đồn ngắm toàn cảnh, ngày thứ sáu ra mũi đảo đón mặt trời, rồi đến giếng nước ngọt; <i>Hang Én</i> — đi bộ xuyên rừng nguyên sinh, dốc Ba Giàn, thung lũng Rào Thương, lội sông, trèo vách, ngồi bè vào lòng hang, gặp đàn én, vòng ra sau hang, nghỉ đêm trong hang đến sáng. <b>Thông tin xác thực:</b> <i>Cô Tô</i> — Tô Bắc, Tô Trung, Tô Nam, đảo Thanh Luân, vịnh Bắc Bộ, gió cấp 11, bãi dài ba ngàn thước, 18 thuyền, sáu mươi vạn con hải sâm, hợp tác xã Bắc Loan Đầu, Anh hùng Châu Hoà Mãn; <i>Hang Én</i> — dốc Ba Giàn gần 2 km, thung lũng Rào Thương, trần hang 120 m, sông ngầm chừng 4 km, tộc người A-rem và lễ hội “ăn én”, Hô-oát Lim-bơ, hang Sơn Đoòng. <b>Biện pháp nghệ thuật:</b> <i>Cô Tô</i> — so sánh, ẩn dụ (quả trứng, mâm bạc, trận địa, hoả lực), nhân hoá, nhiều từ ngữ của chiến trận; <i>Hang Én</i> — nhân hoá (Mẹ Thiên Nhiên, bạn én thiếu niên, chú én), so sánh (cái giếng trời khổng lồ, đám hoa lá), dấu ngoặc kép đánh dấu nghĩa đặc biệt, nhiều số liệu cụ thể.</div>
+    <div class="bay">Ở hàng “thông tin xác thực”, ghi cảm nhận (“cảnh rất đẹp”) thay vì tên riêng, con số có thật.</div>
+    <div class="gv-note">Số liệu trong lời văn <i>Hang Én</i> (“nơi rộng nhất khoảng 110 m²”, “toà nhà bốn mươi tầng (120 m)”) khác số liệu trong chú thích SGK (trần hang “có nơi cao 100 m, nơi rộng nhất 170 m”); “110 m², có thể chứa được hàng trăm người” cũng đáng đối chiếu PDF trang 116. Gợi ý trả lời bám lời văn; chấp nhận HS ghi số của chú thích nếu nói rõ nguồn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c2" data-ten="Câu 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Đọc mở rộng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm đọc thêm các tác phẩm kí hoặc thơ viết về các vùng miền của đất nước. Chỉ ra một vài nét tương đồng và khác biệt của những tác phẩm đó với các tác phẩm đã học trong bài.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngay trong Bài 5 đã có một bài kí thứ ba em có thể dùng — ở phần Thực hành đọc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh theo ba điểm như ở câu 1: người viết có trực tiếp đi không? Ghi chép những thông tin thật nào? Viết bằng cảm xúc gì, có biện pháp nghệ thuật gì nổi bật?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn tác phẩm để so sánh</h4>
+      <p>Ví dụ có sẵn trong SGK: bài du kí <i>Nghìn năm tháp Khương Mỹ</i> (Lam Linh) ở phần Thực hành đọc. Em cũng có thể tìm một bài kí, bài thơ khác về quê em.</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm điểm giống và khác</h4>
+      <blockquote class="trich"><p>Trời lất phất mưa khi chúng tôi tìm đường vào cụm tháp Khương Mỹ.</p>
+        <p>Cụm tháp Khương Mỹ được công nhận là di tích quốc gia năm 1989.</p><cite>— Nghìn năm tháp Khương Mỹ</cite></blockquote>
+      <p class="vi-sao">Giống <i>Cô Tô</i>, <i>Hang Én</i>: người viết xưng “tôi”, trực tiếp đi, ghi chép thông tin thật. Khác: đối tượng là một công trình của con người (tháp cổ) chứ không phải thiên nhiên; nhiều thông tin về lịch sử, văn hoá hơn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo</b> (với bài <i>Nghìn năm tháp Khương Mỹ</i> của Lam Linh): <b>Giống</b> với <i>Cô Tô</i> và <i>Hang Én</i>, đây cũng là một bài du kí — người viết xưng “tôi”, trực tiếp đến tận nơi, kể theo trình tự chuyến đi (tìm đường vào tháp trong mưa, ngắm tháp khi nắng lên, rời tháp khi trời đã về chiều), ghi chép những thông tin xác thực (tháp thuộc huyện Núi Thành, tỉnh Quảng Nam, được xây vào cuối thế kỉ IX đầu thế kỉ X, được công nhận là di tích quốc gia năm 1989) và bày tỏ tình yêu với vùng đất mình đến. <b>Khác</b> ở chỗ: <i>Cô Tô</i>, <i>Hang Én</i> viết về thiên nhiên và con người đang sống, còn bài này viết về một công trình kiến trúc cổ của người Chăm, nên có nhiều thông tin về lịch sử, văn hoá (chim thần Ga-ru-đa, rắn Na-ga, những bức chạm khỉ liên quan đến trường ca <i>Ra-ma-ya-na</i>); giọng văn cũng trầm lắng, suy tư hơn trước “một vẻ đẹp thách thức với thời gian”.</div>
+    <div class="bay">Chỉ kể tên tác phẩm đã đọc mà không chỉ ra điểm <b>giống</b> và <b>khác</b> — đề yêu cầu so sánh.</div>
+    <div class="gv-note">Câu hỏi mở, có thể giao về nhà. Gợi ý trả lời dùng văn bản có sẵn trong SGK để HS nào cũng đối chiếu được; khuyến khích HS tìm tác phẩm viết về địa phương mình. Địa danh tháp Khương Mỹ giữ đúng như văn bản; chú thích SGK ghi thêm: nay là xã Tam Xuân, thành phố Đà Nẵng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Thực hành đọc">Thực hành đọc<small><i>Nghìn năm tháp Khương Mỹ</i>, Lam Linh</small></h2>
+
+<article class="the bai" id="doc" data-ten="Hướng dẫn đọc" data-muc="th">
+  <div class="bai-dau"><span class="so">Hướng dẫn đọc</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tự đọc văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi đọc văn bản <i>Nghìn năm tháp Khương Mỹ</i>, em cần chú ý những vấn đề sau:</p>
+    <p>– Những dấu hiệu cho thấy văn bản này thuộc thể loại du kí.</p>
+    <p>– Vẻ đẹp của tháp Khương Mỹ.</p>
+    <p>– Những thông tin hữu ích về lịch sử và văn hoá trong bài kí.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 SGK không đặt câu hỏi ở đây mà nêu ba điều cần chú ý. Hãy biến mỗi điều thành một câu hỏi cho chính mình.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba câu hỏi tự đọc: (1) Người viết có trực tiếp đi không, đi thế nào, theo trình tự nào? (2) Tháp đẹp ở những điểm nào — trong mưa, trong nắng, ở hoa văn, ở tượng chạm? (3) Em biết thêm được những điều gì về lịch sử, văn hoá mà trước đây chưa biết?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dấu hiệu của du kí</h4>
+      <blockquote class="trich"><p>Trong suốt cuộc hành trình dài hơn 20 tháp lớn nhỏ, xa gần suốt dọc chiều dài gần nghìn cây số, tôi đặc biệt thích nhóm tháp Khương Mỹ.</p>
+        <p>Rời tháp Chăm Khương Mỹ khi trời đã về chiều, tôi và cô bạn không khỏi nuối tiếc</p></blockquote>
+      <p class="vi-sao">Người viết xưng “tôi”, kể về chuyến đi của chính mình; sự việc đi theo thời gian: “Trời lất phất mưa” khi tìm đường vào → “Mưa đã dứt” → “khi trời đã về chiều” mới rời đi. Đó đúng là những điều mắt thấy tai nghe trên hành trình.</p>
+      <a class="xem-lai" href="#kt-du-ki">📌 Xem lại: du kí</a></div>
+    <div class="buoc" data-so="2"><h4>Vẻ đẹp của tháp</h4>
+      <blockquote class="trich"><p>Nếu như trong mưa, những tháp cổ toát lên một vẻ đẹp trầm mặc, suy tư, u buồn thì trong nắng, vẻ đẹp của tháp được phô diễn bởi màu gạch nung óng ả nổi bật giữa trời xanh.</p>
+        <p>Từ dưới chân tháp đến đỉnh tháp là hoa văn điêu khắc trực tiếp trên gạch với những nét uyển chuyển khó tin.</p></blockquote>
+      <p class="vi-sao">Chữ “nhan sắc” được đặt trong ngoặc kép ở đoạn đầu: tháp được nói như một người con gái vẫn giữ được vẻ đẹp “thuở sơ khai” — đúng công dụng em vừa học.</p></div>
+    <div class="buoc" data-so="3"><h4>Thông tin lịch sử, văn hoá</h4>
+      <blockquote class="trich"><p>Di tích tháp Chăm Khương Mỹ thuộc thôn 4, xã Tam Xuân I, huyện Núi Thành, tỉnh Quảng Nam được xây dựng vào cuối thế kỉ IX đầu thế kỉ X, bao gồm ba tháp: tháp Bắc, tháp Giữa, tháp Nam.</p></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Dấu hiệu du kí:</b> người viết xưng “tôi”, trực tiếp đi trong “cuộc hành trình dài hơn 20 tháp lớn nhỏ”; kể theo trình tự chuyến đi (tìm đường vào tháp khi “Trời lất phất mưa”, ngắm tháp khi “Mưa đã dứt”, rời tháp “khi trời đã về chiều”); ghi chép những điều mắt thấy tai nghe kèm cảm xúc, suy nghĩ (“tôi đặc biệt thích”, “vô cùng thích thú”, “không khỏi nuối tiếc”). <b>Vẻ đẹp của tháp:</b> tháp còn giữ khá nguyên vẹn “nhan sắc” thuở sơ khai, “chưa bị bàn tay con người đụng chạm hay sửa sang”; trong mưa thì “trầm mặc, suy tư, u buồn”, trong nắng thì rực lên “màu gạch nung óng ả nổi bật giữa trời xanh”; bức tường tháp thứ hai là “cả một tác phẩm nghệ thuật đồ sộ” với hoa văn chạm trên gạch “uyển chuyển khó tin”; những tượng khỉ đáng yêu, tinh nghịch, mỗi chú một việc. <b>Thông tin lịch sử, văn hoá:</b> tháp được xây vào cuối thế kỉ IX đầu thế kỉ X, gồm ba tháp Bắc, Giữa, Nam xếp theo trục bắc – nam, được công nhận là di tích quốc gia năm 1989; kiến trúc tháp Chăm truyền thống (mặt bằng gần vuông, cửa hướng đông, mái ba tầng, cửa giả trang trí hình lá đề); các hình chạm chim thần Ga-ru-đa, rắn Na-ga, người cưỡi voi, người cưỡi ngựa cho thấy ảnh hưởng của Ấn Độ giáo; tượng khỉ có lẽ liên quan đến trường ca <i>Ra-ma-ya-na</i>; cách người Chăm cổ xây tháp đến nay “Chưa ai trả lời được”. Bài kí giúp em thêm trân trọng một di sản nghìn năm của đất nước.</div>
+    <div class="gv-note">Phần Thực hành đọc không có câu hỏi trong SGK; ba ý trên được chuyển thành câu hỏi tự đọc. Có thể giao HS đọc ở nhà rồi trả lời miệng đầu giờ. Địa danh trong văn bản là địa giới cũ; chú thích SGK ghi: nay là xã Tam Xuân, thành phố Đà Nẵng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 5. Những nẻo đường xứ sở — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Câu hỏi mở không có một đáp án duy nhất: câu trả lời tốt là câu trả lời có căn cứ trong văn bản.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b05';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-05-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-05-bai-giai.nguon.html" data-phien-ban="b975fcc9f727">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

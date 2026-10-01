@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 10. Cuốn sách tôi yêu — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập hai</div>
+    <div class="hang1">
+      <h1>Bài 10. Cuốn sách tôi yêu — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập hai</div><h1>Bài 10. Cuốn sách tôi yêu — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-nlvh"><b class="ten">Văn bản nghị luận văn học</b>
+      Là một loại của văn nghị luận, có nội dung bàn về một vấn đề văn học như tác giả, tác phẩm, thể loại,… Nghị luận văn học sử dụng lí lẽ và bằng chứng để làm sáng tỏ vấn đề văn học được nói tới.<br>
+      Lí lẽ trong nghị luận văn học chính là những nhận xét cụ thể của người viết về tác giả, tác phẩm, thể loại,… Bằng chứng thường được lấy từ tác phẩm văn học.</div>
+    <div class="kt" id="kt-li-le"><b class="ten">Lí lẽ và bằng chứng (nhắc lại từ Bài 8)</b>
+      Để văn bản thực sự có sức thuyết phục, người viết (người nói) cần sử dụng lí lẽ và bằng chứng. Lí lẽ là những lời diễn giải có lí mà người viết (người nói) đưa ra để khẳng định ý kiến của mình. Bằng chứng là những ví dụ được lấy từ thực tế đời sống hoặc từ các nguồn khác để chứng minh cho lí lẽ.</div>
+    <div class="kt" id="kt-yeu-cau"><b class="ten">Yêu cầu đối với bài văn trình bày ý kiến về một hiện tượng đời sống được gợi ra từ cuốn sách đã đọc</b>
+      Nêu được tên sách và tác giả. · Nêu được hiện tượng đời sống gợi ra từ cuốn sách và ý kiến của em về hiện tượng đó. · Sử dụng được lí lẽ và bằng chứng để làm rõ hiện tượng.</div>
+    <div class="kt" id="kt-dan-y"><b class="ten">Dàn ý bài văn (SGK)</b>
+      Mở bài: Giới thiệu tên sách, tác giả và hiện tượng đời sống mà cuốn sách gợi ra.<br>
+      Thân bài: Nêu ý kiến (suy nghĩ) về hiện tượng. · Nêu lí lẽ và bằng chứng để làm rõ ý kiến về hiện tượng cần bàn luận. · Trình bày cụ thể về chi tiết, sự việc, nhân vật gợi lên hiện tượng cần bàn.<br>
+      Kết bài: Nêu tầm quan trọng, ý nghĩa thực tế của hiện tượng đời sống được gợi ra từ cuốn sách.</div>
+    <div class="kt" id="kt-noi"><b class="ten">Trình bày bài nói</b>
+      Trình bày lần lượt các ý đã được xác định trong dàn ý bài nói. · Sử dụng lí lẽ và bằng chứng cụ thể (dẫn từ sách hoặc đời sống thực) để làm rõ vấn đề. · Bộc lộ được cảm xúc, thái độ phù hợp.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 10. Cuốn sách tôi yêu (ý “Lí lẽ và bằng chứng”: Tri thức ngữ văn Bài 8. Khác biệt và gần gũi).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Đọc">Thách thức đầu tiên. Mỗi ngày một cuốn sách<small>Trước khi đọc · Sách hay cùng đọc · Cuốn sách yêu thích · Gặp gỡ tác giả: <i>Nhà thơ Lò Ngân Sủn – người con của núi</i> (Minh Khoa) · Phiêu lưu cùng trang sách</small></h2>
+
+<article class="the bai" id="d-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ về sách</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Cùng thiết kế một góc đọc sách nhỏ trong lớp học. Hãy mang đến lớp một vài cuốn sách mà em muốn cùng đọc với các bạn.</p>
+    <p><b>2.</b> Chia sẻ những điều thú vị nhất mà em cảm nhận được từ cuốn sách mới đọc.</p>
+    <p><b>3.</b> Kể tên một cuốn sách mà em cho là cần đọc trong tuần này và thuyết phục các bạn cùng đọc.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cuốn sách nào em muốn đặt vào tay bạn mình nhất — và em sẽ nói gì để bạn chịu mở nó ra?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tối nay đứng trước giá sách ở nhà, chọn hai cuốn: một cuốn em đã đọc và muốn bạn cũng đọc, một cuốn em đang tò mò. Với câu 3, chuẩn bị sẵn <b>một lí do</b> nên đọc và <b>một chi tiết</b> hấp dẫn trong sách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Góc đọc sách: mang sách gì, giữ sách thế nào</h4>
+      <p>Mang sách hợp với lứa tuổi, có thể là truyện, thơ hay sách khoa học. Kẹp vào mỗi cuốn một mẩu giấy nhỏ ghi tên người mang đến và một câu “vì sao tớ muốn các bạn đọc cuốn này”.</p>
+      <p class="vi-sao">Yêu cầu cần đạt của Bài 10 có một dòng rất đáng nhớ: “Yêu thích đọc sách và có ý thức giữ gìn sách.” Góc đọc là sách chung — không gập gáy, không quăn góc, đọc xong để lại đúng chỗ.</p></div>
+    <div class="buoc" data-so="2"><h4>Kể điều thú vị nhất — bằng một chi tiết</h4>
+      <p>Đừng dừng ở “truyện hay lắm”. Hãy nói: nhân vật nào, chuyện gì xảy ra, và <b>chỗ nào</b> làm em bật cười, ngạc nhiên hay ngồi lặng đi. Một chi tiết cụ thể kể đúng lúc có sức hơn mười lời khen chung chung.</p></div>
+    <div class="buoc" data-so="3"><h4>Thuyết phục bạn: một lí do, một bằng chứng</h4>
+      <p>Muốn bạn nghe theo, em cần nói được <b>vì sao</b> nên đọc (lí lẽ) và đưa ra <b>một chi tiết trong sách</b> để bạn tin (bằng chứng).</p>
+      <p class="vi-sao">Đây chính là cách người viết nghị luận làm, em đã học ở Bài 8. Lời rủ đọc sách cũng là một lần em tập thuyết phục.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: lí lẽ và bằng chứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. Câu trả lời tốt nêu được tên sách cụ thể; chia sẻ được một chi tiết, một nhân vật hay một điều mới biết trong sách; và khi thuyết phục thì có lí do kèm chi tiết làm bằng chứng. <b>Một câu trả lời tham khảo cho câu 3:</b> Tuần này các bạn hãy đọc <i>Dế Mèn phiêu lưu kí</i> của nhà văn Tô Hoài. Lớp mình mới đọc một đoạn ở chương 1 — đoạn Dế Mèn trêu chị Cốc để rồi Dế Choắt phải chết oan. Nhưng cả cuốn có mười chương, và sáu chương sau kể về “các cuộc phiêu lưu kì thú của Dế Mèn với người bạn thân Dế Trũi”. Một chàng dế từng kiêu căng, đã biết hối hận, rồi bước ra thế giới rộng lớn thì sẽ lớn lên thế nào? Tớ muốn cùng các bạn đọc tiếp để biết.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Có thể lập “sổ mượn sách” cho góc đọc. Câu 3 là dịp nhắc lại cặp lí lẽ – bằng chứng của Bài 8 trước khi đọc bài nghị luận văn học ở mục Gặp gỡ tác giả. Ví dụ tham khảo chỉ dùng thông tin có trong SGK (chú thích Bài 1, trang 12).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-sh1" data-ten="Sách hay · Câu 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Sách hay · Câu 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chọn chủ đề đọc</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Chọn hai trong số các chủ đề sau để định hướng cho việc đọc sách: <i>Tôi và các bạn</i>, <i>Gõ cửa trái tim</i>, <i>Yêu thương và chia sẻ</i>, <i>Quê hương yêu dấu</i>, <i>Những nẻo đường xứ sở</i>, <i>Chuyện kể về những người anh hùng</i>, <i>Thế giới cổ tích</i>, <i>Khác biệt và gần gũi</i>, <i>Trái Đất – ngôi nhà chung</i>.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — văn bản này thuộc chủ đề nào?</b>
+    <div class="cau-thu"><span class="noi-dung">Thạch Sanh</span><button class="chon chu" data-dung="0">Chuyện kể về những người anh hùng</button><button class="chon chu" data-dung="1">Thế giới cổ tích</button><button class="chon chu" data-dung="0">Quê hương yêu dấu</button><span class="phan-hoi" data-dung-txt="Đúng! Thạch Sanh là truyện cổ tích ở Bài 7." data-sai-txt="Thử lại: Thạch Sanh là truyền thuyết hay truyện cổ tích?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Cô Tô</span><button class="chon chu" data-dung="1">Những nẻo đường xứ sở</button><button class="chon chu" data-dung="0">Trái Đất – ngôi nhà chung</button><button class="chon chu" data-dung="0">Gõ cửa trái tim</button><span class="phan-hoi" data-dung-txt="Đúng! Cô Tô là văn bản kí ở Bài 5." data-sai-txt="Thử lại: Cô Tô đưa em tới một vùng đảo — một nẻo đường của đất nước."></span></div>
+    <div class="cau-thu"><span class="noi-dung">Thánh Gióng</span><button class="chon chu" data-dung="0">Thế giới cổ tích</button><button class="chon chu" data-dung="1">Chuyện kể về những người anh hùng</button><button class="chon chu" data-dung="0">Tôi và các bạn</button><span class="phan-hoi" data-dung-txt="Đúng! Thánh Gióng là truyền thuyết ở Bài 6." data-sai-txt="Thử lại: Gióng đánh giặc cứu nước — đó là chuyện về người anh hùng."></span></div>
+    <div class="cau-thu"><span class="noi-dung">Xem người ta kìa!</span><button class="chon chu" data-dung="0">Yêu thương và chia sẻ</button><button class="chon chu" data-dung="0">Tôi và các bạn</button><button class="chon chu" data-dung="1">Khác biệt và gần gũi</button><span class="phan-hoi" data-dung-txt="Đúng! Văn bản nghị luận ở Bài 8." data-sai-txt="Thử lại: văn bản này bàn về cái riêng của mỗi người."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chín chủ đề này nghe quen không? Em đã đi qua cả chín rồi đấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chín chủ đề chính là tên chín bài em đã học, từ Bài 1 đến Bài 9. Nhớ lại văn bản nào ở mỗi bài làm em muốn đọc thêm nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận ra chín chủ đề là chín bài đã học</h4>
+      <table>
+        <tr><th>Bài</th><th>Chủ đề</th><th>Một văn bản em đã đọc</th></tr>
+        <tr><td>1</td><td>Tôi và các bạn</td><td><i>Bài học đường đời đầu tiên</i></td></tr>
+        <tr><td>2</td><td>Gõ cửa trái tim</td><td><i>Mây và sóng</i></td></tr>
+        <tr><td>3</td><td>Yêu thương và chia sẻ</td><td><i>Cô bé bán diêm</i></td></tr>
+        <tr><td>4</td><td>Quê hương yêu dấu</td><td><i>Cây tre Việt Nam</i></td></tr>
+        <tr><td>5</td><td>Những nẻo đường xứ sở</td><td><i>Cô Tô</i></td></tr>
+        <tr><td>6</td><td>Chuyện kể về những người anh hùng</td><td><i>Thánh Gióng</i></td></tr>
+        <tr><td>7</td><td>Thế giới cổ tích</td><td><i>Thạch Sanh</i></td></tr>
+        <tr><td>8</td><td>Khác biệt và gần gũi</td><td><i>Xem người ta kìa!</i></td></tr>
+        <tr><td>9</td><td>Trái Đất – ngôi nhà chung</td><td><i>Trái Đất – cái nôi của sự sống</i></td></tr>
+      </table>
+      <p class="vi-sao">Văn bản trong SGK chỉ là “cửa sổ” nhỏ. Chọn chủ đề là chọn một cánh cửa để mở rộng ra thành cả một cuốn sách.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn hai chủ đề theo hai lí do khác nhau</h4>
+      <p>Một chủ đề <b>em thích nhất</b> (đọc thấy vui, dễ say mê) và một chủ đề <b>em muốn hiểu thêm</b> (có điều em còn tò mò). Nếu được, chọn hai chủ đề khác nhau về loại sách — một bên là truyện, thơ; một bên là sách viết về đời sống, thiên nhiên — để chuyến đọc của em có hai màu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau, miễn là chọn đúng <b>hai</b> trong chín chủ đề SGK nêu và nói được vì sao chọn. <b>Một câu trả lời tham khảo:</b> Em chọn <i>Tôi và các bạn</i>, vì đọc <i>Bài học đường đời đầu tiên</i> xong, em muốn biết Dế Mèn đã lớn lên thế nào sau nỗi ân hận ấy. Em chọn thêm <i>Trái Đất – ngôi nhà chung</i>, vì sau Bài 9 em tò mò về sự sống trên hành tinh của mình và muốn đọc một cuốn sách viết về thiên nhiên, muôn loài.</div>
+    <div class="bay">Chọn một chủ đề không có trong danh sách, hoặc chọn mà không có lí do. Câu hỏi nói rõ: chủ đề để “định hướng cho việc đọc sách” — tức là chọn để biết mình sẽ tìm sách về điều gì.</div>
+    <div class="gv-note">Câu hỏi mở. Phần Thử nhanh chỉ để ôn lại chín chủ đề (câu đóng). Có thể chia lớp thành nhóm theo chủ đề đã chọn để chuẩn bị cho câu 2 (cùng đọc, làm pô-xtơ).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-sh2" data-ten="Sách hay · Câu 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Sách hay · Câu 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Pô-xtơ giới thiệu sách</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> Với mỗi chủ đề đã chọn, tìm một cuốn sách có nội dung liên quan, cùng đọc và giới thiệu về cuốn sách đó bằng pô-xtơ theo gợi ý:</p>
+    <p>a. Nêu rõ tên sách, tên tác giả, nhà xuất bản, năm xuất bản hoặc tái bản,…</p>
+    <p>b. Tóm tắt nội dung: đề tài, chủ đề, bố cục, nhân vật, sự kiện, chi tiết,…</p>
+    <p>c. Liệt kê những câu văn, đoạn văn yêu thích được trích dẫn từ cuốn sách hoặc những câu nhận định về cuốn sách.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một tấm pô-xtơ chỉ có vài giây để giữ chân người xem. Em sẽ đặt điều gì vào chỗ to nhất?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc chú thích SGK để biết pô-xtơ là gì. Rồi chia tờ giấy thành ba khối ứng với a, b, c. Tên nhà xuất bản, năm xuất bản thường in ở trang bìa lót hoặc trang cuối của cuốn sách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu pô-xtơ là gì</h4>
+      <blockquote class="trich"><p>Pô-xtơ (tiếng Anh: poster): bản viết bằng chữ to trên giấy, bìa, gỗ,… với những hình thức thiết kế, vẽ phù hợp nhằm giới thiệu hay quảng bá về một sản phẩm nào đó (ở đây là sách).</p><cite>— Chú thích SGK, trang 99</cite></blockquote>
+      <p class="vi-sao">Hai chữ quan trọng: “chữ to” và “thiết kế, vẽ”. Pô-xtơ không phải bài văn chép lên giấy khổ lớn — chữ phải ít, to, rõ; hình vẽ phải gợi được cuốn sách.</p></div>
+    <div class="buoc" data-so="2"><h4>Điền ba khối — thử với <i>Dế Mèn phiêu lưu kí</i></h4>
+      <p><b>a.</b> Tên sách: <i>Dế Mèn phiêu lưu kí</i>; tác giả: Tô Hoài. Nhà xuất bản và năm xuất bản: lật trang bìa lót của chính cuốn em đang cầm mà chép — mỗi lần in có thể khác nhau, không đoán.</p>
+      <p><b>b.</b> Tóm tắt — SGK đã cho sẵn một khung rất gọn:</p>
+      <blockquote class="trich"><p>Dế Mèn phiêu lưu kí gồm mười chương. Bốn chương đầu kể về lai lịch và những bài học, những biến cố bất ngờ trên đường đời của Dế Mèn. Sáu chương sau kể về các cuộc phiêu lưu kì thú của Dế Mèn với người bạn thân Dế Trũi.</p><cite>— Chú thích SGK, Bài 1, trang 12</cite></blockquote>
+      <p><b>c.</b> Câu văn yêu thích — chép <b>đúng từng chữ</b>, ghi số trang:</p>
+      <blockquote class="trich"><p>Tôi đứng lặng giờ lâu, nghĩ về bài học đường đời đầu tiên.</p><cite>— <i>Bài học đường đời đầu tiên</i></cite></blockquote>
+      <p class="vi-sao">Ở khối b, chỉ cần nêu bố cục và nhân vật chính, đừng kể hết cái kết — để người xem còn muốn mở sách ra. Ở khối c, một câu trích sai chữ làm người xem mất lòng tin vào cả tấm pô-xtơ.</p></div>
+    <div class="buoc" data-so="3"><h4>Sắp xếp cho tấm pô-xtơ “nói” được</h4>
+      <p>Tên sách to nhất, ở trên cùng. Giữa là một hình vẽ gợi một chi tiết, một nhân vật. Tóm tắt ngắn ở một bên, câu trích dẫn đóng khung ở bên kia. Có thể xem hai tấm pô-xtơ của các bạn học sinh in ở SGK trang 103 (phần Viết): cả hai đều có tranh vẽ quanh một khung chữ viết tay ở giữa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Pô-xtơ đạt yêu cầu khi: (1) ghi đúng <b>tên sách, tên tác giả</b>, nhà xuất bản, năm xuất bản (chép từ chính cuốn sách); (2) có phần <b>tóm tắt nội dung</b> ngắn gọn: đề tài, chủ đề, bố cục, nhân vật, sự kiện, chi tiết chính; (3) có <b>câu văn, đoạn văn trích dẫn</b> chép đúng nguyên văn hoặc câu nhận định về cuốn sách; (4) chữ to, rõ, có hình vẽ, thiết kế phù hợp, đúng nghĩa một tấm pô-xtơ giới thiệu sách; (5) cuốn sách liên quan đến chủ đề em đã chọn ở câu 1.</div>
+    <div class="bay">Chép câu trích dẫn theo trí nhớ nên sai chữ; hoặc viết phần tóm tắt dài kín cả tờ giấy, biến tấm pô-xtơ thành một bài văn.</div>
+    <div class="gv-note">Gợi ý dùng <i>Dế Mèn phiêu lưu kí</i> vì HS đã đọc một đoạn ở Bài 1 và SGK có sẵn thông tin về bố cục mười chương. Trang này không ghi nhà xuất bản, năm xuất bản của cuốn sách vì SGK không in thông tin ấy — HS tự chép từ cuốn mình cầm. Có thể chấm theo 5 tiêu chí trong ô Gợi ý trả lời, trưng bày ở góc đọc của lớp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-ys1" data-ten="Cuốn sách · Câu 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Cuốn sách · Câu 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nhan đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chọn đọc một cuốn sách yêu thích, có thể là sách văn học hoặc sách khoa học. Trong quá trình đọc, có thể suy nghĩ về những điều sau:</p>
+    <p><b>1.</b> Nhan đề: Vì sao cuốn sách có nhan đề như vậy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhan đề là lời hứa đầu tiên cuốn sách nói với người đọc. Đọc xong, sách có giữ lời không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tách nhan đề ra từng chữ: chữ nào chỉ nhân vật, chữ nào chỉ nơi chốn, chữ nào chỉ việc xảy ra? Đoán trước khi đọc, đọc xong thì kiểm lại xem mình đoán đúng không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán trước khi đọc, kiểm lại sau khi đọc</h4>
+      <p>Trước khi đọc, ghi vào sổ: “Nhìn tên sách, mình đoán sách kể / viết về…”. Đọc xong, quay lại dòng ấy: nhan đề có nói đúng điều quan trọng nhất của cuốn sách không? Nó nói đến nhân vật chính, sự việc chính, hay một hình ảnh có ý nghĩa đặc biệt?</p></div>
+    <div class="buoc" data-so="2"><h4>Nhan đề có thể đổi theo cuốn sách</h4>
+      <blockquote class="trich"><p>Năm 1941, Tô Hoài xuất bản truyện Con Dế Mèn; sau đó tác giả viết thêm Dế Mèn phiêu lưu kí. Năm 1954, nhà văn gộp hai tác phẩm trên thành Dế Mèn phiêu lưu kí.</p><cite>— Tác giả, tác phẩm, SGK Bài 1</cite></blockquote>
+      <p class="vi-sao">Lúc đầu chỉ là <i>Con Dế Mèn</i>. Khi câu chuyện có thêm những chuyến đi, tên cuốn sách gộp lại mang thêm hai chữ “phiêu lưu”. Nhan đề vừa gọi tên nhân vật chính, vừa báo trước điều chính sẽ được kể: sáu chương sau là “các cuộc phiêu lưu kì thú của Dế Mèn với người bạn thân Dế Trũi”.</p></div>
+    <div class="buoc" data-so="3"><h4>Nhan đề có thể lấy từ chính lời kể</h4>
+      <p>SGK chú thích nhan đề đoạn trích Bài 1: “Nhan đề được đặt dựa theo lời kể trong đoạn trích.” Thật vậy, câu cuối đoạn trích là: “Tôi đứng lặng giờ lâu, nghĩ về bài học đường đời đầu tiên.”</p>
+      <p class="vi-sao">Gặp một nhan đề lạ, hãy để ý xem cụm từ ấy có xuất hiện lại trong sách không — thường nó nằm ở đúng chỗ quan trọng nhất.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ cuốn sách em chọn. Câu trả lời tốt chỉ ra được nhan đề nói đến điều gì (nhân vật, sự việc, hình ảnh) và vì sao điều ấy quan trọng với cả cuốn sách, có dẫn chi tiết trong sách. <b>Một câu trả lời tham khảo:</b> Cuốn sách có tên <i>Dế Mèn phiêu lưu kí</i> vì nó kể về Dế Mèn và những chuyến phiêu lưu của chú. Tên ấy gọi đúng nhân vật chính, lại báo trước điều hấp dẫn nhất: sáu chương sau là “các cuộc phiêu lưu kì thú của Dế Mèn với người bạn thân Dế Trũi”. Em còn biết lúc đầu Tô Hoài chỉ viết truyện <i>Con Dế Mèn</i>; khi viết thêm những chuyến đi, nhà văn mới gộp lại thành <i>Dế Mèn phiêu lưu kí</i>. Hai chữ “phiêu lưu” được thêm vào khi chàng dế bước ra thế giới rộng lớn.</div>
+    <div class="bay">Chỉ giải nghĩa từng chữ trong nhan đề (“phiêu lưu là đi xa”) mà không nối với nội dung cuốn sách. Câu hỏi là <b>vì sao</b> sách có tên ấy — phải trả lời bằng điều xảy ra trong sách.</div>
+    <div class="gv-note">Bốn câu ở mục Cuốn sách yêu thích là gợi ý suy nghĩ “trong quá trình đọc”, không phải bài kiểm tra; có thể cho HS ghi thành nhật kí đọc sách. Ví dụ tham khảo chỉ dùng thông tin có trong SGK Bài 1 (khung Tác giả, tác phẩm và chú thích trang 12).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-ys2" data-ten="Cuốn sách · Câu 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Cuốn sách · Câu 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Phần mở đầu</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> Mở đầu: Phần mở đầu của cuốn sách có điều gì đáng chú ý? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trang đầu tiên của cuốn sách đã “níu” em lại bằng cách nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc chậm trang đầu. Đánh dấu chỗ khiến em muốn đọc tiếp: một câu lạ, một nhân vật đặc biệt, một lời báo trước, một câu hỏi bỏ ngỏ…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm cái “móc câu” ở phần mở đầu</h4>
+      <p>Người viết thường giữ chân người đọc bằng một trong mấy cách: giới thiệu một nhân vật lạ, kể ngay một sự việc bất ngờ, đặt ra một câu hỏi, hoặc báo trước một điều quan trọng sẽ xảy ra. Hỏi mình: mình muốn đọc tiếp <b>vì</b> điều gì?</p></div>
+    <div class="buoc" data-so="2"><h4>Ví dụ: một tiêu đề chương báo trước nỗi ân hận</h4>
+      <p>SGK cho biết đoạn trích Bài 1 lấy từ chương 1 <i>Dế Mèn phiêu lưu kí</i>, chương có tiêu đề: “Tôi sống độc lập từ thuở bé – Một sự ngỗ nghịch đáng ân hận suốt đời”.</p>
+      <p class="vi-sao">Ngay từ tiêu đề, người kể đã thú nhận có “một sự ngỗ nghịch đáng ân hận suốt đời” — nhưng chưa nói đó là chuyện gì. Người đọc buộc phải đọc tiếp để biết. Đó là một cách mở đầu “giữ chân” rất khéo.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ cuốn sách em chọn. Câu trả lời tốt chỉ ra một điều cụ thể ở phần mở đầu (một câu văn, một nhân vật, một sự việc, một tiêu đề) và nói được vì sao điều đó đáng chú ý — nó gây tò mò, giới thiệu nhân vật, hay báo trước điều sẽ xảy ra. <b>Một câu trả lời tham khảo:</b> Ở chương 1 của <i>Dế Mèn phiêu lưu kí</i>, điều làm em chú ý nhất là tiêu đề chương: “Tôi sống độc lập từ thuở bé – Một sự ngỗ nghịch đáng ân hận suốt đời”. Chàng dế kể chuyện tự nhận mình đã có một lỗi lầm đáng ân hận suốt đời, nhưng lại chưa nói ngay là lỗi gì. Em đọc mà cứ thấp thỏm chờ xem “sự ngỗ nghịch” ấy là gì — và khi biết đó là trò trêu chị Cốc khiến Dế Choắt chết oan, em hiểu vì sao Dế Mèn ân hận mãi.</div>
+    <div class="bay">Tóm tắt lại cả phần mở đầu mà không chỉ ra điều gì <b>đáng chú ý</b>, và quên trả lời “Vì sao?”.</div>
+    <div class="gv-note">Câu hỏi mở. Lưu ý HS: đoạn trích trong SGK không chắc là trang đầu của cuốn sách — muốn nói về phần mở đầu thì phải đọc chính cuốn sách. Ví dụ tham khảo bám vào tiêu đề chương 1 do SGK ghi ở chú thích trang 12.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-ys3" data-ten="Cuốn sách · Câu 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Cuốn sách · Câu 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Thế giới từ trang sách</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> Thế giới từ trang sách: Em đã gặp những ai và đến nơi đâu qua trang sách đã đọc?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Không cần mua vé, em đã đến được những đâu, gặp được những ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ hai cột “Gặp ai” và “Đến đâu”. Gặp nhân vật mới, đến nơi mới thì ghi thêm một dòng, kèm một chữ, một cụm từ tác giả dùng để tả.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi lại “những ai” và “nơi đâu”</h4>
+      <p>Thử với chương 1 <i>Dế Mèn phiêu lưu kí</i> (đoạn trích Bài 1):</p>
+      <table>
+        <tr><th>Gặp ai</th><th>Đến đâu</th></tr>
+        <tr><td>Dế Choắt “người gầy gò và dài lêu nghêu”; mấy chị Cào Cào “ngụ ngoài đầu bờ”; anh Gọng Vó “lấm láp”; chị Cốc; những anh Cò “gầy vêu vao”</td><td>cái hang sâu nhiều ngách của Dế Mèn; cái hang “bới nông sát mặt đất” của Dế Choắt; “những hồ ao quanh bãi trước mặt”, nơi “nước dâng trắng mênh mông”; “một vùng cỏ bùm tum”</td></tr>
+      </table>
+      <p class="vi-sao">Ghi kèm chữ của tác giả giúp em nhớ nhân vật và nơi chốn bằng hình ảnh, không chỉ bằng cái tên.</p></div>
+    <div class="buoc" data-so="2"><h4>Sách khoa học cũng có “thế giới” của nó</h4>
+      <p>Nếu em đọc sách khoa học, “những ai” có thể là loài vật, cây cỏ, nhà khoa học; “nơi đâu” có thể là đại dương, rừng rậm, vũ trụ. Như các văn bản ở Bài 9 đã đưa em đi khắp hành tinh của mình.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ cuốn sách em chọn. Câu trả lời tốt kể được tên nhân vật và nơi chốn cụ thể, kèm vài nét tác giả tả họ, tả nơi ấy. <b>Một câu trả lời tham khảo:</b> Qua chương 1 <i>Dế Mèn phiêu lưu kí</i>, em gặp Dế Choắt gầy gò, ốm yếu; mấy chị Cào Cào “ngụ ngoài đầu bờ”; anh Gọng Vó “lấm láp vừa ngơ ngác dưới đầm lên”; chị Cốc “béo xù” với cái mỏ “như cái dùi sắt”. Em đến cái hang sâu của Dế Mèn, cái hang nông của Dế Choắt, rồi đứng cùng Dế Mèn trước cửa hang nhìn “những hồ ao quanh bãi trước mặt” lúc “nước dâng trắng mênh mông”. Theo lời giới thiệu của SGK, đi tiếp các chương sau, em sẽ còn gặp Dế Trũi — người bạn thân cùng Dế Mèn phiêu lưu.</div>
+    <div class="bay">Chỉ kể tên nhân vật chính mà bỏ quên nơi chốn — câu hỏi có hai vế: “gặp những ai” và “đến nơi đâu”.</div>
+    <div class="gv-note">Câu hỏi mở. Mọi chi tiết trong ví dụ tham khảo đều có trong đoạn trích Bài 1 hoặc chú thích trang 12.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-ys4" data-ten="Cuốn sách · Câu 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Cuốn sách · Câu 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Bài học từ trang sách</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> Bài học từ trang sách: Những gì còn đọng lại trong tâm trí em? Vì sao em thích cuốn sách này?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gấp sách lại rồi — câu nào, cảnh nào vẫn còn ở lại với em?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi có hai vế. Vế một: một câu văn, một cảnh, một nhân vật cụ thể còn ở lại trong em. Vế hai: lí do em thích cả cuốn sách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điều còn đọng lại — tìm một câu, một cảnh</h4>
+      <blockquote class="trich"><p>– Thôi, tôi ốm yếu quá rồi, chết cũng được. Nhưng trước khi nhắm mắt, tôi khuyên anh: ở đời mà có thói hung hăng bậy bạ, có óc mà không biết nghĩ, sớm muộn rồi cũng mang vạ vào mình đấy.</p><cite>— Lời Dế Choắt, <i>Bài học đường đời đầu tiên</i></cite></blockquote>
+      <p class="vi-sao">Điều đọng lại thường không phải cả câu chuyện, mà là một khoảnh khắc. Chép nó ra, rồi tự hỏi: vì sao câu này, cảnh này lại ở lại với mình?</p></div>
+    <div class="buoc" data-so="2"><h4>Vì sao em thích — nói bằng điều cuốn sách đã cho em</h4>
+      <p>Cuốn sách làm em cười, làm em xúc động, cho em biết điều mới, hay làm em nghĩ khác đi về chính mình? Nói một lí do thật, kèm một chi tiết.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ cuốn sách em chọn. Câu trả lời tốt trả lời đủ hai vế: nêu một điều cụ thể còn đọng lại (câu văn, cảnh, nhân vật) và nói rõ lí do em thích cuốn sách, có dẫn chi tiết. <b>Một câu trả lời tham khảo:</b> Điều còn đọng lại trong em là lời Dế Choắt dặn trước khi nhắm mắt: “ở đời mà có thói hung hăng bậy bạ, có óc mà không biết nghĩ, sớm muộn rồi cũng mang vạ vào mình đấy”. Choắt bị hại vì trò đùa của Dế Mèn, vậy mà không oán trách, chỉ để lại một lời khuyên. Em thích <i>Dế Mèn phiêu lưu kí</i> vì nó không kể về một nhân vật hoàn hảo: Dế Mèn từng kiêu căng, từng gây lỗi lớn, rồi biết “vừa thương vừa ăn năn tội mình”. Đọc về một người biết sai và biết lớn lên, em thấy mình cũng có thể làm được như thế.</div>
+    <div class="bay">Trả lời “em thích vì truyện hay, ý nghĩa” — chung chung, đặt vào cuốn sách nào cũng được. Lí do phải gắn với chính cuốn sách em đọc.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi lí do chân thành có chi tiết làm căn cứ. Đây cũng là “nguyên liệu” cho bài viết và bài nói ở cuối Bài 10.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Một cuốn sách hay giống một người bạn đi cùng em một quãng đường: bạn có thể đã rẽ sang lối khác từ lâu, nhưng một câu bạn nói thì em mang theo mãi.</div>
+  </div>
+</article>
+
+<article class="the bai" id="d-tg-a" data-ten="Gặp gỡ tác giả · a" data-muc="th">
+  <div class="bai-dau"><span class="so">Gặp gỡ tác giả · a</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đọc hiểu nghị luận văn học</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a. Vì sao nhà thơ Lò Ngân Sủn được tác giả bài viết gọi là “người con của núi”?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người viết gọi ông là “người con của núi” từ khi nào — trước hay sau khi ông làm thơ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm câu có cụm “người con của núi” ở đoạn thứ ba. Đọc tiếp hai câu ngay sau nó: người viết kể gì về nơi ông sinh ra và tuổi thơ của ông?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu gọi tên “người con của núi”</h4>
+      <blockquote class="trich"><p>Trước khi trở thành nhà thơ, Lò Ngân Sủn đích thực là một “người con của núi”. Ông sinh ra và lớn lên ở Bản Qua, huyện Bát Xát, tỉnh Lào Cai. Từ nhỏ, chú bé Lò Ngân Sủn đã đắm mình trong hơi thở của cỏ cây, hoa lá núi rừng biên cương, đã biết thả hồn cùng vẻ đẹp thanh thoát, hùng vĩ của dốc dựng, thác đổ, suối tuôn,… nơi “tận cùng bờ cõi”:</p><cite>— Đoạn thứ ba</cite></blockquote>
+      <p>Hai câu sau giải thích câu đầu: ông <b>sinh ra và lớn lên</b> ở một bản làng miền núi biên giới (chú thích SGK: Bản Qua, huyện Bát Xát nay thuộc xã Bát Xát), và <b>từ nhỏ</b> đã đắm mình trong núi rừng.</p>
+      <p class="vi-sao">Để ý bốn chữ mở đầu: “Trước khi trở thành nhà thơ”. Lí do của cách gọi không nằm ở những bài thơ ông viết sau này, mà ở quê hương và tuổi thơ của ông.</p></div>
+    <div class="buoc" data-so="2"><h4>Núi đi theo ông suốt đời, vào cả trong thơ</h4>
+      <blockquote class="trich"><p>Dù có đi khắp mọi nẻo đường, những sườn non, dốc núi, những miền thác đổ réo sôi, vắt vẻo như dây leo của quê hương vẫn là con đường quyến rũ nhất với người con của núi.</p></blockquote>
+      <p class="vi-sao">Lớn lên, ông đi xa, nhưng núi rừng quê hương vẫn là “con đường quyến rũ nhất”. Vì thế ngay từ đầu bài, người viết nói núi “hiện lên như là một phần hồn thơ Lò Ngân Sủn”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Lò Ngân Sủn được gọi là “người con của núi” vì ông <b>sinh ra và lớn lên ở Bản Qua, huyện Bát Xát, tỉnh Lào Cai</b> — một bản làng miền núi biên giới, và <b>từ nhỏ đã đắm mình trong hơi thở của cỏ cây, hoa lá núi rừng biên cương</b>, thả hồn cùng “dốc dựng, thác đổ, suối tuôn” nơi “tận cùng bờ cõi”. Người viết nhấn mạnh ông là người con của núi từ “trước khi trở thành nhà thơ”. Lớn lên đi khắp mọi nẻo đường, núi rừng quê hương vẫn là “con đường quyến rũ nhất” với ông, và núi trở thành một phần hồn thơ của ông. Núi đã sinh ra con người ấy trước khi sinh ra thơ của ông.</div>
+    <div class="bay">Trả lời “vì ông viết nhiều thơ về núi”. Đó là điều xảy ra <b>sau</b>; người viết nói rõ ông là “người con của núi” từ “trước khi trở thành nhà thơ” — lí do chính là quê hương và tuổi thơ của ông.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-tg-b" data-ten="Gặp gỡ tác giả · b" data-muc="nb">
+  <div class="bai-dau"><span class="so">Gặp gỡ tác giả · b</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vấn đề được bàn luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>b. Xác định câu văn nêu vấn đề chính được bàn luận trong bài.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — câu nào nêu vấn đề chính?</b>
+    <div class="cau-thu"><span class="noi-dung">Đọc thơ Lò Ngân Sủn ta như được khám phá những đỉnh núi xa thơ mộng và mãnh liệt.</span><button class="chon chu" data-dung="0">Câu nêu vấn đề</button><button class="chon chu" data-dung="1">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! Câu này là lời giới thiệu, dẫn người đọc vào bài." data-sai-txt="Thử lại: câu này đặt ra điều gì cần bàn chưa, hay mới giới thiệu?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Vậy điều gì đã nuôi dưỡng và bồi đắp nên vẻ đẹp thơ mộng và mãnh liệt ấy trong thơ ông?</span><button class="chon chu" data-dung="1">Câu nêu vấn đề</button><button class="chon chu" data-dung="0">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! Câu hỏi này là vấn đề cả bài đi tìm lời đáp." data-sai-txt="Thử lại: thẻ 🔎 Theo dõi “Vấn đề được nêu ra để bàn luận” đặt ở đoạn có câu này."></span></div>
+    <div class="cau-thu"><span class="noi-dung">Ông sinh ra và lớn lên ở Bản Qua, huyện Bát Xát, tỉnh Lào Cai.</span><button class="chon chu" data-dung="0">Câu nêu vấn đề</button><button class="chon chu" data-dung="1">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! Câu này đã là bằng chứng để làm rõ vấn đề." data-sai-txt="Thử lại: câu này đặt ra câu hỏi, hay đang trả lời câu hỏi?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cả bài viết đi tìm câu trả lời cho một câu hỏi. Câu hỏi ấy nằm ở đâu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thẻ 🔎 <i>Theo dõi</i> thứ nhất ghi “Vấn đề được nêu ra để bàn luận” — nó đặt ngay sau đoạn thứ hai. Trong đoạn ấy, câu nào đặt ra một điều mà phần sau của bài phải trả lời?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc lại hai đoạn mở đầu</h4>
+      <blockquote class="trich"><p>Đọc thơ Lò Ngân Sủn ta như được khám phá những đỉnh núi xa thơ mộng và mãnh liệt. Núi không chỉ là hình ảnh thường được nói đến trong thơ ông mà còn hiện lên như là một phần hồn thơ Lò Ngân Sủn.</p>
+        <p>Những bài thơ tiêu biểu của Lò Ngân Sủn như Chiều biên giới, Trời và đất, Đi trên chín khúc Bản Xèo, Ngôi nhà rông,… đều mang âm vọng của núi, mênh mang lời của núi. Vậy điều gì đã nuôi dưỡng và bồi đắp nên vẻ đẹp thơ mộng và mãnh liệt ấy trong thơ ông?</p><cite>— Đoạn thứ nhất và thứ hai</cite></blockquote>
+      <p>Các câu đầu <b>giới thiệu</b> vẻ đẹp thơ Lò Ngân Sủn. Câu cuối đoạn hai mở đầu bằng chữ “Vậy” và <b>đặt câu hỏi</b> về vẻ đẹp ấy.</p>
+      <p class="vi-sao">Chữ “Vậy” là dấu hiệu: người viết gom những gì vừa giới thiệu lại để hỏi. Mọi đoạn phía sau — tuổi thơ giữa núi rừng, mảnh đất Hoàng Liên Sơn, con đường quê hương — đều là để trả lời câu hỏi này.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu văn nêu vấn đề chính được bàn luận trong bài là: <b>“Vậy điều gì đã nuôi dưỡng và bồi đắp nên vẻ đẹp thơ mộng và mãnh liệt ấy trong thơ ông?”</b> (câu cuối của đoạn thứ hai, ngay cạnh thẻ 🔎 <i>Theo dõi: Vấn đề được nêu ra để bàn luận</i>). Toàn bộ phần sau của bài viết đi tìm lời đáp cho câu hỏi này.</div>
+    <div class="bay">Chọn câu đầu tiên của bài (“Đọc thơ Lò Ngân Sủn ta như được khám phá…”). Câu ấy giới thiệu vẻ đẹp của thơ ông, dẫn người đọc vào bài; còn điều được <b>bàn luận</b> — điều cần tìm lời giải thích — là câu hỏi ở cuối đoạn hai.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-tg-c" data-ten="Gặp gỡ tác giả · c" data-muc="th">
+  <div class="bai-dau"><span class="so">Gặp gỡ tác giả · c</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bằng chứng trong nghị luận văn học</span><span class="trang-thai"></span></div>
+  <div class="de"><p>c. Những đoạn thơ được dẫn đóng vai trò gì trong bài viết?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người viết nói thơ ông “đều mang âm vọng của núi”. Nói vậy thì ai tin? Phải cho người đọc nghe thấy tiếng núi ấy đã.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại Tri thức ngữ văn: trong nghị luận văn học, cái gì “thường được lấy từ tác phẩm văn học”? Rồi xem mỗi đoạn thơ đứng ngay sau câu văn nào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhớ lại: bằng chứng trong nghị luận văn học</h4>
+      <p>Tri thức ngữ văn Bài 10: lí lẽ là “những nhận xét cụ thể của người viết về tác giả, tác phẩm, thể loại,…”; còn “Bằng chứng thường được lấy từ tác phẩm văn học.”</p>
+      <p class="vi-sao">Thẻ 🔎 <i>Theo dõi</i> thứ hai đặt ngay sau đoạn thơ đầu tiên đã gọi tên: “Những bằng chứng để làm rõ vấn đề.”</p>
+      <a class="xem-lai" href="#kt-nlvh">📌 Xem lại: văn bản nghị luận văn học</a></div>
+    <div class="buoc" data-so="2"><h4>Mỗi đoạn thơ đứng sau một nhận xét</h4>
+      <p><b>Nhận xét 1:</b> từ nhỏ, chú bé đã thả hồn cùng núi rừng nơi “tận cùng bờ cõi”. <b>Bằng chứng:</b></p>
+      <blockquote class="trich tho"><p>Những đỉnh núi xa</p><p>Rừng thông gọi đàn dê hiện gọi mơ núi</p><p>Nâng niu hạt mạch</p><p>Rừng sa mộc vạm vỡ</p><p>Quay mình những vòng đường.</p><cite>— Đỉnh núi xa vùng mãnh liệt</cite></blockquote>
+      <p><b>Nhận xét 2:</b> vùng đất Hoàng Liên Sơn bồi đắp nên “chất hào sảng, trầm hùng và mãnh liệt của thơ ông”. <b>Bằng chứng:</b></p>
+      <blockquote class="trich tho"><p>Chiều biên giới em ơi</p><p>Có nơi nào cao hơn</p><p>Như đầu sông đầu suối</p><p>Như đầu mây đầu gió</p><p>Như quê ta ngọn núi</p><p>Như đất trời biên cương.</p><cite>— Chiều biên giới</cite></blockquote>
+      <p><b>Nhận xét 3:</b> con đường quê hương “cũng chính là con đường thơ ca của Lò Ngân Sủn”. <b>Bằng chứng:</b></p>
+      <blockquote class="trich tho"><p>Ta đi trên chín khúc Bản Xèo</p><p>con đường là cái hạt ta gieo</p><p>con đường là cái rễ lan toả</p><p>dệt nên hoa trái, tiếng chim ca.</p><cite>— Đi trên chín khúc Bản Xèo</cite></blockquote>
+      <p class="vi-sao">Để ý dấu hai chấm khép lại mỗi câu nhận xét, ngay trước đoạn thơ: người viết vừa nói xong thì “mở cửa” cho chính câu thơ của nhà thơ bước vào chứng minh. Đọc đoạn <i>Chiều biên giới</i>, ta nghe thấy độ cao của núi qua bốn lần “Như…” nối nhau — điều mà lời nhận xét chỉ nói được, còn câu thơ thì cho ta cảm thấy.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những đoạn thơ được dẫn đóng vai trò là <b>bằng chứng</b>, lấy từ chính tác phẩm của Lò Ngân Sủn, để làm rõ và chứng minh cho những nhận xét (lí lẽ) của người viết. Mỗi đoạn thơ đứng ngay sau một nhận xét: đoạn trích <i>Đỉnh núi xa vùng mãnh liệt</i> cho thấy núi rừng biên cương đã thấm vào tâm hồn nhà thơ từ thuở nhỏ; đoạn <i>Chiều biên giới</i> là “ví dụ tiêu biểu” cho chất “hào sảng, trầm hùng và mãnh liệt” của thơ ông; đoạn <i>Đi trên chín khúc Bản Xèo</i> cho thấy con đường quê hương cũng là con đường thơ ca của ông. Nhờ những đoạn thơ ấy, người đọc tận mắt thấy “âm vọng của núi” trong thơ Lò Ngân Sủn và tin vào điều người viết nói.</div>
+    <div class="bay">Trả lời “các đoạn thơ làm bài viết hay hơn, sinh động hơn” rồi dừng. Cần gọi đúng tên vai trò — <b>bằng chứng</b> — và nói chúng chứng minh cho điều gì.</div>
+    <div class="gv-note">Dòng thơ “Rừng thông gọi đàn dê hiện gọi mơ núi” chép đúng như SGK in (bài giảng Bài 10 đã đối chiếu với SGK PDF tr. 101). Nếu HS thắc mắc về nghĩa dòng thơ, không cần giải thích sâu — trọng tâm câu c là vai trò bằng chứng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="d-tg-d" data-ten="Gặp gỡ tác giả · d" data-muc="th">
+  <div class="bai-dau"><span class="so">Gặp gỡ tác giả · d</span><span class="nhan th">Thông hiểu</span><span class="nhan">Mạch lập luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>d. Câu cuối cùng của bài viết có mối quan hệ như thế nào với câu nêu vấn đề ở phần mở đầu?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đầu bài là một câu hỏi. Cuối bài là gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt hai câu cạnh nhau: câu nêu vấn đề em tìm ở câu b, và câu cuối bài bắt đầu bằng “Không có tình yêu tha thiết với…”. Câu cuối có trả lời câu hỏi ấy không? Trả lời bằng điều gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đặt câu đầu và câu cuối cạnh nhau</h4>
+      <blockquote class="trich"><p>Vậy điều gì đã nuôi dưỡng và bồi đắp nên vẻ đẹp thơ mộng và mãnh liệt ấy trong thơ ông?</p><cite>— Câu nêu vấn đề (đoạn thứ hai)</cite></blockquote>
+      <blockquote class="trich"><p>Không có tình yêu tha thiết với núi rừng, với quê hương, với “chồi non cỏ biếc”, với “đầu sông đầu suối”, với những “bậc thang mây”,… chắc hẳn không thể có nhà thơ Lò Ngân Sủn với những câu thơ “vạm vỡ” mà âm vang như “con suối thác đổ”, khiến trái tim của bao độc giả phải bồi hồi.</p><cite>— Câu cuối bài</cite></blockquote>
+      <p>Câu đầu hỏi “điều gì”. Câu cuối trả lời: <b>tình yêu tha thiết với núi rừng, với quê hương</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu cuối gom lại những gì cả bài đã nói</h4>
+      <p>Câu ngay trước đã chuẩn bị cho câu cuối: “Núi rừng xứ sở muốn cất tiếng bằng thơ và nhà thơ Lò Ngân Sủn đã phần nào đáp ứng được mong mỏi ấy, bằng tình yêu thương thuần khiết của mình.”</p>
+      <p class="vi-sao">Nhìn kĩ câu cuối: “đầu sông đầu suối” là chữ của đoạn thơ <i>Chiều biên giới</i>, “vạm vỡ” là chữ của đoạn thơ <i>Đỉnh núi xa vùng mãnh liệt</i> (“Rừng sa mộc vạm vỡ”). Người viết nhặt lại chính những chữ trong các bằng chứng đã dẫn để khép bài — như người thợ dệt buộc các sợi chỉ lại ở mép tấm vải.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu cuối cùng <b>trả lời</b> câu hỏi được nêu ở phần mở đầu. Đầu bài, người viết hỏi: “Vậy điều gì đã nuôi dưỡng và bồi đắp nên vẻ đẹp thơ mộng và mãnh liệt ấy trong thơ ông?”; cuối bài, người viết khẳng định: chính <b>tình yêu tha thiết với núi rừng, với quê hương</b> đã làm nên nhà thơ Lò Ngân Sủn với những câu thơ “vạm vỡ” mà âm vang như “con suối thác đổ”. Câu cuối vì vậy là câu <b>kết luận</b>, gói lại điều cả bài đã bàn — lại dùng lại những chữ trong các đoạn thơ đã dẫn (“đầu sông đầu suối”, “vạm vỡ”). Đầu hỏi, cuối đáp: bài viết khép lại chặt chẽ, trọn vẹn.</div>
+    <div class="bay">Trả lời “câu cuối nhắc lại câu đầu”. Câu cuối không lặp lại câu hỏi — nó <b>trả lời</b> câu hỏi ấy. Cần nói rõ câu trả lời là gì: tình yêu tha thiết với núi rừng, quê hương.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Một bài nghị luận văn học giống một chuyến đi có vé khứ hồi: xuất phát từ một câu hỏi, đi qua những câu thơ làm bằng chứng, rồi trở về đúng chỗ cũ — nhưng lúc này tay đã cầm câu trả lời.</div>
+  </div>
+</article>
+
+<article class="the bai" id="d-pl" data-ten="Phiêu lưu cùng trang sách" data-muc="vd">
+  <div class="bai-dau"><span class="so">Phiêu lưu cùng trang sách</span><span class="nhan vd">Vận dụng</span><span class="nhan">So sánh sách và phim</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Cùng xem một bộ phim được chuyển thể từ một cuốn sách hoặc tác phẩm văn học có nội dung liên quan đến các chủ đề đã học.</p>
+    <p><b>2.</b> Thảo luận và so sánh để thấy những điểm tương đồng, khác biệt giữa nội dung, hình thức của phim và sách (hoặc tác phẩm đã đọc).</p>
+    <p><b>3.</b> Cùng thiết kế một pô-xtơ nhằm giới thiệu bộ phim đã xem hoặc vẽ lại bìa cuốn sách yêu thích.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cùng một câu chuyện, đọc bằng mắt và xem trên màn ảnh — chỗ nào giống, chỗ nào khác?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi thầy cô, bố mẹ tên một bộ phim (phim hoạt hình cũng được) làm từ một truyện em đã đọc. Khi so sánh, tách hai loại câu hỏi: <b>nội dung</b> (nhân vật, sự việc) và <b>hình thức</b> (kể bằng gì).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn phim: bắt đầu từ những gì SGK đã cho biết</h4>
+      <p>Ở Bài 1, mục <i>Em có biết?</i> ghi: “Dế Mèn phiêu lưu kí đã được chuyển thể thành truyện tranh, phim hoạt hình và được nhiều hoạ sĩ vẽ minh hoạ.”</p>
+      <p class="vi-sao">Chọn phim làm từ cuốn sách em đã đọc (hoặc đọc một đoạn) thì việc so sánh mới có căn cứ.</p></div>
+    <div class="buoc" data-so="2"><h4>So sánh theo hai cột: nội dung và hình thức</h4>
+      <table>
+        <tr><th></th><th>Câu hỏi để so sánh</th></tr>
+        <tr><td>Nội dung</td><td>Nhân vật, sự việc chính có giữ nguyên không? Phim bớt đi đoạn nào, thêm vào đoạn nào? Kết thúc có giống không?</td></tr>
+        <tr><td>Hình thức</td><td>Sách kể bằng chữ, người đọc tự tưởng tượng. Phim kể bằng hình ảnh, màu sắc, âm nhạc, giọng nói. Ai là người kể? Suy nghĩ thầm của nhân vật được thể hiện thế nào?</td></tr>
+      </table>
+      <p class="vi-sao">Chỗ thú vị nhất thường nằm ở những điều chỉ chữ mới làm được hoặc chỉ hình mới làm được. Ví dụ, trong sách, Dế Mèn chỉ “Bụng nghĩ thú vị” khi trốn trong hang — không nói ra thành lời. Nếu xem phim, em thử để ý: phim cho người xem biết suy nghĩ ấy bằng cách nào?</p></div>
+    <div class="buoc" data-so="3"><h4>Thiết kế pô-xtơ phim hoặc vẽ lại bìa sách</h4>
+      <p>Chọn <b>một</b> hình ảnh em thấy “đắt” nhất của câu chuyện làm trung tâm; tên phim hoặc tên sách viết to; thêm một câu ngắn gợi tò mò. Nhớ lại chú thích SGK: pô-xtơ là “bản viết bằng chữ to” với “những hình thức thiết kế, vẽ phù hợp”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án chung — kết quả tuỳ bộ phim và cuốn sách em chọn. Hoạt động đạt yêu cầu khi: (1) chọn được một bộ phim chuyển thể từ cuốn sách, tác phẩm văn học có nội dung liên quan đến các chủ đề đã học; (2) so sánh được điểm giống và khác ở <b>nội dung</b> (nhân vật, sự việc, kết thúc) và ở <b>hình thức</b> (sách kể bằng chữ, phim kể bằng hình ảnh, âm thanh, diễn xuất), mỗi ý có ví dụ cụ thể từ phim và sách; (3) thiết kế được một pô-xtơ giới thiệu phim hoặc vẽ lại bìa sách, có tên phim / tên sách rõ ràng và một hình ảnh tiêu biểu.</div>
+    <div class="bay">Kể lại nội dung bộ phim thay vì so sánh; hoặc chỉ nói “phim hay hơn sách” mà không chỉ ra khác nhau ở chỗ nào.</div>
+    <div class="gv-note">SGK chỉ nêu ba việc, không có câu hỏi đóng; ba việc là một chuỗi hoạt động nên gộp vào một thẻ. Trang này không mô tả nội dung bất kì bộ phim cụ thể nào (kho SGK không có thông tin) — GV chọn phim phù hợp và hướng dẫn HS ghi so sánh theo bảng hai cột.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet" data-chip="Viết">Thách thức thứ hai. Sáng tạo cùng tác giả<small>Sáng tạo sản phẩm nghệ thuật · Viết bài văn trình bày ý kiến về một hiện tượng đời sống được gợi ra từ cuốn sách đã đọc</small></h2>
+
+<article class="the bai" id="viet" data-ten="Bài viết" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết</span><span class="nhan vd">Vận dụng</span><span class="nhan">Trình bày ý kiến về hiện tượng đời sống</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có nhiều cách thể hiện kết quả mà em và các bạn thu hoạch được sau khi đọc sách. Hãy lựa chọn một hoạt động phù hợp:</p>
+    <p>– Sáng tạo sản phẩm nghệ thuật lấy ý tưởng từ cuốn sách đã đọc.</p>
+    <p>– Viết bài văn trình bày ý kiến về một hiện tượng đời sống được gợi ra từ cuốn sách.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một chi tiết nhỏ trong sách có làm em nghĩ tới một chuyện đang xảy ra ngay quanh mình không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nếu chọn viết bài văn: bắt đầu từ <b>một</b> chi tiết, sự việc, nhân vật trong sách làm em nghĩ nhiều nhất, rồi hỏi: ngoài đời, chuyện giống như thế đang xảy ra ở đâu? Em nghĩ gì về nó?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nếu em chọn sáng tạo sản phẩm nghệ thuật</h4>
+      <p>SGK gợi ý: “sáng tác thơ, kể chuyện sáng tạo, vẽ tranh thể hiện một số chi tiết, nhân vật đáng nhớ hoặc minh hoạ cho chuỗi sự kiện (truyện tranh)”. Hai sản phẩm tham khảo in ở SGK trang 103 là hai tấm pô-xtơ vẽ tay: một của bạn Nguyễn Duy Bảo Minh về <i>Nhóc Ni-cô-la: những chuyện chưa kể</i> (nền xanh lá, các ô tam giác vẽ sân trường, lớp học, cậu bé áo đỏ cầm cặp đang chạy…); một của bạn Nguyễn Thị Mai Phương về <i>Dế Mèn phiêu lưu kí</i> (nền vàng, vẽ con cò bên đầm sen, chuồn chuồn, bụi cỏ xanh và hai chú dế).</p>
+      <p class="vi-sao">Cả hai bạn đều chọn những hình ảnh có thật trong sách. Sản phẩm sáng tạo vẫn phải “bám” cuốn sách: chọn một chi tiết cụ thể và nói được vì sao chi tiết ấy đáng nhớ.</p></div>
+    <div class="buoc" data-so="2"><h4>Đọc bài tham khảo của SGK: từ chuyện trong sách ra chuyện ngoài đời</h4>
+      <blockquote class="trich"><p>Câu chuyện về cái chết do ngộ độc váng dầu của chim hải âu Ken-ga đã gợi cho em nhiều suy nghĩ về trách nhiệm của con người đối với môi trường sống trên Trái Đất.</p><cite>— Đoạn mở bài, <i>Nỗi đau của Ken-ga (Kengah) và trách nhiệm của con người với môi trường</i></cite></blockquote>
+      <blockquote class="trich"><p>Điều này không chỉ xảy ra với vùng biển nơi Ken-ga và đàn hải âu Hải Đăng Cát Đỏ sinh sống.</p><cite>— Đoạn thứ hai</cite></blockquote>
+      <p>Bài có bốn đoạn, ứng với năm lời ghi chú bên lề: đoạn 1 <b>giới thiệu tên sách, tác giả</b> và <b>nêu hiện tượng, suy nghĩ</b>; đoạn 2 <b>dùng lí lẽ và bằng chứng</b> (có cả câu trích nguyên văn từ cuốn sách); đoạn 3 <b>liên hệ với thực tế đời sống</b> (việc bạn ấy tự làm khi đi biển); đoạn 4 <b>nêu tầm quan trọng, ý nghĩa</b>.</p>
+      <p class="vi-sao">Câu thứ hai là “chiếc cầu”: người viết bước từ vùng biển của Ken-ga sang “rất nhiều nơi khác” ngoài đời thật. Kiểu bài này cần đúng bước ấy — từ một chi tiết trong sách, nhìn ra một hiện tượng đời sống.</p></div>
+    <div class="buoc" data-so="3"><h4>Tìm ý bằng bốn câu hỏi của SGK</h4>
+      <p>Cuốn sách nào, ai là tác giả? Chi tiết, sự việc, nhân vật nào ấn tượng sâu sắc nhất? Chi tiết ấy khiến em nghĩ đến hiện tượng đời sống nào? Em có ý kiến như thế nào về hiện tượng đó?</p>
+      <p>Ví dụ với <i>Dế Mèn phiêu lưu kí</i>: chi tiết Dế Mèn trêu chị Cốc chỉ vì “Tính tôi hay nghịch ranh” → hiện tượng: trêu chọc người khác “cho vui” mà không nghĩ đến hậu quả → ý kiến: đó là thói quen cần bỏ.</p>
+      <a class="xem-lai" href="#kt-yeu-cau">📌 Xem lại: yêu cầu đối với bài văn</a></div>
+    <div class="buoc" data-so="4"><h4>Lập dàn ý, viết — theo một câu mẫu</h4>
+      <p>Theo dàn ý SGK: mở bài giới thiệu sách, tác giả, hiện tượng; thân bài nêu ý kiến, lí lẽ và bằng chứng, trình bày cụ thể chi tiết gợi ra hiện tượng; kết bài nêu tầm quan trọng, ý nghĩa thực tế. Thân bài có thể tách mỗi ý chính thành một đoạn.</p>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Có những cuốn sách đọc xong ta gấp lại rồi quên, nhưng cũng có cuốn khiến ta nhìn khác đi về chính những chuyện đang diễn ra quanh mình.</i></p>
+      <a class="xem-lai" href="#kt-dan-y">📌 Xem lại: dàn ý bài văn</a></div>
+    <div class="buoc" data-so="5"><h4>Chỉnh sửa: chính xác trước tiên</h4>
+      <p>SGK dặn soát hai điều: “Tính chính xác của tên sách, tên tác giả và các chi tiết, sự việc, nhân vật”; và viết đúng chính tả, dùng từ ngữ, câu phù hợp, sắp xếp ý chặt chẽ. Mở sách ra đối chiếu từng câu trích dẫn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài văn đạt yêu cầu khi: (1) <b>nêu được tên sách và tác giả</b>, chính xác; (2) <b>nêu được hiện tượng đời sống</b> gợi ra từ cuốn sách và <b>ý kiến của em</b> về hiện tượng đó; (3) <b>sử dụng được lí lẽ và bằng chứng</b> để làm rõ hiện tượng — bằng chứng có thể lấy từ sách (chi tiết, câu trích đúng nguyên văn) và từ đời sống thực; (4) trình bày cụ thể chi tiết, sự việc, nhân vật trong sách đã gợi ra hiện tượng; (5) bố cục ba phần rõ ràng, kết bài nêu được tầm quan trọng, ý nghĩa thực tế của hiện tượng; (6) đúng chính tả, dùng từ, đặt câu phù hợp, các ý sắp xếp chặt chẽ. (Nếu chọn hoạt động sáng tạo sản phẩm nghệ thuật: sản phẩm lấy ý tưởng từ một chi tiết, nhân vật cụ thể trong cuốn sách và em nói được vì sao chọn chi tiết ấy.)</div>
+    <div class="bay">Tóm tắt lại cả cuốn sách mà không nêu hiện tượng đời sống nào; hoặc ngược lại, bàn chuyện đời sống mà quên mất cuốn sách — bài chỉ còn là một bài nghị luận Bài 8. Và viết sai tên tác giả, tên nhân vật vì không mở sách kiểm tra.</div>
+    <div class="gv-note">Đánh giá theo các tiêu chí trong ô Gợi ý trả lời (ba yêu cầu của khung 📌 + dàn ý + mục Chỉnh sửa của SGK). Bài tham khảo dưới đây chỉ để GV đối chiếu; tránh phát cho HS chép — theo nguyên tắc không viết hộ bài văn. Đề tài trêu chọc bạn bè có thể chạm tới chuyện bắt nạt: không ép HS kể chuyện riêng trước lớp. Mọi câu trích trong bài tham khảo đã đối chiếu nguyên văn với đoạn trích Bài 1 và chú thích trang 12.</div>
+    <div class="tham-khao">
+    <h5>Trò đùa của Dế Mèn và chuyện trêu chọc bạn bè</h5>
+    <p>Cuốn sách em yêu thích nhất là <i>Dế Mèn phiêu lưu kí</i> của nhà văn Tô Hoài. Truyện có mười chương, nhưng chương đầu tiên — chương có tiêu đề “Tôi sống độc lập từ thuở bé – Một sự ngỗ nghịch đáng ân hận suốt đời” — lại là chương khiến em nghĩ nhiều nhất. Từ trò đùa trêu chị Cốc của Dế Mèn, em nhận ra một hiện tượng vẫn thường gặp quanh mình: trêu chọc người khác “cho vui” mà không nghĩ đến hậu quả. Theo em, đó là một thói quen cần phải bỏ.</p>
+    <p>Dế Mèn bày trò không vì một lí do nào cả. Chính Mèn kể: “Tính tôi hay nghịch ranh. Chẳng bận đến tôi, tôi cũng nghĩ mưu trêu chị Cốc.” Dế Choắt đang lên cơn hen đã can: “Anh đừng trêu vào… Anh phải sợ…”, nhưng Mèn vẫn cất giọng hát véo von chọc tức chị Cốc rồi “chui tọt ngay vào hang”. Người phải hứng những cú mổ “như cái dùi sắt” lại là Dế Choắt yếu ớt. Chỉ vài câu hát trêu đã lấy đi mạng sống của một người hàng xóm, và để lại cho Dế Mèn nỗi ân hận suốt đời.</p>
+    <p>Ngoài đời, chẳng ai bị mổ như Dế Choắt, nhưng những trò trêu chọc vẫn làm người khác đau. Ngay cái tên “Dế Choắt” cũng là tên Mèn đặt “một cách chế giễu và trịch thượng” — giống hệt những biệt danh về dáng người, giọng nói mà nhiều bạn vẫn gán cho nhau. Người trêu thấy vui; người bị trêu thì xấu hổ, buồn bã, có khi ngại cả đến lớp. Điều đáng nói là người trêu thường không định làm hại ai, họ chỉ không chịu nghĩ. Dế Mèn cũng vậy: nằm trong hang, Mèn còn khoái chí vì tin chị Cốc chẳng làm gì được mình. Như chính người kể tự nhận: “Một tai hoạ đến mà đứa ích kỉ thì không thể biết trước được.” Một trò đùa chỉ nghĩ đến niềm vui của mình mà không nghĩ đến cảm giác của người khác thì đã là một trò đùa ích kỉ.</p>
+    <p>Em cũng từng giống Dế Mèn. Hồi lớp 4, em cùng mấy bạn gọi một bạn mới chuyển đến bằng một biệt danh về dáng người gầy của bạn. Bọn em cười rất to, còn bạn chỉ cúi đầu. Mãi đến khi cô giáo nói chuyện riêng với em, em mới biết bạn đã buồn suốt mấy hôm, và em thấy mặt mình nóng bừng. Từ đó, trước khi đùa, em tự hỏi: nếu mình là bạn ấy, mình có cười được không? Em nghĩ ai cũng có thể làm như thế: chỉ đùa khi cả hai cùng vui, dừng lại ngay khi bạn không cười nữa, và lên tiếng bênh vực những bạn đang bị trêu chọc.</p>
+    <p>Dế Mèn phải trả giá bằng cái chết của Dế Choắt mới hiểu ra “bài học đường đời đầu tiên”. Chúng ta may mắn hơn, vì có thể học bài học ấy từ trang sách. Lời Dế Choắt dặn trước khi nhắm mắt — “ở đời mà có thói hung hăng bậy bạ, có óc mà không biết nghĩ, sớm muộn rồi cũng mang vạ vào mình đấy” — đến hôm nay vẫn đúng với những ai coi việc trêu chọc người khác là chuyện vui. Đọc <i>Dế Mèn phiêu lưu kí</i>, em không chỉ được theo chân một chàng dế, mà còn học được một điều giản dị: nghĩ trước khi đùa.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Về đích. Ngày hội với sách<small>Giới thiệu sản phẩm minh hoạ sách · Trình bày ý kiến về một vấn đề trong đời sống được gợi ra từ cuốn sách đã đọc</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Trình bày ý kiến trước lớp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong phần này, em và các bạn có thể giới thiệu sản phẩm minh hoạ sách hoặc trình bày ý kiến về một vấn đề trong đời sống được gợi ra từ cuốn sách đã đọc.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài viết của em là để đọc. Bài nói là để <b>nghe</b> — người nghe cần gì ở em mà người đọc không cần?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng lại chính sản phẩm hoặc bài viết của em ở Thách thức thứ hai. Nhưng đừng học thuộc: ghi ra một tờ giấy nhỏ vài ý chính, nhìn ý mà nói, mắt nhìn người nghe.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nếu em giới thiệu sản phẩm minh hoạ sách</h4>
+      <p>Nói ba điều: sản phẩm minh hoạ cho cuốn sách nào, chi tiết nào; em làm nó bằng cách nào; em muốn người xem cảm nhận được điều gì. Sản phẩm có thể là pô-xtơ, tranh ảnh, mô hình, trưng bày ở lớp học, thư viện hoặc một không gian phù hợp trong trường.</p></div>
+    <div class="buoc" data-so="2"><h4>Nếu em trình bày ý kiến: tìm ý bằng năm câu hỏi</h4>
+      <p>Vấn đề đời sống được gợi ra từ cuốn sách là gì? Chi tiết, sự việc nào trong sách cho thấy rõ vấn đề ấy? Em đồng ý hay không đồng ý, vì sao? Hành động của em trước vấn đề ấy? Em muốn nói gì với người nghe, với tác giả và những người đọc khác?</p>
+      <p class="vi-sao">Câu hỏi cuối là điểm riêng của bài nói này: em không chỉ nói với thầy cô, bạn bè mà còn có thể “gửi lời” tới tác giả — như một bạn đọc trò chuyện với người viết.</p></div>
+    <div class="buoc" data-so="3"><h4>Sắp xếp ý theo ba thông tin SGK yêu cầu</h4>
+      <p>(1) Tên sách và tác giả; (2) vấn đề đời sống em muốn bàn (kèm chi tiết trong sách, ý kiến, hành động của em); (3) ý nghĩa của cuốn sách trong việc giúp em có cái nhìn sâu sắc, toàn diện hơn về các vấn đề đời sống.</p>
+      <p>Cô làm mẫu câu mở đầu thôi, phần còn lại em tự nói nhé: <i>Chào cô và các bạn. Có một trò đùa chỉ kéo dài vài câu hát, nhưng đã khiến một chàng dế ân hận suốt đời — hôm nay tớ muốn kể với các bạn về trò đùa ấy, trong cuốn</i> Dế Mèn phiêu lưu kí <i>của nhà văn Tô Hoài.</i></p></div>
+    <div class="buoc" data-so="4"><h4>Trình bày và trao đổi</h4>
+      <p>Khi nói: lần lượt theo dàn ý; dùng lí lẽ và bằng chứng cụ thể, dẫn từ sách hoặc đời sống thực; bộc lộ cảm xúc, thái độ phù hợp. Sau khi nói: <b>người nghe</b> ghi lại điểm cần trao đổi, nêu ý kiến, đặt câu hỏi; <b>người nói</b> lắng nghe, trả lời để làm rõ hơn vấn đề hoặc cùng thảo luận thêm.</p>
+      <a class="xem-lai" href="#kt-noi">📌 Xem lại: trình bày bài nói</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói trình bày ý kiến đạt yêu cầu khi: (1) nêu rõ <b>tên sách và tác giả</b>; (2) nêu được <b>vấn đề đời sống</b> cuốn sách gợi ra, có <b>chi tiết, sự việc trong sách</b> làm rõ vấn đề; (3) bày tỏ rõ <b>ý kiến</b> của em (đồng ý / không đồng ý, vì sao) và hành động của em, dùng lí lẽ và bằng chứng cụ thể từ sách hoặc đời sống thực; (4) nói được ý nghĩa của cuốn sách với em; (5) trình bày theo dàn ý, bộc lộ cảm xúc, thái độ phù hợp, nhìn người nghe chứ không đọc thuộc; (6) biết lắng nghe, trả lời câu hỏi của người nghe. (Nếu giới thiệu sản phẩm minh hoạ: nói rõ sản phẩm minh hoạ cho cuốn sách nào, chi tiết nào, làm bằng cách nào và muốn người xem cảm nhận điều gì.)</div>
+    <div class="bay">Cầm bài viết lên đọc từ đầu đến cuối, mắt không rời trang giấy. Nói khác viết: người nghe cần em nhìn họ, nói chậm ở chỗ quan trọng và dừng lại cho họ kịp nghĩ.</div>
+    <div class="gv-note">Có thể tổ chức “Ngày hội với sách” thành hai khu: khu trưng bày sản phẩm minh hoạ và khu trình bày ý kiến. Dùng 6 tiêu chí trong ô Gợi ý trả lời làm phiếu đánh giá đồng đẳng; khuyến khích người nghe đặt ít nhất một câu hỏi thật sự muốn hỏi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 10. Cuốn sách tôi yêu — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài 10 là bài dự án đọc sách: phần lớn câu hỏi xoay quanh cuốn sách của chính em, nên không có một đáp án duy nhất — câu trả lời tốt là câu trả lời có căn cứ trong văn bản, trong cuốn sách em đọc.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b10';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-10-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-10-bai-giai.nguon.html" data-phien-ban="7edbcc807496">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

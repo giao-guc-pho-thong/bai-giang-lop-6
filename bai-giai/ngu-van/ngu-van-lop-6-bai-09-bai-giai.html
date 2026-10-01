@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 9. Trái Đất – ngôi nhà chung — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập hai</div>
+    <div class="hang1">
+      <h1>Bài 9. Trái Đất – ngôi nhà chung — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập hai</div><h1>Bài 9. Trái Đất – ngôi nhà chung — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 10 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-van-ban"><b class="ten">Văn bản</b>
+      Văn bản là đơn vị giao tiếp có tính hoàn chỉnh về nội dung và hình thức, tồn tại ở dạng viết hoặc dạng nói. Văn bản được dùng để trao đổi thông tin, trình bày suy nghĩ, cảm xúc,…</div>
+    <div class="kt" id="kt-doan-van"><b class="ten">Đoạn văn trong văn bản</b>
+      Đoạn văn là bộ phận quan trọng của văn bản, có sự hoàn chỉnh tương đối về ý nghĩa và hình thức, gồm nhiều câu (có khi chỉ một câu) được tổ chức xoay quanh một ý nhỏ. Đoạn văn bắt đầu bằng chữ viết hoa lùi đầu dòng và kết thúc bằng một dấu chấm câu.</div>
+    <div class="kt" id="kt-vbtt"><b class="ten">Các yếu tố và cách triển khai của văn bản thông tin</b>
+      Một văn bản thông tin thường có các yếu tố như: nhan đề (một số văn bản có sa-pô dưới nhan đề), đề mục (tên gọi của các phần), đoạn văn, tranh ảnh,…<br>
+      Mỗi văn bản thông tin có một cách triển khai riêng. Bên cạnh cách triển khai theo trật tự thời gian, văn bản thông tin có thể được triển khai theo quan hệ nhân quả, nguyên nhân được nêu trước, tiếp sau đó là kết quả, tất cả tạo thành một chuỗi liên tục.</div>
+    <div class="kt" id="kt-da-phuong-thuc"><b class="ten">Văn bản đa phương thức</b>
+      Văn bản đa phương thức là loại văn bản có sử dụng phối hợp phương tiện ngôn ngữ và các phương tiện phi ngôn ngữ như kí hiệu, sơ đồ, biểu đồ, hình ảnh, âm thanh,…</div>
+    <div class="kt" id="kt-tu-muon"><b class="ten">Từ mượn và hiện tượng vay mượn từ</b>
+      Từ mượn là từ có nguồn gốc từ một ngôn ngữ khác. Tiếng Việt từng vay mượn nhiều từ của tiếng Hán và tiếng Pháp. Hiện nay, tiếng Việt có xu hướng vay mượn nhiều từ của tiếng Anh.<br>
+      Trong sự tiếp xúc, giao lưu ngôn ngữ giữa các dân tộc, các ngôn ngữ thường vay mượn từ của nhau để làm giàu cho vốn từ của mình.</div>
+    <div class="kt" id="kt-loai-vb"><b class="ten">Nhận biết đặc điểm và loại văn bản</b>
+      Căn cứ vào sự có mặt hay không có mặt của các phương tiện phi ngôn ngữ để xác định tính chất văn bản: <i>văn bản thông thường</i> hay <i>văn bản đa phương thức</i>.<br>
+      Những nhu cầu giao tiếp đa dạng dẫn đến việc hình thành nhiều loại văn bản khác nhau: văn bản thông tin, văn bản nghị luận, văn bản văn học. Có thể căn cứ vào chức năng chính mà một văn bản phải đảm nhiệm như thông tin, thuyết phục, hay thẩm mĩ để biết được văn bản thuộc loại nào.</div>
+    <div class="kt" id="kt-chuc-nang-doan"><b class="ten">Nhận biết chức năng đoạn văn trong văn bản</b>
+      Một đoạn văn có thể đảm nhiệm một trong các chức năng: mở đầu văn bản; trình bày một khía cạnh nào đó của nội dung chính; kết thúc văn bản hoặc mở rộng, liên kết vấn đề. Cần dựa vào vị trí (thứ tự) và nội dung của đoạn văn để xác định đúng chức năng của nó trong văn bản.</div>
+    <div class="kt" id="kt-dung-tu-muon"><b class="ten">Nhận biết từ mượn và lưu ý về sử dụng từ mượn</b>
+      Trong những từ mượn tiếng Hán, nhiều từ đơn như <i>đầu</i>, <i>phòng</i>, <i>cao</i>, <i>tuyết</i>, <i>băng</i>, <i>thần</i>, <i>bút</i>,… được cảm nhận như từ thuần Việt. Các từ phức như <i>nhi đồng</i>, <i>phụ lão</i>, <i>không phận</i>, <i>hải phận</i>, <i>địa cực</i>, <i>phục dựng</i>,… ít nhiều còn gây cảm giác khó hiểu, thường chỉ được dùng trong những hoàn cảnh giao tiếp trang trọng.<br>
+      Một số từ mượn các ngôn ngữ châu Âu được Việt hoá gần như hoàn toàn, nhất là những từ đơn như <i>săm</i>, <i>lốp</i>, <i>bom</i>, <i>tăng</i> (xe tăng), <i>mét</i> (đơn vị đo khoảng cách),… Nhiều từ khác như <i>xà phòng</i>, <i>xi măng</i>, <i>com lê</i>, <i>cà vạt</i>, <i>cà phê</i>, <i>câu lạc bộ</i>,… cũng được dùng phổ biến, có cách đọc và hình thức chính tả giống từ thuần Việt.<br>
+      Không ít từ mượn tiếng Pháp, tiếng Anh,… được viết nguyên dạng giống trong ngôn ngữ gốc như <i>video</i>, <i>smartphone</i>, <i>internet</i>, <i>biome</i>,… hoặc được viết tách từng âm tiết (theo cách đọc của tiếng Việt) mà giữa các âm tiết có gạch nối như <i>ô-xi</i>, <i>a-xít</i>, <i>nê-ông</i>, <i>ra-đi-ô</i>, <i>ki-lô-gam</i>,…<br>
+      Tránh lạm dụng từ mượn để không gây khó hiểu, khó chịu cho người nghe, người đọc và để không làm mất đi sự trong sáng của tiếng Việt.</div>
+    <div class="kt" id="kt-bien-ban"><b class="ten">Thể thức của biên bản thông thường</b>
+      Đầu biên bản, phía bên phải ghi quốc hiệu và tiêu ngữ; phía bên trái ghi tên cơ quan chức năng có nhiệm vụ tổ chức cuộc họp, cuộc thảo luận hay xử lí vụ việc. · Dưới từ “Biên bản”, ghi khái quát vấn đề mà cuộc họp, cuộc thảo luận cần giải quyết hay nội dung của vụ việc cần xử lí, làm thành tên gọi của biên bản. · Ghi thời gian và địa điểm diễn ra cuộc họp, cuộc thảo luận, xử lí vụ việc,… · Ghi thành phần tham dự và tên người chủ trì, người thư kí. · Ghi diễn biến của cuộc họp, cuộc thảo luận hay cuộc xử lí vụ việc với các nội dung cụ thể, theo đúng thực tế đã diễn ra (bao gồm các ý kiến tường trình, phát biểu và kết luận). · Ghi thời gian kết thúc cuộc họp, cuộc thảo luận hay cuộc xử lí vụ việc. · Người chủ trì và thư kí (tuỳ trường hợp, có thể thêm người làm chứng) kí tên.</div>
+    <div class="kt" id="kt-so-do"><b class="ten">Yêu cầu của việc tóm tắt bằng sơ đồ nội dung của một văn bản đơn giản</b>
+      Làm nổi bật được nội dung chủ yếu của văn bản. · Làm sáng tỏ được những mối liên hệ bên trong giữa các bộ phận chính của văn bản. · Bảo đảm tính trực quan, thẩm mĩ, gây được ấn tượng tích cực về mặt thị giác để có thể hỗ trợ tốt cho trí nhớ.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 9. Trái Đất – ngôi nhà chung (Tri thức ngữ văn; Thực hành tiếng Việt trang 81, 86; Viết trang 88, 91).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-vb1" data-chip="Văn bản 1">Văn bản 1. Trái Đất – cái nôi của sự sống<small>Hồ Thanh Trang</small></h2>
+
+<article class="the bai" id="v1-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Em từng nghe, đọc hay đã thuộc những ca khúc, bài thơ nào viết về Trái Đất? Chúng đã gợi lên trong em ấn tượng, cảm xúc gì? Theo em, để hiểu biết và yêu quý hơn hành tinh xanh này, chúng ta còn cần phải tìm đến những nguồn thông tin hay loại tài liệu nào khác?</p>
+    <p><b>2.</b> Người ta thường nói: “Sự sống muôn màu”. Em hiểu điều này như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lần gần nhất em ngước nhìn bầu trời, hay nhìn một quả địa cầu, em đã nghĩ gì về hành tinh mình đang sống?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1 có ba ý nhỏ — kể tên bài hát / bài thơ, nói cảm xúc, rồi kể thêm nguồn tìm hiểu khác. Câu 2: chữ “muôn màu” ở đây có phải chỉ nói về màu sắc không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Từ bài hát, bài thơ đến những nguồn thông tin khác</h4>
+      <p>Bài hát quen thuộc với nhiều bạn là <i>Trái Đất này là của chúng mình</i>. Nghe bài hát, em thấy gì: một Trái Đất tròn, xanh, có trẻ em khắp nơi nắm tay nhau? Đó là <b>cảm xúc</b>. Còn muốn <b>hiểu</b> Trái Đất thì cần thêm sách khoa học, bách khoa thư, bản đồ, phim tài liệu, bài báo của các nhà khoa học.</p>
+      <p class="vi-sao">Bài hát, bài thơ làm ta <b>yêu</b> Trái Đất; tài liệu khoa học giúp ta <b>biết</b> Trái Đất. Văn bản em sắp đọc thuộc loại thứ hai — một bài báo cung cấp thông tin.</p></div>
+    <div class="buoc" data-so="2"><h4>Hiểu chữ “muôn màu”</h4>
+      <p>“Muôn” là rất nhiều, không đếm xuể. “Muôn màu” là vô cùng đa dạng: rất nhiều loài, nhiều hình dáng, nhiều cách sống khác nhau.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>1.</b> Em có thể kể bài hát <i>Trái Đất này là của chúng mình</i>: bài hát gợi cho em hình ảnh một Trái Đất tròn, xanh, nơi trẻ em mọi nơi cùng chung sống, khiến em thấy vui và muốn giữ cho Trái Đất bình yên. Để hiểu và yêu Trái Đất hơn, chúng ta còn cần đọc sách khoa học, bách khoa thư, bản đồ, xem phim tài liệu về thiên nhiên, đọc các bài báo khoa học. <b>2.</b> “Sự sống muôn màu” nghĩa là sự sống trên Trái Đất vô cùng phong phú, đa dạng: có rất nhiều loài, từ sinh vật nhỏ li ti đến những loài khổng lồ, mỗi loài một hình dáng, một màu sắc, một cách sống riêng.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Chấp nhận mọi bài hát, bài thơ HS kể được (kể cả bài nước ngoài). Ý thứ ba của câu 1 dẫn thẳng vào văn bản thông tin — nên dừng ở đó để giới thiệu văn bản 1 là một bài báo.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thông tin chủ yếu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Liệt kê theo hình thức gạch đầu dòng những thông tin chủ yếu của văn bản.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Văn bản đã tự chia sẵn thành mấy phần? Nhìn những dòng in đậm là thấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản có năm đề mục in đậm. Mỗi đề mục, em ghi một gạch đầu dòng: phần ấy cho em biết điều chính nào? Ghi ý, đừng chép cả đoạn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm “bộ khung” của văn bản</h4>
+      <p>Năm đề mục: <i>Trái Đất trong hệ Mặt Trời</i> · <i>“Vị thần hộ mệnh” của sự sống trên Trái Đất</i> · <i>Trái Đất – nơi cư ngụ của muôn loài</i> · <i>Con người trên Trái Đất</i> · <i>Tình trạng Trái Đất hiện ra sao?</i></p>
+      <p class="vi-sao">Đề mục là tên gọi của từng phần. Người viết đã gom thông tin vào từng ngăn cho người đọc — mình chỉ cần mở từng ngăn ra xem bên trong có gì.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: các yếu tố của văn bản thông tin</a></div>
+    <div class="buoc" data-so="2"><h4>Rút ý chính của mỗi phần</h4>
+      <blockquote class="trich"><p>Nhờ có nước, đặc biệt là nước ở thể lỏng, Trái Đất thực sự trở thành cái nôi của sự sống trong hệ Mặt Trời.</p><cite>— Câu mở đầu phần 2</cite></blockquote>
+      <p class="vi-sao">Ở văn bản thông tin, ý chính thường nằm ở câu đầu hoặc câu cuối của phần. Phần 2 nói rõ ngay từ câu đầu: nước là điều kiện để có sự sống.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những thông tin chủ yếu của văn bản:<br>
+    – Trái Đất là một trong tám hành tinh của hệ Mặt Trời; nó vừa tự quay quanh trục (mỗi vòng hết một ngày), vừa quay quanh Mặt Trời (mỗi vòng hết một năm).<br>
+    – Nhờ có nước — “vị thần hộ mệnh” của sự sống — Trái Đất trở thành cái nôi của sự sống; nước bao phủ gần 3/4 bề mặt Trái Đất.<br>
+    – Trái Đất là nơi cư ngụ của muôn loài, từ vi sinh vật nhỏ li ti đến những loài khổng lồ như cây bao báp, cá voi xanh, khủng long.<br>
+    – Con người là đỉnh cao kì diệu của sự sống, đã cải tạo Trái Đất nhưng cũng khai thác thiên nhiên một cách bừa bãi.<br>
+    – Trái Đất đang bị tổn thương nặng nề (rừng co hẹp, động vật tuyệt chủng, rác thải nhựa, Trái Đất nóng lên, băng tan, ô nhiễm); sự sống đang đứng trước những thách thức to lớn.</div>
+    <div class="bay">Chép nguyên cả câu văn dài hoặc chỉ chép lại năm đề mục. Đề mục mới là tên phần; thông tin chủ yếu là điều phần ấy <b>cho em biết</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phương tiện phi ngôn ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bức tranh minh hoạ làm sáng tỏ thông tin gì trong văn bản?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bức tranh đặt cạnh phần nào? Phần ấy đang kể về điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đếm xem trong tranh có bao nhiêu loài, sống ở những đâu (trên cạn, trên trời, dưới nước). Rồi đọc lại phần <i>Trái Đất – nơi cư ngụ của muôn loài</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc bức tranh</h4>
+      <p>Theo mô tả tranh trang 79: trên bờ có rừng cây, hươu cao cổ, nai, hổ, voi, thỏ; trên trời có chim đại bàng và các loài chim nhỏ; dưới nước có cá heo, đàn cá nhỏ, sứa, rùa biển, rong biển, rạn san hô.</p></div>
+    <div class="buoc" data-so="2"><h4>Đặt tranh cạnh chữ</h4>
+      <blockquote class="trich"><p>Trên những cánh rừng nguyên sinh trùng điệp hay giữa lòng đại dương bao la, có vô số loài thực vật, động vật khác nhau sinh sôi nảy nở […]</p><cite>— Phần “Trái Đất – nơi cư ngụ của muôn loài”</cite></blockquote>
+      <p class="vi-sao">Chữ nói “vô số loài”, tranh cho em <b>nhìn thấy</b> cái “vô số” ấy: rừng và biển, trên cạn và dưới nước, cùng lúc trong một khung hình. Tranh ảnh là phương tiện phi ngôn ngữ — nó không thay chữ, mà giúp chữ dễ hình dung hơn.</p>
+      <a class="xem-lai" href="#kt-da-phuong-thuc">📌 Xem lại: văn bản đa phương thức</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bức tranh làm sáng tỏ thông tin của phần <b><i>Trái Đất – nơi cư ngụ của muôn loài</i></b>: sự sống trên Trái Đất vô cùng phong phú. Trên cạn có rừng cây, hươu cao cổ, nai, hổ, voi, thỏ; trên trời có đại bàng và chim nhỏ; dưới nước có cá heo, đàn cá, sứa, rùa biển, rong biển, san hô. Nhìn tranh, người đọc hình dung ngay được “vô số loài thực vật, động vật” đang sinh sôi trên rừng và dưới biển mà phần chữ kể ra.</div>
+    <div class="bay">Chỉ tả lại bức tranh mà không nói nó gắn với thông tin nào của văn bản. Câu hỏi hỏi tranh <b>làm sáng tỏ</b> điều gì.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cách triển khai</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vấn đề chính được đề cập trong phần 2 (<i>“Vị thần hộ mệnh” của sự sống trên Trái Đất</i>) là gì? Việc nói về vấn đề đó liên quan như thế nào đối với hướng triển khai những nội dung khác ở các phần kế tiếp?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu rút phần 2 ra khỏi văn bản, các phần sau có còn đứng vững không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc câu cuối của phần 2 rồi đọc ngay đề mục phần 3. Hai chỗ ấy “bắt tay” nhau thế nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vấn đề chính của phần 2</h4>
+      <blockquote class="trich"><p>Nếu không có nước thì Trái Đất chỉ là hành tinh khô chết, trơ trụi. Nước chính là “vị thần hộ mệnh” của sự sống, là tác nhân quan trọng thúc đẩy quá trình tiến hoá của các vật chất sống trên hành tinh này.</p><cite>— Phần 2</cite></blockquote>
+      <p>Phần 2 nói về <b>nước</b> và vai trò của nước đối với sự sống.</p></div>
+    <div class="buoc" data-so="2"><h4>Chỗ phần 2 nối sang các phần sau</h4>
+      <blockquote class="trich"><p>Nhờ nước, sự sống trên Trái Đất phát triển dưới nhiều dạng phong phú, từ vi sinh vật mang cấu tạo đơn giản đến động vật bậc cao có hệ thần kinh vô cùng phức tạp.</p><cite>— Câu cuối phần 2</cite></blockquote>
+      <p class="vi-sao">Câu này như một cánh cửa: “nhiều dạng phong phú” mở sang phần 3 (muôn loài); “động vật bậc cao có hệ thần kinh vô cùng phức tạp” mở sang phần 4 (con người — “Là động vật bậc cao, con người có bộ não và hệ thần kinh phát triển nhất”). Có nước → có muôn loài → có con người: đó là một chuỗi nguyên nhân – kết quả.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: triển khai theo quan hệ nhân quả</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Phần 2 nói về <b>nước</b> — “vị thần hộ mệnh” của sự sống: nhờ nước, Trái Đất mới trở thành cái nôi của sự sống; không có nước, Trái Đất “chỉ là hành tinh khô chết, trơ trụi”. Phần này giữ vai trò <b>bản lề</b>: nó là nguyên nhân để các phần sau triển khai tiếp. Vì có nước nên sự sống phát triển “dưới nhiều dạng phong phú” — đó là nội dung phần 3 (muôn loài); trong sự sống ấy, đỉnh cao là con người — nội dung phần 4; rồi chính con người lại làm Trái Đất tổn thương — nội dung phần 5. Các phần nối nhau thành một chuỗi theo <b>quan hệ nhân quả</b>.</div>
+    <div class="bay">Trả lời đúng vế đầu (“phần 2 nói về nước”) rồi dừng. Vế thứ hai hỏi về <b>mối liên hệ</b> với các phần sau — phải chỉ ra được phần 2 “dẫn” sang phần 3, 4 như thế nào.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c4" data-ten="Câu 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Bổ sung thông tin</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Văn bản đã nói được đầy đủ về sự kì diệu của sự sống trên Trái Đất chưa? Em có thể bổ sung điều gì xung quanh vấn đề này?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một bài báo ngắn có thể kể hết mọi điều kì diệu của sự sống không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản đưa ví dụ về loài rất nhỏ và loài rất lớn. Còn những loài kì lạ vì màu sắc, vì khả năng đặc biệt, vì sống được ở nơi khắc nghiệt thì sao?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Văn bản đã nói gì</h4>
+      <blockquote class="trich"><p>Tất cả mọi dạng sống đều tồn tại, phát triển trong những mối quan hệ tương tác hết sức phức tạp mà hiện con người chưa thể khám phá hết.</p><cite>— Phần 3</cite></blockquote>
+      <p class="vi-sao">Chính người viết đã thừa nhận: con người “chưa thể khám phá hết”. Một bài báo vài trang chỉ chọn được mấy ví dụ tiêu biểu (vi sinh vật, bao báp, cá voi xanh, khủng long, hoa cỏ, gia súc).</p></div>
+    <div class="buoc" data-so="2"><h4>Bổ sung theo nhóm cho có trật tự</h4>
+      <p>Ví dụ: loài <b>đổi màu</b> (tắc kè hoa); loài <b>phát sáng</b> (đom đóm); loài sống ở nơi <b>rất lạnh</b> (chim cánh cụt ở Nam Cực) hay nơi <b>rất khô</b> (cây xương rồng ở sa mạc); loài <b>bay rất xa</b> theo mùa (chim én).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. Văn bản <b>chưa thể nói đầy đủ</b>, vì sự sống trên Trái Đất quá phong phú — chính người viết cũng thừa nhận con người “chưa thể khám phá hết”. <b>Một câu trả lời tham khảo:</b> Em muốn bổ sung về sức sống của muôn loài ở những nơi tưởng như không thể sống được: chim cánh cụt vẫn sinh sôi giữa băng giá Nam Cực, cây xương rồng vẫn ra hoa giữa sa mạc khô cằn. Em cũng muốn kể về những khả năng kì lạ: tắc kè hoa đổi màu theo nơi ẩn nấp, đom đóm tự phát sáng trong đêm. Mỗi loài như vậy là một bằng chứng nữa cho thấy sự sống trên Trái Đất thật kì diệu.</div>
+    <div class="bay">Trả lời “văn bản đã đầy đủ” hoặc “chưa đầy đủ” rồi thôi, không bổ sung được điều gì cụ thể. Vế thứ hai mới là phần chính của câu hỏi.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi bổ sung đúng thực tế (loài vật, cây cối, khả năng thích nghi, sự sống ở nơi khắc nghiệt…). Nhắc HS chỉ nêu điều mình chắc chắn, biết được từ sách, phim, bài học KHTN — không tự đoán.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c5" data-ten="Câu 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nêu bằng chứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng hiểu biết của mình, em hãy nêu thêm bằng chứng để khẳng định con người là đỉnh cao kì diệu của sự sống trên Trái Đất.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có việc gì con người làm được mà không loài nào khác làm được?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản đã nêu: bộ não, ý thức, tình cảm, ngôn ngữ. Em tìm thêm bằng chứng là <b>việc làm có thật</b> của con người: chữ viết, sách, thuốc chữa bệnh, máy bay, tàu vũ trụ…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Văn bản đã đưa những bằng chứng nào</h4>
+      <blockquote class="trich"><p>Là động vật bậc cao, con người có bộ não và hệ thần kinh phát triển nhất, có ý thức, có tình cảm, có ngôn ngữ, biết tổ chức cuộc sống theo hướng tích cực.</p><cite>— Phần 4</cite></blockquote>
+      <p class="vi-sao">Đề bảo “nêu <b>thêm</b>” — tức là không chép lại những điều này, mà tìm điều mới từ hiểu biết của em.</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm bằng chứng quanh em</h4>
+      <p>Chữ viết và sách lưu giữ hiểu biết qua nhiều đời; thuốc và vắc-xin cứu sống con người; máy bay, tàu vũ trụ đưa con người lên trời, lên Mặt Trăng; con người làm ra âm nhạc, tranh vẽ, thơ ca; và con người còn biết trồng rừng, cứu những loài sắp tuyệt chủng.</p>
+      <p class="vi-sao">Bằng chứng tốt là sự việc cụ thể, có thật — không phải lời khen chung chung “con người rất giỏi”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Ngoài bộ não, ý thức, tình cảm và ngôn ngữ mà văn bản đã nêu, con người còn sáng tạo ra chữ viết và sách vở để truyền lại hiểu biết cho đời sau; chế tạo ra thuốc, vắc-xin để chữa bệnh, kéo dài tuổi thọ; làm ra máy bay, tàu vũ trụ để bay lên bầu trời và đặt chân lên Mặt Trăng. Con người còn làm ra âm nhạc, thơ ca, hội hoạ — những thứ không nhằm để ăn hay để ở mà để làm đẹp tâm hồn. Và chỉ con người mới biết nhìn lại lỗi lầm của mình, trồng lại rừng, bảo vệ những loài đang bị đe doạ.</div>
+    <div class="bay">Chép lại câu trong văn bản (“con người có bộ não và hệ thần kinh phát triển nhất…”). Đề yêu cầu nêu <b>thêm</b> bằng chứng bằng hiểu biết của em.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi bằng chứng cụ thể, có thật. Có thể hỏi thêm lớp: “Đỉnh cao kì diệu” có nghĩa là con người được quyền làm gì thì làm không? — để nối sang phần 5 và văn bản 2 (“Con người trở nên quá tự kiêu…”).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Câu hỏi trong văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Làm rõ lí do xuất hiện câu hỏi “<i>Trái Đất có thể chịu đựng đến bao giờ?</i>” trong đoạn cuối của văn bản. Câu hỏi đó gợi lên trong em những suy nghĩ gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu hỏi ấy có cần ai trả lời không? Hay người viết hỏi để làm gì khác?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi đứng ngay sau đoạn nào? Đoạn ấy kể những gì đang xảy ra với rừng, với động vật, với biển, với băng, với không khí?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc đoạn đứng ngay trước câu hỏi</h4>
+      <blockquote class="trich"><p>Hiện tại, hành tinh xanh – ngôi nhà chung của nhân loại – đang từng ngày từng giờ bị tổn thương bởi nhiều hành động vô ý thức hay bất chấp tất cả của con người. Thiên nhiên đang bị tàn phá.</p><cite>— Phần 5, đoạn thứ nhất</cite></blockquote>
+      <p>Tiếp theo là cả một chuỗi tổn thương: rừng co hẹp, động vật hoang dã tuyệt chủng, hải sản “nghèo” đi, đại dương thành “túi chứa rác thải nhựa khổng lồ”, Trái Đất nóng lên, băng tan, nước biển dâng, tầng ô-dôn thủng, đất, nước, không khí ô nhiễm.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu hỏi để làm gì</h4>
+      <blockquote class="trich"><p>Trái Đất có thể chịu đựng đến bao giờ? Đó là câu hỏi nhức nhối, khiến nhân loại không thể làm ngơ.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p class="vi-sao">Sau ngần ấy tổn thương, câu hỏi tự bật ra. Người viết không chờ câu trả lời; câu hỏi là để người đọc giật mình, lo lắng, và tự nghĩ: mình phải làm gì. Vì thế đoạn cuối <b>không lạc đề</b> (như thẻ Suy luận trong SGK hỏi) — nó trả lời gián tiếp câu hỏi thứ ba ở sa-pô: “Con người có thể làm gì để bảo vệ Trái Đất?”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu hỏi xuất hiện vì ngay trước đó, văn bản đã kể ra cả một chuỗi tổn thương mà Trái Đất đang gánh chịu do con người gây ra: rừng bị thu hẹp, động vật hoang dã bị săn lùng đến tuyệt chủng, hải sản cạn dần, đại dương ngập rác thải nhựa, Trái Đất nóng lên làm băng tan và nước biển dâng, tầng ô-dôn bị thủng, đất, nước, không khí bị ô nhiễm nặng nề. Sau ngần ấy điều, câu hỏi “Trái Đất có thể chịu đựng đến bao giờ?” là một lời báo động: Trái Đất không thể chịu đựng mãi. Câu hỏi gợi trong em nỗi lo lắng cho ngôi nhà chung, và cả một suy nghĩ rằng mình không thể đứng ngoài — phải bắt đầu bảo vệ Trái Đất từ những việc nhỏ ngay hôm nay.</div>
+    <div class="bay">Đi tìm “câu trả lời” cho câu hỏi (ví dụ đoán “Trái Đất chịu được 100 năm nữa”). Câu hỏi này không nhằm hỏi thông tin, mà để thức tỉnh người đọc.</div>
+    <div class="gv-note">Vế thứ hai là phần mở: chấp nhận mọi suy nghĩ chân thật, có liên hệ với nội dung văn bản. Có thể kết hợp thẻ 🔎 <i>Suy luận</i> (“Ý sau cùng của bài có lạc đề không?”) để HS thấy đoạn cuối nối lại với sa-pô.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c7" data-ten="Câu 7" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cách đọc văn bản thông tin</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Từ việc đọc hiểu văn bản <i>Trái Đất – cái nôi của sự sống</i>, em rút ra được kinh nghiệm gì về cách đọc một văn bản thông tin?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em đã đọc bài này theo thứ tự nào? Chỗ nào giúp em nắm bài nhanh nhất?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ lại các “điểm tựa” của văn bản: nhan đề, sa-pô in đậm, đề mục, con số, bức tranh, câu hỏi cuối bài.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những “điểm tựa” của văn bản này</h4>
+      <blockquote class="trich"><p>Vì sao Trái Đất thường được gọi là hành tinh xanh? Trên hành tinh xanh ấy, sự sống đã nảy nở tốt đẹp như thế nào? Con người có thể làm gì để bảo vệ Trái Đất?</p><cite>— Sa-pô</cite></blockquote>
+      <p class="vi-sao">Sa-pô báo trước ba điều bài sẽ nói. Đọc sa-pô xong là em đã biết mình cần tìm gì trong bài. Tiếp theo, năm đề mục chia bài thành năm phần; các con số (23,934 giờ, 365,25 ngày, gần 3/4 bề mặt) và bức tranh làm thông tin cụ thể, dễ hình dung.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: các yếu tố của văn bản thông tin</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khi đọc một văn bản thông tin, em nên: (1) đọc <b>nhan đề và sa-pô</b> trước để biết văn bản nói về vấn đề gì; (2) dựa vào <b>đề mục</b> để chia văn bản thành từng phần và nắm ý chính của mỗi phần; (3) chú ý các <b>chi tiết, con số, tranh ảnh</b> vì chúng làm rõ thông tin; (4) tìm hiểu <b>các phần nối với nhau như thế nào</b> (ở văn bản này là theo quan hệ nhân quả: có nước → có muôn loài → có con người → con người làm Trái Đất tổn thương); (5) cuối cùng, tự hỏi văn bản <b>gửi đến mình điều gì</b> và mình cần làm gì.</div>
+    <div class="bay">Nêu kinh nghiệm chung chung (“phải đọc kĩ”, “phải tập trung”). Kinh nghiệm cần gắn với các yếu tố riêng của văn bản thông tin mà em vừa gặp trong bài.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn theo chủ đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy viết đoạn văn (khoảng 5 – 7 câu) về chủ đề: <i>Để hành tinh xanh mãi xanh…</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Xanh” ở đây chỉ là một màu sắc, hay là cả một điều gì lớn hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> “Xanh” là còn nước, còn rừng, còn muôn loài sinh sống. Chọn hai, ba việc làm cụ thể, vừa sức em, và nói vì sao việc ấy giúp Trái Đất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lấy chất liệu từ văn bản</h4>
+      <blockquote class="trich"><p>Những bức ảnh chụp từ các tàu vũ trụ cho thấy Trái Đất không khác gì giọt nước xanh khổng lồ giữa không gian vũ trụ đen thẳm bao la.</p><cite>— Phần 2</cite></blockquote>
+      <p class="vi-sao">Một hình ảnh đẹp từ văn bản có thể làm câu mở đầu của em. Phần 5 lại cho em những điều đang làm màu xanh phai đi (rừng co hẹp, rác thải nhựa…) — đó là lí do cho những việc em sẽ làm.</p></div>
+    <div class="buoc" data-so="2"><h4>Sắp ý trong một đoạn</h4>
+      <p>Câu mở đầu nêu chủ đề → một, hai câu nói màu xanh ấy đang bị đe doạ → hai, ba câu nêu việc làm cụ thể của em (kèm lí do) → câu cuối là lời nhắn hoặc niềm mong muốn.</p>
+      <a class="xem-lai" href="#kt-doan-van">📌 Xem lại: đoạn văn</a></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu mở đầu thôi, phần còn lại em tự viết nhé: <i>Nhìn từ tàu vũ trụ, Trái Đất của chúng ta giống như một giọt nước xanh khổng lồ giữa không gian đen thẳm.</i></p>
+      <p>Viết liền một đoạn, không xuống dòng; đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) viết đúng chủ đề “Để hành tinh xanh mãi xanh…”, hiểu “xanh” là sự sống, môi trường trong lành; (2) nêu được ít nhất hai việc làm cụ thể, vừa sức, có lí do; (3) có thể dẫn thông tin từ văn bản làm căn cứ; (4) là <b>một</b> đoạn văn, khoảng 5 – 7 câu, có câu mở đầu và câu kết, diễn đạt mạch lạc.</div>
+    <div class="bay">Viết thành nhiều đoạn (mỗi việc làm xuống dòng một lần), hoặc chỉ hô khẩu hiệu (“Hãy bảo vệ môi trường!”) mà không nêu việc làm cụ thể nào.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo có 6 câu.</div>
+    <div class="tham-khao">
+    <p>Nhìn từ tàu vũ trụ, Trái Đất của chúng ta giống như một giọt nước xanh khổng lồ giữa không gian đen thẳm. Màu xanh ấy là màu của biển cả, của những cánh rừng, của sự sống đang sinh sôi trên khắp hành tinh. Thế nhưng rừng đang co hẹp lại, đại dương đang đầy dần rác nhựa, và màu xanh có thể phai đi nếu con người cứ thờ ơ. Để hành tinh xanh mãi xanh, em bắt đầu từ những việc nhỏ: mang bình nước riêng đi học thay cho chai nhựa dùng một lần, tắt đèn và khoá vòi nước khi không dùng. Mỗi dịp Tết trồng cây, em cùng bố trồng thêm một cây non trước ngõ và chăm cho nó lớn lên từng ngày. Việc nhỏ của một mình em chẳng làm Trái Đất xanh ngay được, nhưng việc nhỏ của hàng triệu người thì nhất định sẽ làm được.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv1" data-chip="Tiếng Việt ①">Thực hành tiếng Việt<small>Văn bản và đoạn văn (sau Văn bản 1)</small></h2>
+
+<article class="the bai" id="tv1-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu bằng chứng cụ thể để khẳng định <i>Trái Đất – cái nôi của sự sống</i> là một văn bản.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Định nghĩa văn bản có ba ý: hoàn chỉnh về nội dung, hoàn chỉnh về hình thức, dùng để giao tiếp. Mỗi ý cần một bằng chứng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mở lại định nghĩa văn bản trong Tri thức ngữ văn. Với từng ý của định nghĩa, tìm một điều có thật trong bài.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đối chiếu với định nghĩa</h4>
+      <p>“Văn bản là đơn vị giao tiếp có tính hoàn chỉnh về nội dung và hình thức […]”. Vậy em cần chỉ ra: bài có nói trọn một vấn đề không? Bài có đủ các bộ phận, có mở, có kết không? Bài dùng để làm gì?</p>
+      <a class="xem-lai" href="#kt-van-ban">📌 Xem lại: văn bản</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm bằng chứng mở – kết</h4>
+      <p>Mở đầu là sa-pô với ba câu hỏi; kết thúc là câu hỏi “Trái Đất có thể chịu đựng đến bao giờ?” và lời khẳng định sự sống “đang đứng trước những thách thức to lớn”.</p>
+      <p class="vi-sao">Có mở, có kết, mọi phần ở giữa đều xoay quanh Trái Đất và sự sống — đó là dấu hiệu bài viết đã trọn vẹn, không bị cắt dở.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><i>Trái Đất – cái nôi của sự sống</i> là một văn bản vì: (1) <b>hoàn chỉnh về nội dung</b>: mọi phần cùng nói về một vấn đề — Trái Đất, cái nôi của sự sống — đi từ vị trí của Trái Đất, vai trò của nước, muôn loài, con người đến tình trạng Trái Đất hiện nay; có mở đầu (sa-pô nêu ba câu hỏi) và kết thúc (câu hỏi nhức nhối ở đoạn cuối); (2) <b>hoàn chỉnh về hình thức</b>: có nhan đề, tên tác giả, sa-pô, năm đề mục, các đoạn văn, tranh minh hoạ, dòng ghi nguồn (báo điện tử <i>Đất Việt</i>, tháng 9/2020); (3) được dùng để <b>trao đổi thông tin</b> với người đọc về Trái Đất — tồn tại ở dạng viết.</div>
+    <div class="bay">Chỉ nêu bằng chứng về hình thức (có nhan đề, có đoạn văn) mà quên nội dung trọn vẹn — trong khi định nghĩa đòi hỏi hoàn chỉnh <b>cả</b> nội dung và hình thức.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Bộ phận của văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy liệt kê các bộ phận cấu tạo của văn bản <i>Trái Đất – cái nôi của sự sống</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ dòng đầu tiên đến dòng cuối cùng, em gặp những “mảnh ghép” nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đi từ trên xuống: tên bài, tên người viết, phần chữ in đậm, các dòng in đậm chia phần, các đoạn văn, bức tranh, dòng ghi nguồn cuối bài.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đi từ trên xuống dưới</h4>
+      <p>Nhan đề <i>Trái Đất – cái nôi của sự sống</i> → tên tác giả <i>Hồ Thanh Trang</i> → sa-pô (ba câu hỏi in đậm) → năm đề mục → các đoạn văn → tranh minh hoạ (trang 79) → dòng ghi nguồn.</p>
+      <p class="vi-sao">Đếm đoạn văn theo dấu hiệu SGK: mỗi đoạn bắt đầu bằng chữ viết hoa lùi đầu dòng, kết thúc bằng dấu chấm câu. Không tính sa-pô, bài có 9 đoạn: phần 1 có 1 đoạn, phần 2 có 3, phần 3 có 2, phần 4 có 1, phần 5 có 2.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: các yếu tố của văn bản thông tin</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Văn bản gồm các bộ phận: <b>nhan đề</b> (<i>Trái Đất – cái nôi của sự sống</i>); <b>tên tác giả</b> (Hồ Thanh Trang); <b>sa-pô</b> (ba câu hỏi in đậm dưới nhan đề); <b>năm đề mục</b> (<i>Trái Đất trong hệ Mặt Trời</i>; <i>“Vị thần hộ mệnh” của sự sống trên Trái Đất</i>; <i>Trái Đất – nơi cư ngụ của muôn loài</i>; <i>Con người trên Trái Đất</i>; <i>Tình trạng Trái Đất hiện ra sao?</i>); <b>các đoạn văn</b> (9 đoạn, không tính sa-pô); <b>tranh minh hoạ</b>; <b>dòng ghi nguồn</b> (báo điện tử <i>Đất Việt</i>, tháng 9/2020).</div>
+    <div class="bay">Quên sa-pô và tranh minh hoạ, hoặc coi đề mục là một đoạn văn. Đề mục chỉ là tên gọi của phần, không phải đoạn văn.</div>
+    <div class="gv-note">SGK không quy định có tính sa-pô là một đoạn văn hay không; chấp nhận HS đếm 9 hoặc 10 đoạn nếu nói rõ cách đếm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Thông tin và thông điệp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhắc lại những thông tin, thông điệp mà em tiếp nhận được từ văn bản <i>Trái Đất – cái nôi của sự sống</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thông tin là điều em <b>biết thêm</b>. Thông điệp là điều người viết muốn <b>nhắn</b> tới em. Hai thứ ấy khác nhau thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thông tin: mỗi đề mục một điều. Thông điệp: đọc lại câu hỏi ở đoạn cuối — người viết muốn ta nghĩ gì, làm gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gom thông tin theo đề mục</h4>
+      <p>Vị trí của Trái Đất trong hệ Mặt Trời → nước là “vị thần hộ mệnh” → muôn loài phong phú → con người là đỉnh cao → Trái Đất đang bị tổn thương.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghe ra lời nhắn</h4>
+      <blockquote class="trich"><p>Sự sống trên hành tinh xanh, trong đó có con người, đang đứng trước những thách thức to lớn.</p><cite>— Câu cuối văn bản</cite></blockquote>
+      <p class="vi-sao">Chữ “trong đó có con người” là chỗ cần dừng lại: Trái Đất bị tổn thương thì chính con người cũng bị đe doạ. Lời nhắn nằm ở đó.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Thông tin:</b> Trái Đất là một trong tám hành tinh của hệ Mặt Trời; nhờ có nước mà Trái Đất trở thành cái nôi của sự sống; sự sống trên Trái Đất vô cùng phong phú, từ vi sinh vật đến những loài khổng lồ; con người là đỉnh cao kì diệu của sự sống nhưng đã khai thác thiên nhiên bừa bãi; hiện nay Trái Đất đang bị tổn thương nghiêm trọng. <b>Thông điệp:</b> Trái Đất là ngôi nhà chung, là cái nôi của mọi sự sống, nhưng đang bị chính con người làm tổn thương; mỗi người phải nhận ra trách nhiệm của mình và chung tay bảo vệ Trái Đất — bởi bảo vệ Trái Đất cũng là bảo vệ chính con người.</div>
+    <div class="bay">Chỉ nêu thông tin mà quên thông điệp, hoặc ngược lại. Đề hỏi cả hai.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Chức năng đoạn văn</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chọn một đoạn văn trong văn bản <i>Trái Đất – cái nôi của sự sống</i> và điền thông tin cần thiết vào bảng theo mẫu sau (làm vào vở):</p>
+    <p>(Bảng gồm bốn cột: Thứ tự đoạn văn trong văn bản · Điểm mở đầu và điểm kết thúc của đoạn văn · Ý chính của đoạn văn · Chức năng của đoạn văn trong văn bản.)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đoạn em chọn đứng ở đầu, ở giữa hay ở cuối bài? Vị trí ấy đã gợi ra một nửa câu trả lời.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> “Điểm mở đầu và điểm kết thúc” = chép vài chữ đầu và vài chữ cuối của đoạn. Chức năng: chọn một trong các chức năng nêu ở khung 📌 (mở đầu; trình bày một khía cạnh của nội dung chính; kết thúc hoặc mở rộng, liên kết vấn đề).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn đoạn và xác định ranh giới</h4>
+      <blockquote class="trich"><p>Hành tinh của chúng ta quả là giàu nước. […] Những bức ảnh chụp từ các tàu vũ trụ cho thấy Trái Đất không khác gì giọt nước xanh khổng lồ giữa không gian vũ trụ đen thẳm bao la.</p><cite>— Đoạn thứ 3 (phần 2)</cite></blockquote>
+      <a class="xem-lai" href="#kt-doan-van">📌 Xem lại: đoạn văn</a></div>
+    <div class="buoc" data-so="2"><h4>Điền bảng (cô xoay dọc cho dễ đọc)</h4>
+      <table>
+        <tr><th style="width:34%">Cột</th><th>Đoạn 3</th><th>Đoạn 9</th></tr>
+        <tr><td>Thứ tự đoạn văn</td><td>Đoạn 3 (đoạn thứ hai của phần 2)</td><td>Đoạn 9 (đoạn cuối cùng)</td></tr>
+        <tr><td>Điểm mở đầu – kết thúc</td><td>“Hành tinh của chúng ta quả là giàu nước.” … “đen thẳm bao la.”</td><td>“Trái Đất có thể chịu đựng đến bao giờ?” … “những thách thức to lớn.”</td></tr>
+        <tr><td>Ý chính</td><td>Nước có mặt ở khắp nơi trên Trái Đất và tạo cho Trái Đất vẻ đẹp lộng lẫy.</td><td>Sự sống trên Trái Đất đang đứng trước những thách thức to lớn.</td></tr>
+        <tr><td>Chức năng</td><td>Trình bày một khía cạnh của nội dung chính</td><td>Kết thúc văn bản, mở rộng vấn đề</td></tr>
+      </table>
+      <p class="vi-sao">Xác định chức năng phải dựa vào <b>cả</b> vị trí lẫn nội dung (như khung 📌 dặn): đoạn 3 đứng giữa bài, nói về một mặt của vấn đề (nước); đoạn 9 đứng cuối, khép bài lại bằng một câu hỏi để người đọc nghĩ tiếp.</p>
+      <a class="xem-lai" href="#kt-chuc-nang-doan">📌 Xem lại: chức năng đoạn văn</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Em chọn đoạn nào cũng được, miễn điền đủ bốn cột. Ví dụ với <b>đoạn 3</b>: <i>Thứ tự</i>: đoạn thứ 3 (đoạn thứ hai của phần 2). <i>Điểm mở đầu – kết thúc</i>: từ “Hành tinh của chúng ta quả là giàu nước.” đến “…giữa không gian vũ trụ đen thẳm bao la.” <i>Ý chính</i>: nước có mặt ở khắp nơi trên Trái Đất (đại dương, hai địa cực, chóp núi, sông ngòi) và tạo cho Trái Đất vẻ đẹp lộng lẫy. <i>Chức năng</i>: trình bày một khía cạnh của nội dung chính. Ví dụ với <b>đoạn 9</b>: đoạn cuối; từ “Trái Đất có thể chịu đựng đến bao giờ?” đến “…những thách thức to lớn.”; ý chính: sự sống trên Trái Đất đang đứng trước thách thức to lớn; chức năng: kết thúc văn bản, mở rộng vấn đề.</div>
+    <div class="bay">Ghi ý chính bằng cả đoạn văn chép lại. Ý chính cần gọn trong một câu, nói đoạn văn <b>xoay quanh điều gì</b>.</div>
+    <div class="gv-note">Cách đếm đoạn (không tính sa-pô): phần 1 – đoạn 1; phần 2 – đoạn 2, 3, 4; phần 3 – đoạn 5, 6; phần 4 – đoạn 7; phần 5 – đoạn 8, 9. Đoạn 1 (<i>Trái Đất là một trong tám hành tinh…</i>) có thể xếp là mở đầu hoặc một khía cạnh — chấp nhận cả hai nếu HS giải thích được.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb2" data-chip="Văn bản 2">Văn bản 2. Các loài chung sống với nhau như thế nào?<small>Ngọc Phú</small></h2>
+
+<article class="the bai" id="v2-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Em biết những chương trình nào trên các phương tiện truyền thông, in-tơ-nét cung cấp nhiều thông tin thú vị, bổ ích về đời sống của muôn loài trên Trái Đất? Em suy nghĩ gì về việc chúng ta phải thường xuyên tìm hiểu các tài liệu đề cập đến sự đa dạng của thế giới tự nhiên?</p>
+    <p><b>2.</b> Trong số những tài liệu, bộ phim kể về các loài sinh vật mà em đã đọc, đã xem, tài liệu, bộ phim nào để lại cho em nhiều ấn tượng nhất? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có bộ phim hay chương trình nào về loài vật khiến em ngồi xem không rời mắt?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kể tên thật của chương trình, bộ phim. Phần “vì sao” hãy nhớ lại <b>một cảnh</b> cụ thể em còn nhớ rõ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể tên chương trình, nói vì sao cần tìm hiểu</h4>
+      <p>Ví dụ: chương trình <i>Thế giới động vật</i> trên truyền hình, các phim tài liệu về thiên nhiên. Thường xuyên tìm hiểu giúp em biết thêm nhiều loài, hiểu các loài sống dựa vào nhau ra sao, từ đó biết quý và giữ gìn thiên nhiên.</p></div>
+    <div class="buoc" data-so="2"><h4>Kể một bộ phim, một cảnh đáng nhớ</h4>
+      <p>Nói rõ: phim về loài nào, cảnh nào em nhớ nhất, cảnh ấy làm em ngạc nhiên, xúc động hay lo lắng.</p>
+      <p class="vi-sao">Văn bản sắp đọc mở đầu bằng một cảnh trong phim hoạt hình <i>Vua sư tử</i>. Một bộ phim cũng có thể là cánh cửa dẫn ta đến hiểu biết khoa học.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>1.</b> Em có thể kể chương trình <i>Thế giới động vật</i> trên truyền hình, các phim tài liệu về thiên nhiên trên mạng in-tơ-nét. Thường xuyên tìm hiểu những tài liệu này giúp chúng ta biết thế giới tự nhiên rộng lớn và đa dạng đến nhường nào, hiểu các loài sống dựa vào nhau ra sao, để biết trân trọng và bảo vệ chúng. <b>2.</b> Một câu trả lời tốt nêu đúng tên tài liệu / bộ phim, kể một cảnh cụ thể và nói được vì sao cảnh ấy đọng lại trong em.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Nếu HS kể <i>Vua sư tử</i>, có thể giữ lại để nối ngay vào đoạn mở đầu của văn bản.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số liệu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Những con số, dữ liệu nào trong đoạn (2) (<i>Theo ước tính… lẫn nhau của muôn loài</i>) thể hiện sự phong phú của các loài trên Trái Đất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có hai con số “lớn” và hai con số “nhỏ hơn” trong đoạn này. Số nào nói về những loài <b>đã biết</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân mọi con số trong đoạn (2). Với mỗi số, hỏi: số này chỉ cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gạch chân các con số</h4>
+      <blockquote class="trich"><p>Theo ước tính của nhiều nhà khoa học, trên Trái Đất hiện có khoảng trên 10 000 000 loài sinh vật. Hiện nay, con người mới chỉ nhận biết được khoảng trên 1 400 000 loài, trong đó có hơn 300 000 loài thực vật và hơn 1 000 000 loài động vật.</p><cite>— Đoạn (2)</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Đặt các con số cạnh nhau</h4>
+      <blockquote class="trich"><p>Rõ ràng, phải rất lâu nữa chúng ta mới lập được một danh sách sát thực tế hơn về những cư dân của hành tinh này.</p><cite>— Đoạn (2)</cite></blockquote>
+      <p class="vi-sao">Hơn 1 triệu 4 trăm nghìn loài đã là một con số khổng lồ — vậy mà mới chỉ là một phần nhỏ của hơn 10 triệu loài. Chính khoảng cách giữa “đã biết” và “ước tính có” làm ta thấy thế giới sinh vật rộng lớn đến nhường nào.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những con số trong đoạn (2): trên Trái Đất hiện có khoảng <b>trên 10 000 000 loài</b> sinh vật (theo ước tính của nhiều nhà khoa học); con người mới chỉ nhận biết được khoảng <b>trên 1 400 000 loài</b>, trong đó có <b>hơn 300 000 loài thực vật</b> và <b>hơn 1 000 000 loài động vật</b>. Các con số cho thấy thế giới sinh vật vô cùng phong phú: số loài đã biết đã rất lớn mà vẫn chỉ là một phần nhỏ, đến mức “phải rất lâu nữa” con người mới lập được danh sách sát thực tế về “những cư dân của hành tinh này”.</div>
+    <div class="bay">Đọc nhầm 10 000 000 là số loài con người <b>đã biết</b>. Đó là số <b>ước tính</b>; số đã biết chỉ khoảng trên 1 400 000.</div>
+    <div class="gv-note">Có thể lưu ý HS: số liệu trong văn bản thông tin đúng vào thời điểm viết bài (tháng 9/2020), các nguồn khác có thể đưa con số khác.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thông tin chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đoạn (3) (<i>Các loài động vật… riêng từng loài</i>) đã nói gì về sự đa dạng của các quần xã sinh vật?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đoạn (3) chỉ có hai câu. Mỗi câu cho em một thông tin.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tra chú thích để hiểu <i>quần xã</i>, <i>biome</i>. Rồi đọc kĩ hai câu của đoạn (3).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu hai từ khó</h4>
+      <p><i>Quần xã</i>: “tập hợp tất cả các sinh vật cùng loài và khác loài, cùng sống trong một khu vực xác định vào một thời gian nhất định”. <i>Biome</i> (đọc là <i>bai-ôm</i>) thường được dịch là <i>khu sinh học</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Đọc đoạn (3)</h4>
+      <blockquote class="trich"><p>Các loài động vật và thực vật thường tồn tại và phát triển thành từng quần xã, trong những biome khác nhau. Mỗi quần xã có thể được xem như một thế giới riêng, trong đó có sự chung sống của một số loài nhất định với số lượng cá thể hết sức khác nhau ở riêng từng loài.</p><cite>— Đoạn (3)</cite></blockquote>
+      <p class="vi-sao">Sự đa dạng hiện ra ở hai tầng: các quần xã khác nhau (mỗi quần xã “một thế giới riêng”), và ngay trong một quần xã, mỗi loài lại có số lượng cá thể khác nhau.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn (3) cho biết: các loài động vật, thực vật thường sống và phát triển thành <b>từng quần xã</b>, trong <b>những biome (khu sinh học) khác nhau</b>. Mỗi quần xã như <b>một thế giới riêng</b>, có một số loài nhất định cùng chung sống, và <b>số lượng cá thể của từng loài hết sức khác nhau</b>. Như vậy, sự đa dạng thể hiện cả ở chỗ có rất nhiều quần xã khác nhau, lẫn ở thành phần loài và số lượng cá thể bên trong mỗi quần xã.</div>
+    <div class="bay">Chép sang nội dung của đoạn (4) (sự cạnh tranh, con mồi – vật ăn thịt). Câu hỏi chỉ hỏi về đoạn (3).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tìm căn cứ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu những căn cứ giúp ta hiểu được tính trật tự trong đời sống của muôn loài. Theo em, việc thiên nhiên duy trì trật tự ấy có ý nghĩa như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Trật tự” trong một khu rừng — ai giữ trật tự, và các loài “xếp hàng” theo kiểu nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn (5). Có hai loại căn cứ: vai trò của các loài (loài ưu thế, loài chủ chốt) và cách các loài phân bố trong không gian. Câu cuối đoạn (5) có sẵn chữ “để…” — đó là ý nghĩa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Căn cứ 1: mỗi loài một vai trò</h4>
+      <blockquote class="trich"><p>Loài ưu thế (như cây thông trong quần xã rừng thông) đóng vai trò quan trọng trong quần xã do số lượng nhiều và có khả năng hoạt động mạnh. Loài chủ chốt (như sư tử ở các đồng cỏ hay cá sấu ở đầm nước châu Phi) đóng vai trò kiểm soát, khống chế hoạt động của các loài khác và duy trì sự phát triển ổn định của quần xã.</p><cite>— Đoạn (5)</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Căn cứ 2: các loài phân bố trong không gian</h4>
+      <blockquote class="trich"><p>Ngoài những điều kể trên, trật tự này còn được thể hiện ở sự phân bố các loài trong không gian sống chung, hoặc theo chiều thẳng đứng (như sự phân tầng của thực vật trong rừng mưa nhiệt đới), hoặc theo chiều ngang (trải ra theo bề rộng của địa hình), để giảm bớt sự cạnh tranh giữa các loài và giúp từng loài có thể sử dụng nguồn sống của môi trường một cách hiệu quả nhất.</p><cite>— Đoạn (5)</cite></blockquote>
+      <p class="vi-sao">Để ý vế “để giảm bớt sự cạnh tranh…”: người viết đã nói luôn mục đích của trật tự. Em chỉ cần nói tiếp: nếu không có trật tự ấy thì sao?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Căn cứ</b>: (1) trong quần xã, mỗi loài có một vai trò riêng: loài ưu thế (như cây thông trong rừng thông) quan trọng vì số lượng nhiều, hoạt động mạnh; loài chủ chốt (như sư tử ở đồng cỏ, cá sấu ở đầm nước châu Phi) kiểm soát, khống chế các loài khác, giữ cho quần xã phát triển ổn định; (2) các loài phân bố trong không gian sống chung theo chiều thẳng đứng (thực vật phân tầng trong rừng mưa nhiệt đới) hoặc theo chiều ngang (trải theo bề rộng địa hình). <b>Ý nghĩa</b>: trật tự ấy giúp giảm bớt sự cạnh tranh giữa các loài, giúp loài nào cũng sử dụng được nguồn sống của môi trường một cách hiệu quả nhất; nhờ đó sự sống của cả quần xã được ổn định, các loài cùng tồn tại lâu dài.</div>
+    <div class="bay">Chỉ kể tên các loại loài (ưu thế, thứ yếu, ngẫu nhiên…) mà không nói vai trò của chúng, và bỏ quên vế thứ hai của câu hỏi (ý nghĩa).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Suy luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nếu chỉ tồn tại quan hệ đối kháng, sự cân bằng trong từng quần xã sinh vật sẽ bị ảnh hưởng ra sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thử tưởng tượng một khu rừng chỉ có ăn thịt, tranh giành, không có chia sẻ. Sau một thời gian, khu rừng ấy sẽ ra sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn (6). Sự cân bằng đến từ việc <b>hai</b> quan hệ cùng tồn tại song song. Bỏ đi một quan hệ thì chuyện gì xảy ra?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu hai loại quan hệ</h4>
+      <blockquote class="trich"><p>Quan hệ hỗ trợ gắn liền với việc chia sẻ cơ hội sống. Quan hệ đối kháng được biểu hiện qua việc cạnh tranh, kí sinh, ăn thịt lẫn nhau. Với sự tồn tại song song của các quan hệ đó, thiên nhiên đã tạo nên một sự cân bằng tuyệt hảo, đảm bảo cho loài nào cũng có được “chỗ đứng dưới mặt trời”, cũng có đủ điều kiện để sinh trưởng.</p><cite>— Đoạn (6)</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Suy luận khi bỏ đi quan hệ hỗ trợ</h4>
+      <p>Chỉ còn cạnh tranh, kí sinh, ăn thịt → không còn chia sẻ cơ hội sống → loài mạnh lấn át, loài yếu bị tiêu diệt dần → loài mạnh cuối cùng cũng thiếu thức ăn, nguồn sống.</p>
+      <p class="vi-sao">Văn bản không viết sẵn câu trả lời; em phải suy ra từ chữ “song song”. Cân bằng giống như chiếc cân hai đĩa: nhấc một đĩa đi thì cân lệch hẳn sang một bên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nếu chỉ tồn tại quan hệ đối kháng, <b>sự cân bằng trong quần xã sẽ bị phá vỡ</b>. Vì sự cân bằng “tuyệt hảo” chỉ có được nhờ quan hệ hỗ trợ và quan hệ đối kháng tồn tại song song. Khi không còn sự chia sẻ cơ hội sống, các loài chỉ cạnh tranh, kí sinh, ăn thịt lẫn nhau: loài mạnh lấn át, loài yếu bị tiêu diệt dần, nhiều loài không còn “chỗ đứng dưới mặt trời”. Rồi khi con mồi cạn kiệt, chính loài mạnh cũng thiếu nguồn sống và suy giảm theo. Quần xã sẽ nghèo đi, mất ổn định, thậm chí bị huỷ hoại.</div>
+    <div class="bay">Trả lời ngược: “chỉ có đối kháng thì loài mạnh sẽ phát triển mãi”. Văn bản nói số lượng loài này tăng hay giảm sẽ kéo theo loài kia tăng hay giảm — loài mạnh cũng không đứng ngoài chuỗi ấy.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy nghĩ về một lớp học: nếu bạn nào cũng chỉ ganh đua, giành phần, không ai giúp ai, thì lớp ấy có vui, có tiến bộ được lâu không? Thiên nhiên cũng vậy — có cạnh tranh, nhưng cũng phải có chia sẻ.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quan hệ nhân quả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, đoạn nào trong văn bản thể hiện rõ nhất cách trình bày văn bản thông tin theo quan hệ nhân quả?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm đoạn có những chữ như “chính vì”, “dẫn đến” — chữ nối nguyên nhân với kết quả.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại Tri thức ngữ văn: triển khai theo quan hệ nhân quả là nguyên nhân nêu trước, kết quả theo sau. Đọc lại đoạn (6) và đoạn (7).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoạn (7): nguyên nhân trước, kết quả sau</h4>
+      <blockquote class="trich"><p>Con người trở nên quá tự kiêu, thấy mình là chúa tể của cả thế giới, có thể tuỳ ý xếp đặt lại trật tự mà tạo hoá đã bền bỉ gây dựng. Chính vì điều này mà sự cân bằng trong đời sống của muôn loài ít nhiều bị xáo trộn, phá vỡ […]</p><cite>— Đoạn (7)</cite></blockquote>
+      <p class="vi-sao">Cụm “Chính vì điều này mà” là chiếc cầu nối: phía trước là nguyên nhân (con người tự kiêu, tuỳ ý xếp đặt lại trật tự), phía sau là kết quả (cân bằng bị xáo trộn, phá vỡ).</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: triển khai theo quan hệ nhân quả</a></div>
+    <div class="buoc" data-so="2"><h4>Một lựa chọn khác cũng hợp lí: đoạn (6)</h4>
+      <blockquote class="trich"><p>Như vậy, có một nhịp điệu chung trong quá trình tiến hoá của các loài, mà sự sinh sôi mạnh mẽ hay suy giảm số lượng của loài này dẫn đến sự phát triển theo hướng nhiều thêm hay bớt đi tương ứng của loài kia.</p><cite>— Đoạn (6)</cite></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn thể hiện rõ nhất cách trình bày theo quan hệ nhân quả là <b>đoạn (7)</b> (<i>Trên Trái Đất, con người cũng chỉ là một loài sinh vật…</i>). Nguyên nhân được nêu trước: con người phát triển, trở nên “quá tự kiêu”, thấy mình là chúa tể, tuỳ ý xếp đặt lại trật tự của tạo hoá. Kết quả theo sau, nối bằng cụm “Chính vì điều này mà”: sự cân bằng trong đời sống muôn loài bị xáo trộn, phá vỡ, các yếu tố vô sinh của môi trường cũng chịu tác động xấu. (Em chọn đoạn (6) cũng hợp lí, vì đoạn này nói sự tăng hay giảm số lượng của loài này “dẫn đến” sự tăng hay giảm của loài kia.)</div>
+    <div class="bay">Chỉ nêu số thứ tự đoạn mà không chỉ ra đâu là nguyên nhân, đâu là kết quả trong đoạn ấy.</div>
+    <div class="gv-note">Câu hỏi có chữ “Theo em” — chấp nhận đoạn (6) hoặc (7) nếu HS chỉ ra được nguyên nhân và kết quả. Đoạn (7) có cụm từ nối rõ nhất.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Mở đầu và kết thúc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cách mở đầu và kết thúc của văn bản thông tin này có gì đặc sắc?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu đầu tiên và câu cuối cùng của văn bản cùng nhắc tới một nhân vật. Ai vậy?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh đoạn (1) và đoạn (8). Một bài viết về khoa học mà mở đầu bằng một bộ phim hoạt hình — điều đó có tác dụng gì với người đọc?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Mở đầu bằng một cảnh phim</h4>
+      <blockquote class="trich"><p>Khi chết đi, thân xác chúng ta trở về với cỏ, và linh dương lại ăn cỏ. Vì thế, tất cả chúng ta đều thuộc về vòng đời bất tận</p><cite>— Lời vua sư tử Mu-pha-sa, đoạn (1)</cite></blockquote>
+      <p class="vi-sao">Một cuộc đối thoại cha – con quen thuộc với trẻ em khắp thế giới, thay vì một con số khô khan. Người đọc thấy gần gũi, tò mò, muốn đọc tiếp.</p></div>
+    <div class="buoc" data-so="2"><h4>Kết thúc bằng chính câu nói ấy</h4>
+      <blockquote class="trich"><p>“Tất cả chúng ta đều thuộc về vòng đời bất tận”. Vua sư tử Mu-pha-sa đã nói với Xim-ba – kẻ kế nghiệp – như thế. Một câu nói thông thái, cho thấy sự am hiểu bản chất cuộc sống và cách ứng xử khôn ngoan đối với đời sống của muôn loài.</p><cite>— Đoạn (8)</cite></blockquote>
+      <p class="vi-sao">Văn bản kết thúc ở đúng chỗ nó bắt đầu, như một vòng tròn khép lại — giống chính “vòng đời bất tận” mà nó nói tới. Đọc hết bài, người đọc mới hiểu câu nói ấy sâu hơn lúc đầu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Văn bản <b>mở đầu</b> bằng cuộc đối thoại giữa vua sư tử Mu-pha-sa và con trai Xim-ba trong phim hoạt hình <i>Vua sư tử</i> — một cách vào bài gần gũi, hấp dẫn, gợi tò mò, làm “mềm” đi những thông tin khoa học phía sau. Văn bản <b>kết thúc</b> bằng việc nhắc lại đúng câu nói của Mu-pha-sa: “Tất cả chúng ta đều thuộc về vòng đời bất tận”, kèm lời nhận xét đó là “một câu nói thông thái”. Mở và kết <b>hô ứng với nhau</b>, khép lại thành một vòng tròn trọn vẹn; sau khi đọc các thông tin về quần xã, trật tự, cân bằng, người đọc hiểu câu nói ấy sâu sắc hơn và nhớ lâu thông điệp: phải biết ứng xử khôn ngoan, tôn trọng muôn loài.</div>
+    <div class="bay">Chỉ kể lại nội dung đoạn mở và đoạn kết mà không nói cái hay của cách làm ấy (gần gũi, hấp dẫn, khép vòng tròn, nhấn mạnh thông điệp).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c7" data-ten="Câu 7" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Liên hệ hành động</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Con người có thể làm gì để bảo vệ sự phát triển phong phú của thế giới sinh vật?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Việc nào em có thể làm ngay từ tuần này, ở nhà hoặc ở trường?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản chỉ ra điều con người đã làm sai: tự kiêu, tuỳ ý xếp đặt lại trật tự. Việc cần làm là ngược lại điều ấy. Nghĩ cả việc lớn (của xã hội) và việc nhỏ (của em).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Văn bản gợi hướng</h4>
+      <blockquote class="trich"><p>Hiện nay, có vẻ như con người bắt đầu tỉnh ngộ, biết nhìn nhận vấn đề một cách sáng suốt hơn, biết tìm cách chung sống hài hoà với muôn loài, nói chung là với tất cả những gì làm nên thế giới đẹp đẽ này.</p><cite>— Đoạn (7)</cite></blockquote>
+      <p class="vi-sao">“Chung sống hài hoà” — đó là chìa khoá. Mọi việc em nêu nên trả lời được câu hỏi: việc này giúp giữ sự cân bằng của muôn loài như thế nào?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Con người cần thôi tự coi mình là “chúa tể của cả thế giới” mà học cách chung sống hài hoà với muôn loài. Về phía xã hội, đó là không săn bắt, buôn bán động vật hoang dã, không chặt phá rừng, xây dựng các khu bảo tồn để giữ nơi sống cho các loài. Về phía em, em có thể không bẻ cành, ngắt hoa nơi công cộng, không bắt chim, không xả rác xuống sông hồ, tham gia trồng cây, và tìm hiểu thêm về các loài để biết quý chúng. Giữ được từng loài nhỏ bé là giữ được cả “vòng đời bất tận” mà chính con người cũng thuộc về.</div>
+    <div class="bay">Chỉ nêu một khẩu hiệu chung (“phải bảo vệ thiên nhiên”) mà không có việc làm cụ thể nào.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi việc làm cụ thể, đúng hướng. Câu trả lời tốt liên hệ được với ý của văn bản (sự cân bằng, chung sống hài hoà).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn theo chủ đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy viết đoạn văn (khoảng 5 – 7 câu) về chủ đề: <i>Trên hành tinh đẹp đẽ này, muôn loài luôn cần thiết cho nhau.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Quanh em có hai loài nào đang “giúp” nhau sống không? Ngoài đồng, trong vườn, ngay trên cây trước nhà?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chủ đề đã là một câu hoàn chỉnh — có thể dùng làm câu mở đầu. Phần giữa: hai, ba ví dụ cụ thể về các loài cần nhau. Câu kết: con người nên làm gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lấy ví dụ từ văn bản và từ đời sống</h4>
+      <p>Từ văn bản: vòng đời bất tận của sư tử – cỏ – linh dương; bức tranh trang 84 có chú chim nhỏ đậu trên lưng trâu. Từ đời sống: ong bướm và hoa, cây xanh và chim làm tổ.</p>
+      <p class="vi-sao">Ví dụ cụ thể làm chủ đề trở nên đáng tin. Chỉ nói “muôn loài cần nhau” mà không có ví dụ thì người đọc khó thấy được.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Ngoài cánh đồng quê em, chú chim nhỏ thường đậu trên lưng trâu, nhặt những con côn trùng bám trên da trâu, còn trâu thì đứng yên cho chim có bữa ăn.</i></p>
+      <p>Viết liền một đoạn; đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) đúng chủ đề: muôn loài luôn cần thiết cho nhau; (2) có ít nhất hai ví dụ cụ thể về sự gắn bó, phụ thuộc giữa các loài (có thể lấy từ văn bản: “vòng đời bất tận”, quan hệ hỗ trợ); (3) có câu nói về trách nhiệm của con người — cũng là một loài trong vòng đời ấy; (4) là một đoạn văn, khoảng 5 – 7 câu, mạch lạc.</div>
+    <div class="bay">Chuyển sang viết về ô nhiễm môi trường nói chung, quên mất chủ đề là sự <b>cần thiết của các loài đối với nhau</b>.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo có 7 câu.</div>
+    <div class="tham-khao">
+    <p>Trên hành tinh đẹp đẽ này, không một loài nào có thể sống được một mình. Như lời vua sư tử Mu-pha-sa, sư tử ăn linh dương, nhưng khi chết đi, thân xác chúng lại trở về với cỏ, và linh dương lại ăn cỏ. Ngoài cánh đồng quê em cũng vậy: chú chim nhỏ thường đậu trên lưng trâu, nhặt những con côn trùng bám trên da trâu, còn trâu thì đứng yên cho chim có bữa ăn. Cây xanh cho chim chỗ làm tổ, ong bướm nhờ hoa mà có mật, còn hoa lại nhờ ong bướm mà kết trái. Mỗi loài là một mắt xích trong “vòng đời bất tận”; mất đi một mắt xích, cả chuỗi sự sống sẽ chao đảo. Vì thế, con người — cũng chỉ là một loài sinh vật — không được tự cho mình là chúa tể mà tuỳ ý phá vỡ sự cân bằng ấy. Giữ gìn từng loài nhỏ bé quanh ta cũng chính là giữ gìn sự sống của chính mình.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv2" data-chip="Tiếng Việt ②">Thực hành tiếng Việt<small>Từ mượn (sau Văn bản 2)</small></h2>
+
+<article class="the bai" id="tv2-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Từ mượn</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc đoạn văn sau và thực hiện các yêu cầu:</p>
+    <p><i>Dưới tác động tiêu cực của việc phát triển công nghiệp thiếu bền vững, Trái Đất đang nóng dần lên, nhiều khối băng ở Bắc Cực và Nam Cực bị tan chảy làm nước biển dâng cao, đe doạ sự tồn tại của một số thành phố sôi động và làng mạc trù phú miền duyên hải. Tầng ô-dôn bị thủng nhiều chỗ, đất đai, nước, không khí bị ô nhiễm nặng nề, làm ảnh hưởng nghiêm trọng đến đời sống của muôn loài.</i></p>
+    <p>a. Trong đoạn văn trên có nhiều từ là từ mượn, chẳng hạn: <i>phát triển</i>, <i>công nghiệp</i>, <i>băng</i>, <i>ô-dôn</i>, <i>không khí</i>, <i>ô nhiễm</i>,… Theo em, từ nào được vay mượn từ tiếng Hán, từ nào được vay mượn từ tiếng Anh? Vì sao em xác định như vậy?</p>
+    <p>b. Trong các từ mượn như <i>công nghiệp</i>, <i>băng</i>, <i>ô-dôn</i>, <i>ô nhiễm</i>, từ nào gây cho em cảm giác về từ mượn rõ nhất? Vì sao?</p>
+    <p>c. Các yếu tố như <i>không</i>, <i>nhiễm</i> không chỉ xuất hiện trong <i>không khí</i>, <i>ô nhiễm</i> mà còn được dùng để tạo nên nhiều từ khác mà chúng ta vẫn sử dụng hằng ngày. Hãy kể thêm một số từ có những yếu tố ấy và giải thích ý nghĩa của chúng.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — từ này mượn từ đâu?</b>
+    <div class="cau-thu"><span class="noi-dung">công nghiệp</span><button class="chon chu" data-dung="1">Tiếng Hán</button><button class="chon chu" data-dung="0">Tiếng Anh</button><span class="phan-hoi" data-dung-txt="Đúng! Hai yếu tố Hán Việt, viết liền như từ tiếng Việt." data-sai-txt="Thử lại: từ này có được viết tách bằng gạch nối không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">ô-dôn</span><button class="chon chu" data-dung="0">Tiếng Hán</button><button class="chon chu" data-dung="1">Tiếng Anh</button><span class="phan-hoi" data-dung-txt="Đúng! Phiên âm, viết tách từng âm tiết có gạch nối." data-sai-txt="Thử lại: để ý dấu gạch nối giữa hai âm tiết."></span></div>
+    <div class="cau-thu"><span class="noi-dung">băng</span><button class="chon chu" data-dung="1">Tiếng Hán</button><button class="chon chu" data-dung="0">Tiếng Anh</button><span class="phan-hoi" data-dung-txt="Đúng! Khung 📌 xếp băng vào nhóm từ đơn mượn tiếng Hán được cảm nhận như từ thuần Việt." data-sai-txt="Thử lại: mở khung 📌 Nhận biết từ mượn, tìm chữ băng."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ nào đọc lên nghe “lạ tai” nhất? Từ nào em dùng hằng ngày mà chưa bao giờ nghĩ nó là từ mượn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mở khung 📌 <i>Nhận biết từ mượn…</i>: nó kể sẵn những dấu hiệu của từ mượn tiếng Hán và từ mượn các ngôn ngữ châu Âu (viết tách âm tiết có gạch nối…).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — Chia hai nhóm theo dấu hiệu</h4>
+      <p><b>Mượn tiếng Hán:</b> <i>phát triển, công nghiệp, băng, không khí, ô nhiễm</i> — đọc và viết như từ tiếng Việt, ghép từ các yếu tố Hán Việt (<i>công</i>, <i>nghiệp</i>, <i>nhiễm</i>…); <i>băng</i> có trong khung 📌 là từ đơn mượn tiếng Hán. <b>Mượn tiếng Anh:</b> <i>ô-dôn</i> — được viết tách từng âm tiết theo cách đọc của tiếng Việt, có gạch nối.</p>
+      <a class="xem-lai" href="#kt-dung-tu-muon">📌 Xem lại: nhận biết từ mượn</a></div>
+    <div class="buoc" data-so="2"><h4>b — Từ “lạ” nhất</h4>
+      <p><i>Ô-dôn</i>: hình thức viết có gạch nối, hai âm tiết ghép lại không có nghĩa gì trong tiếng Việt, và là tên một chất khí trong khoa học.</p>
+      <p class="vi-sao">Ngược lại, <i>băng</i> quen đến mức hầu như ai cũng tưởng là từ thuần Việt — đúng như khung 📌 nói: nhiều từ đơn mượn tiếng Hán “được cảm nhận như từ thuần Việt”.</p></div>
+    <div class="buoc" data-so="3"><h4>c — Đi tìm “họ hàng” của <i>không</i> và <i>nhiễm</i></h4>
+      <p>Trong <i>không khí</i>, <i>không</i> chỉ khoảng trống, bầu trời: <i>không gian, không trung, không quân, không phận</i>. Trong <i>ô nhiễm</i>, <i>nhiễm</i> là thấm vào, mắc phải: <i>lây nhiễm, truyền nhiễm, nhiễm bệnh, nhiễm khuẩn, nhiễm độc</i>.</p>
+      <p class="vi-sao">Phải giữ đúng <b>nghĩa</b> của yếu tố: <i>không</i> trong “không ăn”, “không đi” là từ phủ định, chẳng liên quan gì đến <i>không</i> trong <i>không khí</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>a.</b> Từ mượn tiếng Hán: <i>phát triển, công nghiệp, băng, không khí, ô nhiễm</i> — vì chúng được đọc, viết như từ tiếng Việt, tạo nên từ các yếu tố Hán Việt; riêng <i>băng</i> là từ đơn mượn tiếng Hán đã được cảm nhận như từ thuần Việt. Từ mượn tiếng Anh: <i>ô-dôn</i> — vì nó được viết tách từng âm tiết theo cách đọc của tiếng Việt, giữa các âm tiết có gạch nối, như các từ mượn ngôn ngữ châu Âu (<i>ô-xi</i>, <i>a-xít</i>…). <b>b.</b> Từ <i>ô-dôn</i> gây cảm giác từ mượn rõ nhất: cách viết có gạch nối, các âm tiết <i>ô</i>, <i>dôn</i> ghép lại không gợi nghĩa gì trong tiếng Việt, và đó là tên gọi một chất khí trong khoa học. <b>c.</b> Với <i>không</i> (khoảng trống, bầu trời): <i>không gian</i> (khoảng rộng bao la bao quanh mọi vật), <i>không trung</i> (khoảng không trên cao), <i>không quân</i> (quân chủng chiến đấu trên không, bảo vệ vùng trời), <i>không phận</i> (vùng trời thuộc chủ quyền một nước). Với <i>nhiễm</i> (thấm vào, mắc phải): <i>lây nhiễm</i> (bệnh truyền từ người này sang người khác), <i>truyền nhiễm</i> (lây truyền được), <i>nhiễm bệnh</i> (mắc bệnh), <i>nhiễm khuẩn</i> (bị vi khuẩn xâm nhập), <i>nhiễm độc</i> (bị chất độc thấm vào cơ thể).</div>
+    <div class="bay">Ở câu c, kể <i>không</i> trong “không biết”, “không được” — đó là từ phủ định thuần Việt, khác hẳn nghĩa với <i>không</i> (khoảng trống, bầu trời) trong <i>không khí</i>.</div>
+    <div class="gv-note">Việc xác định nguồn gốc vay mượn chỉ mang tính tương đối; <i>ô-dôn</i> có thể được cho là mượn qua tiếng Pháp — SGK đặt câu hỏi Hán / Anh nên gợi ý trả lời theo khung ấy, chấp nhận HS nói “ngôn ngữ châu Âu”. Câu b: chấp nhận HS chọn từ khác nếu có lí do, nhưng <i>ô-dôn</i> là đáp án dễ thuyết phục nhất.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vốn từ tiếng Việt</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Qua việc thực hiện các yêu cầu ở bài tập 1, em rút ra nhận xét gì về đặc điểm của vốn từ tiếng Việt?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngay trong một đoạn văn ngắn đã có từ mượn tiếng Hán lẫn tiếng Anh. Điều đó nói gì về tiếng Việt?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn lại ba ý: từ mượn có nhiều không, mượn từ những ngôn ngữ nào, có từ nào đã “thành người nhà”?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhìn lại kết quả bài 1</h4>
+      <p>Một đoạn văn hai câu đã có ít nhất sáu từ mượn; có từ mượn tiếng Hán, có từ mượn tiếng Anh; có từ quen như thuần Việt (<i>băng</i>), có từ còn lạ (<i>ô-dôn</i>); các yếu tố mượn (<i>không</i>, <i>nhiễm</i>) còn tạo ra rất nhiều từ mới.</p>
+      <a class="xem-lai" href="#kt-tu-muon">📌 Xem lại: từ mượn và hiện tượng vay mượn từ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vốn từ tiếng Việt rất <b>phong phú</b> và có <b>nhiều từ mượn</b>, chủ yếu từ tiếng Hán, rồi đến tiếng Pháp, tiếng Anh. Các từ mượn được Việt hoá ở những mức độ khác nhau: có từ đã quen thuộc như từ thuần Việt (<i>băng</i>), có từ vẫn còn rõ dấu vết từ mượn (<i>ô-dôn</i>). Nhiều yếu tố mượn (như <i>không</i>, <i>nhiễm</i>) còn được dùng để tạo thêm nhiều từ mới. Vay mượn là cách tiếng Việt làm giàu cho vốn từ của mình trong quá trình tiếp xúc, giao lưu với các ngôn ngữ khác.</div>
+    <div class="bay">Kết luận “tiếng Việt không có từ riêng, toàn từ mượn”. Từ mượn chỉ là một bộ phận; tiếng Việt vẫn có lớp từ thuần Việt rất lớn (<i>nước, đất, nóng, dâng</i>…).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c3" data-ten="Câu 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Thay từ mượn</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy diễn đạt lại câu văn sau đây theo hướng thay thế từ mượn bằng từ quen thuộc hoặc dễ hiểu hơn vốn đã có từ lâu trong vốn từ tiếng Việt:</p>
+    <p><i>Các fan cuồng thực sự phấn khích, hân hoan khi thấy idol của mình xuất hiện trên cửa chiếc chuyên cơ vừa đáp xuống phi trường.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu đọc câu này cho ông bà nghe, từ nào ông bà sẽ hỏi lại “nghĩa là gì”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm hai từ tiếng Anh viết nguyên dạng trước. Rồi tìm thêm một từ mượn tiếng Hán có từ quen thuộc hơn để thay (nơi máy bay đáp xuống, người ta thường gọi là gì?).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm từ cần thay</h4>
+      <p><i>fan</i> → người hâm mộ; <i>idol</i> → thần tượng; <i>phi trường</i> → sân bay.</p>
+      <p class="vi-sao">Không phải từ mượn nào cũng cần thay. <i>Hân hoan</i>, <i>phấn khích</i>, <i>chuyên cơ</i>, <i>thần tượng</i> cũng là từ mượn nhưng đã quen thuộc, và khó tìm từ khác giữ đúng nghĩa (<i>hân hoan</i> không hẳn là <i>vui vẻ</i>).</p>
+      <a class="xem-lai" href="#kt-dung-tu-muon">📌 Xem lại: tránh lạm dụng từ mượn</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có thể viết lại: <i>Những người hâm mộ cuồng nhiệt thực sự phấn khích, hân hoan khi thấy thần tượng của mình xuất hiện trên cửa chiếc chuyên cơ vừa đáp xuống sân bay.</i> (Thay <i>fan cuồng</i> → <i>người hâm mộ cuồng nhiệt</i>, <i>idol</i> → <i>thần tượng</i>, <i>phi trường</i> → <i>sân bay</i>.)</div>
+    <div class="bay">Thay cả những từ không cần thay đến mức câu mất nghĩa, ví dụ đổi <i>chuyên cơ</i> thành <i>máy bay</i> — <i>chuyên cơ</i> là máy bay dành riêng cho một người, một đoàn, nghĩa hẹp hơn <i>máy bay</i>.</div>
+    <div class="gv-note">Chấp nhận các cách thay khác hợp lí (<i>người hâm mộ</i> / <i>người hâm mộ nhiệt thành</i>; <i>thần tượng</i> / <i>người mình yêu mến</i>). Trọng tâm: <i>fan</i>, <i>idol</i>, <i>phi trường</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb3" data-chip="Văn bản 3">Văn bản 3. Trái Đất<small>Ra-xun Gam-da-tốp, Minh Tâm dịch</small></h2>
+
+<article class="the bai" id="v3-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nội dung khổ thơ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bốn dòng đầu của bài thơ tập trung nói về điều gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong bốn dòng đầu, chữ “người” chỉ ai? Còn “bọn”, “lũ”, “họ” là ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dòng đầu tiên mở bằng lời gọi “Trái Đất!” — từ đó, “người” là Trái Đất. Gạch chân những hành động mà “bọn”, “lũ” làm với Trái Đất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ai làm gì với ai</h4>
+      <blockquote class="trich tho"><p>Trái Đất! Có bọn xem người là quả dưa</p><p>Họ bổ, cắn người thành muôn mảnh nhỏ</p><p>Lũ khác nhìn người như quả bóng trên sân</p><p>Để giành giật, họ lao vào, đá, đá.</p><cite>— Bốn dòng đầu</cite></blockquote>
+      <p class="vi-sao">Nhà thơ gọi Trái Đất là “người” — như gọi một con người. Những kẻ kia thì bị gọi là “bọn”, “lũ”: chỉ cách gọi thôi cũng đủ thấy nhà thơ ghét bỏ họ đến thế nào.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bốn dòng đầu nói về <b>những kẻ đối xử tàn tệ với Trái Đất</b>: có “bọn” xem Trái Đất như quả dưa để bổ, cắn thành “muôn mảnh nhỏ”; có “lũ” khác coi Trái Đất như quả bóng trên sân để giành giật, lao vào “đá, đá”. Cách gọi “bọn”, “lũ” cho thấy thái độ khinh ghét, phẫn nộ của nhà thơ với những kẻ ấy.</div>
+    <div class="bay">Hiểu “người” là con người nói chung (con người bị bổ, bị cắn). Lời gọi “Trái Đất!” ở đầu bài cho biết “người” chính là Trái Đất.</div>
+    <div class="gv-note">“Người” ở đây là đại từ nhà thơ dùng để gọi Trái Đất (đại từ — HS đã học ở Bài 2). Nên cho HS xác định hệ thống xưng hô trước khi trả lời các câu sau: <i>người</i> = Trái Đất, <i>tôi</i> = nhà thơ, <i>bọn / lũ / họ</i> = những kẻ làm hại Trái Đất.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Thái độ nhà thơ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bốn dòng thơ sau cho biết thái độ của nhà thơ đối với Trái Đất như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ở khổ sau, nhà thơ không còn “xem”, “nhìn” Trái Đất là đồ vật nữa. Vậy là gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân hai thứ: Trái Đất được ví với gì, và nhà thơ làm những việc gì cho Trái Đất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc khổ sau</h4>
+      <blockquote class="trich tho"><p>Trái Đất với tôi – chẳng là dưa, là bóng</p><p>Với tôi, người – khuôn mặt thân thương</p><p>Nước mắt người tôi lau – xin đừng khóc nữa</p><p>Rửa sạch máu cho người đây, tôi hát, dịu dàng.</p><cite>— Bốn dòng sau</cite></blockquote>
+      <p class="vi-sao">“Lau”, “rửa sạch”, “hát”, “dịu dàng” — toàn những việc người ta làm cho một người thân đang đau ốm. Lời “xin đừng khóc nữa” là lời dỗ dành.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhà thơ có thái độ <b>yêu thương, trân trọng, nâng niu</b> Trái Đất. Với ông, Trái Đất “chẳng là dưa, là bóng” mà là “khuôn mặt thân thương”; ông gọi Trái Đất là “người”, lau nước mắt cho Trái Đất, dỗ dành “xin đừng khóc nữa”, rửa sạch máu và hát cho Trái Đất nghe một cách “dịu dàng” — như chăm sóc, an ủi một người thân đang bị thương.</div>
+    <div class="bay">Trả lời “nhà thơ buồn” — chưa đủ. Cần gọi tên thái độ với Trái Đất (yêu thương, trân trọng) và dẫn được hành động cụ thể (lau, rửa, hát).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa hình ảnh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhắc đến nước mắt và máu, nhà thơ muốn nói lên tình trạng gì của Trái Đất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khi nào một người rơi nước mắt? Khi nào một người chảy máu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nước mắt và máu là dấu hiệu của nỗi đau và vết thương. Ai đã gây ra vết thương cho Trái Đất? Đọc lại khổ đầu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nối khổ sau với khổ đầu</h4>
+      <p>Khổ đầu: Trái Đất bị “bổ, cắn” thành “muôn mảnh nhỏ”, bị “giành giật”, bị “đá, đá”. Khổ sau: Trái Đất khóc, Trái Đất chảy máu.</p>
+      <p class="vi-sao">Nước mắt và máu chính là hậu quả của những hành động ở khổ đầu. Nhà thơ nói về Trái Đất như nói về một con người bị thương — để người đọc thấy đau thay cho Trái Đất.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhắc đến nước mắt và máu, nhà thơ muốn nói <b>Trái Đất đang bị tổn thương, đau đớn</b> — đau như một con người bị đánh đập đến khóc, đến chảy máu. Đó là hậu quả của những kẻ “bổ, cắn”, “giành giật”, “đá” Trái Đất: những cuộc chia cắt, tranh giành, chiến tranh, những sự khai thác, tàn phá thiên nhiên của con người.</div>
+    <div class="bay">Hiểu “nước mắt”, “máu” theo nghĩa đen là nước, là máu có thật trên mặt đất. Đây là cách nói về Trái Đất như một con người để diễn tả nỗi đau của Trái Đất.</div>
+    <div class="gv-note">Văn bản không nói rõ những kẻ “bọn”, “lũ” là ai; chấp nhận các cách hiểu có căn cứ (chiến tranh, tranh giành đất đai, khai thác tàn phá thiên nhiên) — hai văn bản thông tin trước đó cho HS căn cứ về hướng thứ hai.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh hai cách nhìn</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra sự khác nhau giữa các cách hình dung về Trái Đất và thái độ cư xử với Trái Đất được thể hiện trong bài thơ.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài thơ có hai kiểu người nhìn Trái Đất. Mỗi kiểu nhìn thì đi kèm một kiểu đối xử.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ bảng hai cột: “bọn / lũ” và “tôi”. Mỗi cột hai dòng: hình dung Trái Đất là gì — cư xử ra sao.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập bảng so sánh</h4>
+      <table>
+        <tr><th></th><th>“Bọn”, “lũ” (khổ đầu)</th><th>Nhà thơ — “tôi” (khổ sau)</th></tr>
+        <tr><td>Hình dung Trái Đất là</td><td>quả dưa, quả bóng trên sân — đồ vật vô tri, thứ để ăn, để tranh giành</td><td>“khuôn mặt thân thương” — một con người biết khóc, biết đau</td></tr>
+        <tr><td>Cư xử</td><td>bổ, cắn, giành giật, lao vào, đá, đá</td><td>lau nước mắt, rửa sạch máu, hát, dịu dàng</td></tr>
+      </table>
+      <p class="vi-sao">Cách ta <b>nhìn</b> một thứ quyết định cách ta <b>đối xử</b> với nó: coi là quả bóng thì đá; coi là người thân thì lau nước mắt cho.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Những kẻ ở khổ đầu</b> hình dung Trái Đất là đồ vật vô tri — “quả dưa”, “quả bóng trên sân” — thứ để ăn, để tranh giành; vì thế họ cư xử tàn bạo, tham lam: “bổ, cắn” Trái Đất thành muôn mảnh, “lao vào, đá, đá” để giành giật. <b>Nhà thơ</b> thì hình dung Trái Đất là một con người có “khuôn mặt thân thương”, biết khóc, biết đau; vì thế ông cư xử bằng tình yêu thương, sự dịu dàng: lau nước mắt, rửa sạch máu, hát cho Trái Đất nghe. Một bên coi Trái Đất là của để chiếm đoạt, một bên coi Trái Đất là người thân cần được chở che.</div>
+    <div class="bay">Chỉ nêu cách hình dung mà quên thái độ cư xử, hoặc chỉ nói về nhà thơ mà không nói về “bọn”, “lũ”. Đề hỏi sự <b>khác nhau</b> — phải đặt hai bên cạnh nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Kết nối văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy tìm ra điểm chung về mặt nội dung giữa bài thơ của Ra-xun Gam-da-tốp với hai văn bản <i>Trái Đất – cái nôi của sự sống</i> và <i>Các loài chung sống với nhau như thế nào?</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba văn bản, một bài thơ và hai bài báo — chúng cùng lo lắng về điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm ở mỗi văn bản một câu nói về việc con người làm tổn thương Trái Đất hoặc sự sống.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đặt ba văn bản cạnh nhau</h4>
+      <blockquote class="trich"><p>Hiện tại, hành tinh xanh – ngôi nhà chung của nhân loại – đang từng ngày từng giờ bị tổn thương bởi nhiều hành động vô ý thức hay bất chấp tất cả của con người.</p><cite>— Trái Đất – cái nôi của sự sống</cite></blockquote>
+      <blockquote class="trich"><p>Chính vì điều này mà sự cân bằng trong đời sống của muôn loài ít nhiều bị xáo trộn, phá vỡ […]</p><cite>— Các loài chung sống với nhau như thế nào?</cite></blockquote>
+      <blockquote class="trich tho"><p>Nước mắt người tôi lau – xin đừng khóc nữa</p><cite>— Trái Đất</cite></blockquote>
+      <p class="vi-sao">Cả ba cùng nói Trái Đất (hay sự sống trên Trái Đất) đang bị tổn thương vì con người — chỉ khác nhau ở cách nói: hai bài báo dùng thông tin, số liệu; bài thơ dùng hình ảnh và cảm xúc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm chung về nội dung: cả ba văn bản đều nói về <b>Trái Đất – ngôi nhà chung</b> và sự sống trên đó; đều bày tỏ <b>nỗi lo lắng, xót xa vì Trái Đất đang bị tổn thương do chính con người gây ra</b> (văn bản 1: Trái Đất “bị tổn thương bởi nhiều hành động vô ý thức hay bất chấp tất cả của con người”; văn bản 2: con người tự kiêu làm sự cân bằng của muôn loài “bị xáo trộn, phá vỡ”; bài thơ: Trái Đất bị bổ, cắn, đá, phải khóc, phải chảy máu); và đều <b>nhắn gửi con người phải biết yêu thương, trân trọng, bảo vệ Trái Đất</b>.</div>
+    <div class="bay">Chỉ ra điểm chung về hình thức (“đều có nhan đề”, “đều viết về Trái Đất”) mà không nói được điều cả ba cùng lo lắng và cùng nhắn gửi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Liên hệ hành động</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, để cùng “lau nước mắt” và “rửa sạch máu” cho Trái Đất, mỗi người chúng ta cần phải làm gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Lau nước mắt” cho Trái Đất — trong đời thật, việc ấy trông như thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Biến hình ảnh trong thơ thành việc làm có thật: không làm Trái Đất “đau” thêm, và chữa lành những vết thương đã có.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai loại việc cần làm</h4>
+      <p><b>Đừng gây thêm vết thương:</b> không xả rác, không chặt cây, không làm hại loài vật, tiết kiệm điện nước, bớt dùng túi ni lông. <b>Chữa lành vết thương:</b> trồng cây, nhặt rác, phân loại rác, nhắc người thân cùng làm; sống hoà thuận, không gây gổ, tranh giành.</p>
+      <p class="vi-sao">Khổ đầu bài thơ nói về sự tranh giành — nên “rửa sạch máu” cho Trái Đất cũng có nghĩa là sống hoà thuận với mọi người, không chỉ là giữ gìn thiên nhiên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Để cùng “lau nước mắt” và “rửa sạch máu” cho Trái Đất, trước hết mỗi người đừng gây thêm vết thương cho Trái Đất: không xả rác bừa bãi, không chặt phá cây xanh, không săn bắt loài vật, tiết kiệm điện, nước, bớt dùng đồ nhựa dùng một lần. Rồi hãy cùng chữa lành những vết thương đã có: trồng thêm cây, nhặt rác ở bãi biển, công viên, phân loại rác tại nhà. Và như khổ đầu bài thơ nhắc nhở, mỗi người cần sống hoà thuận, biết chia sẻ, đừng tranh giành, gây gổ — bởi Trái Đất cũng “đau” khi con người làm tổn thương nhau. Với em, việc bắt đầu là mang bình nước riêng đến lớp và rủ cả tổ cùng làm.</div>
+    <div class="bay">Chỉ nói “phải bảo vệ Trái Đất” mà không có việc làm cụ thể, vừa sức.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi việc làm cụ thể, tích cực. Câu trả lời tốt nhận ra được cả hai hướng: bảo vệ môi trường và sống hoà thuận (gắn với hình ảnh “giành giật” ở khổ đầu).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c7" data-ten="Câu 7" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan vd">Vận dụng</span><span class="nhan">Nét độc đáo của bài thơ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cùng đưa ra một thông điệp giống nhiều văn bản khác, nhưng bài thơ <i>Trái Đất</i> của Ra-xun Gam-da-tốp vẫn có được sự độc đáo, sức hấp dẫn riêng. Theo em, những gì đã tạo nên sự độc đáo, sức hấp dẫn riêng ấy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai bài báo cần nhiều đoạn văn và con số. Bài thơ chỉ có tám dòng. Vì sao tám dòng ấy vẫn làm em nhớ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Để ý ba điều: nhà thơ <b>gọi</b> Trái Đất là gì (đại từ, nhân hoá — Bài 2); những hình ảnh <b>so sánh</b> bất ngờ (quả dưa, quả bóng); và giọng thơ thay đổi thế nào từ khổ đầu sang khổ sau.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trò chuyện với Trái Đất như với một con người</h4>
+      <blockquote class="trich tho"><p>Nước mắt người tôi lau – xin đừng khóc nữa</p><p>Rửa sạch máu cho người đây, tôi hát, dịu dàng.</p></blockquote>
+      <p class="vi-sao">Trái Đất được gọi là “người”, có khuôn mặt, biết khóc, biết chảy máu — đó là phép nhân hoá (em đã học ở Bài 2). Nhà thơ không nói <i>về</i> Trái Đất mà nói <i>với</i> Trái Đất, nên lời thơ ấm áp như lời dỗ dành.</p></div>
+    <div class="buoc" data-so="2"><h4>Hình ảnh so sánh bất ngờ và hai khổ đặt cạnh nhau</h4>
+      <blockquote class="trich tho"><p>Trái Đất! Có bọn xem người là quả dưa</p><p>Lũ khác nhìn người như quả bóng trên sân</p></blockquote>
+      <p class="vi-sao">Ví Trái Đất với quả dưa, quả bóng — những thứ rất đời thường — khiến người đọc giật mình: hoá ra có người coi cả hành tinh như một thứ để ăn, để đá. Rồi khổ sau phủ nhận ngay: “chẳng là dưa, là bóng”. Hai khổ đặt cạnh nhau, hai cách nhìn hiện rõ. Chữ “đá” lặp lại hai lần như những cú đá liên tiếp giáng xuống.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sự độc đáo của bài thơ đến từ: (1) cách nhà thơ <b>trò chuyện trực tiếp với Trái Đất</b>, gọi Trái Đất là “người”, tả Trái Đất có “khuôn mặt thân thương”, biết khóc, biết chảy máu (nhân hoá) — nên Trái Đất hiện lên như một người thân đang đau, khiến người đọc xót xa; (2) những <b>hình ảnh so sánh đời thường mà bất ngờ</b>: Trái Đất bị coi là “quả dưa”, “quả bóng trên sân”, gợi rõ sự tham lam, tàn nhẫn của những kẻ làm hại Trái Đất; (3) <b>hai khổ thơ đặt cạnh nhau</b> hai cách nhìn, hai cách đối xử, giọng thơ chuyển từ phẫn nộ (“bọn”, “lũ”, “đá, đá”) sang dịu dàng, thương xót (“xin đừng khóc nữa”, “tôi hát, dịu dàng”); (4) lời thơ <b>ngắn gọn, giản dị</b>, chỉ tám dòng, không một con số nào mà vẫn chạm tới cảm xúc người đọc — khác với cách đưa thông tin, số liệu của hai văn bản thông tin.</div>
+    <div class="bay">Nói chung chung “bài thơ hay, giàu cảm xúc” mà không chỉ ra được hình ảnh, cách gọi, từ ngữ cụ thể nào tạo nên cái hay ấy.</div>
+    <div class="gv-note">Chỉ dùng thuật ngữ HS đã học: so sánh (Bài 1), nhân hoá, điệp ngữ, đại từ (Bài 2). Không dùng “hình tượng”, “đối thoại trữ tình”, “tương phản”. Chấp nhận HS gọi việc lặp “đá, đá” là điệp ngữ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet-a" data-chip="Viết: Biên bản">Viết (A)<small>Viết biên bản một cuộc họp, cuộc thảo luận</small></h2>
+
+<article class="the bai" id="viet-a" data-ten="Bài viết: Biên bản" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết: Biên bản</span><span class="nhan vd">Vận dụng</span><span class="nhan">Biên bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Phân tích biên bản tham khảo <i>Bàn về kế hoạch tổ chức hoạt động hưởng ứng “Ngày Chủ nhật xanh”</i> (lớp 6C):</p>
+    <p>1. Nêu nhận xét chung về việc tuân thủ thể thức biên bản trong văn bản trên.</p>
+    <p>2. Vì sao biên bản phải có tên gọi và phải ghi đủ thời gian, địa điểm, thành phần tham dự, người chủ trì, người thư kí?</p>
+    <p>3. Khi làm biên bản, nội dung nào cần được ghi chi tiết, cụ thể hơn cả?</p>
+    <p>4. Vì sao cuối biên bản phải có chữ kí của người chủ trì, người thư kí?</p>
+    <p>5. Ngôn ngữ của biên bản có đặc điểm gì dễ nhận biết?</p>
+    <p>Thực hành: Viết biên bản một cuộc họp, cuộc thảo luận.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một tuần sau cuộc họp, nếu ai đó hỏi “hôm ấy lớp đã thống nhất những gì?”, tờ giấy nào sẽ trả lời thay em?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt biên bản tham khảo cạnh khung 📌 <i>Thể thức của biên bản thông thường</i>, đánh dấu từng mục có mặt. Khi tự viết, chọn một cuộc họp có thật của lớp em (bàn kế hoạch một hoạt động, kiểm điểm một việc chung).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 2: đối chiếu với thể thức</h4>
+      <p>Biên bản tham khảo có đủ: tên trường, lớp (bên trái) — quốc hiệu, tiêu ngữ (bên phải); chữ “Biên bản” và tên gọi; thời gian (11h ngày 13 tháng 02 năm 2019), địa điểm, thành phần (cả bạn vắng có lí do), chủ trì, thư kí; diễn biến đánh số 1 – 4; giờ kết thúc (11h30); chữ kí, họ tên thư kí và chủ trì.</p>
+      <p class="vi-sao">Biên bản được “lưu lại như một hồ sơ, lúc cần được đưa ra như bằng chứng”. Muốn làm bằng chứng thì phải trả lời được: họp về việc gì, khi nào, ở đâu, những ai, ai điều khiển, ai ghi.</p>
+      <a class="xem-lai" href="#kt-bien-ban">📌 Xem lại: thể thức của biên bản</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 3 – 5: phần cần ghi kĩ, chữ kí, ngôn ngữ</h4>
+      <p>Phần ghi kĩ nhất trong biên bản tham khảo là mục 2 — <b>bố trí công việc</b>: việc gì, ai làm, bao giờ xong (“Làm băng rôn, căng ở vị trí quy định: tổ 1 (hoàn thành vào chiều thứ Bảy)”). Ngôn ngữ: câu ngắn, có khi chỉ là cụm từ, không có lời khen chê, không có cảm xúc.</p>
+      <p class="vi-sao">Biên bản ghi việc “theo đúng thực tế đã diễn ra”. Một câu như “cuộc họp rất vui” là cảm nghĩ của người ghi, không phải sự việc — không có chỗ trong biên bản.</p></div>
+    <div class="buoc" data-so="3"><h4>Thực hành: trước khi viết và khi viết</h4>
+      <p>Chọn cuộc họp → đặt tên biên bản (tên gọi chính là nội dung chính) → trong lúc họp, ghi nhanh ý kiến của từng người → viết lại: phần mở đầu đúng thể thức; phần chính đánh số theo trình tự cuộc họp; ghi chi tiết kế hoạch, phân công, giải pháp; ghi đủ kết luận của người chủ trì; ghi giờ kết thúc, họ tên người kí.</p>
+      <p>Cô làm mẫu một dòng tên gọi thôi, phần còn lại em tự viết nhé: <i>Biên bản họp lớp bàn kế hoạch thu gom giấy vụn hưởng ứng phong trào “Lớp học xanh”.</i></p></div>
+    <div class="buoc" data-so="4"><h4>Chỉnh sửa</h4>
+      <p>Nội dung có khớp tên biên bản không? Những điều quan trọng nhất đã ghi chính xác, đầy đủ chưa? Có chi tiết nào không liên quan cần lược bỏ? Có câu nào chưa khách quan cần sửa?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Phân tích biên bản tham khảo.</b> <b>1.</b> Biên bản tuân thủ đầy đủ thể thức: có tên đơn vị (trường, lớp) bên trái, quốc hiệu và tiêu ngữ bên phải; có chữ “Biên bản” và tên gọi; ghi rõ thời gian, địa điểm, thành phần tham dự (kể cả số bạn vắng), chủ trì, thư kí, nội dung; diễn biến được đánh số 1 – 4; có thời gian kết thúc; có chữ kí và họ tên thư kí, chủ trì. <b>2.</b> Tên gọi cho biết ngay cuộc họp bàn về việc gì; thời gian, địa điểm, thành phần, chủ trì, thư kí giúp biên bản chính xác, đáng tin cậy, để khi cần có thể dùng làm hồ sơ, bằng chứng — biết rõ cuộc họp diễn ra khi nào, ở đâu, có những ai, ai chịu trách nhiệm. <b>3.</b> Phần <b>diễn biến</b> cần ghi chi tiết nhất, nhất là kế hoạch triển khai, phân công công việc (ai làm, làm gì, bao giờ xong), các ý kiến thảo luận và kết luận. <b>4.</b> Chữ kí xác nhận nội dung biên bản đúng với thực tế cuộc họp; người chủ trì và thư kí chịu trách nhiệm về những điều đã ghi; có chữ kí, biên bản mới có giá trị làm hồ sơ, bằng chứng. <b>5.</b> Ngôn ngữ biên bản ngắn gọn, chính xác, rõ ràng, khách quan: ghi đúng sự việc, không kể lể, không bộc lộ cảm xúc, không khen chê.<br>
+    <b>Biên bản em viết đạt yêu cầu khi:</b> (1) đúng thể thức (quốc hiệu, tiêu ngữ, tên đơn vị, tên gọi, thời gian, địa điểm, thành phần, chủ trì, thư kí); (2) nội dung khớp tên gọi, diễn biến đánh số theo trình tự cuộc họp; (3) ghi chi tiết những nội dung quan trọng (kế hoạch, phân công, giải pháp), đủ các ý kiến có giá trị và kết luận của chủ trì; (4) có thời gian kết thúc, họ tên và chữ kí người chủ trì, thư kí; (5) ngôn ngữ ngắn gọn, chính xác, khách quan, không có chi tiết thừa.</div>
+    <div class="bay">Viết biên bản như kể chuyện: “Cuộc họp hôm nay thật sôi nổi, bạn nào cũng hào hứng…”. Biên bản ghi sự việc và ý kiến, không ghi cảm xúc của người viết. Lỗi thứ hai: quên giờ kết thúc và chữ kí.</div>
+    <div class="gv-note">Biên bản trong SGK là biên bản thông thường (ở trường, lớp); biên bản của cơ quan nhà nước có quy định chặt chẽ hơn. Nên cho HS ghi biên bản ngay trong một buổi sinh hoạt lớp thật, rồi đổi bài cho nhau soát theo khung 📌. Bài tham khảo dưới đây chỉ để GV đối chiếu; tránh phát cho HS chép.</div>
+    <div class="tham-khao">
+    <table>
+      <tr><td style="text-align:center">TRƯỜNG THCS …<br><b>LỚP 6A</b></td><td style="text-align:center"><b>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</b><br><b>Độc lập – Tự do – Hạnh phúc</b></td></tr>
+    </table>
+    <h5>BIÊN BẢN<br>Họp lớp bàn kế hoạch thu gom giấy vụn hưởng ứng phong trào “Lớp học xanh”</h5>
+    <p style="text-indent:0"><i>Thời gian</i>: bắt đầu từ lúc 16h ngày 12 tháng 3 năm 2027.</p>
+    <p style="text-indent:0"><i>Địa điểm</i>: phòng học lớp 6A.</p>
+    <p style="text-indent:0"><i>Thành phần tham dự</i>: 38/40 học sinh lớp 6A; cô giáo chủ nhiệm dự. Vắng: 02 (bạn Lê Minh K., bạn Đỗ Thu P., có lí do).</p>
+    <p style="text-indent:0"><i>Chủ trì</i>: lớp trưởng Phạm Gia B.</p>
+    <p style="text-indent:0"><i>Thư kí</i>: Vũ Ngọc A.</p>
+    <p style="text-indent:0"><i>Nội dung</i>: bàn kế hoạch thu gom giấy vụn trong hai tuần (từ ngày 15 đến ngày 26 tháng 3 năm 2027) theo phong trào “Lớp học xanh” của nhà trường.</p>
+    <p style="text-indent:0"><b>1.</b> Lớp trưởng phổ biến mục đích của phong trào: tận dụng giấy cũ, giảm rác thải, gây quỹ khuyến học cho lớp.</p>
+    <p style="text-indent:0"><b>2.</b> Phân công công việc:</p>
+    <p style="text-indent:0">a. Thu gom giấy vụn, sách báo cũ: các tổ, mỗi tổ ít nhất 15 kg, nộp vào sáng thứ Hai hằng tuần.</p>
+    <p style="text-indent:0">b. Cân, ghi sổ theo dõi từng tổ: lớp phó lao động Trần Hải Đ.</p>
+    <p style="text-indent:0">c. Làm thùng đựng giấy đặt cuối lớp: tổ 2 (hoàn thành trước ngày 14 tháng 3).</p>
+    <p style="text-indent:0">d. Viết tin ngắn đăng bảng tin của lớp: bạn Nguyễn Khánh L.</p>
+    <p style="text-indent:0"><b>3.</b> Thảo luận:</p>
+    <p style="text-indent:0">– Ý kiến 1 (bạn H., tổ 1): đề nghị chỉ nhận giấy khô, đã bỏ ghim, để dễ cân và bán.</p>
+    <p style="text-indent:0">– Ý kiến 2 (bạn M., tổ 3): đề nghị không xé vở đang dùng để lấy giấy, chỉ dùng giấy đã hết sử dụng.</p>
+    <p style="text-indent:0">– Ý kiến 3 (bạn T., tổ 4): đề nghị khen thưởng tổ thu gom được nhiều nhất trong buổi sinh hoạt cuối tháng.</p>
+    <p style="text-indent:0">Cả lớp biểu quyết đồng ý ba ý kiến trên (38/38).</p>
+    <p style="text-indent:0"><b>4.</b> Kết luận: Lớp trưởng tóm tắt các nội dung đã thống nhất: thời gian thu gom, mức thu của mỗi tổ, người phụ trách từng việc, quy định chỉ nhận giấy khô, đã bỏ ghim và hình thức khen thưởng cuối tháng.</p>
+    <p style="text-indent:0">Cuộc họp kết thúc vào hồi 16h40, ngày 12 tháng 3 năm 2027.</p>
+    <table>
+      <tr><td style="text-align:center"><b>THƯ KÍ</b><br><i>(Đã kí)</i><br><b>Vũ Ngọc A.</b></td><td style="text-align:center"><b>CHỦ TRÌ</b><br><b>LỚP TRƯỞNG</b><br><i>(Đã kí)</i><br><b>Phạm Gia B.</b></td></tr>
+    </table>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet-b" data-chip="Viết: Sơ đồ">Viết (B)<small>Tóm tắt bằng sơ đồ nội dung của một văn bản đơn giản</small></h2>
+
+<article class="the bai" id="viet-b" data-ten="Bài viết: Sơ đồ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết: Sơ đồ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tóm tắt bằng sơ đồ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tóm tắt bằng sơ đồ nội dung của một văn bản đơn giản (tham khảo sơ đồ tóm tắt nội dung văn bản <i>Trái Đất – cái nôi của sự sống</i> trong SGK).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một bức sơ đồ tốt là bức mà một tuần sau nhìn lại, em vẫn kể lại được cả văn bản.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba việc trước khi vẽ: xác định nội dung cốt lõi → chọn từ khoá → xác định mối liên hệ giữa các từ khoá. Mũi tên chính là “mối liên hệ”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhìn vào sơ đồ tham khảo</h4>
+      <p>Sơ đồ SGK có hình “Trái Đất” ở giữa, toả ra bốn ý: “Một hành tinh của hệ Mặt Trời”, “Có nước”, “Có sự sống đa dạng”, “Con người – Đỉnh cao của sự sống”. Thêm hai mũi tên nối “Có nước” → “Có sự sống đa dạng” → “Con người – Đỉnh cao của sự sống”.</p>
+      <p class="vi-sao">Hai mũi tên phụ ấy là chỗ hay nhất: chúng cho thấy mạch nhân quả của văn bản. Nhưng sơ đồ chưa có ý của phần 5 (<i>Tình trạng Trái Đất hiện ra sao?</i>) — em có thể bổ sung một hình “Trái Đất đang bị tổn thương” nối từ hình “Con người”.</p>
+      <a class="xem-lai" href="#kt-so-do">📌 Xem lại: yêu cầu của việc tóm tắt bằng sơ đồ</a></div>
+    <div class="buoc" data-so="2"><h4>Tập với ví dụ của SGK: “vòng đời bất tận”</h4>
+      <p>Từ khoá: <i>chúng ta</i>, <i>linh dương</i>, <i>chết</i>, <i>cỏ</i>. Liên hệ: chúng ta ăn linh dương; chúng ta chết; chúng ta trở về với cỏ; linh dương ăn cỏ.</p>
+      <svg viewBox="0 0 380 250" style="max-width:380px;margin:6px auto" role="img" aria-label="Sơ đồ vòng đời bất tận">
+        <defs><marker id="mt9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f8a68"/></marker></defs>
+        <rect x="130" y="14" width="120" height="40" rx="10" fill="#e6f7f1" stroke="#0f8a68" stroke-width="2"/>
+        <text x="190" y="40" text-anchor="middle" font-size="16" fill="#1d2b36">Chúng ta</text>
+        <rect x="250" y="186" width="110" height="40" rx="10" fill="#eef4ff" stroke="#2f6fdb" stroke-width="2"/>
+        <text x="305" y="212" text-anchor="middle" font-size="16" fill="#1d2b36">Cỏ</text>
+        <rect x="20" y="186" width="120" height="40" rx="10" fill="#fff6e6" stroke="#c98a1c" stroke-width="2"/>
+        <text x="80" y="212" text-anchor="middle" font-size="16" fill="#1d2b36">Linh dương</text>
+        <line x1="225" y1="56" x2="290" y2="182" stroke="#0f8a68" stroke-width="2.5" marker-end="url(#mt9)"/>
+        <text x="300" y="112" font-size="14" fill="#0f8a68">chết, trở về</text>
+        <text x="300" y="130" font-size="14" fill="#0f8a68">với cỏ</text>
+        <line x1="248" y1="206" x2="144" y2="206" stroke="#0f8a68" stroke-width="2.5" marker-end="url(#mt9)"/>
+        <text x="196" y="240" text-anchor="middle" font-size="14" fill="#0f8a68">linh dương ăn cỏ</text>
+        <line x1="95" y1="182" x2="160" y2="58" stroke="#0f8a68" stroke-width="2.5" marker-end="url(#mt9)"/>
+        <text x="20" y="112" font-size="14" fill="#0f8a68">chúng ta ăn</text>
+        <text x="20" y="130" font-size="14" fill="#0f8a68">linh dương</text>
+      </svg>
+      <p class="vi-sao">Mũi tên đi theo chiều “ai trở thành nguồn sống của ai”. Vẽ xong, ba mũi tên khép thành một vòng — bắt đầu ở đâu cũng quay về chỗ cũ, vì thế mới gọi là “vòng đời bất tận”.</p></div>
+    <div class="buoc" data-so="3"><h4>Tự vẽ và tự soát</h4>
+      <p>Chọn một văn bản đơn giản (ví dụ <i>Các loài chung sống với nhau như thế nào?</i> hoặc một đoạn của nó). Vẽ hình chứa từ khoá → sắp xếp hình → nối bằng đường thẳng, đường cong, mũi tên. Soát lại: sơ đồ có đúng cách em hiểu văn bản không? Có chỗ nào dễ khiến người xem hiểu sai? Vị trí các hình, các đường nối đã hợp lí chưa?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sơ đồ tóm tắt đạt yêu cầu khi: (1) <b>làm nổi bật nội dung chủ yếu</b> của văn bản bằng các từ khoá ngắn gọn, chọn đúng ý chính; (2) <b>làm sáng tỏ mối liên hệ</b> giữa các bộ phận chính bằng đường nối, mũi tên đúng chiều, đúng quan hệ; (3) <b>trực quan, đẹp mắt</b>: hình rõ ràng, sắp xếp hợp lí, màu sắc giúp dễ nhớ; (4) phản ánh đúng nội dung văn bản, không có chi tiết khiến người xem hiểu sai. (Nhận xét sơ đồ tham khảo: nêu được bốn ý lớn và mạch “có nước → có sự sống đa dạng → con người là đỉnh cao”, nhưng còn thiếu ý về tình trạng Trái Đất hiện nay ở phần cuối văn bản.)</div>
+    <div class="bay">Chép cả câu dài vào mỗi ô, biến sơ đồ thành một bài văn đóng khung; hoặc vẽ các ô đẹp nhưng không có mũi tên nào — người xem không biết các ý liên quan với nhau thế nào.</div>
+    <div class="gv-note">Không có đáp án duy nhất: mỗi HS có thể vẽ sơ đồ khác nhau cho cùng một văn bản, miễn đạt ba yêu cầu trong khung 📌. Sơ đồ tham khảo dưới đây (chỉ GV thấy) dành cho văn bản 2, trình bày bằng chữ.</div>
+    <div class="tham-khao">
+    <h5>Sơ đồ tóm tắt văn bản <i>Các loài chung sống với nhau như thế nào?</i></h5>
+    <p style="text-indent:0"><b>Hình trung tâm:</b> MUÔN LOÀI TRÊN TRÁI ĐẤT — “vòng đời bất tận”.</p>
+    <p style="text-indent:0"><b>Nhánh 1 — Phong phú:</b> khoảng trên 10 000 000 loài (ước tính) → mới biết khoảng trên 1 400 000 loài.</p>
+    <p style="text-indent:0"><b>Nhánh 2 — Sống thành quần xã:</b> mỗi quần xã một thế giới riêng → đa dạng nhờ cạnh tranh, con mồi – vật ăn thịt, thay đổi của môi trường.</p>
+    <p style="text-indent:0"><b>Nhánh 3 — Có trật tự:</b> loài ưu thế (cây thông), loài chủ chốt (sư tử, cá sấu) · phân bố theo chiều thẳng đứng / chiều ngang → giảm cạnh tranh, dùng nguồn sống hiệu quả.</p>
+    <p style="text-indent:0"><b>Nhánh 4 — Cân bằng:</b> quan hệ hỗ trợ (chia sẻ cơ hội sống) + quan hệ đối kháng (cạnh tranh, kí sinh, ăn thịt) → cân bằng tuyệt hảo.</p>
+    <p style="text-indent:0"><b>Nhánh 5 — Con người:</b> tự kiêu, tuỳ ý xếp đặt trật tự → cân bằng bị xáo trộn, phá vỡ → cần chung sống hài hoà với muôn loài.</p>
+    <p style="text-indent:0"><b>Đường nối:</b> nhánh 3 và nhánh 4 cùng trỏ vào “vòng đời bất tận”; mũi tên đỏ từ nhánh 5 cắt ngang nhánh 4 (con người phá vỡ cân bằng).</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Nói và nghe<small>Thảo luận về giải pháp khắc phục nạn ô nhiễm môi trường</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Thảo luận nhóm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thảo luận về giải pháp khắc phục nạn ô nhiễm môi trường (cùng các bạn thảo luận về những giải pháp cần thực hiện, nhằm làm cho môi trường quanh ta trở nên an toàn, tốt đẹp hơn).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giải pháp “mọi người hãy bảo vệ môi trường” có làm sạch được con mương sau trường em không? Giải pháp tốt phải trông như thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thống nhất trước với nhóm: giải quyết tình trạng ô nhiễm <b>cụ thể nào</b> (rác thải ùn ứ, cống rãnh tắc nghẽn, khói bụi…). Rồi sắp ý theo trật tự: tình trạng – nguyên nhân – giải pháp – kế hoạch.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn vấn đề thật, gần em</h4>
+      <p>Ví dụ: rác thải ùn ứ ở góc sân trường, cổng chợ gần nhà. Giải pháp phải tính đến ba điều SGK nhắc: <b>làm được</b> (vừa với điều kiện của lớp), <b>giải quyết tận gốc</b> (không để tình trạng cũ tái diễn), và <b>phối hợp</b> với những người khác cùng sống trên địa bàn.</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm ý bằng câu hỏi, sắp thành dàn ý</h4>
+      <p>Đặt câu hỏi như SGK gợi: Rác thải ùn ứ ảnh hưởng đến sức khoẻ, mĩ quan thế nào? Vì sao có tình trạng này? Mỗi người cần làm gì để rác được tập kết đúng chỗ, thu gom kịp thời? Các cá nhân, tập thể cần chung tay thế nào? Cần quy chế gì? Tuyên truyền ra sao? Trả lời xong, xếp thành: tình trạng → nguyên nhân → giải pháp (việc làm 1, 2, 3…) → kế hoạch cụ thể.</p>
+      <p class="vi-sao">Khi trình bày, nêu lại câu hỏi trước mỗi phần (“Vì sao rác cứ ùn ứ mãi?”) giúp người nghe theo kịp em.</p></div>
+    <div class="buoc" data-so="3"><h4>Trình bày và trao đổi</h4>
+      <p><b>Mở đầu:</b> nêu tình trạng đáng báo động với biểu hiện cụ thể mà em và các bạn đang đối mặt. <b>Triển khai:</b> trình bày theo dàn ý. <b>Kết luận:</b> khái quát lại ý kiến. <b>Sau khi nói:</b> người nghe đặt mình vào vị trí người nói, nhận xét vào trọng tâm, nêu điều tâm đắc, điều chưa đồng tình, điều cần bổ sung; người nói tiếp nhận trên tinh thần tìm một giải pháp thống nhất, giải thích chỗ người nghe thắc mắc, bảo vệ ý mình cho là hợp lí.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói và phần thảo luận đạt yêu cầu khi: (1) nêu được <b>một tình trạng ô nhiễm cụ thể</b>, gần gũi, có biểu hiện rõ; (2) chỉ ra được <b>nguyên nhân</b>; (3) đề xuất <b>giải pháp có căn cứ, khả thi</b>, hướng tới giải quyết tận gốc và có sự phối hợp với cá nhân, tập thể khác; (4) có <b>kế hoạch hoạt động cụ thể</b> (việc gì, ai làm, khi nào); (5) trình bày theo dàn ý, có mở đầu – triển khai – kết luận, giọng nói rõ ràng, tương tác với người nghe, đúng thời gian; (6) khi trao đổi, biết lắng nghe, nhận xét vào trọng tâm, bảo vệ ý kiến hợp lí và cùng hướng tới một giải pháp thống nhất.</div>
+    <div class="bay">Nêu giải pháp chung chung, không làm được (“cấm mọi người xả rác”, “mọi người hãy có ý thức”), hoặc giải pháp chỉ giải quyết tạm thời (dọn một lần rồi thôi) mà không tính chuyện rác lại ùn ứ.</div>
+    <div class="gv-note">Mục tiêu của bài là <i>thảo luận để đi tới giải pháp thống nhất</i>, không phải thuyết trình một mình. Có thể chia nhóm theo từng loại ô nhiễm, cử thư kí nhóm ghi biên bản — nối luôn với phần Viết (A). Dàn ý tham khảo dưới đây chỉ để GV đối chiếu.</div>
+    <div class="tham-khao">
+    <h5>Dàn ý tham khảo: Rác thải ùn ứ ở góc sân sau trường</h5>
+    <p style="text-indent:0"><b>Mở đầu — Tình trạng:</b> góc sân sau dãy nhà B thường chất đầy túi ni lông, hộp sữa, vỏ bánh; trời nắng bốc mùi, trời mưa nước bẩn chảy ra sân.</p>
+    <p style="text-indent:0"><b>Nguyên nhân:</b> thùng rác quá ít và đặt xa lớp học; nhiều bạn tiện tay vứt rác sau giờ ra chơi; rác chưa được phân loại nên lâu thu gom.</p>
+    <p style="text-indent:0"><b>Giải pháp:</b> (1) đề nghị nhà trường đặt thêm thùng rác có nắp, có nhãn phân loại ở mỗi dãy nhà; (2) mỗi lớp mang bình nước riêng, hạn chế đồ ăn đóng gói; (3) các lớp thay phiên trực “Góc sân sạch” sau giờ ra chơi; (4) tuyên truyền qua buổi chào cờ và bảng tin.</p>
+    <p style="text-indent:0"><b>Kế hoạch cụ thể:</b> tuần 1 — lớp viết đề nghị gửi nhà trường, tổ 1 làm biển nhắc nhở; tuần 2 — bắt đầu trực theo lịch; cuối tháng — lớp trưởng báo cáo kết quả trong giờ sinh hoạt.</p>
+    <p style="text-indent:0"><b>Kết luận:</b> giữ sạch góc sân là việc vừa sức, nhưng cần làm đều đặn và cùng làm thì mới không tái diễn.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cc" data-chip="Củng cố">Củng cố, mở rộng</h2>
+
+<article class="the bai" id="cc-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân loại văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong bài học này, em đã được đọc ba văn bản hoàn chỉnh. Kẻ bảng sau vào vở, đánh dấu x vào các ô trống thích hợp.</p>
+    <p>(Bảng gồm ba dòng: <i>Trái Đất – cái nôi của sự sống</i> · <i>Các loài chung sống với nhau như thế nào?</i> · <i>Trái Đất</i>; và năm cột: Nội dung: Trái Đất – môi trường · Loại văn bản: Văn bản thông tin · Loại văn bản: Văn bản văn học · Hình thức văn bản: Văn bản chỉ có kênh chữ · Hình thức văn bản: Văn bản đa phương thức.)</p>
+    <p>a. Theo em, lí do nào khiến ba văn bản này được xếp chung vào một bài học?</p>
+    <p>b. Bài học giúp em hiểu thêm gì về vấn đề bảo vệ môi trường sống trên Trái Đất?</p>
+    <p>c. Nêu những kiến thức mà em đã học được về văn bản thông tin.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — loại văn bản</b>
+    <div class="cau-thu"><span class="noi-dung">Các loài chung sống với nhau như thế nào?</span><button class="chon chu" data-dung="1">Văn bản thông tin</button><button class="chon chu" data-dung="0">Văn bản văn học</button><span class="phan-hoi" data-dung-txt="Đúng! Chức năng chính là cung cấp thông tin." data-sai-txt="Thử lại: chức năng chính của văn bản này là thông tin hay thẩm mĩ?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Trái Đất (Ra-xun Gam-da-tốp)</span><button class="chon chu" data-dung="0">Văn bản thông tin</button><button class="chon chu" data-dung="1">Văn bản văn học</button><span class="phan-hoi" data-dung-txt="Đúng! Một bài thơ — văn bản văn học." data-sai-txt="Thử lại: bài này có số liệu, đề mục không, hay là những dòng thơ?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba văn bản có cùng một nội dung — nhưng chúng có cùng một loại, cùng một hình thức không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Loại văn bản: dựa vào <b>chức năng chính</b> (thông tin hay thẩm mĩ). Hình thức: văn bản có dùng tranh ảnh, số liệu — phương tiện phi ngôn ngữ — hay không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền bảng</h4>
+      <table>
+        <tr><th>Văn bản</th><th>Nội dung</th><th>Loại</th><th>Hình thức</th></tr>
+        <tr><td><i>Trái Đất – cái nôi của sự sống</i></td><td>x</td><td>Thông tin</td><td>Đa phương thức (có tranh minh hoạ)</td></tr>
+        <tr><td><i>Các loài chung sống với nhau như thế nào?</i></td><td>x</td><td>Thông tin</td><td>Đa phương thức (có hai tranh)</td></tr>
+        <tr><td><i>Trái Đất</i></td><td>x</td><td>Văn học (thơ)</td><td>Chỉ có kênh chữ</td></tr>
+      </table>
+      <p class="vi-sao">Cô gộp năm cột của SGK thành ba cột cho vừa màn hình; khi kẻ vào vở, em đánh dấu x đúng các ô tương ứng. Ảnh chân dung nhà thơ ở trang 87 thuộc phần giới thiệu tác giả, không phải một phần của bài thơ.</p>
+      <a class="xem-lai" href="#kt-loai-vb">📌 Xem lại: nhận biết đặc điểm và loại văn bản</a></div>
+    <div class="buoc" data-so="2"><h4>a, b, c — nhìn lại cả bài học</h4>
+      <p>a: tìm điểm chung về chủ đề. b: mỗi văn bản cho em một điều về môi trường (nước, muôn loài, cân bằng, Trái Đất bị tổn thương). c: gom lại những gì em đã học — các yếu tố, cách triển khai, cách đọc văn bản thông tin.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: văn bản thông tin</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Bảng:</b> <i>Trái Đất – cái nôi của sự sống</i>: x Nội dung Trái Đất – môi trường; x Văn bản thông tin; x Văn bản đa phương thức (có tranh minh hoạ, số liệu). <i>Các loài chung sống với nhau như thế nào?</i>: x Nội dung; x Văn bản thông tin; x Văn bản đa phương thức (có hai tranh minh hoạ, số liệu). <i>Trái Đất</i>: x Nội dung; x Văn bản văn học (thơ); x Văn bản chỉ có kênh chữ.<br>
+    <b>a.</b> Ba văn bản được xếp chung vì cùng một chủ đề: Trái Đất – ngôi nhà chung, sự sống và môi trường trên Trái Đất; cùng lo lắng vì Trái Đất đang bị tổn thương và nhắc con người có trách nhiệm bảo vệ Trái Đất. <b>b.</b> (Câu trả lời của mỗi em có thể khác.) Em hiểu Trái Đất là cái nôi của sự sống nhờ có nước; muôn loài sống phụ thuộc vào nhau trong một sự cân bằng rất dễ tổn thương; chính con người đã làm Trái Đất và sự cân bằng ấy bị tổn hại; vì thế bảo vệ môi trường là trách nhiệm của mỗi người, bắt đầu từ những việc nhỏ hằng ngày. <b>c.</b> Văn bản thông tin chủ yếu dùng để cung cấp thông tin; thường có nhan đề, sa-pô, đề mục, đoạn văn, tranh ảnh, số liệu; có thể triển khai theo trật tự thời gian hoặc theo quan hệ nhân quả; tranh ảnh, số liệu (phương tiện phi ngôn ngữ) giúp thông tin cụ thể, dễ hình dung; khi đọc nên xem nhan đề, sa-pô, đề mục trước, chú ý chi tiết, số liệu và mối liên hệ giữa các phần.</div>
+    <div class="bay">Đánh dấu bài thơ <i>Trái Đất</i> là văn bản thông tin vì “nó cũng nói về Trái Đất”. Cùng nội dung không có nghĩa là cùng loại — phải xét chức năng chính.</div>
+    <div class="gv-note">Cột hình thức của bài thơ: bài giảng và gợi ý này xếp “chỉ có kênh chữ” vì bản thân bài thơ không kèm tranh; nếu HS tính cả ảnh chân dung tác giả mà xếp “đa phương thức” thì nên trao đổi lại chứ không chấm sai ngay. Câu b là câu mở.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c2" data-ten="Câu 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chuẩn bị viết văn bản thông tin</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kẻ bảng sau vào vở. Điền thông tin vào ô trống, xem như chuẩn bị ý tưởng và dữ liệu cho một văn bản thông tin (có thể dưới dạng văn bản đa phương thức) viết về một vấn đề mà em quan tâm.</p>
+    <p>Vấn đề em định viết là: ……………………………………………………………</p>
+    <p>(Bảng gồm các dòng Đoạn 1, Đoạn 2, Đoạn 3, … Đoạn n và các cột: Ý lớn · Các ý nhỏ · Số liệu · Tranh ảnh · Những từ khoá.)</p>
+    <p><i>Lưu ý</i>: có thể bỏ trống một số ô ở hai cột <i>Số liệu</i> và <i>Tranh ảnh</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Điều gì quanh em khiến em muốn tìm hiểu và kể lại cho mọi người biết?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn vấn đề nhỏ, gần, em tự tìm hiểu được (rác thải nhựa ở trường, nước sạch ở khu em ở, một loài cây ở quê). Mỗi đoạn chỉ một ý lớn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn vấn đề và chia đoạn</h4>
+      <p>Có thể mượn cách triển khai em vừa học: đoạn 1 nêu tình trạng → đoạn 2 nguyên nhân → đoạn 3 hậu quả → đoạn 4 giải pháp (theo quan hệ nhân quả).</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: cách triển khai văn bản thông tin</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm số liệu thật</h4>
+      <p>Số liệu tự em đếm, cân, ghi chép (số chai nhựa lớp em bỏ đi trong một tuần), hoặc lấy từ sách báo có ghi nguồn. Tranh ảnh: ảnh em tự chụp, hình vẽ, sơ đồ.</p>
+      <p class="vi-sao">Số liệu là bằng chứng của văn bản thông tin — tự bịa ra một con số là làm hỏng cả văn bản.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo</b> — Vấn đề: <i>Rác thải nhựa ở lớp em</i>. Đoạn 1 — Ý lớn: tình trạng; Ý nhỏ: chai nước, hộp sữa, túi ni lông bỏ đi mỗi ngày; Số liệu: số chai nhựa cả lớp bỏ đi trong một tuần (em tự đếm); Tranh ảnh: ảnh thùng rác cuối lớp; Từ khoá: <i>rác thải nhựa, dùng một lần</i>. Đoạn 2 — Ý lớn: nguyên nhân; Ý nhỏ: tiện lợi, thói quen mua nước đóng chai, chưa có chỗ rót nước; Từ khoá: <i>thói quen, tiện lợi</i>. Đoạn 3 — Ý lớn: tác hại; Ý nhỏ: nhựa rất lâu phân huỷ, rác ra sông biển làm hại sinh vật (văn bản 1: đại dương thành “túi chứa rác thải nhựa khổng lồ”); Tranh ảnh: hình rác trên bãi biển; Từ khoá: <i>ô nhiễm, sinh vật biển</i>. Đoạn 4 — Ý lớn: giải pháp; Ý nhỏ: mang bình nước riêng, đặt bình nước chung của lớp, phân loại rác; Tranh ảnh: sơ đồ “trước – sau”; Từ khoá: <i>bình nước riêng, phân loại rác</i>.</div>
+    <div class="bay">Chọn vấn đề quá rộng (“môi trường thế giới”) rồi điền các số liệu tự nghĩ ra. Vấn đề nhỏ, số liệu thật, có nguồn mới làm nên một văn bản thông tin đáng tin.</div>
+    <div class="gv-note">Câu hỏi mở, chuẩn bị cho việc viết văn bản thông tin. Chấm theo: mỗi đoạn một ý lớn rõ ràng, ý nhỏ cụ thể, từ khoá chính xác, số liệu có nguồn hoặc do HS tự thu thập (không chấp nhận số liệu bịa).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Thực hành đọc">Thực hành đọc<small><i>Sinh vật trên Trái Đất được hình thành như thế nào?</i> (Nguyễn Quang Riệu)</small></h2>
+
+<article class="the bai" id="doc" data-ten="Hướng dẫn đọc" data-muc="th">
+  <div class="bai-dau"><span class="so">Hướng dẫn đọc</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tự đọc văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi đọc văn bản <i>Sinh vật trên Trái Đất được hình thành như thế nào?</i>, em cần chú ý những vấn đề sau:</p>
+    <p>– Nội dung của văn bản cho em biết thêm điều gì về sự sống trên Trái Đất?</p>
+    <p>– Từ mượn đã được dùng khá nhiều trong văn bản. Đó là những từ nào? Theo em, từ nào trong số đó có thể được thay thế bằng một từ thuần Việt hoặc từ mượn khác quen thuộc hơn? Vì sao?</p>
+    <p>– Sự sống được hình thành qua một quá trình dài đằng đẵng, nhưng việc huỷ diệt sự sống có thể chỉ diễn ra trong chớp mắt. Điều này gợi lên trong em cảm xúc và suy nghĩ gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sự sống đầu tiên trên Trái Đất từ đâu mà có? Các nhà khoa học đã trả lời chắc chắn chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản có ba đoạn, mỗi đoạn một ý: nguồn gốc sự sống · vai trò của nước và Mặt Trời · sự sống ở đáy biển. Khi tìm từ mượn, bắt đầu từ những từ viết tách có gạch nối.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điều văn bản cho em biết thêm</h4>
+      <blockquote class="trich"><p>Vấn đề liên quan đến nguồn gốc của sự sống trên Trái Đất và khả năng có sự sống trên các hành tinh khác vẫn còn đang được tranh luận.</p><cite>— Đoạn 1</cite></blockquote>
+      <blockquote class="trich"><p>Điều đáng ngạc nhiên là sự phát hiện những vi sinh vật loại côn trùng nhỏ li ti, sống bên cạnh những suối nước nóng bỏng chìm sâu hàng nghìn mét dưới đáy biển, trong một môi trường tối tăm và nóng hàng trăm độ C!</p><cite>— Đoạn 3</cite></blockquote>
+      <p class="vi-sao">Văn bản 1 nói nước là “vị thần hộ mệnh”; văn bản này nói rõ hơn nước làm gì (là “dung môi”, cùng khí các-bô-níc và ánh sáng Mặt Trời tạo ra ô-xi) và đưa em đến một nơi không ngờ: đáy biển nóng hàng trăm độ vẫn có sự sống.</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm từ mượn, cân nhắc thay thế</h4>
+      <p>Từ mượn viết tách có gạch nối: <i>hi-đrô, a-mô-ni-ắc, mê-tan, a-xít a-min, các-bô-níc, glu-cô, ô-xi</i>. Từ mượn tiếng Hán: <i>khí quyển, nguyên thuỷ, giả thuyết, vi sinh vật, dung môi, cộng sinh, dinh dưỡng</i>…</p>
+      <p class="vi-sao"><i>Glu-cô</i> có thể thay bằng <i>đường</i> — chính tác giả đã ghi “glu-cô (đường)”. Còn <i>ô-xi</i>, <i>mê-tan</i> là tên các chất trong khoa học, không có từ quen hơn để thay, nên giữ lại.</p>
+      <a class="xem-lai" href="#kt-dung-tu-muon">📌 Xem lại: nhận biết và sử dụng từ mượn</a></div>
+    <div class="buoc" data-so="3"><h4>Dài đằng đẵng — và chớp mắt</h4>
+      <blockquote class="trich"><p>Trái Đất khi mới được hình thành cách đây 4,6 tỉ năm, đã có một khí quyển nguyên thuỷ chứa hi-đrô, a-mô-ni-ắc, mê-tan và hơi nước.</p><cite>— Đoạn 1</cite></blockquote>
+      <p class="vi-sao">4,6 tỉ năm để có sự sống — và chỉ một vụ cháy rừng, một dòng nước thải là đủ xoá sổ cả một vùng sinh vật. Đặt hai con số thời gian ấy cạnh nhau, em sẽ thấy điều cần nói.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Điều em biết thêm:</b> sự sống trên Trái Đất có thể bắt nguồn từ khí nguyên thuỷ (như thí nghiệm của nhà hoá học Min-lơ), từ bụi sao chổi và thiên thạch, hoặc từ những vi sinh vật dưới đáy biển — vấn đề này các nhà khoa học “vẫn còn đang được tranh luận”; nước là dung môi giúp sự sống nảy nở, ánh sáng Mặt Trời giúp khí các-bô-níc và nước tạo ra glu-cô và ô-xi, nhờ đó động vật và thực vật cộng sinh với nhau; sự sống có mặt cả ở những nơi khắc nghiệt nhất, như suối nước nóng sâu hàng nghìn mét dưới đáy biển. <b>Từ mượn:</b> <i>hi-đrô, a-mô-ni-ắc, mê-tan, a-xít a-min, các-bô-níc, glu-cô, ô-xi</i>, cùng nhiều từ mượn tiếng Hán như <i>khí quyển, nguyên thuỷ, giả thuyết, vi sinh vật, dung môi, cộng sinh</i>. Từ <i>glu-cô</i> có thể thay bằng <i>đường</i> cho quen thuộc (chính tác giả đã chú thích trong ngoặc); các tên chất như <i>ô-xi</i>, <i>mê-tan</i>, <i>hi-đrô</i> là thuật ngữ khoa học, không có từ thay thế quen hơn nên giữ nguyên. <b>Suy nghĩ</b> (mỗi em một cách cảm): sự sống phải trải qua hàng tỉ năm mới hình thành, vậy mà con người có thể huỷ diệt nó trong chớp mắt — điều đó khiến em vừa lo sợ, vừa thấy sự sống thật quý giá; em hiểu rằng mỗi hành động làm hại môi trường, dù nhỏ, cũng có thể phá đi điều mà thiên nhiên đã dày công tạo nên, nên em cần trân trọng và bảo vệ sự sống từ những việc nhỏ nhất.</div>
+    <div class="bay">Coi mọi từ có gạch nối đều cần thay bằng từ thuần Việt. Nhiều từ là tên chất trong khoa học, không có từ thay thế; thay bừa sẽ làm sai nghĩa.</div>
+    <div class="gv-note">Phần Thực hành đọc không có câu hỏi trong SGK; ba điều cần chú ý được chuyển thành câu hỏi tự đọc. <i>Min-lơ</i> là tên riêng phiên âm — không nên đưa vào danh sách từ mượn để tránh tranh cãi. Ý thứ ba là câu mở.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 9. Trái Đất – ngôi nhà chung — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Câu hỏi mở không có một đáp án duy nhất: câu trả lời tốt là câu trả lời có căn cứ trong văn bản.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b09';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-09-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-09-bai-giai.nguon.html" data-phien-ban="41387971e640">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

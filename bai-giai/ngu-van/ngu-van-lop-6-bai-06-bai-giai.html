@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 6. Chuyện kể về những người anh hùng — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập hai</div>
+    <div class="hang1">
+      <h1>Bài 6. Chuyện kể về những người anh hùng — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập hai</div><h1>Bài 6. Chuyện kể về những người anh hùng — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 10 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-truyen-thuyet"><b class="ten">Truyền thuyết</b>
+      Truyền thuyết là loại truyện dân gian kể về các sự kiện và nhân vật ít nhiều có liên quan đến lịch sử, thông qua sự tưởng tượng, hư cấu.</div>
+    <div class="kt" id="kt-noi-dung"><b class="ten">Nội dung và cốt truyện của truyền thuyết</b>
+      Truyền thuyết thường kể lại cuộc đời và chiến công của nhân vật lịch sử hoặc giải thích nguồn gốc các phong tục, sản vật địa phương theo quan điểm của tác giả dân gian.<br>
+      Truyền thuyết được kể theo mạch tuyến tính (có tính chất nối tiếp, theo trình tự thời gian). Nội dung thường gồm ba phần gắn với cuộc đời của nhân vật chính: hoàn cảnh xuất hiện và thân thế; chiến công phi thường; kết cục.</div>
+    <div class="kt" id="kt-nhan-vat"><b class="ten">Nhân vật của truyền thuyết</b>
+      Nhân vật chính của truyền thuyết là những người anh hùng. Họ thường phải đối mặt với những thử thách to lớn, cũng là thử thách của cả cộng đồng. Họ lập nên những chiến công phi thường nhờ có tài năng xuất chúng và sự hỗ trợ của cộng đồng.</div>
+    <div class="kt" id="kt-loi-ke"><b class="ten">Lời kể của truyền thuyết</b>
+      Lời kể của truyền thuyết cô đọng, mang sắc thái trang trọng, ngợi ca, có sử dụng một số thủ pháp nghệ thuật nhằm gây ấn tượng về tính xác thực của câu chuyện.</div>
+    <div class="kt" id="kt-ki-ao"><b class="ten">Yếu tố kì ảo</b>
+      Yếu tố kì ảo (lạ và không có thật) xuất hiện đậm nét ở tất cả các phần nhằm tôn vinh, lí tưởng hoá nhân vật và chiến công của họ.</div>
+    <div class="kt" id="kt-vbtt"><b class="ten">Văn bản thông tin thuật lại một sự kiện</b>
+      Văn bản thông tin là văn bản chủ yếu dùng để cung cấp thông tin.<br>
+      Văn bản thông tin thuật lại một sự kiện dùng để trình bày những gì mà người viết chứng kiến hoặc tham gia. Diễn biến của sự kiện thường được sắp xếp theo trình tự thời gian.</div>
+    <div class="kt" id="kt-cham-phay"><b class="ten">Dấu chấm phẩy</b>
+      Dấu chấm phẩy thường được dùng để đánh dấu ranh giới giữa các bộ phận trong một chuỗi liệt kê phức tạp.<br>
+      Ví dụ của SGK: <i>Én bố mẹ tấp nập đi, về, mải mốt mớm mồi cho con; én anh chị rập rờn bay đôi; én ra ràng chấp chới vỗ cánh bên rìa hốc đá.</i> — Giữa <i>đi</i>, <i>về</i>, <i>mải mốt mớm mồi</i> trong vế câu thứ nhất đã có dấu phẩy nên ranh giới giữa ba vế trong câu ghép cần được đánh dấu bằng dấu chấm phẩy.</div>
+    <div class="kt" id="kt-tu"><b class="ten">Từ ghép và từ láy (Bài 1)</b>
+      Từ phức là từ có hai tiếng trở lên. Những từ phức được tạo nên bằng cách ghép các tiếng, giữa các tiếng có quan hệ với nhau về nghĩa được gọi là từ ghép. Những từ phức mà các tiếng chỉ có quan hệ với nhau về âm (lặp lại âm đầu, vần hoặc lặp lại cả âm đầu và vần) được gọi là từ láy.</div>
+    <div class="kt" id="kt-cum"><b class="ten">Cụm động từ, cụm tính từ (Bài 3)</b>
+      Cụm động từ gồm động từ và một hoặc một số từ khác bổ nghĩa cho động từ. Cụm tính từ gồm tính từ và một hoặc một số từ khác bổ nghĩa cho tính từ.</div>
+    <div class="kt" id="kt-thuat-lai"><b class="ten">Yêu cầu đối với bài văn thuyết minh thuật lại một sự kiện</b>
+      Xác định rõ người tường thuật tham gia hay chứng kiến sự kiện và sử dụng ngôi tường thuật phù hợp. · Giới thiệu được sự kiện cần thuật lại, nêu được bối cảnh (không gian và thời gian). · Thuật lại được diễn biến chính, sắp xếp các sự việc theo một trình tự hợp lí. · Tập trung vào một số chi tiết tiêu biểu, hấp dẫn, thu hút được sự chú ý của người đọc. · Nêu được cảm nghĩ, ý kiến của người viết về sự kiện.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 6. Chuyện kể về những người anh hùng (Tri thức ngữ văn; Thực hành tiếng Việt trang 13; Viết). Ý “Từ ghép và từ láy” nhắc lại từ Bài 1, ý “Cụm động từ, cụm tính từ” nhắc lại từ Bài 3 (Tập một).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-vb1" data-chip="Văn bản 1">Văn bản 1. Thánh Gióng<small>Truyền thuyết · Theo Lê Trí Viễn</small></h2>
+
+<article class="the bai" id="v1-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Anh hùng là những người được ngưỡng mộ vì những phẩm chất cao quý hay thành tích phi thường. Họ có thể là những người nổi tiếng hoặc là những người bình thường sống xung quanh ta.</p>
+    <p><b>1.</b> Đối với em, ai là người anh hùng? Người đó có những phẩm chất và thành tích gì khiến em ngưỡng mộ?</p>
+    <p><b>2.</b> Thiết kế bản giới thiệu ngắn về một người anh hùng với các nội dung: tên, phẩm chất, chiến công. Trang trí bản giới thiệu bằng các hình ảnh phù hợp và sử dụng bản giới thiệu để nói về người anh hùng.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Anh hùng có nhất thiết phải cưỡi ngựa, cầm gươm không? Hay người ấy đang sống ngay trong khu phố của em?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại câu dẫn của SGK: anh hùng có thể là người nổi tiếng, cũng có thể là “những người bình thường sống xung quanh ta”. Chọn <b>một</b> người, rồi nhớ ra <b>một việc cụ thể</b> người ấy đã làm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn người anh hùng của riêng em</h4>
+      <p>Có thể là một anh hùng em học trong môn Lịch sử, cũng có thể là chú bộ đội, cô bác sĩ, chú lính cứu hoả, hay một người trong gia đình. Điều quan trọng không phải người ấy nổi tiếng đến đâu, mà là em <b>nói được việc người ấy đã làm</b>.</p>
+      <p class="vi-sao">SGK định nghĩa anh hùng qua hai điều: “phẩm chất cao quý” và “thành tích phi thường”. Câu trả lời tốt nêu đủ cả hai: người ấy <i>là người thế nào</i> và <i>đã làm được gì</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Thiết kế bản giới thiệu ba mục</h4>
+      <p>Chia tờ giấy làm ba ô: <b>Tên</b> — <b>Phẩm chất</b> (2 – 3 từ: dũng cảm, tận tuỵ, quên mình…) — <b>Chiến công</b> (1 – 2 việc cụ thể). Dán hoặc vẽ một hình ảnh gợi đúng việc người ấy làm. Nếu chọn anh hùng lịch sử, lấy thông tin từ sách Lịch sử hoặc hỏi thầy cô, đừng ghi theo trí nhớ mang máng.</p>
+      <p class="vi-sao">Ba mục tên – phẩm chất – chiến công cũng là ba điều em sẽ đi tìm khi đọc <i>Thánh Gióng</i> ngay sau đây.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Với em, người anh hùng là chú lính cứu hoả ở phường em. Đêm năm ngoái, một căn nhà đầu ngõ bốc cháy, chú cùng đồng đội lao vào giữa khói đen, bế ra một em bé đang khóc. Em ngưỡng mộ chú vì lòng <b>dũng cảm</b> và sự <b>quên mình</b>: ai cũng chạy ra khỏi đám cháy, còn chú thì chạy vào. Bản giới thiệu tốt có đủ ba mục <b>tên – phẩm chất – chiến công</b>, mỗi mục ngắn gọn, đúng sự thật, kèm một hình ảnh gợi đúng việc người ấy đã làm.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Nếu HS chọn anh hùng lịch sử, nhắc các em kiểm tra thông tin trong sách Lịch sử. Câu 2 có thể giao làm ở nhà theo nhóm, dùng 1 – 2 phút trình bày đầu giờ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Bối cảnh câu chuyện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu thời gian, địa điểm, hoàn cảnh diễn ra các sự việc trong câu chuyện.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chỉ cần đọc câu đầu và đầu đoạn hai là em có gần đủ câu trả lời.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân các từ chỉ thời gian (<i>đời…</i>), tên làng, tên núi; rồi tìm câu cho biết đất nước lúc ấy đang gặp chuyện gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thời gian và nơi bắt đầu câu chuyện</h4>
+      <blockquote class="trich"><p>Tục truyền, đời Hùng Vương thứ sáu, ở làng Phù Đổng, có hai vợ chồng ông lão nhà nghèo, chăm làm ăn và có tiếng là phúc đức.</p><cite>— Câu mở đầu truyện</cite></blockquote>
+      <p>Thời gian: <b>đời Hùng Vương thứ sáu</b>. Nơi Gióng ra đời và lớn lên: <b>làng Phù Đổng</b>.</p>
+      <p class="vi-sao">Truyền thuyết mở ra bằng một mốc “lịch sử” và một cái tên làng có thật — người nghe thấy ngay câu chuyện “ít nhiều có liên quan đến lịch sử”.</p>
+      <a class="xem-lai" href="#kt-truyen-thuyet">📌 Xem lại: truyền thuyết</a></div>
+    <div class="buoc" data-so="2"><h4>Hoàn cảnh của đất nước</h4>
+      <blockquote class="trich"><p>Bấy giờ, có giặc Ân đến xâm phạm bờ cõi nước ta. Thế giặc rất mạnh, nhà vua lo sợ, bèn truyền sứ giả đi khắp nơi, tìm người tài giỏi cứu nước.</p><cite>— Đầu đoạn hai</cite></blockquote>
+      <p class="vi-sao">Để ý: đến cả nhà vua cũng “lo sợ”. Câu văn ngắn ấy cho thấy thử thách lớn đến mức nào — và làm cho tiếng nói của chú bé ngay sau đó càng lạ lùng.</p></div>
+    <div class="buoc" data-so="3"><h4>Những địa điểm khác của các sự việc</h4>
+      <blockquote class="trich"><p>Giặc đã đến chân núi Trâu Sơn. Thế rất nguy, ai nấy đều hoảng hốt.</p><p>Đám tàn quân giẫm đạp nhau mà trốn thoát. Tráng sĩ đuổi đến núi Ninh Sóc.</p></blockquote>
+      <p>Trận đánh diễn ra khi giặc tới <b>chân núi Trâu Sơn</b>; Gióng đuổi giặc đến <b>núi Ninh Sóc</b> rồi bay về trời từ đó.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Thời gian:</b> đời Hùng Vương thứ sáu. <b>Địa điểm:</b> làng Phù Đổng — nơi Gióng ra đời, lớn lên; trận đánh nổ ra khi giặc đến chân núi Trâu Sơn; Gióng đuổi giặc đến núi Ninh Sóc rồi bay lên trời. <b>Hoàn cảnh:</b> giặc Ân đến xâm phạm bờ cõi nước ta, “thế giặc rất mạnh”, nhà vua lo sợ, phải truyền sứ giả đi khắp nơi tìm người tài giỏi cứu nước. Đất nước đang lâm nguy — đó là lúc người anh hùng xuất hiện.</div>
+    <div class="bay">Chỉ nêu thời gian, địa điểm mà quên <b>hoàn cảnh</b> (giặc Ân xâm phạm, thế giặc rất mạnh). Hoàn cảnh mới là điều giải thích vì sao chú bé cất tiếng nói.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Sự ra đời kì lạ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thánh Gióng đã ra đời một cách kì lạ như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một bà mẹ ướm chân vào một vết chân lạ “thấy hay hay” — từ một việc nhỏ như thế, chuyện gì đã xảy ra?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn đầu tiên. Tìm ba điều khác thường: cách bà mẹ thụ thai, thời gian mang thai, và chú bé lúc lên ba.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cách bà mẹ thụ thai và sinh con</h4>
+      <blockquote class="trich"><p>Một hôm, bà ra đồng, trông thấy một vết chân to hơn vết chân người thường. Thấy hay hay, bà đặt bàn chân mình vào, ướm thử. Không ngờ về nhà bà thụ thai, rồi sau mười hai tháng thai nghén, bà sinh ra một em bé, mặt mũi rất khôi ngô.</p><cite>— Đoạn mở đầu</cite></blockquote>
+      <p class="vi-sao">Chữ “hay hay” rất đời thường — như một người đàn bà nghịch ngợm ướm thử bàn chân. Chính vì việc làm bình thường như thế, điều xảy ra sau đó (“Không ngờ…”) càng thành kì lạ. Người bình thường mang thai chín tháng, mẹ Gióng mang thai <b>mười hai tháng</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Chú bé lên ba</h4>
+      <blockquote class="trich"><p>Nhưng kì lạ thay, chú bé đã ba tuổi mà chẳng biết cười, biết nói gì cả, và cũng không nhích đi được bước nào, đặt đâu nằm đấy […].</p></blockquote>
+      <p class="vi-sao">Chính người kể cũng thốt lên “kì lạ thay”. Ba năm im lặng như đang chờ một điều gì đó — và em sẽ thấy chú bé chờ đúng lúc đất nước cần mới cất tiếng.</p>
+      <a class="xem-lai" href="#kt-ki-ao">📌 Xem lại: yếu tố kì ảo</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Thánh Gióng ra đời rất kì lạ. Bà mẹ ra đồng, thấy một vết chân “to hơn vết chân người thường”, tò mò đặt bàn chân mình vào ướm thử, về nhà thì thụ thai; mang thai tới <b>mười hai tháng</b> mới sinh ra một em bé “mặt mũi rất khôi ngô”. Lạ hơn nữa, chú bé lên ba tuổi mà “chẳng biết cười, biết nói gì cả”, không nhích đi được bước nào, “đặt đâu nằm đấy”. Những chi tiết kì ảo ấy cho thấy Gióng không phải một đứa trẻ bình thường: người anh hùng đã mang dấu hiệu phi thường ngay từ lúc chào đời.</div>
+    <div class="bay">Chỉ kể “bà mẹ ướm vết chân rồi sinh ra Gióng” mà bỏ sót hai điều lạ còn lại: mười hai tháng thai nghén và ba tuổi không nói, không cười, không đi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra ý nghĩa của các chi tiết sau:</p>
+    <p>a. Câu nói của chú bé: “Ông về tâu với vua, đúc cho ta một con ngựa bằng sắt, làm cho ta một bộ áo giáp bằng sắt, và rèn cho ta một cái roi cũng bằng sắt, ta nguyện phá tan lũ giặc này.”.</p>
+    <p>b. Bà con hàng xóm vui lòng gom góp gạo thóc để nuôi chú bé.</p>
+    <p>c. Chú bé vươn vai trở thành một tráng sĩ oai phong lẫm liệt.</p>
+    <p>d. Ngựa sắt phun ra lửa, roi sắt quật giặc chết như ngả rạ và những cụm tre cạnh đường quật giặc tan vỡ.</p>
+    <p>e. Tráng sĩ đánh giặc xong, cởi giáp sắt bỏ lại và bay thẳng lên trời.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi chi tiết trong truyền thuyết đều “nói” thay nhân dân một điều. Thử hỏi từng chi tiết: nhân dân muốn gửi gắm điều gì ở đây?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi chi tiết, hỏi hai câu: <i>Chi tiết này xảy ra lúc nào?</i> và <i>Nó cho thấy điều gì về Gióng — hoặc về nhân dân?</i> Đọc thêm hộp 📌 Nhân vật: người anh hùng lập chiến công “nhờ có tài năng xuất chúng và sự hỗ trợ của cộng đồng”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — Tiếng nói đầu tiên</h4>
+      <blockquote class="trich"><p>Chú bé nghe tin, bỗng dưng cất tiếng nói với mẹ:</p><p>– Mẹ ra mời sứ giả vào đây, con xin thưa chuyện.</p></blockquote>
+      <p>Ba năm không nói, câu nói đầu tiên của chú bé là lời <b>xin đi đánh giặc</b>. Với mẹ, chú xưng “con”; với sứ giả, chú xưng “ta”, nói như một vị tướng: “ta nguyện phá tan lũ giặc này”.</p>
+      <p class="vi-sao">Để ý chữ “sắt” lặp ba lần: ngựa sắt, áo giáp sắt, roi sắt. Chú bé không xin quà, xin sức — chú xin <b>vũ khí</b>, và đòi thứ vũ khí cứng chắc nhất. Lòng yêu nước có sẵn trong người anh hùng từ khi còn bé, chỉ chờ lúc đất nước cần là lên tiếng.</p></div>
+    <div class="buoc" data-so="2"><h4>b, c — Cả làng nuôi lớn một tráng sĩ</h4>
+      <blockquote class="trich"><p>Bà con hàng xóm cũng vui lòng gom góp gạo thóc để nuôi chú bé, vì ai cũng mong chú bé giết giặc, cứu nước.</p><p>Chú bé vùng dậy, vươn vai một cái, bỗng biến thành một tráng sĩ, oai phong lẫm liệt.</p></blockquote>
+      <p class="vi-sao">Chữ “vui lòng” và “ai cũng mong” cho thấy cả làng góp gạo không phải vì thương hại mà vì cùng một ước mong. Sức vóc của Gióng được nuôi bằng gạo thóc của bà con: <b>Gióng là con của nhân dân</b>. Rồi chỉ một cái vươn vai, chú bé thành tráng sĩ — đất nước cần người lớn mạnh, Gióng lớn ngay tức khắc.</p>
+      <a class="xem-lai" href="#kt-nhan-vat">📌 Xem lại: nhân vật của truyền thuyết</a></div>
+    <div class="buoc" data-so="3"><h4>d, e — Trận đánh và cuộc ra đi</h4>
+      <blockquote class="trich"><p>Bỗng roi sắt gãy. Tráng sĩ bèn nhổ những cụm tre cạnh đường quật vào giặc. Giặc tan vỡ.</p><p>Nhưng đến đấy, không biết vì sao, Người một mình cưỡi ngựa lên đỉnh núi, cởi giáp sắt bỏ lại, rồi cả người lẫn ngựa từ từ bay lên trời, biến mất.</p></blockquote>
+      <p class="vi-sao">Roi sắt là vũ khí của triều đình; tre là cây mọc ở khắp làng quê. Khi roi gãy, cây cỏ quê nhà cũng thành vũ khí. Đến cuối truyện, chữ “Người” được viết hoa giữa câu — lời kể đã chuyển sang giọng tôn kính. Gióng “cởi giáp sắt bỏ lại”: không giữ lại gì cho riêng mình, không ở lại nhận thưởng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>a.</b> Câu nói đầu tiên của chú bé ba tuổi là lời xin đi đánh giặc: lòng yêu nước, ý chí cứu nước có trong Gióng từ thuở bé; giọng nói tự tin, xưng “ta”, đòi ngựa sắt, áo giáp sắt, roi sắt và “nguyện phá tan lũ giặc này” cho thấy niềm tin chắc thắng. Đánh giặc còn cần vũ khí tốt — và cả triều đình đã “đêm ngày” lo đủ những thứ ấy cho Gióng.
+    <br><b>b.</b> Gióng lớn lên bằng gạo thóc của cả làng: người anh hùng sinh ra từ nhân dân, được nhân dân nuôi dưỡng, mang theo sức mạnh và ước mong của cả cộng đồng (“ai cũng mong chú bé giết giặc, cứu nước”).
+    <br><b>c.</b> Chỉ một cái vươn vai mà thành tráng sĩ “oai phong lẫm liệt”: khi đất nước lâm nguy, người anh hùng trưởng thành vượt bậc; nhân dân muốn người anh hùng của mình phải có tầm vóc lớn lao, phi thường.
+    <br><b>d.</b> Ngựa phun lửa, giặc “chết như ngả rạ” cho thấy sức mạnh phi thường của tráng sĩ; roi sắt gãy thì nhổ tre quật giặc: cây cỏ quê hương cũng thành vũ khí, người anh hùng biết dùng mọi thứ trong tay để đánh giặc.
+    <br><b>e.</b> Đánh tan giặc, Gióng cởi giáp sắt bỏ lại, bay về trời: người anh hùng làm việc nghĩa không màng công danh, phần thưởng; Gióng bay lên trời là trở thành bất tử, sống mãi trong lòng nhân dân.</div>
+    <div class="bay">Kể lại chi tiết bằng lời khác (ví dụ “chú bé vươn vai thành tráng sĩ” → “chú bé lớn lên rất nhanh”) thay vì nói <b>ý nghĩa</b> của nó. Đề hỏi chi tiết ấy <i>cho thấy điều gì</i>.</div>
+    <div class="gv-note">Câu này có nhiều cách diễn đạt; câu trả lời tốt nói được ý nghĩa và dẫn đúng chữ trong truyện. Có thể chia lớp thành năm nhóm, mỗi nhóm một chi tiết. Chi tiết roi sắt gãy có chú thích dị bản (trang 7) — GV có thể nhắc khi làm câu 2 phần Củng cố, mở rộng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy để ý cách Gióng <b>đến</b> và <b>đi</b>: đến thì im lặng ba năm, đi thì lặng lẽ “một mình” lên đỉnh núi. Ồn ào chỉ có ở giữa — đúng lúc đánh giặc. Người anh hùng trong mắt nhân dân là người xuất hiện khi cần, và ra đi khi xong việc.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chiến công và ý nghĩa</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chiến công phi thường mà Thánh Gióng đã làm nên là gì? Em hãy nêu ý nghĩa của hình tượng Thánh Gióng.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gióng chỉ đánh một trận. Một trận ấy có ý nghĩa với ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi có <b>hai vế</b>. Vế 1: đọc đoạn trận đánh. Vế 2: nhìn lại cả cuộc đời Gióng (ra đời, lớn lên nhờ ai, đánh giặc ra sao, ra đi thế nào) rồi tự hỏi: nhân dân muốn nói gì qua nhân vật này?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chiến công phi thường</h4>
+      <blockquote class="trich"><p>Ngựa phun lửa, phi thẳng đến chỗ quân giặc đóng. Tráng sĩ xông vào trận đánh giết; giặc chết như ngả rạ.</p><p>Giặc tan vỡ.</p></blockquote>
+      <p>Một mình Gióng, một con ngựa, một cây roi rồi mấy cụm tre — mà quân giặc “rất mạnh” khiến cả vua cũng lo sợ phải tan vỡ, tàn quân “giẫm đạp nhau mà trốn thoát”.</p>
+      <a class="xem-lai" href="#kt-noi-dung">📌 Xem lại: ba phần của truyền thuyết</a></div>
+    <div class="buoc" data-so="2"><h4>Gióng tượng trưng cho điều gì</h4>
+      <p>Nhìn cả đời Gióng: sinh ra kì lạ ở một làng quê nghèo; lớn lên nhờ gạo thóc của bà con; đánh giặc bằng vũ khí của vua và tre của làng; đánh xong thì về trời, được vua phong Phù Đổng Thiên Vương, được nhân dân lập đền thờ, mở hội mỗi năm.</p>
+      <p class="vi-sao">Gióng mang trong mình sức mạnh của <b>cả cộng đồng</b>: có sự giúp sức của vua, của bà con, của cả cây tre quê nhà. Vì thế đánh tan giặc không phải chiến công của riêng một người, mà là chiến công của cả dân tộc được gửi vào một người anh hùng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Chiến công:</b> Thánh Gióng đã <b>đánh tan giặc Ân</b> — đội quân “rất mạnh” khiến cả nhà vua lo sợ — giữ yên bờ cõi, cứu nước; ngựa phun lửa, giặc “chết như ngả rạ”, roi sắt gãy thì nhổ tre quật giặc, đuổi tàn quân đến tận núi Ninh Sóc. <b>Ý nghĩa:</b> Thánh Gióng là hình ảnh tiêu biểu của <b>người anh hùng đánh giặc giữ nước</b>: sinh ra từ nhân dân, được cả làng góp gạo nuôi lớn, mang sức mạnh phi thường và lòng yêu nước từ thuở lên ba; đánh giặc xong thì ra đi, không đòi đền đáp. Qua Gióng, nhân dân gửi gắm lòng yêu nước, sức mạnh đoàn kết của cả dân tộc, và niềm mong ước có những người anh hùng đứng lên bảo vệ đất nước khi có giặc.</div>
+    <div class="bay">Trả lời được chiến công rồi dừng lại. Vế thứ hai — <b>ý nghĩa</b> — mới là phần khó và quan trọng của câu hỏi.</div>
+    <div class="gv-note">Chữ “hình tượng” có trong câu hỏi của SGK; khi giảng chỉ cần hiểu là “hình ảnh nhân vật Thánh Gióng”, không giảng thành khái niệm lí luận.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chủ đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, chủ đề của truyện <i>Thánh Gióng</i> là gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu chỉ được nói về truyện <i>Thánh Gióng</i> trong một câu, em sẽ nói gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chủ đề là điều chính mà truyện muốn nói tới. Thử gói lại trong một câu: truyện kể về <b>ai</b>, làm <b>việc gì</b>, và qua đó nói lên <b>tình cảm</b> gì của nhân dân?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Truyện xoay quanh việc gì</h4>
+      <p>Từ đầu đến cuối, mọi sự việc đều hướng về một việc: <b>đánh giặc cứu nước</b>. Gióng cất tiếng nói vì có giặc, lớn lên để đánh giặc, ra đi khi giặc tan.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhân dân gửi vào đó tình cảm gì</h4>
+      <blockquote class="trich"><p>Bà con hàng xóm cũng vui lòng gom góp gạo thóc để nuôi chú bé, vì ai cũng mong chú bé giết giặc, cứu nước.</p></blockquote>
+      <p class="vi-sao">Câu văn này cho thấy truyện không chỉ ca ngợi một người, mà ca ngợi cả tấm lòng của “ai cũng” — lòng yêu nước của mọi người dân.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Truyện <i>Thánh Gióng</i> <b>ca ngợi người anh hùng làng Gióng đánh giặc cứu nước</b>, qua đó thể hiện <b>lòng yêu nước, tinh thần đoàn kết</b> của nhân dân (cả làng góp gạo nuôi Gióng) và niềm tự hào về sức mạnh của dân tộc trong cuộc chiến đấu chống giặc ngoại xâm.</div>
+    <div class="bay">Kể lại tóm tắt cả câu chuyện thay vì nêu chủ đề. Chủ đề chỉ cần một, hai câu nói lên điều chính mà truyện muốn nói tới.</div>
+    <div class="gv-note">Tri thức ngữ văn Bài 1 – 6 không có định nghĩa “chủ đề”; lời giải dùng cách hiểu “điều chính mà truyện muốn nói tới” (thống nhất với bài giảng Bài 6). Chấp nhận các cách diễn đạt khác nếu nêu được việc đánh giặc cứu nước và lòng yêu nước.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lời kể</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Lời kể nào trong truyện <i>Thánh Gióng</i> hàm ý rằng câu chuyện đã thực sự xảy ra trong quá khứ? Nhận xét về ý nghĩa của lời kể đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc đoạn cuối: câu chuyện đã xong, sao người kể còn nói tiếp chuyện “hiện nay”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại đoạn cuối, bắt đầu bằng “Hiện nay…”. Liệt kê những thứ người đời sau còn thấy được: đền, hội, tre, hồ ao, tên làng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm lời kể nối quá khứ với hôm nay</h4>
+      <blockquote class="trich"><p>Hiện nay, vẫn còn đền thờ ở làng Phù Đổng, tục gọi là làng Gióng. Mỗi năm đến tháng Tư, làng mở hội to lắm. Người ta kể rằng những bụi tre đằng ngà ở huyện Gia Bình vì ngựa phun lửa bị cháy, nên mới ngả màu vàng óng như thế. Còn những vết chân ngựa nay thành những hồ ao liên tiếp. Và khi ngựa thét ra lửa có cháy mất cả một làng. Làng đó nay gọi làng Cháy.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p class="vi-sao">Để ý các chữ “Hiện nay”, “vẫn còn”, “nay thành”, “nay gọi”: người kể bắc một cây cầu từ chuyện ngày xưa sang những thứ người nghe có thể <b>đến tận nơi mà nhìn</b>. Ngay câu đầu truyện, chữ “Tục truyền” cũng báo rằng đây là chuyện dân gian truyền lại từ đời này sang đời khác.</p></div>
+    <div class="buoc" data-so="2"><h4>Ý nghĩa của lời kể ấy</h4>
+      <p>Đây chính là “thủ pháp nghệ thuật nhằm gây ấn tượng về tính xác thực của câu chuyện” mà Tri thức ngữ văn nói tới. Đồng thời, đoạn cuối còn giải thích nguồn gốc của tre đằng ngà, những hồ ao, tên làng Cháy.</p>
+      <a class="xem-lai" href="#kt-loi-ke">📌 Xem lại: lời kể của truyền thuyết</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đó là đoạn kết của truyện: “Hiện nay, vẫn còn đền thờ ở làng Phù Đổng, tục gọi là làng Gióng”; mỗi năm đến tháng Tư làng mở hội; tre đằng ngà ở huyện Gia Bình “ngả màu vàng óng” vì bị ngựa phun lửa cháy; vết chân ngựa nay thành “những hồ ao liên tiếp”; làng bị lửa ngựa thiêu nay gọi là làng Cháy. (Chữ “Tục truyền” ở câu mở đầu cũng cho biết chuyện được dân gian truyền lại.) Lời kể ấy gắn câu chuyện với những dấu tích người đời nay vẫn còn thấy được, khiến người nghe <b>tin rằng Thánh Gióng đã có thật</b>; nó còn giải thích nguồn gốc một số sự vật, địa danh, và nhắc mọi người nhớ ơn, tự hào về người anh hùng của quê hương, đất nước.</div>
+    <div class="bay">Chỉ ra được đoạn văn nhưng quên phần <b>nhận xét về ý nghĩa</b>. Hoặc chọn những câu kể chuyện đánh giặc — đó là lời kể sự việc, không phải lời gắn câu chuyện với hiện tại.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Giống như khi bà kể “ngày xưa ông cố trồng cây nhãn này đấy” và chỉ tay ra vườn: có cây nhãn đứng đó, câu chuyện tự nhiên thành thật. Tre đằng ngà, hồ ao, làng Cháy chính là “cây nhãn” của truyện <i>Thánh Gióng</i>.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn cảm nhận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) về một hình ảnh hay hành động của Thánh Gióng đã để lại cho em ấn tượng sâu sắc nhất.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong cả truyện, khoảnh khắc nào em có thể nhắm mắt lại mà vẫn “thấy” rõ nhất?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỉ chọn <b>một</b> hình ảnh: tiếng nói đầu tiên, cái vươn vai, ngựa phun lửa, nhổ tre quật giặc, cởi giáp bay về trời… Tìm đúng câu văn trong truyện kể về hình ảnh ấy.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn hình ảnh, tìm câu văn</h4>
+      <p>Ví dụ chọn cảnh <b>nhổ tre quật giặc</b>: “Bỗng roi sắt gãy. Tráng sĩ bèn nhổ những cụm tre cạnh đường quật vào giặc. Giặc tan vỡ.” Chép câu ấy ra nháp, gạch chân chữ em thấy “đắt” nhất (ví dụ chữ “Bỗng”).</p>
+      <p class="vi-sao">Đoạn văn cảm nhận hay luôn bám vào câu chữ của truyện. Có câu văn trước mặt, em sẽ không viết lan man.</p></div>
+    <div class="buoc" data-so="2"><h4>Sắp ý theo ba chặng</h4>
+      <p><b>Câu 1:</b> nêu hình ảnh em chọn. <b>Câu 2 – 4:</b> tả lại hình ảnh ấy, trích vài chữ của truyện, nói em thấy gì, cảm thấy gì. <b>Câu 5 – 6:</b> vì sao hình ảnh ấy đáng nhớ — nó cho em hiểu gì về Gióng, về người anh hùng.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Trong truyện “Thánh Gióng”, hình ảnh khiến em nhớ mãi là lúc roi sắt gãy giữa trận và tráng sĩ quay sang nhổ những cụm tre bên đường.</i></p>
+      <p>Viết xong, đếm lại số câu: 5 – 7 câu, viết liền thành <b>một</b> đoạn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) chỉ viết về <b>một</b> hình ảnh hoặc hành động của Thánh Gióng; (2) hình ảnh ấy có thật trong truyện, được dẫn đúng chi tiết hoặc trích vài chữ của văn bản; (3) nói được <b>vì sao</b> em ấn tượng — hình ảnh ấy cho em hiểu điều gì về người anh hùng; (4) dài khoảng 5 – 7 câu, viết thành một đoạn, mạch lạc.</div>
+    <div class="bay">Viết “em rất thích hình ảnh này, nó rất hay” mà không nói hay ở đâu. Hoặc chọn hai ba hình ảnh, mỗi cái một câu — đoạn văn thành bản liệt kê.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu mức độ; tránh phát cho HS chép. Đoạn tham khảo: 6 câu, hai chỗ trích nguyên văn.</div>
+    <div class="tham-khao">
+    <p>Trong truyện <i>Thánh Gióng</i>, hình ảnh khiến em nhớ mãi là lúc roi sắt gãy giữa trận và tráng sĩ quay sang nhổ những cụm tre bên đường. Trận đánh đang lúc hăng nhất thì “Bỗng roi sắt gãy” — chỉ bốn chữ thôi mà em như nín thở lo cho Gióng. Nhưng tráng sĩ không hề lùi bước: Gióng nhổ ngay những cụm tre cạnh đường quật vào quân thù, cho đến khi “Giặc tan vỡ”. Cây roi sắt do thợ của nhà vua đêm ngày rèn đúc có thể gãy, còn tre thì làng quê nào cũng có, mọc ngay bên đường người anh hùng đi qua. Em hiểu rằng khi đất nước có giặc, cả cây cỏ quê hương cũng hoá thành vũ khí, và người anh hùng là người biết dùng bất cứ thứ gì trong tay để bảo vệ đất nước. Từ đó, mỗi lần đi qua luỹ tre đầu làng, em lại nghĩ tới những cụm tre năm xưa đã theo Gióng ra trận.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv1" data-chip="Tiếng Việt ①">Thực hành tiếng Việt<small>Nghĩa của từ ngữ · Từ ghép và từ láy · Cụm từ · Biện pháp tu từ (trang 9 – 10)</small></h2>
+
+<article class="the bai" id="tv1-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nghĩa của từ ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Giả</i> trong <i>sứ giả</i> có nghĩa là <i>người</i>, <i>kẻ</i>. Hãy tìm một số từ có yếu tố <i>giả</i> được dùng theo nghĩa như vậy và giải thích nghĩa của những từ đó.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — “giả” trong từ nào có nghĩa là “người”?</b>
+    <div class="cau-thu"><span class="noi-dung">khán giả</span><button class="chon chu" data-dung="1">nghĩa là “người”</button><button class="chon chu" data-dung="0">nghĩa khác</button><span class="phan-hoi" data-dung-txt="Đúng! Khán giả là người xem." data-sai-txt="Thử thay “giả” bằng “người”: khán giả = người xem — có hợp nghĩa không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">hàng giả</span><button class="chon chu" data-dung="0">nghĩa là “người”</button><button class="chon chu" data-dung="1">nghĩa khác</button><span class="phan-hoi" data-dung-txt="Đúng! Ở đây “giả” là không thật." data-sai-txt="Thử lại: “hàng người” có nghĩa gì không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">độc giả</span><button class="chon chu" data-dung="1">nghĩa là “người”</button><button class="chon chu" data-dung="0">nghĩa khác</button><span class="phan-hoi" data-dung-txt="Đúng! Độc giả là người đọc." data-sai-txt="Thử lại: độc giả là ai trong một tờ báo?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">giả vờ</span><button class="chon chu" data-dung="0">nghĩa là “người”</button><button class="chon chu" data-dung="1">nghĩa khác</button><span class="phan-hoi" data-dung-txt="Đúng! Giả vờ là làm như thật mà không thật." data-sai-txt="Thử lại: giả vờ chỉ một con người, hay một cách làm?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người xem phim gọi là gì? Người đọc sách gọi là gì? Em đã biết sẵn nhiều từ có “giả” rồi đấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ tới những người <b>xem</b>, <b>nghe</b>, <b>đọc</b>, <b>viết</b>, <b>nói trước đông người</b>… Mỗi từ tìm được, thử thay “giả” bằng “người”: nghĩa vẫn đúng là được.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu mẫu: sứ giả</h4>
+      <p>SGK chú thích: sứ giả là “người được vua phái đi giao thiệp với nước ngoài hoặc thực hiện một nhiệm vụ quan trọng”. Tiếng “sứ” chỉ việc được phái đi; tiếng “giả” chỉ <b>người</b> làm việc ấy.</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm từ cùng kiểu, thử bằng phép thay</h4>
+      <p><i>khán giả</i> → người xem · <i>độc giả</i> → người đọc · <i>thính giả</i> → người nghe · <i>tác giả</i> → người làm ra tác phẩm · <i>diễn giả</i> → người nói trước đông người · <i>học giả</i> → người nghiên cứu, có học vấn sâu.</p>
+      <p class="vi-sao">Không phải chữ “giả” nào cũng là “người”. Trong <i>hàng giả</i>, <i>giả vờ</i>, <i>tóc giả</i>, “giả” lại có nghĩa là <b>không thật</b> — hai chữ “giả” này chỉ giống nhau về âm, nghĩa không liên quan gì (đó là từ đồng âm, em đã học ở Bài 4).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Một số từ có yếu tố <i>giả</i> mang nghĩa “người”: <b>tác giả</b> (người làm ra một tác phẩm), <b>độc giả</b> (người đọc sách, báo), <b>khán giả</b> (người xem biểu diễn, xem phim, xem thi đấu), <b>thính giả</b> (người nghe đài, nghe nói chuyện), <b>diễn giả</b> (người diễn thuyết, nói trước đông người), <b>học giả</b> (người nghiên cứu, có học vấn sâu rộng). Em tìm được từ khác cũng được, miễn khi thay “giả” bằng “người” thì nghĩa vẫn đúng.</div>
+    <div class="bay">Đưa vào cả <i>hàng giả</i>, <i>giả vờ</i>, <i>giả dối</i> — ở đó “giả” nghĩa là không thật, không phải “người”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Từ ghép – từ láy</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Xác định từ ghép và từ láy trong những từ sau: <i>mặt mũi</i>, <i>xâm phạm</i>, <i>lo sợ</i>, <i>tài giỏi</i>, <i>vội vàng</i>, <i>gom góp</i>, <i>hoảng hốt</i>, <i>đền đáp</i>. Cho biết cơ sở để xác định như vậy.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — xếp từng từ</b>
+    <div class="cau-thu"><span class="noi-dung">mặt mũi</span><button class="chon chu" data-dung="1">Từ ghép</button><button class="chon chu" data-dung="0">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! “mặt” và “mũi” đều có nghĩa, gắn với nhau về nghĩa." data-sai-txt="Thử lại: “mũi” tách riêng có nghĩa không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">vội vàng</span><button class="chon chu" data-dung="0">Từ ghép</button><button class="chon chu" data-dung="1">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! Lặp âm đầu v; “vàng” không góp nghĩa “vội”." data-sai-txt="Thử lại: “vàng” ở đây có nghĩa là màu vàng không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">gom góp</span><button class="chon chu" data-dung="1">Từ ghép</button><button class="chon chu" data-dung="0">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! “gom” và “góp” đều có nghĩa (gom lại, góp vào)." data-sai-txt="Cẩn thận: lặp âm đầu chưa đủ. “gom”, “góp” tách riêng có nghĩa không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">hoảng hốt</span><button class="chon chu" data-dung="0">Từ ghép</button><button class="chon chu" data-dung="1">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! Hai tiếng gắn với nhau bằng âm đầu h." data-sai-txt="Thử lại: hai tiếng này nối với nhau chủ yếu bằng âm hay bằng nghĩa?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">đền đáp</span><button class="chon chu" data-dung="1">Từ ghép</button><button class="chon chu" data-dung="0">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! “đền” (đền ơn) và “đáp” (đáp lại) đều có nghĩa." data-sai-txt="Cẩn thận: “đền”, “đáp” tách riêng có nghĩa không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">tài giỏi</span><button class="chon chu" data-dung="1">Từ ghép</button><button class="chon chu" data-dung="0">Từ láy</button><span class="phan-hoi" data-dung-txt="Đúng! Hai tiếng khác âm, đều có nghĩa." data-sai-txt="Thử lại: “tài” và “giỏi” có giống nhau về âm không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Gom góp” lặp âm đầu <i>g</i> — nhưng tách ra, “gom” và “góp” có tự mang nghĩa không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi từ, làm hai phép thử: (1) tách từng tiếng ra, tiếng nào cũng có nghĩa không? (2) hai tiếng có lặp lại âm đầu, vần không? Đừng chỉ nhìn âm đầu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhắc lại cơ sở phân biệt</h4>
+      <p>Từ ghép: các tiếng có <b>quan hệ với nhau về nghĩa</b>. Từ láy: các tiếng <b>chỉ có quan hệ với nhau về âm</b>.</p>
+      <a class="xem-lai" href="#kt-tu">📌 Xem lại: từ ghép và từ láy</a></div>
+    <div class="buoc" data-so="2"><h4>Thử từng từ</h4>
+      <p><i>xâm phạm, lo sợ, tài giỏi</i>: khác âm hẳn, tiếng nào cũng có nghĩa → từ ghép. <i>mặt mũi, gom góp, đền đáp</i>: tuy lặp âm đầu (<i>m</i>, <i>g</i>, <i>đ</i>) nhưng từng tiếng đều có nghĩa (mặt – mũi; gom – góp; đền – đáp) và gắn với nhau về nghĩa → vẫn là <b>từ ghép</b>. <i>vội vàng, hoảng hốt</i>: hai tiếng nối với nhau bằng âm đầu (<i>v</i>, <i>h</i>); tiếng sau không góp thêm nghĩa → <b>từ láy</b>.</p>
+      <p class="vi-sao">Chỗ dễ nhầm nhất của câu này là ba từ <i>mặt mũi, gom góp, đền đáp</i>: giống từ láy ở âm, nhưng là từ ghép ở nghĩa. Cơ sở để xếp là <b>nghĩa</b>, không phải chỉ nghe âm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Từ ghép:</b> mặt mũi, xâm phạm, lo sợ, tài giỏi, gom góp, đền đáp — vì các tiếng trong từ đều có nghĩa và có quan hệ với nhau về nghĩa (riêng <i>mặt mũi, gom góp, đền đáp</i> tuy lặp âm đầu nhưng từng tiếng vẫn có nghĩa). <b>Từ láy:</b> vội vàng, hoảng hốt — vì các tiếng chỉ có quan hệ với nhau về âm (lặp lại âm đầu <i>v</i>, <i>h</i>).</div>
+    <div class="bay">Thấy lặp âm đầu là xếp ngay vào từ láy: <i>mặt mũi, gom góp, đền đáp</i> bị xếp nhầm. Phải thử nghĩa từng tiếng trước.</div>
+    <div class="gv-note">Cách xếp theo SGV Ngữ văn 6 Tập hai (thống nhất với bài giảng Bài 6). Nếu HS hỏi “hốt” có nghĩa không: trong <i>hoảng hốt</i>, hai tiếng gắn với nhau chủ yếu bằng âm, SGV xếp là từ láy.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cụm động từ – cụm tính từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra cụm động từ và cụm tính từ trong những cụm từ sau: <i>chăm làm ăn</i>, <i>xâm phạm bờ cõi</i>, <i>cất tiếng nói</i>, <i>lớn nhanh như thổi</i>, <i>chạy nhờ</i>. Chọn một cụm động từ, một cụm tính từ và đặt câu với mỗi cụm từ được chọn.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — cụm nào là cụm gì?</b>
+    <div class="cau-thu"><span class="noi-dung">xâm phạm bờ cõi</span><button class="chon chu" data-dung="1">Cụm động từ</button><button class="chon chu" data-dung="0">Cụm tính từ</button><span class="phan-hoi" data-dung-txt="Đúng! Trung tâm “xâm phạm” chỉ hoạt động." data-sai-txt="Thử lại: “xâm phạm” là một việc làm hay một tính chất?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">chăm làm ăn</span><button class="chon chu" data-dung="0">Cụm động từ</button><button class="chon chu" data-dung="1">Cụm tính từ</button><span class="phan-hoi" data-dung-txt="Đúng! Trung tâm “chăm” chỉ tính chất (chăm chỉ)." data-sai-txt="Thử lại: thêm “rất” vào trước được không? “rất chăm” — vậy “chăm” là gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">cất tiếng nói</span><button class="chon chu" data-dung="1">Cụm động từ</button><button class="chon chu" data-dung="0">Cụm tính từ</button><span class="phan-hoi" data-dung-txt="Đúng! Trung tâm “cất” là động từ." data-sai-txt="Thử lại: từ nào là trung tâm — “cất” hay “tiếng nói”?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">chạy nhờ</span><button class="chon chu" data-dung="1">Cụm động từ</button><button class="chon chu" data-dung="0">Cụm tính từ</button><span class="phan-hoi" data-dung-txt="Đúng! Trung tâm “chạy” là động từ." data-sai-txt="Thử lại: “chạy” là hoạt động hay tính chất?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm từ trung tâm của từng cụm trước. Từ ấy chỉ <b>hoạt động</b> hay chỉ <b>tính chất</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bỏ phần phụ đi, còn lại từ nào? Từ đó là động từ thì cả cụm là cụm động từ; là tính từ thì là cụm tính từ. Mẹo: tính từ thường thêm được “rất” ở trước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm trung tâm của từng cụm</h4>
+      <p><i>xâm phạm</i> bờ cõi · <i>cất</i> tiếng nói · <i>lớn</i> nhanh như thổi · <i>chạy</i> nhờ → trung tâm là động từ (chỉ hoạt động). <i>chăm</i> làm ăn → trung tâm là tính từ (chỉ tính chất: chăm chỉ).</p>
+      <p class="vi-sao">Trong truyện, “chú bé lớn nhanh như thổi” nghĩa là chú bé <b>lớn lên</b> rất nhanh — “lớn” chỉ sự phát triển, một quá trình đang diễn ra, nên SGV xếp đây là cụm động từ. Còn “chạy nhờ” trong câu “phải chạy nhờ bà con hàng xóm” là đi lo liệu, nhờ cậy — không phải chạy bằng chân.</p>
+      <a class="xem-lai" href="#kt-cum">📌 Xem lại: cụm động từ, cụm tính từ</a></div>
+    <div class="buoc" data-so="2"><h4>Đặt câu</h4>
+      <p>Cô làm mẫu một câu với cụm động từ: <i>Giặc Ân đã xâm phạm bờ cõi nước ta.</i> Câu với cụm tính từ em tự đặt, nhớ để <i>chăm làm ăn</i> làm thành phần chính của câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Cụm động từ:</b> xâm phạm bờ cõi, cất tiếng nói, lớn nhanh như thổi, chạy nhờ (trung tâm là các động từ <i>xâm phạm, cất, lớn, chạy</i>). <b>Cụm tính từ:</b> chăm làm ăn (trung tâm là tính từ <i>chăm</i>). Câu tham khảo: <i>Giặc Ân đã xâm phạm bờ cõi nước ta.</i> (cụm động từ) — <i>Bố mẹ em rất chăm làm ăn.</i> (cụm tính từ).</div>
+    <div class="bay">Xếp <i>chăm làm ăn</i> vào cụm động từ vì thấy chữ “làm ăn”. Nhưng “làm ăn” chỉ là phần phụ; trung tâm là “chăm”.</div>
+    <div class="gv-note">Theo SGV, <i>lớn nhanh như thổi</i> là cụm động từ. HS hiểu “lớn” là “to” (tính từ) và xếp vào cụm tính từ: giải thích lại theo nghĩa trong câu văn (“lớn lên”), không chấm sai nặng nếu em lập luận được.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Biện pháp so sánh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu biện pháp tu từ được dùng trong những cụm từ sau: <i>lớn nhanh như thổi</i>, <i>chết như ngả rạ</i>. Vận dụng biện pháp tu từ này để nói về một sự vật hoặc hoạt động được kể trong truyện <i>Thánh Gióng</i>.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — “lớn nhanh như thổi” dùng biện pháp nào?</b>
+    <div class="cau-thu"><span class="noi-dung">lớn nhanh như thổi</span><button class="chon chu" data-dung="1">So sánh</button><button class="chon chu" data-dung="0">Ẩn dụ</button><button class="chon chu" data-dung="0">Hoán dụ</button><button class="chon chu" data-dung="0">Nhân hoá</button><span class="phan-hoi" data-dung-txt="Đúng! Có từ so sánh “như”." data-sai-txt="Thử lại: trong cụm có từ “như” — từ ấy thường đi với biện pháp nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có một chữ nhỏ xuất hiện trong cả hai cụm từ. Chữ ấy báo hiệu biện pháp gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả hai cụm đều có từ <i>như</i>. Tìm hai vế: cái gì được so sánh với cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên biện pháp và tìm hai vế</h4>
+      <p><b>lớn nhanh</b> — như — <b>thổi</b>: chú bé lớn lên nhanh như người ta thổi phồng một vật gì đó. <b>chết</b> — như — <b>ngả rạ</b>: giặc đổ xuống hàng loạt như cây lúa bị cắt ngả rạp. Đó là biện pháp <b>so sánh</b>.</p>
+      <p class="vi-sao">SGK giải thích “chết như ngả rạ” là quân giặc “đổ xuống hàng loạt như người ta cắt thân cây lúa (rạ) cho đổ xuống”. Một hình ảnh quen thuộc của nhà nông được dùng để tả một trận đánh — người nghe xưa hình dung ra ngay.</p></div>
+    <div class="buoc" data-so="2"><h4>Vận dụng</h4>
+      <p>Chọn một sự vật hoặc hoạt động trong truyện (ngựa sắt phi, tráng sĩ vươn vai, tiếng ngựa hí…), rồi tìm một hình ảnh quen thuộc có nét giống để so sánh, nối bằng <i>như</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cả hai cụm từ dùng biện pháp <b>so sánh</b> (có từ so sánh <i>như</i>). <i>Lớn nhanh như thổi</i> nhấn mạnh chú bé lớn lên nhanh khác thường, gần như tức khắc; <i>chết như ngả rạ</i> gợi cảnh quân giặc đổ xuống hàng loạt như lúa bị cắt, cho thấy sức mạnh ghê gớm của tráng sĩ. Câu vận dụng tham khảo: <i>Ngựa sắt phi nhanh như một cơn gió lốc.</i> — <i>Tráng sĩ vươn vai, sừng sững như một ngọn núi.</i></div>
+    <div class="bay">Đặt câu vận dụng nhưng nói về sự vật không có trong truyện <i>Thánh Gióng</i> (ví dụ “Mẹ em hiền như bụt”). Đề yêu cầu nói về sự vật, hoạt động <b>được kể trong truyện</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb2" data-chip="Văn bản 2">Văn bản 2. Sơn Tinh, Thuỷ Tinh<small>Truyền thuyết · Theo Huỳnh Lý</small></h2>
+
+<article class="the bai" id="v2-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Đối với cuộc sống của con người, tuỳ từng thời điểm cụ thể, các hiện tượng tự nhiên có thể bộc lộ một trong hai mặt: ích lợi và tác hại. Nêu một số ích lợi và tác hại của các hiện tượng đó.</p>
+    <p><b>2.</b> Hãy nêu những hoạt động của con người nhằm hạn chế tác hại của các hiện tượng tự nhiên mà em biết.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cơn mưa làm ruộng lúa xanh tốt cũng chính là cơn mưa có thể làm ngập phố. Em đã thấy điều ấy bao giờ chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn 2 – 3 hiện tượng quen thuộc: mưa, nắng, gió. Kẻ hai cột “Ích lợi” – “Tác hại” cho mỗi hiện tượng. Rồi nghĩ: ở quê em, người ta làm gì để chống lại mặt “tác hại”?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một hiện tượng, hai mặt</h4>
+      <p><b>Mưa:</b> tưới mát ruộng đồng, làm dịu cái nóng — nhưng mưa lớn kéo dài gây lũ lụt, ngập úng. <b>Nắng:</b> giúp cây lớn, phơi khô thóc lúa — nhưng nắng kéo dài gây hạn hán. <b>Gió:</b> làm mát, đưa thuyền buồm đi — nhưng gió mạnh thành bão, đổ cây, tốc mái nhà.</p>
+      <p class="vi-sao">Câu hỏi chuẩn bị cho em đọc một truyện về nước: nước nuôi sống ruộng đồng, nhưng nước cũng có lúc “ngập ruộng đồng”, “tràn nhà cửa”.</p></div>
+    <div class="buoc" data-so="2"><h4>Con người chống lại tác hại</h4>
+      <p>Đắp đê, trồng rừng đầu nguồn, làm mương máng tưới tiêu, dự báo thời tiết, chằng chống nhà cửa trước bão, xây nhà kiên cố ở nơi hay có lũ…</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Mưa tưới mát ruộng đồng nhưng mưa lớn kéo dài gây lũ lụt; nắng giúp cây lớn, phơi khô thóc lúa nhưng nắng lâu ngày gây hạn hán; gió làm mát và đẩy thuyền buồm nhưng gió mạnh thành bão làm đổ cây, tốc mái nhà. Để hạn chế tác hại, con người đắp đê ngăn lũ, trồng rừng giữ đất, làm mương máng tưới tiêu, theo dõi dự báo thời tiết, chằng chống nhà cửa trước mùa mưa bão. Năm ngoái, trước cơn bão, bố em đã cùng các bác trong xóm buộc lại mái tôn và chặt bớt cành cây sát nhà.</div>
+    <div class="gv-note">Hoạt động khởi động. Khuyến khích HS kể điều thấy ở địa phương mình; với HS từng trải qua lũ lụt, để các em tự chọn có kể hay không.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cốt truyện nhân quả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các sự kiện trong một câu chuyện dân gian thường được kết nối với nhau bởi quan hệ nguyên nhân và kết quả.</p>
+    <p>Hãy tóm lược cốt truyện <i>Sơn Tinh, Thuỷ Tinh</i> theo chuỗi quan hệ <i>nguyên nhân – kết quả</i> và thể hiện chuỗi quan hệ đó theo mẫu sau:</p>
+    <p>(Sơ đồ mẫu gồm các ô nối nhau bằng mũi tên: <i>Vua Hùng tổ chức kén rể.</i> → <i>Hai chàng trai tài giỏi cùng đến thi tài, không ai chịu thua ai.</i> → <i>Vua Hùng ra điều kiện ai mang sính lễ đến trước thì gả con gái cho.</i> → …)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi “kết quả” lại trở thành “nguyên nhân” của việc tiếp theo — như những quân cờ đô-mi-nô đổ nối nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba ô đầu SGK đã điền. Em đi tiếp từ ô thứ ba: vì vua ra điều kiện như vậy, nên chuyện gì xảy ra sáng hôm sau? Rồi chuyện ấy dẫn tới việc gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các sự việc tiếp theo</h4>
+      <blockquote class="trich"><p>Hôm sau, mới tờ mờ sáng, Sơn Tinh đã đem đầy đủ lễ vật đến rước Mị Nương về núi.</p><p>Thuỷ Tinh đến sau, không lấy được vợ, đùng đùng nổi giận, đem quân đuổi theo, đòi cướp Mị Nương.</p></blockquote>
+      <p class="vi-sao">Hai câu nối nhau bằng một quan hệ rất rõ: Sơn Tinh đến <b>trước</b> → Thuỷ Tinh đến <b>sau</b> → không lấy được vợ → nổi giận. Truyền thuyết kể theo “mạch tuyến tính”, việc trước kéo theo việc sau.</p>
+      <a class="xem-lai" href="#kt-noi-dung">📌 Xem lại: mạch kể của truyền thuyết</a></div>
+    <div class="buoc" data-so="2"><h4>Đi đến cuối chuỗi</h4>
+      <blockquote class="trich"><p>Hai bên đánh nhau ròng rã mấy tháng trời, cuối cùng Sơn Tinh vẫn vững vàng mà sức Thuỷ Tinh đã kiệt. Thần Nước đành rút quân.</p><p>Từ đó, oán nặng, thù sâu, hằng năm Thuỷ Tinh làm mưa gió, bão lụt dâng nước đánh Sơn Tinh.</p></blockquote>
+      <p>Chuỗi không dừng ở chiến thắng của Sơn Tinh: thua trận lại thành nguyên nhân của mối thù, và mối thù thành nguyên nhân của những trận lũ <b>hằng năm</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chuỗi nguyên nhân – kết quả: Vua Hùng tổ chức kén rể → Hai chàng trai tài giỏi cùng đến thi tài, không ai chịu thua ai → Vua Hùng ra điều kiện ai mang sính lễ đến trước thì gả con gái cho → <b>Sơn Tinh đem sính lễ đến trước, rước Mị Nương về núi</b> → <b>Thuỷ Tinh đến sau, không lấy được vợ, nổi giận đem quân đuổi theo, dâng nước đánh Sơn Tinh</b> → <b>Hai bên đánh nhau ròng rã mấy tháng trời, Sơn Tinh vẫn vững vàng, Thuỷ Tinh kiệt sức phải rút quân</b> → <b>Thuỷ Tinh oán nặng thù sâu, hằng năm dâng nước đánh Sơn Tinh nhưng năm nào cũng thua, đành rút quân về</b>.</div>
+    <div class="bay">Dừng chuỗi ở chỗ “Sơn Tinh thắng”. Ô cuối cùng — mối thù hằng năm — là sự việc quan trọng nhất, vì nó giải thích hiện tượng lũ lụt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân vật thần</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong câu chuyện này, những nhân vật nào được gọi là thần? Hãy chỉ ra những đặc điểm khiến cho họ được coi là những vị thần.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người thường gọi gió có được gió không? Ai trong truyện gọi là gió đến?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm chữ “Thần” trong truyện: Thần gì? Gọi ai? Rồi gạch chân những việc hai nhân vật ấy làm được mà con người không làm được.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ai được gọi là thần</h4>
+      <blockquote class="trich"><p>Thần Nước đành rút quân.</p><p>Nhưng năm nào cũng vậy, vị Thần Nước đánh mỏi mệt, chán chê vẫn không thắng nổi Thần Núi để cướp Mị Nương, đành rút quân về.</p></blockquote>
+      <p><b>Thuỷ Tinh</b> là Thần Nước, <b>Sơn Tinh</b> là Thần Núi. Ngay cái tên cũng gợi điều ấy: Phụ lục 3 (Tập hai) ghi yếu tố <i>tinh</i> có một nghĩa là “thần linh, yêu quái” (ví dụ: Sơn Tinh, Thuỷ Tinh), còn <i>thuỷ</i> nghĩa là “nước”.</p></div>
+    <div class="buoc" data-so="2"><h4>Những tài lạ của thần</h4>
+      <blockquote class="trich"><p>Một người ở vùng núi Tản Viên có tài lạ: vẫy tay về phía đông, phía đông nổi cồn bãi; vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi.</p><p>Một người ở miền biển, tài năng cũng không kém: gọi gió, gió đến; hô mưa, mưa về.</p></blockquote>
+      <p class="vi-sao">Để ý nhịp câu: “gọi gió, gió đến; hô mưa, mưa về” — vừa gọi là có, không cần chờ. Chỉ cần một cái vẫy tay là núi mọc, bãi nổi. Thiên nhiên nghe theo lệnh — đó là dấu hiệu của thần.</p>
+      <a class="xem-lai" href="#kt-ki-ao">📌 Xem lại: yếu tố kì ảo</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hai nhân vật được gọi là thần: <b>Sơn Tinh — Thần Núi</b>, “chúa miền non cao”, và <b>Thuỷ Tinh — Thần Nước</b>, “chúa vùng nước thẳm”. Họ được coi là thần vì có những phép lạ mà con người không có, sai khiến được thiên nhiên: Sơn Tinh vẫy tay về phía đông thì “phía đông nổi cồn bãi”, vẫy tay về phía tây thì “phía tây mọc lên từng dãy núi đồi”, lại có thể “bốc từng quả đồi, dời từng dãy núi”; Thuỷ Tinh “gọi gió, gió đến; hô mưa, mưa về”, làm dông bão rung chuyển đất trời, dâng nước sông lên cuồn cuộn.</div>
+    <div class="bay">Kể thêm Vua Hùng hoặc Mị Nương. Truyện chỉ gọi Sơn Tinh, Thuỷ Tinh là thần; Vua Hùng, Mị Nương là người.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chi tiết đặc biệt</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cuộc thi tài kén rể trong câu chuyện này có gì đặc biệt?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai chàng rể đều là thần — vậy vua chọn bằng cách nào? Có phải thi đấu võ không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Để ý ba điều: <b>ai</b> đến dự thi; vua đặt ra <b>điều kiện</b> gì; <b>sính lễ</b> là những thứ gì, phải có trong bao lâu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Người dự thi và cách thi</h4>
+      <blockquote class="trich"><p>Một người là chúa miền non cao, một người là chúa vùng nước thẳm, cả hai đều xứng đáng làm rể Vua Hùng.</p><p>– Hai ngài đều vừa ý ta, nhưng ta chỉ có một người con gái, biết gả cho ngài nào? Thôi thì ngày mai, ai đem sính lễ đến trước, ta sẽ cho cưới con ta.</p></blockquote>
+      <p>Hai người cầu hôn là hai vị thần ngang tài. Vua không bắt họ đọ sức, mà thi xem <b>ai đem sính lễ đến trước</b> — và chỉ có một đêm để chuẩn bị.</p></div>
+    <div class="buoc" data-so="2"><h4>Sính lễ kì lạ</h4>
+      <blockquote class="trich"><p>Một trăm ván cơm nếp, một trăm nệp bánh chưng và voi chín ngà, gà chín cựa, ngựa chín hồng mao, mỗi thứ một đôi</p></blockquote>
+      <p class="vi-sao">Voi thường có hai ngà, gà có hai cựa — “chín ngà”, “chín cựa” là những con vật không có ngoài đời; SGK chú thích “ngựa chín hồng mao” là “một loài ngựa quý hiếm”. Lại thêm “mỗi thứ một đôi”. Cuộc thi thật ra là thi tài: chỉ thần mới tìm nổi những lễ vật ấy trong một đêm. Để ý thêm: cơm nếp, bánh chưng, voi, gà, ngựa đều là sản vật của đất liền, núi rừng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cuộc thi kén rể có nhiều điểm đặc biệt: (1) người dự thi là hai vị thần ngang tài ngang sức — “chúa miền non cao” và “chúa vùng nước thẳm” — khiến Vua Hùng “băn khoăn, không biết nhận lời ai, từ chối ai”; (2) vua không cho thi đấu trực tiếp mà ra điều kiện <b>ai đem sính lễ đến trước</b> thì được cưới Mị Nương, thời hạn chỉ là “ngày mai”; (3) sính lễ rất kì lạ, khó tìm: “voi chín ngà, gà chín cựa, ngựa chín hồng mao, mỗi thứ một đôi”, cùng một trăm ván cơm nếp, một trăm nệp bánh chưng. Những lễ vật ấy đều là sản vật của núi rừng, đồng ruộng — có thể hiểu là thuận lợi cho Sơn Tinh, vị thần của vùng núi.</div>
+    <div class="bay">Chỉ nói “thi mang sính lễ đến trước” mà không nói sính lễ <b>lạ</b> ở đâu. Chi tiết voi chín ngà, gà chín cựa là chỗ “đặc biệt” nhất.</div>
+    <div class="gv-note">Ý “sính lễ thuận lợi cho Sơn Tinh” là một cách hiểu, không có câu nào trong văn bản nói thẳng; khuyến khích HS tự phát hiện nhưng không bắt buộc.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhân vật anh hùng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sơn Tinh phải giao tranh với Thuỷ Tinh vì lí do gì? Ai là người thắng cuộc và vì sao người thắng cuộc xứng đáng được xem là một anh hùng?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nước dâng cao một thước thì núi cao lên mấy thước? Câu văn nào trả lời điều đó?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi có <b>ba vế</b>: lí do — người thắng — vì sao là anh hùng. Với vế thứ ba, đọc lại hộp 📌 Nhân vật: người anh hùng phải đối mặt với thử thách “cũng là thử thách của cả cộng đồng”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lí do giao tranh</h4>
+      <p>Thuỷ Tinh đến sau, không lấy được Mị Nương, “đùng đùng nổi giận, đem quân đuổi theo, đòi cướp Mị Nương”. Sơn Tinh phải chiến đấu để giữ vợ — và, như em sẽ thấy, để giữ cả vùng đất.</p></div>
+    <div class="buoc" data-so="2"><h4>Thử thách của cả cộng đồng</h4>
+      <blockquote class="trich"><p>Nước ngập ruộng đồng, nước tràn nhà cửa, nước dâng lên lưng đồi, sườn núi, thành Phong Châu như nổi lềnh bềnh trên một biển nước.</p></blockquote>
+      <p class="vi-sao">Cơn giận của Thuỷ Tinh không chỉ nhắm vào Sơn Tinh: ruộng đồng, nhà cửa, cả kinh thành Phong Châu đều ngập. Đây là thử thách của mọi người dân.</p>
+      <a class="xem-lai" href="#kt-nhan-vat">📌 Xem lại: nhân vật của truyền thuyết</a></div>
+    <div class="buoc" data-so="3"><h4>Người thắng và phẩm chất anh hùng</h4>
+      <blockquote class="trich"><p>Sơn Tinh không hề nao núng. Thần dùng phép lạ bốc từng quả đồi, dời từng dãy núi, dựng thành luỹ đất, ngăn chặn dòng nước lũ. Nước sông dâng lên bao nhiêu, đồi núi cao lên bấy nhiêu.</p></blockquote>
+      <p class="vi-sao">Câu “Nước sông dâng lên bao nhiêu, đồi núi cao lên bấy nhiêu” cho thấy Sơn Tinh không bao giờ để nước vượt mình. “Không hề nao núng”, “vẫn vững vàng”, lại thắng “năm nào cũng vậy” — sức mạnh bền bỉ, không lùi bước.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Lí do:</b> Thuỷ Tinh đến sau, không lấy được Mị Nương nên “đùng đùng nổi giận”, đem quân đuổi theo đòi cướp Mị Nương, dâng nước đánh Sơn Tinh. <b>Người thắng cuộc:</b> Sơn Tinh. <b>Vì sao là anh hùng:</b> Sơn Tinh đối mặt với một thử thách to lớn của cả cộng đồng — nước ngập ruộng đồng, tràn nhà cửa, thành Phong Châu “như nổi lềnh bềnh trên một biển nước”. Thần “không hề nao núng”, dùng phép lạ bốc đồi, dời núi, dựng luỹ đất ngăn lũ, “Nước sông dâng lên bao nhiêu, đồi núi cao lên bấy nhiêu”; đánh nhau ròng rã mấy tháng trời vẫn vững vàng, năm nào cũng thắng. Sơn Tinh không chỉ giữ được Mị Nương mà còn bảo vệ cuộc sống của muôn dân trước lũ lụt.</div>
+    <div class="bay">Trả lời “Sơn Tinh là anh hùng vì Sơn Tinh mạnh”. Câu trả lời tốt chỉ ra Sơn Tinh mạnh <b>để làm gì</b>: bảo vệ ruộng đồng, nhà cửa, kinh thành — cuộc sống của cả cộng đồng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chủ đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chủ đề của truyện <i>Sơn Tinh, Thuỷ Tinh</i> là gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Truyện kết thúc bằng chữ “hằng năm” và “năm nào cũng vậy”. Hai chữ ấy gợi em nghĩ tới điều gì ngoài đời?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thuỷ Tinh làm ra mưa gió, bão lụt; Sơn Tinh ngăn nước lũ. Vậy cuộc giao tranh của hai vị thần thật ra là cuộc chiến giữa con người với cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cuộc chiến của hai vị thần là cuộc chiến nào ngoài đời</h4>
+      <p>Thuỷ Tinh mang sức mạnh của mưa bão, lũ lụt; Sơn Tinh dựng luỹ đất, nâng đồi núi chặn nước — giống như con người đắp đê, chống lũ. Sơn Tinh năm nào cũng thắng.</p>
+      <p class="vi-sao">Người xưa không kể “chúng tôi đã đắp đê chống lũ”, mà kể bằng một cuộc chiến của thần. Phép lạ của Sơn Tinh chính là ước mơ và sức mạnh của họ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Truyện <i>Sơn Tinh, Thuỷ Tinh</i> giải thích hiện tượng mưa bão, lũ lụt xảy ra hằng năm, đồng thời <b>ca ngợi sức mạnh, ý chí bền bỉ của người Việt xưa trong cuộc chiến chống thiên tai, bảo vệ cuộc sống</b>; qua chiến thắng năm nào cũng lặp lại của Sơn Tinh, nhân dân gửi gắm ước mơ chế ngự được lũ lụt.</div>
+    <div class="bay">Nói chủ đề là “chuyện hai vị thần tranh nhau lấy vợ” — đó mới là cốt truyện bề ngoài, chưa phải điều chính mà truyện muốn nói.</div>
+    <div class="gv-note">Chấp nhận các cách diễn đạt khác nếu nêu được hai ý: giải thích lũ lụt hằng năm, và ca ngợi ý chí chống thiên tai của người xưa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c6" data-ten="Câu 6" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Giải thích hiện tượng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Truyền thuyết cũng thường lí giải nguồn gốc các sự vật, hiện tượng hoặc nguyên nhân của một hiện tượng thời tiết trong năm. Truyện <i>Sơn Tinh, Thuỷ Tinh</i> lí giải hiện tượng tự nhiên nào? Theo tác giả dân gian, nguyên nhân hiện tượng tự nhiên đó là gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc đoạn cuối cùng của truyện: điều gì xảy ra “hằng năm”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai vế: hiện tượng gì — vì sao (theo người xưa). Cả hai câu trả lời nằm trong đoạn cuối, bắt đầu bằng “Từ đó…”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc đoạn kết</h4>
+      <blockquote class="trich"><p>Từ đó, oán nặng, thù sâu, hằng năm Thuỷ Tinh làm mưa gió, bão lụt dâng nước đánh Sơn Tinh. Nhưng năm nào cũng vậy, vị Thần Nước đánh mỏi mệt, chán chê vẫn không thắng nổi Thần Núi để cướp Mị Nương, đành rút quân về.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p class="vi-sao">Chữ “Từ đó” đánh dấu chỗ câu chuyện ngày xưa nối vào hiện tượng người nghe gặp mỗi năm. Đây đúng là việc “giải thích nguồn gốc” mà Tri thức ngữ văn nói tới.</p>
+      <a class="xem-lai" href="#kt-noi-dung">📌 Xem lại: nội dung của truyền thuyết</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Truyện lí giải hiện tượng <b>mưa gió, bão lụt xảy ra hằng năm</b>. Theo tác giả dân gian, nguyên nhân là Thuỷ Tinh thua trận, “oán nặng, thù sâu” nên năm nào cũng làm mưa gió, bão lụt, dâng nước đánh Sơn Tinh để cướp Mị Nương; nhưng năm nào Thần Nước cũng không thắng nổi Thần Núi, đánh mỏi mệt rồi đành rút quân về — vì thế lũ lụt đến rồi lại rút đi.</div>
+    <div class="bay">Trả lời được hiện tượng (lũ lụt) mà quên vế <b>nguyên nhân theo tác giả dân gian</b> (mối thù của Thuỷ Tinh).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c7" data-ten="Câu 7" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nhập vai nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thử tưởng tượng em là Thuỷ Tinh và nêu những suy nghĩ, cảm xúc của nhân vật sau khi bị thua cuộc.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đến sau chỉ một chút thôi mà mất tất cả. Nếu là Thuỷ Tinh, em sẽ trách ai — Vua Hùng, Sơn Tinh, hay chính mình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xưng “ta” như một vị thần. Bám vào những gì truyện kể: Thuỷ Tinh đến sau, “đùng đùng nổi giận”, đánh “ròng rã mấy tháng trời”, sức “đã kiệt”, đành rút quân.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bám vào chi tiết của truyện</h4>
+      <blockquote class="trich"><p>Hai bên đánh nhau ròng rã mấy tháng trời, cuối cùng Sơn Tinh vẫn vững vàng mà sức Thuỷ Tinh đã kiệt. Thần Nước đành rút quân.</p></blockquote>
+      <p class="vi-sao">Chữ “đành” cho biết Thuỷ Tinh rút quân mà không cam lòng. Từ đó em có thể đoán: tức giận, không phục, tủi hổ — và vì thế mà “oán nặng, thù sâu”.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn hướng cảm xúc</h4>
+      <p>Có thể theo hướng của truyện (giận dữ, ôm hận, hẹn năm sau đánh tiếp), cũng có thể theo hướng em nghĩ ra (nhận ra mình nóng nảy, thấy thương những người dân bị nước cuốn). Hướng nào cũng được, miễn là lí giải được bằng chi tiết của truyện.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Ta là Thuỷ Tinh, chúa vùng nước thẳm. Sáng hôm ấy ta chỉ đến muộn một chút, vậy mà Mị Nương đã theo Sơn Tinh về núi. Ta tức giận đến mức gọi hết gió mưa, dâng nước lên tận lưng đồi; thế mà nước dâng bao nhiêu, đồi núi của hắn lại cao lên bấy nhiêu. Mấy tháng trời đánh nhau, sức ta cạn dần, cuối cùng ta đành rút quân trong nỗi tủi hổ. Ta không phục: tài ta đâu kém gì hắn! Nhưng đêm nằm dưới đáy biển, nhìn ruộng đồng, nhà cửa của muôn dân bị nước cuốn trôi, ta chợt tự hỏi: cơn giận của ta có đáng để bao người phải khổ như thế không?</div>
+    <div class="bay">Kể lại diễn biến trận đánh mà không có suy nghĩ, cảm xúc nào; hoặc lẫn ngôi kể (“Thuỷ Tinh rất tức giận…” thay vì xưng “ta”).</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận mọi hướng cảm xúc (tức giận, không phục, tủi hổ, hối hận…), miễn nhập vai nhất quán và có căn cứ trong truyện (đến sau, đánh ròng rã, sức kiệt, rút quân, năm nào cũng thua). Câu cuối của câu trả lời tham khảo là tưởng tượng thêm của người viết, không có trong truyện.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn tả ngoại hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đây là tưởng tượng của nhà thơ Nguyễn Nhược Pháp về hình ảnh Sơn Tinh và Thuỷ Tinh:</p>
+    <blockquote class="trich tho"><p>Sơn Tinh có một mắt ở trán</p><p>Thuỷ Tinh râu ria quăn xanh rì</p><p>Một thần phi bạch hổ trên cạn</p><p>Một thần cưỡi lưng rồng uy nghi.</p><cite>— Nguyễn Nhược Pháp, <i>Sơn Tinh, Thuỷ Tinh</i>, trích trong tập <i>Ngày xưa</i></cite></blockquote>
+    <p>Điều này cho thấy, từ những thông tin về nhân vật trong câu chuyện, mỗi chúng ta có thể tưởng tượng ra ngoại hình của nhân vật Sơn Tinh, Thuỷ Tinh theo cách riêng. Hãy ghi lại tưởng tượng của em bằng một đoạn văn (khoảng 5 – 7 câu).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một vị thần chỉ vẫy tay là núi đồi mọc lên thì đôi tay ấy trông ra sao nhỉ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại các tài lạ của hai vị thần. Mỗi nét ngoại hình em tả nên “khớp” với một tài năng: thần núi thì vững chãi như đá; thần nước thì bồng bềnh như sóng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xem nhà thơ đã tưởng tượng thế nào</h4>
+      <p>Đọc lại bốn dòng thơ ở đề bài: Sơn Tinh “có một mắt ở trán”, Thuỷ Tinh “râu ria quăn xanh rì”; một thần “phi bạch hổ trên cạn”, một thần “cưỡi lưng rồng uy nghi”.</p>
+      <p class="vi-sao">Nhà thơ chọn chi tiết rất lạ (một mắt ở trán, râu xanh rì) và gắn mỗi thần với một con vật: bạch hổ trên cạn, rồng dưới nước. Tranh SGK trang 11 lại vẽ khác: Sơn Tinh khoác áo choàng đỏ, đội mũ lông chim xanh; Thuỷ Tinh mặc áo vảy xanh, cầm cây đinh ba vàng. Mỗi người một hình dung — em cũng có quyền có hình dung của riêng em.</p></div>
+    <div class="buoc" data-so="2"><h4>Nối ngoại hình với tài năng</h4>
+      <p>Lập hai cột. <b>Sơn Tinh</b> — “chúa miền non cao”, vẫy tay là núi mọc, “không hề nao núng” → dáng cao lớn, vững chãi, bàn tay to, ánh mắt điềm tĩnh… <b>Thuỷ Tinh</b> — “chúa vùng nước thẳm”, gọi gió hô mưa, “đùng đùng nổi giận” → tóc như sóng, áo vảy cá, giọng ầm ầm…</p>
+      <p class="vi-sao">Đề yêu cầu tả <b>ngoại hình</b>, không kể lại truyện. Nhưng ngoại hình tả hay là ngoại hình nhìn vào đã đoán ra tính cách, tài năng.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Trong tưởng tượng của em, Sơn Tinh là một chàng trai cao lớn, vai rộng, làn da sạm màu nắng gió như đá núi Tản Viên.</i></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) tả <b>ngoại hình</b> của Sơn Tinh, Thuỷ Tinh (hoặc một trong hai nhân vật) theo tưởng tượng riêng của em, không chép lại thơ hay tranh; (2) các nét ngoại hình phù hợp với thông tin trong truyện (Sơn Tinh ở vùng núi, vẫy tay là núi đồi mọc lên; Thuỷ Tinh ở miền biển, gọi gió hô mưa); (3) có hình ảnh cụ thể, dùng từ gợi tả, có thể dùng so sánh; (4) dài khoảng 5 – 7 câu, viết thành một đoạn.</div>
+    <div class="bay">Kể lại cuộc giao tranh thay vì tả ngoại hình. Hoặc tả chung chung “Sơn Tinh rất đẹp trai, Thuỷ Tinh rất dữ tợn” mà không có một nét cụ thể nào.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 7 câu, tả cả hai nhân vật, nhiều chỗ dùng so sánh.</div>
+    <div class="tham-khao">
+    <p>Trong tưởng tượng của em, Sơn Tinh là một chàng trai cao lớn, vai rộng, làn da sạm màu nắng gió như đá núi Tản Viên. Chàng khoác chiếc áo choàng màu lá rừng, tóc buộc gọn bằng sợi dây mây, đôi bàn tay to và chắc — đôi tay chỉ cần vẫy một cái là núi đồi mọc lên. Đôi mắt chàng điềm tĩnh, ít khi chớp, như chẳng có cơn sóng dữ nào làm chàng nao núng. Thuỷ Tinh thì khác hẳn: mái tóc xanh thẫm bồng bềnh như sóng, bộ râu quăn lúc nào cũng lấm tấm những giọt nước. Chàng mặc tấm áo kết bằng vảy cá óng ánh, mỗi bước đi lại nghe gió rít và mưa rơi lộp độp quanh mình. Khi giận dữ, đôi mắt Thuỷ Tinh tối sầm như bầu trời sắp nổi dông, giọng nói ầm ầm như thác đổ. Một người vững như núi, một người dữ như nước: chỉ nhìn dáng vẻ thôi, em cũng đoán được trận giao tranh giữa hai vị thần sẽ dữ dội đến nhường nào.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv2" data-chip="Tiếng Việt ②">Thực hành tiếng Việt<small>Dấu câu · Nghĩa của từ ngữ · Biện pháp tu từ (trang 13)</small></h2>
+
+<article class="the bai" id="tv2-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dấu chấm phẩy</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm và cho biết công dụng của dấu chấm phẩy trong đoạn văn sau:</p>
+    <p><i>Một người ở vùng núi Tản Viên có tài lạ: vẫy tay về phía đông, phía đông nổi cồn bãi; vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi. Người ta gọi chàng là Sơn Tinh. Một người ở miền biển, tài năng cũng không kém: gọi gió, gió đến; hô mưa, mưa về. Người ta gọi chàng là Thuỷ Tinh.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — đoạn văn có mấy dấu chấm phẩy?</b>
+    <div class="cau-thu"><span class="noi-dung">dấu ;</span><button class="chon" data-dung="0">1</button><button class="chon" data-dung="1">2</button><button class="chon" data-dung="0">3</button><button class="chon" data-dung="0">4</button><span class="phan-hoi" data-dung-txt="Đúng! Một dấu trong câu về Sơn Tinh, một dấu trong câu về Thuỷ Tinh." data-sai-txt="Chưa khớp — đừng nhầm dấu hai chấm với dấu chấm phẩy. Đếm lại từng câu."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sau mỗi dấu chấm phẩy, chữ tiếp theo viết hoa hay viết thường? Câu đã dừng hẳn chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Khoanh từng dấu chấm phẩy. Đọc phần đứng trước và phần đứng sau nó: mỗi phần đã có dấu phẩy bên trong chưa?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm dấu chấm phẩy</h4>
+      <blockquote class="trich"><p>vẫy tay về phía đông, phía đông nổi cồn bãi; vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi</p><p>gọi gió, gió đến; hô mưa, mưa về</p></blockquote>
+      <p>Có <b>hai</b> dấu chấm phẩy, mỗi dấu đứng giữa hai tài lạ của một vị thần.</p></div>
+    <div class="buoc" data-so="2"><h4>Vì sao không dùng dấu phẩy?</h4>
+      <p class="vi-sao">Mỗi bộ phận (“vẫy tay về phía đông, phía đông nổi cồn bãi”; “gọi gió, gió đến”) <b>đã có dấu phẩy bên trong</b>. Nếu ranh giới giữa hai bộ phận cũng là dấu phẩy, người đọc sẽ khó biết chỗ nào hết một tài lạ, chỗ nào sang tài lạ khác. Dấu chấm phẩy làm việc phân ranh ấy — giống hệt câu về chim én trong hộp 📌.</p>
+      <a class="xem-lai" href="#kt-cham-phay">📌 Xem lại: dấu chấm phẩy</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn có <b>hai</b> dấu chấm phẩy: một dấu giữa “vẫy tay về phía đông, phía đông nổi cồn bãi” và “vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi”; một dấu giữa “gọi gió, gió đến” và “hô mưa, mưa về”. Công dụng: <b>đánh dấu ranh giới giữa các bộ phận trong một chuỗi liệt kê phức tạp</b> — chuỗi kể các tài lạ của Sơn Tinh, của Thuỷ Tinh; vì bên trong mỗi bộ phận đã có dấu phẩy, nên ranh giới giữa các bộ phận phải dùng dấu chấm phẩy.</div>
+    <div class="bay">Đếm cả dấu hai chấm (sau “có tài lạ”, sau “cũng không kém”) là dấu chấm phẩy. Dấu hai chấm ở đây báo hiệu phần kể ra ở sau.</div>
+    <div class="gv-note">Hộp 📌 SGK dùng chữ “câu ghép”, “vế câu”; lời giải không giảng hai khái niệm này (chưa thuộc chương trình lớp 6).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c2" data-ten="Câu 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn có dấu chấm phẩy</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) có dùng dấu chấm phẩy.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chỗ nào trong đời sống có nhiều thứ được kể theo từng nhóm? Một phiên chợ, một góc vườn, một ngăn bàn học…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn đề tài có nhiều thứ để kể theo nhóm. Câu có dấu chấm phẩy là câu kể <b>nhiều nhóm</b>, mỗi nhóm đã có dấu phẩy bên trong.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn đề tài, nghĩ trước câu có dấu chấm phẩy</h4>
+      <p>Ví dụ tả một phiên chợ: hàng rau (rau muống, rau cải…); hàng cá (cá rô, tôm…); hàng hoa quả (cam, quýt…). Mỗi hàng là một nhóm, trong nhóm có dấu phẩy, giữa các nhóm là dấu chấm phẩy.</p>
+      <a class="xem-lai" href="#kt-cham-phay">📌 Xem lại: dấu chấm phẩy</a></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mẫu</h4>
+      <p>Cô làm mẫu câu có dấu chấm phẩy thôi, cả đoạn em tự viết nhé: <i>Hàng rau bày rau muống, rau cải, mồng tơi xanh mướt; hàng cá có cá rô, cá diếc, tôm càng nhảy tanh tách trong chậu; hàng hoa quả đỏ rực những cam, quýt, thanh long.</i></p>
+      <p class="vi-sao">Sau mỗi dấu chấm phẩy, chữ đầu viết thường — câu chưa kết thúc. Viết xong, đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) dài khoảng 5 – 7 câu, viết thành một đoạn, có nội dung thống nhất; (2) có ít nhất một câu dùng <b>dấu chấm phẩy đúng công dụng</b>: ngăn các bộ phận trong một chuỗi liệt kê phức tạp (mỗi bộ phận đã có dấu phẩy bên trong); (3) sau dấu chấm phẩy viết chữ thường; (4) đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Dùng dấu chấm phẩy thay cho dấu chấm (rồi viết hoa chữ đứng sau), hoặc đặt dấu chấm phẩy giữa hai từ đơn lẻ (“em thích cam; quýt”) — chuỗi ấy không phức tạp, chỉ cần dấu phẩy.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 7 câu, câu 3 có hai dấu chấm phẩy.</div>
+    <div class="tham-khao">
+    <p>Sáng chủ nhật, em theo mẹ đi chợ quê. Chợ họp ngay dưới gốc đa đầu làng, người đi chợ đông nườm nượp. Hàng rau bày rau muống, rau cải, mồng tơi xanh mướt; hàng cá có cá rô, cá diếc, tôm càng nhảy tanh tách trong chậu; hàng hoa quả đỏ rực những cam, quýt, thanh long. Tiếng rao hàng, tiếng mặc cả, tiếng cười nói hoà vào nhau rộn rã. Mẹ mua cho em một chiếc bánh đúc còn nóng hổi, thơm mùi lá chuối. Em thích nhất là được đứng xem bà cụ bán tò he nặn những con giống xinh xắn. Mỗi lần theo mẹ đi chợ quê, em lại thấy làng mình thật đầm ấm.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nghĩa của từ ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong truyện <i>Sơn Tinh, Thuỷ Tinh</i>, nhân vật Thuỷ Tinh còn được gọi là “Thần Nước”. Trong tiếng Việt, nhiều từ có yếu tố <i>thuỷ</i> có nghĩa là “nước”. Tìm một số từ có yếu tố <i>thuỷ</i> được dùng theo nghĩa như vậy và giải thích ngắn gọn nghĩa của những từ đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người làm việc trên tàu biển gọi là gì? Điện làm ra từ sức nước gọi là gì? Em đã có hai từ rồi.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ tới tàu thuyền, biển, sông, điện, cá tôm… Mỗi từ tìm được, thử thay “thuỷ” bằng “nước”: nghĩa vẫn hợp là được. Tra thêm Phụ lục 3 (Bảng tra cứu yếu tố Hán Việt) cuối sách Tập hai, mục <i>thuỷ</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tra Phụ lục 3 của SGK</h4>
+      <p>Phụ lục 3 ghi <i>thuỷ</i> nghĩa là “nước, liên quan đến nước; sông”, kèm nhiều từ: thuỷ canh, thuỷ chiến, thuỷ đình, thuỷ lộ, thuỷ phủ, thuỷ quái, thuỷ sản, thuỷ thủ, thuỷ tộc, thuỷ triều, thuỷ văn, sơn thuỷ.</p>
+      <p class="vi-sao">Một số từ em đã gặp trong sách và có chú thích sẵn: <i>thuỷ đình</i> — “ngôi nhà nhỏ được dựng trên mặt nước” (văn bản <i>Ai ơi mồng 9 tháng 4</i>); <i>thuỷ tộc</i> — “những loài sống dưới nước” (văn bản <i>Cô Tô</i>, Bài 5).</p></div>
+    <div class="buoc" data-so="2"><h4>Giải thích bằng lời của em</h4>
+      <p><i>thuỷ sản</i>: các loài sống ở nước (cá, tôm, cua…) được nuôi, đánh bắt · <i>thuỷ thủ</i>: người làm việc trên tàu thuyền · <i>thuỷ triều</i>: hiện tượng nước biển dâng lên, rút xuống · <i>thuỷ điện</i>: điện làm ra nhờ sức nước · <i>thuỷ chiến</i>: đánh nhau trên sông, biển.</p>
+      <p class="vi-sao">Cẩn thận với <i>thuỷ chung</i>: “thuỷ” ở đây không có nghĩa là nước — thay “nước” vào là thấy ngay không hợp.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Một số từ có yếu tố <i>thuỷ</i> nghĩa là “nước”: <b>thuỷ sản</b> (các loài sống ở nước được nuôi, đánh bắt như cá, tôm, cua), <b>thuỷ thủ</b> (người làm việc trên tàu thuyền), <b>thuỷ triều</b> (hiện tượng nước biển dâng lên, rút xuống), <b>thuỷ điện</b> (điện làm ra nhờ sức nước), <b>thuỷ đình</b> (ngôi nhà nhỏ được dựng trên mặt nước), <b>thuỷ tộc</b> (những loài sống dưới nước), <b>thuỷ chiến</b> (đánh nhau trên sông, biển). Em tìm được từ khác cũng được, miễn thay “thuỷ” bằng “nước” mà nghĩa vẫn hợp.</div>
+    <div class="bay">Đưa <i>thuỷ chung</i> vào danh sách. Ở đó “thuỷ” không mang nghĩa “nước”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Thành ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Giải thích nghĩa của các thành ngữ sau: <i>hô mưa gọi gió</i>, <i>oán nặng thù sâu</i>. Trong mỗi thành ngữ, các từ ngữ được sắp xếp theo kiểu: <i>hô – gọi</i>, <i>mưa – gió</i>, <i>oán – thù</i>, <i>nặng – sâu</i>. Hãy tìm thêm một số thành ngữ được tạo nên bằng cách tương tự.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Hô” với “gọi” là hai việc giống nhau; “mưa” với “gió” là hai thứ hay đi cùng nhau. Thành ngữ này được xếp thành hai cặp đan xen.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thành ngữ bốn tiếng: tiếng 1 đi cặp với tiếng 3, tiếng 2 đi cặp với tiếng 4. Thử tìm những thành ngữ em biết có cấu tạo như thế: “mưa to gió …”, “nhường cơm sẻ …”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của hai thành ngữ trong truyện</h4>
+      <blockquote class="trich"><p>Thần hô mưa, gọi gió, làm thành dông bão rung chuyển cả đất trời, dâng nước sông lên cuồn cuộn đánh Sơn Tinh.</p><p>Từ đó, oán nặng, thù sâu, hằng năm Thuỷ Tinh làm mưa gió, bão lụt dâng nước đánh Sơn Tinh.</p></blockquote>
+      <p><i>Hô mưa gọi gió</i>: có phép lạ khiến mưa gió đến theo ý mình — chỉ tài phép, sức mạnh phi thường. <i>Oán nặng thù sâu</i>: mối oán thù chồng chất, sâu sắc, khó nguôi.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhận ra cách sắp xếp, tìm thành ngữ tương tự</h4>
+      <p><i>mưa to gió lớn</i> (mưa – gió, to – lớn) · <i>nhường cơm sẻ áo</i> (nhường – sẻ, cơm – áo) · <i>lên thác xuống ghềnh</i> (lên – xuống, thác – ghềnh) · <i>thay da đổi thịt</i> (thay – đổi, da – thịt) · <i>đội trời đạp đất</i> (đội – đạp, trời – đất) · <i>dãi nắng dầm mưa</i> (dãi – dầm, nắng – mưa).</p>
+      <p class="vi-sao">Các cặp có thể gần nghĩa (hô – gọi, to – lớn, thay – đổi), trái nghĩa (lên – xuống), hoặc là hai sự vật hay đi cùng nhau (mưa – gió, cơm – áo). Xếp đan xen như vậy, câu nói vừa cân đối, dễ nhớ, vừa nhấn mạnh ý gấp đôi.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Hô mưa gọi gió:</b> có phép lạ, khiến được mưa gió đến theo ý mình; chỉ người có tài phép, sức mạnh phi thường. <b>Oán nặng thù sâu:</b> mối oán thù rất lớn, chồng chất, sâu sắc, khó nguôi. <b>Thành ngữ được tạo theo cách tương tự</b> (tiếng 1 đi cặp với tiếng 3, tiếng 2 đi cặp với tiếng 4): <i>mưa to gió lớn</i>, <i>nhường cơm sẻ áo</i>, <i>lên thác xuống ghềnh</i>, <i>thay da đổi thịt</i>, <i>đội trời đạp đất</i>, <i>dãi nắng dầm mưa</i>,…</div>
+    <div class="bay">Đưa vào những thành ngữ bốn tiếng nhưng không có các cặp đan xen, ví dụ <i>nước đổ đầu vịt</i>: “nước” với “đầu”, “đổ” với “vịt” không đi thành cặp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Điệp ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm những câu văn có sử dụng biện pháp tu từ điệp ngữ trong văn bản <i>Sơn Tinh, Thuỷ Tinh</i> (Huỳnh Lý <i>kể</i>) và nêu tác dụng của biện pháp tu từ này.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có một chữ được nhắc bốn lần chỉ trong một câu — và cứ mỗi lần nhắc, nó lại dâng cao hơn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Điệp ngữ là cố ý lặp lại một từ ngữ để nhấn mạnh. Đọc lại đoạn kể tài lạ của hai thần, đoạn vua băn khoăn và đoạn Thuỷ Tinh dâng nước. Gạch chân những từ ngữ được nhắc lại liền nhau.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu có từ ngữ lặp lại</h4>
+      <blockquote class="trich"><p>Một người ở vùng núi Tản Viên có tài lạ: vẫy tay về phía đông, phía đông nổi cồn bãi; vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi.</p><p>Một người ở miền biển, tài năng cũng không kém: gọi gió, gió đến; hô mưa, mưa về.</p><p>Một người là chúa miền non cao, một người là chúa vùng nước thẳm, cả hai đều xứng đáng làm rể Vua Hùng.</p><p>Nước ngập ruộng đồng, nước tràn nhà cửa, nước dâng lên lưng đồi, sườn núi, thành Phong Châu như nổi lềnh bềnh trên một biển nước.</p></blockquote>
+      <p>Từ ngữ được lặp: “vẫy tay về phía…”, “phía đông”, “phía tây”; “gió”, “mưa”; “một người là chúa…”; “nước”.</p></div>
+    <div class="buoc" data-so="2"><h4>Nói tác dụng của từng chỗ lặp</h4>
+      <p class="vi-sao">“gọi gió, gió đến; hô mưa, mưa về”: chữ vừa nói ra đã thành sự thật — phép lạ tức thì. “Một người là chúa…, một người là chúa…”: hai vế cân nhau như hai đĩa cân — hai chàng ngang tài ngang sức. Chữ “nước” mở đầu ba vế liền nhau, lại khép câu bằng “biển nước”: nước ở khắp nơi, mỗi lúc một cao — người đọc như thấy nước dâng lên trước mắt, thấy cơn giận của Thuỷ Tinh dữ dội đến mức nào.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Những câu có dùng điệp ngữ: (1) “Một người ở vùng núi Tản Viên có tài lạ: vẫy tay về phía đông, phía đông nổi cồn bãi; vẫy tay về phía tây, phía tây mọc lên từng dãy núi đồi.” (2) “Một người ở miền biển, tài năng cũng không kém: gọi gió, gió đến; hô mưa, mưa về.” (3) “Một người là chúa miền non cao, một người là chúa vùng nước thẳm, cả hai đều xứng đáng làm rể Vua Hùng.” (4) “Nước ngập ruộng đồng, nước tràn nhà cửa, nước dâng lên lưng đồi, sườn núi, thành Phong Châu như nổi lềnh bềnh trên một biển nước.” <b>Tác dụng:</b> câu (1), (2) nhấn mạnh phép lạ phi thường của hai vị thần — vẫy tay là núi mọc, gọi là gió mưa đến ngay; câu (3) nhấn mạnh hai chàng ngang tài ngang sức, ai cũng xứng đáng làm rể Vua Hùng; câu (4) với chữ “nước” lặp lại nhiều lần gợi cảnh nước lũ tràn ngập khắp nơi, dâng mỗi lúc một cao, cho thấy sức mạnh và cơn giận dữ dội của Thuỷ Tinh. Điệp ngữ còn tạo nhịp điệu cho câu văn, giúp lời kể dễ nhớ, dễ truyền miệng.</div>
+    <div class="bay">Chỉ chép câu mà không nói <b>từ ngữ nào</b> được lặp và lặp để làm gì. Hoặc nêu tác dụng chung chung “làm câu văn hay hơn” cho mọi câu.</div>
+    <div class="gv-note">Đối chiếu SGV Ngữ văn 6 Tập hai (thống nhất với bài giảng Bài 6). Kho SGK không có định nghĩa điệp ngữ (chỉ có trong các câu hỏi Bài 2); lời giải giải thích bằng lời người soạn. Chấp nhận thêm các chỗ lặp khác nếu HS chỉ đúng từ ngữ lặp và tác dụng (ví dụ “Người ta gọi chàng là…” lặp ở hai câu).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb3" data-chip="Văn bản 3">Văn bản 3. Ai ơi mồng 9 tháng 4<small>Anh Thư · Văn bản thông tin thuật lại một sự kiện</small></h2>
+
+<article class="the bai" id="v3-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Sự kiện được thuật lại</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Văn bản này thuật lại sự kiện gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhan đề nhắc một ngày. Ngày ấy ở làng Phù Đổng có gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc nhan đề và câu cuối của đoạn mở đầu. Tên sự kiện được nhắc ngay ở đó, kèm một tên gọi khác.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm tên sự kiện</h4>
+      <blockquote class="trich"><p>Lễ hội Gióng hay còn gọi là hội làng Phù Đổng là một trong những lễ hội lớn nhất ở khu vực đồng bằng Bắc Bộ.</p><cite>— Đoạn mở đầu</cite></blockquote>
+      <p class="vi-sao">Văn bản không kể chuyện Gióng đánh giặc nữa, mà kể việc người đời nay <b>tưởng nhớ</b> Gióng: các địa điểm, các nghi lễ, từng ngày hội diễn ra thế nào. Đó là dấu hiệu của một văn bản thông tin thuật lại một sự kiện.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: văn bản thông tin thuật lại một sự kiện</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Văn bản thuật lại sự kiện <b>lễ hội Gióng</b> (còn gọi là <b>hội làng Phù Đổng</b>) — lễ hội tưởng nhớ Thánh Gióng ở quê hương của Thánh, chính hội vào ngày mồng 9 tháng 4 âm lịch, “một trong những lễ hội lớn nhất ở khu vực đồng bằng Bắc Bộ”.</div>
+    <div class="bay">Trả lời “văn bản kể về Thánh Gióng đánh giặc Ân”. Chuyện đánh giặc chỉ được nhắc lại qua các nghi lễ mô phỏng; sự kiện được thuật lại là <b>lễ hội</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thông tin mở đầu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đoạn mở đầu của văn bản nêu rõ những thông tin gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu ngạn ngữ “Nắng ông Từa, mưa ông Gióng” — em đoán nó nói chuyện thời tiết hay chuyện lễ hội?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đoạn mở đầu có ba câu. Mỗi câu cho em một thông tin: một câu ngạn ngữ, lời giải thích (kèm ngày tháng), và một nhận định về tầm vóc của lễ hội.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc từng câu của đoạn mở đầu</h4>
+      <blockquote class="trich"><p>Từ xưa, người Kẻ Chợ đã có câu ngạn ngữ: “Nắng ông Từa, mưa ông Gióng”. Có nghĩa là cứ vào ngày hội thánh Từa (tức Từ Đạo Hạnh) mồng 7 tháng 3 âm lịch thì thế nào cũng nắng to; còn vào hội Gióng, mồng 9 tháng 4 âm lịch thì có mưa, vì bắt đầu mùa mưa dông. Lễ hội Gióng hay còn gọi là hội làng Phù Đổng là một trong những lễ hội lớn nhất ở khu vực đồng bằng Bắc Bộ.</p><cite>— Đoạn mở đầu</cite></blockquote>
+      <p class="vi-sao">Người viết không mở bài bằng một câu khô khan “hội Gióng diễn ra vào…”, mà bằng một câu ngạn ngữ dân gian. Người đọc vừa tò mò, vừa nhớ ngay được ngày hội: mồng 9 tháng 4 âm lịch — đúng như nhan đề.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn mở đầu nêu rõ: (1) câu ngạn ngữ của người Kẻ Chợ “Nắng ông Từa, mưa ông Gióng” và lời giải thích: hội thánh Từa (mồng 7 tháng 3 âm lịch) thường nắng to, còn <b>hội Gióng vào mồng 9 tháng 4 âm lịch</b> thường có mưa vì bắt đầu mùa mưa dông — tức là cho biết <b>thời gian</b> diễn ra lễ hội; (2) <b>tên gọi</b> của sự kiện: lễ hội Gióng, còn gọi là hội làng Phù Đổng — cho biết luôn <b>nơi</b> diễn ra lễ hội; (3) <b>tầm vóc</b> của sự kiện: một trong những lễ hội lớn nhất ở khu vực đồng bằng Bắc Bộ.</div>
+    <div class="bay">Chỉ chép lại câu ngạn ngữ. Đề hỏi đoạn mở đầu “nêu rõ những thông tin gì” — cần gọi tên từng thông tin: thời gian, tên gọi, địa điểm, tầm vóc của lễ hội.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đối chiếu với truyền thuyết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hội Gióng diễn ra ở những địa điểm nào? Những địa điểm đó nhắc em nhớ đến các chi tiết nào trong truyền thuyết <i>Thánh Gióng</i>?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vườn cà, cái liềm đá, ngôi miếu từ thời Hùng Vương thứ sáu… Những thứ này đã “xuất hiện” ở đâu trong truyện <i>Thánh Gióng</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn thứ hai. Gạch chân mọi tên địa điểm (Cố Viên, Miếu Ban, đền Mẫu, đền Thượng) và mỗi địa điểm gắn với việc gì. Rồi mở lại truyện <i>Thánh Gióng</i> để tìm chi tiết tương ứng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Các địa điểm của lễ hội</h4>
+      <blockquote class="trich"><p>Cố Viên, tức vườn cũ, nay ở giữa đồng thôn Đổng Viên, tương truyền là vườn cà của mẹ Gióng, tại đây bà đã giẫm phải vết chân ông Đổng, tảng đá có dấu chân kì lạ cũng ở vườn này.</p><p>Miếu Ban, thuộc thôn Phù Dực, tên cũ là rừng Trại Nòn, là nơi Thánh được sinh ra.</p><p>Đền Mẫu (còn gọi là đền Hạ), nơi thờ mẹ Gióng, xây ở ngoài đê.</p><p>Đặc biệt, đền Thượng là nơi thờ phụng Thánh, vốn được xây cất từ vị trí ngôi miếu tương truyền có từ thời Hùng Vương thứ sáu, trên nền nhà cũ của mẹ Thánh.</p></blockquote>
+      <p>Ngoài ra, hội trận diễn ra “tại một cánh đồng rộng lớn”, hát thờ diễn ra “trước thuỷ đình ở đền Thượng”, đám rước đi “đến tận Đổng Viên”.</p></div>
+    <div class="buoc" data-so="2"><h4>Nối địa điểm với chi tiết trong truyện</h4>
+      <p class="vi-sao">Cố Viên với “vết chân ông Đổng” ↔ bà mẹ “trông thấy một vết chân to hơn vết chân người thường” rồi “ướm thử”. Miếu Ban, nơi Thánh sinh ra ↔ sự ra đời kì lạ của Gióng. Đền Thượng xây từ ngôi miếu “có từ thời Hùng Vương thứ sáu” ↔ “đời Hùng Vương thứ sáu” và việc vua “lập miếu thờ ngay ở quê nhà”. Cánh đồng hội trận ↔ trận đánh giặc Ân. Để ý một chỗ khác nhau nhỏ: truyện kể bà “ra đồng”, còn lễ hội nói đó là “vườn cà của mẹ Gióng” — dân gian kể mỗi nơi một chút khác.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hội Gióng diễn ra ở nhiều địa điểm quanh những dấu tích của Thánh tại quê hương: <b>Cố Viên</b> (vườn cà của mẹ Gióng, nơi bà giẫm phải vết chân ông Đổng, có tảng đá in dấu chân kì lạ) — nhắc em nhớ chi tiết bà mẹ ra đồng thấy vết chân to, đặt chân ướm thử rồi thụ thai; <b>Miếu Ban</b> (nơi Thánh được sinh ra, có bể đá, liềm đá) — nhắc sự ra đời kì lạ của Gióng; <b>đền Mẫu</b> (đền Hạ, thờ mẹ Gióng) — nhắc người mẹ nghèo, phúc đức của Gióng; <b>đền Thượng</b> (thờ Thánh, xây từ ngôi miếu có từ thời Hùng Vương thứ sáu, trên nền nhà cũ của mẹ Thánh) — nhắc thời gian “đời Hùng Vương thứ sáu” và việc vua “lập miếu thờ ngay ở quê nhà”; <b>cánh đồng rộng lớn</b> nơi diễn ra hội trận — nhắc trận Gióng đánh tan giặc Ân; đám rước còn đi đến tận Đổng Viên.</div>
+    <div class="bay">Chỉ liệt kê tên địa điểm mà quên vế thứ hai: <b>chi tiết nào trong truyện</b> được gợi lại.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Đọc truyện xong rồi đọc bài này, em sẽ thấy truyền thuyết không nằm yên trên trang sách: nó có một khu vườn, một ngôi miếu, một cánh đồng để người ta đến tận nơi mà nhớ. Đó cũng là lí do lời kể của truyền thuyết “gây ấn tượng về tính xác thực”.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tóm tắt bằng bảng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy tóm tắt tiến trình diễn ra hội Gióng bằng một bảng với các nội dung: thứ tự, thời gian, không gian, sự kiện, người tham gia.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Văn bản thông tin thuật lại sự kiện thường sắp xếp theo trình tự nào? Hãy để các con số ngày tháng dẫn đường.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn thứ ba. Gạch chân mọi mốc thời gian: “Từ mồng 1 tháng 3 đến mồng 5 tháng 4”, “mồng 6”, “Mồng 8”, “Mồng 9”, “mồng 10”, “Ngày 11”, “ngày 12”. Mỗi mốc là một dòng của bảng. Chỗ nào văn bản không nói rõ, ghi “không nêu rõ” — đừng tự thêm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các mốc thời gian</h4>
+      <blockquote class="trich"><p>Từ mồng 1 tháng 3 đến mồng 5 tháng 4 âm lịch là thời gian chuẩn bị lễ hội. Hội bắt đầu từ ngày mồng 6.</p><p>Vào ngày mồng 10, vãn hội có lễ duyệt quân, tạ ơn Thánh. Ngày 11 làm lễ rửa khí giới và ngày 12 làm lễ rước cờ báo tin thắng trận với trời đất.</p></blockquote>
+      <p class="vi-sao">Các sự việc được sắp xếp đúng <b>trình tự thời gian</b>, từ chuẩn bị → khai hội → chính hội → vãn hội. Đó là cách triển khai quen thuộc của văn bản thông tin thuật lại một sự kiện.</p>
+      <a class="xem-lai" href="#kt-vbtt">📌 Xem lại: diễn biến theo trình tự thời gian</a></div>
+    <div class="buoc" data-so="2"><h4>Ngày chính hội — đông người nhất</h4>
+      <blockquote class="trich"><p>Mồng 9 vào chính hội có múa hát thờ, có hội trận và lễ khao quân.</p><p>28 cô tướng từ 9 đến 12 tuổi mặc tướng phục đẹp, tượng trưng cho 28 đạo quân thù. 80 phù giá lưng đeo túi dết, chân quấn xà cạp là quân ta.</p></blockquote>
+      <p>Ngày mồng 9 là dòng dài nhất của bảng: nhiều không gian (thuỷ đình ở đền Thượng, cánh đồng, đường rước đến Đổng Viên), nhiều người tham gia.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><div style="overflow-x:auto"><table style="min-width:680px">
+    <tr><th style="width:56px">Thứ tự</th><th>Thời gian (âm lịch)</th><th>Không gian</th><th>Sự kiện</th><th>Người tham gia</th></tr>
+    <tr><td>1</td><td>Mồng 1 tháng 3 – mồng 5 tháng 4</td><td>(không nêu rõ)</td><td>Chuẩn bị lễ hội</td><td>(không nêu rõ)</td></tr>
+    <tr><td>2</td><td>Từ mồng 6 tháng 4</td><td>Đền Mẫu, đền Thượng</td><td>Hội bắt đầu: lễ rước cờ tới đền Mẫu, rước cơm chay (cơm cà) lên đền Thượng</td><td>Dân làng</td></tr>
+    <tr><td>3</td><td>Mồng 8</td><td>Từ đền Hạ về đền Thượng</td><td>Lễ rước nước (tượng trưng cho việc tôi luyện vũ khí trước khi đánh giặc)</td><td>(không nêu rõ)</td></tr>
+    <tr><td>4</td><td>Mồng 9 (chính hội)</td><td>Trước thuỷ đình ở đền Thượng; một cánh đồng rộng lớn; đường rước đến tận Đổng Viên</td><td>Múa hát thờ (chủ yếu hát dân ca), hội trận mô phỏng cảnh Thánh Gióng đánh giặc, lễ khao quân, đánh cờ người, múa cờ, chia đồ tế lễ</td><td>28 cô tướng, 80 phù giá, dăm ba bé trai cầm roi rồng, ông Hổ, ông Trống, ông Chiêng, 3 viên Tiểu Cổ, ông hiệu cờ, dân chúng xem hội</td></tr>
+    <tr><td>5</td><td>Mồng 10</td><td>(không nêu rõ)</td><td>Vãn hội: lễ duyệt quân, tạ ơn Thánh</td><td>(không nêu rõ)</td></tr>
+    <tr><td>6</td><td>Ngày 11</td><td>(không nêu rõ)</td><td>Lễ rửa khí giới</td><td>(không nêu rõ)</td></tr>
+    <tr><td>7</td><td>Ngày 12</td><td>(không nêu rõ)</td><td>Lễ rước cờ báo tin thắng trận với trời đất</td><td>(không nêu rõ)</td></tr>
+  </table></div></div>
+    <div class="bay">Tự điền thêm không gian, người tham gia mà văn bản không nói (ví dụ “lễ rửa khí giới ở bờ sông”). Bảng tóm tắt phải trung thành với văn bản — không có thì ghi “không nêu rõ”.</div>
+    <div class="gv-note">Văn bản chỉ nói rõ người tham gia ở ngày mồng 6 (dân làng) và ngày chính hội. GV có thể chấp nhận HS gộp các dòng 5 – 7 thành “vãn hội (mồng 10 – 12)”. Bảng 5 cột: trên điện thoại kéo ngang để xem.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c5" data-ten="Câu 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Ý nghĩa tượng trưng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một số hình ảnh, hoạt động trong lễ hội được tác giả bài viết giải thích rõ ý nghĩa tượng trưng. Tìm và liệt kê các hình ảnh, hoạt động đó.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — 28 cô tướng tượng trưng cho ai?</b>
+    <div class="cau-thu"><span class="noi-dung">28 cô tướng</span><button class="chon chu" data-dung="0">quân ta</button><button class="chon chu" data-dung="1">28 đạo quân thù</button><button class="chon chu" data-dung="0">đạo quân mục đồng</button><span class="phan-hoi" data-dung-txt="Đúng! 28 cô tướng tượng trưng cho 28 đạo quân thù." data-sai-txt="Đọc lại câu có chữ “28 cô tướng” trong đoạn thứ ba."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm chữ “tượng trưng” trong bài — mỗi lần gặp chữ ấy là em đã có một ý trả lời.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm những câu có chữ “tượng trưng”, “mô phỏng”, “là” (ví dụ “là quân ta”), “là dụng cụ…”. Ghi mỗi hình ảnh kèm điều nó tượng trưng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ở Miếu Ban</h4>
+      <blockquote class="trich"><p>Hiện tại sau toà miếu còn có một ao nhỏ, giữa ao có gò nổi, trên gò có một bể con bằng đá tượng trưng cho bồn tắm và một chiếc liềm bằng đá là dụng cụ cắt rốn người anh hùng.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Trong các nghi lễ</h4>
+      <blockquote class="trich"><p>Mồng 8 có lễ rước nước từ đền Hạ về đền Thượng, tượng trưng cho việc tôi luyện vũ khí trước khi đánh giặc.</p><p>Hội trận mô phỏng lại cảnh Thánh Gióng đánh giặc tại một cánh đồng rộng lớn. 28 cô tướng từ 9 đến 12 tuổi mặc tướng phục đẹp, tượng trưng cho 28 đạo quân thù. 80 phù giá lưng đeo túi dết, chân quấn xà cạp là quân ta. Đi đầu đám rước là dăm ba bé trai cầm roi rồng, mặc áo đỏ đi dọn đường, tượng trưng cho đạo quân mục đồng.</p></blockquote>
+      <p class="vi-sao">Nhờ những lời giải thích này, người đọc chưa từng đi hội vẫn hiểu vì sao lại có một bể đá, một cái liềm đá, vì sao lại rước nước, vì sao các cô bé mặc tướng phục. Đó là cách văn bản thông tin “cung cấp thông tin” cho người đọc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các hình ảnh, hoạt động được giải thích ý nghĩa tượng trưng: <b>bể con bằng đá</b> ở Miếu Ban — tượng trưng cho bồn tắm (của Thánh khi mới sinh); <b>chiếc liềm bằng đá</b> — là dụng cụ cắt rốn người anh hùng; <b>lễ rước nước</b> từ đền Hạ về đền Thượng (mồng 8) — tượng trưng cho việc tôi luyện vũ khí trước khi đánh giặc; <b>hội trận</b> — mô phỏng lại cảnh Thánh Gióng đánh giặc; <b>28 cô tướng</b> mặc tướng phục — tượng trưng cho 28 đạo quân thù; <b>80 phù giá</b> lưng đeo túi dết, chân quấn xà cạp — là quân ta; <b>dăm ba bé trai cầm roi rồng, mặc áo đỏ</b> đi đầu đám rước — tượng trưng cho đạo quân mục đồng. (Ngoài ra, việc dân chúng chia nhau đồ tế lễ được hiểu là “được Thánh ban lộc”.)</div>
+    <div class="bay">Liệt kê cả những hoạt động không được giải thích ý nghĩa tượng trưng (múa cờ, đánh cờ người) — đề chỉ hỏi những hình ảnh, hoạt động mà tác giả <b>đã giải thích rõ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa của sự kiện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo tác giả bài viết, lễ hội Gióng có ý nghĩa, giá trị gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người viết để dành ý kiến của mình cho đoạn cuối. Em đọc đoạn ấy chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn cuối. Tìm cấu trúc “không chỉ… mà còn…” — mỗi vế là một ý nghĩa. Rồi đọc câu cuối cùng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc đoạn kết</h4>
+      <blockquote class="trich"><p>Lễ hội Gióng không chỉ giúp người xem được chứng kiến các nghi thức với những thao tác thuần thục, mang tính nghệ thuật và biểu trưng cao mà còn là dịp để mỗi người Việt Nam có thể cảm nhận mối quan hệ nhiều chiều: cá nhân và cộng đồng, thực tại và hư vô, thiêng liêng và trần thế,… Tất cả đều được gìn giữ như một tài sản vô giá lưu truyền mãi về sau.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p class="vi-sao">Nói giản dị hơn: đi hội Gióng, mỗi người thấy mình là một phần của làng, của dân tộc (cá nhân – cộng đồng); thấy chuyện xưa như đang sống lại trước mắt (thực tại – hư vô); thấy cái linh thiêng của việc thờ Thánh đi cùng niềm vui đời thường của ngày hội (thiêng liêng – trần thế).</p>
+      <a class="xem-lai" href="#kt-thuat-lai">📌 Xem lại: nêu cảm nghĩ, ý kiến về sự kiện</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Theo tác giả, lễ hội Gióng có ý nghĩa, giá trị: (1) giúp người xem được chứng kiến các nghi thức với những thao tác thuần thục, mang tính nghệ thuật và biểu trưng cao; (2) là dịp để mỗi người Việt Nam cảm nhận mối quan hệ nhiều chiều: cá nhân và cộng đồng, thực tại và hư vô, thiêng liêng và trần thế; (3) là <b>tài sản vô giá</b> được gìn giữ, lưu truyền mãi về sau. Nói cách khác, lễ hội giữ cho câu chuyện về người anh hùng làng Gióng sống mãi trong lòng các thế hệ người Việt.</div>
+    <div class="bay">Trả lời bằng ý kiến của mình (“em thấy lễ hội rất vui”) — đề hỏi “theo tác giả bài viết”, phải lấy ý từ văn bản.</div>
+    <div class="gv-note">Các cặp “thực tại và hư vô”, “thiêng liêng và trần thế” khá trừu tượng với HS lớp 6; chỉ cần HS nêu được và hiểu ở mức giản dị như phần các bước.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet" data-chip="Viết">Viết<small>Viết bài văn thuyết minh thuật lại một sự kiện (một sinh hoạt văn hoá)</small></h2>
+
+<article class="the bai" id="viet" data-ten="Bài viết" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết</span><span class="nhan vd">Vận dụng</span><span class="nhan">Thuyết minh thuật lại sự kiện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy viết bài văn thuyết minh thuật lại một sự kiện (một sinh hoạt văn hoá như: lễ hội dân gian, hội chợ xuân,…) mà em đã tìm hiểu, quan sát hoặc trực tiếp tham gia.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người đọc bài của em chưa từng đến sự kiện ấy. Em cần cho họ biết những gì để họ “thấy” được như em đã thấy?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn sự kiện em <b>đã tham gia hoặc tận mắt xem</b> — có thể dùng gợi ý của SGK: hội chợ sách, hội chợ hoa xuân, lễ hội dân gian, Hội khoẻ Phù Đổng ở trường. Ghi ra giấy: khi nào, ở đâu, có những hoạt động gì theo thứ tự, hoạt động nào em nhớ nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi viết: chọn đề tài, tìm ý</h4>
+      <p>Theo SGK, hồi tưởng và ghi vắn tắt: thời gian, địa điểm diễn ra sự kiện; hoạt động chính (trình tự, kết quả của hoạt động); ý nghĩa của sự kiện. Sưu tầm thêm vật gợi nhớ: vật lưu niệm, lô-gô, huy hiệu, tranh ảnh, đoạn phim ngắn…</p>
+      <p class="vi-sao">Mục đích của bài là “cung cấp thông tin xác thực, đầy đủ, mới mẻ, hữu ích cho người đọc về sự kiện”. Vì thế ngày giờ, địa điểm, tên hoạt động phải đúng và cụ thể — đừng viết “hôm ấy”, “ở đó” chung chung.</p></div>
+    <div class="buoc" data-so="2"><h4>Lập dàn ý theo SGK</h4>
+      <p><b>Mở bài:</b> giới thiệu sự kiện (không gian, thời gian, mục đích tổ chức). <b>Thân bài:</b> tóm tắt diễn biến theo trình tự thời gian — những người tham gia; các hoạt động chính, đặc điểm, diễn biến của từng hoạt động; hoạt động để lại ấn tượng sâu sắc nhất. <b>Kết bài:</b> nêu ý nghĩa của sự kiện và cảm nghĩ của người viết.</p>
+      <p class="vi-sao">Xem bài tham khảo <i>Hội chợ xuân ở trường tôi</i> trong SGK: người viết xưng “tôi”, giới thiệu hội chợ đã được chuẩn bị “suốt hai tuần”, thuật lại từ lễ khai mạc “Đúng 8 giờ” đến lúc “kéo dài đến 6 giờ chiều mới tan”, dừng lại lâu ở vở kịch <i>Bánh chưng, bánh giầy</i> và các gian hàng, rồi kết bằng cảm nghĩ.</p>
+      <a class="xem-lai" href="#kt-thuat-lai">📌 Xem lại: yêu cầu của bài văn thuyết minh thuật lại một sự kiện</a></div>
+    <div class="buoc" data-so="3"><h4>Viết bài — giữ ngôi thứ nhất, đi theo thời gian</h4>
+      <p>Dùng ngôi thứ nhất (“tôi”, “em” hoặc “chúng tôi”, “chúng em”) thống nhất từ đầu đến cuối. Dùng các từ chỉ thời gian để nối đoạn: <i>Từ đầu tuần…, Đúng 7 giờ…, Sau đó…, Đến trưa…, Cuối buổi…</i>. Cô làm mẫu một câu mở bài thôi, phần còn lại em tự viết nhé: <i>Sáng thứ bảy cuối tháng Mười Một, sân trường tôi rực rỡ cờ hoa, vang tiếng trống: Hội khoẻ Phù Đổng năm nay chính thức bắt đầu.</i></p>
+      <p class="vi-sao">Câu mở ấy trả lời ngay ba câu hỏi người đọc cần: khi nào, ở đâu, sự kiện gì — mà vẫn có hình ảnh, âm thanh.</p></div>
+    <div class="buoc" data-so="4"><h4>Chỉnh sửa theo bảng của SGK</h4>
+      <p>Đã xác định rõ người tường thuật tham gia hay chỉ chứng kiến chưa? Ngôi tường thuật có thống nhất không? Đã nêu bối cảnh (không gian, thời gian) chưa? Trình tự sự việc hợp lí chưa? Có chi tiết hấp dẫn chưa? Đã có cảm nghĩ, ý kiến của người viết chưa? Chính tả, dùng từ, đặt câu?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài văn đạt yêu cầu khi: (1) xác định rõ người tường thuật <b>tham gia hay chứng kiến</b> sự kiện, dùng <b>ngôi thứ nhất</b> thống nhất; (2) <b>giới thiệu được sự kiện</b> và nêu bối cảnh (không gian, thời gian, mục đích); (3) <b>thuật lại diễn biến chính</b> theo một trình tự hợp lí (thường là trình tự thời gian), có người tham gia, các hoạt động cụ thể; (4) <b>tập trung vào một số chi tiết tiêu biểu, hấp dẫn</b>; (5) <b>nêu được cảm nghĩ, ý kiến</b> của người viết về sự kiện; (6) bố cục ba phần rõ ràng, đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Viết thành bài kể chuyện riêng của em (em đi với ai, em ăn gì) mà thiếu thông tin về sự kiện: thời gian, địa điểm, các hoạt động. Hoặc liệt kê hoạt động như một tờ chương trình mà không có chi tiết nào nổi bật, không một câu cảm nghĩ.</div>
+    <div class="gv-note">Đánh giá theo 6 tiêu chí trong ô Gợi ý trả lời (bám bảng Chỉnh sửa bài viết của SGK). Bài tham khảo dưới đây chỉ để GV đối chiếu mức độ; tránh phát cho HS chép — theo nguyên tắc không viết hộ bài văn. Bài tham khảo xưng “tôi”, thuật theo trình tự thời gian (7 giờ → 7 giờ 30 → giữa buổi → 11 giờ), có một câu dùng dấu chấm phẩy (vận dụng Thực hành tiếng Việt).</div>
+    <div class="tham-khao">
+    <h5>Hội khoẻ Phù Đổng ở trường tôi</h5>
+    <p>Sáng thứ bảy cuối tháng Mười Một, sân trường tôi rực rỡ cờ hoa, vang tiếng trống: Hội khoẻ Phù Đổng năm nay chính thức bắt đầu. Đây là ngày hội thể thao lớn nhất trong năm học, được tổ chức để học sinh rèn luyện sức khoẻ và giao lưu giữa các lớp. Năm nay là năm đầu tiên tôi học ở mái trường trung học cơ sở này, lại được chọn vào đội kéo co của lớp, nên tôi háo hức suốt cả tuần.</p>
+    <p>Từ đầu tuần, cả trường đã rộn ràng chuẩn bị. Các thầy cô giáo thể dục kẻ lại vạch sân, dựng cột cờ, chuẩn bị dây kéo co, quả bóng, bao bố; các lớp tập đồng diễn và luyện tập cho vận động viên của mình sau mỗi buổi học. Lớp 6A của tôi còn tự tay làm một tấm băng rôn bằng giấy màu với dòng chữ “6A — Đoàn kết là sức mạnh”.</p>
+    <p>Đúng 7 giờ, lễ khai mạc diễn ra dưới cột cờ. Sau nghi thức chào cờ, cô Hiệu trưởng phát biểu khai mạc và nhắc lại tích chú bé làng Phù Đổng vươn vai thành tráng sĩ. Cô bảo: “Tên của hội khoẻ là lời nhắn gửi các em hãy lớn lên khoẻ mạnh như Thánh Gióng.” Tiếp đó là màn đồng diễn thể dục của gần năm trăm học sinh mặc áo trắng, quần xanh. Từ trên tầng hai nhìn xuống, cả sân trường như một tấm thảm chuyển động theo nhịp trống.</p>
+    <p>Khoảng 7 giờ 30, các môn thi đấu cùng bắt đầu. Ở góc sân phía đông là đường chạy tiếp sức; giữa sân là các trận kéo co; dưới hàng phượng là khu nhảy bao bố của các bạn khối 6. Tiếng còi, tiếng trống, tiếng hò reo cổ vũ vang lên không ngớt. Ấn tượng nhất với tôi là trận chung kết kéo co giữa lớp 6A và lớp 6C. Hai đội giằng co gần hai phút, sợi dây căng như dây đàn, chiếc khăn đỏ buộc giữa dây cứ nhích sang bên này lại lùi về bên kia. Tôi nghiến răng, ngả người về phía sau, tai nghe cả lớp đồng thanh hô “Một, hai, kéo!”. Cuối cùng, chiếc khăn đỏ vượt qua vạch phấn về phía chúng tôi. Cả đội ngã ngồi xuống đất, vừa thở vừa cười.</p>
+    <p>Gần 11 giờ, thầy Tổng phụ trách công bố kết quả và trao giải. Lớp 6A giành giải Nhất kéo co, giải Ba chạy tiếp sức. Hội khoẻ khép lại bằng tiếng vỗ tay giòn giã và những gương mặt đỏ bừng, lấm tấm mồ hôi.</p>
+    <p>Hội khoẻ Phù Đổng năm nay để lại cho tôi nhiều kỉ niệm đẹp. Tôi hiểu rằng tập luyện thể thao không chỉ giúp mình khoẻ mạnh, mà còn dạy mình biết đồng lòng với bạn bè: một sợi dây chỉ được kéo về khi cả đội cùng góp sức. Tôi mong năm sau hội khoẻ lại đến thật nhanh, để chúng tôi lại được cùng nhau “vươn vai” như chú bé làng Phù Đổng năm nào.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Nói và nghe<small>Kể lại một truyền thuyết</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Kể lại truyền thuyết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kể lại một truyền thuyết, giúp người nghe hiểu được cốt truyện và ý nghĩa của truyện.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Truyền thuyết sống được qua bao đời là nhờ ai? Nhờ những người kể chuyện — và hôm nay, người kể chuyện là em.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn <i>Thánh Gióng</i>, <i>Sơn Tinh, Thuỷ Tinh</i> hoặc <i>Bánh chưng, bánh giầy</i>. Viết ra 5 – 6 sự việc chính theo thứ tự trước – sau trên một tờ giấy nhỏ; nhìn ý mà kể, đừng học thuộc từng chữ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi nói: chọn truyện, ngôi kể, tóm tắt</h4>
+      <p>Chọn truyện em yêu thích, độ dài vừa phải; kể theo <b>ngôi thứ ba</b> như truyện em đã đọc. Ví dụ tóm tắt <i>Thánh Gióng</i>: (1) Đời Hùng Vương thứ sáu, bà mẹ ở làng Phù Đổng ướm vết chân lạ, sinh ra Gióng; ba tuổi không nói, không cười. (2) Giặc Ân đến, Gióng cất tiếng nói đầu tiên xin đi đánh giặc. (3) Gióng lớn nhanh như thổi, bà con góp gạo nuôi. (4) Vươn vai thành tráng sĩ, cưỡi ngựa sắt đánh tan giặc, roi gãy thì nhổ tre quật giặc. (5) Đánh xong, cởi giáp, bay về trời. (6) Dấu tích còn lại: đền thờ, hội làng, tre đằng ngà, làng Cháy.</p>
+      <p class="vi-sao">SGK dặn nhớ chính xác “các từ ngữ chỉ thời gian, địa điểm” và “những lời nói quan trọng của nhân vật”. Với <i>Thánh Gióng</i>, lời nói không thể bỏ là lời chú bé nói với sứ giả.</p></div>
+    <div class="buoc" data-so="2"><h4>Khi nói: giọng kể và ngôn ngữ cơ thể</h4>
+      <p>Giọng phù hợp nhất với truyền thuyết là <b>trang nghiêm</b>, nhưng đổi linh hoạt theo nội dung: chậm, nhỏ ở đoạn chú bé ba tuổi nằm im; dồn dập, hào sảng ở đoạn ra trận; lắng xuống ở đoạn Gióng bay về trời. Dùng động tác, nét mặt (vươn vai, giơ tay quật…) cho sinh động. Tập trung vào sự việc chính, chuyển tiếp mạch lạc (<i>Bấy giờ…, Càng lạ hơn nữa…, Vừa lúc đó…</i>).</p>
+      <p class="vi-sao">Kết thúc truyền thuyết thường chỉ tới một địa danh, sự vật còn đến hôm nay. Nếu có, chuẩn bị một tấm ảnh tre đằng ngà hay đền Gióng — người nghe sẽ thấy câu chuyện “có thật” hơn.</p></div>
+    <div class="buoc" data-so="3"><h4>Sau khi nói: trao đổi</h4>
+      <p><b>Người nghe:</b> đề nghị người nói làm rõ chi tiết; nhận xét về từ ngữ, giọng kể, độ chính xác về nội dung. <b>Người nói:</b> bổ sung, làm rõ chi tiết; trao đổi lại ý kiến, cảm ơn và tiếp thu những góp ý xác đáng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói đạt yêu cầu khi: (1) có lời chào, giới thiệu tên truyền thuyết sẽ kể và lời cảm ơn khi kết thúc; (2) kể theo <b>ngôi thứ ba</b>, đúng và đủ các sự việc chính theo trình tự hợp lí, không bịa thêm chi tiết trái với truyện; (3) giữ được những từ ngữ then chốt (thời gian, địa điểm) và lời nói quan trọng của nhân vật; (4) giọng kể trang nghiêm, thay đổi linh hoạt theo nội dung, có ngôn ngữ cơ thể phù hợp; (5) giúp người nghe hiểu được <b>ý nghĩa</b> của truyện; (6) biết lắng nghe, trao đổi với người nghe sau khi kể.</div>
+    <div class="bay">Đọc thuộc lòng nguyên văn truyện trong sách, mắt nhìn lên trần nhà. Kể lại là dùng lời của mình, nhìn vào người nghe — chỉ giữ nguyên những lời nói quan trọng của nhân vật.</div>
+    <div class="gv-note">Có thể dùng 6 tiêu chí trong ô Gợi ý trả lời làm phiếu đánh giá đồng đẳng. Gợi ý chia lớp theo ba truyện của Bài 6 để HS nghe được nhiều cách kể.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cc" data-chip="Củng cố">Củng cố, mở rộng</h2>
+
+<article class="the bai" id="cc-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đặc điểm truyền thuyết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thảo luận về các đặc điểm của truyền thuyết và hoàn thiện bảng theo mẫu sau:</p>
+    <p>(Bảng gồm ba cột STT · Các yếu tố · Đặc điểm; năm dòng: Chủ đề, Nhân vật, Cốt truyện, Lời kể, Yếu tố kì ảo.)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em đã có sẵn “đáp án khung” trong hộp Tri thức ngữ văn. Việc còn lại là tìm ví dụ trong hai truyện vừa học.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mở lại hộp 📌 ở đầu trang: mỗi ý ứng với một dòng của bảng. Điền đặc điểm, rồi thêm một ví dụ từ <i>Thánh Gióng</i> hoặc <i>Sơn Tinh, Thuỷ Tinh</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lấy đặc điểm từ Tri thức ngữ văn</h4>
+      <p>Nhân vật ↔ hộp “Nhân vật”; Cốt truyện ↔ “mạch tuyến tính”, ba phần; Lời kể ↔ “cô đọng, mang sắc thái trang trọng, ngợi ca”, gây ấn tượng xác thực; Yếu tố kì ảo ↔ “lạ và không có thật”, đậm nét ở tất cả các phần.</p>
+      <a class="xem-lai" href="#kt-noi-dung">📌 Xem lại: một số yếu tố của truyền thuyết</a></div>
+    <div class="buoc" data-so="2"><h4>Tự rút ra đặc điểm về chủ đề</h4>
+      <p class="vi-sao">Tri thức ngữ văn không có mục riêng về chủ đề, nên em tự khái quát từ hai câu hỏi về chủ đề đã làm: <i>Thánh Gióng</i> ca ngợi người anh hùng đánh giặc; <i>Sơn Tinh, Thuỷ Tinh</i> ca ngợi ý chí chống lũ lụt và giải thích hiện tượng lũ hằng năm. Điểm chung: ca ngợi người anh hùng của cộng đồng, giải thích nguồn gốc sự vật, hiện tượng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><table>
+    <tr><th>STT</th><th>Các yếu tố</th><th>Đặc điểm</th></tr>
+    <tr><td>1</td><td>Chủ đề</td><td>Thường ca ngợi người anh hùng có công với cộng đồng (đánh giặc giữ nước, chống thiên tai), thể hiện lòng biết ơn, tự hào của nhân dân; nhiều truyện giải thích nguồn gốc phong tục, sản vật, hiện tượng tự nhiên. <i>Ví dụ: Thánh Gióng; Sơn Tinh, Thuỷ Tinh (giải thích lũ lụt hằng năm).</i></td></tr>
+    <tr><td>2</td><td>Nhân vật</td><td>Nhân vật chính là người anh hùng, phải đối mặt với thử thách to lớn của cả cộng đồng, lập chiến công phi thường nhờ tài năng xuất chúng và sự hỗ trợ của cộng đồng. <i>Ví dụ: Gióng được bà con góp gạo nuôi; Sơn Tinh chống lũ bảo vệ ruộng đồng, kinh thành.</i></td></tr>
+    <tr><td>3</td><td>Cốt truyện</td><td>Kể theo mạch tuyến tính (theo trình tự thời gian), thường gồm ba phần gắn với cuộc đời nhân vật chính: hoàn cảnh xuất hiện và thân thế; chiến công phi thường; kết cục. <i>Ví dụ: Gióng ra đời kì lạ → đánh tan giặc Ân → bay về trời.</i></td></tr>
+    <tr><td>4</td><td>Lời kể</td><td>Cô đọng, trang trọng, ngợi ca; dùng một số thủ pháp gây ấn tượng về tính xác thực của câu chuyện. <i>Ví dụ: mở đầu bằng “Tục truyền, đời Hùng Vương thứ sáu…”; kết thúc bằng dấu tích còn lại: đền thờ, tre đằng ngà, làng Cháy.</i></td></tr>
+    <tr><td>5</td><td>Yếu tố kì ảo</td><td>Những chi tiết lạ, không có thật, xuất hiện đậm nét ở tất cả các phần, nhằm tôn vinh, lí tưởng hoá nhân vật và chiến công. <i>Ví dụ: vết chân lạ, vươn vai thành tráng sĩ, ngựa phun lửa, bay về trời; Sơn Tinh dời non, Thuỷ Tinh hô mưa gọi gió.</i></td></tr>
+  </table></div>
+    <div class="bay">Chép nguyên văn Tri thức ngữ văn vào bảng mà không có ví dụ nào. Bảng tốt cho thấy em <b>nhận ra</b> các đặc điểm ấy trong truyện đã đọc.</div>
+    <div class="gv-note">Dòng “Chủ đề” không có trong Tri thức ngữ văn Bài 6; lời giải khái quát từ câu 5 của hai văn bản. Có thể cho HS làm theo nhóm, mỗi nhóm một dòng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c2" data-ten="Câu 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">So sánh các bản kể</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sưu tầm một số bản kể khác của các truyền thuyết đã học. So sánh và nêu nhận xét về sự giống và khác nhau (sự kiện, chi tiết,…) giữa các bản kể.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngay trong sách của em đã có “bản kể khác” của truyện <i>Thánh Gióng</i> — nằm ở chú thích và ở văn bản 3. Em đã để ý chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại mục <i>Em có biết?</i> sau truyện <i>Thánh Gióng</i>, chú thích về roi sắt gãy, chú thích về núi Ninh Sóc, và đoạn văn bản 3 nói về Cố Viên. Rồi tìm thêm một bản kể ở thư viện, sách truyện, hỏi ông bà. Lập bảng: chi tiết — bản trong SGK — bản khác.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những khác biệt có ngay trong SGK</h4>
+      <blockquote class="trich"><p>Văn bản truyện Thánh Gióng trên đây chỉ là một trong số các dị bản đó.</p><cite>— Em có biết?</cite></blockquote>
+      <blockquote class="trich"><p>Theo một số dị bản khác, Gióng đã bỏ khúc roi gãy ở làng Cáo hay làng Xuân Tảo (nay thuộc phường Xuân Đỉnh, thành phố Hà Nội), sau đó xuống Hồ Tây tắm mát rồi về Sóc Sơn và bay lên trời.</p><cite>— Chú thích về roi sắt gãy</cite></blockquote>
+      <blockquote class="trich"><p>Cố Viên, tức vườn cũ, nay ở giữa đồng thôn Đổng Viên, tương truyền là vườn cà của mẹ Gióng, tại đây bà đã giẫm phải vết chân ông Đổng</p><cite>— Văn bản 3</cite></blockquote>
+      <p class="vi-sao">Trong văn bản 1, bà mẹ “ra đồng”, “đặt bàn chân mình vào, ướm thử”; ở văn bản 3, đó là “vườn cà” và bà “giẫm phải” vết chân. Văn bản 1 kể Gióng đánh giặc xong lên thẳng núi Ninh Sóc; dị bản lại thêm đoạn bỏ roi ở làng Cáo hay Xuân Tảo, tắm ở Hồ Tây. Chú thích núi Ninh Sóc còn ghi “Cây mà Thánh Gióng vắt áo lên được gọi là cây Dịch Phục (cởi áo)”.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhận xét: giống ở cốt lõi, khác ở chi tiết</h4>
+      <p>Các bản đều giữ: sự ra đời kì lạ, đánh giặc, bay về trời. Khác nhau ở những chi tiết gắn với từng làng, từng địa danh. Vì truyền thuyết được lưu truyền bằng lời kể, mỗi vùng kể thêm những chi tiết gắn với dấu tích của quê mình.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ bản kể em sưu tầm được. <b>Ví dụ với truyện <i>Thánh Gióng</i></b> (dùng chính các thông tin trong SGK): <b>Giống nhau:</b> các bản đều kể Gióng ra đời kì lạ, đánh tan giặc rồi bay về trời; đều ca ngợi người anh hùng đánh giặc cứu nước. <b>Khác nhau:</b> văn bản trong SGK kể bà mẹ “ra đồng” và ướm thử vết chân, còn theo lời kể ở lễ hội Gióng, đó là “vườn cà của mẹ Gióng”, bà “giẫm phải vết chân ông Đổng”; văn bản trong SGK kể Gióng đuổi giặc đến núi Ninh Sóc rồi bay lên trời, còn theo một số dị bản, Gióng bỏ khúc roi gãy ở làng Cáo hay làng Xuân Tảo, xuống Hồ Tây tắm mát rồi mới về Sóc Sơn bay lên trời. <b>Nhận xét:</b> các bản kể giống nhau ở những sự kiện cốt lõi và ý nghĩa, khác nhau ở một số chi tiết, địa danh — vì truyền thuyết được lưu truyền bằng lời kể qua nhiều thế hệ, mỗi vùng thêm vào những chi tiết gắn với dấu tích của quê hương mình.</div>
+    <div class="bay">Kể lại hai bản truyện thật dài mà không chỉ ra chỗ <b>giống</b>, chỗ <b>khác</b>. Hoặc ghi một bản kể “nghe nói” mà không ghi rõ nguồn.</div>
+    <div class="gv-note">Kho SGK chỉ có thông tin dị bản của <i>Thánh Gióng</i> (chú thích trang 7, trang 8, mục Em có biết?, văn bản 3); với <i>Sơn Tinh, Thuỷ Tinh</i>, HS tự sưu tầm — GV kiểm tra nguồn HS mang tới. Lời giải không dẫn bản kể nào ngoài SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c3" data-ten="Câu 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Giới thiệu tác phẩm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm hiểu, giới thiệu một tác phẩm thơ hoặc vở kịch thể hiện nội dung truyện <i>Thánh Gióng</i> và nội dung truyện <i>Sơn Tinh, Thuỷ Tinh</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 SGK đã “mách” em một bài thơ về Sơn Tinh, Thuỷ Tinh rồi — ở phần Viết kết nối với đọc của văn bản 2.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với <i>Sơn Tinh, Thuỷ Tinh</i>: bắt đầu từ bài thơ của Nguyễn Nhược Pháp. Với <i>Thánh Gióng</i>: tìm ở thư viện trường, hỏi thầy cô, hoặc tìm vở kịch, tiết mục sân khấu hoá ở trường. Bài giới thiệu cần: tên tác phẩm, tác giả, nguồn; tác phẩm kể lại phần nào của truyện; điều em thích.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một tác phẩm thơ có sẵn trong SGK</h4>
+      <blockquote class="trich tho"><p>Sơn Tinh có một mắt ở trán</p><p>Thuỷ Tinh râu ria quăn xanh rì</p><p>Một thần phi bạch hổ trên cạn</p><p>Một thần cưỡi lưng rồng uy nghi.</p><cite>— Nguyễn Nhược Pháp, <i>Sơn Tinh, Thuỷ Tinh</i>, trong tập <i>Ngày xưa</i></cite></blockquote>
+      <p class="vi-sao">Chỉ bốn dòng mà đã thấy nhà thơ không chép lại truyện, mà <b>tưởng tượng</b> thêm: mắt ở trán, râu xanh rì, bạch hổ, rồng. Khi giới thiệu, em nói được tác phẩm giống truyện ở đâu (hai vị thần, núi – nước) và mới ở đâu (những hình ảnh tưởng tượng).</p></div>
+    <div class="buoc" data-so="2"><h4>Lập khung bài giới thiệu</h4>
+      <p>(1) Tên tác phẩm, tác giả, thể loại (thơ / kịch), nguồn em tìm được. (2) Tác phẩm kể lại nội dung truyện nào, phần nào. (3) Một hai câu thơ hoặc một cảnh em thích — trích đúng nguồn. (4) Điều em thấy mới mẻ so với truyện trong SGK.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ tác phẩm em tìm được. Bài giới thiệu tốt cần: (1) nêu đúng <b>tên tác phẩm, tác giả, thể loại và nguồn</b>; (2) cho biết tác phẩm thể hiện nội dung truyện nào, phần nào; (3) trích đúng một vài câu thơ hoặc kể một cảnh tiêu biểu; (4) nêu điểm giống và điểm mới so với truyện trong SGK. <b>Ví dụ có trong SGK:</b> bài thơ <i>Sơn Tinh, Thuỷ Tinh</i> của Nguyễn Nhược Pháp (trong tập <i>Ngày xưa</i>) kể lại truyện hai vị thần, với những hình ảnh tưởng tượng độc đáo: “Sơn Tinh có một mắt ở trán”, Thuỷ Tinh “râu ria quăn xanh rì”, “Một thần phi bạch hổ trên cạn / Một thần cưỡi lưng rồng uy nghi”.</div>
+    <div class="bay">Giới thiệu một tác phẩm mà không ghi tác giả, nguồn; hoặc trích thơ theo trí nhớ, sai chữ.</div>
+    <div class="gv-note">Kho SGK chỉ có bốn dòng thơ của Nguyễn Nhược Pháp; lời giải không giới thiệu tác phẩm nào về <i>Thánh Gióng</i> vì không có nguồn trong SGK để đối chiếu. GV có thể giới thiệu thêm tác phẩm đã kiểm chứng nguồn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c4" data-ten="Câu 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Liên hệ thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, vì sao hội thi thể thao trong nhà trường phổ thông thường được đặt tên là <i>Hội khoẻ Phù Đổng</i>?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phù Đổng là tên làng của ai? Và người ấy đã làm gì khi giặc đến chân núi Trâu Sơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại: Gióng quê ở đâu? Vua phong Gióng là gì? Gióng còn ít tuổi đã làm được điều gì phi thường? Rồi nghĩ: học sinh đi thi thể thao giống Gióng ở điểm nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chữ “Phù Đổng” trong truyện</h4>
+      <blockquote class="trich"><p>Vua nhớ công ơn, không biết lấy gì đền đáp, bèn phong là Phù Đổng Thiên Vương, và lập miếu thờ ngay ở quê nhà.</p><p>Chú bé vùng dậy, vươn vai một cái, bỗng biến thành một tráng sĩ, oai phong lẫm liệt.</p></blockquote>
+      <p class="vi-sao">“Phù Đổng” là tên làng Gióng, cũng là tên hiệu vua phong cho Gióng. Gọi tên hội khoẻ là “Phù Đổng” là gọi tên Thánh Gióng — người còn là một chú bé đã vươn vai thành tráng sĩ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi em có thể nói theo cách riêng; câu trả lời tốt gắn được tên hội với truyện <i>Thánh Gióng</i>. <b>Một câu trả lời tham khảo:</b> Phù Đổng là quê hương của Thánh Gióng, cũng là tên hiệu “Phù Đổng Thiên Vương” mà vua phong cho Gióng. Gióng là một chú bé chỉ “vươn vai một cái” đã thành tráng sĩ “oai phong lẫm liệt”, mang sức mạnh phi thường đánh tan giặc. Đặt tên hội thi thể thao của học sinh là Hội khoẻ Phù Đổng là mong mỗi bạn nhỏ lớn lên khoẻ mạnh, nhanh nhẹn như Gióng; có ý chí vươn lên, tinh thần đoàn kết; và giống như Gióng, dùng sức mạnh của mình để góp sức cho quê hương, đất nước. Cái tên ấy cũng nhắc chúng em nhớ và tự hào về người anh hùng của dân tộc.</div>
+    <div class="bay">Trả lời “vì hội khoẻ tổ chức ở làng Phù Đổng”. Hội khoẻ Phù Đổng tổ chức ở khắp các trường; tên hội là để nhắc tới Thánh Gióng và điều Gióng tượng trưng.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận các ý sức khoẻ, tuổi trẻ, ý chí vươn lên, lòng yêu nước, đoàn kết, miễn có liên hệ với chi tiết trong truyện. Có thể nối sang đề tài “Hội khoẻ Phù Đổng ở trường hoặc địa phương em” trong phần Viết.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Thực hành đọc">Thực hành đọc<small><i>Bánh chưng, bánh giầy</i> (Theo Trương Chính)</small></h2>
+
+<article class="the bai" id="doc" data-ten="Hướng dẫn đọc" data-muc="th">
+  <div class="bai-dau"><span class="so">Hướng dẫn đọc</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tự đọc văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi đọc văn bản dưới đây, em cần chú ý những vấn đề sau:</p>
+    <p>– Hoàn cảnh và sự kiện được kể.</p>
+    <p>– Những đặc điểm chính của nhân vật Lang Liêu.</p>
+    <p>– Những truyền thống tốt đẹp của người Việt được câu chuyện ca ngợi.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai mươi người con trai, chỉ một người được nối ngôi. Người được chọn lại là người nghèo nhất. Vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Biến ba điều trên thành ba câu hỏi: <i>Chuyện xảy ra khi nào, vì sao?</i> — <i>Lang Liêu là người thế nào, chi tiết nào cho biết?</i> — <i>Câu chuyện ca ngợi những điều gì của người Việt?</i> Đọc chậm lời vua cha ở cuối truyện.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hoàn cảnh và sự kiện</h4>
+      <blockquote class="trich"><p>Hùng Vương lúc về già, muốn truyền ngôi, nhưng nhà vua có những hai mươi người con trai, biết chọn ai cho xứng đáng?</p><p>Nhưng ta già rồi, không sống mãi ở đời, người nối ngôi ta phải biết nối chí ta, không nhất thiết phải là con trưởng.</p></blockquote>
+      <p class="vi-sao">Điều kiện của vua không phải “con cả”, cũng không phải “cỗ to”, mà là “nối chí ta”. Các ông lang “chỉ biết đua nhau làm cỗ thật hậu, thật ngon” — họ đoán sai ý vua ngay từ đầu.</p></div>
+    <div class="buoc" data-so="2"><h4>Lang Liêu là người thế nào</h4>
+      <blockquote class="trich"><p>Người buồn nhất là Lang Liêu. Ông là con thứ mười tám; mẹ ông trước kia bị vua cha ghẻ lạnh, ốm mà chết. So với anh em, ông thiệt thòi nhất.</p><p>Từ khi lớn lên, ra ở riêng, ông chỉ chăm lo việc đồng áng, trồng lúa, trồng khoai</p><p>Ông bèn chọn thứ gạo nếp thơm lừng, trắng tinh, hạt nào hạt nấy tròn mẩy, đem vo thật sạch, lấy đậu xanh, thịt lợn làm nhân, dùng lá dong trong vườn đùm lại thành hình vuông, nấu một ngày một đêm thật nhừ.</p></blockquote>
+      <p class="vi-sao">Lang Liêu thiệt thòi nhưng chăm chỉ làm lụng; được thần mách thì “Ngẫm nghĩ bao nhiêu, ông càng thấy lời thần nhân nói đúng bấy nhiêu” — ông hiểu ra giá trị của hạt gạo. Rồi đến những chữ “hạt nào hạt nấy”, “thật sạch”, “một ngày một đêm”: một bàn tay khéo léo, tận tâm.</p>
+      <a class="xem-lai" href="#kt-noi-dung">📌 Xem lại: truyền thuyết giải thích nguồn gốc phong tục, sản vật</a></div>
+    <div class="buoc" data-so="3"><h4>Những truyền thống được ca ngợi</h4>
+      <blockquote class="trich"><p>Lá gói ngoài, mĩ vị để trong là ngụ ý đùm bọc nhau.</p><p>Từ đấy, nước ta chăm nghề trồng trọt, chăn nuôi và mới có tục ngày Tết làm bánh chưng, bánh giầy.</p></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Hoàn cảnh và sự kiện:</b> Hùng Vương về già muốn truyền ngôi; giặc ngoài đã dẹp yên, vua muốn chọn người “biết nối chí ta, không nhất thiết phải là con trưởng”, nên ra điều kiện: nhân lễ Tiên vương, ai làm vừa ý vua sẽ được truyền ngôi. Các ông lang đua nhau làm cỗ thật hậu, thật ngon; riêng Lang Liêu nghèo, buồn rầu, được thần nhân báo mộng “Trong trời đất, không gì quý bằng hạt gạo”, bèn làm bánh hình vuông, bánh hình tròn. Vua chọn bánh của Lang Liêu tế Trời, Đất, đặt tên bánh chưng, bánh giầy và truyền ngôi cho Lang Liêu; từ đấy có tục làm bánh chưng, bánh giầy ngày Tết. <b>Lang Liêu:</b> thiệt thòi nhất trong các anh em nhưng chăm chỉ làm lụng (“chỉ chăm lo việc đồng áng”), hiếu thảo, biết suy ngẫm để hiểu giá trị của hạt gạo, khéo léo và tận tâm khi làm bánh. <b>Truyền thống được ca ngợi:</b> coi trọng nghề nông, quý trọng hạt gạo và sức lao động; lòng hiếu kính, thờ cúng tổ tiên, trời đất; tinh thần đùm bọc nhau (“Lá gói ngoài, mĩ vị để trong là ngụ ý đùm bọc nhau”); phong tục làm bánh chưng, bánh giầy trong ngày Tết.</div>
+    <div class="gv-note">Phần Thực hành đọc không có câu hỏi trong SGK; ba điều cần chú ý được chuyển thành câu hỏi tự đọc. Truyện cũng là ví dụ cho ý “giải thích nguồn gốc các phong tục, sản vật” trong Tri thức ngữ văn. Câu “Ông là con thứ mười tám; mẹ ông…” có dấu chấm phẩy — có thể hỏi thêm HS để ôn Thực hành tiếng Việt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 6. Chuyện kể về những người anh hùng — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Câu hỏi mở không có một đáp án duy nhất: câu trả lời tốt là câu trả lời có căn cứ trong văn bản.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b06';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-06-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-06-bai-giai.nguon.html" data-phien-ban="9618acc989e5">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

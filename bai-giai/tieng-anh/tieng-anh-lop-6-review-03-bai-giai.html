@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review 3 (Units 7-8-9) — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập hai</div>
+    <div class="hang1">
+      <h1>Review 3 (Units 7-8-9) — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập hai</div><h1>Review 3 (Units 7-8-9) — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK, Unit 7 – 9) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-am"><b class="ten">Ba cặp âm của Unit 7 – 9</b>
+      Unit 7 — /θ/: <span class="en">theatre, earth, anything, both, through</span> · /ð/: <span class="en">there, them, neither, weather, than</span><br>
+      Unit 8 — /e/: <span class="en">chess, tennis, exercise, contest</span> · /æ/: <span class="en">racket, match, marathon, active</span><br>
+      Unit 9 — /əʊ/: <span class="en">boat, postcard, coast</span> · /aʊ/: <span class="en">house, town, tower, crowded</span></div>
+    <div class="kt" id="kt-wh"><b class="ten"><i>Wh</i>-question words (Unit 7) — Remember!</b>
+      <span class="en">Each question word is used for a specific piece of information.</span><br>
+      → <span class="en">What</span>: vật / sự việc · <span class="en">Who</span>: người · <span class="en">Where</span>: nơi chốn · <span class="en">When</span>: thời gian · <span class="en">Why</span>: lí do · <span class="en">How many</span>: số lượng · <span class="en">How often</span>: mức độ thường xuyên (bài 2, A Closer Look 2, Unit 7).</div>
+    <div class="kt" id="kt-conj"><b class="ten">Conjunctions (Unit 7) — Remember!</b>
+      <span class="en">We use a conjunction to combine two clauses into a compound sentence.</span><br>
+      Ví dụ: <span class="en">I like watching cartoons, <b>but</b> my brother likes watching sports. · I enjoy sports, <b>so</b> I spend a lot of time outdoors. · I'm helping decorate the house, <b>and</b> my brother is busy cooking.</span></div>
+    <div class="kt" id="kt-past"><b class="ten">The past simple (Unit 8) — Remember!</b>
+      <span class="en">We use the past simple to talk about something that happened in the past.</span><br>
+      Ví dụ: <span class="en">I <b>played</b> badminton with Phong yesterday.</span><br>
+      → Dấu hiệu: <span class="en">yesterday, last summer, ten minutes ago, in 1953</span>. Động từ có quy tắc thêm <b>-ed</b>; bất quy tắc phải thuộc: <span class="en">have → had, eat → ate, write → wrote</span>.</div>
+    <div class="kt" id="kt-imp"><b class="ten">Imperatives (Unit 8) — Remember!</b>
+      <span class="en">We use imperatives to tell someone to do something, or to give a direct order.</span><br>
+      Ví dụ: <span class="en"><b>Chew</b> it. · <b>Don't swallow</b> it.</span> &nbsp; <span class="en">Positive: V · Negative: Don't + V</span></div>
+    <div class="kt" id="kt-poss"><b class="ten">Possessive adjectives &amp; pronouns (Unit 9) — Remember!</b>
+      <span class="en">A possessive adjective is used only when there's a noun following it.</span> (<span class="en">I have a pen. → This is my pen.</span>)<br>
+      <span class="en">A possessive pronoun is used alone, without a noun following it.</span> (<span class="en">This book is mine, not yours.</span>)</div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập hai — Review 3 (trang 36 – 37); khung Remember! của Unit 7, 8, 9.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-lg" data-chip="Language">Language — Pronunciation · Vocabulary · Grammar<small>Trang 36</small></h2>
+
+<article class="the bai" id="lg1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Circle the word with the different underlined sound. Listen and check.</span> 🎧 (Track 21, tập hai)</p>
+    <p class="en" lang="en">1. A. t<u>ow</u>er &nbsp;B. h<u>ow</u> &nbsp;C. sn<u>ow</u></p>
+    <p class="en" lang="en">2. A. symb<u>o</u>l &nbsp;B. <u>o</u>pening &nbsp;C. p<u>o</u>stcard</p>
+    <p class="en" lang="en">3. A. far<u>th</u>er &nbsp;B. ear<u>th</u> &nbsp;C. bo<u>th</u></p>
+    <p class="en" lang="en">4. A. S<u>a</u>turday &nbsp;B. r<u>a</u>cket &nbsp;C. g<u>a</u>me</p>
+    <p class="en" lang="en">5. A. t<u>e</u>nnis &nbsp;B. pr<u>e</u>pare &nbsp;C. ch<u>e</u>ss</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — từ nào khác?</b>
+    <div class="cau-thu"><span class="noi-dung en">1. tower · how · snow</span><button class="chon chu" data-dung="0">tower</button><button class="chon chu" data-dung="0">how</button><button class="chon chu" data-dung="1">snow</button><span class="phan-hoi" data-dung-txt="Đúng! snow đọc /əʊ/, hai từ kia /aʊ/." data-sai-txt="Đọc to: tower và how có cùng âm không? Còn snow?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">3. farther · earth · both</span><button class="chon chu" data-dung="1">farther</button><button class="chon chu" data-dung="0">earth</button><button class="chon chu" data-dung="0">both</button><span class="phan-hoi" data-dung-txt="Đúng! farther có /ð/ (rung), earth và both có /θ/." data-sai-txt="earth và both nằm cùng một cột trong bảng âm Unit 7 — cột nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi dòng ứng với một cặp âm đã học ở Unit 7, 8 hoặc 9. Dòng này “thử” cặp âm nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1 – 2: cặp /əʊ/ – /aʊ/ (Unit 9). Câu 3: /θ/ – /ð/ (Unit 7). Câu 4 – 5: /e/ – /æ/ (Unit 8) — nhưng có một từ không thuộc cặp nào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 2: /əʊ/ và /aʊ/</h4>
+      <p>1. <span class="en">tower</span> (Glossary: /ˈtauə/), <span class="en">how</span>: /aʊ/ — <span class="en">snow</span>: /əʊ/ → khác là <b>C</b>.</p>
+      <p>2. <span class="en">opening, postcard</span> (Glossary: /ˈpəustkɑːd/): /əʊ/ — chữ <b>o</b> trong <span class="en">symbol</span> đọc rất nhẹ, không phải /əʊ/ → khác là <b>A</b>.</p>
+      <p class="vi-sao">Cùng chữ <b>ow</b> mà có hai cách đọc: <span class="en">how, town, tower</span> /aʊ/; <span class="en">snow</span> /əʊ/. Phải nhớ theo từng từ.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: ba cặp âm</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 3: /θ/ và /ð/</h4>
+      <p><span class="en">earth, both</span>: /θ/ (đúng cột /θ/ ở bảng Unit 7) — <span class="en">farther</span>: /ð/ (giống <span class="en">neither, weather</span>) → khác là <b>A</b>.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu 4 – 5: /æ/, /e/ và một âm lạ</h4>
+      <p>4. <span class="en">Saturday, racket</span> (Glossary: /ˈrækɪt/): /æ/ — <span class="en">game</span>: /eɪ/ → khác là <b>C</b>.</p>
+      <p>5. <span class="en">tennis, chess</span>: /e/ (bảng Unit 8) — chữ <b>e</b> trong <span class="en">prepare</span> đọc /ɪ/ → khác là <b>B</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. C (snow) &nbsp; 2. A (symbol) &nbsp; 3. A (farther) &nbsp; 4. C (game) &nbsp; 5. B (prepare)</div>
+    <div class="bay">Câu 1 chọn A vì <span class="en">tower</span> dài hơn. Cả ba từ đều có chữ <b>ow</b> — phải đọc to lên, không nhìn mặt chữ.</div>
+    <div class="gv-note">Đáp án suy từ cách phát âm Anh – Anh chuẩn (các từ có trong Glossary / bảng âm Unit 7 – 9); HS vẫn nên nghe Track 21 (tập hai) để kiểm tra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lg2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vocabulary — Gap fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Choose A, B, or C to fill the gaps in the passage.</span></p>
+    <p class="en" lang="en">Most children love (1) ______ activities when the weather is good. They play football, go skateboarding or go (2) ______. In countries with a lot of snow like (3) ______, children go skiing with their parents to practise skiing. When they are not skiing, they can stay at home and watch interesting (4) ______ on TV or visit (5) ______ in the area.</p>
+    <p class="en" lang="en">1. A. outdoor B. indoor C. school &nbsp; 2. A. tennis B. karate C. swimming &nbsp; 3. A. Sweden B. India C. Brazil &nbsp; 4. A. characters B. viewers C. programmes &nbsp; 5. A. sports B. city C. landmarks</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">2. go …</span><button class="chon chu" data-dung="0">tennis</button><button class="chon chu" data-dung="0">karate</button><button class="chon chu" data-dung="1">swimming</button><span class="phan-hoi" data-dung-txt="Đúng! go + V-ing: go swimming, go skateboarding." data-sai-txt="Câu trước có “go skateboarding” — sau go là từ có đuôi gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">3. a lot of snow like …</span><button class="chon chu" data-dung="1">Sweden</button><button class="chon chu" data-dung="0">India</button><button class="chon chu" data-dung="0">Brazil</button><span class="phan-hoi" data-dung-txt="Đúng! Thuỵ Điển ở phía bắc châu Âu, nhiều tuyết." data-sai-txt="Nước nào lạnh, có nhiều tuyết để trượt tuyết?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc cả đoạn trước: đoạn văn nói về hoạt động khi trời đẹp và khi có tuyết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: để ý cụm <span class="en">go skateboarding</span> đứng ngay trước — sau <span class="en">go</span> là hoạt động có đuôi <b>-ing</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 3: hoạt động và nơi chốn</h4>
+      <p>1. <span class="en">when the weather is good</span> + <span class="en">play football</span> → hoạt động ngoài trời: <span class="en"><b>outdoor</b></span>. &nbsp; 2. <span class="en">go <b>swimming</b></span> (đi bơi); không nói <i>go tennis, go karate</i> — mà là <span class="en">play tennis, do karate</span>. &nbsp; 3. nhiều tuyết → <span class="en"><b>Sweden</b></span> (Thuỵ Điển); Ấn Độ và Brazil là nước nóng.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu 4 – 5: TV và tham quan</h4>
+      <p>4. <span class="en">watch interesting <b>programmes</b> on TV</span> — xem chương trình truyền hình (Unit 7); <span class="en">characters</span> là nhân vật, <span class="en">viewers</span> là người xem. &nbsp; 5. <span class="en">visit <b>landmarks</b> in the area</span> — tham quan các địa danh (Unit 9).</p>
+      <p class="vi-sao">Câu 5: sau <span class="en">visit</span> cần danh từ <b>số nhiều hoặc có mạo từ</b>; <span class="en">city</span> số ít không có <i>a/the</i> nên không đứng một mình được; <span class="en">visit sports</span> không có nghĩa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. A (outdoor) &nbsp; 2. C (swimming) &nbsp; 3. A (Sweden) &nbsp; 4. C (programmes) &nbsp; 5. C (landmarks)</div>
+    <div class="bay">Câu 4 chọn <i>characters</i> vì nghĩ “xem nhân vật trên TV”. Thứ ta xem là <span class="en">programmes</span>; nhân vật nằm <b>trong</b> chương trình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lg3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary — Gap fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Complete the sentences with the words / phrase in the box.</span></p>
+    <p class="en" lang="en">football · city · landmark · television · summer sports</p>
+    <p class="en" lang="en">1. The Eiffel Tower is a famous ______ in Paris. &nbsp; 2. Pelé is a great ______ player from Brazil. &nbsp; 3. There are many educational programmes on ______. &nbsp; 4. I think no other ______ in the world is more interesting than Los Angeles. &nbsp; 5. ______ are very popular in countries with a lot of sunshine like Australia.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hộp có 5 từ / cụm cho 5 câu. Câu nào nói về TV, câu nào về thành phố, câu nào về thể thao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 5 có động từ <span class="en">are</span> → chỗ trống cần danh từ <b>số nhiều</b>. Chỉ có một lựa chọn số nhiều trong hộp.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép theo nghĩa và dạng từ</h4>
+      <p>1. tháp Eiffel → <span class="en">a famous <b>landmark</b></span> (địa danh nổi tiếng). &nbsp; 2. Pelé → <span class="en">a great <b>football</b> player</span>. &nbsp; 3. chương trình giáo dục <span class="en">on <b>television</b></span>. &nbsp; 4. Los Angeles là một thành phố → <span class="en">no other <b>city</b></span>. &nbsp; 5. <span class="en"><b>Summer sports</b> are …</span> (số nhiều, viết hoa vì đứng đầu câu).</p>
+      <p class="vi-sao">Câu 4 dùng so sánh hơn (<span class="en">more interesting than</span>, Unit 4): “không thành phố nào khác thú vị hơn Los Angeles”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. landmark &nbsp; 2. football &nbsp; 3. television &nbsp; 4. city &nbsp; 5. Summer sports</div>
+    <div class="bay">Câu 5 viết thường <i>summer sports</i> ở đầu câu — chữ đầu câu phải viết hoa: <span class="en">Summer sports</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lg4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Grammar — Multiple choice</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Choose the correct answer A, B, or C.</span></p>
+    <p class="en" lang="en">1. John, you are late. The match ______ ten minutes ago. A. starts B. started C. is starting</p>
+    <p class="en" lang="en">2. Ben wrote his parents a postcard ______ he was on holiday. A. because B. and C. while</p>
+    <p class="en" lang="en">3. Hong Kong is famous for ______ double-decker buses. A. its B. it C. it's</p>
+    <p class="en" lang="en">4. Sports and games ______ an important part in our lives. A. play B. plays C. played</p>
+    <p class="en" lang="en">5. The USA first ______ colour TV in 1953. A. has B. have C. had</p>
+    <p class="en" lang="en">6. We are now in the city museum. ______ any objects on display. A. Not touch B. Don't touch C. Don't touching</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">3. famous for … double-decker buses</span><button class="chon chu" data-dung="1">its</button><button class="chon chu" data-dung="0">it</button><button class="chon chu" data-dung="0">it's</button><span class="phan-hoi" data-dung-txt="Đúng! its + danh từ = … của nó." data-sai-txt="Sau chỗ trống là danh từ buses. Cần “của nó” hay “nó là”?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">6. … any objects</span><button class="chon chu" data-dung="0">Not touch</button><button class="chon chu" data-dung="1">Don't touch</button><button class="chon chu" data-dung="0">Don't touching</button><span class="phan-hoi" data-dung-txt="Đúng! Negative: Don't + V." data-sai-txt="Câu mệnh lệnh phủ định: Don't + động từ ở dạng nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm “dấu hiệu” ở mỗi câu: <i>ago</i>, <i>in 1953</i>, chữ đứng sau chỗ trống…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1 và câu 5 có mốc thời gian quá khứ (<span class="en">ten minutes ago, in 1953</span>) → past simple.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1, 4, 5: chọn thì</h4>
+      <p>1. <span class="en">ten minutes ago</span> → quá khứ: <span class="en"><b>started</b></span>. &nbsp; 5. <span class="en">in 1953</span> → quá khứ: <span class="en">have → <b>had</b></span> (bất quy tắc). &nbsp; 4. Nói một sự thật chung, không có mốc quá khứ → hiện tại đơn; chủ ngữ <span class="en">Sports and games</span> số nhiều → <span class="en"><b>play</b></span>.</p>
+      <a class="xem-lai" href="#kt-past">📌 Xem lại: the past simple</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 2: chọn từ nối</h4>
+      <p><span class="en">Ben wrote his parents a postcard <b>while</b> he was on holiday.</span> — Ben viết bưu thiếp cho bố mẹ <b>trong khi</b> đang đi nghỉ.</p>
+      <p class="vi-sao"><span class="en">and</span> nối hai ý ngang hàng, không hợp nghĩa ở đây; <span class="en">because</span> chỉ lí do — “viết bưu thiếp <i>vì</i> đang đi nghỉ” không phải ý của câu. Ý “lúc đang đi nghỉ” là <span class="en">while</span>.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu 3, 6: tính từ sở hữu và câu mệnh lệnh</h4>
+      <p>3. Sau chỗ trống là danh từ <span class="en">buses</span> → tính từ sở hữu <span class="en"><b>its</b></span> (của nó — của Hong Kong). <span class="en">it's</span> = <span class="en">it is</span>.</p>
+      <a class="xem-lai" href="#kt-poss">📌 Xem lại: possessive adjectives</a>
+      <p>6. Ra lệnh cấm trong bảo tàng → <span class="en">Negative: Don't + V</span> → <span class="en"><b>Don't touch</b></span>.</p>
+      <a class="xem-lai" href="#kt-imp">📌 Xem lại: imperatives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. B (started) &nbsp; 2. C (while) &nbsp; 3. A (its) &nbsp; 4. A (play) &nbsp; 5. C (had) &nbsp; 6. B (Don't touch)</div>
+    <div class="bay">Câu 3 chọn <i>it's</i> vì “có dấu phẩy trên giống sở hữu 's”. <span class="en">it's</span> chỉ là <span class="en">it is</span>; “của nó” là <span class="en">its</span> — không có dấu.</div>
+    <div class="gv-note">Câu 2: <i>while</i> không nằm trong ba liên từ được dạy ở Unit 7 (<i>and, but, so</i>) — HS chọn theo nghĩa. Có thể có HS lập luận cho <i>because</i>; nên giải thích <i>while</i> là phương án hợp nghĩa nhất.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lg5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Grammar — Question words</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Correct the underlined question word(s) if needed.</span></p>
+    <p class="en" lang="en">1. <u>Who</u> sports do you like? &nbsp; 2. <u>What time</u> do you have English classes? &nbsp; 3. <u>What</u> do you like Hoi An? &nbsp; 4. <u>What</u> tall are the Twin Towers in Kuala Lumpur? &nbsp; 5. <u>When</u> is the Great Wall: in China or in Korea?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với mỗi câu, tự hỏi: câu trả lời sẽ là <b>vật, người, nơi chốn, thời gian, lí do</b> hay <b>số đo</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có một câu đã đúng, không cần sửa. Câu 5 hỏi “in China or in Korea” — đó là thông tin gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định thông tin câu hỏi cần</h4>
+      <table><tr><th>Câu</th><th>Thông tin cần</th><th>Từ hỏi đúng</th></tr>
+        <tr><td>1</td><td>môn thể thao (vật)</td><td><span class="en"><b>What</b> sports</span></td></tr>
+        <tr><td>2</td><td>giờ học</td><td><span class="en">What time</span> — đúng</td></tr>
+        <tr><td>3</td><td>lí do em thích Hội An</td><td><span class="en"><b>Why</b></span></td></tr>
+        <tr><td>4</td><td>chiều cao (số đo)</td><td><span class="en"><b>How</b> tall</span></td></tr>
+        <tr><td>5</td><td>nơi chốn (Trung Quốc hay Hàn Quốc)</td><td><span class="en"><b>Where</b></span></td></tr></table>
+      <p class="vi-sao"><span class="en">Who</span> chỉ hỏi về <b>người</b>, nên câu 1 sai. <span class="en">When</span> hỏi thời gian, nhưng câu 5 hỏi Vạn Lí Trường Thành <b>ở đâu</b>. <span class="en">How + tính từ</span> hỏi mức độ (cao bao nhiêu).</p>
+      <a class="xem-lai" href="#kt-wh">📌 Xem lại: Wh-question words</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Who → What &nbsp; 2. What time — đúng, giữ nguyên &nbsp; 3. What → Why &nbsp; 4. What → How &nbsp; 5. When → Where</div>
+    <div class="bay">Câu 2 cũng “sửa” thành <i>When</i>. <span class="en">What time</span> hỏi giờ cụ thể và hoàn toàn đúng — đề ghi “if needed”, không phải câu nào cũng sai.</div>
+    <div class="gv-note">Câu 3: <span class="en">How do you like Hoi An?</span> (Em thấy Hội An thế nào?) cũng là câu tiếng Anh đúng — chấp nhận nếu HS sửa thành <i>How</i>. <i>Why</i> bám đúng bảng từ hỏi của Unit 7 (<span class="en">Why — reason</span>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-sk" data-chip="Skills">Skills — Reading · Speaking · Listening · Writing<small>Strange Sports · Trang 37</small></h2>
+
+<article class="the bai" id="sk1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Titles</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Read the two descriptions of strange sports and choose titles for them.</span></p>
+    <p class="en" lang="en">A. Toe Wrestling · B. Cheese Rolling</p>
+    <p class="en" lang="en">1. It's a simple sport. Competitors roll a big round piece of cheese from the top of a hill. … &nbsp; 2. It's a popular sport for children. … Two children lock their toes together and try to push the other's foot to the ground. …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đoạn nào nhắc tới <i>cheese</i>, đoạn nào nhắc tới <i>toes</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">toe</span> = ngón chân; <span class="en">wrestling</span> = vật; <span class="en">cheese</span> = pho mát; <span class="en">roll</span> = lăn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm từ khoá trong mỗi đoạn</h4>
+      <blockquote class="trich"><p>Competitors roll a big round piece of cheese from the top of a hill.</p><cite>— Đoạn 1</cite></blockquote>
+      <blockquote class="trich"><p>Two children lock their toes together and try to push the other's foot to the ground.</p><cite>— Đoạn 2</cite></blockquote>
+      <p class="vi-sao">Đoạn 1 có <span class="en">roll … cheese</span> → Cheese Rolling. Đoạn 2 có <span class="en">toes</span> và <span class="en">similar to arm wrestling</span> → Toe Wrestling.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – B (Cheese Rolling) &nbsp; 2 – A (Toe Wrestling)</div>
+    <div class="bay">Chọn theo thứ tự A – B mà không đọc. Thứ tự tiêu đề trong đề <b>ngược</b> với thứ tự đoạn văn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="sk2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Tick</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Use the information from the passages above to tick (✓) the correct box.</span> (Toe Wrestling / Cheese Rolling)</p>
+    <p class="en" lang="en">1. You need a hill to play this sport. &nbsp; 2. You use the lower part of the body for this sport. &nbsp; 3. It travels at about 112 km/h. &nbsp; 4. Not many people can catch it. &nbsp; 5. It first started in England.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">1. need a hill</span><button class="chon chu" data-dung="0">Toe Wrestling</button><button class="chon chu" data-dung="1">Cheese Rolling</button><span class="phan-hoi" data-dung-txt="Đúng! “from the top of a hill”." data-sai-txt="Đoạn nào có chữ hill?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">5. started in England</span><button class="chon chu" data-dung="1">Toe Wrestling</button><button class="chon chu" data-dung="0">Cheese Rolling</button><span class="phan-hoi" data-dung-txt="Đúng! “started in Derbyshire in the North of England”." data-sai-txt="Đoạn nào nhắc tới Derbyshire?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 3 và câu 4 có chữ <i>it</i> — “nó” ở đây là cái gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">the lower part of the body</span> = phần dưới cơ thể (chân, bàn chân). Câu 3 – 4: “nó” là miếng pho mát.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đối chiếu từng câu với bài</h4>
+      <table>
+        <tr><th>Câu</th><th>Căn cứ trong bài</th><th>Môn</th></tr>
+        <tr><td>1</td><td class="en" lang="en">from the top of a hill</td><td>Cheese Rolling</td></tr>
+        <tr><td>2</td><td class="en" lang="en">Two children lock their toes together and try to push the other's foot to the ground.</td><td>Toe Wrestling</td></tr>
+        <tr><td>3</td><td class="en" lang="en">it goes very fast, about 112 km an hour</td><td>Cheese Rolling</td></tr>
+        <tr><td>4</td><td class="en" lang="en">Very few people can catch it</td><td>Cheese Rolling</td></tr>
+        <tr><td>5</td><td class="en" lang="en">This game started in Derbyshire in the North of England.</td><td>Toe Wrestling</td></tr>
+      </table>
+      <p class="vi-sao">Câu 3: <span class="en">112 km/h</span> = <span class="en">112 km an hour</span>. Câu 4: <span class="en">Not many people</span> = <span class="en">Very few people</span> — đề đổi cách nói, nghĩa giữ nguyên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Cheese Rolling &nbsp; 2. Toe Wrestling &nbsp; 3. Cheese Rolling &nbsp; 4. Cheese Rolling &nbsp; 5. Toe Wrestling</div>
+    <div class="bay">Câu 2 chọn Cheese Rolling vì “chạy cũng dùng chân”. Căn cứ phải là chữ trong bài: chỉ đoạn Toe Wrestling nói rõ dùng <span class="en">toes, foot</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="sk3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Interview</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in groups. Interview your classmates about their likes. Take notes of their answers and report to the class.</span></p>
+    <p class="en" lang="en">1. What city would you like to visit? &nbsp; 2. What sports do you like playing? &nbsp; 3. What TV programme do you like watching?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hỏi xong, kể lại về bạn: chủ ngữ <i>he / she</i> — động từ <i>like</i> cần thêm gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trả lời: <span class="en">I'd like to visit … · I like playing … · I like watching …</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp và ghi chép</h4>
+      <p class="en">A: What city would you like to visit?<br>B: I'd like to visit Paris.<br>A: What sports do you like playing?<br>B: I like playing badminton.<br>A: What TV programme do you like watching?<br>B: I like watching cartoons.</p></div>
+    <div class="buoc" data-so="2"><h4>Báo cáo cho lớp</h4>
+      <p class="en">Lan would like to visit Paris. She likes playing badminton, and she likes watching cartoons.</p>
+      <p class="vi-sao">Khi kể về bạn: <span class="en">I like → She likes</span> (thêm s), <span class="en">I'd like → She'd like / She would like</span> (không thêm s). Nối hai ý bằng <span class="en">and</span> (Unit 7).</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu báo cáo: <span class="en">Lan would like to visit Paris. She likes playing badminton, and she likes watching cartoons.</span></div>
+    <div class="bay">Báo cáo <span class="en">She would likes…</span> — sau <i>would</i> động từ giữ nguyên <i>like</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="sk4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen to a talk about Singapore and fill the missing information.</span> 🎧 (Track 22, tập hai)</p>
+    <p class="en" lang="en">Singapore attracts millions of (1) ______ every year. &nbsp; A hop-on hop-off bus goes (2) ______ around the city. &nbsp; The cost of the tour is (3) ______ dollars. &nbsp; The bus comes every (4) ______ minutes. &nbsp; This tour is good for people with (5) ______ time.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm chỗ trống: chỗ nào cần <b>số</b>, chỗ nào cần <b>danh từ</b>, chỗ nào cần <b>tính từ chỉ lượng</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn chữ ngay sau chỗ trống: <span class="en">___ dollars, ___ minutes</span> → cần <b>số</b>; <span class="en">millions of ___</span> → danh từ số nhiều.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán loại thông tin trước khi nghe</h4>
+      <table><tr><th>Chỗ trống</th><th>Ngữ pháp xung quanh</th><th>Cần</th></tr>
+        <tr><td>1</td><td class="en">millions of ___</td><td>danh từ số nhiều (chỉ người)</td></tr>
+        <tr><td>2</td><td class="en">goes ___ around the city</td><td>từ chỉ cách đi / nơi đi qua</td></tr>
+        <tr><td>3</td><td class="en">is ___ dollars</td><td>một con số (giá tiền)</td></tr>
+        <tr><td>4</td><td class="en">every ___ minutes</td><td>một con số (số phút)</td></tr>
+        <tr><td>5</td><td class="en">people with ___ time</td><td>tính từ / từ chỉ lượng thời gian</td></tr></table>
+      <p class="vi-sao">Nghe số rất dễ nhầm cặp <span class="en">fifteen / fifty</span>, <span class="en">thirteen / thirty</span>: <i>-teen</i> nhấn ở cuối, <i>-ty</i> nhấn ở đầu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 22 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>. Em nghe băng, điền 5 chỗ trống rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Điền theo bài đọc <i>Visit Singapore</i> ở Review 2 hoặc theo hiểu biết riêng. Chỉ bài nghe Track 22 mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / SGV. Không suy đáp án từ tranh (Merlion Park, xe buýt hai tầng) hay từ bài đọc Review 2.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="sk5" data-ten="Bài 5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Paragraph</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Look at the information on Mark's visit to India last summer. Write a paragraph of about 50 words about his visit.</span></p>
+    <p class="en" lang="en">Country: India · Time: 7 days · City: Delhi · Activities: watch a snake performance, visit temples, eat street food · People: friendly · Weather: hot</p>
+    <p class="en" lang="en">You can start with: Last summer, Mark visited Delhi in India. He ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chuyến đi diễn ra <b>last summer</b> — mọi động từ trong đoạn sẽ ở thì nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đổi từng động từ trong bảng sang quá khứ: <span class="en">watch → watched, visit → visited, eat → ate</span>; <span class="en">is / are → was / were</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sắp ý theo bảng</h4>
+      <p>Câu mở (SGK cho sẵn) → ở bao lâu (<span class="en">7 days</span>) → làm gì (3 hoạt động) → con người (<span class="en">friendly</span>) → thời tiết (<span class="en">hot</span>) → câu kết (cảm nhận của Mark).</p></div>
+    <div class="buoc" data-so="2"><h4>Đổi động từ sang quá khứ</h4>
+      <table><tr><th>Trong bảng</th><th>Trong đoạn văn</th></tr>
+        <tr><td><span class="en">watch, visit</span> (có quy tắc)</td><td><span class="en">watched, visited</span></td></tr>
+        <tr><td><span class="en">eat, have</span> (bất quy tắc)</td><td><span class="en">ate, had</span></td></tr>
+        <tr><td><span class="en">people — friendly · weather — hot</span></td><td><span class="en">The people were … · The weather was …</span></td></tr></table>
+      <a class="xem-lai" href="#kt-past">📌 Xem lại: the past simple</a></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo câu mở mẫu</h4>
+      <p>Cô làm mẫu câu thứ hai thôi: <span class="en">He stayed there for seven days.</span> Phần còn lại em tự viết nhé. Nối ý bằng <span class="en">and</span> / <span class="en">but</span> cho đoạn văn liền mạch, rồi đếm số từ (khoảng 50).</p>
+      <a class="xem-lai" href="#kt-conj">📌 Xem lại: conjunctions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) mở bằng <span class="en">Last summer, Mark visited Delhi in India.</span> và có đủ thông tin trong bảng (7 ngày, 3 hoạt động, con người, thời tiết); (2) dài khoảng 50 từ; (3) mọi động từ ở thì quá khứ đơn, đúng dạng bất quy tắc (<span class="en">ate, was, were</span>); (4) đúng chính tả, có dấu chấm cuối câu.</div>
+    <div class="bay">Viết <span class="en">He eated street food</span> hoặc <span class="en">The people are friendly</span>. <i>eat</i> là động từ bất quy tắc → <span class="en">ate</span>; và chuyến đi đã qua → <span class="en">were</span>.</div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở SGK + một câu mẫu. Đoạn tham khảo dưới đây dành cho GV (đã đếm máy: 51 từ).</div>
+    <div class="tham-khao">
+    <p lang="en">Last summer, Mark visited Delhi in India. He stayed there for seven days. He watched a snake performance and visited many old temples. He also ate street food, and he loved it. The people there were very friendly, but the weather was really hot. Mark had a great time in Delhi.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Review 3 (Units 7-8-9) — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:r03';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-review-03-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-review-03-bai-giai.nguon.html" data-phien-ban="54daeb06faeb">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

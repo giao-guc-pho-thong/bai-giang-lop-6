@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 4. My Neighbourhood — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập một</div>
+    <div class="hang1">
+      <h1>Unit 4. My Neighbourhood — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập một</div><h1>Unit 4. My Neighbourhood — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-comp"><b class="ten">Comparative adjectives — Remember!</b>
+      <span class="en">We can use comparative adjectives to compare two people or things.</span><br>
+      Ví dụ: <span class="en">Tom is <b>taller than</b> Mary. · A house in a city is normally <b>more expensive than</b> a house in the countryside.</span><br>
+      → Tính từ <b>ngắn</b> (một âm tiết): thêm <b>-er</b> + <span class="en">than</span> (<span class="en">tall → taller</span>). Tính từ <b>dài</b> (ba âm tiết trở lên): <b>more</b> + tính từ + <span class="en">than</span> (<span class="en">expensive → more expensive</span>). Chỉ chọn <b>một</b> cách.</div>
+    <div class="kt" id="kt-chinh-ta"><b class="ten">Chính tả khi thêm -er (theo ví dụ trong sách)</b>
+      Gấp đôi phụ âm cuối: <span class="en">hot → hotter</span> (thư của Vy, A Closer Look 2 bài 2). &nbsp; Tận cùng <b>-y</b> đổi thành <b>-i</b>: <span class="en">noisy → noisier</span> (ví dụ bài 3). &nbsp; Tận cùng <b>-e</b> chỉ thêm <b>-r</b>: <span class="en">large → larger</span>.</div>
+    <div class="kt" id="kt-suggest"><b class="ten">Making suggestions — Remember!</b>
+      <span class="en">We can use <i>shall we</i> and <i>let's</i> to make suggestions.</span><br>
+      Ví dụ: <span class="en">Let's go to Chua Cau. · Shall we go there first?</span></div>
+    <div class="kt" id="kt-dir"><b class="ten">Directions — chỉ đường</b>
+      <span class="en">go straight</span> (đi thẳng) · <span class="en">turn left / turn right</span> (rẽ trái / rẽ phải) · <span class="en">cross the road</span> (băng qua đường) · <span class="en">take the second turning on the left</span> (rẽ vào chỗ rẽ thứ hai bên trái) · <span class="en">It's on your right.</span> (Nó ở bên tay phải bạn.)</div>
+    <div class="kt" id="kt-ask"><b class="ten">Asking for and giving directions</b>
+      <span class="en">Excuse me. Could you tell me the way to the cinema, please? — Go along this street. It's on your left.</span><br>
+      <span class="en">Excuse me. Where's the nearest post office, please? — Go out of the station. Take the first turning on the right.</span></div>
+    <div class="kt" id="kt-am"><b class="ten">Sounds /ɪ/ and /iː/</b>
+      /ɪ/ — âm <b>ngắn</b>, bật nhanh: <span class="en">busy</span> /ˈbɪzi/. &nbsp; /iː/ — âm <b>dài</b>, kéo căng môi như cười: <span class="en">cathedral</span> /kəˈθiːdrəl/ (Glossary Unit 4).<br>
+      Dấu <b>ː</b> nghĩa là âm dài. Chữ <b>ee, ea</b> thường đọc /iː/ (<span class="en">clean, cheap</span>); chữ <b>i</b> và đuôi <b>-y</b> thường đọc ngắn (<span class="en">expensive, noisy</span>).</div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập một — Unit 4. My Neighbourhood (trang 38 – 47).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — Lost in the old town!<small>Trang 38 – 39</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 23, tập một)</p>
+    <p class="en" lang="en">Phong: Wow! We're in Hoi An. I'm so excited. — Nick: Me too. It's so beautiful. Where shall we go first? — Khang: Let's go to Chua Cau. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba bạn đang ở thành phố nào? Vì sao các bạn phải hỏi đường?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghe và đọc theo. Gạch chân các câu có <span class="en">shall we</span>, <span class="en">let's</span> và các câu <b>chỉ đường</b> (<span class="en">turn, go, cross, take</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">Where shall we go first?</td><td>Mình đi đâu trước nhỉ?</td></tr>
+        <tr><td class="en" lang="en">Well, but Tan Ky House is nearer. Shall we go there first?</td><td>Ừ, nhưng nhà cổ Tấn Ký gần hơn. Mình đến đó trước nhé?</td></tr>
+        <tr><td class="en" lang="en">First, cross the road, and then turn left.</td><td>Trước tiên băng qua đường, rồi rẽ trái.</td></tr>
+        <tr><td class="en" lang="en">I think we're lost.</td><td>Tớ nghĩ là mình bị lạc rồi.</td></tr>
+        <tr><td class="en" lang="en">Excuse me? Can you tell us the way to Tan Ky House?</td><td>Xin lỗi, bạn có thể chỉ cho bọn mình đường đến nhà cổ Tấn Ký không?</td></tr>
+        <tr><td class="en" lang="en">Go straight. Take the second turning on the left, and then turn right.</td><td>Đi thẳng. Rẽ vào chỗ rẽ thứ hai bên trái, rồi rẽ phải.</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">nearer</span> = gần hơn — đây chính là <b>so sánh hơn</b> em sắp học ở A Closer Look 2 (<span class="en">near → nearer</span>).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Ý chính: Phong, Nick và Khang ở Hội An; các bạn quyết định đến nhà cổ Tấn Ký trước vì gần hơn, bị lạc đường và hỏi một bạn gái chỉ đường.</div>
+    <div class="bay">Đọc <i>Tan Ky, Chua Cau, Phong, Khang</i> theo kiểu tiếng Anh. Đây là tên tiếng Việt — đọc như tiếng Việt: “Tấn Ký”, “Chùa Cầu”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Suggestions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Find in the conversation the sentences used to make suggestions.</span></p>
+    <p class="en" lang="en">Example: Let's go to Chua Cau.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu gợi ý thường mở đầu bằng hai cụm từ trong khung Remember!. Đó là hai cụm nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dò từng lượt lời, tìm câu có <span class="en">shall we</span> hoặc <span class="en">let's</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dò hội thoại tìm shall we / let's</h4>
+      <table>
+        <tr><th>Ai nói</th><th>Câu gợi ý</th></tr>
+        <tr><td>Nick</td><td class="en" lang="en">Where shall we go first?</td></tr>
+        <tr><td>Khang</td><td class="en" lang="en">Let's go to Chua Cau.</td></tr>
+        <tr><td>Phong</td><td class="en" lang="en">Shall we go there first?</td></tr>
+        <tr><td>Nick</td><td class="en" lang="en">Fine, let's go.</td></tr>
+        <tr><td>Nick</td><td class="en" lang="en">Look, there's a girl. Let's ask her.</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-suggest">📌 Xem lại: shall we / let's</a></div>
+    <div class="buoc" data-so="2"><h4>Hiểu cách dùng</h4>
+      <p><span class="en">Let's + động từ nguyên thể</span> = Mình cùng … nhé! &nbsp; <span class="en">Shall we + động từ nguyên thể …?</span> = Mình … nhé? (hỏi ý bạn).</p>
+      <p class="vi-sao">Sau <span class="en">let's</span> và <span class="en">shall we</span> là động từ nguyên thể: <span class="en">Let's <b>go</b>, Let's <b>ask</b>, Shall we <b>go</b></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Where shall we go first? · Let's go to Chua Cau. · Shall we go there first? · Fine, let's go. · Let's ask her.</div>
+    <div class="bay">Viết <span class="en">Let's to go…</span> hoặc <span class="en">Let's going…</span>. Sau <span class="en">let's</span> là động từ nguyên thể không có <i>to</i>.</div>
+    <div class="gv-note"><span class="en">Where shall we go first?</span> là câu <b>hỏi xin gợi ý</b>; nhiều tài liệu vẫn tính vào. Chấp nhận nếu HS liệt kê hoặc không liệt kê câu này.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Put in order</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the conversation again. Put the actions in order.</span></p>
+    <p class="en" lang="en">a. The girl shows them the way to Tan Ky House. &nbsp; b. Nick, Khang and Phong arrive in Hoi An. &nbsp; c. Nick, Khang and Phong decide to go to Tan Ky House. &nbsp; d. Nick, Khang and Phong get lost. &nbsp; e. Phong asks a girl how to get to Tan Ky House.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Việc gì xảy ra <b>đầu tiên</b> khi các bạn vừa đến nơi? Việc gì xảy ra <b>cuối cùng</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đi theo đúng thứ tự lượt lời trong hội thoại: đến nơi → chọn chỗ → lạc → hỏi → được chỉ đường.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép mỗi sự việc với một lượt lời</h4>
+      <table>
+        <tr><th>Thứ tự</th><th>Sự việc</th><th>Lời trong bài</th></tr>
+        <tr><td>1</td><td>b</td><td class="en" lang="en">Wow! We're in Hoi An.</td></tr>
+        <tr><td>2</td><td>c</td><td class="en" lang="en">Shall we go there first?</td></tr>
+        <tr><td>3</td><td>d</td><td class="en" lang="en">I think we're lost.</td></tr>
+        <tr><td>4</td><td>e</td><td class="en" lang="en">Can you tell us the way to Tan Ky House?</td></tr>
+        <tr><td>5</td><td>a</td><td class="en" lang="en">Go straight. Take the second turning on the left, and then turn right.</td></tr>
+      </table>
+      <p class="vi-sao">Sự việc c: Phong gợi ý nhà cổ Tấn Ký và Nick, Khang đồng ý (<span class="en">OK, sure.</span>) — đó là lúc các bạn <b>quyết định</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">b → c → d → e → a &nbsp; (b-1, c-2, d-3, e-4, a-5)</div>
+    <div class="bay">Đặt c lên đầu vì câu c nhắc tên nhà cổ Tấn Ký giống câu a, e. Các bạn phải <b>đến Hội An</b> trước rồi mới chọn chỗ đi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Directions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Find and underline the following directions in the conversation.</span></p>
+    <p class="en" lang="en">A. turn right &nbsp; B. cross the road &nbsp; C. turn left &nbsp; D. go straight &nbsp; E. take the second turning on the left</p>
+    <p lang="en"><b>Now match these directions with the diagrams below.</b></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — sơ đồ nào?</b>
+    <div class="cau-thu"><span class="noi-dung">Sơ đồ 2 (mũi tên rẽ sang phải)</span><button class="chon chu" data-dung="1">turn right</button><button class="chon chu" data-dung="0">turn left</button><span class="phan-hoi" data-dung-txt="Đúng! right = bên phải." data-sai-txt="left là bên tay nào, right là bên tay nào?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Sơ đồ 5 (đi băng qua một dải đường)</span><button class="chon chu" data-dung="0">go straight</button><button class="chon chu" data-dung="1">cross the road</button><span class="phan-hoi" data-dung-txt="Đúng! cross = đi ngang qua." data-sai-txt="Mũi tên này cắt ngang qua con đường — từ nào nghĩa là “băng qua”?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi mũi tên vẽ một hành động: đi thẳng, rẽ, hay băng qua đường?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">cross</span> = đi ngang qua (Glossary). <span class="en">turning</span> = chỗ rẽ, nên <span class="en">the second turning</span> là chỗ rẽ <b>thứ hai</b>: phải đi thẳng qua chỗ rẽ thứ nhất rồi mới rẽ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm trong hội thoại</h4>
+      <blockquote class="trich"><p>First, cross the road, and then turn left.</p><p>Go straight. Take the second turning on the left, and then turn right.</p></blockquote>
+      <p class="vi-sao">Năm chỉ dẫn nằm gọn trong hai câu: một câu của Phong, một câu của bạn gái.</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép với sơ đồ (theo thứ tự đánh số trong SGK)</h4>
+      <p>1 – <span class="en">go straight</span> (mũi tên đi thẳng) · 2 – <span class="en">turn right</span> · 3 – <span class="en">take the second turning on the left</span> (đi lên rồi mới rẽ trái) · 4 – <span class="en">turn left</span> · 5 – <span class="en">cross the road</span></p>
+      <a class="xem-lai" href="#kt-dir">📌 Xem lại: directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – D (go straight) &nbsp; 2 – A (turn right) &nbsp; 3 – E (take the second turning on the left) &nbsp; 4 – C (turn left) &nbsp; 5 – B (cross the road) — theo tranh SGK.</div>
+    <div class="bay">Nhầm sơ đồ 3 với sơ đồ 4 vì cả hai đều rẽ trái. Sơ đồ 3 phải <b>đi lên một đoạn</b> (qua chỗ rẽ thứ nhất) rồi mới rẽ — đó là <span class="en">the second turning</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">GAME — Find places</span></p>
+    <p lang="en"><b>Work in pairs. Give your partner directions to one of the places on the map, and he / she tries to guess. Then swap.</b></p>
+    <p class="en" lang="en">A: Go straight. Take the second turning on the left. It's on your right. — B: Is that the gym? — A: No, try again.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt ngón tay vào chỗ <b>You are here</b> trên bản đồ, rồi “đi” theo lời bạn chỉ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn thầm một địa điểm trên bản đồ (<span class="en">cinema, park, café, temple, gym, bank, bus stop, railway station</span>). Chỉ đường bằng các cụm ở bài 4, kết thúc bằng <span class="en">It's on your left / right.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Người chỉ đường (A)</h4>
+      <p class="en">Go straight. Take the first / second turning on the left / right. It's on your left / right.</p></div>
+    <div class="buoc" data-so="2"><h4>Người đoán (B)</h4>
+      <p class="en">Is that the cinema? — A: No, try again. / Yes, that's right.</p>
+      <p class="vi-sao">Trò chơi luyện đúng hai việc: nói chỉ dẫn và nghe hiểu chỉ dẫn. Đổi vai sau mỗi lượt (<span class="en">swap</span>).</p>
+      <a class="xem-lai" href="#kt-dir">📌 Xem lại: directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất — mỗi cặp chọn địa điểm khác nhau. Khung: <span class="en">A: Go straight. Take the … turning on the … It's on your … — B: Is that the …? — A: No, try again. / Yes!</span></div>
+    <div class="gv-note">Đường đi cụ thể phụ thuộc bản đồ in trong SGK (trang 39); trang này không ghi lộ trình cho từng địa điểm. GV có thể cho cả lớp cùng kiểm lời chỉ đường của một cặp trên bản đồ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 40</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Places</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Match the places below with the pictures. Then listen, check and repeat the words.</span> 🎧 (Track 24, tập một)</p>
+    <p class="en" lang="en">1. square &nbsp; 2. art gallery &nbsp; 3. cathedral &nbsp; 4. temple &nbsp; 5. railway station</p>
+    <p lang="en"><b>Name some other places in your neighbourhood.</b></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn tranh trong SGK: tranh nào có tàu hoả? tranh nào có nhiều bức tranh treo tường?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">gallery</span> gần với “triển lãm”; <span class="en">railway</span> = đường sắt.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của từ (Glossary Unit 4)</h4>
+      <p><span class="en">square</span> /skweə/: quảng trường · <span class="en">art gallery</span> /ɑːt ˈgæləri/: phòng trưng bày các tác phẩm nghệ thuật · <span class="en">cathedral</span> /kəˈθiːdrəl/: nhà thờ lớn · <span class="en">temple</span>: đền, chùa · <span class="en">railway station</span> /ˈreɪlweɪ ˈsteɪʃn/: ga tàu hoả</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép với tranh (theo thứ tự chữ cái trong SGK)</h4>
+      <p>1 – c (quảng trường có cột cờ) · 2 – e (phòng treo tranh) · 3 – d (nhà thờ có hai tháp chuông) · 4 – a (đền mái cong) · 5 – b (tàu hoả trong nhà ga)</p></div>
+    <div class="buoc" data-so="3"><h4>Kể thêm địa điểm</h4>
+      <p class="en">market, park, post office, cinema, museum, bus stop, supermarket, hospital</p>
+      <p class="vi-sao">Một số từ đã gặp trong Unit (<span class="en">cinema, park, bus stop, post office</span>); các từ khác là <b>từ thêm</b>, không bắt buộc thuộc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – c &nbsp; 2 – e &nbsp; 3 – d &nbsp; 4 – a &nbsp; 5 – b (theo tranh SGK). Địa điểm khác (ví dụ): market, park, post office, cinema, museum, bus stop.</div>
+    <div class="bay">Nhầm <span class="en">temple</span> (đền, chùa) với <span class="en">cathedral</span> (nhà thờ lớn) vì đều là nơi thờ cúng. Nhà thờ có tháp chuông → <span class="en">cathedral</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Ask and answer questions about where you live.</span></p>
+    <p class="en" lang="en">A: Is there a square in your neighbourhood? — B: Yes, there is. / No, there isn't.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khu em sống có những gì trong số các địa điểm ở bài 1?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thay <span class="en">a square</span> bằng các địa điểm khác: <span class="en">an art gallery, a temple, a railway station…</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp theo mẫu</h4>
+      <p class="en">A: Is there a temple in your neighbourhood?<br>B: Yes, there is.<br>A: Is there an art gallery in your neighbourhood?<br>B: No, there isn't.</p>
+      <p class="vi-sao"><span class="en">an art gallery</span> dùng <i>an</i> vì <span class="en">art</span> bắt đầu bằng một nguyên âm (/ɑːt/).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Is there a temple in your neighbourhood? — B: Yes, there is. / No, there isn't.</span></div>
+    <div class="bay">Trả lời <span class="en">Yes, it is.</span> Câu hỏi <span class="en">Is there…?</span> phải trả lời bằng <span class="en">Yes, there is. / No, there isn't.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in groups. Ask and answer about your neighbourhood. You can use the adjectives below.</span></p>
+    <p class="en" lang="en">noisy · crowded · peaceful · quiet · modern · beautiful · busy · boring</p>
+    <p class="en" lang="en">A: Is your neighbourhood quiet? — B: Yes, it is. / No, it's noisy.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bảy tính từ trong hộp — từ nào khen, từ nào chê một khu phố?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghép thành cặp trái nghĩa: <span class="en">noisy – quiet</span>, <span class="en">busy – peaceful</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của các tính từ</h4>
+      <p><span class="en">noisy</span>: ồn ào · <span class="en">crowded</span>: đông đúc · <span class="en">peaceful</span>: yên bình · <span class="en">quiet</span>: yên tĩnh · <span class="en">modern</span>: hiện đại · <span class="en">beautiful</span>: đẹp · <span class="en">busy</span> /ˈbɪzi/: nhộn nhịp, náo nhiệt · <span class="en">boring</span>: buồn tẻ</p></div>
+    <div class="buoc" data-so="2"><h4>Hỏi – đáp theo mẫu</h4>
+      <p class="en">A: Is your neighbourhood crowded?<br>B: No, it's quiet and peaceful.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Is your neighbourhood crowded? — B: No, it's quiet and peaceful.</span></div>
+    <div class="bay">Đọc <span class="en">busy</span> là “bu-si”. Chữ <b>u</b> ở đây đọc /ɪ/: /ˈbɪzi/.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen and repeat the words. Pay attention to the sounds /ɪ/ and /iː/.</span> 🎧 (Track 25, tập một)</p>
+    <p class="en" lang="en">noisy · exciting · expensive · clean · peaceful · convenient · cheap · friendly</p>
+    <p lang="en"><b>Now, in pairs put the words in the correct column.</b> (/ɪ/: noisy · /iː/: convenient)</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — /ɪ/ hay /iː/?</b>
+    <div class="cau-thu"><span class="noi-dung en">cheap</span><button class="chon chu" data-dung="0">/ɪ/</button><button class="chon chu" data-dung="1">/iː/</button><span class="phan-hoi" data-dung-txt="Đúng! ea đọc dài." data-sai-txt="Hai chữ ea trong cheap — âm ngắn hay âm dài?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">friendly</span><button class="chon chu" data-dung="1">/ɪ/</button><button class="chon chu" data-dung="0">/iː/</button><span class="phan-hoi" data-dung-txt="Đúng! đuôi -y đọc ngắn." data-sai-txt="Âm cần tìm nằm ở cuối từ — đuôi -y đọc ngắn hay dài?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ nào có chữ <b>ee</b> hoặc <b>ea</b>? Những chữ đó thường cho âm dài.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ <span class="en">noisy</span> (đã cho ở cột /ɪ/) chứa âm ngắn ở <b>đuôi -y</b>. Tìm thêm từ có đuôi -y hoặc chữ <b>i</b> đọc ngắn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chỗ chứa âm trong từng từ</h4>
+      <table>
+        <tr><th>/ɪ/ (ngắn)</th><th>/iː/ (dài)</th></tr>
+        <tr><td><span class="en">nois<b>y</b></span>, <span class="en"><b>e</b>xcit<b>i</b>ng</span>, <span class="en"><b>e</b>xpens<b>i</b>ve</span>, <span class="en">friendl<b>y</b></span></td><td><span class="en">conv<b>e</b>nient</span>, <span class="en">cl<b>ea</b>n</span>, <span class="en">p<b>ea</b>ceful</span>, <span class="en">ch<b>ea</b>p</span></td></tr>
+      </table>
+      <p class="vi-sao">Chữ <b>ea</b> trong <span class="en">clean, peaceful, cheap</span> đọc dài. Đuôi <b>-y</b> đọc ngắn — giống <span class="en">busy</span> /ˈbɪzi/, <span class="en">sandy</span> /ˈsændɪ/ trong Glossary.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /ɪ/ và /iː/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">/ɪ/: noisy, exciting, expensive, friendly. &nbsp; /iː/: convenient, clean, peaceful, cheap.</div>
+    <div class="bay">Xếp <span class="en">friendly</span> vào cột /iː/ vì có chữ <b>ie</b>. Trong <i>friendly</i>, chữ <b>ie</b> đọc là “e”; âm /ɪ/ nằm ở đuôi <b>-y</b>.</div>
+    <div class="gv-note">Đáp án suy từ cách phát âm Anh – Anh chuẩn; HS vẫn nên nghe Track 25 (tập một) để kiểm tra. Glossary Unit 4 không có phiên âm của 8 từ này nên trang không ghi IPA từng từ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chant</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Listen and practise the chant. Notice the sounds /ɪ/ and /iː/.</span> 🎧 (Track 26, tập một)</p>
+    <p class="en" lang="en">MY NEIGHBOURHOOD — My city is very noisy. There are lots of trees growing. The people here are busy. It's a lively place to live in. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vừa đọc vừa vỗ tay theo nhịp. Những từ nào em phải kéo dài giọng?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm chữ <b>ee, eo, e</b> đọc dài (<span class="en">trees, people</span>) và chữ <b>i, -y</b> đọc ngắn (<span class="en">city, busy</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm hai âm trong bài chant</h4>
+      <table>
+        <tr><th>/ɪ/ (ngắn)</th><th>/iː/ (dài)</th></tr>
+        <tr><td class="en">city, is, very, noisy, busy, it's, lively, live, in, village, pretty, friendly</td><td class="en">trees, people, see, be</td></tr>
+      </table>
+      <p class="vi-sao">Âm dài thường rơi vào cuối dòng thơ (<span class="en">see, be</span>) — đọc kéo dài cho đúng nhịp.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /ɪ/ và /iː/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và đọc theo, không có câu hỏi phải trả lời. Chú ý /ɪ/: city, busy, lively, village, pretty, friendly; /iː/: trees, people, see, be.</div>
+    <div class="bay">Đọc <span class="en">people</span> thành “pê-ô-pồ”. Chữ <b>eo</b> ở đây là một âm dài /iː/, đọc gần “pi-pồ”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small>Comparative adjectives · Trang 41 – 42</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Comparative</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Complete the following sentences with the comparative form of the adjectives in brackets. Number <b>1</b> is an example.</span></p>
+    <p class="en" lang="en">1. This building is taller than that building. (tall)</p>
+    <p class="en" lang="en">2. My neighbourhood is ______ than your neighbourhood. (noisy)</p>
+    <p class="en" lang="en">3. The square in Ha Noi is ______ than the square in Hoi An. (big)</p>
+    <p class="en" lang="en">4. Living in the countryside is ______ than living in a city. (peaceful)</p>
+    <p class="en" lang="en">5. Is living in a city ______ than living in the countryside? (exciting)</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">3. big</span><button class="chon chu" data-dung="0">biger</button><button class="chon chu" data-dung="1">bigger</button><button class="chon chu" data-dung="0">more big</button><span class="phan-hoi" data-dung-txt="Đúng! Gấp đôi g giống hot → hotter." data-sai-txt="big có một âm tiết, ba chữ cuối b-i-g giống h-o-t. hot thành gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">4. peaceful</span><button class="chon chu" data-dung="0">peacefuler</button><button class="chon chu" data-dung="1">more peaceful</button><span class="phan-hoi" data-dung-txt="Đúng! peaceful có ba âm tiết → more." data-sai-txt="Đếm tiếng: peace-ful… là tính từ ngắn hay dài?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đếm số âm tiết của tính từ trong ngoặc: một tiếng, hay nhiều tiếng?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai ví dụ trong khung Remember!: <span class="en">taller</span> (tính từ ngắn) và <span class="en">more expensive</span> (tính từ dài).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính từ ngắn: thêm -er</h4>
+      <p>2. <span class="en">noisy</span> tận cùng <b>-y</b> → đổi thành <b>i</b> + er → <span class="en"><b>noisier</b></span>. &nbsp; 3. <span class="en">big</span> → gấp đôi <b>g</b> → <span class="en"><b>bigger</b></span>.</p>
+      <p class="vi-sao">Tranh câu 3 trong SGK: quảng trường ở Hà Nội 20,000 m², ở Hội An 10,000 m² → Hà Nội rộng hơn.</p>
+      <a class="xem-lai" href="#kt-chinh-ta">📌 Xem lại: chính tả khi thêm -er</a></div>
+    <div class="buoc" data-so="2"><h4>Tính từ dài: more + tính từ</h4>
+      <p>4. <span class="en">peaceful</span> → <span class="en"><b>more peaceful</b></span>. &nbsp; 5. <span class="en">exciting</span> → <span class="en"><b>more exciting</b></span>.</p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">2. noisier &nbsp; 3. bigger &nbsp; 4. more peaceful &nbsp; 5. more exciting</div>
+    <div class="bay">Viết <span class="en">noisyer</span> hoặc <span class="en">more noisy</span>. Tính từ hai âm tiết tận cùng <b>-y</b> đổi <b>y → i</b> rồi thêm -er: <span class="en">noisier</span> (đúng như câu ví dụ ở bài 3).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Comparative</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Use the correct form of the words in brackets to complete the letter.</span></p>
+    <p class="en" lang="en">Dear Nick, How are you? Ha Noi is beautiful but it's too busy for me. I'm having a great time at Cua Lo Beach now. The weather is (1. hot) hotter than that in Ha Noi. The houses and buildings are (2. small) ______ and (3. old) ______ than those in Ha Noi. The streets are (4. wide) ______ with less traffic. The seafood here is (5. delicious) ______ and (6. cheap) ______ than the seafood in Ha Noi. See you soon, Vy</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vy đang so sánh Cửa Lò với Hà Nội. Chỗ (1) sách làm mẫu rồi — em làm tiếp từ (2).</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn từ một âm tiết (<span class="en">small, old, wide, cheap</span>), một từ ba âm tiết (<span class="en">delicious</span>). <span class="en">wide</span> tận cùng bằng <b>e</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính từ một âm tiết</h4>
+      <p>2. <span class="en"><b>smaller</b></span> &nbsp; 3. <span class="en"><b>older</b></span> &nbsp; 4. <span class="en">wide</span> tận cùng <b>e</b> → chỉ thêm <b>r</b>: <span class="en"><b>wider</b></span> &nbsp; 6. <span class="en"><b>cheaper</b></span></p>
+      <p class="vi-sao"><span class="en">small, old, cheap</span> không gấp đôi phụ âm: trước phụ âm cuối có <b>hai</b> chữ (<i>al</i>, <i>ol</i>, <i>ea</i>), không giống <span class="en">hot</span>.</p>
+      <a class="xem-lai" href="#kt-chinh-ta">📌 Xem lại: chính tả khi thêm -er</a></div>
+    <div class="buoc" data-so="2"><h4>Tính từ dài</h4>
+      <p>5. <span class="en">delicious</span> (de-li-cious, ba âm tiết) → <span class="en"><b>more delicious</b></span>.</p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">2. smaller &nbsp; 3. older &nbsp; 4. wider &nbsp; 5. more delicious &nbsp; 6. cheaper</div>
+    <div class="bay">Câu 4 không có <span class="en">than</span> ngay sau chỗ trống nên em để nguyên <i>wide</i>. Vy vẫn đang so với Hà Nội → vẫn dùng dạng so sánh hơn: <span class="en">wider</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Compare</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Look at the pictures of the two neighbourhoods: Binh Minh and Long Son. Compare two neighbourhoods. You can use the adjectives below.</span></p>
+    <p class="en" lang="en">noisy · crowded · quiet · peaceful · modern · busy · boring</p>
+    <p class="en" lang="en">Example: Binh Minh is noisier than Long Son.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một bên là phố đông xe, một bên là làng quê. Bên nào ồn hơn? Bên nào yên bình hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chia tính từ làm hai nhóm: thêm -er (<span class="en">noisy, quiet, busy</span>) và dùng more (<span class="en">crowded, peaceful, modern, boring</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đổi tính từ sang dạng so sánh hơn</h4>
+      <p><span class="en">noisy → noisier · busy → busier · quiet → quieter · crowded → more crowded · peaceful → more peaceful · modern → more modern · boring → more boring</span></p>
+      <a class="xem-lai" href="#kt-chinh-ta">📌 Xem lại: chính tả khi thêm -er</a></div>
+    <div class="buoc" data-so="2"><h4>Đặt câu theo tranh</h4>
+      <p>Tranh Binh Minh: nhà cao tầng, nhà hàng, phòng gym, đường đông xe. Tranh Long Son: đường đất giữa cánh đồng, nhà mái ngói, nông dân, trẻ em đạp xe.</p>
+      <p class="en">Binh Minh is more crowded than Long Son. Binh Minh is busier than Long Son. Binh Minh is more modern than Long Son. Long Son is quieter than Binh Minh. Long Son is more peaceful than Binh Minh.</p>
+      <p class="vi-sao">Đổi chủ ngữ thì đổi tính từ: <span class="en">Binh Minh is noisier…</span> = <span class="en">Long Son is quieter…</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Binh Minh is more crowded / busier / more modern than Long Son. Long Son is quieter / more peaceful than Binh Minh. (Có thể: Long Son is more boring than Binh Minh.)</div>
+    <div class="bay">Viết <span class="en">Binh Minh is more busy than…</span>. <span class="en">busy</span> giống <span class="en">noisy</span>: tận cùng -y → <span class="en">busier</span>.</div>
+    <div class="gv-note"><span class="en">boring</span> là nhận xét chủ quan — chấp nhận cả hai chiều nếu HS nói được lí do. <span class="en">quiet</span> hai âm tiết nhưng thường dùng <span class="en">quieter</span> (sách cũng xếp <i>quiet</i> vào bảng ở Looking Back bài 3); <span class="en">more quiet</span> không nên dạy.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Ask and answer</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Work in pairs. Ask and answer questions about Binh Minh and Long Son neighbourhoods using the pictures in <b>3</b>.</span></p>
+    <p class="en" lang="en">A: Is Binh Minh noisier than Long Son? — B: Yes, it is. — A: Is Long Son more modern than Binh Minh? — B: No, it isn't.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu hỏi so sánh chỉ là câu kể đảo <i>is</i> lên đầu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">Is + nơi 1 + tính từ so sánh hơn + than + nơi 2?</span> → <span class="en">Yes, it is. / No, it isn't.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đặt câu hỏi</h4>
+      <p class="en">A: Is Long Son quieter than Binh Minh?<br>B: Yes, it is.<br>A: Is Binh Minh more peaceful than Long Son?<br>B: No, it isn't. Long Son is more peaceful.</p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Is Long Son quieter than Binh Minh? — B: Yes, it is. — A: Is Binh Minh more peaceful than Long Son? — B: No, it isn't.</span></div>
+    <div class="bay">Trả lời <span class="en">Yes, Long Son is quieter.</span> mà chưa có <span class="en">Yes, it is.</span> Câu hỏi Yes/No nên trả lời ngắn trước.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Asking for and giving directions · An audio guide<small>Trang 43</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read the conversations.</span> 🎧 (Track 27, tập một)</p>
+    <p class="en" lang="en">A: Excuse me. Could you tell me the way to the cinema, please? — B: Go along this street. It's on your left.</p>
+    <p class="en" lang="en">A: Excuse me. Where's the nearest post office, please? — B: Go out of the station. Take the first turning on the right.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có hai cách hỏi đường trong hai đoạn hội thoại. Câu nào lịch sự hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi đường luôn mở đầu bằng <span class="en">Excuse me.</span> và kết thúc bằng <span class="en">please</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai cách hỏi, hai cách chỉ</h4>
+      <table>
+        <tr><th>Câu</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">Could you tell me the way to the cinema, please?</td><td>Bạn có thể chỉ cho tôi đường đến rạp chiếu phim không?</td></tr>
+        <tr><td class="en" lang="en">Where's the nearest post office, please?</td><td>Bưu điện gần nhất ở đâu ạ?</td></tr>
+        <tr><td class="en" lang="en">Go along this street. It's on your left.</td><td>Đi dọc phố này. Nó ở bên tay trái bạn.</td></tr>
+        <tr><td class="en" lang="en">Go out of the station. Take the first turning on the right.</td><td>Ra khỏi nhà ga. Rẽ vào chỗ rẽ thứ nhất bên phải.</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">the nearest</span> = gần nhất — cách nói này em sẽ học ở Unit 12; bây giờ chỉ cần dùng nguyên cụm.</p>
+      <a class="xem-lai" href="#kt-ask">📌 Xem lại: asking for and giving directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Hỏi đường: <span class="en">Excuse me. Could you tell me the way to …, please? / Where's the nearest …, please?</span> Chỉ đường: <span class="en">Go along this street. It's on your left. / Take the first turning on the right.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Make similar conversations to ask for and give directions to places near your school.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ cổng trường em, đi đến hiệu sách hoặc chợ gần nhất thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Giữ nguyên câu hỏi ở bài 1, chỉ thay tên địa điểm; chỉ đường bằng các cụm ở Getting Started bài 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Luyện theo mẫu</h4>
+      <p class="en">A: Excuse me. Could you tell me the way to the market, please?<br>B: Go out of the school. Turn left and go straight. It's on your right.<br>A: Thank you.</p>
+      <a class="xem-lai" href="#kt-ask">📌 Xem lại: asking for and giving directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Excuse me. Could you tell me the way to the market, please? — B: Go out of the school. Turn left and go straight. It's on your right.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Nick is listening to an audio guide to Hoi An. Listen and fill the blanks.</span> 🎧 (Track 28, tập một)</p>
+    <p class="en" lang="en">CITY TOURS! Let's start our tour in Hoi An. We are in Tran Phu Street now. First, go to Ong Pagoda. To get there, go (1) ______ along the street for five minutes. It's on your left. Next, go to the Museum of Sa Huynh Culture. Take the (2) ______ turning on your left. Turn (3) ______ and it's on your right. Finally, go to Hoa Nhap Workshop to buy some presents. Turn left and then right. It's (4) ______ Tan Ky House.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc trước đoạn văn: mỗi chỗ trống đứng cạnh từ nào? Từ đó “đòi” loại từ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trước khi nghe, đoán <b>loại</b> từ cho từng chỗ trống: chỗ (2) đứng giữa <span class="en">the</span> và <span class="en">turning</span>; chỗ (4) đứng trước tên một địa điểm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán loại thông tin trước khi nghe</h4>
+      <table>
+        <tr><th>Chỗ</th><th>Đứng cạnh</th><th>Cần loại từ</th></tr>
+        <tr><td>(1)</td><td class="en">go ___ along the street</td><td>từ chỉ hướng đi</td></tr>
+        <tr><td>(2)</td><td class="en">the ___ turning</td><td>số thứ tự (thứ nhất, thứ hai…)</td></tr>
+        <tr><td>(3)</td><td class="en">Turn ___</td><td>trái hay phải</td></tr>
+        <tr><td>(4)</td><td class="en">It's ___ Tan Ky House.</td><td>giới từ chỉ vị trí (Unit 2), có thể gồm hơn một từ</td></tr>
+      </table>
+      <p class="vi-sao">Biết trước loại từ, tai em chỉ cần “bắt” đúng một từ trong cả câu nói. Nghe lần 1 điền, nghe lần 2 kiểm tra.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghe và điền</h4>
+      <p>Nghe Track 28 (tập một). Viết đúng chính tả các từ chỉ đường đã học ở Getting Started bài 4.</p>
+      <a class="xem-lai" href="#kt-dir">📌 Xem lại: directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 28 (tập một) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>. Em nghe băng, điền rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Đoán đáp án theo hội thoại Getting Started (cũng nói về Hội An và nhà cổ Tấn Ký). Đó là hai bài khác nhau — chỉ bài nghe mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Audio guide</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Look at the map below and create an audio guide for the centre of Ho Chi Minh City.</span></p>
+    <p lang="en"><b>Remember to:</b> give directions to at least three different places; use <i>first</i>, <i>then</i>, <i>after that</i> and <i>finally</i> to link your directions.</p>
+    <p class="en" lang="en">Let's start our tour in Ho Chi Minh City. We are in Hai Ba Trung Street now. First, go to ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn từ nối <i>first, then, after that, finally</i> — mỗi từ mở đầu một chặng đường.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn ba địa điểm trên bản đồ SGK (ví dụ <span class="en">Sai Gon Opera House, Ho Chi Minh City Museum, Thong Nhat Palace</span>), rồi viết theo mẫu bài nghe Hội An ở bài 3.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khung bài hướng dẫn</h4>
+      <p class="en">Let's start our tour in Ho Chi Minh City. We are in Hai Ba Trung Street now. First, go to … To get there, go along … Street. It's on your left / right. Then, go to … Take the first / second turning on your left / right. After that, go to … Finally, go to … It's near / next to …</p>
+      <p class="vi-sao">Mỗi chặng gồm hai phần: <b>đi đâu</b> (<span class="en">go to …</span>) và <b>đi thế nào</b> (<span class="en">go along, turn, take the … turning</span>).</p>
+      <a class="xem-lai" href="#kt-dir">📌 Xem lại: directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Bài đạt yêu cầu khi: (1) chỉ đường đến ít nhất ba địa điểm trên bản đồ; (2) dùng đủ <span class="en">first, then, after that, finally</span>; (3) chỉ dẫn khớp với bản đồ SGK.</div>
+    <div class="gv-note">Lộ trình cụ thể phụ thuộc bản đồ in trong SGK (trang 43); trang này không dựng sẵn lộ trình. GV kiểm lời chỉ đường của HS trực tiếp trên bản đồ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Presentation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Now present your audio guide to your class.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hướng dẫn viên nói chậm, rõ, và dừng lại sau mỗi chặng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc bài em viết ở bài 4. Các bạn nghe và lấy ngón tay dò đường trên bản đồ SGK.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trình bày</h4>
+      <p>Mở đầu: <span class="en">Let's start our tour in Ho Chi Minh City.</span> Nhấn giọng vào các từ nối <span class="en">First … Then … After that … Finally …</span></p>
+      <p class="vi-sao">Lớp nghe xong có thể hỏi lại: <span class="en">Where's the …?</span> — đó là lúc em luyện chỉ đường một lần nữa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Bài trình bày tốt: nói rõ ràng, đúng thứ tự các chặng, các bạn dò theo được trên bản đồ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading · Speaking<small>Trang 44</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Read Khang's blog. Look at the words in the box, then find them in the text and underline them. What do they mean?</span></p>
+    <p class="en" lang="en">suburbs · dislike · outdoor</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đoán nghĩa từ câu chứa nó trước, rồi mới tra Glossary.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">dis-</span> đứng trước <span class="en">like</span> làm nghĩa thành ngược lại. <span class="en">out + door</span> = ngoài cửa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm từ trong bài</h4>
+      <blockquote class="trich"><p>I live in the suburbs of Da Nang City.</p><p>It's great for outdoor activities</p><p>However, there are two things I dislike about it</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Nghĩa (Glossary Unit 4)</h4>
+      <p><span class="en">suburb</span> /ˈsʌbɜːb/: khu vực ngoại ô · <span class="en">dislike</span> /dɪsˈlaɪk/: không thích, ghét · <span class="en">outdoor</span> /ˈaʊtdɔː/: ngoài trời</p>
+      <p class="vi-sao"><span class="en">outdoor activities</span> = các hoạt động ngoài trời — bài đọc giải thích ngay sau đó: công viên, bãi biển, thời tiết đẹp.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">suburbs: khu vực ngoại ô · dislike: không thích, ghét · outdoor: ngoài trời</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Table</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Read Khang's blog again and fill the table with the information.</span></p>
+    <p class="en" lang="en">LIKES: beautiful parks | DISLIKES:</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đoạn 2 nói điều Khang <b>thích</b>, đoạn 3 bắt đầu bằng <i>However</i> — nói điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">However</span> = tuy nhiên — sau từ này là ý ngược lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm điều Khang thích (đoạn 2)</h4>
+      <blockquote class="trich"><p>It's great for outdoor activities because it has beautiful parks, sandy beaches and fine weather.</p><p>There's almost everything I need here: shops, restaurants, and markets.</p><p>The people here are friendlier, and the food is better than in other places.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Tìm điều Khang không thích (đoạn 3)</h4>
+      <blockquote class="trich"><p>However, there are two things I dislike about it: there are many modern buildings and offices; and the streets are busy and crowded.</p></blockquote>
+      <p class="vi-sao"><span class="en">two things I dislike</span> — đoạn 3 báo trước có đúng <b>hai</b> điều, nên cột DISLIKES có hai dòng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">LIKES: beautiful parks; sandy beaches; fine weather; shops, restaurants and markets; friendly people; good food. &nbsp; DISLIKES: many modern buildings and offices; busy and crowded streets.</div>
+    <div class="bay">Xếp <span class="en">modern buildings</span> vào cột LIKES vì nghĩ “hiện đại là tốt”. Khang nói rõ đó là điều bạn ấy <span class="en">dislike</span>.</div>
+    <div class="gv-note">Bảng SGK có 3 dòng; HS có thể chọn 3 ý LIKES bất kì trong số trên. <span class="en">better</span> là dạng so sánh hơn của <span class="en">good</span> (bất quy tắc) — chỉ cần hiểu nghĩa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Questions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read Khang's blog again. Then answer the questions.</span></p>
+    <p class="en" lang="en">1. Where is Khang's neighbourhood? &nbsp; 2. Why is his neighbourhood great for outdoor activities? &nbsp; 3. What are the people in his neighbourhood like? &nbsp; 4. How are the streets in his neighbourhood?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu hỏi 2 bắt đầu bằng <i>Why</i> — câu trả lời bắt đầu bằng từ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">What are … like?</span> = … như thế nào (tính cách, đặc điểm). Câu 4 tìm ở đoạn cuối.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu căn cứ</h4>
+      <table>
+        <tr><th>Câu</th><th>Dòng trong bài</th></tr>
+        <tr><td>1</td><td class="en" lang="en">I live in the suburbs of Da Nang City.</td></tr>
+        <tr><td>2</td><td class="en" lang="en">because it has beautiful parks, sandy beaches and fine weather.</td></tr>
+        <tr><td>3</td><td class="en" lang="en">The people here are friendlier</td></tr>
+        <tr><td>4</td><td class="en" lang="en">the streets are busy and crowded.</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Viết câu trả lời</h4>
+      <p class="vi-sao">Đổi <span class="en">I</span> của Khang thành <span class="en">It / They</span>: câu 1 chủ ngữ là <span class="en">his neighbourhood</span> → <span class="en">It is…</span>; câu 3, 4 chủ ngữ số nhiều → <span class="en">They are…</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. It is in the suburbs of Da Nang City. &nbsp; 2. Because it has beautiful parks, sandy beaches and fine weather. &nbsp; 3. They are friendly. / They are friendlier than people in other places. &nbsp; 4. They are busy and crowded.</div>
+    <div class="bay">Câu 1 chép nguyên <span class="en">I live in the suburbs…</span>. Người trả lời không phải Khang — viết <span class="en">It is in the suburbs of Da Nang City.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Notes</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Make notes about your neighbourhood. Think about what you like / dislike about it.</span></p>
+    <p class="en" lang="en">LIKES | DISLIKES</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nghĩ đến đường đi từ nhà đến trường: em thấy những gì? Điều gì làm em vui, điều gì làm em khó chịu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghi chú chỉ cần cụm từ, giống bảng ở bài 2: <span class="en">a big park, friendly people, noisy streets…</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi chú mẫu</h4>
+      <table><tr><th>LIKES</th><th>DISLIKES</th></tr>
+        <tr><td class="en">a big park<br>a good market<br>friendly people</td><td class="en">heavy traffic<br>noisy streets</td></tr></table>
+      <p class="vi-sao">Mượn từ ở A Closer Look 1 bài 3 (<span class="en">noisy, crowded, peaceful…</span>) và Skills 2 bài 3 (<span class="en">heavy traffic, sunny weather…</span>).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu — LIKES: a big park, a good market, friendly people; DISLIKES: heavy traffic, noisy streets.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Work in pairs. Ask and answer about what you like and dislike about your neighbourhood.</span></p>
+    <p class="en" lang="en">A: Where do you live? — B: I live in the suburbs of Da Nang City. — A: What do you like about it? — B: The weather is fine. The people are friendly and the food is good. — A: What do you dislike about it? — B: The streets are busy and crowded.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dùng ghi chú ở bài 4 để trả lời ba câu hỏi của bạn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba câu hỏi cố định: <span class="en">Where do you live? / What do you like about it? / What do you dislike about it?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp theo mẫu</h4>
+      <p class="en">A: Where do you live?<br>B: I live in a small town near Ha Noi.<br>A: What do you like about it?<br>B: There is a big park. The people are friendly.<br>A: What do you dislike about it?<br>B: The streets are noisy.</p>
+      <p class="vi-sao">Muốn nói hay hơn, thêm một câu so sánh: <span class="en">It's quieter than the city centre.</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Where do you live? — B: I live in a small town near Ha Noi. — A: What do you like about it? — B: There is a big park. The people are friendly. — A: What do you dislike about it? — B: The streets are noisy.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Trang 45</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — T/F</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen to the conversation between Khang and Vy and tick (✓) T (True) or F (False).</span> 🎧 (Track 29, tập một)</p>
+    <p class="en" lang="en">1. Vy lives in the centre of Ho Chi Minh City. &nbsp; 2. There is a big market near her house. &nbsp; 3. The streets are narrow. &nbsp; 4. The schools are faraway. &nbsp; 5. There are some factories near her neighbourhood.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc 5 câu trước khi nghe. Gạch chân từ có thể “lật” câu thành sai: <i>centre, big, narrow, faraway, factories</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ mới: <span class="en">narrow</span> /ˈnærəʊ/ = hẹp, <span class="en">faraway</span> /ˈfɑːrəweɪ/ = xa xôi (Glossary), <span class="en">factory</span> = nhà máy.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuẩn bị từ khoá</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th></tr>
+        <tr><td>1</td><td class="en">live — centre / suburbs?</td></tr>
+        <tr><td>2</td><td class="en">market — big?</td></tr>
+        <tr><td>3</td><td class="en">streets — narrow / wide?</td></tr>
+        <tr><td>4</td><td class="en">schools — faraway / near?</td></tr>
+        <tr><td>5</td><td class="en">factories</td></tr></table>
+      <p class="vi-sao">Với câu T/F, hãy chú ý <b>tính từ</b>: chỉ cần bài nghe nói một tính từ ngược nghĩa (<span class="en">wide</span> thay vì <span class="en">narrow</span>) là câu thành F.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 29 (tập một). SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b> — em nghe băng, đánh dấu T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Đoán theo tranh minh hoạ (khu phố sầm uất) hoặc theo blog của Khang ở Skills 1. Bài nghe nói về khu phố của <b>Vy</b> — chỉ bài nghe mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen to the conversation again and fill the blanks.</span> 🎧 (Track 30, tập một)</p>
+    <p class="en" lang="en">What Vy likes: – many shops, restaurants, and (1) ______ in her neighbourhood – (2) ______ streets – helpful and (3) ______ people</p>
+    <p class="en" lang="en">What Vy dislikes: – too (4) ______ schools – dirty air – noisy and (5) ______ streets</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi chỗ trống đứng trước danh từ nào? Vậy nó cần một <b>tính từ</b> hay một <b>danh từ</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỗ (1) đứng sau <span class="en">shops, restaurants, and</span> — một danh từ <b>số nhiều</b> chỉ địa điểm. Các chỗ còn lại đứng trước danh từ → tính từ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán loại từ trước khi nghe</h4>
+      <table><tr><th>Chỗ</th><th>Đứng cạnh</th><th>Cần</th></tr>
+        <tr><td>(1)</td><td class="en">shops, restaurants, and ___</td><td>danh từ số nhiều (nơi chốn)</td></tr>
+        <tr><td>(2)</td><td class="en">___ streets (thích)</td><td>tính từ mang nghĩa tốt</td></tr>
+        <tr><td>(3)</td><td class="en">helpful and ___ people</td><td>tính từ tốt, cùng kiểu với <i>helpful</i></td></tr>
+        <tr><td>(4)</td><td class="en">too ___ schools (không thích)</td><td>tính từ mang nghĩa chưa tốt</td></tr>
+        <tr><td>(5)</td><td class="en">noisy and ___ streets</td><td>tính từ xấu, cùng kiểu với <i>noisy</i></td></tr></table>
+      <p class="vi-sao">Hai từ nối bằng <span class="en">and</span> thường cùng chiều nghĩa: <span class="en">helpful and …</span> là một lời khen, <span class="en">noisy and …</span> là một lời chê.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghe và điền</h4>
+      <p>Nghe Track 30 (tập một). Kiểm tra chính tả bằng Glossary và danh sách tính từ ở A Closer Look 1 bài 3.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 30 (tập một). SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b> — em nghe băng, điền rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Lấy luôn các tính từ của câu T/F ở bài 1 để điền mà không nghe. Bài 1 có câu đúng, có câu sai — chỉ bài nghe mới cho biết từ nào được nói.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Tick</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Tick (✓) what you like or dislike about a neighbourhood.</span></p>
+    <p class="en" lang="en">1. sandy beaches &nbsp; 2. heavy traffic &nbsp; 3. many modern buildings and offices &nbsp; 4. peaceful streets &nbsp; 5. good restaurants and cafés &nbsp; 6. sunny weather &nbsp; 7. helpful and friendly people &nbsp; 8. many shops and markets</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi dòng tick một ô thôi: em thích hay không thích điều đó ở một khu phố?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">heavy traffic</span> = giao thông đông đúc, tắc đường (không phải “giao thông nặng”).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu từng dòng</h4>
+      <p><span class="en">sandy beaches</span>: bãi biển cát · <span class="en">heavy traffic</span>: xe cộ đông đúc · <span class="en">modern buildings and offices</span>: nhà cao tầng và văn phòng hiện đại · <span class="en">peaceful streets</span>: phố yên bình · <span class="en">good restaurants and cafés</span>: nhà hàng, quán cà phê ngon · <span class="en">sunny weather</span>: trời nắng đẹp · <span class="en">helpful and friendly people</span>: người dân hay giúp đỡ, thân thiện · <span class="en">many shops and markets</span>: nhiều cửa hàng, chợ</p>
+      <p class="vi-sao">Những dòng em tick sẽ là nguyên liệu cho đoạn văn ở bài 4.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án đúng – sai; mỗi em tick theo ý mình. Phần lớn sẽ tick Dislikes cho <span class="en">heavy traffic</span> và Likes cho <span class="en">helpful and friendly people</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Paragraph</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write a paragraph of about 50 words about your neighbourhood saying what you like and dislike about it. Use Khang's blog as a model.</span></p>
+    <p class="en" lang="en">I live in ______. There are many / some things I like about my neighbourhood. ______ However, there are some / many / one thing(s) I dislike about it. ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khung bài đã có sẵn bốn dòng. Em chỉ cần lấp hai chỗ trống lớn bằng ý ở bài 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự: em sống ở đâu → 2 – 3 điều thích → <span class="en">However,</span> → 1 – 2 điều không thích. Thêm một câu so sánh hơn cho bài hay hơn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập dàn ý từ bài 3</h4>
+      <p>Chọn 2 – 3 dòng Likes, 1 – 2 dòng Dislikes. Mượn cấu trúc của Khang: <span class="en">It has …</span>, <span class="en">There are …</span>, <span class="en">The people here are …</span></p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu câu đầu thôi: <span class="en">I live in a small town near Hoi An.</span> Phần còn lại em tự viết về khu phố của mình nhé.</p></div>
+    <div class="buoc" data-so="3"><h4>Đếm từ và soát lỗi</h4>
+      <p>Khoảng 50 từ (45 – 55 là hợp lí). Soát: số ít dùng <span class="en">there is / it has</span>, số nhiều dùng <span class="en">there are</span>; so sánh hơn có <span class="en">than</span> và không có cả <i>more</i> lẫn <i>-er</i>.</p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) theo đúng khung <span class="en">I live in … / There are … things I like … / However, …</span>; (2) dài khoảng 50 từ; (3) có cả điều thích và điều không thích; (4) đúng thì hiện tại đơn, <span class="en">there is / there are</span>, tính từ so sánh hơn (nếu dùng) đúng dạng.</div>
+    <div class="bay">Viết <span class="en">However there is one things…</span> — <span class="en">one</span> đi với danh từ số ít: <span class="en">one thing</span>; <span class="en">some / many</span> đi với <span class="en">things</span>.</div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở mẫu. Đoạn tham khảo dưới đây dành cho GV (đã đếm máy: 52 từ).</div>
+    <div class="tham-khao">
+    <p lang="en">I live in a small town near Hoi An. There are many things I like about my neighbourhood. It has a big park, a market and good restaurants. The people here are friendly and helpful. However, there is one thing I dislike about it: the streets are noisier than in other places.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 46 – 47</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Write the name for each picture.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm địa điểm này em đã gặp ở A Closer Look 1 bài 1 — chỉ khác thứ tự.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn tranh SGK: đền mái cong, nhiều đoàn tàu, quảng trường có đài phun nước, phòng treo tranh, nhà thờ có tháp chuông.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên theo tranh</h4>
+      <p>1. đền mái cong → <span class="en">temple</span> · 2. ga tàu → <span class="en">railway station</span> · 3. quảng trường → <span class="en">square</span> · 4. phòng trưng bày tranh → <span class="en">art gallery</span> · 5. nhà thờ lớn → <span class="en">cathedral</span></p>
+      <p class="vi-sao">Viết đúng chính tả: <span class="en">cathedral</span> có <b>th</b>; <span class="en">gallery</span> có hai chữ <b>l</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. temple &nbsp; 2. railway station &nbsp; 3. square &nbsp; 4. art gallery &nbsp; 5. cathedral</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Syllables</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Put the following adjectives in the correct column.</span></p>
+    <p class="en" lang="en">fast · noisy · expensive · heavy · large · beautiful · hot · quiet · exciting</p>
+    <p lang="en">(One syllable · Two syllables · Three syllables)</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — mấy âm tiết?</b>
+    <div class="cau-thu"><span class="noi-dung en">large</span><button class="chon chu" data-dung="1">1</button><button class="chon chu" data-dung="0">2</button><button class="chon chu" data-dung="0">3</button><span class="phan-hoi" data-dung-txt="Đúng! chữ e cuối không đọc." data-sai-txt="Chữ e cuối của large có được đọc thành một tiếng không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">quiet</span><button class="chon chu" data-dung="0">1</button><button class="chon chu" data-dung="1">2</button><button class="chon chu" data-dung="0">3</button><span class="phan-hoi" data-dung-txt="Đúng! qui-et." data-sai-txt="Đọc chậm: qui… et — mấy tiếng?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vỗ tay theo từng tiếng khi đọc: <i>beau-ti-ful</i> — mấy cái vỗ tay?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đếm <b>tiếng đọc</b>, không đếm chữ cái. Mỗi cột có đúng 3 từ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm âm tiết</h4>
+      <table><tr><th>One syllable</th><th>Two syllables</th><th>Three syllables</th></tr>
+        <tr><td class="en">fast, large, hot</td><td class="en">noisy, heavy, quiet</td><td class="en">expensive, beautiful, exciting</td></tr></table>
+      <p class="vi-sao">Bảng này chính là chìa khoá cho bài 3: một âm tiết → <b>-er</b>; ba âm tiết → <b>more</b>; hai âm tiết tận cùng <b>-y</b> → <b>-ier</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">One syllable: fast, large, hot. &nbsp; Two syllables: noisy, heavy, quiet. &nbsp; Three syllables: expensive, beautiful, exciting.</div>
+    <div class="bay">Xếp <span class="en">large</span> vào cột hai âm tiết vì có chữ <b>e</b> cuối. Chữ e cuối là “e câm”, không đọc thành tiếng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Comparative</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Now write their comparative forms in the table below.</span></p>
+    <p class="en" lang="en">fast – faster · beautiful – ______ · noisy – ______ · expensive – ______ · hot – ______ · exciting – ______ · quiet – ______ · heavy – ______ · large – ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dùng ngay bảng ba cột ở bài 2: từ ở cột nào thì đổi theo cách của cột đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn từ cần chú ý chính tả: <span class="en">hot</span> (gấp đôi), <span class="en">noisy, heavy</span> (y → i), <span class="en">large</span> (chỉ thêm r).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một và hai âm tiết: thêm -er</h4>
+      <p><span class="en">hot → <b>hotter</b> · large → <b>larger</b> · noisy → <b>noisier</b> · heavy → <b>heavier</b> · quiet → <b>quieter</b></span></p>
+      <a class="xem-lai" href="#kt-chinh-ta">📌 Xem lại: chính tả khi thêm -er</a></div>
+    <div class="buoc" data-so="2"><h4>Ba âm tiết: more</h4>
+      <p><span class="en">beautiful → <b>more beautiful</b> · expensive → <b>more expensive</b> · exciting → <b>more exciting</b></span></p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">beautiful – more beautiful · noisy – noisier · expensive – more expensive · hot – hotter · exciting – more exciting · quiet – quieter · heavy – heavier · large – larger</div>
+    <div class="bay">Viết <span class="en">hoter</span>, <span class="en">largeer</span>, <span class="en">heavyer</span>. Nhớ ba quy tắc chính tả: gấp đôi <b>t</b>, chỉ thêm <b>r</b> sau <b>e</b>, đổi <b>y → i</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Comparative</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Complete the sentences comparing the pictures. Use the comparative forms of the adjectives below.</span></p>
+    <p class="en" lang="en">expensive · modern · noisy · peaceful</p>
+    <p class="en" lang="en">1. This street is ______ than that one. &nbsp; 2. A city house is ______ than a country house. &nbsp; 3. Things at a corner shop are ______ than things at a village market. &nbsp; 4. Life in the countryside is ______ than life in the city.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">3. corner shop / village market</span><button class="chon chu" data-dung="1">more expensive</button><button class="chon chu" data-dung="0">more peaceful</button><span class="phan-hoi" data-dung-txt="Đúng! So sánh giá đồ bán ở hai nơi." data-sai-txt="Câu 3 so sánh “things” — đồ đạc, hàng hoá. Hàng hoá thì so cái gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn câu, bốn tính từ — mỗi tính từ chỉ dùng một lần. Câu nào nói về <b>giá tiền</b>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: tranh SGK là con đường tắc đầy ô tô và con đường vắng. Câu 4: cánh đồng cỏ và ngã tư đông xe.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn tính từ theo nghĩa và tranh</h4>
+      <p>1. đường đông ô tô → ồn hơn: <span class="en"><b>noisier</b></span> &nbsp; 2. phòng khách hiện đại / nhà gỗ ở quê → <span class="en"><b>more modern</b></span> &nbsp; 3. hàng hoá → giá: <span class="en"><b>more expensive</b></span> &nbsp; 4. đồng quê → <span class="en"><b>more peaceful</b></span></p></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra dạng so sánh</h4>
+      <p class="vi-sao"><span class="en">noisy</span> → đổi y thành i + er; ba từ còn lại dài → dùng <i>more</i>. Cả bốn câu đều đã có sẵn <span class="en">than</span>.</p>
+      <a class="xem-lai" href="#kt-comp">📌 Xem lại: comparative adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. noisier &nbsp; 2. more modern &nbsp; 3. more expensive &nbsp; 4. more peaceful</div>
+    <div class="bay">Câu 1 viết <span class="en">more noisier</span> — dùng cả hai cách. Chỉ chọn một: <span class="en">noisier</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">My map</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>MY MAP</b></p>
+    <p lang="en">1. Draw a map of a neighbourhood. Write names of at least five places on your map.</p>
+    <p lang="en">2. Work in pairs. Take turns to ask for and give directions to the places on the map.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vẽ khu phố em đang sống — hay một khu phố em tưởng tượng — với ít nhất năm địa điểm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ vài con phố, đặt tên phố, ghi tên tiếng Anh cho từng địa điểm (<span class="en">school, park, market, temple, cinema…</span>) và đánh dấu <span class="en">You are here</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ bản đồ</h4>
+      <p>Ít nhất năm địa điểm, dùng từ của Unit: <span class="en">square, art gallery, cathedral, temple, railway station, park, market, post office, cinema</span>. Ghi tên phố giống bản đồ ở Getting Started bài 5.</p></div>
+    <div class="buoc" data-so="2"><h4>Hỏi và chỉ đường theo cặp</h4>
+      <p class="en">A: Excuse me. Could you tell me the way to the park, please?<br>B: Go straight. Take the second turning on the left. It's on your right.<br>A: Thank you.</p>
+      <a class="xem-lai" href="#kt-ask">📌 Xem lại: asking for and giving directions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sản phẩm đạt yêu cầu khi: (1) bản đồ có ít nhất năm địa điểm ghi tên tiếng Anh đúng chính tả; (2) hai bạn thay phiên hỏi đường (<span class="en">Could you tell me the way to …?</span>) và chỉ đường (<span class="en">go straight, turn left / right, take the … turning</span>); (3) lời chỉ đường khớp với bản đồ.</div>
+    <div class="tham-khao">
+    <p lang="en">A: Excuse me. Could you tell me the way to the market, please? — B: Go along Tran Phu Street. Take the first turning on the right. It's on your left, next to the temple. — A: Thank you.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 4. My Neighbourhood — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u04';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-04-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-04-bai-giai.nguon.html" data-phien-ban="14f404ad7d31">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

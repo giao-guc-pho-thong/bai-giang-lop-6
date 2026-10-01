@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 9. Cities of the World — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập hai</div>
+    <div class="hang1">
+      <h1>Unit 9. Cities of the World — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập hai</div><h1>Unit 9. Cities of the World — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-adj"><b class="ten">Possessive adjectives — Remember!</b>
+      <span class="en">A possessive adjective is used only when there's a noun following it.</span><br>
+      Ví dụ: <span class="en"><u>I</u> have a pen. → This is <u>my</u> pen.</span><br>
+      → Tính từ sở hữu (<i>my, your, his, her, its, our, their</i>) <b>luôn có danh từ đi ngay sau</b>: <span class="en">my pen, its ball, their room</span>.</div>
+    <div class="kt" id="kt-pron"><b class="ten">Possessive pronouns — Remember!</b>
+      <span class="en">A possessive pronoun is used alone, without a noun following it.</span><br>
+      Ví dụ: <span class="en">This book is my book, not your book. → This book is <u>mine</u>, not <u>yours</u>.</span><br>
+      → Đại từ sở hữu (<i>mine, yours, his, hers, ours, theirs</i>) <b>đứng một mình</b>, thay cho cả cụm “tính từ sở hữu + danh từ”.</div>
+    <div class="kt" id="kt-bang"><b class="ten">Bảng đối chiếu (người soạn tổng hợp từ các bài của Unit)</b>
+      <table>
+        <tr><th>Chủ ngữ</th><th>Tính từ sở hữu + danh từ</th><th>Đại từ sở hữu (đứng một mình)</th></tr>
+        <tr><td class="en">I</td><td class="en">my</td><td class="en">mine</td></tr>
+        <tr><td class="en">you</td><td class="en">your</td><td class="en">yours</td></tr>
+        <tr><td class="en">he</td><td class="en">his</td><td class="en">his</td></tr>
+        <tr><td class="en">she</td><td class="en">her</td><td class="en">hers</td></tr>
+        <tr><td class="en">it</td><td class="en">its</td><td>—</td></tr>
+        <tr><td class="en">we</td><td class="en">our</td><td class="en">ours</td></tr>
+        <tr><td class="en">they</td><td class="en">their</td><td class="en">theirs</td></tr>
+      </table>
+      Chú ý: <span class="en">its</span> = của nó; <span class="en">it's</span> = <span class="en">it is</span>.</div>
+    <div class="kt" id="kt-am"><b class="ten">Sounds /əʊ/ and /aʊ/</b>
+      /əʊ/: bắt đầu từ “ơ” rồi tròn môi về “u” — <span class="en">show</span> /ʃəʊ/, <span class="en">throw</span> /θrəʊ/ (Glossary Unit 5, 6). &nbsp;
+      /aʊ/: bắt đầu từ “a” mở rộng rồi khép về “u” — <span class="en">mount</span> /maʊnt/, <span class="en">outdoor</span> /ˈaʊtdɔː/ (Glossary Unit 4, 5).<br>
+      Chú ý: chữ <b>ow</b> có lúc đọc /əʊ/, có lúc đọc /aʊ/ — phải nghe và nhớ từng từ.</div>
+    <div class="kt" id="kt-what"><b class="ten">Expressing exclamations with <i>What</i></b>
+      <span class="en">What a nice city! · What a clear sky! · What tall buildings!</span> (Communication) · <span class="en">What bad weather!</span> (Getting Started)<br>
+      → <b>What a / an + tính từ + danh từ số ít!</b> &nbsp; <b>What + tính từ + danh từ số nhiều / không đếm được!</b></div>
+    <div class="kt" id="kt-tu"><b class="ten">Tính từ tả thành phố (A Closer Look 1)</b>
+      <span class="en">rainy, friendly, tasty, old, exciting, helpful, delicious, sunny</span> — dùng để tả bốn thứ: <span class="en">city, food, people, weather</span>. Từ về địa điểm: <span class="en">stall, street food, palace, floating market, landmark, postcard, tower</span>.</div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập hai — Unit 9. Cities of the World (trang 26 – 35).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — What nice photos!<small>Trang 26 – 27</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 15, tập hai)</p>
+    <p class="en" lang="en">Mai: Tom, are these photos from your holidays? — Tom: Yes, they are. This is Sydney, a city in Australia. — Mai: What's it like? — Tom: It's exciting with a lot of beaches. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tom cho Mai xem ảnh của mấy thành phố? Mai dùng câu nào để khen?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân tên ba thành phố, và những câu bắt đầu bằng <span class="en">What</span> — đó là câu cảm thán em sẽ học ở Communication.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">What's it like?</td><td>Nó (thành phố đó) như thế nào?</td></tr>
+        <tr><td class="en" lang="en">It's exciting with a lot of beaches.</td><td>Thành phố sôi động, có nhiều bãi biển.</td></tr>
+        <tr><td class="en" lang="en">What a beautiful place!</td><td>Nơi này đẹp quá!</td></tr>
+        <tr><td class="en" lang="en">Yes, its beaches are very clean.</td><td>Ừ, các bãi biển ở đó rất sạch.</td></tr>
+        <tr><td class="en" lang="en">Isn't it raining? What bad weather!</td><td>Trời đang mưa à? Thời tiết tệ quá!</td></tr>
+        <tr><td class="en" lang="en">It's a landmark of London.</td><td>Đó là một công trình nổi tiếng của London.</td></tr>
+        <tr><td class="en" lang="en">And this is Times Square in New York, crowded but interesting.</td><td>Còn đây là Quảng trường Thời đại ở New York, đông đúc nhưng thú vị.</td></tr>
+        <tr><td class="en" lang="en">Here are some photos of mine.</td><td>Đây là vài tấm ảnh của tớ.</td></tr>
+      </table>
+      <p class="vi-sao">Hội thoại đã có sẵn cả hai điểm ngữ pháp của Unit: <span class="en">its beaches</span> (tính từ sở hữu + danh từ) và <span class="en">photos of mine</span> (đại từ sở hữu đứng một mình). <span class="en">What's it like?</span> là câu hỏi để <b>tả</b> — trả lời bằng tính từ.</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Nắm ý chính: Tom cho Mai xem ảnh ba thành phố Tom đã đến trong kì nghỉ — Sydney (sôi động, nhiều bãi biển sạch), London (mưa suốt, có Big Ben bên sông Thames), New York (Quảng trường Thời đại đông đúc nhưng thú vị); cuối bài Mai khoe ảnh của mình.</div>
+    <div class="bay">Đọc <span class="en">Mai</span> theo kiểu tiếng Anh (“mây”). <i>Mai</i> là tên người Việt — đọc như tiếng Việt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cities on the map</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Write the names of the cities in the correct place.</span></p>
+    <p class="en" lang="en">Sydney · London · New York</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba thành phố nằm ở ba nước nào? Nhìn bản đồ trong SGK xem mũi tên trỏ vào nước nào.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hội thoại bài 1 đã nói <span class="en">Sydney, a city in Australia</span>. London là thủ đô nước Anh, New York ở Hoa Kỳ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép thành phố với nước</h4>
+      <p><span class="en">Sydney</span> → Ô-xtrây-li-a · <span class="en">London</span> → nước Anh · <span class="en">New York</span> → Hoa Kỳ.</p></div>
+    <div class="buoc" data-so="2"><h4>Điền theo thứ tự khung trên bản đồ SGK</h4>
+      <p>Khung 1 trỏ vào Hoa Kỳ → <span class="en">New York</span>; khung 2 trỏ vào nước Anh → <span class="en">London</span>; khung 3 trỏ vào Ô-xtrây-li-a → <span class="en">Sydney</span>.</p>
+      <p class="vi-sao">Tên thành phố là tên riêng — viết hoa chữ cái đầu, <span class="en">New York</span> viết hoa cả hai chữ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo bản đồ SGK) 1. New York &nbsp; 2. London &nbsp; 3. Sydney</div>
+    <div class="bay">Đảo Sydney và London vì nhớ nhầm Sydney “ở châu Âu”. Hội thoại nói rõ: <span class="en">Sydney, a city in Australia</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the conversation again and match the cities with the adjectives describing them.</span></p>
+    <p class="en" lang="en">1. Sydney &nbsp; 2. London &nbsp; 3. New York &nbsp;|&nbsp; a. rainy &nbsp; b. crowded &nbsp; c. exciting &nbsp; d. beautiful &nbsp; e. interesting</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có 5 tính từ mà chỉ 3 thành phố — vậy có thành phố đi với <b>hai</b> tính từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm các tính từ ngay trong lời Tom và Mai nói về từng thành phố. <span class="en">rainy</span> đi từ <span class="en">rain</span> (mưa).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu nói về từng thành phố</h4>
+      <table>
+        <tr><th>Thành phố</th><th>Dòng hội thoại làm căn cứ</th><th>Tính từ</th></tr>
+        <tr><td>Sydney</td><td class="en" lang="en">Tom: It's exciting with a lot of beaches.</td><td class="en">exciting</td></tr>
+        <tr><td>Sydney</td><td class="en" lang="en">Mai: What a beautiful place!</td><td class="en">beautiful</td></tr>
+        <tr><td>London</td><td class="en" lang="en">Tom: Yes, it rains all the time.</td><td class="en">rainy</td></tr>
+        <tr><td>New York</td><td class="en" lang="en">Tom: It is. And this is Times Square in New York, crowded but interesting.</td><td class="en">crowded, interesting</td></tr>
+      </table>
+      <p class="vi-sao">London không có chữ <i>rainy</i> trong bài, nhưng <span class="en">it rains all the time</span> (mưa suốt) chính là ý <span class="en">rainy</span> (nhiều mưa).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Sydney – c, d (exciting, beautiful) &nbsp; 2. London – a (rainy) &nbsp; 3. New York – b, e (crowded, interesting)</div>
+    <div class="bay">Ghép <span class="en">beautiful</span> với London vì “London đẹp”. Mai nói <span class="en">What a beautiful place!</span> khi đang xem ảnh <b>Sydney</b>; với London, Mai nói <span class="en">What bad weather!</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Landmarks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Match the cities with their landmarks.</span></p>
+    <p class="en" lang="en">1. Ha Noi &nbsp; 2. London &nbsp; 3. New York &nbsp; 4. Sydney</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn bốn ảnh trong SGK: em nhận ra công trình nào ở ngay Việt Nam?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hội thoại bài 1 đã nhắc <span class="en">Big Ben … on the River Thames</span> — đó là công trình của London.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên công trình trong từng ảnh</h4>
+      <p>Tượng Nữ thần Tự do → New York · Nhà hát Con Sò → Sydney · Chùa Một Cột → Hà Nội · Tháp Big Ben bên sông Thames → London.</p>
+      <p class="vi-sao"><span class="en">landmark</span> /ˈlændmɑːk/ (Glossary) = địa điểm / công trình thu hút du khách — nhìn là biết ngay thành phố nào.</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép theo chữ cái của ảnh trong SGK</h4>
+      <p>a. New York · b. Sydney · c. Ha Noi · d. London</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo ảnh SGK) 1. Ha Noi – c &nbsp; 2. London – d &nbsp; 3. New York – a &nbsp; 4. Sydney – b</div>
+    <div class="bay">Viết <i>Hà Nội</i> có dấu trong bài tiếng Anh. Sách viết <span class="en">Ha Noi</span> — rời hai chữ, không dấu (nhưng vẫn đọc là “Hà Nội”).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">GAME — What city is it?</span></p>
+    <p class="en" lang="en">A: What's it like? — B: It has beautiful beaches. — C: Is it in Australia? — B: Yes, it is. — A: It's Sydney. — B: Right.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em là người “giữ bí mật”: nghĩ một thành phố, rồi chỉ tả nó bằng tính từ — đừng nói tên!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Người đoán hỏi <span class="en">What's it like?</span> và <span class="en">Is it in …?</span>; người giữ bí mật trả lời <span class="en">Yes, it is. / No, it isn't.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn thành phố và gợi ý</h4>
+      <p>Dùng các tính từ của Unit (<span class="en">exciting, crowded, rainy, beautiful</span>) và tên công trình (<span class="en">Big Ben, Times Square</span>).</p></div>
+    <div class="buoc" data-so="2"><h4>Chơi theo mẫu</h4>
+      <p class="en">A: What's it like?<br>B: It's rainy, and it has Big Ben.<br>C: Is it in Australia?<br>B: No, it isn't.<br>A: It's London.<br>B: Right.</p>
+      <p class="vi-sao">Gợi ý từ “khó” đến “dễ”: nói tính từ trước, tên công trình sau — trò chơi mới hấp dẫn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: What's it like? — B: It's rainy, and it has Big Ben. — C: Is it in Australia? — B: No, it isn't. — A: It's London. — B: Right.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 28</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Mind map</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Fill each box with an adjective.</span></p>
+    <p class="en" lang="en">rainy · friendly · tasty · old · exciting · helpful · delicious · sunny</p>
+    <p>(Sơ đồ: <span class="en">city · food · people · weather</span>, mỗi từ hai ô trống.)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Món ăn thì “ngon”, con người thì “thân thiện”… Mỗi từ trung tâm có đúng hai tính từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai từ có nghĩa giống nhau là <span class="en">tasty</span> và <span class="en">delicious</span>; hai từ đi từ danh từ chỉ thời tiết: <span class="en">rain → rainy, sun → sunny</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa từng tính từ</h4>
+      <p><span class="en">rainy</span>: nhiều mưa · <span class="en">sunny</span>: nắng · <span class="en">friendly</span>: thân thiện · <span class="en">helpful</span>: sẵn sàng giúp đỡ · <span class="en">tasty, delicious</span>: ngon · <span class="en">old</span>: cổ, cũ · <span class="en">exciting</span>: sôi động, thú vị.</p></div>
+    <div class="buoc" data-so="2"><h4>Xếp vào sơ đồ</h4>
+      <table>
+        <tr><th>Từ trung tâm</th><th>Tính từ</th></tr>
+        <tr><td class="en">city</td><td class="en">old, exciting</td></tr>
+        <tr><td class="en">food</td><td class="en">tasty, delicious</td></tr>
+        <tr><td class="en">people</td><td class="en">friendly, helpful</td></tr>
+        <tr><td class="en">weather</td><td class="en">rainy, sunny</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-tu">📌 Xem lại: tính từ tả thành phố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">city: old, exciting &nbsp; food: tasty, delicious &nbsp; people: friendly, helpful &nbsp; weather: rainy, sunny</div>
+    <div class="bay">Xếp <span class="en">helpful</span> vào ô <i>city</i> (“thành phố tiện ích”). <span class="en">helpful</span> /ˈhelpfl/ = sẵn sàng giúp đỡ — tả <b>con người</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the blanks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the sentences with the words in 1.</span></p>
+    <p class="en" lang="en">1. – What's the weather like in Sydney in summer? – It's ______ and dry. &nbsp; 2. I love the ______ buildings in Edinburgh. I feel that they can tell stories. &nbsp; 3. There are so many things to do in New York. It's very ______. &nbsp; 4. The people in my city are ______ and helpful. &nbsp; 5. Ha Noi is famous for its ______ street food.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu có một “từ khoá” mách loại tính từ: <i>weather, buildings, people, food</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: tòa nhà “có thể kể chuyện” — vì chúng đã có từ rất lâu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định ô của sơ đồ cần dùng</h4>
+      <p>1. <span class="en">weather</span> → <span class="en">sunny</span> (đi với <span class="en">dry</span> — khô ráo, không thể là <i>rainy</i>). &nbsp; 2. <span class="en">buildings … tell stories</span> → <span class="en">old</span>. &nbsp; 3. <span class="en">so many things to do</span> → <span class="en">exciting</span>. &nbsp; 4. <span class="en">people</span>, đã có <span class="en">helpful</span> → <span class="en">friendly</span>. &nbsp; 5. <span class="en">street food</span> → <span class="en">tasty</span> hoặc <span class="en">delicious</span>.</p>
+      <p class="vi-sao">Câu 5 có <span class="en">its</span> — tính từ sở hữu của <span class="en">Ha Noi</span>, đứng trước cụm danh từ <span class="en">street food</span>. Tính từ chỉ “ngon” chen vào giữa: <span class="en">its tasty street food</span>.</p>
+      <a class="xem-lai" href="#kt-tu">📌 Xem lại: tính từ tả thành phố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. sunny &nbsp; 2. old &nbsp; 3. exciting &nbsp; 4. friendly &nbsp; 5. tasty / delicious</div>
+    <div class="bay">Câu 1 điền <i>rainy</i> vì thấy câu hỏi về thời tiết. Đọc tiếp: <span class="en">and dry</span> (và khô) — mưa thì không thể khô.</div>
+    <div class="gv-note">Câu 5 chấp nhận cả <i>tasty</i> và <i>delicious</i> (hai từ cùng ô <i>food</i>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Write the words / phrases below under the correct pictures.</span></p>
+    <p class="en" lang="en">stall · street food · palace · floating market</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn bốn ảnh trong SGK: ảnh nào có thuyền, ảnh nào có mái vàng?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">floating</span> = nổi (trên mặt nước). <span class="en">stall</span> = gian hàng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của từ (Glossary)</h4>
+      <p><span class="en">stall</span> /stɔːl/: gian hàng · <span class="en">street food</span> /ˈstriːt fuːd/: thức ăn đường phố · <span class="en">palace</span> /ˈpæləs/: cung điện · <span class="en">floating market</span> /ˈfləutɪŋ ˈmɑːkɪt/: chợ nổi.</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép theo thứ tự ảnh trong SGK</h4>
+      <p>1. cung điện mái vàng → <span class="en">palace</span> · 2. thuyền chở hoa quả trên sông → <span class="en">floating market</span> · 3. xiên thịt nướng trên quầy → <span class="en">street food</span> · 4. gian bán quần áo trong chợ → <span class="en">stall</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo ảnh SGK) 1. palace &nbsp; 2. floating market &nbsp; 3. street food &nbsp; 4. stall</div>
+    <div class="bay">Đổi chỗ ảnh 3 và ảnh 4 vì ảnh nào cũng có “quầy”. Ảnh 3 nhấn vào <b>đồ ăn</b> (street food), ảnh 4 nhấn vào <b>gian hàng</b> bán quần áo (stall).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen and write the words in the correct column. Then listen and repeat.</span> 🎧 (Track 16, tập hai)</p>
+    <p class="en" lang="en">boat · house · town · tower · postcard · crowded · coast · pagoda</p>
+    <p>(Hai cột: /əʊ/ · /aʊ/)</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — /əʊ/ hay /aʊ/?</b>
+    <div class="cau-thu"><span class="noi-dung en">town</span><button class="chon chu" data-dung="0">/əʊ/</button><button class="chon chu" data-dung="1">/aʊ/</button><span class="phan-hoi" data-dung-txt="Đúng! town — giống âm trong house." data-sai-txt="Đọc to “town” cạnh “house” — có giống nhau không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">postcard</span><button class="chon chu" data-dung="1">/əʊ/</button><button class="chon chu" data-dung="0">/aʊ/</button><span class="phan-hoi" data-dung-txt="Đúng! post- đọc giống boat." data-sai-txt="Xem phiên âm Glossary của postcard: /ˈpəustkɑːd/ bắt đầu bằng âm nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc to <i>boat</i> rồi <i>house</i>: miệng em bắt đầu từ “ơ” hay từ “a”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai từ có chữ <b>oa</b> (<span class="en">boat, coast</span>) đọc cùng một âm. Chữ <b>ow</b> trong <span class="en">town, tower, crowded</span> cũng cùng một âm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tra phiên âm có trong Glossary</h4>
+      <p><span class="en">boat</span> /bəʊt/ · <span class="en">postcard</span> /ˈpəustkɑːd/ · <span class="en">crowded</span> /ˈkraudɪd/ · <span class="en">tower</span> /ˈtauə/</p>
+      <p class="vi-sao">Glossary tập hai in /əu/, /au/ — cùng là hai âm /əʊ/, /aʊ/ của bài, chỉ khác cách in chữ cái cuối.</p></div>
+    <div class="buoc" data-so="2"><h4>Xếp cột</h4>
+      <table>
+        <tr><th>/əʊ/</th><th>/aʊ/</th></tr>
+        <tr><td class="en">boat, postcard, coast, pagoda</td><td class="en">house, town, tower, crowded</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /əʊ/ và /aʊ/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">/əʊ/: boat, postcard, coast, pagoda &nbsp; /aʊ/: house, town, tower, crowded</div>
+    <div class="bay">Xếp <span class="en">pagoda</span> vào /aʊ/ vì “chữ o giống town”. Chữ <b>o</b> ở <span class="en">pagoda</span> đọc /əʊ/ — giống <span class="en">boat</span>; chỉ chữ <b>ow</b>, <b>ou</b> trong bài mới đọc /aʊ/.</div>
+    <div class="gv-note">Đáp án suy từ cách phát âm Anh – Anh chuẩn (4 từ có phiên âm trong Glossary; <i>house, town, coast, pagoda</i> không có trong Glossary Unit 9). HS vẫn nên nghe Track 16 (tập hai) để kiểm tra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and repeat</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Listen and repeat. Pay attention to the underlined words.</span> 🎧 (Track 17, tập hai)</p>
+    <p class="en" lang="en">1. The <u>town</u> is <u>crowded</u> at the weekend. &nbsp; 2. There's lots of <u>snow</u> in <u>Tokyo</u> in winter. &nbsp; 3. It's very <u>cold</u> on the <u>boat</u>. &nbsp; 4. He's running <u>around</u> the <u>house</u>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu nào toàn /aʊ/, câu nào toàn /əʊ/? Đọc to và nghe chính mình.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi câu có hai từ gạch chân cùng một âm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Âm của từ gạch chân</h4>
+      <p>Câu 1 và 4 — /aʊ/: <span class="en">town, crowded, around, house</span>. &nbsp; Câu 2 và 3 — /əʊ/: <span class="en">snow, Tokyo, cold, boat</span>.</p>
+      <p class="vi-sao"><span class="en">snow</span> viết <b>ow</b> như <span class="en">town</span> nhưng đọc /əʊ/ — đúng cái bẫy “chữ ow đọc hai cách”. Nhớ kéo âm đôi trọn vẹn và giữ phụ âm cuối: <span class="en">boat</span> có /t/, <span class="en">cold</span> có /d/.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /əʊ/ và /aʊ/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và nhắc lại, không có câu hỏi phải trả lời. /aʊ/: town, crowded, around, house (câu 1, 4) · /əʊ/: snow, Tokyo, cold, boat (câu 2, 3).</div>
+    <div class="bay">Nuốt âm cuối: <span class="en">boat</span> thành “bâu”, <span class="en">cold</span> thành “câu”. Giữ gọn /t/, /d/ ở cuối.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small>Possessive adjectives · Possessive pronouns · Trang 29 – 30</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Possessive adjectives</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Match the sentences with the pictures, paying attention to the underlined part in each sentence.</span></p>
+    <p class="en" lang="en">1. Sue doesn't like <u>her new dress</u>. &nbsp; 2. Billy is riding <u>his bicycle</u>. &nbsp; 3. The cat is playing with <u>its ball</u>. &nbsp; 4. We love <u>our school</u>. &nbsp; 5. They are painting <u>their room</u> pink.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phần gạch chân nói “của ai”? Một bạn nữ, một bạn nam, con mèo, chúng ta hay họ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn danh từ sau tính từ sở hữu: <span class="en">dress, bicycle, ball, school, room</span> — tìm tranh có đúng đồ vật ấy.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc phần gạch chân</h4>
+      <p><span class="en">her new dress</span> — chiếc váy mới của bạn ấy (Sue) · <span class="en">his bicycle</span> — xe đạp của bạn ấy (Billy) · <span class="en">its ball</span> — quả bóng của nó (con mèo) · <span class="en">our school</span> — trường của chúng tớ · <span class="en">their room</span> — căn phòng của họ.</p>
+      <p class="vi-sao">Mỗi tính từ sở hữu đều có một danh từ đi ngay sau — đúng như Remember! nói.</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+    <div class="buoc" data-so="2"><h4>Ghép với tranh SGK</h4>
+      <p>1 → bạn nữ mặc váy hồng (d) · 2 → bạn đội mũ bảo hiểm đạp xe (e) · 3 → mèo vờn bóng (b) · 4 → hai bạn trước cổng trường (a) · 5 → hai người sơn phòng hồng (c).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo tranh SGK) 1 – d &nbsp; 2 – e &nbsp; 3 – b &nbsp; 4 – a &nbsp; 5 – c</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Possessive adjectives</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the sentences with the correct possessive adjectives.</span></p>
+    <p class="en" lang="en">1. I love cartoons. ______ favourite cartoon is Dragon Balls. &nbsp; 2. This book has your name on it. Is it ______ book? &nbsp; 3. The lion has three cubs. ______ cubs are playing under a big tree. &nbsp; 4. Do you know my friend Anna? ______ house is close to the park. &nbsp; 5. We are from Switzerland. ______ country is famous for chocolate.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu thứ nhất nói về <b>ai</b>? Chỗ trống ở câu thứ hai là “của” người / vật ấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">The lion</span> là một con vật → <span class="en">it</span>. <span class="en">Anna</span> là một bạn gái → <span class="en">she</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đổi người / vật sang chủ ngữ</h4>
+      <p>1. <span class="en">I</span> → <span class="en"><b>My</b></span> &nbsp; 2. <span class="en">your name</span> → <span class="en">you</span> → <span class="en"><b>your</b></span> &nbsp; 3. <span class="en">The lion</span> = it → <span class="en"><b>Its</b></span> &nbsp; 4. <span class="en">Anna</span> = she → <span class="en"><b>Her</b></span> &nbsp; 5. <span class="en">We</span> → <span class="en"><b>Our</b></span></p>
+      <p class="vi-sao">Sau chỗ trống đều có danh từ (<span class="en">favourite cartoon, book, cubs, house, country</span>) → dùng <b>tính từ</b> sở hữu, không dùng <i>mine, hers…</i></p>
+      <a class="xem-lai" href="#kt-bang">📌 Xem lại: bảng đối chiếu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. My &nbsp; 2. your &nbsp; 3. Its &nbsp; 4. Her &nbsp; 5. Our</div>
+    <div class="bay">Câu 3 viết <i>Their cubs</i> vì “có ba con”. Ba con là <b>cubs</b>; người sở hữu là <b>một</b> con sư tử → <i>Its</i>. Và đừng viết <i>It's</i> (= it is).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Possessive pronouns</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Complete the sentences with the correct possessive pronouns.</span></p>
+    <p class="en" lang="en">1. I have a new bike. The bike is ______. &nbsp; 2. These are Mai's and Lan's maps. These maps are ______. &nbsp; 3. This is a present for you. It's ______. &nbsp; 4. My father has new shoes. They're ______. &nbsp; 5. This is our new house. The house is ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sau chỗ trống có danh từ nào không? Không có — vậy em cần loại từ nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">Mai's and Lan's</span> là của hai người → <span class="en">they</span>. <span class="en">My father</span> → <span class="en">he</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm “người sở hữu”</h4>
+      <p>1. <span class="en">I</span> → <span class="en"><b>mine</b></span> &nbsp; 2. Mai và Lan = they → <span class="en"><b>theirs</b></span> &nbsp; 3. <span class="en">for you</span> → <span class="en"><b>yours</b></span> &nbsp; 4. <span class="en">My father</span> = he → <span class="en"><b>his</b></span> &nbsp; 5. <span class="en">our</span> → <span class="en"><b>ours</b></span></p>
+      <p class="vi-sao">Chỗ trống đứng cuối câu, không có danh từ theo sau → <b>đại từ</b> sở hữu. <span class="en">The bike is mine</span> = <span class="en">The bike is my bike</span>.</p>
+      <a class="xem-lai" href="#kt-pron">📌 Xem lại: possessive pronouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. mine &nbsp; 2. theirs &nbsp; 3. yours &nbsp; 4. his &nbsp; 5. ours</div>
+    <div class="bay">Câu 4 viết <i>hiss</i> hoặc <i>his's</i>. Với <i>he</i>, tính từ và đại từ sở hữu <b>giống hệt nhau</b>: <span class="en">his</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Adjective or pronoun?</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Underline the correct word in brackets to complete each sentence.</span></p>
+    <p class="en" lang="en">1. Australia is a strange country. All of (it's / its) big cities are along the coast. &nbsp; 2. Our city is very crowded. How about (your / yours)? &nbsp; 3. I love my football club. Does Phong like (his / him)? &nbsp; 4. (Our / Ours) street is short and narrow. &nbsp; 5. They cannot find (their / theirs) city map anywhere.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">1. All of ___ big cities</span><button class="chon chu" data-dung="0">it's</button><button class="chon chu" data-dung="1">its</button><span class="phan-hoi" data-dung-txt="Đúng! its = của nó (của nước Úc)." data-sai-txt="Thay it's bằng it is: “All of it is big cities” — có nghĩa không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">2. How about ___?</span><button class="chon chu" data-dung="0">your</button><button class="chon chu" data-dung="1">yours</button><span class="phan-hoi" data-dung-txt="Đúng! Không có danh từ sau → đại từ sở hữu." data-sai-txt="Sau chỗ trống có danh từ nào không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với mỗi cặp, nhìn từ đứng <b>ngay sau</b> ngoặc: danh từ hay dấu câu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: <span class="en">How about yours?</span> = <span class="en">How about your city?</span> — chữ <i>city</i> đã bị lược đi.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Có danh từ theo sau → tính từ sở hữu</h4>
+      <p>1. <span class="en">(its) big cities</span> &nbsp; 4. <span class="en">(Our) street</span> &nbsp; 5. <span class="en">(their) city map</span></p>
+      <p class="vi-sao">Câu 1: <span class="en">it's</span> = <span class="en">it is</span>, không phải “của nó”. “Của nó” là <span class="en">its</span> — không có dấu phẩy trên.</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+    <div class="buoc" data-so="2"><h4>Đứng một mình → đại từ sở hữu</h4>
+      <p>2. <span class="en">How about <b>yours</b>?</span> (= your city) &nbsp; 3. <span class="en">Does Phong like <b>his</b>?</span> (= his football club)</p>
+      <p class="vi-sao">Câu 3: <span class="en">him</span> nghĩa là “anh ấy” (người), không phải “cái của anh ấy”. Câu trước nói về câu lạc bộ bóng đá, nên hỏi Phong có thích <b>câu lạc bộ của bạn ấy</b> không → <span class="en">his</span>.</p>
+      <a class="xem-lai" href="#kt-pron">📌 Xem lại: possessive pronouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. its &nbsp; 2. yours &nbsp; 3. his &nbsp; 4. Our &nbsp; 5. their</div>
+    <div class="bay">Câu 1 chọn <i>it's</i> vì “trông giống sở hữu cách 's”. Đây là bẫy kinh điển: <span class="en">it's</span> = <span class="en">it is</span>; <span class="en">its</span> = của nó.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Choose A, B or C</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Choose the correct word to complete each sentence.</span></p>
+    <p class="en" lang="en">1. The book is ______, but you are welcome to read it. A. my &nbsp;B. mine &nbsp;C. yours</p>
+    <p class="en" lang="en">2. ______ bike is dirty, and I can't tell what colour it is. A. Your &nbsp;B. Yours &nbsp;C. You</p>
+    <p class="en" lang="en">3. Your country is much bigger than ______. A. our &nbsp;B. ours &nbsp;C. their</p>
+    <p class="en" lang="en">4. ______ dog is so friendly. It never barks. A. They &nbsp;B. Their &nbsp;C. Theirs</p>
+    <p class="en" lang="en">5. ______ not easy to find your way in a strange city. A. It &nbsp;B. It's &nbsp;C. Its</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">3. bigger than ___</span><button class="chon chu" data-dung="0">our</button><button class="chon chu" data-dung="1">ours</button><button class="chon chu" data-dung="0">their</button><span class="phan-hoi" data-dung-txt="Đúng! ours = our country." data-sai-txt="Sau chỗ trống còn danh từ nào không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">5. ___ not easy</span><button class="chon chu" data-dung="0">It</button><button class="chon chu" data-dung="1">It's</button><button class="chon chu" data-dung="0">Its</button><span class="phan-hoi" data-dung-txt="Đúng! It's = It is not easy…" data-sai-txt="Câu này có động từ chưa? “not easy” cần đi với động từ nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 5 khác hẳn bốn câu kia — nó không hỏi “của ai”.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: “…nhưng <b>bạn</b> cứ đọc thoải mái” — vậy sách là của ai?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 4: tính từ hay đại từ sở hữu?</h4>
+      <p>1. Đứng một mình, sách của “tôi” (vì bạn được mời đọc) → <span class="en"><b>mine</b></span>. &nbsp; 2. Trước danh từ <span class="en">bike</span> → <span class="en"><b>Your</b></span>. &nbsp; 3. Cuối câu, thay cho <span class="en">our country</span> → <span class="en"><b>ours</b></span>. &nbsp; 4. Trước danh từ <span class="en">dog</span> → <span class="en"><b>Their</b></span>.</p>
+      <p class="vi-sao">Câu 1, chọn <i>yours</i> thì câu thành “Sách là của bạn, nhưng bạn cứ đọc đi” — vô lí. Câu 3 dùng so sánh hơn <span class="en">bigger than</span> (Unit 4): so sánh nước của bạn với <b>nước của chúng tôi</b>.</p>
+      <a class="xem-lai" href="#kt-pron">📌 Xem lại: possessive pronouns</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 5: câu thiếu động từ</h4>
+      <p><span class="en"><b>It's</b> not easy to find your way…</span> = <span class="en">It is not easy…</span> — “Không dễ tìm đường ở một thành phố lạ.”</p>
+      <p class="vi-sao">Không có <i>is</i> thì câu không có động từ. <span class="en">Its</span> (của nó) cần danh từ theo sau, mà sau chỗ trống là <span class="en">not</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. B (mine) &nbsp; 2. A (Your) &nbsp; 3. B (ours) &nbsp; 4. B (Their) &nbsp; 5. B (It's)</div>
+    <div class="bay">Câu 4 chọn <i>They</i> vì “họ nuôi chó”. <span class="en">They dog</span> không thành nghĩa — trước danh từ phải là tính từ sở hữu <span class="en">Their</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Exclamations with What · City landmarks<small>Trang 30 – 31</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Look at the picture. Listen and read the exclamations.</span> 🎧 (Track 18, tập hai)</p>
+    <p class="en" lang="en">1. What a nice city! &nbsp; 2. What a clear sky! &nbsp; 3. What tall buildings!</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai câu có <i>a</i>, một câu không có. Vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh danh từ ở cuối mỗi câu: <span class="en">city, sky</span> (một) và <span class="en">buildings</span> (nhiều).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa ba câu cảm thán</h4>
+      <p><span class="en">What a nice city!</span> — Thành phố đẹp quá! · <span class="en">What a clear sky!</span> — Bầu trời trong quá! · <span class="en">What tall buildings!</span> — Những toà nhà cao quá!</p></div>
+    <div class="buoc" data-so="2"><h4>Rút ra khuôn câu</h4>
+      <p><b>What a + tính từ + danh từ số ít!</b> (<span class="en">a nice city</span>) &nbsp; <b>What + tính từ + danh từ số nhiều!</b> (<span class="en">tall buildings</span>)</p>
+      <p class="vi-sao">Đọc xuống giọng ở cuối câu, nhấn mạnh vào tính từ — đó là giọng “thán phục”.</p>
+      <a class="xem-lai" href="#kt-what">📌 Xem lại: exclamations with What</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Khuôn câu: <span class="en">What a + adj + danh từ số ít!</span> (What a nice city!) · <span class="en">What + adj + danh từ số nhiều!</span> (What tall buildings!)</div>
+    <div class="bay">Viết <span class="en">What a tall buildings!</span> — <i>a</i> chỉ đi với <b>một</b> vật; <span class="en">buildings</span> số nhiều thì bỏ <i>a</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Exclamations</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Look at the picture below and say what you think by using exclamations with What. You may use the suggestions below.</span></p>
+    <p class="en" lang="en">happy / beautiful children · colourful / nice picture · sunny / beautiful weather · small / cute boy · beautiful / colourful apple trees</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — có <i>a</i> hay không?</b>
+    <div class="cau-thu"><span class="noi-dung en">What ___ beautiful weather!</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">(không có a)</button><span class="phan-hoi" data-dung-txt="Đúng! weather không đếm được — giống “What bad weather!” ở Getting Started." data-sai-txt="Weather có đếm được không? Mai nói gì khi xem ảnh London?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">What ___ cute boy!</span><button class="chon chu" data-dung="1">a</button><button class="chon chu" data-dung="0">(không có a)</button><span class="phan-hoi" data-dung-txt="Đúng! boy — một cậu bé." data-sai-txt="Boy là một hay nhiều?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm gợi ý — gợi ý nào có danh từ số ít? Gợi ý nào là danh từ không đếm được?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">children</span> là số nhiều (dù không có -s). <span class="en">weather</span> là danh từ không đếm được — nhớ câu của Mai: <span class="en">What bad weather!</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân loại danh từ</h4>
+      <p>Số ít → có <i>a</i>: <span class="en">picture, boy</span>. &nbsp; Số nhiều → không <i>a</i>: <span class="en">children, apple trees</span>. &nbsp; Không đếm được → không <i>a</i>: <span class="en">weather</span>.</p>
+      <a class="xem-lai" href="#kt-what">📌 Xem lại: exclamations with What</a></div>
+    <div class="buoc" data-so="2"><h4>Nói với bạn</h4>
+      <p class="en">A: What happy children!<br>B: Yes. And what a colourful picture!<br>A: What beautiful weather!<br>B: What a cute boy!<br>A: What beautiful apple trees!</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất (mỗi gợi ý chọn một tính từ). Mẫu: <span class="en">What happy children! · What a colourful picture! · What beautiful weather! · What a cute boy! · What beautiful apple trees!</span></div>
+    <div class="bay">Nói <span class="en">What a beautiful weather!</span> — <span class="en">weather</span> không đếm được nên không có <i>a</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Landmarks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in pairs. Write the names of the landmarks under the correct pictures.</span></p>
+    <p class="en" lang="en">Eiffel Tower · Big Ben · Sydney Opera House · Merlion</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em đã gặp hai công trình trong số này ở Getting Started. Hai cái còn lại thì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">Merlion</span> = <span class="en">mer-</span> (biển) + <span class="en">lion</span> (sư tử) — tượng sư tử biển của Singapore.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận ra từng công trình (theo ảnh SGK)</h4>
+      <p>1. tượng sư tử biển phun nước → <span class="en">Merlion</span> · 2. tháp đồng hồ bên toà Quốc hội Anh → <span class="en">Big Ben</span> · 3. nhà hát mái trắng hình vỏ sò → <span class="en">Sydney Opera House</span> · 4. tháp sắt ở Paris → <span class="en">Eiffel Tower</span></p>
+      <p class="vi-sao"><span class="en">tower</span> /ˈtauə/ = tháp (Glossary) — chữ <b>ow</b> đọc /aʊ/ như em vừa học.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo ảnh SGK) 1. Merlion &nbsp; 2. Big Ben &nbsp; 3. Sydney Opera House &nbsp; 4. Eiffel Tower</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading descriptions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write the names of the landmarks in 3 for the descriptions.</span></p>
+    <p class="en" lang="en">1. This tower is on the bank of the River Thames in London. In the tower, there's a big clock and a bell.</p>
+    <p class="en" lang="en">2. It's a theatre on Sydney Harbour. Its roofs are white and look like shells. Visitors from all over the world come to see it.</p>
+    <p class="en" lang="en">3. This famous tower is in Paris. Every year, millions of visitors climb to its top to see the whole view of Paris.</p>
+    <p class="en" lang="en">4. It has the head of a lion and the body of a fish. It's a famous landmark in Singapore.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi đoạn tả có một “từ chìa khoá”: <i>clock, shells, Paris, lion</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân tên thành phố trong mỗi đoạn: London, Sydney, Paris, Singapore.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu làm căn cứ</h4>
+      <blockquote class="trich"><p>In the tower, there's a big clock and a bell.</p><p>Its roofs are white and look like shells.</p><p>This famous tower is in Paris.</p><p>It has the head of a lion and the body of a fish.</p></blockquote>
+      <p class="vi-sao">Để ý <span class="en">Its roofs</span>, <span class="en">its top</span> — tính từ sở hữu <i>its</i> thay cho “của nhà hát”, “của tháp”. <span class="en">shell</span> /ʃel/ = vỏ sò (Glossary).</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Big Ben &nbsp; 2. Sydney Opera House &nbsp; 3. Eiffel Tower &nbsp; 4. Merlion</div>
+    <div class="bay">Câu 1 và câu 3 đều bắt đầu bằng <span class="en">This tower</span> — đừng ghép vội. Câu 1 ở <b>London</b>, có đồng hồ → Big Ben; câu 3 ở <b>Paris</b> → Eiffel Tower.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quiz</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">QUIZ — Work in pairs. Read the questions and circle the correct answers.</span></p>
+    <p class="en" lang="en">1. Which city is nearer to Ha Noi than the others? A. Berlin. &nbsp;B. Bangkok. &nbsp;C. Tokyo.</p>
+    <p class="en" lang="en">2. The people of Quang Nam are proud of their ancient town, ______. A. Hoi An &nbsp;B. Sa Pa &nbsp;C. Bach Ma</p>
+    <p class="en" lang="en">3. Phnom Penh is the capital city of ______. A. Indonesia &nbsp;B. the Philippines &nbsp;C. Cambodia</p>
+    <p class="en" lang="en">4. For children, California is famous for its ______. A. Disneyland Park &nbsp;B. Golden Gate Bridge &nbsp;C. national parks</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 1 dùng so sánh hơn <i>nearer than</i> — em nhìn bản đồ châu Á trong đầu nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4 hỏi “với trẻ em” — nơi nào là công viên vui chơi? Nhìn ảnh lâu đài trong SGK.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1, 3: địa lí</h4>
+      <p>1. Bangkok (Thái Lan) ở ngay Đông Nam Á, gần Hà Nội hơn Tokyo (Nhật Bản) và Berlin (Đức, châu Âu) → <b>B</b>. &nbsp; 3. Phnom Penh là thủ đô của Cam-pu-chia → <b>C</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu 2, 4: đọc kĩ từ khoá</h4>
+      <p>2. <span class="en">ancient town</span> = phố cổ; ở Quảng Nam → Hội An → <b>A</b> (Sa Pa ở Lào Cai, Bạch Mã là núi / vườn quốc gia). &nbsp; 4. <span class="en">For children</span> → công viên vui chơi <span class="en">Disneyland Park</span> → <b>A</b>.</p>
+      <p class="vi-sao">Câu 2 có <span class="en">their ancient town</span> — <i>their</i> = của người dân Quảng Nam. Câu 4 có <span class="en">its</span> = của California.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. B (Bangkok) &nbsp; 2. A (Hoi An) &nbsp; 3. C (Cambodia) &nbsp; 4. A (Disneyland Park)</div>
+    <div class="gv-note">Câu 4: Golden Gate Bridge và các vườn quốc gia cũng ở California nhưng câu hỏi nhấn “For children” — chốt A.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading · Speaking<small>Love from Sweden · Trang 32</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Pre-reading</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Work in groups. Look at the postcard and discuss.</span></p>
+    <p class="en" lang="en">1. When do people write a postcard? &nbsp; 2. What do they often write on a postcard?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em đã bao giờ nhận hay gửi một tấm bưu thiếp chưa? Trên đó viết gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">postcard</span> /ˈpəustkɑːd/ = bưu thiếp (Glossary). Người ta thường gửi khi đang đi xa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1: khi nào?</h4>
+      <p class="en">People write a postcard on holiday. They send it to their family and friends.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu 2: viết gì?</h4>
+      <p class="en">They often write about the place, the weather, the food, and the things they do there.</p>
+      <p class="vi-sao">Đây là bước đoán trước khi đọc. Đọc bưu thiếp của Mai ở bài 2 xong, em quay lại xem mình đoán trúng bao nhiêu ý.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">1. People write a postcard on holiday. 2. They often write about the place, the weather, the food, and the things they do there.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — A, B or C</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Read the postcard and choose the correct answer to each of the questions.</span></p>
+    <p class="en" lang="en">Dear Grandpa and Grandma, Stockholm is fantastic! Its weather is perfect, sunny all the time! Our hotel is good. …</p>
+    <p class="en" lang="en">1. This postcard is about ______ in Stockholm. A. the weather &nbsp;B. a holiday &nbsp;C. landscapes</p>
+    <p class="en" lang="en">2. Guests can ______ in the hotel. A. exercise &nbsp;B. cycle &nbsp;C. see Swedish art</p>
+    <p class="en" lang="en">3. Mai and her parents rented bikes to ______. A. cycle around the hotel &nbsp;B. visit the Old Town &nbsp;C. go shopping</p>
+    <p class="en" lang="en">4. “Fika” is a ______. A. traditional café &nbsp;B. palace &nbsp;C. coffee break</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">2. Guests can ___ in the hotel.</span><button class="chon chu" data-dung="1">exercise</button><button class="chon chu" data-dung="0">cycle</button><button class="chon chu" data-dung="0">see Swedish art</button><span class="phan-hoi" data-dung-txt="Đúng! Khách sạn có “a gym”." data-sai-txt="Câu nào trong bài kể khách sạn có những gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">4. “Fika” is a ___</span><button class="chon chu" data-dung="0">traditional café</button><button class="chon chu" data-dung="0">palace</button><button class="chon chu" data-dung="1">coffee break</button><span class="phan-hoi" data-dung-txt="Đúng! “fika”, a coffee break." data-sai-txt="Đọc cụm đứng ngay sau “fika”, giữa hai dấu phẩy."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 1 hỏi ý chính của <b>cả</b> bưu thiếp, ba câu còn lại hỏi chi tiết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4: tìm chữ <span class="en">fika</span> — cụm đứng ngay sau nó, giữa hai dấu phẩy, là lời giải nghĩa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1: ý chính</h4>
+      <p>Mai kể về thời tiết, khách sạn, chuyến đạp xe, cung điện, quán cà phê → tất cả là <b>một kì nghỉ</b>. Thời tiết chỉ là một ý nhỏ.</p>
+      <blockquote class="trich"><p>Stockholm is fantastic!</p><p>Everything is so wonderful!</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Câu 2 – 4: tìm chi tiết</h4>
+      <blockquote class="trich"><p>It has a swimming pool and a gym.</p><p>Yesterday Mum, Dad and I rented three bikes and cycled to the Old Town.</p><p>After that, we had “fika”, a coffee break, in a traditional café.</p></blockquote>
+      <p class="vi-sao">Câu 2: <span class="en">a gym</span> (phòng tập) → <span class="en">exercise</span> (tập thể dục). Câu 4: <span class="en">a traditional café</span> là <b>nơi</b> uống “fika”, không phải “fika”. <span class="en">rented</span> = đã thuê (<span class="en">rent</span>, Glossary) — quá khứ đơn em học ở Unit 8.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. B (a holiday) &nbsp; 2. A (exercise) &nbsp; 3. B (visit the Old Town) &nbsp; 4. C (coffee break)</div>
+    <div class="bay">Câu 1 chọn A vì câu thứ hai nói về thời tiết. Câu hỏi “This postcard is about…” hỏi <b>cả bài</b> nói về gì.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the text and match the places with the things they have.</span></p>
+    <p class="en" lang="en">1. The hotel in Stockholm &nbsp; 2. The Old Town &nbsp;|&nbsp; a. the Royal Palace &nbsp; b. delicious breakfast &nbsp; c. swimming pool &nbsp; d. 'fika' &nbsp; e. Swedish art</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bưu thiếp chia làm hai đoạn: về khách sạn, rồi về chuyến đi khu phố cổ. Mỗi nơi có thể có nhiều thứ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Các câu có <span class="en">It</span> ở đầu bưu thiếp (<span class="en">It has… It offers…</span>) đều nói về khách sạn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những gì khách sạn có</h4>
+      <blockquote class="trich"><p>Our hotel is good. It has a swimming pool and a gym. It offers delicious breakfast.</p></blockquote>
+      <p class="vi-sao"><span class="en">It</span> ở đây thay cho <span class="en">Our hotel</span> — câu ngay trước.</p></div>
+    <div class="buoc" data-so="2"><h4>Những gì cả nhà gặp ở khu phố cổ</h4>
+      <blockquote class="trich"><p>We visited the Royal Palace first.</p><p>She said, “Swedish art is amazing.”</p><p>After that, we had “fika”, a coffee break, in a traditional café.</p></blockquote>
+      <p class="vi-sao">Cả nhà đạp xe tới <span class="en">the Old Town</span>, rồi kể tiếp theo thứ tự <span class="en">first … After that</span>: cung điện → nghệ thuật Thuỵ Điển (trong cung điện) → “fika”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. The hotel – b, c (delicious breakfast, swimming pool) &nbsp; 2. The Old Town – a, d, e (the Royal Palace, 'fika', Swedish art)</div>
+    <div class="bay">Ghép <span class="en">'fika'</span> với khách sạn vì “khách sạn phục vụ bữa sáng thì cũng có cà phê”. Bài nói rõ: uống “fika” ở <span class="en">a traditional café</span>, sau khi thăm cung điện.</div>
+    <div class="gv-note">d và e suy theo trình tự kể (đạp xe tới Old Town → thăm Royal Palace → mẹ khen Swedish art → uống fika); bài không ghi thẳng “in the Old Town” ở hai câu này. Có thể hỏi lớp: “Câu nào cho biết cả nhà rời khách sạn?”</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Discuss</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Work in groups. Choose a city you know. Discuss and answer the questions below.</span></p>
+    <p class="en" lang="en">What city is it? · What is it like? (the weather, the food …) · What can you see and do there? · How do you feel about it?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn thành phố em <b>biết rõ nhất</b> — có thể là chính nơi em sống.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng tính từ ở A Closer Look 1 (<span class="en">sunny, tasty, friendly, exciting</span>) và tên công trình nổi tiếng của thành phố.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trả lời từng câu hỏi</h4>
+      <table>
+        <tr><th>Câu hỏi</th><th>Trả lời mẫu</th></tr>
+        <tr><td class="en">What city is it?</td><td class="en">It's Ha Noi.</td></tr>
+        <tr><td class="en">What is it like?</td><td class="en">It's hot in summer and cold in winter. The street food is delicious.</td></tr>
+        <tr><td class="en">What can you see and do there?</td><td class="en">You can see the One Pillar Pagoda. You can walk around Hoan Kiem Lake.</td></tr>
+        <tr><td class="en">How do you feel about it?</td><td class="en">I love it. Its people are friendly.</td></tr>
+      </table>
+      <p class="vi-sao">Câu hỏi <span class="en">What is it like?</span> trả lời bằng <b>tính từ</b>. <span class="en">One Pillar Pagoda</span> (Chùa Một Cột) là từ thêm, không bắt buộc thuộc; <i>Hoan Kiem</i> đọc là “Hoàn Kiếm”.</p>
+      <a class="xem-lai" href="#kt-tu">📌 Xem lại: tính từ tả thành phố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">It's Ha Noi. It's hot in summer and cold in winter. The street food is delicious. You can see the One Pillar Pagoda. I love it. Its people are friendly.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Talk</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Share the information you have collected in 4 with your class.</span></p>
+    <p lang="en">You may start your talk with: <span class="en">We're going to tell you about …</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nối các câu trả lời ở bài 4 thành một bài nói ngắn — mỗi bạn trong nhóm nói một phần.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự: tên thành phố → thời tiết, món ăn → xem / làm gì → cảm nghĩ. Kết bằng một câu cảm thán <span class="en">What …!</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép thành bài nói</h4>
+      <p class="en">We're going to tell you about Ha Noi. It's the capital city of Viet Nam. It's hot in summer and cold in winter. The street food is very tasty. You can see the One Pillar Pagoda, and you can walk around Hoan Kiem Lake. We love Ha Noi because its people are friendly and helpful. What a beautiful city!</p>
+      <p class="vi-sao">Câu mở <span class="en">We're going to tell you about …</span> là câu SGK cho sẵn — em dùng nguyên như một câu cố định để mở bài, không cần phân tích ngữ pháp của nó.</p>
+      <a class="xem-lai" href="#kt-what">📌 Xem lại: exclamations with What</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Bài nói tốt: mở bằng <span class="en">We're going to tell you about …</span>; trả lời đủ 4 câu hỏi ở bài 4; dùng tính từ của Unit và ít nhất một tính từ sở hữu (<span class="en">its people, its food</span>).</div>
+    <div class="gv-note"><i>be going to</i> chưa phải điểm ngữ pháp của lớp 6 (chỉ là câu mở SGK in sẵn) — không yêu cầu HS dùng ở chỗ khác.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Bangkok · A holiday postcard · Trang 33</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Pre-listening</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Work in groups. Discuss and answer the questions.</span></p>
+    <p class="en" lang="en">1. Where is Bangkok? &nbsp; 2. What is Bangkok famous for?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn hai ảnh trong SGK: một cung điện mái vàng, một khu chợ chật kín hàng. Em đoán bài nghe sẽ nói gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ở Communication bài 5 em đã biết Bangkok rất gần Hà Nội. Bangkok là thủ đô của nước nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1</h4>
+      <p class="en">Bangkok is in Thailand. It's the capital city of Thailand.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu 2: đoán từ ảnh</h4>
+      <p>Đây là câu <b>dự đoán</b> trước khi nghe: em nói theo hiểu biết của mình và theo hai ảnh, ví dụ <span class="en">I think it's famous for its palaces and markets.</span></p>
+      <p class="vi-sao">Đoán trước giúp tai em “chờ sẵn” từ khoá. Nhưng đoán chỉ là đoán — đáp án bài 2, 3 phải lấy từ băng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">1. Bangkok is in Thailand. It's the capital city of Thailand. 2. I think it's famous for its palaces and markets.</span></div>
+    <div class="gv-note">Câu 2 là phần đoán; không dùng câu trả lời ở đây làm đáp án cho bài 2 (Track 19).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — True / False</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen and tick (✓) T (True) or F (False).</span> 🎧 (Track 19, tập hai)</p>
+    <p class="en" lang="en">1. Bangkok is famous for palaces. &nbsp; 2. Things at Chatuchak market are expensive. &nbsp; 3. The floating market is on the sea. &nbsp; 4. You can find food stalls all around Bangkok.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc hết 4 câu <b>trước khi</b> bấm nghe. Gạch chân một từ khoá ở mỗi câu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu sai thường chỉ sai <b>một từ</b>. Câu 2 chờ nghe từ trái nghĩa với <span class="en">expensive</span>; câu 3 chờ nghe chợ nổi ở <span class="en">sea</span> hay ở chỗ khác.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuẩn bị từ khoá</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th></tr>
+        <tr><td>1</td><td><span class="en">famous for</span> — có nhắc <span class="en">palaces</span> không?</td></tr>
+        <tr><td>2</td><td><span class="en">Chatuchak market</span> — <span class="en">expensive</span> hay <span class="en">cheap</span>?</td></tr>
+        <tr><td>3</td><td><span class="en">floating market</span> — trên <span class="en">sea</span> hay trên <span class="en">river</span>?</td></tr>
+        <tr><td>4</td><td><span class="en">food stalls</span> — ở khắp nơi (<span class="en">all around</span>) hay chỉ một chỗ?</td></tr></table>
+      <p class="vi-sao">Nghe lần 1 để tick; nghe lần 2 (bài 3 cũng là nghe lại) để kiểm tra câu còn phân vân.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 19 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>; em nghe băng, tick T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Tick theo ảnh hoặc theo phần đoán ở bài 1 (“ảnh có cung điện nên câu 1 chắc chắn T”). Chỉ bài nghe mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / sách giáo viên. Không suy đáp án từ tranh minh hoạ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Gap fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Listen again and fill each gap with ONE word / number.</span> 🎧 (Track 20, tập hai)</p>
+    <p class="en" lang="en">1. Chatuchak market has over ______ stalls. &nbsp; 2. Chatuchak market is about ______ minutes' walk from the station. &nbsp; 3. You can see part of Thai people's ______ at the market. &nbsp; 4. Street food in Bangkok is ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trước khi nghe, đoán <b>loại</b> thông tin ở mỗi chỗ trống: con số hay một từ? Danh từ hay tính từ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">over ______ stalls</span> và <span class="en">about ______ minutes</span> → chờ nghe <b>con số</b>. Chỉ được viết <b>một</b> từ hoặc một số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán loại từ từ ngữ pháp xung quanh</h4>
+      <table><tr><th>Câu</th><th>Loại thông tin</th><th>Vì sao</th></tr>
+        <tr><td>1</td><td>con số</td><td><span class="en">over</span> (hơn) + số + danh từ số nhiều <span class="en">stalls</span></td></tr>
+        <tr><td>2</td><td>con số</td><td><span class="en">about</span> (khoảng) + số + <span class="en">minutes' walk</span></td></tr>
+        <tr><td>3</td><td>danh từ</td><td>sau sở hữu cách <span class="en">Thai people's</span> (Unit 2) phải là một danh từ</td></tr>
+        <tr><td>4</td><td>tính từ</td><td>sau <span class="en">is</span>, tả thức ăn — như các tính từ ô <i>food</i> ở A Closer Look 1</td></tr></table>
+      <p class="vi-sao">Viết số bằng chữ số (<span class="en">15</span>) cho nhanh; nghe kĩ đuôi <i>-teen</i> và <i>-ty</i> (15 hay 50?).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 20 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>. Câu 1, 2 điền một con số; câu 3 một danh từ; câu 4 một tính từ.</div>
+    <div class="bay">Viết nhiều hơn một từ (đề yêu cầu <span class="en">ONE word / number</span>), hoặc nhầm số đuôi <i>-teen</i> với <i>-ty</i>.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Talk first</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Work in groups. Talk about a city in your country, using the questions below as a guide.</span></p>
+    <p class="en" lang="en">What city is it? · What is it like? (the weather, the people, the food) · What can you see and do there?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lần này là thành phố <b>ở Việt Nam</b>. Em đã đến thành phố nào trong kì nghỉ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba câu hỏi này chính là dàn ý cho tấm bưu thiếp ở bài 5. Ghi vài từ khoá ra giấy.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghi từ khoá theo ba câu hỏi</h4>
+      <table>
+        <tr><th>Câu hỏi</th><th>Từ khoá mẫu (Huế)</th></tr>
+        <tr><td class="en">What city is it?</td><td class="en">Hue</td></tr>
+        <tr><td class="en">What is it like?</td><td class="en">cool and sunny · friendly and helpful people · tasty street food</td></tr>
+        <tr><td class="en">What can you see and do there?</td><td class="en">see old palaces · go on a boat trip on the river</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Nói thành câu</h4>
+      <p class="en">It's Hue. The weather is cool and sunny. The people are friendly and helpful. The street food is tasty. You can see old palaces, and you can go on a boat trip on the river.</p>
+      <p class="vi-sao">Sách viết <span class="en">Hue</span> không dấu, nhưng đọc là “Huế”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">It's Hue. The weather is cool and sunny. The people are friendly and helpful. The street food is tasty. You can see old palaces, and you can go on a boat trip on the river.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-5" data-ten="Bài 5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Postcard</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Write a postcard of about 50 words about your holiday in a city. Use the information in 4.</span></p>
+    <p class="en" lang="en">Dear Mum and Dad, ______ Love, Trang — To: ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bưu thiếp của Mai ở Skills 1 là bài mẫu tốt nhất — em đọc lại xem Mai sắp ý thế nào.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự như bưu thiếp của Mai: khen thành phố → thời tiết → việc em <b>đã làm</b> hôm qua (quá khứ đơn) → một câu cảm thán <span class="en">What …!</span> → <span class="en">Wish you were here!</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sắp ý theo bài 4 và bưu thiếp của Mai</h4>
+      <p>(1) Thành phố thế nào (<span class="en">… is fantastic!</span>) · (2) thời tiết, con người, món ăn (hiện tại đơn) · (3) hôm qua em đã đi đâu, làm gì (quá khứ đơn — Unit 8) · (4) câu cảm thán · (5) câu kết.</p>
+      <p class="vi-sao">Mai dùng <b>hai thì</b>: hiện tại đơn để tả (<span class="en">Its weather is perfect</span>), quá khứ đơn để kể việc đã làm (<span class="en">We visited the Royal Palace first.</span>).</p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mẫu</h4>
+      <p>Cô làm mẫu câu đầu thôi: <span class="en">Hue is fantastic!</span> Phần còn lại em tự viết về thành phố của mình nhé.</p></div>
+    <div class="buoc" data-so="3"><h4>Soát bài</h4>
+      <p>Đếm khoảng 50 từ (không tính <span class="en">Dear…, Love…</span>). Soát: có ít nhất một tính từ sở hữu đúng (<span class="en">its, our, my</span>) chưa? Động từ quá khứ đúng chưa (<span class="en">went, visited</span>)? Ghi địa chỉ người nhận sau <span class="en">To:</span>.</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bưu thiếp đạt yêu cầu khi: (1) đúng dạng bưu thiếp — <span class="en">Dear Mum and Dad,</span> … <span class="en">Love,</span> tên, và địa chỉ sau <span class="en">To:</span>; (2) khoảng 50 từ; (3) dùng các ý ở bài 4 (thành phố, thời tiết / con người / món ăn, xem và làm gì); (4) hiện tại đơn để tả, quá khứ đơn để kể việc đã làm; (5) dùng đúng tính từ sở hữu (<span class="en">its, my, our</span>).</div>
+    <div class="bay">Viết <span class="en">It's weather is cool</span> — “của nó” là <span class="en">its</span>, không có dấu phẩy trên. Và đừng viết cả bài bằng hiện tại đơn khi kể việc hôm qua.</div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở mẫu. Bưu thiếp tham khảo dưới đây dành cho GV (đã đếm máy: phần thân 52 từ, không tính Dear…, Love…, To:). <i>Imperial City, Perfume River, bun bo Hue</i> là từ thêm, không bắt buộc thuộc.</div>
+    <div class="tham-khao">
+    <p lang="en">Dear Mum and Dad,</p>
+    <p lang="en">Hue is fantastic! Its weather is cool and sunny. The people here are friendly and helpful. Yesterday I visited the Imperial City. What a beautiful palace! Then I went on a boat trip on the Perfume River. The street food is very tasty. I love bun bo Hue! Wish you were here!</p>
+    <p lang="en">Love,<br>Trang</p>
+    <p lang="en">To: Mr and Mrs Le, 25 Tran Phu Street, Ha Noi, Viet Nam</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 34 – 35</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Choose the best two options to complete the sentences.</span></p>
+    <p class="en" lang="en">1. The city is ______. A. exciting &nbsp;B. amazing &nbsp;C. long</p>
+    <p class="en" lang="en">2. The weather is ______. A. cold &nbsp;B. quiet &nbsp;C. sunny</p>
+    <p class="en" lang="en">3. The people are ______. A. friendly &nbsp;B. wide &nbsp;C. helpful</p>
+    <p class="en" lang="en">4. The buildings are ______. A. tall &nbsp;B. beautiful &nbsp;C. fast</p>
+    <p class="en" lang="en">5. The food is ______. A. cute &nbsp;B. delicious &nbsp;C. good</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — phương án nào KHÔNG hợp?</b>
+    <div class="cau-thu"><span class="noi-dung en">3. The people are ___</span><button class="chon chu" data-dung="0">friendly</button><button class="chon chu" data-dung="1">wide</button><button class="chon chu" data-dung="0">helpful</button><span class="phan-hoi" data-dung-txt="Đúng! wide (rộng) tả con đường, không tả người." data-sai-txt="Từ này có hay đi với “people” ở A Closer Look 1 không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">5. The food is ___</span><button class="chon chu" data-dung="1">cute</button><button class="chon chu" data-dung="0">delicious</button><button class="chon chu" data-dung="0">good</button><span class="phan-hoi" data-dung-txt="Đúng! cute (dễ thương) tả em bé, con vật — không tả món ăn." data-sai-txt="Món ăn có thể “ngon”, “tốt” — còn từ nào thì lạ?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu có <b>một</b> phương án “lạc đề” — tìm nó trước, hai cái còn lại là đáp án.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">long, wide</span> tả đường, sông; <span class="en">fast</span> tả xe; <span class="en">cute</span> tả em bé; <span class="en">quiet</span> tả nơi chốn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Loại phương án không hợp nghĩa</h4>
+      <p>1. thành phố không “dài” → bỏ <span class="en">long</span> &nbsp; 2. thời tiết không “yên tĩnh” → bỏ <span class="en">quiet</span> &nbsp; 3. người không “rộng” → bỏ <span class="en">wide</span> &nbsp; 4. toà nhà không “nhanh” → bỏ <span class="en">fast</span> &nbsp; 5. món ăn không “dễ thương” → bỏ <span class="en">cute</span></p>
+      <p class="vi-sao">Đây là bài <b>kết hợp từ</b>: tính từ phải hợp với danh từ nó tả — giống sơ đồ city / food / people / weather ở A Closer Look 1.</p>
+      <a class="xem-lai" href="#kt-tu">📌 Xem lại: tính từ tả thành phố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. A, B (exciting, amazing) &nbsp; 2. A, C (cold, sunny) &nbsp; 3. A, C (friendly, helpful) &nbsp; 4. A, B (tall, beautiful) &nbsp; 5. B, C (delicious, good)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Write the words / phrases in the box under their pictures.</span></p>
+    <p class="en" lang="en">towers · beach · river bank · postcard · palace · night market</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn sáu ảnh trong SGK, tự gọi tên bằng tiếng Việt trước rồi mới tìm từ trong hộp.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">towers</span> số nhiều — ảnh có <b>hai</b> toà tháp. <span class="en">night market</span> = chợ đêm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên ảnh (theo thứ tự SGK)</h4>
+      <p>1. tháp đôi sáng đèn → <span class="en">towers</span> · 2. bờ sông có cỏ, hàng cây → <span class="en">river bank</span> · 3. bãi cát trắng, hàng dừa → <span class="en">beach</span> · 4. chợ đông người, quầy sáng đèn → <span class="en">night market</span> · 5. cung điện có đài phun nước → <span class="en">palace</span> · 6. tấm thiệp có tem → <span class="en">postcard</span></p>
+      <p class="vi-sao">Glossary: <span class="en">(river) bank</span> /bæŋk/ = bờ (sông) · <span class="en">palace</span> /ˈpæləs/ · <span class="en">postcard</span> /ˈpəustkɑːd/ · <span class="en">tower</span> /ˈtauə/.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(theo ảnh SGK) 1. towers &nbsp; 2. river bank &nbsp; 3. beach &nbsp; 4. night market &nbsp; 5. palace &nbsp; 6. postcard</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Possessive pronouns</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Complete the sentences with the correct possessive pronouns in the box.</span></p>
+    <p class="en" lang="en">theirs · hers · yours · mine · ours</p>
+    <p class="en" lang="en">1. Hey Phong. You're wearing my hat. It's not ______. &nbsp; 2. We're looking for Mr and Mrs Smith's house. Is that ______? &nbsp; 3. This is my drawing. It's ______. &nbsp; 4. This is your room. ______ is next door. So call us if you need anything. &nbsp; 5. Sue doesn't need to borrow my pen. She's got ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm chỗ trống, năm từ trong hộp — mỗi từ dùng đúng một lần. Tìm “người sở hữu” ở mỗi câu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4: “gọi <b>chúng tôi</b> nếu cần gì” — vậy phòng bên cạnh là của ai?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm người sở hữu</h4>
+      <p>1. Mũ là của “tôi”, không phải của Phong (<span class="en">you</span>) → <span class="en"><b>yours</b></span> &nbsp; 2. <span class="en">Mr and Mrs Smith</span> = they → <span class="en"><b>theirs</b></span> &nbsp; 3. <span class="en">my drawing</span> → <span class="en"><b>mine</b></span> &nbsp; 4. <span class="en">call us</span> → <span class="en"><b>Ours</b></span> &nbsp; 5. <span class="en">Sue</span> = she → <span class="en"><b>hers</b></span></p>
+      <p class="vi-sao">Câu 1: <span class="en">It's not yours</span> = <span class="en">It's not your hat</span> — nói với Phong rằng mũ đó <b>không phải của bạn</b>. Câu 4 đứng đầu câu nên viết hoa <span class="en">Ours</span>.</p>
+      <a class="xem-lai" href="#kt-pron">📌 Xem lại: possessive pronouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. yours &nbsp; 2. theirs &nbsp; 3. mine &nbsp; 4. Ours &nbsp; 5. hers</div>
+    <div class="bay">Câu 1 điền <i>mine</i> vì thấy <span class="en">my hat</span>. Đọc lại: “It's not ___” — mũ <b>không phải</b> của ai? Của Phong → <i>yours</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Correct the mistakes</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Read the sentences and correct the underlined words.</span></p>
+    <p class="en" lang="en">1. Bangkok is an exciting city. I love <u>it's</u> people. &nbsp; 2. We are watching the sunrise at Angkor Wat with <u>ours</u> local friends. &nbsp; 3. Discover Beijing and Shanghai through <u>theirs</u> food tours. &nbsp; 4. Visit Hue and try <u>it</u> food. &nbsp; 5. Venice is your city and Jakarta is <u>our</u>.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — sửa thành gì?</b>
+    <div class="cau-thu"><span class="noi-dung en">4. try <u>it</u> food</span><button class="chon chu" data-dung="1">its</button><button class="chon chu" data-dung="0">it's</button><button class="chon chu" data-dung="0">their</button><span class="phan-hoi" data-dung-txt="Đúng! its food = món ăn của Huế." data-sai-txt="Huế là một nơi (it). “Của nó” viết thế nào — có dấu phẩy trên không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">5. Jakarta is <u>our</u>.</span><button class="chon chu" data-dung="0">our city</button><button class="chon chu" data-dung="1">ours</button><span class="phan-hoi" data-dung-txt="Đúng! Đứng cuối câu, không danh từ → ours. (our city cũng đúng nghĩa, nhưng đề chỉ sửa một từ.)" data-sai-txt="Đề bảo sửa từ gạch chân — thay bằng MỘT từ đứng một mình được."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với mỗi từ gạch chân, hỏi: sau nó có danh từ không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn câu đầu đều có danh từ đi sau từ gạch chân → cần <b>tính từ</b> sở hữu. Câu 5 thì không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 4: trước danh từ → tính từ sở hữu</h4>
+      <p>1. <span class="en">it's people</span> → <span class="en"><b>its</b> people</span> (của Bangkok) &nbsp; 2. <span class="en">ours local friends</span> → <span class="en"><b>our</b> local friends</span> &nbsp; 3. <span class="en">theirs food tours</span> → <span class="en"><b>their</b> food tours</span> (của Bắc Kinh và Thượng Hải) &nbsp; 4. <span class="en">it food</span> → <span class="en"><b>its</b> food</span> (của Huế)</p>
+      <a class="xem-lai" href="#kt-adj">📌 Xem lại: possessive adjectives</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 5: đứng một mình → đại từ sở hữu</h4>
+      <p><span class="en">Jakarta is <b>ours</b>.</span> (= our city) — vế trước đã có <span class="en">your city</span>, vế sau lược danh từ.</p>
+      <a class="xem-lai" href="#kt-pron">📌 Xem lại: possessive pronouns</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. it's → its &nbsp; 2. ours → our &nbsp; 3. theirs → their &nbsp; 4. it → its &nbsp; 5. our → ours</div>
+    <div class="bay">Câu 3 sửa thành <i>its</i> vì “một chương trình du lịch”. Người sở hữu là <b>hai</b> thành phố (Beijing and Shanghai) → <i>their</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">My journey around the world</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>My journey around the world!</b> Work in groups. Choose one city in the world you would like to visit. Find necessary information for your visit.</p>
+    <p class="en" lang="en">What city is it? · Where is it? · How can you go there? · What's the weather like there? · What would you like to see and do there?</p>
+    <p lang="en">Make a report of your findings and present it to the class.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu được đi bất cứ đâu trên thế giới, nhóm em chọn thành phố nào — và vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Năm câu gợi ý trong SGK là dàn ý bài trình bày — mỗi bạn nhận một câu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn thành phố, tìm thông tin</h4>
+      <p>Có thể chọn một thành phố trong Unit: <span class="en">Sydney, London, New York, Paris, Singapore, Bangkok, Stockholm</span>. Tìm: ở nước nào, đi bằng gì, thời tiết, công trình nổi tiếng, món ăn.</p></div>
+    <div class="buoc" data-so="2"><h4>Trình bày — khung câu</h4>
+      <p class="en">We would like to visit … It is in … We can go there by … The weather is … there. We would like to see … and … What a … city!</p>
+      <p class="vi-sao"><span class="en">would like to</span> lấy đúng từ câu gợi ý của SGK (<span class="en">What would you like to see and do there?</span>). Thêm một tính từ sở hữu (<span class="en">its landmarks, its food</span>) và một câu cảm thán <span class="en">What …!</span> để dùng đủ kiến thức Unit 9.</p>
+      <a class="xem-lai" href="#kt-what">📌 Xem lại: exclamations with What</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài trình bày đạt yêu cầu khi: (1) trả lời đủ 5 câu hỏi gợi ý; (2) dùng từ vựng về thành phố, công trình nổi tiếng của Unit; (3) dùng đúng tính từ / đại từ sở hữu; (4) mỗi bạn trong nhóm trình bày một phần.</div>
+    <div class="tham-khao">
+    <p lang="en">We would like to visit Paris. It is the capital city of France. We can go there by plane. The weather is cool and sunny in spring. We would like to see the Eiffel Tower and climb to its top. We would like to try French food, too. What a beautiful city!</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 9. Cities of the World — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u09';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-09-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-09-bai-giai.nguon.html" data-phien-ban="335dc4648ef6">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 8. Khác biệt và gần gũi — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập hai</div>
+    <div class="hang1">
+      <h1>Bài 8. Khác biệt và gần gũi — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập hai</div><h1>Bài 8. Khác biệt và gần gũi — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 7 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-nghi-luan"><b class="ten">Văn bản nghị luận</b>
+      Văn bản nghị luận là loại văn bản chủ yếu dùng để thuyết phục người đọc (người nghe) về một vấn đề.</div>
+    <div class="kt" id="kt-li-le"><b class="ten">Các yếu tố cơ bản trong văn bản nghị luận</b>
+      Để văn bản thực sự có sức thuyết phục, người viết (người nói) cần sử dụng lí lẽ và bằng chứng. Lí lẽ là những lời diễn giải có lí mà người viết (người nói) đưa ra để khẳng định ý kiến của mình. Bằng chứng là những ví dụ được lấy từ thực tế đời sống hoặc từ các nguồn khác để chứng minh cho lí lẽ.</div>
+    <div class="kt" id="kt-trang-ngu"><b class="ten">Trạng ngữ</b>
+      Trạng ngữ là thành phần phụ của câu, có thể được đặt ở đầu câu, giữa câu hoặc cuối câu, nhưng phổ biến là ở đầu câu. Trạng ngữ được dùng để nêu thông tin về thời gian, địa điểm, mục đích, cách thức,… của sự việc được nói đến trong câu. Ngoài ra, trạng ngữ còn có chức năng liên kết câu trong đoạn.<br>
+      <i>Ví dụ trong SGK:</i> (1) <i><b>Để giao tiếp tốt bằng ngoại ngữ</b>, em cần luyện tập thường xuyên.</i> (trạng ngữ chỉ mục đích) · (2) <i>Nhiều người thường cãi nhau <b>chỉ vì những bất đồng nhỏ</b>.</i> (trạng ngữ chỉ nguyên nhân) · (3) <i><b>Trong vườn trường</b>, những khóm tường vi đã nở rộ.</i> (trạng ngữ chỉ địa điểm) · (4) <i><b>Vì lẽ đó, xưa nay</b>, không ít người tự vượt lên chính mình nhờ noi gương những cá nhân xuất chúng.</i> (<b>Vì lẽ đó</b> là trạng ngữ vừa chỉ nguyên nhân, vừa để liên kết với câu trước; <b>xưa nay</b> là trạng ngữ chỉ thời gian.)</div>
+    <div class="kt" id="kt-lua-chon"><b class="ten">Tác dụng của lựa chọn từ ngữ và cấu trúc câu</b>
+      Để thể hiện một ý, có thể dùng những từ ngữ khác nhau, những kiểu cấu trúc câu khác nhau. Khi tạo lập văn bản, người viết thường xuyên phải lựa chọn từ ngữ hoặc cấu trúc câu phù hợp để biểu đạt chính xác, hiệu quả nhất điều muốn nói.</div>
+    <div class="kt" id="kt-noi-guong"><b class="ten">Nhận biết tác dụng của việc lựa chọn từ ngữ trong câu</b>
+      <i>Vì lẽ đó, xưa nay, đã có không ít người tự vượt lên chính mình nhờ <b>noi gương</b> những cá nhân xuất chúng.</i> Có một số từ ngữ gần nghĩa với <i>noi gương</i> như: <i>học theo</i>, <i>làm theo</i>, <i>bắt chước</i>,… nhưng <i>noi gương</i> là từ phù hợp nhất cho câu trên.</div>
+    <div class="kt" id="kt-cau-truc"><b class="ten">Nhận biết tác dụng của việc lựa chọn cấu trúc câu</b>
+      <i><b>Càng</b> lớn, tôi <b>càng</b> hiểu nỗi lòng, mong ước của mẹ hơn.</i> Sử dụng cấu trúc câu có cặp quan hệ từ <b>càng… càng</b>, người viết đã thể hiện được ý: sự nhận thức của con về tình mẹ là một quá trình, nó sâu sắc và đầy đặn hơn theo thời gian và sự trưởng thành của con.</div>
+    <div class="kt" id="kt-yeu-cau"><b class="ten">Yêu cầu đối với bài văn nghị luận trình bày ý kiến về một hiện tượng (vấn đề)</b>
+      Nêu được hiện tượng (vấn đề) cần bàn luận. · Thể hiện được ý kiến của người viết. · Dùng lí lẽ và bằng chứng để thuyết phục người đọc.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 8. Khác biệt và gần gũi.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-vb1" data-chip="Văn bản 1">Văn bản 1. Xem người ta kìa!<small>Lạc Thanh</small></h2>
+
+<article class="the bai" id="v1-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Trước một người bạn xuất sắc về nhiều mặt, em có suy nghĩ gì?</p>
+    <p><b>2.</b> Trong cuộc sống, mỗi người có quyền thể hiện cái riêng của mình hay không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đứng cạnh một người bạn giỏi hơn mình, lòng em thấy thế nào — thật lòng nhé?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ tới <b>một</b> người bạn cụ thể. Rồi nghĩ tới một điều em thích làm mà không giống ai trong lớp.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên cảm xúc thật</h4>
+      <p>Trước một bạn giỏi, có thể em thấy khâm phục, muốn học theo; cũng có thể em thấy hơi tủi, hơi ghen một chút. Cảm xúc nào cũng có thể có — điều quan trọng là em nói thật và nghĩ xem mình nên làm gì với cảm xúc ấy.</p>
+      <p class="vi-sao">Văn bản sắp đọc mở đầu bằng câu mẹ hay nói: “Xem người ta kìa!”. Người con đã từng nghe câu ấy và “không thấy thoải mái chút nào”. Em càng nhớ rõ cảm giác của mình, em càng dễ hiểu người viết.</p></div>
+    <div class="buoc" data-so="2"><h4>Nêu ý kiến kèm một lí do</h4>
+      <p>Câu 2 có chữ “Vì sao?”. Em trả lời “có” hay “không” đều phải kèm lí do, và nếu được thì thêm một ví dụ: một bạn thích vẽ, một bạn mê bóng đá, một bạn ít nói mà viết rất hay…</p>
+      <p class="vi-sao">Nêu ý kiến rồi đưa lí do, ví dụ — đó chính là cách làm của văn bản nghị luận mà em sắp học.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: lí lẽ và bằng chứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> 1. Trước một người bạn xuất sắc, em vừa khâm phục vừa có lúc chạnh lòng khi bị so sánh; nhưng em nghĩ mình nên học ở bạn sự chăm chỉ, chứ không cần trở thành bạn. 2. Em nghĩ mỗi người có quyền thể hiện cái riêng của mình, miễn là không làm phiền hay làm hại người khác, vì nhờ những cái riêng ấy mà lớp em mới vui: bạn này vẽ đẹp, bạn kia hát hay, bạn khác đá bóng giỏi.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Câu 1 có thể chạm vào cảm giác bị so sánh trong gia đình — không ép HS kể trước lớp. Nên khen những em dám nói điều thật (kể cả “em thấy hơi ghen”).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tìm chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi thốt lên “Xem người ta kìa!”, người mẹ muốn con làm gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu ấy nghe như một lời trách. Nhưng đằng sau lời trách là điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn thứ hai, chỗ người con đã lớn và nhớ lại: “Tôi đã hiểu ra…”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu người con tự giải thích</h4>
+      <blockquote class="trich"><p>Tôi đã hiểu ra, mỗi lần bảo tôi: “Xem người ta kìa!” là một lần mẹ mong tôi làm sao để bằng người, không thua em kém chị, không làm xấu mặt gia đình, dòng tộc, không để ai phải phàn nàn, kêu ca điều gì.</p><cite>— Đoạn thứ hai</cite></blockquote>
+      <p class="vi-sao">Để ý chữ “mong”: người con đã lớn mới hiểu rằng câu nói ấy không phải để chê, mà là một mong ước.</p></div>
+    <div class="buoc" data-so="2"><h4>Gọi tên điều mẹ đòi hỏi</h4>
+      <blockquote class="trich"><p>Mẹ tôi không phải không có lí khi đòi hỏi tôi phải lấy người khác làm chuẩn mực để noi theo.</p><cite>— Đoạn thứ ba</cite></blockquote>
+      <p><i>Chuẩn mực</i> theo chú thích của sách là “cái được chọn làm căn cứ để theo đó mà làm cho đúng”. Mẹ muốn con nhìn vào người khác mà làm theo.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khi thốt lên “Xem người ta kìa!”, người mẹ muốn con <b>lấy người khác làm chuẩn mực để noi theo</b>: mong con “làm sao để bằng người, không thua em kém chị, không làm xấu mặt gia đình, dòng tộc, không để ai phải phàn nàn, kêu ca điều gì”. Câu nói nghe như trách móc, nhưng bên trong là một nỗi mong con nên người, mà người viết tin rằng “Có người mẹ nào trên đời không ước mong điều đó?”.</div>
+    <div class="bay">Hiểu chữ <i>xem</i> theo nghĩa đen — mẹ bảo con nhìn ngắm người khác. Câu hỏi hỏi mẹ <b>muốn con làm gì</b>: muốn con giống, bằng những người được coi là tốt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lời kể – lí lẽ – bằng chứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra ở văn bản:</p>
+    <p>a. Đoạn văn dùng lời kể để giới thiệu vấn đề.</p>
+    <p>b. Đoạn văn là lời diễn giải có lí của người viết về vấn đề.</p>
+    <p>c. Đoạn văn dùng bằng chứng để làm sáng tỏ vấn đề.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — câu này thuộc loại nào?</b>
+    <div class="cau-thu"><span class="noi-dung">Cùng với câu này, mẹ còn nói: “Người ta cười chết!”,…</span><button class="chon chu" data-dung="1">Lời kể</button><button class="chon chu" data-dung="0">Lí lẽ</button><button class="chon chu" data-dung="0">Bằng chứng</button><span class="phan-hoi" data-dung-txt="Đúng! Người viết đang kể lại chuyện trong nhà." data-sai-txt="Thử lại: câu này đang giảng giải, hay đang kể lại điều mẹ đã nói?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Sự độc đáo của từng cá nhân làm cho tập thể trở nên phong phú.</span><button class="chon chu" data-dung="0">Lời kể</button><button class="chon chu" data-dung="1">Lí lẽ</button><button class="chon chu" data-dung="0">Bằng chứng</button><span class="phan-hoi" data-dung-txt="Đúng! Đây là lời diễn giải có lí để khẳng định ý kiến." data-sai-txt="Thử lại: câu này có kể một người, một việc cụ thể nào không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Người thích vẽ vời, người ưa ca hát, nhảy múa,…</span><button class="chon chu" data-dung="0">Lời kể</button><button class="chon chu" data-dung="0">Lí lẽ</button><button class="chon chu" data-dung="1">Bằng chứng</button><span class="phan-hoi" data-dung-txt="Đúng! Ví dụ lấy từ chính lớp học ngày trước của người viết." data-sai-txt="Thử lại: đây là một lời giảng giải hay là những ví dụ cụ thể?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có đoạn văn kể chuyện, có đoạn giảng giải, có đoạn đưa ví dụ. Em nhận ra bằng dấu hiệu gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Văn bản có bảy đoạn. Lời kể có “tôi”, có mẹ, có chuyện đã xảy ra; lời diễn giải thì nói chung về mọi người; bằng chứng là những ví dụ cụ thể.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoạn kể chuyện</h4>
+      <blockquote class="trich"><p>“Xem người ta kìa!” – đó là câu mẹ tôi thường thốt lên mỗi khi không hài lòng với tôi về một điều gì đó.</p><cite>— Câu mở đầu văn bản</cite></blockquote>
+      <p>Đoạn thứ nhất kể một chuyện rất quen trong nhà; đoạn thứ hai (<i>Giờ đây, mẹ tôi đã khuất…</i>) vẫn là lời kể, lời nhớ của người con.</p>
+      <p class="vi-sao">Thẻ <i>Theo dõi</i> của sách đã gợi ý: kể chuyện cũng là một cách để nêu vấn đề cần bàn luận. Một câu chuyện nhỏ làm người đọc thấy ngay chính mình trong đó.</p></div>
+    <div class="buoc" data-so="2"><h4>Đoạn diễn giải có lí</h4>
+      <blockquote class="trich"><p>Mỗi người phải được tôn trọng, với tất cả những cái khác biệt vốn có. Sự độc đáo của từng cá nhân làm cho tập thể trở nên phong phú.</p><cite>— Đoạn thứ sáu</cite></blockquote>
+      <p>Đoạn thứ ba (<i>Mẹ tôi không phải không có lí…</i>) và đoạn thứ sáu (<i>Tôi muốn trở lại với dòng hồi ức…</i>) là những lời diễn giải: người viết không kể nữa mà lí giải, khẳng định ý kiến.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: lí lẽ là gì</a></div>
+    <div class="buoc" data-so="3"><h4>Đoạn đưa bằng chứng</h4>
+      <blockquote class="trich"><p>Ngoại hình khác nhau, giọng nói khác nhau đã đành, mà thói quen, sở thích cũng có giống nhau đâu.</p><cite>— Đoạn thứ năm</cite></blockquote>
+      <p class="vi-sao">Đoạn thứ năm (<i>Từ khi biết nhìn nhận và suy nghĩ…</i>) đưa ra những ví dụ có thật: các bạn trong lớp ngày trước, mỗi người một vẻ. Đó là bằng chứng chứng minh cho ý “thế giới này là muôn màu muôn vẻ”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Đoạn dùng lời kể để giới thiệu vấn đề: <b>đoạn thứ nhất</b> — kể chuyện mẹ hay thốt lên “Xem người ta kìa!” và cảm giác không thoải mái của người con (đoạn thứ hai, bắt đầu bằng <i>Giờ đây, mẹ tôi đã khuất…</i>, cũng tiếp tục lời kể). b. Đoạn là lời diễn giải có lí: <b>đoạn thứ ba</b> (<i>Mẹ tôi không phải không có lí…</i>) và <b>đoạn thứ sáu</b> (<i>Tôi muốn trở lại với dòng hồi ức…</i>). c. Đoạn dùng bằng chứng: <b>đoạn thứ năm</b> (<i>Từ khi biết nhìn nhận và suy nghĩ…</i>) — các bạn trong lớp ngày trước khác nhau về ngoại hình, giọng nói, thói quen, sở thích, tính cách.</div>
+    <div class="bay">Chỉ ghi “đoạn 1, đoạn 3, đoạn 5” mà không nói đó là đoạn nào. SGK không đánh số đoạn — nên ghi kèm mấy chữ mở đầu đoạn cho người chấm dễ tìm.</div>
+    <div class="gv-note">Theo SGV, các phương án chọn đoạn có thể khác nhau miễn hợp lí (ví dụ có em chọn đoạn thứ hai cho ý a vì vẫn là lời kể của “tôi”; đoạn thứ năm cũng có câu lí lẽ mở đầu). Chấm theo lí do HS đưa ra.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vấn đề được nhấn mạnh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nội dung văn bản nhấn mạnh ý nghĩa của sự khác nhau hay giống nhau giữa mọi người?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Văn bản có nói cả chuyện giống nhau lẫn khác nhau. Nhưng bên nào được nói nhiều hơn, và nói ở cuối?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm chữ <i>Tuy vậy</i> ở đầu đoạn thứ tư. Từ chỗ ấy trở đi, người viết nói về điều gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chỗ rẽ của bài viết</h4>
+      <blockquote class="trich"><p>Tuy vậy, trong thâm tâm, tôi không hề cảm thấy dễ chịu mỗi lần nghe mẹ trách cứ.</p><cite>— Đoạn thứ tư (chỉ một câu)</cite></blockquote>
+      <p>Đoạn thứ ba thừa nhận mọi người “giống nhau nhiều điều lắm”. Nhưng ngay sau đó là một đoạn chỉ có một câu, mở bằng <i>Tuy vậy</i> — người viết rẽ sang hướng khác.</p>
+      <p class="vi-sao">Một đoạn văn chỉ có một câu thường là chỗ người viết muốn ta dừng lại. Câu này như một cái bản lề: trước nó là sự giống nhau, sau nó là sự khác nhau.</p></div>
+    <div class="buoc" data-so="2"><h4>Điều được nói kĩ và nói sau cùng</h4>
+      <blockquote class="trich"><p>Chính chỗ “không giống ai” nhiều khi lại là một phần rất đáng quý trong mỗi con người.</p><cite>— Đoạn thứ năm</cite></blockquote>
+      <blockquote class="trich"><p>Biết hoà đồng, gần gũi mọi người, nhưng cũng phải biết giữ lại cái riêng và tôn trọng sự khác biệt.</p><cite>— Đoạn cuối</cite></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Văn bản <b>nhấn mạnh ý nghĩa của sự khác nhau</b> giữa mọi người. Sự giống nhau chỉ được nói trong đoạn thứ ba, như để thừa nhận mẹ có lí; rồi bằng chữ <i>Tuy vậy</i>, người viết chuyển hẳn sang sự khác nhau và bàn kĩ ở hai đoạn tiếp theo: thế giới “muôn màu muôn vẻ”, chỗ “không giống ai” là “một phần rất đáng quý trong mỗi con người”, “Mỗi người phải được tôn trọng, với tất cả những cái khác biệt vốn có”. Câu kết khẳng định lại: phải “giữ lại cái riêng và tôn trọng sự khác biệt”.</div>
+    <div class="bay">Trả lời “cả hai” mà không chọn. Văn bản có nói cả hai, nhưng câu hỏi hỏi điều được <b>nhấn mạnh</b> — hãy xem bên nào được nói nhiều hơn và được chốt ở cuối bài.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lí lẽ của người viết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc lại đoạn văn có câu: <i>Mẹ tôi không phải không có lí khi đòi hỏi tôi phải lấy người khác làm chuẩn mực để noi theo</i>. Hãy cho biết người mẹ có lí ở chỗ nào.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu hỏi liền nhau “Ai chẳng muốn…?” — chúng có cần ai trả lời không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc tiếp các câu sau câu được dẫn trong đề. Người viết đưa ra những lí do nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các lí do</h4>
+      <blockquote class="trich"><p>Trên đời, mọi người giống nhau nhiều điều lắm. Ai chẳng muốn thông minh, giỏi giang? Ai chẳng muốn được tin yêu, tôn trọng? Ai chẳng muốn thành đạt? Thành công của người này có thể là niềm ao ước của người kia. Vì lẽ đó, xưa nay, không ít người tự vượt lên chính mình nhờ noi gương những cá nhân xuất chúng.</p><cite>— Đoạn thứ ba</cite></blockquote>
+      <p class="vi-sao">Ba câu “Ai chẳng muốn…?” không cần trả lời — ai đọc cũng tự gật đầu. Đó là cách người viết khiến ta đồng tình rằng mọi người giống nhau ở những mong muốn tốt đẹp.</p></div>
+    <div class="buoc" data-so="2"><h4>Nối lí do với kết luận</h4>
+      <p>Vì ai cũng mong điều tốt, nên thành công của người này có thể là điều người kia ao ước; vì thế noi gương người giỏi là một con đường để tiến bộ. Chữ <i>Vì lẽ đó</i> nối lí lẽ với điều rút ra.</p>
+      <a class="xem-lai" href="#kt-trang-ngu">📌 Xem lại: trạng ngữ “Vì lẽ đó” (ví dụ 4)</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Người mẹ có lí vì <b>trên đời, mọi người giống nhau nhiều điều</b>: ai cũng muốn “thông minh, giỏi giang”, muốn “được tin yêu, tôn trọng”, muốn “thành đạt”; thành công của người này có thể là niềm ao ước của người kia. Vì thế, xưa nay “không ít người tự vượt lên chính mình nhờ noi gương những cá nhân xuất chúng”. Mẹ muốn con lấy người khác làm chuẩn mực là muốn con học điều tốt từ những người giỏi để tiến bộ — và “người khác” ấy trong hình dung của mẹ là người “mười phân vẹn mười”.</div>
+    <div class="bay">Chép lại cả đoạn văn mà không nói gọn được ý chính: mẹ có lí vì mọi người giống nhau ở mong muốn tốt đẹp, nên noi gương người giỏi giúp ta tiến bộ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bằng chứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Chính chỗ “không giống ai” nhiều khi lại là một phần rất đáng quý trong mỗi con người</i>. Tác giả đưa ra những ví dụ nào để làm sáng tỏ ý ở câu trên? Qua tìm hiểu các ví dụ đó, em học được gì về cách sử dụng bằng chứng trong bài nghị luận?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người viết lấy ví dụ ở đâu — trong sách vở xa xôi, hay ở ngay lớp học của mình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu được dẫn là câu cuối của đoạn thứ năm. Đọc ngược lên đầu đoạn và gạch chân từng ví dụ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Liệt kê các ví dụ</h4>
+      <blockquote class="trich"><p>Nhớ các bạn trong lớp tôi ngày trước, mỗi người một vẻ, sinh động biết bao. Ngoại hình khác nhau, giọng nói khác nhau đã đành, mà thói quen, sở thích cũng có giống nhau đâu. Người thích vẽ vời, người ưa ca hát, nhảy múa, có bạn chỉ khi ra sân tập thể thao mới thực sự được là mình,… Về tính cách thì sôi nổi, nhí nhảnh hay kín đáo, trầm tư có đủ hết…</p><cite>— Đoạn thứ năm</cite></blockquote>
+      <blockquote class="trich"><p>Người ta thường nói học trò “nghịch như quỷ”, ai ngờ “quỷ” cũng là cả một thế giới, chẳng “quỷ” nào giống “quỷ” nào!</p></blockquote>
+      <p>Ngoài ra còn câu nói người viết “đã đọc đâu đó”: “Chỗ giống nhau nhất của mọi người trên thế gian này là… không ai giống ai cả”.</p>
+      <p class="vi-sao">Ví dụ đi từ bề ngoài (ngoại hình, giọng nói) vào bên trong (thói quen, sở thích, tính cách). Mỗi lớp ví dụ lại cho thấy thêm một kiểu “không giống ai”.</p></div>
+    <div class="buoc" data-so="2"><h4>Rút ra cách dùng bằng chứng</h4>
+      <p>Bằng chứng lấy từ chính trải nghiệm của người viết nên <b>có thật, gần gũi</b>; đủ <b>nhiều mặt</b> nên thuyết phục; và quan trọng nhất là <b>đúng vào ý</b> cần chứng minh: ví dụ nào cũng nói về sự khác nhau.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: bằng chứng là gì</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Để làm sáng tỏ ý ấy, tác giả nhớ lại các bạn trong lớp ngày trước “mỗi người một vẻ”: khác nhau về <b>ngoại hình, giọng nói</b>; khác nhau về <b>thói quen, sở thích</b> (người thích vẽ vời, người ưa ca hát, nhảy múa, có bạn chỉ khi ra sân tập thể thao “mới thực sự được là mình”); khác nhau về <b>tính cách</b> (sôi nổi, nhí nhảnh hay kín đáo, trầm tư); học trò “nghịch như quỷ” mà chẳng “quỷ” nào giống “quỷ” nào. Tác giả còn dẫn một câu đã đọc: “Chỗ giống nhau nhất của mọi người trên thế gian này là… không ai giống ai cả”. Qua đó, em học được rằng bằng chứng trong bài nghị luận cần <b>cụ thể, có thật, gần gũi</b> với người đọc, <b>tiêu biểu</b> cho nhiều mặt, và phải <b>phù hợp với ý</b> cần làm sáng tỏ.</div>
+    <div class="bay">Trả lời nửa đầu (kể ví dụ) rồi quên nửa sau: <b>em học được gì</b> về cách dùng bằng chứng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nêu ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Biết hoà đồng, gần gũi mọi người, nhưng cũng phải biết giữ lại cái riêng và tôn trọng sự khác biệt</i> – em có đồng ý với ý kiến này không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hoà đồng và giữ cái riêng — hai điều ấy có chống nhau không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại đoạn thứ sáu: “Ai cũng cần hoà nhập, nhưng sự hoà nhập có nhiều lối chứ không phải một.” Rồi tìm một ví dụ trong đời em.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tách ý kiến làm ba vế</h4>
+      <p>(1) hoà đồng, gần gũi mọi người; (2) giữ lại cái riêng của mình; (3) tôn trọng cái riêng của người khác. Em đồng ý với vế nào, và vì sao?</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm lí lẽ trong văn bản</h4>
+      <blockquote class="trich"><p>Nếu chỉ ao ước được giống người khác, thì làm sao ta có hi vọng đóng góp cho tập thể, cho cộng đồng một cái gì đó của chính mình? Đòi hỏi chung sức chung lòng không có nghĩa là gạt bỏ cái riêng của từng người.</p><cite>— Đoạn thứ sáu</cite></blockquote>
+      <p class="vi-sao">Văn bản không bảo ta chọn một trong hai. Hoà đồng mà không có cái riêng thì tập thể đơn điệu; giữ cái riêng mà không hoà đồng thì thành lẻ loi. Câu trả lời tốt thấy được hai vế đi cùng nhau.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án duy nhất; câu trả lời tốt nêu rõ ý kiến và có lí do, ví dụ. <b>Một câu trả lời tham khảo:</b> Em đồng ý. Sống giữa mọi người, ta cần hoà đồng, gần gũi để cùng học, cùng làm, cùng vui. Nhưng hoà đồng không có nghĩa là ai cũng phải giống ai: như người viết nói, “Đòi hỏi chung sức chung lòng không có nghĩa là gạt bỏ cái riêng của từng người”. Lớp em làm báo tường, bạn vẽ đẹp thì trang trí, bạn viết hay thì viết bài, bạn khéo tay thì cắt dán — mỗi người góp một cái riêng nên tờ báo mới đẹp. Và khi mình muốn được giữ cái riêng, mình cũng phải tôn trọng cái riêng của bạn, không chê bai bạn chỉ vì bạn khác mình.</div>
+    <div class="bay">Chỉ viết “em đồng ý vì ý kiến này đúng”. Lí do phải là một lí lẽ thật (vì sao cần hoà đồng, vì sao cần giữ cái riêng), tốt nhất có một ví dụ.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận cả ý kiến không đồng ý hoặc đồng ý một phần (ví dụ “cái riêng” không được làm phiền người khác), miễn có lí lẽ và ví dụ. Đây là dịp luyện cấu trúc nhỏ của nghị luận: ý kiến → lí lẽ → bằng chứng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy nghĩ tới một dàn nhạc: đàn, sáo, trống cùng chơi chung một bài — đó là hoà đồng. Nhưng nếu tất cả đều là trống thì bài hát sẽ chỉ còn tiếng thùng thùng. Mỗi nhạc cụ giữ tiếng riêng của mình, bài nhạc mới hay.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c7" data-ten="Câu 7" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan th">Thông hiểu</span><span class="nhan">Yếu tố của bài nghị luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Từ việc đọc hiểu văn bản <i>Xem người ta kìa!</i>, em hãy rút ra những yếu tố quan trọng của một bài nghị luận.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn thuyết phục mẹ cho em một điều, em cần những gì trong lời nói của mình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn lại câu 2 và câu 5: văn bản có một vấn đề, có lời diễn giải, có ví dụ. Đối chiếu với mục Tri thức ngữ văn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điểm lại những gì văn bản có</h4>
+      <p><b>Vấn đề</b>: chuyện so sánh mình với “người ta” — nêu bằng một câu chuyện. <b>Ý kiến</b> của người viết: phải biết giữ lại cái riêng và tôn trọng sự khác biệt. <b>Lí lẽ</b>: đoạn thứ ba, đoạn thứ sáu. <b>Bằng chứng</b>: các bạn trong lớp ngày trước.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: các yếu tố cơ bản trong văn bản nghị luận</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Một bài nghị luận cần có: <b>vấn đề</b> cần bàn luận (có thể giới thiệu bằng một câu chuyện, như chuyện câu nói “Xem người ta kìa!”); <b>ý kiến</b> rõ ràng của người viết về vấn đề ấy; <b>lí lẽ</b> — những lời diễn giải có lí để khẳng định ý kiến; và <b>bằng chứng</b> — những ví dụ cụ thể, có thật để chứng minh cho lí lẽ. Ý kiến, lí lẽ, bằng chứng phải gắn với nhau thì bài viết mới thuyết phục được người đọc.</div>
+    <div class="bay">Kể “mở bài, thân bài, kết bài”. Đó là bố cục của mọi bài văn; câu hỏi muốn em nêu những yếu tố làm nên <b>sức thuyết phục</b> của bài nghị luận.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn nêu ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) trình bày suy nghĩ của em về vấn đề: <i>Ai cũng có cái riêng của mình</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cái riêng của em là gì? Bắt đầu từ chính câu trả lời ấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đoạn văn cũng có đủ ba thứ như một bài nghị luận nhỏ: một câu nêu ý kiến, một vài câu lí lẽ, ít nhất một ví dụ cụ thể.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chất liệu</h4>
+      <p><b>Lí lẽ</b>: cái riêng làm nên mỗi con người; nhờ cái riêng mà tập thể phong phú; có cái riêng không có nghĩa là tách khỏi mọi người. <b>Bằng chứng</b>: một người bạn, một người thân mà em biết rõ điểm riêng; có thể mượn một câu của văn bản.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: lí lẽ và bằng chứng</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp ý trong một đoạn</h4>
+      <p>Câu 1 nêu ý kiến → câu 2 – 3 đưa ví dụ → câu 4 – 5 lí giải vì sao cái riêng đáng quý → câu cuối nói điều em rút ra. Viết liền, không xuống dòng.</p>
+      <p class="vi-sao">Đoạn văn nghị luận không kể chuyện dài: ví dụ chỉ cần một hai câu, đủ để làm sáng tỏ lí lẽ.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Ai cũng có cái riêng của mình, và chính cái riêng ấy làm nên con người mỗi chúng ta.</i></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) viết thành <b>một đoạn</b>, khoảng 5 – 7 câu; (2) có câu nêu rõ <b>ý kiến</b> của em về vấn đề “Ai cũng có cái riêng của mình”; (3) có ít nhất một <b>lí lẽ</b> (vì sao mỗi người có cái riêng, cái riêng có ý nghĩa gì); (4) có ít nhất một <b>bằng chứng</b> cụ thể; (5) diễn đạt mạch lạc, đúng chính tả.</div>
+    <div class="bay">Kể một câu chuyện dài về một người bạn mà không có câu nào nêu ý kiến. Đề yêu cầu “trình bày suy nghĩ” — đoạn văn phải nói em nghĩ gì.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo có 6 câu: câu 1 ý kiến, câu 2 – 3 bằng chứng, câu 4 lí lẽ, câu 5 dẫn văn bản, câu 6 kết.</div>
+    <div class="tham-khao">
+    <p>Ai cũng có cái riêng của mình, và chính cái riêng ấy làm nên con người mỗi chúng ta. Trong lớp em, Lan ít nói nhưng vẽ rất đẹp, còn Tuấn chẳng ngồi yên được năm phút mà hễ ra sân bóng là như được sống thật với mình. Nếu ai cũng phải giống hệt một bạn được khen là ngoan nhất lớp, góc học tập sẽ mất những bức tranh của Lan, đội bóng của lớp sẽ mất những đường chuyền của Tuấn. Có cái riêng không có nghĩa là sống tách khỏi mọi người: Lan vẫn vẽ báo tường cho cả lớp, Tuấn vẫn kéo cả đội cùng tập mỗi chiều. Như tác giả Lạc Thanh viết, “Sự độc đáo của từng cá nhân làm cho tập thể trở nên phong phú”. Vì thế, em nghĩ mỗi người nên tìm ra điều mình làm tốt nhất để vun đắp, đồng thời biết tôn trọng những điều khác mình ở người bên cạnh.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv1" data-chip="Tiếng Việt ①">Thực hành tiếng Việt<small>Trạng ngữ · Nghĩa của từ ngữ (sau Văn bản 1)</small></h2>
+
+<article class="the bai" id="tv1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Trạng ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra trạng ngữ trong các câu sau và cho biết chức năng của trạng ngữ ở từng câu:</p>
+    <p>a. <i>Từ khi biết nhìn nhận và suy nghĩ, tôi dần dần hiểu ra rằng, thế giới này là muôn màu muôn vẻ, vô tận và hấp dẫn lạ lùng.</i></p>
+    <p>b. <i>Giờ đây, mẹ tôi đã khuất và tôi cũng đã lớn.</i></p>
+    <p>c. <i>Dù có ý định tốt đẹp, những người thân yêu của ta đôi lúc cũng chưa hẳn đúng khi không để ta được sống với con người thực của mình.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — trạng ngữ này nêu thông tin gì?</b>
+    <div class="cau-thu"><span class="noi-dung">Từ khi biết nhìn nhận và suy nghĩ</span><button class="chon chu" data-dung="1">Thời gian</button><button class="chon chu" data-dung="0">Địa điểm</button><button class="chon chu" data-dung="0">Mục đích</button><span class="phan-hoi" data-dung-txt="Đúng! Trả lời câu hỏi: từ bao giờ?" data-sai-txt="Thử lại: “từ khi…” trả lời câu hỏi ở đâu, để làm gì, hay từ bao giờ?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Giờ đây</span><button class="chon chu" data-dung="1">Thời gian</button><button class="chon chu" data-dung="0">Địa điểm</button><button class="chon chu" data-dung="0">Nguyên nhân</button><span class="phan-hoi" data-dung-txt="Đúng! “Giờ đây” là lúc này, bây giờ." data-sai-txt="Thử lại: “giờ” là chỉ chỗ chốn hay chỉ lúc nào?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phần đứng trước dấu phẩy đầu câu — bỏ nó đi, câu còn đứng được không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả ba trạng ngữ đều đứng ở đầu câu, ngăn với phần sau bằng dấu phẩy. Đặt câu hỏi cho từng trạng ngữ: <i>khi nào? ở đâu? để làm gì? vì sao?</i>…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm trạng ngữ</h4>
+      <p>a. <b>Từ khi biết nhìn nhận và suy nghĩ</b> · b. <b>Giờ đây</b> · c. <b>Dù có ý định tốt đẹp</b>.</p>
+      <p class="vi-sao">Thử bỏ: <i>tôi dần dần hiểu ra rằng…</i>, <i>mẹ tôi đã khuất…</i>, <i>những người thân yêu của ta…</i> — câu vẫn đủ ý chính. Đó là dấu hiệu của thành phần phụ.</p>
+      <a class="xem-lai" href="#kt-trang-ngu">📌 Xem lại: trạng ngữ</a></div>
+    <div class="buoc" data-so="2"><h4>Xác định chức năng</h4>
+      <p>a, b: trả lời câu hỏi <i>từ bao giờ? lúc nào?</i> → chỉ <b>thời gian</b>. c: nêu một điều kiện, hoàn cảnh đi kèm sự việc; chữ <i>dù</i> ở trạng ngữ đi với chữ <i>cũng</i> ở phần sau, báo trước một điều trái ngược: ý định thì tốt, <i>nhưng</i> việc làm chưa hẳn đúng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Trạng ngữ <b>Từ khi biết nhìn nhận và suy nghĩ</b> — chỉ <b>thời gian</b> (người viết hiểu ra điều ấy từ lúc nào). b. Trạng ngữ <b>Giờ đây</b> — chỉ <b>thời gian</b> (lúc người viết nhìn lại). c. Trạng ngữ <b>Dù có ý định tốt đẹp</b> — chỉ <b>điều kiện</b>: nêu một hoàn cảnh trái ngược với điều được nói ở phần sau (<i>dù</i> ý định tốt đẹp, người thân <i>cũng</i> chưa hẳn đúng).</div>
+    <div class="bay">Ở câu b, gạch cả <i>Giờ đây, mẹ tôi</i> làm trạng ngữ. <i>Mẹ tôi</i> là người được nói tới trong câu — không bỏ được; chỉ <i>Giờ đây</i> mới là trạng ngữ.</div>
+    <div class="gv-note">SGV gọi trạng ngữ câu c là trạng ngữ chỉ điều kiện. Hộp Tri thức SGK chỉ kể “thời gian, địa điểm, mục đích, cách thức,…” nên nếu HS nói “nêu hoàn cảnh trái ngược” hoặc “chỉ sự nhượng bộ” thì vẫn chấp nhận ý đúng; trọng tâm là tìm đúng trạng ngữ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tác dụng của trạng ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thử lược bỏ trạng ngữ trong các câu sau và chỉ ra sự khác nhau về nội dung giữa câu có trạng ngữ với câu không còn trạng ngữ:</p>
+    <p>a. <i>Cùng với câu này, mẹ còn nói: “Người ta cười chết!”.</i></p>
+    <p>b. <i>Trên đời, mọi người giống nhau nhiều điều lắm.</i></p>
+    <p>c. <i>Tuy vậy, trong thâm tâm, tôi không hề cảm thấy dễ chịu mỗi lần nghe mẹ trách cứ.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu không có trạng ngữ vẫn đúng ngữ pháp. Vậy nó mất đi cái gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt câu về lại chỗ của nó trong văn bản. Đọc câu đứng trước, rồi đọc câu đã bỏ trạng ngữ — nó còn “nối” được với câu trước không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — trạng ngữ nối câu</h4>
+      <p>Câu đứng trước nói về câu “Xem người ta kìa!”. <i>Cùng với câu này</i> trỏ ngược về câu ấy. Bỏ đi, câu chỉ còn <i>mẹ còn nói: “Người ta cười chết!”</i> — chữ <i>còn</i> hụt chỗ dựa, người đọc không biết “còn” so với cái gì.</p>
+      <a class="xem-lai" href="#kt-trang-ngu">📌 Xem lại: trạng ngữ có chức năng liên kết câu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — trạng ngữ mở rộng phạm vi</h4>
+      <p><i>Trên đời</i> nói phạm vi rộng nhất: ở khắp mọi nơi, ai ai cũng vậy. Bỏ đi, câu <i>Mọi người giống nhau nhiều điều lắm</i> hẹp lại, có thể chỉ là mọi người quanh đây.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu c — hai trạng ngữ, hai thông tin</h4>
+      <p><i>Tuy vậy</i> báo một ý ngược với đoạn trước (mẹ có lí — nhưng con vẫn không dễ chịu). <i>Trong thâm tâm</i> (chú thích: “nơi sâu kín trong lòng”) cho biết cảm giác ấy giấu kín, không nói ra.</p>
+      <p class="vi-sao">Bỏ cả hai, câu thành một lời than phiền thẳng thừng, lạc khỏi mạch văn. Có hai trạng ngữ, ta thấy một người con vẫn vâng lời mẹ ngoài mặt, chỉ trong lòng là không yên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Bỏ <b>Cùng với câu này</b>: câu không còn nối với câu “Xem người ta kìa!” ở trước, người đọc không biết mẹ “còn nói” thêm so với câu nào — trạng ngữ giúp <b>liên kết câu</b>. b. Bỏ <b>Trên đời</b>: câu mất ý về phạm vi — người viết muốn nói ở khắp nơi, với tất cả mọi người, chứ không chỉ một vài người. c. Bỏ <b>Tuy vậy</b>: câu mất sự đối lập với đoạn trước (mẹ có lí, nhưng con vẫn không dễ chịu); bỏ <b>trong thâm tâm</b>: câu không cho biết cảm giác khó chịu ấy nằm ở nơi sâu kín trong lòng, không nói ra. Câu không có trạng ngữ vẫn đủ ý chính, nhưng nghèo thông tin và rời rạc với đoạn văn.</div>
+    <div class="bay">Chỉ ghi lại câu đã bỏ trạng ngữ rồi dừng. Đề còn yêu cầu <b>chỉ ra sự khác nhau về nội dung</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c3" data-ten="Câu 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Thêm trạng ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thêm trạng ngữ cho các câu sau:</p>
+    <p>a. <i>Hoa đã bắt đầu nở.</i></p>
+    <p>b. <i>Bố sẽ đưa cả nhà đi công viên nước.</i></p>
+    <p>c. <i>Mẹ rất lo lắng cho tôi.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu có thể thêm <i>khi nào? ở đâu? vì sao? để làm gì?</i> — em chọn câu hỏi nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thử mỗi câu một loại trạng ngữ khác nhau, đặt ở đầu câu, ngăn bằng dấu phẩy. Trạng ngữ phải hợp nghĩa với cả câu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn câu hỏi cho từng câu</h4>
+      <p>a. Hoa nở <i>khi nào? ở đâu?</i> · b. Bố đưa đi <i>khi nào? để làm gì?</i> · c. Mẹ lo <i>vì sao?</i></p>
+      <a class="xem-lai" href="#kt-trang-ngu">📌 Xem lại: các ví dụ trạng ngữ trong SGK</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra sự hợp nghĩa</h4>
+      <p>Đọc lại cả câu. <i>Sáng mai, hoa đã bắt đầu nở</i> nghe lệch, vì <i>đã</i> nói việc xảy ra rồi mà <i>sáng mai</i> lại chưa tới.</p>
+      <p class="vi-sao">Trạng ngữ không chỉ cần đúng loại, mà còn phải ăn khớp với các từ chỉ thời gian khác trong câu (<i>đã, sẽ, đang</i>).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án duy nhất; trạng ngữ thêm vào phải hợp nghĩa với câu. <b>Ví dụ:</b> a. <i>Sau mấy trận mưa xuân, hoa đã bắt đầu nở.</i> (thời gian) — hoặc <i>Trong vườn nhà bà, hoa đã bắt đầu nở.</i> (địa điểm). b. <i>Chủ nhật này, bố sẽ đưa cả nhà đi công viên nước.</i> (thời gian) — hoặc <i>Để thưởng cho cả nhà sau một năm làm việc vất vả, bố sẽ đưa cả nhà đi công viên nước.</i> (mục đích). c. <i>Vì tôi hay đi học về muộn, mẹ rất lo lắng cho tôi.</i> (nguyên nhân) — hoặc <i>Những ngày tôi ốm, mẹ rất lo lắng cho tôi.</i> (thời gian).</div>
+    <div class="bay">Thêm trạng ngữ không hợp với từ <i>đã</i> / <i>sẽ</i> trong câu: <i>Hôm qua, bố sẽ đưa cả nhà đi công viên nước.</i></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nghĩa của thành ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thành ngữ trong các câu sau có những cách giải thích khác nhau. Theo em, cách giải thích nào hợp lí?</p>
+    <p>a. <i>Đòi hỏi <b>chung sức chung lòng</b> không có nghĩa là gạt bỏ cái riêng của từng người.</i></p>
+    <p><b>Chung sức chung lòng</b> có nghĩa là: – Đoàn kết, nhất trí · – Giúp đỡ lẫn nhau · – Quyết tâm cao độ.</p>
+    <p>b. <i>Mẹ muốn tôi giống người khác, thì “người khác” đó trong hình dung của mẹ nhất định phải là người hoàn hảo, <b>mười phân vẹn mười</b>.</i></p>
+    <p><b>Mười phân vẹn mười</b> có nghĩa là: – Tài giỏi · – Toàn vẹn, không có khiếm khuyết · – Đầy đủ, toàn diện.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — chọn cách giải thích hợp lí</b>
+    <div class="cau-thu"><span class="noi-dung">chung sức chung lòng</span><button class="chon chu" data-dung="1">Đoàn kết, nhất trí</button><button class="chon chu" data-dung="0">Giúp đỡ lẫn nhau</button><button class="chon chu" data-dung="0">Quyết tâm cao độ</button><span class="phan-hoi" data-dung-txt="Đúng! Chung sức là cùng góp sức, chung lòng là cùng một ý." data-sai-txt="Thử lại: “chung lòng” — nhiều người cùng một lòng — là ý nào?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">mười phân vẹn mười</span><button class="chon chu" data-dung="0">Tài giỏi</button><button class="chon chu" data-dung="1">Toàn vẹn, không có khiếm khuyết</button><button class="chon chu" data-dung="0">Đầy đủ, toàn diện</button><span class="phan-hoi" data-dung-txt="Đúng! Mười phần đều vẹn cả mười — không thiếu, không hỏng phần nào." data-sai-txt="Thử lại: chữ “vẹn” nói về sự không sứt mẻ. Ý nào có nét nghĩa ấy?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba cách giải thích đều nghe “có vẻ đúng”. Cách nào khớp nhất với từng chữ trong thành ngữ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tách thành ngữ ra từng chữ: <i>chung sức</i> + <i>chung lòng</i>; <i>mười phân</i> (mười phần) + <i>vẹn mười</i>. Rồi đặt từng cách giải thích vào câu văn thử.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chung sức chung lòng</h4>
+      <p>Cùng góp sức và cùng một lòng — đó là <b>đoàn kết, nhất trí</b>. <i>Giúp đỡ lẫn nhau</i> chỉ là một biểu hiện; <i>quyết tâm cao độ</i> thì một người cũng có thể có, không cần “chung”.</p>
+      <p class="vi-sao">Câu văn đặt <i>chung sức chung lòng</i> đối lại với <i>cái riêng của từng người</i>. Cái đối lại với “riêng” là “chung”, là cả tập thể cùng một ý.</p></div>
+    <div class="buoc" data-so="2"><h4>Mười phân vẹn mười</h4>
+      <p><i>Vẹn</i> là trọn, không sứt mẻ. Mười phần đều trọn cả mười — <b>toàn vẹn, không có khiếm khuyết</b>. Đúng với chữ <i>hoàn hảo</i> đứng ngay trước: “tốt đẹp về mọi mặt”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>Chung sức chung lòng</b>: đoàn kết, nhất trí. b. <b>Mười phân vẹn mười</b>: toàn vẹn, không có khiếm khuyết.</div>
+    <div class="bay">Chọn “Tài giỏi” cho <i>mười phân vẹn mười</i>. Tài giỏi chỉ là một mặt; thành ngữ nói về sự trọn vẹn ở <b>mọi</b> mặt, không chê vào đâu được.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nghĩa của thành ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy xác định nghĩa của thành ngữ (in đậm) trong các câu sau:</p>
+    <p>a. <i>Tôi đã hiểu ra, mỗi lần bảo tôi: “Xem người ta kìa!” là một lần mẹ mong tôi làm sao để bằng người, không <b>thua em kém chị</b>.</i></p>
+    <p>b. <i>Nhớ các bạn trong lớp tôi ngày trước, <b>mỗi người một vẻ</b>, sinh động biết bao.</i></p>
+    <p>c. <i>Người ta thường nói học trò “<b>nghịch như quỷ</b>”, ai ngờ quỷ cũng là cả một thế giới, chẳng “quỷ” nào giống “quỷ” nào!</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Quỷ” trong câu c có đáng sợ không — hay người viết đang nói đùa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn các từ đứng cạnh thành ngữ: <i>bằng người</i> (câu a), <i>sinh động biết bao</i> (câu b). Chúng giúp em đoán nghĩa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dựa vào từ ngữ đi kèm</h4>
+      <p>a. <i>Thua em kém chị</i> đứng sau <i>bằng người</i>: “em”, “chị” ở đây không chỉ riêng em ruột, chị ruột mà chỉ mọi người xung quanh. b. <i>Mỗi người một vẻ</i> đi với <i>sinh động biết bao</i>: các bạn khác nhau nên lớp học mới sinh động. c. <i>Nghịch như quỷ</i> dùng phép so sánh để nói mức nghịch rất cao.</p>
+      <p class="vi-sao">Ở câu c, người viết “bẻ” thành ngữ ra để đùa: đã gọi là “quỷ” thì “quỷ” nào cũng khác “quỷ” nào — cách nói vui ấy lại chính là một bằng chứng cho sự khác biệt.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>Thua em kém chị</b>: thua kém mọi người xung quanh, không bằng người khác. b. <b>Mỗi người một vẻ</b>: mỗi người có những nét riêng, không ai giống ai. c. <b>Nghịch như quỷ</b>: rất nghịch ngợm, nghịch quá mức bình thường.</div>
+    <div class="bay">Giải thích <i>thua em kém chị</i> là “thua em ruột, kém chị ruột”. Thành ngữ dùng “em”, “chị” để chỉ chung mọi người.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb2" data-chip="Văn bản 2">Văn bản 2. Hai loại khác biệt<small>Giong-mi Mun</small></h2>
+
+<article class="the bai" id="v2-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Em có muốn thể hiện sự khác biệt so với các bạn trong lớp hay không? Vì sao?</p>
+    <p><b>2.</b> Em suy nghĩ như thế nào về một bạn không hề cố tỏ ra khác biệt, nhưng vẫn có những ưu điểm vượt trội?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn khác người — để làm gì nhỉ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ xem em muốn được các bạn nhớ tới vì điều gì. Rồi nghĩ tới một bạn lặng lẽ mà giỏi.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nói thật điều mình muốn</h4>
+      <p>Muốn khác biệt hay không đều được — điều quan trọng là “vì sao”. Muốn khác để được chú ý? Muốn khác vì mình thật sự có một điều riêng?</p>
+      <p class="vi-sao">Văn bản sắp đọc sẽ chia sự khác biệt làm hai loại. Câu trả lời của em bây giờ là để lát nữa em so lại: mình đang nghĩ tới loại nào.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghĩ về một bạn cụ thể</h4>
+      <p>Một bạn không làm gì ồn ào nhưng học chắc, cư xử tử tế — em nhìn bạn ấy thế nào? Có nể không?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> 1. Em có muốn khác biệt, nhưng không phải bằng cách ăn mặc lạ hay làm trò; em muốn khác ở chỗ em làm tốt một việc mà em yêu thích, như kể chuyện thật hay. 2. Em rất nể một bạn như thế: bạn không cố gây chú ý, nhưng chính những ưu điểm thật của bạn khiến mọi người tự nhiên quý mến và muốn học theo.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Có thể ghi nhanh lên bảng các cách “khác biệt” HS nêu, để sau khi đọc cho các em tự xếp vào hai loại.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Kể chuyện và bàn luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Văn bản có kể một câu chuyện mà tác giả là người trong cuộc. Theo em, giữa việc kể lại câu chuyện và rút ra bài học từ câu chuyện, điều nào quan trọng hơn? Căn cứ vào đâu mà em xác định như vậy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhan đề của văn bản lấy từ phần kể chuyện hay từ phần rút ra bài học?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm câu “Điều tôi học được từ bài tập này là:…”. Câu chuyện kể ra để dẫn tới đâu?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu chuyện dẫn tới đâu</h4>
+      <blockquote class="trich"><p>Điều tôi học được từ bài tập này là: sự khác biệt chia làm hai loại. Một loại khác biệt vô nghĩa, và một loại khác biệt có ý nghĩa.</p><cite>— Đoạn thứ bảy</cite></blockquote>
+      <p class="vi-sao">Nhan đề <i>Hai loại khác biệt</i> lấy đúng từ câu bàn luận này, không lấy từ tên một nhân vật hay một sự việc trong chuyện.</p></div>
+    <div class="buoc" data-so="2"><h4>Đoạn cuối mở rộng ra mọi người</h4>
+      <blockquote class="trich"><p>Chúng ta chỉ đơn thuần tách những người vô nghĩa ra khỏi những người có ý nghĩa, và chúng ta bỏ qua nhóm đầu tiên vì họ chẳng có gì khác biệt.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p>Người kể không còn nói “tôi”, “chúng tôi” (cả lớp năm ấy) mà nói “chúng ta” — bài học dành cho tất cả.</p>
+      <a class="xem-lai" href="#kt-nghi-luan">📌 Xem lại: văn bản nghị luận</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Rút ra bài học từ câu chuyện quan trọng hơn.</b> Căn cứ: nhan đề <i>Hai loại khác biệt</i> chính là bài học được rút ra; câu chuyện về bài tập 24 tiếng đồng hồ được kể để dẫn tới câu “Điều tôi học được từ bài tập này là: sự khác biệt chia làm hai loại”; ba đoạn cuối dành để lí giải, và đoạn kết chuyển từ “chúng tôi” sang “chúng ta”, biến câu chuyện riêng thành bài học chung. Câu chuyện chỉ là bằng chứng; điều người viết muốn thuyết phục người đọc là cách nhìn về sự khác biệt.</div>
+    <div class="bay">Trả lời “kể chuyện quan trọng hơn vì câu chuyện dài hơn”. Độ dài không quyết định; phải xem câu chuyện được kể <b>để làm gì</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh hai cách thể hiện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Việc thể hiện sự khác biệt của số đông các bạn trong lớp và của J hoàn toàn khác nhau. Sự khác nhau ấy biểu hiện cụ thể như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số đông thay đổi cái gì trên người mình? Còn J thay đổi cái gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kẻ hai cột “Số đông” và “J”. Đọc đoạn thứ hai cho cột thứ nhất, đoạn thứ ba đến thứ sáu cho cột thứ hai.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Số đông: khác ở bề ngoài</h4>
+      <blockquote class="trich"><p>Một số bạn để kiểu tóc kì quặc, trong khi một số khác lại làm trò quái đản với trang sức hoặc phấn trang điểm. Một số lại quyết định tham gia vào những hoạt động ngu ngốc, gây chú ý.</p><cite>— Đoạn thứ hai</cite></blockquote>
+      <p>Đồ pi-gia-ma, quần áo quái lạ, nắm tay nhau hát “như một nhóm trẻ mẫu giáo”, nhào lộn trong phòng ăn trưa.</p></div>
+    <div class="buoc" data-so="2"><h4>J: khác ở thái độ</h4>
+      <blockquote class="trich"><p>Thế rồi, sáng hôm đó, J đến trường, ăn mặc như bình thường và trông hệt như mọi ngày.</p>
+        <p>Và khi phát biểu, cậu nói một cách thật từ tốn, dõng dạc và lễ độ.</p></blockquote>
+      <blockquote class="trich"><p>Không những thế – cậu còn nói với thầy giáo là Thưa thầy. Cậu gọi tất cả chúng tôi bằng anh chị. Và đến cuối tiết học, cậu tiến lên phía trước và bắt tay thầy giáo như một lời cảm ơn thầm lặng.</p><cite>— Đoạn thứ năm</cite></blockquote>
+      <p class="vi-sao">Để ý câu ngắn đến lạ: “Cậu đã đứng lên trả lời câu hỏi.” rồi tác giả nhắc lại, in nghiêng chữ <i>đứng lên</i>. Một việc ai cũng làm được — vậy mà không ai làm. Cái khác của J nằm ở sự nghiêm túc, chứ không ở bộ quần áo.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Số đông</b> thể hiện sự khác biệt <b>ở bề ngoài</b>, bằng những trò dễ làm và ồn ào: mặc đồ pi-gia-ma, quần áo quái lạ, để “kiểu tóc kì quặc”, làm “trò quái đản với trang sức hoặc phấn trang điểm”, nắm tay nhau vừa đi vừa hát như trẻ mẫu giáo, nhào lộn trong phòng ăn trưa. <b>J</b> thì vẫn “ăn mặc như bình thường và trông hệt như mọi ngày”, nhưng khác <b>ở thái độ và cách cư xử</b>: mỗi lần được gọi, cậu đều đứng lên trả lời câu hỏi, nói “thật từ tốn, dõng dạc và lễ độ”, với giọng “hoàn toàn chân thành”; cậu thưa thầy, gọi các bạn bằng anh chị, cuối tiết học tiến lên bắt tay thầy “như một lời cảm ơn thầm lặng”. Một bên khác để gây chú ý; một bên khác vì nghiêm túc và tôn trọng người khác.</div>
+    <div class="bay">Chỉ liệt kê việc làm của hai bên mà không nói được chỗ khác nhau cốt lõi: <b>bề ngoài</b> và <b>thái độ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cách triển khai</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong văn bản này, tác giả đi từ thực tế để rút ra điều cần bàn luận hay nêu điều cần bàn trước, sau đó mới đưa ra bằng chứng từ thực tế để chứng minh? Hãy nhận xét về sự lựa chọn cách triển khai này.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài học “hai loại khác biệt” xuất hiện ở đầu, ở giữa hay ở gần cuối văn bản?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc câu đầu tiên của văn bản và câu “Điều tôi học được…”. Cái nào đến trước?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định trình tự</h4>
+      <blockquote class="trich"><p>Khi tôi còn học trung học, một thầy giáo của chúng tôi đã giao cho cả lớp một bài tập phải hoàn thành trong 24 tiếng đồng hồ.</p><cite>— Câu mở đầu</cite></blockquote>
+      <p>Sáu đoạn đầu kể chuyện; đến đoạn thứ bảy mới có câu “Điều tôi học được từ bài tập này là:…”. Tác giả <b>đi từ thực tế rồi mới rút ra</b> điều cần bàn.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhận xét</h4>
+      <p class="vi-sao">Người đọc được “sống” cùng lớp học ấy: thấy các bạn ăn mặc kì quặc, cười khúc khích trước J, rồi dần thôi cười. Khi bài học được nói ra, ta đã tự cảm thấy nó trước đó rồi — nên dễ tin, dễ nhớ hơn là nghe một lời khuyên đặt ngay ở đầu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tác giả <b>đi từ thực tế để rút ra điều cần bàn luận</b>: kể lại câu chuyện bài tập 24 tiếng đồng hồ, cách các bạn trong lớp và J thể hiện sự khác biệt, rồi đến gần cuối mới nêu bài học “sự khác biệt chia làm hai loại”. Cách triển khai này làm vấn đề trở nên gần gũi, sinh động; người đọc như được chứng kiến sự việc và tự nhận ra điều đúng trước khi tác giả nói ra, nên bài học có sức thuyết phục hơn, không khô khan như một lời răn dạy.</div>
+    <div class="bay">Trả lời đúng trình tự mà quên vế thứ hai: <b>nhận xét</b> về cách triển khai ấy (hay ở chỗ nào).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c4" data-ten="Câu 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nêu ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tác giả phân chia sự khác biệt thành hai loại: sự “khác biệt vô nghĩa” (qua cách thể hiện của số đông các bạn trong lớp) và sự “khác biệt có ý nghĩa” (qua cách thể hiện của J). Em có đồng tình với cách phân chia như thế không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sau 24 tiếng, cả lớp còn nhớ bộ đồ pi-gia-ma của ai không? Còn nhớ J không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh điều còn lại sau một ngày: với số đông, và với J. Chi tiết “không một ai trong chúng tôi lại không nể phục cậu” nói gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điều còn lại sau một ngày</h4>
+      <blockquote class="trich"><p>Kết quả là vào cuối ngày hôm đó, tôi cảm giác rằng không một ai trong chúng tôi lại không nể phục cậu.</p><cite>— Đoạn thứ tám</cite></blockquote>
+      <p>Những trò quái lạ chỉ gây cười một lúc. Cái khác của J làm cả lớp đổi cách nhìn về cậu.</p></div>
+    <div class="buoc" data-so="2"><h4>Nêu ý kiến của em</h4>
+      <p>Đồng tình, không đồng tình hay đồng tình một phần đều được — miễn có lí lẽ và ví dụ.</p>
+      <p class="vi-sao">Một hướng nghĩ thêm: không phải cứ ăn mặc khác là vô nghĩa. Một bộ áo do chính mình tự may, tự vẽ có thể nói lên tài năng thật. Điều tác giả phân biệt là khác biệt <b>có điều gì giá trị đằng sau</b> hay chỉ để gây chú ý.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án duy nhất. <b>Một câu trả lời tham khảo:</b> Em đồng tình với cách phân chia ấy. Sự khác biệt của số đông chỉ ở bề ngoài, ai cũng làm được, gây chú ý được một lúc rồi bị quên — chính tác giả thừa nhận mình đã “chọn trò đơn giản nhất”. Sự khác biệt của J đến từ thái độ nghiêm túc, chân thành và lễ độ; nó không ồn ào nhưng khiến cả lớp thay đổi cách nhìn, đến cuối ngày “không một ai trong chúng tôi lại không nể phục cậu”. Khác biệt có ý nghĩa là khác biệt làm mình tốt hơn và được người khác trân trọng.</div>
+    <div class="bay">Chỉ nói “em đồng tình vì tác giả nói đúng” mà không lấy được chi tiết nào trong văn bản làm căn cứ.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận cả ý kiến đồng tình một phần (ví dụ cách ăn mặc riêng cũng có thể có ý nghĩa nếu thể hiện tài năng, sở thích thật), miễn HS lập luận được. Tiêu chí tốt: có lí lẽ + dẫn chi tiết.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c5" data-ten="Câu 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lí giải vấn đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Do đâu số đông thường thể hiện sự khác biệt vô nghĩa? Muốn tạo ra sự khác biệt có ý nghĩa, con người cần có những năng lực và phẩm chất gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tác giả thú nhận vì sao mình chọn bộ đồ pi-gia-ma. Câu thú nhận ấy ở đâu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vế đầu: đọc đoạn thứ bảy và đoạn cuối (chữ “dễ dàng”, “không tốn chút tâm sức”). Vế sau: nhìn vào những gì J đã làm và cách J làm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vì sao số đông chọn khác biệt vô nghĩa</h4>
+      <blockquote class="trich"><p>Khi tôi quyết định mặc bộ đồ quái dị đến trường, tôi biết rằng mình không phải là người duy nhất, nhưng tôi đã chọn trò đơn giản nhất vì không quan tâm tìm kiếm một thứ ý nghĩa hơn.</p><cite>— Đoạn thứ bảy</cite></blockquote>
+      <blockquote class="trich"><p>Khi nói đến việc thu hút sự chú ý, sẽ có những người chọn cách dễ dàng, không tốn chút tâm sức.</p><cite>— Đoạn cuối</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>J cần những gì</h4>
+      <blockquote class="trich"><p>Một điều gì đó trang trọng, một điều gì đó chững chạc, thậm chí có phần dũng cảm. Và cậu làm rất tốt – lại thêm một điểm nữa. Cậu hiểu rõ mình đang làm gì, cậu hành xử rất mực nghiêm trang.</p><cite>— Đoạn thứ sáu</cite></blockquote>
+      <p class="vi-sao">Chữ “dũng cảm” đáng để ý: lần đầu J đứng lên, cả lớp “cười khúc khích”. Làm một việc nghiêm túc giữa tiếng cười của bạn bè cần can đảm hơn mặc một bộ đồ lạ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đông thường thể hiện sự khác biệt vô nghĩa vì đó là <b>cách dễ dàng</b>, “không tốn chút tâm sức”, không cần suy nghĩ: chính tác giả thừa nhận đã “chọn trò đơn giản nhất vì không quan tâm tìm kiếm một thứ ý nghĩa hơn”; thấy nhiều người cùng làm thì mình cũng làm theo. Muốn tạo ra sự khác biệt có ý nghĩa, con người cần: <b>biết suy nghĩ</b> để hiểu điều gì thật sự có giá trị; <b>nghiêm túc, chân thành</b> trong việc mình làm; <b>tôn trọng, lễ độ</b> với người khác; và <b>dũng cảm, tự tin</b> để làm điều đúng dù bị cười — như J “hiểu rõ mình đang làm gì” và “hành xử rất mực nghiêm trang”.</div>
+    <div class="bay">Trả lời vế sau bằng những từ quá chung (“cần giỏi”, “cần ngoan”). Hãy rút ra phẩm chất từ chính việc J làm: nghiêm túc, chân thành, lễ độ, dũng cảm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Ý nghĩa bài học</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Theo em, bài học về sự khác biệt được rút ra từ văn bản này có phải chỉ có giá trị đối với lứa tuổi học sinh hay không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người lớn có bao giờ muốn được chú ý không? Họ chọn cách nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại đoạn cuối: tác giả dùng đại từ nào — “chúng tôi” hay “chúng ta”? Và nhớ chú thích: tác giả là một tiến sĩ, viết khi đã trưởng thành.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bằng chứng trong văn bản</h4>
+      <blockquote class="trich"><p>Với nhóm thứ hai, họ là những người khiến chúng ta đặc biệt chú ý, những người chúng ta cho là khác biệt thật sự.</p><cite>— Đoạn cuối</cite></blockquote>
+      <p class="vi-sao">Câu chuyện xảy ra ở trường trung học, nhưng người kể đã lớn, nhìn lại và rút ra điều cho “chúng ta” — tức là cho mọi người.</p></div>
+    <div class="buoc" data-so="2"><h4>Liên hệ đời sống</h4>
+      <p>Người lớn cũng muốn được chú ý trong công việc, trong cộng đồng. Có người chọn cách ồn ào, phô trương; có người chọn làm việc tận tâm. Ai được nể phục lâu dài?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án duy nhất. <b>Một câu trả lời tham khảo:</b> Bài học ấy không chỉ có giá trị với học sinh. Ở đoạn cuối, tác giả không nói “chúng tôi” mà nói “chúng ta”: ai cũng có lúc muốn được người khác chú ý, và ai cũng phải chọn giữa cách “dễ dàng, không tốn chút tâm sức” với cách có ý nghĩa. Một người thợ làm ra sản phẩm thật tốt, một bác sĩ tận tình với bệnh nhân được mọi người nhớ đến lâu hơn nhiều so với người chỉ biết khoe khoang. Ở tuổi nào, khác biệt thật sự cũng đến từ việc làm có giá trị và thái độ chân thành.</div>
+    <div class="bay">Trả lời “có, chỉ dành cho học sinh, vì câu chuyện xảy ra ở trường”. Bối cảnh câu chuyện không giới hạn phạm vi của bài học — hãy đọc lại đoạn kết.</div>
+    <div class="gv-note">Câu hỏi mở. Câu trả lời tốt dựa vào đoạn cuối (chữ “chúng ta”) và có ví dụ ngoài đời. Ví dụ nghề nghiệp nên để HS tự nêu từ người thân của mình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn nêu ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Với câu mở đầu: <i>Tôi không muốn khác biệt vô nghĩa…</i>, hãy viết tiếp 5 – 7 câu để hoàn thành một đoạn văn.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Không muốn khác biệt vô nghĩa — vậy em muốn khác biệt theo cách nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu mở đã nêu ý kiến. Các câu tiếp theo trả lời: vì sao không muốn? Thay vào đó em muốn gì? Một việc cụ thể em sẽ làm?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chất liệu</h4>
+      <p><b>Vì sao không muốn khác biệt vô nghĩa</b>: chỉ gây chú ý một lúc, ai cũng làm được, không giúp mình tốt hơn. <b>Khác biệt có ý nghĩa</b>: như J — nghiêm túc, chân thành, lễ độ. <b>Việc của em</b>: một thói quen tốt, một việc em làm tận tâm.</p></div>
+    <div class="buoc" data-so="2"><h4>Sắp ý và giữ ngôi</h4>
+      <p>Câu mở xưng “tôi” — giữ “tôi” đến hết đoạn. Thứ tự gợi ý: lí do → điều mình muốn → ví dụ cụ thể → câu kết khẳng định. Viết liền một đoạn, đếm đủ 5 – 7 câu <b>sau</b> câu mở.</p>
+      <p class="vi-sao">Đề cho sẵn câu mở có dấu chấm lửng: em có thể viết nối tiếp ngay câu ấy, hoặc xem nó là câu thứ nhất rồi viết thêm.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mẫu</h4>
+      <p>Cô làm mẫu câu thứ hai thôi, phần còn lại em tự viết nhé: <i>Mặc một bộ quần áo kì quặc hay làm một trò lạ để cả lớp quay lại nhìn thì dễ lắm, nhưng tiếng cười tắt đi rồi, chẳng ai còn nhớ tới tôi nữa.</i></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) mở đầu đúng bằng câu <i>Tôi không muốn khác biệt vô nghĩa…</i> và viết tiếp <b>5 – 7 câu</b> thành <b>một đoạn</b>; (2) giữ ngôi “tôi” nhất quán; (3) có lí lẽ giải thích vì sao không muốn khác biệt vô nghĩa; (4) nêu được cách em muốn tạo ra sự khác biệt có ý nghĩa, có ví dụ cụ thể; (5) có câu kết khẳng định ý kiến, diễn đạt mạch lạc.</div>
+    <div class="bay">Viết tiếp mà lại kể những trò “khác biệt” của mình một cách hào hứng — đi ngược ý của câu mở đầu.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: câu mở của đề + 6 câu viết tiếp.</div>
+    <div class="tham-khao">
+    <p>Tôi không muốn khác biệt vô nghĩa. Mặc một bộ quần áo kì quặc hay làm một trò lạ để cả lớp quay lại nhìn thì dễ lắm, nhưng tiếng cười tắt đi rồi, chẳng ai còn nhớ tới tôi nữa. Như J trong câu chuyện của Giong-mi Mun, tôi muốn người khác chú ý đến mình vì một điều có ý nghĩa. Có thể đó là việc tôi luôn chuẩn bị bài kĩ để mỗi lần phát biểu đều rõ ràng, chững chạc. Có thể đó là lời chào, lời cảm ơn tôi gửi bác bảo vệ mỗi sáng, điều mà ít bạn để ý tới. Những việc ấy không ồn ào, cũng chẳng khiến ai bật cười, nhưng làm chúng thật lòng và đều đặn mới là điều khó. Tôi tin sự khác biệt đáng quý nhất là sự khác biệt khiến mình tốt hơn và khiến người bên cạnh cũng muốn tốt lên.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv2" data-chip="Tiếng Việt ②">Thực hành tiếng Việt<small>Lựa chọn từ ngữ · Lựa chọn cấu trúc câu (sau Văn bản 2)</small></h2>
+
+<article class="the bai" id="tv2-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lựa chọn từ ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trả lời các câu hỏi sau:</p>
+    <p>a. Với câu “<i>Nhớ các bạn trong lớp tôi ngày trước, mỗi người một vẻ, sinh động biết bao.</i>” có thể dùng từ <i>kiểu</i> để thay cho từ <i>vẻ</i> được không? Vì sao?</p>
+    <p>b. Từ <i>khuất</i> được dùng trong câu “<i>Giờ đây, mẹ tôi đã khuất và tôi cũng đã lớn.</i>” có phù hợp hơn so với một số từ khác cũng có nghĩa là <i>chết</i> như: <i>mất</i>, <i>từ trần</i>, <i>hi sinh</i>?</p>
+    <p>c. Vì sao trong câu “<i>Tôi luôn nhớ về mẹ với niềm xúc động khôn nguôi.</i>”, từ <i>xúc động</i> được chọn hợp lí hơn các từ khác như <i>cảm động</i> hay <i>xúc cảm</i>?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mấy từ cùng một nghĩa chung — nhưng mỗi từ mang một “sắc thái” riêng. Chọn sai là câu văn lạc giọng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thử thay từng từ vào câu rồi đọc to. Hỏi: từ này thường dùng cho ai, trong hoàn cảnh nào, nói nặng hay nhẹ?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — <i>vẻ</i> hay <i>kiểu</i></h4>
+      <p><i>Kiểu</i> hay đi với đồ vật, cách làm: kiểu tóc, kiểu áo, kiểu nhà. <i>Vẻ</i> nói nét riêng toát ra từ một con người: vẻ hiền lành, vẻ sôi nổi. Câu văn đang nói về <b>các bạn</b>, và ngay sau đó là ngoại hình, giọng nói, sở thích, tính cách — đó là “vẻ”.</p>
+      <a class="xem-lai" href="#kt-noi-guong">📌 Xem lại: tác dụng của việc lựa chọn từ ngữ</a></div>
+    <div class="buoc" data-so="2"><h4>b — <i>khuất</i></h4>
+      <p><i>Khuất</i> nghĩa gốc là bị che đi, không còn thấy. Người con nói về cái chết của mẹ như nói mẹ đã đi khuất, nhẹ nhàng, tế nhị, giấu bớt nỗi đau. <i>Mất</i> là cách nói thông thường; <i>từ trần</i> trang trọng, hay dùng trong lời báo tin; <i>hi sinh</i> dùng cho người chết vì nghĩa vụ, lí tưởng — không hợp.</p></div>
+    <div class="buoc" data-so="3"><h4>c — <i>xúc động</i></h4>
+      <p><i>Xúc động</i> là cảm xúc dâng lên mạnh, khó kìm. <i>Cảm động</i> nhẹ hơn, thường là trước một việc làm tốt của ai đó; <i>xúc cảm</i> chỉ chung cảm xúc. Đi với <i>khôn nguôi</i> (chú thích: “chưa giảm bớt mức độ”), cần một từ chỉ cảm xúc mạnh.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>Không thay được.</b> <i>Kiểu</i> thường chỉ hình dạng, cách thức của sự vật (kiểu tóc, kiểu áo); <i>vẻ</i> chỉ nét riêng toát ra từ mỗi con người. Câu văn nói về các bạn, mỗi bạn một nét riêng về ngoại hình, tính cách, nên phải dùng <i>vẻ</i>. b. <b>Có.</b> <i>Khuất</i> là cách nói nhẹ nhàng, tế nhị, như chỉ nói mẹ đã đi xa, thể hiện tình thương và sự kính trọng của con, giấu bớt nỗi đau mất mát. <i>Mất</i> là cách nói thông thường; <i>từ trần</i> trang trọng, hợp với lời thông báo; <i>hi sinh</i> chỉ dùng cho người chết vì nghĩa vụ, lí tưởng. c. <i>Xúc động</i> diễn tả cảm xúc mạnh mẽ, dâng trào hơn <i>cảm động</i> hay <i>xúc cảm</i>, hợp với nỗi nhớ mẹ “khôn nguôi” — không hề vơi bớt.</div>
+    <div class="bay">Ở câu b chỉ nói “khuất cũng nghĩa là chết nên dùng được”. Đề hỏi vì sao <b>phù hợp hơn</b> — phải so với từng từ <i>mất</i>, <i>từ trần</i>, <i>hi sinh</i>.</div>
+    <div class="gv-note">SGV gọi cách dùng <i>khuất</i> là “cách nói giảm” — biện pháp tu từ học ở lớp trên; với HS lớp 6 chỉ cần diễn đạt “nói nhẹ nhàng, tế nhị”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chọn từ phù hợp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chọn từ phù hợp nhất trong ngoặc đơn để đặt vào khoảng trống ở các câu sau và giải thích lí do lựa chọn:</p>
+    <p>a. <i>Bị cười, không phải mọi người đều … giống nhau.</i> (phản ứng, phản xạ, phản đối, phản bác)</p>
+    <p>b. <i>Trên đời, không ai … cả.</i> (hoàn tất, hoàn toàn, hoàn hảo, hoàn chỉnh)</p>
+    <p>c. <i>Đi đường phải luôn luôn … để tránh xảy ra tai nạn.</i> (nhìn ngó, dòm ngó, quan sát, ngó nghiêng)</p>
+    <p>d. <i>Ngoài … của bản thân, tôi còn được bạn bè, thầy cô thường xuyên động viên, khích lệ.</i> (sức lực, tiềm lực, nỗ lực)</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — từ nào hợp nhất?</b>
+    <div class="cau-thu"><span class="noi-dung">Trên đời, không ai … cả.</span><button class="chon chu" data-dung="0">hoàn tất</button><button class="chon chu" data-dung="0">hoàn chỉnh</button><button class="chon chu" data-dung="1">hoàn hảo</button><span class="phan-hoi" data-dung-txt="Đúng! Hoàn hảo: tốt đẹp về mọi mặt — dùng được cho người." data-sai-txt="Thử lại: từ ấy có dùng để nói về một con người không, hay chỉ nói về công việc, đồ vật?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">Đi đường phải luôn luôn …</span><button class="chon chu" data-dung="0">dòm ngó</button><button class="chon chu" data-dung="1">quan sát</button><button class="chon chu" data-dung="0">ngó nghiêng</button><span class="phan-hoi" data-dung-txt="Đúng! Quan sát: nhìn kĩ, chú ý để thấy rõ." data-sai-txt="Thử lại: từ ấy là nhìn kĩ, tập trung — hay là nhìn tò mò, lơ đãng?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn từ trông na ná nhau vì cùng một tiếng đầu. Tiếng thứ hai mới là chỗ quyết định.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thay lần lượt từng từ vào chỗ trống rồi đọc cả câu. Loại dần những từ không hợp đối tượng (người hay việc), không hợp hoàn cảnh.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a, b — xem đối tượng của từ</h4>
+      <p>a. <i>Phản xạ</i> là phản ứng tự nhiên của cơ thể; <i>phản đối</i>, <i>phản bác</i> chỉ là một cách đáp lại. Câu nói chung về <b>mọi cách</b> đáp lại khi bị cười → <b>phản ứng</b>. b. <i>Hoàn tất</i>, <i>hoàn chỉnh</i> nói về công việc, sản phẩm; <i>hoàn toàn</i> không đứng một mình ở chỗ này được → <b>hoàn hảo</b>.</p>
+      <p class="vi-sao">Câu a lấy từ <i>Tiếng cười không muốn nghe</i> (Thực hành đọc): ngay sau đó là ba cách phản ứng khác nhau — mặc kệ, sửa mình, hoảng hốt.</p></div>
+    <div class="buoc" data-so="2"><h4>c, d — xem sắc thái</h4>
+      <p>c. <i>Nhìn ngó</i>, <i>ngó nghiêng</i> là nhìn lung tung, không tập trung; <i>dòm ngó</i> là nhìn tò mò, có ý xấu → <b>quan sát</b>. d. <i>Sức lực</i>, <i>tiềm lực</i> là cái mình có sẵn; câu nói về sự cố gắng của bản thân, đặt cạnh sự động viên của người khác → <b>nỗ lực</b>.</p>
+      <a class="xem-lai" href="#kt-lua-chon">📌 Xem lại: lựa chọn từ ngữ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>phản ứng</b> — chỉ chung mọi cách đáp lại khi bị cười (mặc kệ, sửa mình, hoảng hốt…); <i>phản xạ</i> là phản ứng tự nhiên của cơ thể, <i>phản đối, phản bác</i> chỉ là một cách đáp lại. b. <b>hoàn hảo</b> — tốt đẹp về mọi mặt, dùng được cho người; <i>hoàn tất, hoàn chỉnh</i> dùng cho công việc, sản phẩm; <i>hoàn toàn</i> không hợp nghĩa. c. <b>quan sát</b> — nhìn kĩ, chú ý để thấy rõ; <i>nhìn ngó, ngó nghiêng</i> là nhìn lơ đãng, <i>dòm ngó</i> mang nghĩa xấu. d. <b>nỗ lực</b> — sự cố gắng của bản thân, đặt cạnh sự động viên của bạn bè, thầy cô; <i>sức lực, tiềm lực</i> chỉ cái sẵn có, không nói lên sự cố gắng.</div>
+    <div class="bay">Chọn đúng từ nhưng bỏ phần <b>giải thích lí do</b>. Đề yêu cầu cả hai.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lựa chọn cấu trúc câu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thực hiện các yêu cầu sau:</p>
+    <p>a. Chỉ ra ý nghĩa của cụm từ in đậm trong câu sau và cho biết, nếu bỏ thành phần đó, câu thay đổi như thế nào về cấu trúc và ý nghĩa.</p>
+    <p><i><b>Giờ đây khi hồi tưởng lại</b>, tôi đoán bạn có thể nói rằng bài tập là một kỉ niệm khó quên.</i></p>
+    <p>b. Văn bản <i>Hai loại khác biệt</i> có câu: “<i>Cậu đã đứng lên trả lời câu hỏi</i>.”. Nếu câu này được viết lại thành “<i>Cậu đã trả lời câu hỏi và đứng lên.</i>” thì có phù hợp không? Vì sao?</p>
+    <p>c. Câu “<i>Đến cuối tiết học, cậu tiến lên phía trước và bắt tay thầy giáo như một lời cảm ơn thầm lặng.</i>” có thể đổi cấu trúc: “<i>Đến cuối tiết học, cậu bắt tay thầy giáo như một lời cảm ơn thầm lặng và tiến lên phía trước.</i>”. Vì sao không thể sử dụng câu biến đổi để thay cho câu gốc trong văn bản?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đứng lên rồi trả lời, hay trả lời rồi đứng lên? Thứ tự các hành động trong câu có nói điều gì không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a: cụm in đậm đứng đầu câu, ngăn bằng dấu phẩy — đó là thành phần gì? Câu b, c: hình dung cảnh trong lớp học; việc nào phải xảy ra trước?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — một trạng ngữ chỉ thời gian</h4>
+      <p><b>Giờ đây khi hồi tưởng lại</b> là trạng ngữ chỉ thời gian: lúc người viết đã lớn, nhớ lại chuyện cũ. Bỏ đi, câu chỉ còn phần chính <i>tôi đoán bạn có thể nói rằng bài tập là một kỉ niệm khó quên</i> — vẫn đúng, nhưng mất mốc thời gian, mất cái khoảng cách giữa “ngày ấy” và “bây giờ”.</p>
+      <p class="vi-sao">Câu này có trong nguyên tác, nằm ở chỗ đoạn trích trong SGK đã lược (dấu […]) — nên em không tìm thấy nó trong văn bản đã đọc.</p>
+      <a class="xem-lai" href="#kt-trang-ngu">📌 Xem lại: trạng ngữ</a></div>
+    <div class="buoc" data-so="2"><h4>b — đứng lên trả lời</h4>
+      <blockquote class="trich"><p>Đúng vậy, cậu đã đứng lên. Để trả lời câu hỏi.</p><cite>— Đoạn thứ tư</cite></blockquote>
+      <p>Trong lớp học, phải đứng lên rồi mới trả lời; đứng lên là để trả lời. Câu viết lại đảo thành trả lời xong mới đứng lên — trái với thực tế, và làm mất cái ý “đứng lên để trả lời” mà tác giả nhấn mạnh.</p></div>
+    <div class="buoc" data-so="3"><h4>c — tiến lên rồi mới bắt tay</h4>
+      <p>J ngồi ở bàn học sinh, thầy ở phía trước lớp. Phải tiến lên phía trước thì mới tới chỗ thầy để bắt tay. Câu biến đổi đặt “bắt tay” trước “tiến lên” — vô lí: đã bắt tay được rồi thì tiến lên để làm gì?</p>
+      <p class="vi-sao">Khi kể các hành động nối nhau, thứ tự trong câu phải theo thứ tự xảy ra trong thực tế.</p>
+      <a class="xem-lai" href="#kt-lua-chon">📌 Xem lại: lựa chọn cấu trúc câu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>Giờ đây khi hồi tưởng lại</b> là trạng ngữ chỉ thời gian, cho biết người viết đánh giá bài tập ấy vào lúc nào: bây giờ, khi đã lớn và nhớ lại. Bỏ trạng ngữ, câu chỉ còn phần chính (<i>tôi đoán bạn có thể nói rằng bài tập là một kỉ niệm khó quên</i>), vẫn đúng ngữ pháp nhưng mất thông tin về thời gian, không còn thấy khoảng cách giữa chuyện ngày xưa và lúc nhìn lại. b. <b>Không phù hợp.</b> Câu gốc cho thấy J đứng lên để trả lời — đúng trình tự thực tế (đứng lên trước, trả lời sau) và nhấn mạnh thái độ nghiêm túc của J. Câu viết lại đảo trình tự thành trả lời xong mới đứng lên, không hợp lí. c. Vì các hành động phải theo đúng thứ tự xảy ra: J ngồi ở chỗ của mình, phải <b>tiến lên phía trước</b> thì mới <b>bắt tay</b> thầy được. Câu biến đổi đặt việc bắt tay trước việc tiến lên nên vô lí.</div>
+    <div class="bay">Ở câu a chỉ ghi “đó là trạng ngữ” mà quên nói bỏ đi thì câu thay đổi thế nào về <b>cấu trúc</b> và <b>ý nghĩa</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Cấu trúc câu và nghĩa</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sau đây là những câu thay đổi cấu trúc so với câu gốc trong các văn bản có trong bài học này. Nghĩa của câu thay đổi cấu trúc khác như thế nào so với câu gốc?</p>
+    <p>a. – Câu gốc: <i>Tôi không rõ tại sao cậu lại làm thế; có lẽ cậu thực sự có điều gì đó muốn nhắn nhủ với chúng tôi.</i></p>
+    <p>– Câu thay đổi: <i>Có lẽ cậu thực sự có điều gì đó muốn nhắn nhủ với chúng tôi; tôi không rõ tại sao cậu lại làm thế.</i></p>
+    <p>b. – Câu gốc: <i>Tuy nhiên, đây không phải là điều quá nghiêm trọng, và càng không phải là “căn bệnh” hết cách chữa.</i></p>
+    <p>– Câu thay đổi: <i>Tuy nhiên, đây không phải là “căn bệnh” hết cách chữa và càng không phải là điều quá nghiêm trọng.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sau chữ “càng” thường là điều nặng hơn hay nhẹ hơn điều đứng trước?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a: vế nào là điều băn khoăn, vế nào là lời đoán? Người ta thường băn khoăn trước hay đoán trước? Câu b: so hai điều — “điều quá nghiêm trọng” và “căn bệnh” hết cách chữa — điều nào nặng hơn?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — băn khoăn rồi mới đoán</h4>
+      <p>Câu gốc đi theo đúng mạch suy nghĩ: chưa hiểu (<i>không rõ tại sao</i>) → thử giải thích (<i>có lẽ…</i>). Câu đổi đưa lời đoán lên trước rồi mới nói “không rõ” — như vừa đoán xong đã tự gạt đi, ý trở nên rối, không còn là một lời phỏng đoán để giải thích điều mình băn khoăn.</p></div>
+    <div class="buoc" data-so="2"><h4>b — mức độ tăng dần</h4>
+      <p>“Căn bệnh” hết cách chữa nặng hơn “điều quá nghiêm trọng”. Câu gốc nói: đã không quá nghiêm trọng, thì <i>càng</i> không thể là bệnh hết cách chữa — ý tăng dần, hợp lí. Câu đổi nói ngược: không phải bệnh hết cách chữa, <i>càng</i> không phải điều quá nghiêm trọng — lấy điều nặng làm chỗ dựa cho điều nhẹ, nghe lệch.</p>
+      <p class="vi-sao">Câu b lấy từ <i>Tiếng cười không muốn nghe</i> (phần Thực hành đọc). Chữ <i>càng</i> luôn đòi điều đứng sau phải ở mức cao hơn điều đứng trước — giống <b>càng… càng</b> trong câu “Càng lớn, tôi càng hiểu…”.</p>
+      <a class="xem-lai" href="#kt-cau-truc">📌 Xem lại: tác dụng của việc lựa chọn cấu trúc câu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Câu gốc nêu điều băn khoăn trước (<i>tôi không rõ tại sao cậu lại làm thế</i>) rồi đưa ra lời phỏng đoán để giải thích (<i>có lẽ…</i>) — đúng mạch suy nghĩ tự nhiên. Câu thay đổi đặt lời đoán lên trước rồi mới nói “không rõ”, khiến lời đoán như bị gạt đi ngay, ý trở nên lộn xộn, không còn là lời giải thích cho điều băn khoăn. b. Câu gốc đi theo mức độ <b>tăng dần</b>: “điều quá nghiêm trọng” → “căn bệnh” hết cách chữa (nặng hơn); chữ <i>càng</i> nhấn mạnh rằng thói chê bai hoàn toàn có thể sửa được. Câu thay đổi đảo ngược mức độ (nặng trước, nhẹ sau) nên chữ <i>càng</i> không còn hợp lí, ý nhấn mạnh bị mất.</div>
+    <div class="bay">Trả lời “hai câu nghĩa như nhau, chỉ đổi chỗ”. Các vế giữ nguyên từ ngữ, nhưng đổi thứ tự thì mạch ý thay đổi — đó chính là điều bài học muốn em thấy.</div>
+    <div class="gv-note">SGV gọi quan hệ ở câu b là quan hệ “tăng tiến”; với HS lớp 6 nói “mức độ tăng dần” là đủ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb3" data-chip="Văn bản 3">Văn bản 3. Bài tập làm văn<small>Trích <i>Nhóc Ni-cô-la: những chuyện chưa kể</i>, Rơ-nê Gô-xi-nhi và Giăng-giắc Xăng-pê</small></h2>
+
+<article class="the bai" id="v3-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Suy luận từ chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Do đâu khi làm bài tập làm văn, Ni-cô-la phải nhờ đến bố?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Truyện có nói thẳng vì sao Ni-cô-la nhờ bố không? Nếu không, em dựa vào đâu để đoán?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc câu đầu truyện và đoạn Ni-cô-la kể về các bạn. Đề bài yêu cầu gì? Ni-cô-la có chọn được “người bạn thân nhất” không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điều truyện kể</h4>
+      <blockquote class="trich"><p>Bố đi làm đã về đến nhà, bố ôm mẹ, ôm tôi và bố nói rằng: “Giời ạ, sao mà một ngày làm việc ở văn phòng nó lại mệt mỏi đến thế không biết”, rồi bố xỏ giày păng-túp, bố vớ lấy báo, bố ngồi xuống ghế phô-tơi, còn tôi thì nói với bố rằng bố cần phải giúp tôi làm bài tập.</p><cite>— Câu mở đầu</cite></blockquote>
+      <p>Ni-cô-la không giải thích. Cậu nói như một điều hiển nhiên: “bố cần phải giúp tôi”.</p></div>
+    <div class="buoc" data-so="2"><h4>Suy ra từ chi tiết</h4>
+      <blockquote class="trich"><p>– Con có hàng đống bạn thân, tôi trả lời bố. Còn những đứa khác thì chẳng bạn bè gì sất.</p></blockquote>
+      <p class="vi-sao">Đề bắt tả “người bạn thân nhất”, mà cậu có “hàng đống” bạn thân — cậu chưa biết chọn ai, chưa biết bắt đầu từ đâu. Thêm nữa, giọng cậu đòi bố giúp nghe rất quen, như một cậu bé đã quen dựa vào người lớn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Truyện không nói thẳng lí do; dựa vào các chi tiết, có thể hiểu: Ni-cô-la <b>chưa biết làm bài</b> — đề yêu cầu tả “người bạn thân nhất của em”, mà cậu có “hàng đống bạn thân”, không biết chọn ai và bắt đầu từ đâu; đồng thời cậu bé <b>quen dựa vào người lớn</b>, nên vừa thấy bố về đã nói như lẽ đương nhiên rằng “bố cần phải giúp tôi làm bài tập”. Dù vì lí do gì, nhờ người khác làm hộ bài văn của mình cũng là việc không nên, như chính câu chuyện cho thấy.</div>
+    <div class="bay">Bịa thêm lí do không có căn cứ (“vì Ni-cô-la lười”, “vì cô giáo bắt”). Câu trả lời phải dựa vào chi tiết trong truyện; chỗ nào là suy đoán thì nói rõ là suy đoán.</div>
+    <div class="gv-note">Văn bản không có mục Trước khi đọc và thẻ 🔎 (đã đối chiếu SGK). Câu 1 có nhiều cách hiểu hợp lí; chấp nhận mọi suy đoán có căn cứ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tâm lí nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vì sao bố Ni-cô-la lại tỏ ra sốt sắng giúp cậu con trai làm bài văn?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bố nói gì về chính mình khi nghe đầu bài? Nghe giọng ấy, em thấy bố đang vui vì được giúp con, hay vì điều gì khác?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm câu bố nhắc tới Ban-dắc. Và để ý lúc ông Blê-đúc đòi làm hộ, bố phản ứng thế nào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bố muốn tỏ ra giỏi văn</h4>
+      <blockquote class="trich"><p>– Ồ, đầu bài ra hay, rất hay đấy chứ, bố nói, mà bố lại còn rất giỏi về tập làm văn chứ lị, các thầy giáo bố còn nói là có cả một Ban-dắc (Balzac) ở trong bố nữa kia.</p></blockquote>
+      <p class="vi-sao">Ban-dắc là một nhà văn Pháp (chú thích của sách). Bố tự ví mình với một nhà văn lớn — Ni-cô-la thấy bố “có vẻ tự hào đến vậy”. Giọng kể ngây thơ của cậu bé làm cái tự hào ấy trở nên buồn cười.</p></div>
+    <div class="buoc" data-so="2"><h4>Bố muốn khác bố của mình — và không chịu thua ai</h4>
+      <blockquote class="trich"><p>bố nói với tôi rằng bố của bố thì chẳng bao giờ giúp bố làm bài tập cả, nhưng mà bố thì khác, bố sẽ giúp, nhưng mà là lần cuối cùng.</p></blockquote>
+      <blockquote class="trich"><p>– Hãy gượm, bố nói, tôi sẽ làm bài tập cho con tôi.</p></blockquote>
+      <p>Khi ông hàng xóm chen vào, bố càng hăng hái giành phần — việc giúp con đã thành chuyện giữ thể diện.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bố sốt sắng giúp con trước hết vì <b>thương con</b> và muốn là một người bố tốt, khác với ông nội ngày xưa (“bố của bố thì chẳng bao giờ giúp bố làm bài tập cả, nhưng mà bố thì khác”). Nhưng phần nhiều là vì bố <b>muốn chứng tỏ mình giỏi văn</b>: vừa nghe đầu bài, bố đã khoe “bố lại còn rất giỏi về tập làm văn chứ lị”, các thầy giáo còn nói “có cả một Ban-dắc (Balzac) ở trong bố”. Khi ông Blê-đúc đòi làm hộ, bố càng không chịu nhường: “tôi sẽ làm bài tập cho con tôi”. Sự sốt sắng ấy pha chút khoe khoang, sĩ diện — và đó là chỗ làm nên tiếng cười của truyện.</div>
+    <div class="bay">Chỉ nói “vì bố thương con”. Đúng một phần, nhưng bỏ qua chi tiết đắt nhất: bố khoe về “Ban-dắc ở trong bố”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hiểu yêu cầu đề bài</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Ai là người bạn thân nhất của cậu bé?</i> – đó là điều cả bố Ni-cô-la và ông Blê-đúc cần phải biết khi muốn làm hộ bài tập làm văn. Vì sao vậy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài văn tả “người bạn thân nhất <b>của em</b>”. Chữ “của em” nặng ký thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại đầu bài trong truyện. Muốn tả một người, ta cần biết những gì về người ấy?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc lại đầu bài</h4>
+      <blockquote class="trich"><p>Tôi trả lời bố rằng đó là một bài tập làm văn, đầu bài là: “Tình bạn; hãy miêu tả người bạn thân nhất của em”.</p></blockquote>
+      <p>Bài văn phải tả một người <b>có thật</b>, là bạn của chính Ni-cô-la. Không biết người ấy là ai, không biết người ấy thế nào thì không có gì để tả.</p></div>
+    <div class="buoc" data-so="2"><h4>Cái hài của tình huống</h4>
+      <p>Cả bố và ông Blê-đúc đều phải mở đầu bằng cùng một câu hỏi: “ai là bạn thân nhất của con?” — tức là chính họ cũng phải hỏi Ni-cô-la. Người làm hộ không thể biết điều mà chỉ người trong cuộc biết.</p>
+      <p class="vi-sao">Ông Blê-đúc hỏi xong thì “Tôi đang định trả lời thì bố đã ngắt lời không để tôi kịp nói”. Hai người lớn tranh nhau làm bài, còn người duy nhất biết câu trả lời lại không được nói — chi tiết này vừa buồn cười vừa đáng nghĩ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vì đầu bài là “Tình bạn; hãy miêu tả người bạn thân nhất của em”: bài văn phải tả một người bạn có thật của chính Ni-cô-la, với ngoại hình, tính nết, kỉ niệm cụ thể. Muốn làm hộ, người lớn bắt buộc phải biết người bạn ấy là ai và như thế nào — mà điều này chỉ Ni-cô-la mới biết. Chính câu hỏi ấy cho thấy một bài văn kể về bạn bè, về trải nghiệm của mình thì không ai làm thay được.</div>
+    <div class="bay">Trả lời “vì phải biết thì mới viết được” mà không chỉ ra đầu bài yêu cầu tả người bạn <b>của chính em</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tìm chi tiết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vì sao sau khi Ni-cô-la đã kể ra nhiều người bạn của mình mà bố của cậu vẫn thấy khó viết?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ni-cô-la gọi những điều cậu kể là “đức tính”. Em đọc lại xem: đó có thật là đức tính không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc đoạn dài Ni-cô-la kể về An-xe-xtơ, Giơ-phroa, Ơt-đơ… Đếm xem cậu kể bao nhiêu bạn, và mỗi bạn có “đức tính” gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quá nhiều bạn, không chọn được ai</h4>
+      <p>Bố yêu cầu “chọn một đứa bạn thân nhất trong cả đống”, nhưng Ni-cô-la kể liền một mạch sáu bạn: An-xe-xtơ, Giơ-phroa, Ơt-đơ, Ruy-phut, Me-xăng, Gioa-chim.</p></div>
+    <div class="buoc" data-so="2"><h4>Những “đức tính” rất lạ</h4>
+      <blockquote class="trich"><p>Sau thằng An-xe-xtơ, tôi lại nói với bố thằng Giơ-phroa (Geoffroy), cái thằng có hàng đống đức tính hay: bố nó giàu ơi là giàu và toàn mua cho nó đồ chơi, và Giơ-phroa thỉnh thoảng lại mang cho bọn bạn mượn rồi làm vỡ mất.</p>
+        <p>Rồi cả thằng Ơt-đơ (Eudes), cực khoẻ, và rất là thích đấm đá, nhưng mà chỉ đấm bạn bè thôi, bởi vì nó rất dát.</p>
+        <p>Rồi tôi ngừng lại, bởi vì bố tôi cứ tròn mắt ra mà nhìn tôi.</p></blockquote>
+      <p class="vi-sao">Bố giàu, có còi, đầu gối “vừa to vừa bẩn”, không cho ai mượn gì… — chẳng điều nào là đức tính. Cái nhìn của trẻ con khác hẳn người lớn; bố “tròn mắt” là vì thế.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vì Ni-cô-la <b>không chọn được một người bạn thân nhất</b> mà kể ra cả “hàng đống” bạn; và những điều cậu gọi là “đức tính” lại <b>chẳng phải đức tính</b>: An-xe-xtơ “lúc nào cũng ăn luôn miệng”, Giơ-phroa có bố giàu, mang đồ chơi cho bạn mượn “rồi làm vỡ mất”, Ơt-đơ thích đấm bạn bè “bởi vì nó rất dát”, Ruy-phut có cái còi và bố là cảnh sát, Gioa-chim “không bao giờ muốn cho ai mượn gì”. Bố lại <b>không biết, không hiểu</b> những cậu bé ấy như Ni-cô-la hiểu, nên không thể viết về họ. Chính bố phải thừa nhận: “Thế thì sẽ khó hơn là bố tưởng rồi đây”.</div>
+    <div class="bay">Chỉ nói “vì Ni-cô-la có nhiều bạn quá”. Còn một lí do buồn cười hơn mà dễ bỏ sót: những “đức tính” Ni-cô-la kể chẳng giống đức tính chút nào.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Thử tưởng tượng em nhờ một người chưa từng đến lớp em tả cô bạn ngồi cạnh. Người ấy có thể viết những câu thật đẹp — nhưng sẽ chẳng giống bạn em chút nào. Chỉ người đã chơi cùng, cười cùng mới viết được về một người bạn.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c5" data-ten="Câu 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nêu ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Tôi hiểu rằng bài tập làm văn của tôi thì tốt nhất là tôi tự làm một mình</i> – nhân vật trong câu chuyện rút ra một kinh nghiệm như thế qua những gì đã xảy ra khi nhờ bố làm bài. Em có đồng ý với điều đó không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài tự làm của Ni-cô-la được cô giáo phê thế nào? Còn bài người lớn định làm hộ thì đem lại gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh hai kết quả ở cuối truyện: bài văn của Ni-cô-la, và mối quan hệ giữa bố với ông Blê-đúc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai kết quả ở cuối truyện</h4>
+      <blockquote class="trich"><p>Tôi được điểm rất cao với bài tập làm văn ở trường, và cô giáo còn viết vào vở của tôi: “Bài viết rất cá tính, đề tài độc đáo”.</p>
+        <p>Chỉ có một vấn đề duy nhất là, từ cái bài tập làm văn về tình bạn, ông Blê-đúc và bố không nói chuyện với nhau nữa.</p></blockquote>
+      <p class="vi-sao">Bài văn về tình bạn — do người lớn tranh làm hộ — lại làm hai người bạn hàng xóm giận nhau. Còn bài tự làm thì được khen “cá tính”. Truyện cười nhẹ mà bài học rất rõ.</p></div>
+    <div class="buoc" data-so="2"><h4>Một chi tiết bất ngờ</h4>
+      <p>Ni-cô-la chọn tả Ác-nhăng — một cái tên <b>không có</b> trong danh sách sáu bạn cậu kể với bố. Chỉ khi tự làm, cậu mới tự nghĩ, tự chọn được theo cách của mình.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có một đáp án duy nhất. <b>Một câu trả lời tham khảo:</b> Em đồng ý với Ni-cô-la. Bài tập làm văn là nơi em nói suy nghĩ, cảm xúc, trải nghiệm của chính mình; người khác dù giỏi đến đâu cũng không biết bạn bè của em, kỉ niệm của em. Khi tự làm, Ni-cô-la đã viết được một bài “rất cá tính, đề tài độc đáo”; còn khi người lớn tranh nhau làm hộ, bài văn chẳng đi tới đâu mà bố với ông Blê-đúc lại giận nhau. Tự làm bài còn giúp em biết mình mạnh ở đâu, yếu ở đâu để tiến bộ. Người lớn có thể gợi ý, hướng dẫn, nhưng bài viết phải là của em.</div>
+    <div class="bay">Hiểu “tự làm một mình” thành “không bao giờ được hỏi ai”. Được hỏi, được góp ý — nhưng không nhờ người khác viết thay.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận ý kiến đồng ý một phần (vẫn cần người lớn hướng dẫn cách làm), miễn có lí lẽ, dẫn chứng từ truyện. Có thể liên hệ ngay với chính trang bài giải này: phần Viết chỉ có gợi ý, không có bài mẫu cho HS chép.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c6" data-ten="Câu 6" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan vd">Vận dụng</span><span class="nhan">Cách làm bài văn</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nếu gặp một đề văn như của Ni-cô-la, theo em, việc đầu tiên phải làm là gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bố Ni-cô-la thật ra đã hỏi đúng câu đầu tiên. Đó là câu nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại lời bố: “Phải bố cục một tí, bố nói. Trước tiên, ai là bạn thân nhất của con?”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điều bố làm đúng</h4>
+      <blockquote class="trich"><p>– Phải bố cục một tí, bố nói. Trước tiên, ai là bạn thân nhất của con?</p></blockquote>
+      <p>Bố đúng ở chỗ: trước tiên phải <b>chọn được một người bạn</b>, rồi ghi ra những đức tính mình thích ở bạn để lập dàn ý. Bố chỉ sai ở chỗ định làm thay con.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn thế nào cho đúng</h4>
+      <p>Chọn người bạn mà em <b>hiểu rõ nhất, có nhiều kỉ niệm nhất</b> — không phải người có bố giàu hay có cái còi đẹp nhất. Rồi nhớ lại: bạn trông thế nào, tính nết ra sao, em quý bạn ở điểm nào, có kỉ niệm gì giữa hai đứa.</p>
+      <p class="vi-sao">Đọc kĩ đề để biết đề yêu cầu gì (“miêu tả”, “người bạn thân nhất”, “của em”) cũng là một phần của việc đầu tiên này.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Việc đầu tiên là <b>đọc kĩ đề và chọn ra một người bạn thân nhất</b> mà em hiểu rõ, có nhiều kỉ niệm — đúng như câu bố hỏi “Trước tiên, ai là bạn thân nhất của con?”. Sau đó mới nhớ lại những đặc điểm, đức tính của bạn và những kỉ niệm giữa hai người để lập dàn ý; và việc ấy phải do chính em làm, vì chỉ em mới biết bạn của mình.</div>
+    <div class="bay">Trả lời “việc đầu tiên là nhờ bố mẹ giúp” hoặc “tìm bài mẫu trên mạng” — đó đúng là điều câu chuyện khuyên ta đừng làm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet" data-chip="Viết">Viết<small>Viết bài văn trình bày ý kiến về một hiện tượng (vấn đề) mà em quan tâm</small></h2>
+
+<article class="the bai" id="viet" data-ten="Bài viết" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết</span><span class="nhan vd">Vận dụng</span><span class="nhan">Trình bày ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết bài văn trình bày ý kiến về một hiện tượng (vấn đề) mà em quan tâm.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có chuyện gì quanh em khiến em muốn nói “em không đồng ý” — hay “em hoàn toàn đồng ý”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một vấn đề em đã từng thấy, từng trải qua (có thể lấy trong các đề tài SGK gợi ý). Trước khi viết, tự trả lời một câu: “Ý kiến của em về chuyện này là gì?” — viết câu ấy ra giấy.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi viết: chọn đề tài, tìm ý</h4>
+      <p>Đề tài SGK gợi ý: tôn trọng người khác và mong muốn được người khác tôn trọng; thái độ đối với người khuyết tật; noi gương những người thành công; đánh giá khả năng của bản thân; hiện tượng bắt nạt trong trường học hiện nay — hoặc một đề tài em am hiểu. Tìm ý theo ba câu hỏi: Cần hiểu như thế nào về hiện tượng (vấn đề) này? Những khía cạnh cần bàn bạc? Bài học rút ra?</p>
+      <p class="vi-sao">Chọn vấn đề gần mình thì em mới có bằng chứng thật: chuyện ở lớp, ở nhà, ở khu phố. Bằng chứng thật thuyết phục hơn mọi lời nói chung chung.</p>
+      <a class="xem-lai" href="#kt-yeu-cau">📌 Xem lại: yêu cầu của bài văn trình bày ý kiến</a></div>
+    <div class="buoc" data-so="2"><h4>Học cách làm của bài tham khảo <i>Câu chuyện đồng phục</i></h4>
+      <blockquote class="trich"><p>Tôi không tán thành thái độ đó của các bạn, bởi vì, theo suy nghĩ của tôi, mặc đồng phục khi đến trường là điều cần thiết.</p><cite>— Mở bài, sau lời dặn của cô giáo</cite></blockquote>
+      <p>Mở bài kể một chuyện nhỏ rồi nêu ngay ý kiến. Thân bài mỗi đoạn một ý: đồng phục đẹp; tạo bản sắc của trường; làm mọi người bình đẳng (bằng chứng: Hoàn, Lê, Phương); không xoá nhoà cái riêng (bằng chứng: Bích Hiền, Cẩm Vân, Văn Hoạt). Kết bài khẳng định lại và hỏi người đọc: “Còn bạn, bạn nghĩ sao?”.</p>
+      <p class="vi-sao">Để ý đoạn “Vậy đồng phục có làm cho tính cách, suy nghĩ của mọi người giống hệt nhau?”: người viết tự đặt ra ý kiến ngược lại rồi trả lời. Bài nghị luận hay là bài đoán trước được người đọc sẽ băn khoăn gì.</p></div>
+    <div class="buoc" data-so="3"><h4>Lập dàn ý và viết</h4>
+      <p><b>Mở bài:</b> giới thiệu hiện tượng (vấn đề) — trực tiếp, hoặc kể một câu chuyện ngắn. <b>Thân bài:</b> ý 1, ý 2, ý 3… mỗi ý một đoạn, có lí lẽ và bằng chứng. <b>Kết bài:</b> khẳng định lại ý kiến của bản thân.</p>
+      <p>Cô làm mẫu một câu mở bài thôi, phần còn lại em tự viết nhé (đề tài <i>Noi gương những người thành công</i>): <i>Đầu năm học, cô chủ nhiệm treo ở góc lớp một tấm bảng nhỏ mang tên “Gương sáng quanh ta”, và không phải bạn nào cũng thích tấm bảng ấy.</i></p></div>
+    <div class="buoc" data-so="4"><h4>Chỉnh sửa theo bảng của SGK</h4>
+      <p>Mở bài đã nêu rõ vấn đề chưa? Có câu nào thể hiện ý kiến, thái độ của em chưa? Lí lẽ có chắc, bằng chứng có tiêu biểu không? Chính tả, diễn đạt?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài văn đạt yêu cầu khi: (1) <b>nêu được hiện tượng (vấn đề)</b> cần bàn luận rõ ràng ở mở bài; (2) <b>thể hiện được ý kiến</b> (tình cảm, thái độ, cách đánh giá) của người viết; (3) <b>dùng lí lẽ và bằng chứng</b> để thuyết phục — mỗi ý ở thân bài là một đoạn văn, có lí lẽ chắc chắn và bằng chứng cụ thể, tiêu biểu; (4) bố cục ba phần rõ ràng, kết bài khẳng định lại ý kiến; (5) bảo đảm yêu cầu về chính tả và diễn đạt.</div>
+    <div class="bay">Kể một câu chuyện từ đầu đến cuối (thành bài kể trải nghiệm) mà không có ý kiến, lí lẽ; hoặc chỉ nêu lí lẽ chung chung mà không có một bằng chứng cụ thể nào.</div>
+    <div class="gv-note">Đánh giá theo 5 tiêu chí trong ô Gợi ý trả lời (bám hộp 📌 Yêu cầu và bảng Chỉnh sửa của SGK). Đề tài “hiện tượng bắt nạt” có thể chạm vào trải nghiệm riêng — cho HS viết riêng, không ép đọc trước lớp. Bài tham khảo dưới đây chỉ để GV đối chiếu mức độ; tránh phát cho HS chép — theo nguyên tắc không viết hộ bài văn.</div>
+    <div class="tham-khao">
+    <h5>Noi gương những người thành công</h5>
+    <p>Đầu năm học, cô chủ nhiệm treo ở góc lớp một tấm bảng nhỏ mang tên “Gương sáng quanh ta”, và không phải bạn nào cũng thích tấm bảng ấy. Mỗi tuần, cô dán lên đó tên một bạn vừa làm được một việc đáng khen. Có bạn bĩu môi: “Học theo người khác thì còn gì là mình nữa?”. Tôi lại nghĩ khác: noi gương những người thành công là việc cần thiết, miễn là ta biết học cho đúng cách.</p>
+    <p>Trước hết, người thành công là người đã đi trước ta một quãng đường. Nhìn vào họ, ta biết đích đến có thật và biết mình cần cố gắng đến đâu. Năm lớp 5, tôi rất sợ môn Toán. Thấy Minh, bạn ngồi bàn trên, đạt giải trong kì thi của huyện, tôi hỏi bạn học thế nào. Minh chỉ cười: “Ngày nào tớ cũng làm thêm hai bài, không bỏ hôm nào”. Tôi thử làm theo. Một học kì sau, điểm Toán của tôi đã khá lên rõ rệt. Tôi không giỏi bằng Minh, nhưng tôi giỏi hơn chính mình của ngày hôm qua.</p>
+    <p>Hơn thế, noi gương người thành công là học cách họ vượt qua khó khăn. Trong bài <i>Tiếng cười không muốn nghe</i>, chú Nam có bước đi khập khiễng, từng bị bạn bè bắt chước dáng đi để làm hề. Chú tự chế chiếc đàn bầu, tiếng đàn ban đầu ai nghe cũng cười. Nhưng “Chú kiên trì tập”, và rồi trở thành “cây độc tấu đàn bầu có hạng trong một đoàn nghệ thuật”. Điều đáng học ở chú không phải là chơi đàn bầu, mà là sự bền bỉ trước tiếng cười chê của người khác. Bài học ấy, ai cũng có thể mang theo vào việc của riêng mình.</p>
+    <p>Tuy vậy, noi gương không có nghĩa là bắt chước y hệt. Nếu chỉ chăm chăm làm giống một người khác, ta sẽ đánh mất điều riêng của mình. Tác giả Lạc Thanh trong bài <i>Xem người ta kìa!</i> đã muốn đổi lời trách của mẹ thành một lời khích lệ: “Người ta đã khác, đã hay như thế, sao mình lại không khác, không hay, theo cách của mình?”. Cậu bạn J trong <i>Hai loại khác biệt</i> cũng không bắt chước ai, chỉ nghiêm túc và lễ độ theo cách của riêng cậu, vậy mà cả lớp phải nể phục. Học người giỏi là học tinh thần, cách làm, chứ không phải sao chép con người họ.</p>
+    <p>Như vậy, noi gương những người thành công giúp ta có đích để hướng tới và có thêm sức mạnh để vượt khó, nếu ta biết giữ lại cái riêng của mình. Tấm bảng “Gương sáng quanh ta” vẫn treo ở góc lớp tôi. Tôi mong một ngày nào đó, tên mình cũng được dán lên — không phải vì tôi giống ai, mà vì tôi đã cố gắng theo cách của tôi. Còn bạn, bạn đang noi gương ai?</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Nói và nghe<small>Trình bày ý kiến về một hiện tượng (vấn đề) đời sống</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Trình bày ý kiến</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trình bày ý kiến về một hiện tượng (vấn đề) đời sống (mục đích: thuyết phục người nghe về ý kiến của em trước một hiện tượng (vấn đề) trong đời sống; người nghe: thầy cô giáo, các bạn học sinh trong lớp và những người quan tâm).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người đọc có thể đọc lại một câu khó hiểu. Người nghe thì không. Vậy bài nói cần gì hơn bài viết?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng lại bài viết của em, nhưng tóm lại thành một dàn ý ngắn trên một tờ giấy nhỏ. Đánh dấu chỗ cần nhấn mạnh và ghi sẵn những bằng chứng, con số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi nói: chuẩn bị và tập luyện</h4>
+      <p>Tóm lược bài viết thành dàn ý. Nghĩ cách mở đầu, triển khai, kết thúc bằng ngôn ngữ nói (câu ngắn hơn, có lời chào, có câu hỏi hướng tới người nghe). Tập theo nhóm: các bạn luân phiên nói, nghe và góp ý cho nhau.</p>
+      <p class="vi-sao">SGK nói hình thức tập tốt nhất là theo nhóm — vì bài nói trình bày ý kiến thì luôn có người đồng ý, người không; tập trước với nhóm là tập trả lời những ý kiến khác.</p></div>
+    <div class="buoc" data-so="2"><h4>Khi nói: mở đầu – triển khai – kết luận</h4>
+      <p><b>Mở đầu:</b> nêu vấn đề gọn, rõ; có thể dùng một câu chuyện để thu hút. <b>Triển khai:</b> lần lượt từng ý, có lí lẽ và bằng chứng; nhấn mạnh ý kiến riêng của em. <b>Kết luận:</b> tóm lược và gợi người nghe trao đổi. Giọng vừa phải, lên xuống đúng chỗ; nghiêm túc nhưng vui vẻ; ánh mắt, nét mặt, cử chỉ hướng tới người nghe.</p></div>
+    <div class="buoc" data-so="3"><h4>Sau khi nói: trao đổi</h4>
+      <p><b>Người nghe:</b> tóm tắt được ý kiến của người nói; trao đổi về vấn đề và cách trình bày; nêu thắc mắc; nhận xét về lí lẽ và bằng chứng. <b>Người nói:</b> lắng nghe, giải thích thêm chỗ người nghe thắc mắc, bảo vệ ý kiến của mình nếu thấy ý kiến đó đúng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói đạt yêu cầu khi: (1) mở đầu nêu vấn đề gọn, rõ, thu hút được người nghe; (2) trình bày lần lượt các ý, mỗi ý có lí lẽ và bằng chứng, nhấn mạnh được ý kiến riêng; (3) kết luận tóm lược nội dung và gợi người nghe trao đổi; (4) giọng nói, tốc độ, ánh mắt, cử chỉ phù hợp, tương tác với người nghe; (5) biết lắng nghe, giải thích và bảo vệ ý kiến khi trao đổi. Với người nghe: tóm tắt đúng ý kiến của bạn và nhận xét được lí lẽ, bằng chứng bạn dùng.</div>
+    <div class="bay">Học thuộc bài viết rồi đọc lại nguyên văn, mắt nhìn giấy. Và khi bị hỏi vặn thì bỏ ngay ý kiến của mình — SGK dặn: bảo vệ ý kiến nếu thấy ý kiến đó đúng.</div>
+    <div class="gv-note">Phần Sau khi nói luyện kĩ năng “tóm tắt được ý kiến của người khác” (yêu cầu cần đạt của Bài 8) — có thể yêu cầu mỗi HS nghe tóm tắt ý kiến của bạn trong một câu trước khi nhận xét.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cc" data-chip="Củng cố">Củng cố, mở rộng</h2>
+
+<article class="the bai" id="cc-c1" data-ten="Câu 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tổng hợp vấn đề</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Qua việc học các văn bản trong bài, hãy trả lời các câu hỏi sau:</p>
+    <p>a. Vì sao việc khẳng định cái riêng của mỗi người luôn là điều cần thiết?</p>
+    <p>b. Vì sao trong cuộc sống, giữa mọi người cần có sự thấu hiểu, chia sẻ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tên của Bài 8 là “Khác biệt và gần gũi”. Câu a ứng với nửa nào, câu b ứng với nửa nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lấy lí lẽ và bằng chứng từ các văn bản đã học: <i>Xem người ta kìa!</i>, <i>Hai loại khác biệt</i>, <i>Tiếng cười không muốn nghe</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — cái riêng</h4>
+      <blockquote class="trich"><p>Sự độc đáo của từng cá nhân làm cho tập thể trở nên phong phú.</p><cite>— Xem người ta kìa!</cite></blockquote>
+      <blockquote class="trich"><p>Cái khác, cái riêng không phải là nhược điểm mà là bản chất của mỗi cá thể. Hơn thế, nó còn là yếu tố quyết định giá trị của mỗi con người.</p><cite>— Tiếng cười không muốn nghe</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>b — thấu hiểu, chia sẻ</h4>
+      <p>Người con hiểu được lòng mẹ thì “không còn cái cảm giác khó chịu nữa”. Người biết “đặt mình vào hoàn cảnh người khác” thì sẽ không cười nhạo ai.</p>
+      <p class="vi-sao">Phần Giới thiệu bài học của SGK đã nói: giữa mọi người vẫn có nhiều nét chung, “Nhờ đó, chúng ta mới có khả năng thấu hiểu nhau, để hợp tác và chia sẻ.”</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Khẳng định cái riêng là cần thiết vì mỗi người vốn có những đặc điểm riêng, và “Cái khác, cái riêng không phải là nhược điểm mà là bản chất của mỗi cá thể”; nhờ cái riêng mà mỗi người có giá trị riêng và góp được cho tập thể “một cái gì đó của chính mình” — “Sự độc đáo của từng cá nhân làm cho tập thể trở nên phong phú”. Khẳng định cái riêng một cách có ý nghĩa, như J, còn khiến mọi người nể phục. b. Giữa mọi người cần có sự thấu hiểu, chia sẻ vì bên cạnh những khác biệt, ta vẫn có nhiều nét chung; có thấu hiểu mới tôn trọng được sự khác biệt của nhau, mới hợp tác và sống hoà thuận. Người con hiểu nỗi lòng mẹ thì hết khó chịu, thương mẹ hơn; người biết yêu thương, đồng cảm, biết đặt mình vào hoàn cảnh người khác thì sẽ không cười nhạo ai, và tiếng cười “ngạo mạn vô lối sẽ không có lí do gì để bật ra”.</div>
+    <div class="bay">Trả lời bằng ý chung chung, không dẫn được gì từ các văn bản. Đề nói rõ “qua việc học các văn bản trong bài”.</div>
+    <div class="gv-note">Câu tổng hợp, có thể chấp nhận nhiều cách diễn đạt; ưu tiên câu trả lời dẫn được lí lẽ, chi tiết từ ít nhất hai văn bản.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân biệt loại văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sau đây là hai đoạn văn có mục đích giao tiếp khác nhau. Kẻ bảng vào vở theo mẫu và điền các thông tin thể hiện sự khác nhau giữa hai đoạn văn.</p>
+    <p>a. <i>Thế rồi ông ấy ngồi xuống cái bàn nhỏ cùng với chúng tôi, ông gãi gãi cái đầu, ông nhìn ngơ ngẩn ra phía trước, và ông nói: “Xem nào, xem nào, xem nào”, rồi ông hỏi ai là bạn thân nhất của tôi. Tôi đang định trả lời thì bố đã ngắt lời không để tôi kịp nói. Bố nói với ông Blê-đúc rằng hãy để chúng tôi yên, rằng chúng tôi không cần gì ông cả.</i></p>
+    <p>b. <i>Điều tôi học được từ bài tập này là: sự khác biệt chia làm hai loại. Một loại khác biệt vô nghĩa, và một loại khác biệt có ý nghĩa. Khi tôi quyết định mặc bộ đồ quái dị đến trường, tôi biết rằng mình không phải là người duy nhất, nhưng tôi đã chọn trò đơn giản nhất vì không quan tâm tìm hiểu một thứ ý nghĩa hơn. Và thành thật mà nói, tôi đoán rằng mình thật sự chẳng hề cố tỏ ra khác biệt, hoặc nếu có, tôi chỉ chọn loại khác biệt vô nghĩa. Về vấn đề này, tôi chẳng đơn độc; đa số chúng tôi đều chọn loại vô nghĩa.</i></p>
+    <p>(Bảng gồm ba dòng: Nội dung của đoạn văn là gì? · Mục đích của đoạn văn (kể chuyện, bộc lộ cảm xúc, miêu tả, thuyết phục, thuyết minh) là gì? · Văn bản có đoạn văn được trích thuộc loại nào (văn bản văn học, văn bản nghị luận, văn bản thông tin)? — và hai cột: Đoạn (a) · Đoạn (b).)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một đoạn đang kể chuyện ai làm gì, nói gì. Một đoạn đang rút ra điều gì đó. Đó là manh mối đầu tiên.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhận ra mỗi đoạn trích từ văn bản nào em đã học. Văn bản ấy là truyện hay là bài bàn luận?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận ra nguồn của từng đoạn</h4>
+      <p>Đoạn (a): ông Blê-đúc, bố, “tôi” — trích truyện <i>Bài tập làm văn</i>. Đoạn (b): “Điều tôi học được từ bài tập này…” — trích <i>Hai loại khác biệt</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Điền bảng</h4>
+      <table>
+        <tr><th>Vấn đề</th><th>Đoạn (a)</th><th>Đoạn (b)</th></tr>
+        <tr><td>Nội dung</td><td>Ông Blê-đúc ngồi vào bàn đòi cùng làm bài, hỏi ai là bạn thân nhất của Ni-cô-la; bố ngắt lời, bảo ông để hai bố con yên.</td><td>Điều tác giả học được: có khác biệt vô nghĩa và khác biệt có ý nghĩa; tác giả và đa số các bạn đã chọn loại vô nghĩa.</td></tr>
+        <tr><td>Mục đích</td><td>Kể chuyện</td><td>Thuyết phục</td></tr>
+        <tr><td>Loại văn bản</td><td>Văn bản văn học</td><td>Văn bản nghị luận</td></tr>
+      </table>
+      <p class="vi-sao">Đoạn (a) toàn hành động, lời nói nối nhau (ngồi xuống, gãi đầu, nói, hỏi, ngắt lời). Đoạn (b) mở bằng một nhận định rồi giải thích — dấu hiệu của lời thuyết phục.</p>
+      <a class="xem-lai" href="#kt-nghi-luan">📌 Xem lại: văn bản nghị luận</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Đoạn (a)</b> — Nội dung: ông Blê-đúc ngồi vào bàn đòi cùng làm bài, hỏi ai là bạn thân nhất của Ni-cô-la, bố ngắt lời và bảo ông để hai bố con yên. Mục đích: <b>kể chuyện</b>. Loại văn bản: <b>văn bản văn học</b> (truyện <i>Bài tập làm văn</i>). <b>Đoạn (b)</b> — Nội dung: điều tác giả học được — sự khác biệt chia làm hai loại, vô nghĩa và có ý nghĩa; tác giả và đa số các bạn đã chọn loại vô nghĩa. Mục đích: <b>thuyết phục</b>. Loại văn bản: <b>văn bản nghị luận</b> (<i>Hai loại khác biệt</i>).</div>
+    <div class="bay">Thấy đoạn (b) cũng có “tôi” và kể chuyện mặc bộ đồ quái dị nên xếp vào kể chuyện. Chuyện được nhắc tới chỉ để làm bằng chứng; câu đầu đoạn đã nêu điều người viết muốn thuyết phục.</div>
+    <div class="gv-note">Đoạn (b) do SGK chép có hai chỗ khác văn bản <i>Hai loại khác biệt</i> ở trang 60 (<i>tìm hiểu</i> ↔ <i>tìm kiếm</i>; <i>tôi chẳng đơn độc</i> ↔ <i>tôi cũng chẳng đơn độc</i>) — bài giảng Bài 8 đã đối chiếu PDF, SGK in đúng như vậy; đề ở đây giữ nguyên chữ của SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vấn đề của văn bản nghị luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Văn bản nghị luận thường bàn về những hiện tượng (vấn đề) gì của cuộc sống? Hãy nêu hai hiện tượng (vấn đề) đời sống được bàn trong hai văn bản nghị luận mà em biết.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong Bài 8, em đã đọc mấy văn bản nghị luận? Mỗi văn bản bàn chuyện gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba văn bản nghị luận trong bài: <i>Xem người ta kìa!</i>, <i>Hai loại khác biệt</i>, <i>Tiếng cười không muốn nghe</i>. Gọi tên vấn đề mỗi văn bản bàn bằng một cụm từ ngắn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhìn chung các vấn đề</h4>
+      <p>Các văn bản đều bàn về những điều gần gũi: cách cư xử giữa người với người, cách sống, cách nhìn bản thân. Phần Viết của SGK còn gợi thêm: tôn trọng người khác, người khuyết tật, bắt nạt trong trường học…</p></div>
+    <div class="buoc" data-so="2"><h4>Gọi tên vấn đề của từng văn bản</h4>
+      <p><i>Xem người ta kìa!</i>: giữ cái riêng và tôn trọng sự khác biệt. <i>Hai loại khác biệt</i>: khác biệt vô nghĩa và khác biệt có ý nghĩa. <i>Tiếng cười không muốn nghe</i>: thói cười nhạo, chê bai người khác.</p>
+      <a class="xem-lai" href="#kt-nghi-luan">📌 Xem lại: văn bản nghị luận</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Văn bản nghị luận thường bàn về những hiện tượng (vấn đề) <b>gần gũi, đáng suy nghĩ</b> trong đời sống: cách cư xử giữa người với người, lối sống, việc học tập, môi trường… Hai ví dụ: <i>Xem người ta kìa!</i> bàn về việc mỗi người cần được sống với cái riêng của mình, biết hoà đồng nhưng giữ cái riêng và tôn trọng sự khác biệt; <i>Hai loại khác biệt</i> bàn về cách thể hiện sự khác biệt — khác biệt vô nghĩa và khác biệt có ý nghĩa. (Cũng có thể nêu <i>Tiếng cười không muốn nghe</i>: bàn về thói cười nhạo, chê bai người khác.)</div>
+    <div class="bay">Nêu tên văn bản mà không nói vấn đề được bàn; hoặc nêu một văn bản truyện (<i>Bài tập làm văn</i>) như là văn bản nghị luận.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đề tài nghị luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các đề tài sau, theo em, những đề tài nào phù hợp với yêu cầu viết bài văn nghị luận? Vì sao?</p>
+    <p>a. Trải nghiệm một chuyến đi biển cùng bố mẹ.</p>
+    <p>b. Cây bàng trong sân trường kể chuyện về mình.</p>
+    <p>c. Bàn về ý nghĩa của việc trồng cây.</p>
+    <p>d. Kỉ niệm về người bạn thân nhất.</p>
+    <p>e. Vai trò của tình bạn.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — đề tài này có hợp với bài nghị luận không?</b>
+    <div class="cau-thu"><span class="noi-dung">a. Trải nghiệm một chuyến đi biển cùng bố mẹ</span><button class="chon chu" data-dung="0">Phù hợp</button><button class="chon chu" data-dung="1">Không phù hợp</button><span class="phan-hoi" data-dung-txt="Đúng! Đề này yêu cầu kể lại trải nghiệm." data-sai-txt="Thử lại: đề này bảo em bàn luận, hay kể lại một chuyến đi?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">c. Bàn về ý nghĩa của việc trồng cây</span><button class="chon chu" data-dung="1">Phù hợp</button><button class="chon chu" data-dung="0">Không phù hợp</button><span class="phan-hoi" data-dung-txt="Đúng! Có chữ “bàn về” — phải nêu ý kiến, lí lẽ, bằng chứng." data-sai-txt="Thử lại: đọc chữ đầu tiên của đề — “Bàn về”."></span></div>
+    <div class="cau-thu"><span class="noi-dung">e. Vai trò của tình bạn</span><button class="chon chu" data-dung="1">Phù hợp</button><button class="chon chu" data-dung="0">Không phù hợp</button><span class="phan-hoi" data-dung-txt="Đúng! Một vấn đề chung, cần lí lẽ để làm rõ." data-sai-txt="Thử lại: đề này có yêu cầu kể một kỉ niệm riêng nào không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề tài nào bắt em phải nêu ý kiến và chứng minh, chứ không phải kể lại chuyện của mình?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi đề, hỏi: đề muốn em <b>kể</b> (một trải nghiệm, một câu chuyện) hay muốn em <b>bàn</b> (nêu ý kiến về một vấn đề chung)?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Loại các đề kể chuyện</h4>
+      <p>a. kể trải nghiệm của em; d. kể kỉ niệm về một người bạn; b. cây bàng “kể chuyện về mình” — một câu chuyện tưởng tượng. Cả ba đều là kể, không phải bàn luận.</p></div>
+    <div class="buoc" data-so="2"><h4>Giữ lại các đề bàn luận</h4>
+      <p>c. “Bàn về” ý nghĩa của việc trồng cây; e. vai trò của tình bạn — đều là vấn đề chung, người viết phải nêu ý kiến, dùng lí lẽ và bằng chứng để thuyết phục.</p>
+      <p class="vi-sao">Cùng nói về cây (b và c), cùng nói về bạn (d và e) — nhưng một đề kể, một đề bàn. Đề tài giống nhau không có nghĩa là kiểu bài giống nhau.</p>
+      <a class="xem-lai" href="#kt-nghi-luan">📌 Xem lại: văn bản nghị luận</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các đề tài phù hợp với bài văn nghị luận: <b>c</b> (Bàn về ý nghĩa của việc trồng cây) và <b>e</b> (Vai trò của tình bạn), vì đó là những vấn đề chung của đời sống, đòi hỏi người viết nêu ý kiến và dùng lí lẽ, bằng chứng để thuyết phục người đọc. Các đề <b>a, d</b> yêu cầu kể lại trải nghiệm, kỉ niệm của riêng em; đề <b>b</b> yêu cầu kể một câu chuyện tưởng tượng — nên không phù hợp với bài nghị luận.</div>
+    <div class="bay">Xếp đề d (kỉ niệm về người bạn thân nhất) vào nghị luận vì “có nói về tình bạn”. Đề yêu cầu kể kỉ niệm — đó là bài kể chuyện.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Thực hành đọc">Thực hành đọc<small><i>Tiếng cười không muốn nghe</i>, Minh Đăng</small></h2>
+
+<article class="the bai" id="doc" data-ten="Hướng dẫn đọc" data-muc="th">
+  <div class="bai-dau"><span class="so">Hướng dẫn đọc</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tự đọc văn bản nghị luận</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi đọc văn bản <i>Tiếng cười không muốn nghe</i>, em cần chú ý những vấn đề sau:</p>
+    <p>– Sự vô lí của hành động cười nhạo.</p>
+    <p>– Mục đích chính mà văn bản hướng tới.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 SGK không đặt câu hỏi ở đây, mà nêu hai điều cần chú ý. Hãy biến mỗi điều thành một câu hỏi cho chính mình: “Vì sao cười nhạo là vô lí?” và “Người viết muốn thuyết phục mình điều gì?”</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân những câu hỏi người viết đặt ra cho người đọc (“Hãy nghĩ xem…”, “ta lấy quyền gì…”). Chúng chính là chỗ người viết chỉ ra cái vô lí.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Người viết nêu vấn đề thế nào</h4>
+      <blockquote class="trich"><p>Tuy nhiên, tôi cũng biết rằng, trong cuộc sống hằng ngày, còn có những tiếng cười mà người ta không bao giờ muốn nghe, không bao giờ chờ đợi.</p><cite>— Đoạn mở đầu</cite></blockquote>
+      <p>Khác <i>Xem người ta kìa!</i> (mở bằng lời kể), bài này mở bằng những tiếng cười đáng quý rồi mới nói tới tiếng cười “không muốn nghe”, và dẫn câu tục ngữ <i>Cười người chớ vội cười lâu / Cười người hôm trước, hôm sau người cười</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Vì sao cười nhạo là vô lí — các lí lẽ</h4>
+      <blockquote class="trich"><p>Trên đời, không ai hoàn hảo cả. Ai cũng có mặt tốt, mặt xấu, có ưu điểm, khiếm khuyết, khó tránh được va vấp, sai lầm.</p></blockquote>
+      <blockquote class="trich"><p>Vậy thì, ta lấy quyền gì, lấy cớ gì để cười cợt những người không giống ta? Nếu ai đó chế nhạo cái khác biệt của ta, ta có thấy dễ chịu không?</p></blockquote>
+      <blockquote class="trich"><p>Như vậy, sự cười nhạo chẳng phải đã vô tình làm hại người ta đó sao?</p></blockquote>
+      <p class="vi-sao">Ba lí lẽ, ba câu hỏi chặn lại người cười: chính anh cũng không hoàn hảo; cái khác của người ta là điều tất yếu; và tiếng cười có thể làm hại người khác. Người viết không mắng, chỉ hỏi — để người đọc tự trả lời và tự thấy mình sai.</p>
+      <a class="xem-lai" href="#kt-li-le">📌 Xem lại: lí lẽ và bằng chứng</a></div>
+    <div class="buoc" data-so="3"><h4>Bằng chứng — câu chuyện chú Nam</h4>
+      <blockquote class="trich"><p>Bây giờ, chú Nam đã là cây độc tấu đàn bầu có hạng trong một đoàn nghệ thuật. Sự cười nhạo ngày nào của mấy người giờ đây đã phải thay bằng thái độ thán phục.</p></blockquote>
+      <p class="vi-sao">Chuyện chú Nam là <b>bằng chứng</b> lấy từ thực tế: người từng bị cười vì dị tật lại thành công, còn con của người buông lời “ác khẩu” thì thi trượt. Bằng chứng ấy làm cái vô lí của tiếng cười hiện ra rõ nhất.</p></div>
+    <div class="buoc" data-so="4"><h4>Mục đích chính của văn bản</h4>
+      <blockquote class="trich"><p>Lòng nhân ái, sự cảm thông, ấy là “phương thuốc” hữu hiệu để trị “căn bệnh” này.</p><cite>— Đoạn cuối</cite></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Sự vô lí của hành động cười nhạo:</b> người cười tự cho mình “cái quyền phán xét, cợt nhạo kẻ khác”, trong khi “Trên đời, không ai hoàn hảo cả” — chính người cười cũng có lúc “vướng phải những điều mà mình đã từng chê bai”; sự khác biệt về gia cảnh, ngoại hình, thể chất, sở thích… là “điều tất yếu”, là bản chất của mỗi người và làm cộng đồng phong phú, nên “ta lấy quyền gì, lấy cớ gì để cười cợt những người không giống ta?”; tiếng cười còn có thể làm hại người khác, khiến người thiếu bản lĩnh rơi vào bế tắc. Câu chuyện chú Nam — từng bị cười chê vì dị tật mà trở thành “cây độc tấu đàn bầu có hạng” — là bằng chứng cho thấy tiếng cười nhạo vô lí đến mức nào. <b>Mục đích chính của văn bản:</b> thuyết phục người đọc từ bỏ thói cười nhạo, chê bai cái khác biệt, khiếm khuyết của người khác; trước sai lầm của người khác thì “góp ý chân thành” thay vì cười hả hê; và bồi đắp “Lòng nhân ái, sự cảm thông”, biết đặt mình vào hoàn cảnh người khác.</div>
+    <div class="gv-note">Phần Thực hành đọc không có câu hỏi trong SGK; hai điều cần chú ý được chuyển thành câu hỏi tự đọc. Văn bản có chi tiết người bị cười nhạo “tìm lối thoát trong hành vi tiêu cực” — nếu thảo luận trên lớp, nên hướng về cách ứng xử tích cực và nhắc HS có thể tìm thầy cô, người thân khi bị trêu chọc.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 8. Khác biệt và gần gũi — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Câu hỏi mở không có một đáp án duy nhất: câu trả lời tốt là câu trả lời có căn cứ trong văn bản.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b08';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-08-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-08-bai-giai.nguon.html" data-phien-ban="4541a34d902d">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

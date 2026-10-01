@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 11. Our Greener World — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập hai</div>
+    <div class="hang1">
+      <h1>Unit 11. Our Greener World — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập hai</div><h1>Unit 11. Our Greener World — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 7 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-3r"><b class="ten">The three Rs</b>
+      <span class="en"><b>Reduce</b> – use less of something · <b>Reuse</b> – use something again · <b>Recycle</b> – create new products from used materials</span><br>
+      → reduce = giảm · reuse = tái sử dụng · recycle = tái chế (Glossary).</div>
+    <div class="kt" id="kt-a-an"><b class="ten">Articles: a / an — Remember!</b>
+      <span class="en">There are two kinds of articles in English: the indefinite article (a / an) and the definite article (the). We use <i>a / an</i> – with singular countable nouns when we are talking about them in general.</span> Ví dụ: <span class="en"><b>An</b> ant is <b>a</b> tiny animal.</span> <span class="en">– after the verbs <i>to be</i> and <i>to have</i>.</span> Ví dụ: <span class="en">I'm <b>a</b> student. / I have <b>an</b> eraser.</span><br>
+      → Chọn <i>a</i> hay <i>an</i> theo <b>âm đầu</b> của từ đứng ngay sau: nguyên âm → <i>an</i> (<span class="en">an ant, an eraser</span>); phụ âm → <i>a</i>.</div>
+    <div class="kt" id="kt-the"><b class="ten">Articles: the — Remember!</b>
+      <span class="en">We use <i>the</i> – with singular or plural nouns when we already know them or when they are mentioned for the second time.</span> Ví dụ: <span class="en"><b>The</b> bike in front of her house is nice.</span> <span class="en">– with nouns which are unique.</span> Ví dụ: <span class="en"><b>The</b> air is dirty.</span></div>
+    <div class="kt" id="kt-if"><b class="ten">First conditional</b>
+      <span class="en">First conditional sentences describe things which are possible and likely to happen in the present or the future.</span><br>
+      <span class="en"><u>If + subject + V (present simple),</u> (<i>If</i>-clause) &nbsp; <u>subject + will / won't + V (base form)</u> (main clause)</span><br>
+      Ví dụ: <span class="en">If you <b>use</b> less paper, you <b>will save</b> a lot of trees.</span><br>
+      → Vế <i>if</i>: hiện tại đơn (nhớ <i>s/es</i> với he / she / it). Vế chính: <i>will / won't</i> + động từ nguyên thể. Vế <i>if</i> đứng đầu thì có dấu phẩy.</div>
+    <div class="kt" id="kt-rhythm"><b class="ten">Rhythm in sentences</b>
+      <span class="en">In a sentence, the stressed and unstressed syllables combine to make rhythm.</span><br>
+      → Từ mang nghĩa chính (danh từ, động từ, tính từ) được nhấn; từ nhỏ (<span class="en">a, the, to, is, are</span>) đọc nhẹ, lướt.</div>
+    <div class="kt" id="kt-warn"><b class="ten">Giving warnings</b>
+      <span class="en">You are giving the goldfish too much food. <b>Don't do that.</b> … <b>If you give them too much food, they will die.</b></span></div>
+    <div class="kt" id="kt-study"><b class="ten">Study Skill – Writing</b>
+      <span class="en">Giving explanations and / or examples is an important writing skill. You should give explanations and / or examples to support your ideas.</span><br>
+      Ví dụ: <span class="en">Secondly, I'll organise some book fairs. At these events students can exchange their used books.</span></div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập hai — Unit 11. Our Greener World (trang 48 – 57).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — Let's go green!<small>Trang 48 – 49</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 31, tập hai)</p>
+    <p class="en" lang="en">Mi: Hi, Nick. — Nick: Hello, Mi. — Mi: You've bought a lot of things. — Nick: Yes. We're going on a picnic tomorrow. What are you doing at the supermarket, Mi? — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mi và Nick gặp nhau ở đâu? Mỗi bạn đang làm một việc “xanh” — em tìm ra không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân hai câu bắt đầu bằng <span class="en">If</span> — đó là điểm ngữ pháp mới của Unit (câu điều kiện loại 1).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">It's a reusable shopping bag.</td><td>Đó là một chiếc túi mua sắm dùng lại được.</td></tr>
+        <tr><td class="en" lang="en">It's better than a plastic one.</td><td>Nó tốt hơn túi ni lông.</td></tr>
+        <tr><td class="en" lang="en">If we all use this kind of bag, we will help the environment.</td><td>Nếu tất cả chúng ta dùng loại túi này, chúng ta sẽ giúp ích cho môi trường.</td></tr>
+        <tr><td class="en" lang="en">At the check-out.</td><td>Ở quầy thanh toán.</td></tr>
+        <tr><td class="en" lang="en">By the way, you're also green. You're cycling.</td><td>Nhân tiện, cậu cũng sống xanh đấy. Cậu đang đạp xe mà.</td></tr>
+        <tr><td class="en" lang="en">If more people cycle, the air will be cleaner.</td><td>Nếu nhiều người đạp xe hơn, không khí sẽ sạch hơn.</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">green</span> ở đây không chỉ là “màu xanh” mà là “thân thiện với môi trường” (<span class="en">go green</span> = sống xanh, Glossary). Câu <span class="en">You've bought a lot of things</span> (Cậu đã mua nhiều đồ quá) dùng cấu trúc của lớp trên — em chỉ cần hiểu nghĩa.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Nắm ý chính: Mi gặp Nick ở siêu thị; Nick dùng túi mua sắm tái sử dụng (tốt hơn túi ni lông), Mi định mua một chiếc cho mẹ; Mi cũng “sống xanh” vì đi xe đạp.</div>
+    <div class="bay">Hiểu <span class="en">You're also green</span> là “cậu cũng màu xanh”. Trong bài này <span class="en">green</span> = thân thiện với môi trường.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Gap fill</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Read the conversation again. Complete the following sentences. Use no more than three words in each blank.</span></p>
+    <p class="en" lang="en">1. Nick is going on ______ tomorrow. &nbsp; 2. The green shopping bag is better than the ______. &nbsp; 3. People can buy green bags at ______. &nbsp; 4. Mi wants to buy ______ bag for her mum. &nbsp; 5. Nick thinks that Mi is green because ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề giới hạn: <b>không quá ba từ</b> mỗi chỗ trống. Đếm từ trước khi viết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2: <span class="en">a plastic one</span> — <i>one</i> thay cho danh từ nào đứng trước? Câu 4: <span class="en">I'll buy one for my mum</span> — <i>one</i> là cái gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm dòng hội thoại làm căn cứ</h4>
+      <table>
+        <tr><th>Câu</th><th>Dòng hội thoại</th></tr>
+        <tr><td>1</td><td class="en" lang="en">Nick: Yes. We're going on a picnic tomorrow.</td></tr>
+        <tr><td>2</td><td class="en" lang="en">Nick: Yes. It's better than a plastic one.</td></tr>
+        <tr><td>3</td><td class="en" lang="en">Nick: At the check-out.</td></tr>
+        <tr><td>4</td><td class="en" lang="en">Mi: I see. I'll buy one for my mum.</td></tr>
+        <tr><td>5</td><td class="en" lang="en">By the way, you're also green. You're cycling.</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Viết lại cho khớp câu đề, không quá 3 từ</h4>
+      <p>1. <span class="en">a picnic</span> (2 từ) · 2. <span class="en">plastic one</span> / <span class="en">plastic bag</span> (2 từ) · 3. <span class="en">the check-out</span> (2 từ) · 4. <span class="en">a reusable shopping</span> (3 từ) → <span class="en">a reusable shopping bag</span> · 5. <span class="en">she is cycling</span> (3 từ)</p>
+      <p class="vi-sao">Câu 4: <span class="en">one</span> = <span class="en">a reusable shopping bag</span>; chữ <i>bag</i> đã có sẵn sau chỗ trống nên chỉ điền phần trước. Câu 5 đổi <span class="en">You're</span> (Nick nói với Mi) thành <span class="en">she is</span> (nói về Mi).</p>
+      <a class="xem-lai" href="#kt-a-an">📌 Xem lại: a / an</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. a picnic &nbsp; 2. plastic one (plastic bag) &nbsp; 3. the check-out &nbsp; 4. a reusable shopping &nbsp; 5. she is cycling (she's cycling)</div>
+    <div class="bay">Câu 5 chép nguyên <span class="en">you're cycling</span>. Câu đề nói <b>về</b> Mi, nên phải đổi sang <span class="en">she is cycling</span>.</div>
+    <div class="gv-note">Câu 4 chấp nhận <i>a reusable</i>, <i>a green</i>, <i>a reusable shopping</i>. Câu 2 chấp nhận <i>plastic one</i> / <i>plastic bag</i> (bài viết <i>a plastic one</i>, câu đề đã có <i>the</i>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Based on the ideas in the conversation, match the first half of the sentence in column A with its second half in column B.</span></p>
+    <p class="en" lang="en">A: 1. Green bags are better &nbsp; 2. The air will be cleaner &nbsp; 3. If people use reusable bags for shopping, &nbsp;|&nbsp; B: a. they will help the environment. &nbsp; b. than plastic bags. &nbsp; c. if more people cycle.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">1. Green bags are better …</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">b</button><button class="chon chu" data-dung="0">c</button><span class="phan-hoi" data-dung-txt="Đúng! better … than — so sánh hơn." data-sai-txt="Sau better (tốt hơn) em cần chữ gì để nói “hơn cái gì”?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">2. The air will be cleaner …</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="0">b</button><button class="chon chu" data-dung="1">c</button><span class="phan-hoi" data-dung-txt="Đúng! Vế if có thể đứng sau vế chính." data-sai-txt="Mi nói không khí sạch hơn nếu nhiều người làm gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vế nào bắt đầu bằng <i>If</i>? Vế nào còn thiếu chữ <i>than</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vế 3 kết thúc bằng dấu phẩy → sau nó là một vế chính có <i>will</i>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép theo ngữ pháp và theo hội thoại</h4>
+      <p>1. <span class="en">Green bags are better <b>than plastic bags.</b></span> — <i>better … than</i> (so sánh hơn, Unit 4).</p>
+      <p>2. <span class="en">The air will be cleaner <b>if more people cycle.</b></span> — lời Mi.</p>
+      <p>3. <span class="en">If people use reusable bags for shopping, <b>they will help the environment.</b></span> — lời Nick.</p>
+      <p class="vi-sao">Vế <i>if</i> có thể đứng đầu (có dấu phẩy) hoặc đứng sau vế chính (không cần dấu phẩy) — nghĩa không đổi.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – b &nbsp; 2 – c &nbsp; 3 – a</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Matching pictures</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Match the pictures with the ways to help the environment.</span></p>
+    <p class="en" lang="en">a. planting trees and flowers &nbsp; b. picking up rubbish &nbsp; c. cycling &nbsp; d. walking to school &nbsp; e. using reusable bags when shopping</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn 5 ảnh trong SGK: mỗi ảnh có người đang làm gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">pick up</span> = nhặt (rác) · <span class="en">rubbish</span> = rác (Glossary).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa từng việc làm</h4>
+      <p>a. trồng cây và hoa · b. nhặt rác · c. đạp xe · d. đi bộ đến trường · e. dùng túi tái sử dụng khi mua sắm</p></div>
+    <div class="buoc" data-so="2"><h4>Ghép với ảnh (theo thứ tự đánh số trong SGK)</h4>
+      <p>1 – c (đạp xe) · 2 – a (trồng cây) · 3 – b (nhặt rác) · 4 – e (túi vải) · 5 – d (đi bộ)</p>
+      <p class="vi-sao">Ảnh 1 và ảnh 5 đều có người đi trên đường: nhìn xem họ <b>ngồi xe đạp</b> hay <b>đi bộ</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – c &nbsp; 2 – a &nbsp; 3 – b &nbsp; 4 – e &nbsp; 5 – d</div>
+    <div class="bay">Đọc <span class="en">rubbish</span> thành “rơ-bít”. Glossary: /ˈrʌbɪʃ/ — âm cuối /ʃ/ (“sh”).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">GAME — Find someone who … Work in groups. Ask and answer to find someone who does the things in 4.</span></p>
+    <p class="en" lang="en">A: Do you plant trees? — B: No, I don't. — A: Do you pick up rubbish? — B: Yes, I do.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đi hỏi khắp nhóm — ai làm được nhiều việc “xanh” nhất?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Biến mỗi việc ở bài 4 thành câu hỏi <span class="en">Do you …?</span> — bỏ đuôi <i>-ing</i>: <span class="en">cycling → Do you cycle?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Năm câu hỏi</h4>
+      <p class="en">Do you plant trees and flowers? · Do you pick up rubbish? · Do you cycle? · Do you walk to school? · Do you use reusable bags when shopping?</p>
+      <p class="vi-sao">Sau <span class="en">Do you</span> là động từ nguyên thể (<i>cycle, walk</i>), không dùng <i>cycling, walking</i>.</p></div>
+    <div class="buoc" data-so="2"><h4>Ghi tên và kể lại</h4>
+      <p class="en">Lan walks to school. Minh picks up rubbish.</p>
+      <p class="vi-sao">Kể về một bạn → thêm <i>s/es</i>: <span class="en">walks, picks</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Do you walk to school? — B: Yes, I do.</span> → <span class="en">Lan walks to school.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 50 – 51</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">The three Rs stand for Reduce – Reuse – Recycle. Draw a line from a symbol in column A to its matching word in column B and its meaning in column C.</span></p>
+    <p class="en" lang="en">B: Reduce · Reuse · Recycle &nbsp;|&nbsp; C: use something again · create new products from used materials · use less of something</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ghép <b>từ – nghĩa</b> trước (cột B – C), rồi mới nhìn biểu tượng ở cột A.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tách tiền tố: <b>re-</b> = lại, lần nữa. <span class="en">re + use</span> = dùng lại. <span class="en">re + cycle</span> = quay vòng lại thành đồ mới. <span class="en">reduce</span> không tách được.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép từ với nghĩa</h4>
+      <table><tr><th>Từ</th><th>Nghĩa (cột C)</th></tr>
+        <tr><td class="en">Reduce</td><td class="en">use less of something</td></tr>
+        <tr><td class="en">Reuse</td><td class="en">use something again</td></tr>
+        <tr><td class="en">Recycle</td><td class="en">create new products from used materials</td></tr></table>
+      <a class="xem-lai" href="#kt-3r">📌 Xem lại: the three Rs</a></div>
+    <div class="buoc" data-so="2"><h4>Ghép biểu tượng (nhìn SGK trang 50)</h4>
+      <p>Biểu tượng <b>ba mũi tên xếp thành tam giác</b> là biểu tượng tái chế quốc tế → <span class="en">Recycle</span>. Biểu tượng <b>mũi tên cong tròn</b> (một vòng quay để dùng lại) → <span class="en">Reuse</span>. Biểu tượng <b>bốn mũi tên chụm vào tâm</b> (thu nhỏ lại) → <span class="en">Reduce</span>.</p>
+      <p class="vi-sao">Glossary: reduce /rɪˈdjuːs/ · reuse /ˌriːˈjuːz/ · recycle /ˌriːˈsaɪkl/.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Reduce – use less of something (biểu tượng bốn mũi tên chụm vào tâm) · Reuse – use something again (mũi tên cong tròn) · Recycle – create new products from used materials (ba mũi tên tam giác)</div>
+    <div class="bay">Nhầm <span class="en">reuse</span> với <span class="en">recycle</span>. Rửa chai để đựng nước lần nữa là <b>reuse</b>; đem chai nấu chảy làm chai mới là <b>recycle</b>.</div>
+    <div class="gv-note">Phần ghép biểu tượng suy từ mô tả hình trong kho (cột A); riêng biểu tượng tái chế tam giác là chắc chắn. Nên cho HS nhìn SGK để đối chiếu hai biểu tượng còn lại.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Write a word / phrase in the box under each picture.</span></p>
+    <p class="en" lang="en">rubbish · plastic bottle · glass · noise · plastic bag · paper · water · clothes</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ảnh 5 không phải là đồ vật — cái loa đang phát ra thứ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">glass</span> vừa là “thuỷ tinh” vừa là “cái cốc”; <span class="en">noise</span> = tiếng ồn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên từng ảnh (theo thứ tự trong SGK)</h4>
+      <p>1. đống rác → <span class="en">rubbish</span> · 2. túi ni lông → <span class="en">plastic bag</span> · 3. cốc thuỷ tinh → <span class="en">glass</span> · 4. chai nhựa → <span class="en">plastic bottle</span> · 5. loa phát tiếng → <span class="en">noise</span> · 6. chồng giấy → <span class="en">paper</span> · 7. giọt nước → <span class="en">water</span> · 8. quần áo → <span class="en">clothes</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. rubbish &nbsp; 2. plastic bag &nbsp; 3. glass &nbsp; 4. plastic bottle &nbsp; 5. noise &nbsp; 6. paper &nbsp; 7. water &nbsp; 8. clothes</div>
+    <div class="bay">Nhầm <span class="en">plastic bag</span> (túi ni lông) với <span class="en">plastic bottle</span> (chai nhựa) vì cùng bắt đầu bằng <i>plastic</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Classify</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Work in pairs. Put the words / phrases from 2 into groups. Some words / phrases can belong to more than one group.</span></p>
+    <p class="en" lang="en">Reduce · Reuse · Recycle</p>
+    <p lang="en"><b>Can you add more words / phrases to each group?</b></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tiếng ồn có “dùng lại” được không? Có “tái chế” được không? Vậy nó chỉ thuộc nhóm nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi từ, thử đặt vào ba câu: <span class="en">We can reduce … / We can reuse … / We can recycle …</span> — câu nào có nghĩa thì xếp vào nhóm đó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thử từng từ với ba động từ</h4>
+      <table>
+        <tr><th>Reduce</th><th>Reuse</th><th>Recycle</th></tr>
+        <tr><td class="en">rubbish<br>noise<br>water<br>paper<br>plastic bags<br>plastic bottles</td><td class="en">plastic bottles<br>plastic bags<br>glass<br>paper<br>clothes</td><td class="en">plastic bottles<br>plastic bags<br>glass<br>paper<br>clothes</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">noise, water, rubbish</span> chỉ có thể <b>giảm</b> — không ai “dùng lại tiếng ồn”. Chai nhựa, giấy thì vào được cả ba nhóm.</p>
+      <a class="xem-lai" href="#kt-3r">📌 Xem lại: the three Rs</a></div>
+    <div class="buoc" data-so="2"><h4>Thêm từ (từ thêm, không bắt buộc thuộc)</h4>
+      <p><b>Reduce</b>: <span class="en">electricity</span> (điện) · <b>Reuse</b>: <span class="en">old books, boxes</span> · <b>Recycle</b>: <span class="en">cans</span> (lon), <span class="en">old newspapers</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Gợi ý xếp: <b>Reduce</b>: rubbish, noise, water, paper, plastic bags, plastic bottles · <b>Reuse</b>: plastic bottles, plastic bags, glass, paper, clothes · <b>Recycle</b>: plastic bottles, plastic bags, glass, paper, clothes. (Thêm, ví dụ: reduce electricity; reuse old books; recycle cans.)</div>
+    <div class="bay">Xếp <span class="en">noise</span> hay <span class="en">water</span> vào cột Recycle. Hai thứ này em chỉ có thể dùng ít đi (reduce).</div>
+    <div class="gv-note">Bài cho phép một từ ở nhiều nhóm; chấp nhận mọi cách xếp HS giải thích được (vd <i>water</i> ở Reuse: dùng nước vo gạo tưới cây). Chỉ không chấp nhận <i>noise</i> ở Reuse / Recycle.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen to these sentences, then repeat. Pay attention to the bold syllables.</span> 🎧 (Track 32, tập hai)</p>
+    <p class="en" lang="en">1. If you <b>cy</b>cle, it'll <b>help</b> the <b>Earth</b>. &nbsp; 2. <b>Wa</b>ter is <b>good</b> for your <b>bo</b>dy. &nbsp; 3. The <b>stu</b>dents are <b>plan</b>ting <b>trees</b> in the <b>gar</b>den. &nbsp; 4. Is it <b>bet</b>ter to <b>use pa</b>per <b>bags</b>? &nbsp; 5. We are <b>hap</b>py to <b>walk</b> to <b>school</b>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Các âm tiết in đậm thuộc loại từ nào: danh từ, động từ, tính từ — hay <i>the, to, is</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vỗ tay nhẹ ở mỗi âm tiết in đậm — khoảng cách giữa các tiếng vỗ gần đều nhau, đó là nhịp.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Âm tiết mạnh – âm tiết nhẹ</h4>
+      <p>Âm tiết in đậm (mạnh): <span class="en">CY-cle, HELP, EARTH, WA-ter, GOOD, BO-dy…</span>. Từ nhỏ đọc nhẹ, lướt: <span class="en">if, you, the, is, for, your, are, in, to</span>.</p>
+      <p class="vi-sao">Tiếng Việt mỗi tiếng đọc rõ như nhau; tiếng Anh thì có tiếng mạnh tiếng nhẹ — đọc đều từng chữ sẽ nghe “như robot”.</p>
+      <a class="xem-lai" href="#kt-rhythm">📌 Xem lại: rhythm in sentences</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và nhắc lại. Nhấn rõ các âm tiết in đậm (từ mang nghĩa chính), đọc nhẹ và nhanh các từ nhỏ (if, the, is, to, are…).</div>
+    <div class="bay">Đọc to và kéo dài cả các từ nhỏ <span class="en">the, to, are</span> — mất nhịp, câu nghe nặng nề.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Listen to the conversation. Pay attention to the bold syllables. Then practise the conversation with a classmate.</span> 🎧 (Track 33, tập hai)</p>
+    <p class="en" lang="en">Vy: <b>What</b> are you <b>do</b>ing? — Mi: I'm <b>wri</b>ting an <b>ar</b>ticle about <b>go</b>ing <b>green</b>. — Vy: <b>Great</b>! I'm <b>wri</b>ting a <b>po</b>em about the <b>3Rs</b>. — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vy và Mi nói chuyện rất tự nhiên — nhịp câu giúp nghe giống người thật nói.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Luyện từng câu: đọc riêng các âm tiết in đậm trước, rồi mới chèn các từ nhẹ vào giữa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Luyện theo cặp</h4>
+      <p class="en">Vy: WHAT are you DO-ing?<br>Mi: I'm WRI-ting an AR-ticle about GO-ing GREEN.<br>Vy: GREAT! I'm WRI-ting a PO-em about the 3Rs.<br>Mi: LET me READ it.<br>Vy: I'm STILL WRI-ting. WAIT for a MI-nute.</p>
+      <p class="vi-sao">Đổi vai một lần. <i>Vy, Mi</i> là tên người Việt — đọc theo tiếng Việt.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và luyện hội thoại theo cặp, không có câu hỏi phải trả lời. Giữ nhịp: nhấn các âm tiết in đậm, lướt các từ nhỏ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small>Articles · First conditional · Trang 51 – 52</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">a / an</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Write <i>a</i> or <i>an</i>.</span></p>
+    <p class="en" lang="en">1. ______ egg &nbsp; 2. ______ friend &nbsp; 3. ______ sink &nbsp; 4. ______ arm &nbsp; 5. ______ mouth &nbsp; 6. ______ onion &nbsp; 7. ______ umbrella &nbsp; 8. ______ classmate</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">6. ___ onion</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">an</button><span class="phan-hoi" data-dung-txt="Đúng! onion bắt đầu bằng nguyên âm." data-sai-txt="Đọc to “onion” — âm đầu là nguyên âm hay phụ âm?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">7. ___ umbrella</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">an</button><span class="phan-hoi" data-dung-txt="Đúng! an umbrella." data-sai-txt="Chữ u ở đây đọc là “ăm” — đó là nguyên âm hay phụ âm?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc to từng từ — âm <b>đầu tiên</b> em phát ra là nguyên âm hay phụ âm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ bắt đầu bằng âm nguyên âm (thường viết bằng <i>a, e, i, o, u</i>) dùng <span class="en">an</span>; còn lại dùng <span class="en">a</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia hai nhóm theo âm đầu</h4>
+      <p><b>an</b> + nguyên âm: <span class="en">an egg, an arm, an onion, an umbrella</span></p>
+      <p><b>a</b> + phụ âm: <span class="en">a friend, a sink, a mouth, a classmate</span></p>
+      <p class="vi-sao">Tất cả đều là danh từ đếm được số ít — đúng trường hợp dùng <i>a / an</i> trong khung Remember!. <i>an</i> giúp đọc nối cho trơn: “an‿egg”.</p>
+      <a class="xem-lai" href="#kt-a-an">📌 Xem lại: a / an</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. an &nbsp; 2. a &nbsp; 3. a &nbsp; 4. an &nbsp; 5. a &nbsp; 6. an &nbsp; 7. an &nbsp; 8. a</div>
+    <div class="bay">Nhìn mặt chữ mà không nghe âm. Quy tắc theo <b>âm</b>: sau này em sẽ gặp <span class="en">an hour</span> (h câm) hay <span class="en">a university</span> (u đọc /juː/).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">a / an / the</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Write <i>a / an</i> or <i>the</i>.</span></p>
+    <p class="en" lang="en">1. My father is ______ doctor. &nbsp; 2. ______ Sun keeps ______ Earth warm. &nbsp; 3. ______ dolphin is ______ intelligent animal. &nbsp; 4. I have ______ orange shirt too. &nbsp; 5. My brother likes ______ blue pen, not ______ red one.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có hai thứ trên đời chỉ có <b>một</b> — Mặt Trời và Trái Đất. Chúng đi với mạo từ nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 giống hệt ví dụ trong khung Remember!: <span class="en">An ant is a tiny animal.</span> Câu 5: “cái bút xanh” là cái cả hai người <b>đều đang biết</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a / an: nói chung, sau <i>be</i> và <i>have</i></h4>
+      <p>1. <span class="en">My father is <b>a</b> doctor.</span> — sau <i>to be</i>. &nbsp; 3. <span class="en"><b>A</b> dolphin is <b>an</b> intelligent animal.</span> — nói chung về cá heo; <i>intelligent</i> bắt đầu bằng nguyên âm. &nbsp; 4. <span class="en">I have <b>an</b> orange shirt too.</span> — sau <i>to have</i>; <i>orange</i> bắt đầu bằng nguyên âm.</p>
+      <a class="xem-lai" href="#kt-a-an">📌 Xem lại: a / an</a></div>
+    <div class="buoc" data-so="2"><h4>the: duy nhất, hoặc đã biết</h4>
+      <p>2. <span class="en"><b>The</b> Sun keeps <b>the</b> Earth warm.</span> — Mặt Trời, Trái Đất là duy nhất. &nbsp; 5. <span class="en">My brother likes <b>the</b> blue pen, not <b>the</b> red one.</span> — hai cái bút cụ thể người nghe đã biết.</p>
+      <a class="xem-lai" href="#kt-the">📌 Xem lại: the</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. a &nbsp; 2. The … the &nbsp; 3. A … an &nbsp; 4. an &nbsp; 5. the … the</div>
+    <div class="bay">Câu 4 viết <span class="en">a orange shirt</span> vì nghĩ mạo từ đi theo <i>shirt</i>. Mạo từ chọn theo từ <b>đứng ngay sau</b> nó: <span class="en">an orange</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">First conditional</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Write the correct form of each verb in brackets.</span></p>
+    <p class="en" lang="en">1. If it (be) ______ sunny next week, we (go) ______ on a picnic. &nbsp; 2. If we (recycle) ______ more, we (help) ______ the Earth. &nbsp; 3. We (save) ______ a lot of trees if we (not waste) ______ so much paper. &nbsp; 4. More people (have) ______ fresh water if we (use) ______ less water. &nbsp; 5. If the river (not be) ______ dirty, there (be) ______ more fish.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm chữ <i>if</i> trong mỗi câu trước. Vế có <i>if</i> dùng thì gì? Vế còn lại dùng gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 và câu 4 có vế <i>if</i> đứng <b>sau</b> — đừng chia <i>will</i> cho động từ đứng đầu câu chỉ vì nó đứng trước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vế if: hiện tại đơn</h4>
+      <p>1. <span class="en">it <b>is</b></span> · 2. <span class="en">we <b>recycle</b></span> · 3. <span class="en">we <b>don't waste</b></span> · 4. <span class="en">we <b>use</b></span> · 5. <span class="en">the river <b>isn't</b></span></p>
+      <p class="vi-sao">Dù nói về tuần sau (<span class="en">next week</span>), vế <i>if</i> vẫn dùng hiện tại đơn — đây là quy tắc của câu điều kiện loại 1.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="2"><h4>Vế chính: will + động từ nguyên thể</h4>
+      <p>1. <span class="en">we <b>will go</b></span> · 2. <span class="en">we <b>will help</b></span> · 3. <span class="en">We <b>will save</b></span> · 4. <span class="en">More people <b>will have</b></span> · 5. <span class="en">there <b>will be</b></span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. is … will go &nbsp; 2. recycle … will help &nbsp; 3. will save … don't waste &nbsp; 4. will have … use &nbsp; 5. isn't … will be</div>
+    <div class="bay">Dùng <i>will</i> ở cả hai vế: <span class="en">If it will be sunny…</span>. Vế <i>if</i> chỉ dùng hiện tại đơn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">First conditional</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Combine each pair of sentences below to make a first conditional sentence.</span></p>
+    <p class="en" lang="en">1. The air isn't fresh. People cough. &nbsp; 2. The water is dirty. A lot of fish die. &nbsp; 3. We cut down trees in the forest. There are more floods. &nbsp; 4. There is too much noise. People don't sleep. &nbsp; 5. There is no water. Plants die.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu thứ nhất là <b>điều kiện</b>, câu thứ hai là <b>kết quả</b>. Câu nào nhận chữ <i>if</i>? Câu nào nhận <i>will</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3: <span class="en">There are</span> → <span class="en">there will be</span>. Câu 4: <span class="en">don't sleep</span> → <span class="en">won't sleep</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu đầu giữ nguyên, thêm If và dấu phẩy</h4>
+      <p class="en">If the air isn't fresh, … · If the water is dirty, … · If we cut down trees in the forest, … · If there is too much noise, … · If there is no water, …</p></div>
+    <div class="buoc" data-so="2"><h4>Câu sau đổi sang will / won't</h4>
+      <p class="en">… people will cough. · … a lot of fish will die. · … there will be more floods. · … people won't sleep. · … plants will die.</p>
+      <p class="vi-sao">Động từ sau <i>will</i> về nguyên thể: <span class="en">There are → there will be</span>, <span class="en">don't sleep → won't sleep</span>.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. If the air isn't fresh, people will cough. &nbsp; 2. If the water is dirty, a lot of fish will die. &nbsp; 3. If we cut down trees in the forest, there will be more floods. &nbsp; 4. If there is too much noise, people won't sleep. &nbsp; 5. If there is no water, plants will die.</div>
+    <div class="bay">Câu 3 viết <span class="en">there will are more floods</span>. Sau <i>will</i>, <i>are</i> phải trở về nguyên thể <i>be</i>.</div>
+    <div class="gv-note">Chấp nhận cả cách đặt vế <i>if</i> ở sau (không dấu phẩy): <i>People will cough if the air isn't fresh.</i></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">GAME — Fun matching. Work in groups, A and B.</span></p>
+    <p class="en" lang="en">Group A secretly writes five if-clauses on a sheet of paper. Group B secretly writes five main clauses on another sheet of paper. Match the if-clauses with the main clauses. Do they match? Are there any funny sentences?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhóm A chỉ viết vế <i>if</i>, nhóm B chỉ viết vế chính — ghép ngẫu nhiên thì ra câu buồn cười cỡ nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhóm A: <span class="en">If + chủ ngữ + hiện tại đơn,</span> · Nhóm B: <span class="en">chủ ngữ + will / won't + động từ.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết đúng loại vế</h4>
+      <p>Nhóm A: <span class="en">If it rains tomorrow, · If I have a lot of money, · If my cat is hungry, …</span></p>
+      <p>Nhóm B: <span class="en">I will stay at home. · I will buy a robot. · It will eat my homework. …</span></p></div>
+    <div class="buoc" data-so="2"><h4>Ghép và đọc to</h4>
+      <p class="en">If it rains tomorrow, I will stay at home. (khớp) · If my cat is hungry, I will buy a robot. (buồn cười!)</p>
+      <p class="vi-sao">Câu ghép ngẫu nhiên có thể kì quặc về nghĩa nhưng vẫn <b>đúng ngữ pháp</b> — vì mỗi vế đều đúng công thức.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">If it rains tomorrow, I will stay at home.</span> / <span class="en">If my cat is hungry, I will buy a robot.</span></div>
+    <div class="bay">Nhóm A viết <span class="en">If it will rain…</span> — vế <i>if</i> không dùng <i>will</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Giving warnings · A survey on ways to go green<small>Trang 53</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read the dialogue between Mi and Mike. Pay attention to the highlighted sentences.</span> 🎧 (Track 34, tập hai)</p>
+    <p class="en" lang="en">Mi: You are giving the goldfish too much food. Don't do that. — Mike: Why? — Mi: If you give them too much food, they will die. — Mike: I see. Thank you.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mi cảnh báo Mike bằng hai câu: một câu ra lệnh, một câu nói kết quả.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu thứ nhất là câu mệnh lệnh phủ định (Unit 8); câu thứ hai là câu điều kiện loại 1 (Unit này).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai câu cảnh báo</h4>
+      <p><span class="en"><b>Don't do that.</b></span> — Đừng làm thế. &nbsp; <span class="en"><b>If you give them too much food, they will die.</b></span> — Nếu cậu cho chúng ăn quá nhiều, chúng sẽ chết.</p>
+      <p class="vi-sao">Cảnh báo = <b>ngăn lại</b> (<span class="en">Don't …</span>) + <b>giải thích hậu quả</b> (<span class="en">If …, … will …</span>). <span class="en">too much</span> = quá nhiều.</p>
+      <a class="xem-lai" href="#kt-warn">📌 Xem lại: giving warnings</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Mẫu cảnh báo: <span class="en">Don't do that.</span> + <span class="en">If you …, … will …</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Student A is watering flowers in the garden. Student B is giving some warnings. Act out the dialogue. Remember to use the highlighted language in 1.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bạn A tưới cây — có thể tưới sai cách nào khiến cây gặp nguy?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thay <span class="en">giving the goldfish too much food</span> bằng <span class="en">giving the flowers too much water</span> — phần còn lại giữ khung.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Diễn theo khung bài 1</h4>
+      <p class="en">B: You are giving the flowers too much water. Don't do that.<br>A: Why?<br>B: If you give them too much water, they will die.<br>A: I see. Thank you.</p>
+      <p class="vi-sao">Có thể thêm cảnh báo khác: <span class="en">Don't water the flowers at noon. If you water them at noon, they won't be healthy.</span></p>
+      <a class="xem-lai" href="#kt-warn">📌 Xem lại: giving warnings</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">B: You are giving the flowers too much water. Don't do that. — A: Why? — B: If you give them too much water, they will die. — A: I see. Thank you.</span></div>
+    <div class="bay">Viết <span class="en">If you will give them too much water…</span> — vế <i>if</i> dùng hiện tại đơn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Survey</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">The 3Rs Club in your school is doing a survey. Answer the following questions by choosing A, B, or C.</span></p>
+    <p class="en" lang="en">1. If you find a beautiful old glass, you will ______. A. throw it away B. decorate it C. use it to keep pencils in &nbsp; 2. If you have a sheet of paper, how often will you write on both sides? A. Sometimes. B. Never. C. Always. &nbsp; 3. If you bring your lunch to school, you will ______. A. wrap the food in paper B. put the food in a reusable box C. wrap the food in a plastic bag &nbsp; …</p>
+    <p lang="en"><b>Check your answers with the key on page 57, count the points and see how green you are.</b></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trả lời thật lòng — đây là bài để em biết mình “xanh” đến đâu, không phải bài kiểm tra.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hiểu từ khó trước: <span class="en">throw away</span> = vứt đi · <span class="en">decorate</span> = trang trí · <span class="en">wrap</span> = gói, bọc · <span class="en">those in need</span> = những người cần giúp · <span class="en">breeze</span> = gió mát.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn câu trả lời của em</h4>
+      <p>Mỗi câu hỏi là một câu điều kiện loại 1: <span class="en">If you find…, you will…</span>. Chọn điều em <b>thật sự</b> sẽ làm.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="2"><h4>Tính điểm bằng bảng SGK in ở trang 57</h4>
+      <table><tr><th>Câu</th><th>A</th><th>B</th><th>C</th></tr>
+        <tr><td>Q1</td><td>0</td><td>2</td><td>2</td></tr>
+        <tr><td>Q2</td><td>1</td><td>0</td><td>2</td></tr>
+        <tr><td>Q3</td><td>0</td><td>2</td><td>0</td></tr>
+        <tr><td>Q4</td><td>1</td><td>0</td><td>2</td></tr>
+        <tr><td>Q5</td><td>0</td><td>2</td><td>0</td></tr>
+        <tr><td>Q6</td><td>2</td><td>0</td><td>2</td></tr></table>
+      <p><b>9 – 12 points</b>: <span class="en">You're green!</span> · <b>5 – 8 points</b>: <span class="en">Try to be greener!</span> · <b>1 – 4 points</b>: <span class="en">You aren't green at all!</span></p>
+      <p class="vi-sao">Lựa chọn được 2 điểm là lựa chọn <b>tái sử dụng / tiết kiệm</b>: trang trí hoặc dùng lại cốc cũ, viết cả hai mặt giấy, hộp đựng dùng lại, cho quần áo cũ, ra ngoài hóng gió thay vì bật cả quạt lẫn điều hoà, đi bộ hoặc đạp xe.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án đúng – sai; mỗi em chọn theo bản thân rồi tính điểm bằng bảng SGK (trang 57): Q1 A0 B2 C2 · Q2 A1 B0 C2 · Q3 A0 B2 C0 · Q4 A1 B0 C2 · Q5 A0 B2 C0 · Q6 A2 B0 C2. 9 – 12: You're green! · 5 – 8: Try to be greener! · 1 – 4: You aren't green at all!</div>
+    <div class="gv-note">Bảng điểm là phần duy nhất SGK in sẵn đáp án (trang 57). Điểm tối đa 12. Lưu ý: bảng xếp loại SGK bắt đầu từ 1 điểm, trong khi tổng điểm thấp nhất có thể là 0 — nếu HS được 0 điểm, xếp chung nhóm 1 – 4.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Interview</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Interview a classmate, using the questions in 3. Compare your answers. How many different answers do you have?</span></p>
+    <p class="en" lang="en">A: What's your answer to Question 1? — B: It's A. What's your answer? …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai bạn khác nhau ở mấy câu? Thử hỏi bạn: vì sao bạn chọn như thế?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi theo mẫu SGK; đọc to cả câu hỏi khảo sát cho bạn nghe nếu bạn quên.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp theo mẫu</h4>
+      <p class="en">A: What's your answer to Question 1?<br>B: It's A. What's your answer?<br>A: It's C. If I find a beautiful old glass, I will use it to keep pencils in.</p></div>
+    <div class="buoc" data-so="2"><h4>So sánh và kết luận</h4>
+      <p class="en">We have two different answers. I'm greener than Nam.</p>
+      <p class="vi-sao"><span class="en">greener than</span> — so sánh hơn của tính từ ngắn (Unit 4).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: What's your answer to Question 1? — B: It's A. What's your answer? — A: It's C.</span> → <span class="en">We have two different answers.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading · Speaking<small>Trang 54</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Scanning</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">A reporter is interviewing Nam, a member of the 3Rs Club. Read the interview. Find these words and phrases and underline them.</span></p>
+    <p class="en" lang="en">instead of · exchange · recycling bins · reusable · charity</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc lướt để <b>tìm</b>, chưa cần hiểu — mắt chạy qua bài, dừng lại khi thấy từ cần tìm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả 5 từ đều nằm trong lời của Nam. Có hai từ nằm trong cùng một câu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Các câu có từ cần gạch chân</h4>
+      <blockquote class="trich"><p>Nam: Sure. Firstly, we put recycling bins in every classroom.</p><p>Nam: We exchange them with our friends or give them to charity.</p><p>Nam: We borrow books from the school library instead of buying new ones.</p><p>Nam: And there's another tip. We bring reusable water bottles to school.</p></blockquote>
+      <p class="vi-sao">Kĩ năng này gọi là <b>đọc quét</b> (scanning) — dùng khi cần tìm nhanh một thông tin cụ thể.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">recycling bins (câu 1 của Nam) · exchange, charity (câu 2) · instead of (câu 3) · reusable (câu 4)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vocabulary — Matching</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Match the words / phrases with their meanings.</span></p>
+    <p class="en" lang="en">1. instead of &nbsp; 2. charity &nbsp; 3. exchange &nbsp; 4. reusable &nbsp; 5. recycling bins &nbsp;|&nbsp; a. give something to a person and receive something from him / her · b. can be used again · c. containers for things that can be recycled · d. giving things to people in need · e. in the place of somebody or something</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc lại câu chứa từ ở bài 1 — ngữ cảnh “mách” nghĩa của từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">reusable</span> = <span class="en">re</span> (lại) + <span class="en">use</span> (dùng) + <span class="en">able</span> (có thể).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa theo Glossary</h4>
+      <table><tr><th>Từ</th><th>Nghĩa (Glossary)</th><th>Ghép</th></tr>
+        <tr><td class="en">instead of</td><td>thay cho</td><td>e</td></tr>
+        <tr><td class="en">charity</td><td>từ thiện</td><td>d</td></tr>
+        <tr><td class="en">exchange</td><td>trao đổi</td><td>a</td></tr>
+        <tr><td class="en">reusable</td><td>có thể dùng lại</td><td>b</td></tr>
+        <tr><td class="en">recycling bins</td><td>thùng đựng rác tái chế</td><td>c</td></tr></table>
+      <p class="vi-sao"><span class="en">containers</span> = đồ đựng (Glossary) → thùng chứa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1 – e &nbsp; 2 – d &nbsp; 3 – a &nbsp; 4 – b &nbsp; 5 – c</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Questions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the text again. Answer the questions.</span></p>
+    <p class="en" lang="en">1. What is the interview about? &nbsp; 2. What will they put in every classroom? &nbsp; 3. What can they do with their old uniforms? &nbsp; 4. What do they do instead of buying new books? &nbsp; 5. What type of water bottles do they bring to school?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu hỏi dùng <i>they</i> — trong bài Nam nói <i>we</i>. Khi trả lời phải đổi thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: đọc câu hỏi đầu tiên của phóng viên — đó là chủ đề của cả cuộc phỏng vấn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu làm căn cứ</h4>
+      <blockquote class="trich"><p>Reporter: Can you share with us some tips to make your school greener?</p><p>Nam: Sure. Firstly, we put recycling bins in every classroom.</p><p>Nam: We exchange them with our friends or give them to charity. We don't throw them away.</p><p>Nam: We borrow books from the school library instead of buying new ones.</p><p>We bring reusable water bottles to school.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Viết câu trả lời: we → they, our → their</h4>
+      <p class="vi-sao">Câu 2 hỏi bằng <span class="en">will</span> → trả lời <span class="en">They will put…</span>. Câu 4, 5 hỏi bằng <span class="en">do they</span> → trả lời bằng hiện tại đơn <span class="en">They borrow… / They bring…</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. It's about tips to make the school greener. &nbsp; 2. They will put recycling bins in every classroom. &nbsp; 3. They can exchange them with their friends or give them to charity. &nbsp; 4. They borrow books from the school library. &nbsp; 5. They bring reusable water bottles to school.</div>
+    <div class="bay">Chép nguyên <span class="en">We exchange them with our friends</span>. Câu hỏi hỏi về <i>they</i> nên phải đổi: <span class="en">They … their friends</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Ranking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Nam mentions the following tips in the interview. Work in groups and discuss to put the tips in order from the easiest to the most difficult.</span></p>
+    <p class="en" lang="en">a. Putting recycling bins in every classroom. · b. Exchanging old books and uniforms with friends or giving them to charity. · c. Borrowing books from the school library instead of buying new ones. · d. Bringing reusable water bottles to school. · e. Planting trees at school. · f. Finding creative ways to reuse old items before throwing them away.</p>
+    <p lang="en"><b>Can you add more tips to the list?</b></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Việc nào em làm được ngay hôm nay? Việc nào cần cả trường cùng làm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thảo luận bằng câu so sánh hơn đã học ở Unit 4: <span class="en">Tip d is easier than tip a.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp và nói lí do</h4>
+      <p>Một cách xếp: <b>d → c → b → f → a → e</b>.</p>
+      <p class="en">A: I think tip d is easy. I can bring a water bottle every day.<br>B: Yes. Tip e is difficult because we need a lot of space.</p>
+      <p class="vi-sao">Không có thứ tự đúng duy nhất — điều quan trọng là nói được <span class="en">because …</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Thêm mẹo</h4>
+      <p class="en">Turning off the lights when we leave the classroom. · Walking or cycling to school.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Ví dụ: d → c → b → f → a → e. Thêm mẹo: <span class="en">Turning off the lights when we leave the classroom.</span></div>
+    <div class="gv-note">Đề có <i>the easiest / the most difficult</i> (so sánh nhất — Unit 12; dạng <i>the most</i> + tính từ dài không phải điểm ngữ pháp lớp 6): HS chỉ cần hiểu nghĩa “dễ nhất → khó nhất”, thảo luận bằng <i>easy / difficult / easier than</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Ideas</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Tip f tells you to find creative ways to reuse old items. Can you think of any ways to reuse</span></p>
+    <p class="en" lang="en">a. used gift wrap? &nbsp; b. used water bottles? &nbsp; c. used books?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giấy gói quà, chai nước, sách cũ — nhà em đã từng dùng lại những thứ này chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Khung câu: <span class="en">We can use … to make … / We can … them.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩ ý cho từng thứ</h4>
+      <p>a. <span class="en">We can use it to wrap other gifts. We can make paper flowers from it.</span><br>
+         b. <span class="en">We can use them to make pencil holders or flower pots.</span><br>
+         c. <span class="en">We can give them to younger students or exchange them with our friends.</span></p>
+      <p class="vi-sao"><span class="en">gift wrap</span> = giấy gói quà (từ thêm). Câu c dùng lại ý <span class="en">exchange</span> của bài đọc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Ví dụ: a. wrap other gifts / make paper flowers · b. make pencil holders or flower pots · c. give them to younger students / exchange them with friends</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Trang 55</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — Fill in</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen to two students talking about what they will do if they become the president of the 3Rs Club. Fill each blank with a word or a number.</span> 🎧 (Track 35, tập hai)</p>
+    <p class="en" lang="en">Mi — Class: (1) ______ · Idea 1: Putting a (2) ______ bin in every classroom · Idea 2: Having (3) ______ fairs &nbsp;|&nbsp; Nam — Class: (4) ______ · Idea 1: Encouraging students to use (5) ______ · Idea 2: Organising (6) ______ fairs</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề nói rõ: mỗi chỗ trống là <b>một từ hoặc một số</b>. Chỗ nào có thể là số?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỗ (1), (4) là tên lớp (thường có số + chữ). Chỗ (2), (3), (6) đứng trước một danh từ (<span class="en">bin, fairs</span>) — cần từ cho biết <b>loại</b> thùng / hội chợ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán loại thông tin cần điền</h4>
+      <table><tr><th>Chỗ</th><th>Loại thông tin</th></tr>
+        <tr><td>(1), (4)</td><td>tên lớp — số và chữ</td></tr>
+        <tr><td>(2)</td><td>từ chỉ loại thùng, đứng trước <span class="en">bin</span></td></tr>
+        <tr><td>(3), (6)</td><td>từ chỉ loại hội chợ, đứng trước <span class="en">fairs</span></td></tr>
+        <tr><td>(5)</td><td>danh từ — thứ học sinh được khuyến khích dùng</td></tr></table>
+      <p class="vi-sao"><span class="en">president</span> = chủ tịch · <span class="en">fair</span> = hội chợ (Glossary) · <span class="en">encourage</span> = khuyến khích · <span class="en">organise</span> = tổ chức.</p></div>
+    <div class="buoc" data-so="2"><h4>Nghe và điền</h4>
+      <p>Nghe Track 35 (tập hai). Lượt 1 điền phần của Mi, lượt 2 điền phần của Nam. Viết đúng chính tả, đúng số ít / số nhiều như em nghe.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 35 (tập hai) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>; em nghe băng rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Điền theo ý mình hoặc theo bài đọc Skills 1 (recycling bins, reusable…). Ý của Mi và Nam trong bài nghe có thể khác — chỉ băng mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu đáp án bằng file nghe hoặc sách giáo viên. Không suy đáp án từ bài đọc Skills 1 hay từ các câu T/F ở bài 2.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — True / False</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen again and tick (✓) T (True) or F (False).</span> 🎧 (Track 36, tập hai)</p>
+    <p class="en" lang="en">1. Mi thinks they can recycle things in the bins. &nbsp; 2. At book fairs, students can exchange their old books. &nbsp; 3. Nam thinks students will save money if they go to school by bus. &nbsp; 4. Students can exchange their used uniforms at uniform fairs.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gạch chân từ khoá ở mỗi câu trước khi nghe: <i>recycle</i>, <i>book fairs</i>, <i>by bus</i>, <i>uniform fairs</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 có hai chỗ có thể sai: <b>ai</b> nói (Nam) và <b>đi bằng gì</b> (by bus). Nghe kĩ cả hai.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Từ khoá cần chờ nghe</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th></tr>
+        <tr><td>1</td><td class="en">Mi — bins — recycle</td></tr>
+        <tr><td>2</td><td class="en">book fairs — exchange — old books</td></tr>
+        <tr><td>3</td><td class="en">Nam — save money — bus</td></tr>
+        <tr><td>4</td><td class="en">uniform fairs — used uniforms</td></tr></table>
+      <p class="vi-sao">Câu T/F hay “đánh tráo” một chi tiết nhỏ (tên người, phương tiện). Câu nghe được phải khớp <b>mọi</b> chi tiết mới chọn T.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 36 (tập hai). SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b> — em nghe băng, tick T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Notes</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Interview a classmate. Ask him / her what two things he / she will do if he / she becomes the president of the 3Rs Club. Take notes below.</span></p>
+    <p class="en" lang="en">Name ______ · Idea 1 ______ · Idea 2 ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hỏi bạn: nếu làm chủ tịch câu lạc bộ 3Rs, bạn sẽ làm hai việc gì? Ghi lại thật ngắn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi: <span class="en">What will you do if you become the president of the 3Rs Club?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phỏng vấn</h4>
+      <p class="en">A: What will you do if you become the president of the 3Rs Club?<br>B: Firstly, I'll plant trees at school with the club members. Secondly, I'll collect old clothes for charity.</p>
+      <p class="vi-sao">Câu hỏi là câu điều kiện loại 1: vế <i>if</i> <span class="en">you become</span> (hiện tại đơn), vế chính <span class="en">will you do</span>.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="2"><h4>Ghi chú ngắn</h4>
+      <table><tr><th>Name</th><td class="en">Lan</td></tr>
+        <tr><th>Idea 1</th><td class="en">planting trees at school</td></tr>
+        <tr><th>Idea 2</th><td class="en">collecting old clothes for charity</td></tr></table></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Ví dụ: Name: Lan · Idea 1: planting trees at school · Idea 2: collecting old clothes for charity</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Paragraph</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write a paragraph about your classmate's ideas in 3. Write about 50 words.</span></p>
+    <p class="en" lang="en">My classmate is ______. If ______ becomes the president of the 3Rs Club, ______ will do two things. Firstly, ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi ý không chỉ nêu việc làm — thêm một câu <b>giải thích hoặc ví dụ</b> như Study Skill dặn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dàn ý: câu mở (theo khung SGK) → <span class="en">Firstly, …</span> + một câu giải thích → <span class="en">Secondly, …</span> + một câu giải thích.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền khung câu SGK</h4>
+      <p>Viết về bạn → đổi <span class="en">I</span> thành <span class="en">he / she</span>: <span class="en">If she <b>becomes</b> the president…, she <b>will</b> do two things.</span> (vế <i>if</i> có <i>s</i> vì chủ ngữ là <i>she</i>).</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="2"><h4>Mỗi ý kèm giải thích / ví dụ</h4>
+      <p>Cô làm mẫu một ý thôi: <span class="en">Firstly, she will plant trees at school. Trees will make our school greener.</span> Ý thứ hai (<span class="en">Secondly, …</span>) em tự viết theo ghi chú của em nhé.</p>
+      <a class="xem-lai" href="#kt-study">📌 Xem lại: Study Skill – Writing</a></div>
+    <div class="buoc" data-so="3"><h4>Đếm từ và soát lỗi</h4>
+      <p>Khoảng 50 từ (45 – 55). Soát: vế <i>if</i> không có <i>will</i>; động từ sau <i>will</i> ở nguyên thể; <span class="en">the president, the 3Rs Club</span> có <i>the</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) dùng đúng khung câu SGK (My classmate is … If … becomes …, … will do two things. Firstly, …); (2) nêu đủ hai ý ở bài 3, mỗi ý có giải thích hoặc ví dụ (Study Skill); (3) dài khoảng 50 từ; (4) đúng câu điều kiện loại 1 và <i>will + động từ nguyên thể</i>.</div>
+    <div class="bay">Viết <span class="en">If she will become the president…</span> hoặc <span class="en">If she become…</span>. Đúng: <span class="en">If she becomes…</span> (hiện tại đơn, có <i>s</i>).</div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy một ý mẫu. Đoạn tham khảo dưới đây dành cho GV (đã đếm máy: 51 từ). Ý tưởng tham khảo cố ý khác các ý trong bảng bài nghe để không lộ nội dung băng.</div>
+    <div class="tham-khao">
+    <p lang="en">My classmate is Lan. If she becomes the president of the 3Rs Club, she will do two things. Firstly, she will plant trees at school with the club members. Trees will make our school greener. Secondly, she will collect old clothes. The club will give them to people in need.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 56 – 57</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Add more words / phrases to the word webs below.</span></p>
+    <p>Reduce: <span class="en">plastic bags</span> · Reuse: <span class="en">plastic bottles</span> · Recycle: <span class="en">glass</span> (mỗi sơ đồ còn 3 ô trống)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi sơ đồ đã có sẵn một từ. Em thêm ba từ nữa — dùng lại bảng em làm ở A Closer Look 1 bài 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thử câu: <span class="en">We can reduce … / We can reuse … / We can recycle …</span> — câu có nghĩa là từ dùng được.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền sơ đồ</h4>
+      <table><tr><th>Ô trung tâm</th><th>Từ có sẵn</th><th>Từ thêm (ví dụ)</th></tr>
+        <tr><td class="en">Reduce</td><td class="en">plastic bags</td><td class="en">rubbish · noise · water</td></tr>
+        <tr><td class="en">Reuse</td><td class="en">plastic bottles</td><td class="en">clothes · glass · old books</td></tr>
+        <tr><td class="en">Recycle</td><td class="en">glass</td><td class="en">paper · plastic bottles · cans</td></tr></table>
+      <p class="vi-sao">Ba ảnh trong SGK (thùng rác tái chế đầy chai nhựa và lon, túi giấy, tay nhặt chai) cũng gợi ý từ cho cột Recycle. <span class="en">cans, old books</span> là từ thêm.</p>
+      <a class="xem-lai" href="#kt-3r">📌 Xem lại: the three Rs</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách điền. Ví dụ: Reduce: rubbish, noise, water · Reuse: clothes, glass, old books · Recycle: paper, plastic bottles, cans</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">a / an / the</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Write <i>a / an</i> or <i>the</i>.</span></p>
+    <p class="en" lang="en">1. If I see ______ dog, I will run away. &nbsp; 2. Does your town have ______ art gallery? &nbsp; 3. ______ Moon is bright tonight. &nbsp; 4. There is a big temple in the town. ______ temple is very old. &nbsp; 5. – Is your mother ______ teacher? – No, she isn't. She's ______ artist.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">4. ___ temple is very old.</span><button class="chon chu" data-dung="0">A</button><button class="chon chu" data-dung="1">The</button><span class="phan-hoi" data-dung-txt="Đúng! Ngôi đền được nhắc lần thứ hai." data-sai-txt="Ngôi đền này đã được nhắc đến ở câu trước chưa?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">2. ___ art gallery</span><button class="chon chu" data-dung="0">a</button><button class="chon chu" data-dung="1">an</button><button class="chon chu" data-dung="0">the</button><span class="phan-hoi" data-dung-txt="Đúng! art bắt đầu bằng nguyên âm." data-sai-txt="Hỏi chung chung “có một … không?” — và art bắt đầu bằng âm gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 4 có hai lần chữ <i>temple</i>. Lần thứ hai dùng mạo từ nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 5 có <span class="en">is / 's</span> (to be) → <i>a / an</i>. Câu 3: Mặt Trăng chỉ có một.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a / an</h4>
+      <p>1. <span class="en">If I see <b>a</b> dog</span> — một con chó bất kì. &nbsp; 2. <span class="en">have <b>an</b> art gallery</span> — sau <i>have</i>, <i>art</i> bắt đầu bằng nguyên âm. &nbsp; 5. <span class="en">Is your mother <b>a</b> teacher? – … She's <b>an</b> artist.</span> — sau <i>to be</i>.</p>
+      <a class="xem-lai" href="#kt-a-an">📌 Xem lại: a / an</a></div>
+    <div class="buoc" data-so="2"><h4>the</h4>
+      <p>3. <span class="en"><b>The</b> Moon is bright tonight.</span> — duy nhất. &nbsp; 4. <span class="en"><b>The</b> temple is very old.</span> — nhắc lần thứ hai (lần đầu là <span class="en">a big temple</span>).</p>
+      <a class="xem-lai" href="#kt-the">📌 Xem lại: the</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. a &nbsp; 2. an &nbsp; 3. The &nbsp; 4. The &nbsp; 5. a … an</div>
+    <div class="bay">Câu 4 viết <span class="en">A temple</span> vì thấy “temple” là danh từ số ít. Đây là ngôi đền đã nói ở câu trước → <span class="en">The</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">First conditional</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Write the correct form of each verb in brackets.</span></p>
+    <p class="en" lang="en">1. If they (build) ______ an airport here, it (be) ______ very noisy. &nbsp; 2. People (save) ______ the environment if they (reuse) ______ old items. &nbsp; 3. If we (grow) ______ trees, our school (be) ______ greener. &nbsp; 4. If we (not have) ______ enough food, we (be) ______ hungry. &nbsp; 5. If we (be) ______ hungry, we (be) ______ tired.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu 2 có vế <i>if</i> đứng sau. Động từ nào nằm trong vế <i>if</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 5 có <i>be</i> ở cả hai vế — vế <i>if</i>: <span class="en">we are</span>; vế chính: <span class="en">will be</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vế if: hiện tại đơn</h4>
+      <p>1. <span class="en">they <b>build</b></span> · 2. <span class="en">they <b>reuse</b></span> · 3. <span class="en">we <b>grow</b></span> · 4. <span class="en">we <b>don't have</b></span> · 5. <span class="en">we <b>are</b></span></p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="2"><h4>Vế chính: will + động từ nguyên thể</h4>
+      <p>1. <span class="en">it <b>will be</b></span> · 2. <span class="en">People <b>will save</b></span> · 3. <span class="en">our school <b>will be</b></span> · 4. <span class="en">we <b>will be</b></span> · 5. <span class="en">we <b>will be</b></span></p>
+      <p class="vi-sao">Câu 3: <span class="en">our school</span> là số ít nhưng sau <i>will</i> vẫn là <i>be</i>, không phải <i>is</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. build … will be &nbsp; 2. will save … reuse &nbsp; 3. grow … will be &nbsp; 4. don't have … will be &nbsp; 5. are … will be</div>
+    <div class="bay">Câu 4 viết <span class="en">If we won't have…</span>. Phủ định ở vế <i>if</i> dùng <span class="en">don't / doesn't</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">First conditional</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Combine each pair of sentences below to make a first conditional sentence.</span></p>
+    <p class="en" lang="en">1. We walk or cycle. We are healthy. &nbsp; 2. We use the car all the time. We make the air dirty. &nbsp; 3. You reuse paper. You save trees. &nbsp; 4. You make noise. Your sister doesn't sleep. &nbsp; 5. I see a used bottle on the road. I put it in the bin.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giống A Closer Look 2 bài 4: câu đầu → vế <i>if</i>, câu sau → vế <i>will</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 4: <span class="en">doesn't sleep</span> → <span class="en">won't sleep</span> (sau <i>won't</i> không còn <i>s</i>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ghép thành câu điều kiện</h4>
+      <p class="en">1. If we walk or cycle, we will be healthy.<br>2. If we use the car all the time, we will make the air dirty.<br>3. If you reuse paper, you will save trees.<br>4. If you make noise, your sister won't sleep.<br>5. If I see a used bottle on the road, I will put it in the bin.</p>
+      <p class="vi-sao">Câu 1: <span class="en">are → will be</span>. Câu 4: <span class="en">doesn't sleep → won't sleep</span>.</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. If we walk or cycle, we will be healthy. &nbsp; 2. If we use the car all the time, we will make the air dirty. &nbsp; 3. If you reuse paper, you will save trees. &nbsp; 4. If you make noise, your sister won't sleep. &nbsp; 5. If I see a used bottle on the road, I will put it in the bin.</div>
+    <div class="bay">Câu 1 viết <span class="en">we will are healthy</span>. Sau <i>will</i>: <i>be</i>.</div>
+    <div class="gv-note">Chấp nhận vế <i>if</i> đặt sau (không dấu phẩy), và dạng tắt <i>we'll, you'll, I'll</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">Reusing old things</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>CREATIVE IDEAS ABOUT REUSING OLD THINGS</b></p>
+    <p class="en" lang="en">1. What can you see in each picture? What did people use to make the things in the pictures? &nbsp; 2. Now work in pairs or in groups to complete the project. Choose a used object (a bottle, a sheet of paper, etc.). Make something new from it and decorate it. Bring it to class. Do a “show and tell” about it. &nbsp; 3. Listen to other presentations and decide which is the best.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ở nhà em có món đồ cũ nào sắp bị vứt đi? Nó có thể “sống lại” thành thứ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi 1 dùng thì quá khứ (<span class="en">did people use</span>) → trả lời <span class="en">They used … to make …</span> (Unit 8).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bước 1: nói về các ảnh trong SGK</h4>
+      <p class="en">I can see a pen holder. They used an old bottle and some rope to make it.<br>I can see a plant pot. They used a coconut shell to make it.<br>I can see some plant pots. They used old cans to make them.</p>
+      <p class="vi-sao"><span class="en">pen holder</span> (ống đựng bút), <span class="en">rope</span> (dây thừng), <span class="en">coconut shell</span> (gáo dừa), <span class="en">cans</span> (lon) là từ thêm, không bắt buộc thuộc.</p></div>
+    <div class="buoc" data-so="2"><h4>Bước 2: làm và trình bày “show and tell” — khung câu</h4>
+      <p class="en">This is my … I made it from … First, I … Then, I decorated it with … I use it to … If you have an old …, you can make one too!</p>
+      <p class="vi-sao">Kể quá trình làm dùng quá khứ đơn (<i>made, decorated</i>); câu kết mời bạn làm theo dùng câu điều kiện (<span class="en">If you have…</span>).</p>
+      <a class="xem-lai" href="#kt-if">📌 Xem lại: first conditional</a></div>
+    <div class="buoc" data-so="3"><h4>Bước 3: nghe các nhóm khác và bình chọn</h4>
+      <p class="en">I like group 3's pen holder very much because it is beautiful and useful.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bước 1 (theo ảnh SGK): ống đựng bút từ vỏ chai quấn dây thừng, hoa hồng giấy, chậu cây từ gáo dừa, chai thuỷ tinh cắt để trồng cỏ, lon thiếc sơn màu làm chậu cây. Sản phẩm đạt yêu cầu khi: (1) làm từ một đồ đã qua sử dụng; (2) có trang trí; (3) giới thiệu được làm từ gì, làm thế nào, dùng để làm gì; (4) nói đúng ngữ pháp đã học.</div>
+    <div class="gv-note">Câu <i>which is the best</i> (so sánh nhất) là của đề SGK; HS dùng nguyên cụm, không cần làm bài với dạng này ở Unit 11 (so sánh nhất học ở Unit 12).</div>
+    <div class="tham-khao">
+    <p lang="en">This is my pen holder. I made it from an old plastic bottle. First, I cut the bottle. Then, I decorated it with coloured paper and a red ribbon. I use it to keep my pens and pencils. If you have an old bottle, you can make one too!</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 11. Our Greener World — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK (riêng bảng điểm khảo sát 3Rs Club do SGK in sẵn ở trang 57). Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u11';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-11-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-11-bai-giai.nguon.html" data-phien-ban="5fce0f294f3c">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

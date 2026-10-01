@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 3. Yêu thương và chia sẻ — Bài tập &amp; lời giải · Ngữ văn 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="ngu-van" data-bang="khong">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Ngữ văn 6 › Tập một</div>
+    <div class="hang1">
+      <h1>Bài 3. Yêu thương và chia sẻ — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Ngữ văn 6 › Tập một</div><h1>Bài 3. Yêu thương và chia sẻ — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Tri thức ngữ văn cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 7 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-mieu-ta"><b class="ten">Miêu tả nhân vật trong truyện kể</b>
+      Ngoại hình: dáng vẻ bề ngoài của nhân vật (thân hình, gương mặt, ánh mắt, làn da, mái tóc, trang phục,…).<br>
+      Hành động: những cử chỉ, việc làm thể hiện cách ứng xử của nhân vật với bản thân và thế giới xung quanh.<br>
+      Ngôn ngữ: lời nói của nhân vật, được xây dựng ở cả hai hình thức đối thoại và độc thoại.<br>
+      Thế giới nội tâm: những cảm xúc, tình cảm, suy nghĩ của nhân vật.</div>
+    <div class="kt" id="kt-nguoi-ke"><b class="ten">Người kể chuyện (Tri thức ngữ văn Bài 1)</b>
+      Người kể chuyện là nhân vật do nhà văn tạo ra để kể lại câu chuyện. Người kể chuyện có thể trực tiếp xuất hiện trong tác phẩm, xưng “tôi” (người kể chuyện ngôi thứ nhất), kể về những gì mình chứng kiến hoặc tham gia. Người kể chuyện cũng có thể “giấu mình” (người kể chuyện ngôi thứ ba), không tham gia vào câu chuyện nhưng lại có khả năng “biết hết” mọi chuyện.</div>
+    <div class="kt" id="kt-cum-tu"><b class="ten">Mở rộng thành phần chính của câu bằng cụm từ</b>
+      Thành phần chính của câu có thể là một từ, cũng có thể là một cụm từ. Dùng cụm từ làm thành phần chính của câu có thể giúp câu cung cấp được nhiều thông tin hơn cho người đọc, người nghe. Có nhiều loại cụm từ, nhưng tiêu biểu nhất là cụm danh từ, cụm động từ, cụm tính từ.<br>
+      So sánh: (1) <i>Tuyết/ rơi.</i> (2) <i>Tuyết trắng/ rơi đầy trên đường.</i> — Chủ ngữ <i>tuyết trắng</i> cụ thể hơn <i>tuyết</i> vì có thông tin về đặc điểm màu sắc của tuyết. Vị ngữ <i>rơi đầy trên đường</i> cụ thể hơn <i>rơi</i> vì có thông tin về mức độ và địa điểm rơi của tuyết.</div>
+    <div class="kt" id="kt-cdt"><b class="ten">Cụm danh từ</b>
+      Ở dạng đầy đủ, cụm danh từ gồm ba phần: phần trung tâm ở giữa, phần phụ trước và phần phụ sau. Trung tâm của cụm danh từ là danh từ. Các từ ở trước danh từ trung tâm thường thể hiện số lượng của sự vật mà danh từ trung tâm biểu hiện. Các từ đứng sau danh từ trung tâm thường nêu đặc điểm của sự vật, xác định vị trí của sự vật trong không gian, thời gian.</div>
+    <div class="kt" id="kt-cdgt"><b class="ten">Cụm động từ</b>
+      Ở dạng đầy đủ, cụm động từ gồm ba phần: phần trung tâm ở giữa, phần phụ trước và phần phụ sau. Trung tâm của cụm động từ là động từ. Các từ đứng trước động từ trung tâm thường bổ sung cho động từ những ý nghĩa như: thời gian, khẳng định, phủ định, tiếp diễn,… Các từ đứng sau động từ trung tâm thường bổ sung cho động từ những ý nghĩa như: đối tượng, địa điểm, thời gian,…</div>
+    <div class="kt" id="kt-ctt"><b class="ten">Cụm tính từ</b>
+      Ở dạng đầy đủ, cụm tính từ gồm ba phần: phần trung tâm ở giữa, phần phụ trước và phần phụ sau. Trung tâm của cụm tính từ là tính từ. Các từ đứng trước tính từ trung tâm thường bổ sung cho tính từ những ý nghĩa như: mức độ, thời gian, sự tiếp diễn,… Các từ đứng sau tính từ trung tâm thường bổ sung cho tính từ những ý nghĩa như: phạm vi, mức độ,…</div>
+    <div class="kt" id="kt-trai-nghiem"><b class="ten">Yêu cầu đối với bài văn kể lại một trải nghiệm</b>
+      Được kể từ người kể chuyện ngôi thứ nhất. · Giới thiệu được trải nghiệm đáng nhớ. · Tập trung vào sự việc đã xảy ra. · Sắp xếp các sự việc, chi tiết theo trình tự hợp lí. · Sử dụng các chi tiết miêu tả cụ thể về thời gian, không gian, nhân vật và diễn biến câu chuyện. · Thể hiện được cảm xúc của người viết trước sự việc được kể; rút ra được ý nghĩa, sự quan trọng của trải nghiệm đối với người viết.</div>
+    <p class="nguon">Nguồn: SGK Ngữ văn 6, Kết nối tri thức với cuộc sống, Tập một — Bài 3. Yêu thương và chia sẻ (ý “Người kể chuyện” nhắc lại từ Bài 1. Tôi và các bạn).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-vb1" data-chip="Văn bản 1">Văn bản 1. Cô bé bán diêm<small>Han Cri-xti-an An-đéc-xen</small></h2>
+
+<article class="the bai" id="v1-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Giới thiệu ngắn gọn một truyện kể hoặc một bộ phim có nhân vật trẻ em gây ấn tượng với em.</p>
+    <p><b>2.</b> Chia sẻ một vài cảm nhận của em về nhân vật đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có nhân vật trẻ em nào mà gấp sách lại rồi, em vẫn còn nghĩ về bạn ấy?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn <b>một</b> nhân vật thôi. Giới thiệu trong hai, ba câu: tên truyện (phim), nhân vật là ai, chuyện gì xảy ra với nhân vật. Rồi nói em thấy nhân vật ấy thế nào — kèm một việc làm cụ thể của nhân vật.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Giới thiệu thật gọn</h4>
+      <p>Đừng kể lại cả câu chuyện. Chỉ cần: tên truyện / phim — tên nhân vật — một nét hoàn cảnh nổi bật của nhân vật.</p>
+      <p class="vi-sao">Em có thể dùng ngay nhân vật đã gặp ở Bài 1: hoàng tử bé trong <i>Nếu cậu muốn có một người bạn…</i>. Văn bản sắp đọc cũng có một nhân vật trẻ em, và câu chuyện của em bé ấy sẽ khiến em phải nghĩ rất lâu.</p></div>
+    <div class="buoc" data-so="2"><h4>Cảm nhận phải có “vì sao”</h4>
+      <p>“Em thương bạn ấy”, “em phục bạn ấy” — được. Nhưng phải nói thêm: thương vì chi tiết nào, phục vì việc làm nào.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em sẽ khác nhau. <b>Một câu trả lời tham khảo:</b> Em ấn tượng với hoàng tử bé trong truyện <i>Hoàng tử bé</i> của Ăng-toan đơ Xanh-tơ Ê-xu-pe-ri — một cậu bé sống một mình trên tiểu tinh cầu nhỏ, rồi đi khắp nơi để tìm hiểu thế giới. Em thích cậu vì cậu rất kiên nhẫn: con cáo dặn phải “cảm hoá” dần dần, và cậu đã chịu khó làm quen từng chút một. Đọc truyện, em thấy để có một người bạn thật sự, mình cũng phải bỏ thời gian và tấm lòng ra như thế.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Chấp nhận nhân vật trong truyện, phim hoạt hình, phim truyện. Khen những em nói được cảm nhận gắn với một chi tiết cụ thể — đó là thói quen cần cho cả bài học.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Người kể chuyện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Truyện <i>Cô bé bán diêm</i> được kể bằng lời của người kể chuyện ngôi thứ mấy?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — chọn ngôi kể</b>
+    <div class="cau-thu"><span class="noi-dung">Người kể chuyện trong <i>Cô bé bán diêm</i></span><button class="chon chu" data-dung="0">Ngôi thứ nhất</button><button class="chon chu" data-dung="1">Ngôi thứ ba</button><span class="phan-hoi" data-dung-txt="Đúng! Người kể giấu mình, gọi nhân vật là “em”, “em bé”." data-sai-txt="Thử lại: người kể có xưng “tôi” và có mặt trong truyện không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong truyện có ai xưng “tôi” để kể không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xem người kể gọi cô bé là gì. Rồi tìm một câu cho thấy người kể biết cả điều cô bé đang nghĩ trong đầu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Người kể không xưng “tôi”</h4>
+      <blockquote class="trich"><p>Giữa trời đông giá rét, một em gái nhỏ đầu trần, chân đi đất, đang dò dẫm trong đêm tối.</p></blockquote>
+      <p>Người kể gọi nhân vật là “em gái nhỏ”, “em”, “em bé” — đứng ngoài câu chuyện mà kể.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhưng lại “biết hết”</h4>
+      <blockquote class="trich"><p>Tuy nhiên, em không thể nào về nhà nếu không bán được ít bao diêm, hay không ai bố thí cho một đồng xu nào đem về; nhất định là cha em sẽ đánh em.</p></blockquote>
+      <p class="vi-sao">Không ai đứng cạnh em bé mà nghe được câu ấy — đó là điều em đang lo sợ trong lòng. Người kể giấu mình mà vẫn thấu suốt cả ý nghĩ của nhân vật: đúng là <b>người kể chuyện ngôi thứ ba</b>.</p>
+      <a class="xem-lai" href="#kt-nguoi-ke">📌 Xem lại: người kể chuyện</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Truyện được kể bằng lời của <b>người kể chuyện ngôi thứ ba</b>. Người kể không xưng “tôi”, không tham gia vào câu chuyện, gọi nhân vật là “em”, “em bé”, nhưng biết hết mọi chuyện — biết cả điều em nhớ (“Em tưởng nhớ lại năm xưa…”) lẫn điều em sợ (“nhất định là cha em sẽ đánh em”).</div>
+    <div class="bay">Trả lời “An-đéc-xen kể, ngôi thứ nhất”. An-đéc-xen là tác giả viết ra truyện; người kể chuyện là nhân vật do nhà văn tạo ra, và ở truyện này người kể giấu mình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hoàn cảnh nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cô bé bán diêm phải ở ngoài đường phố trong một đêm như thế nào? Vì sao cô bé không dám trở về nhà?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu đầu tiên của truyện đã dựng xong cả một đêm — em đọc lại xem.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vế 1: đọc đoạn mở đầu. Vế 2: tìm đoạn em bé “ngồi nép trong một góc tường” — có <b>hai</b> lí do, lí do thứ hai bắt đầu bằng chữ “Vả lại”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một đêm như thế nào?</h4>
+      <blockquote class="trich"><p>Rét dữ dội, tuyết rơi. Trời đã tối hẳn. Đêm nay là đêm giao thừa.</p><cite>— Câu mở đầu truyện</cite></blockquote>
+      <p class="vi-sao">Ba câu ngắn như ba nhát cắt: rét — tối — giao thừa. Rét và tối là cái khổ; còn “giao thừa” là đêm mọi người sum họp. Chính chữ “giao thừa” làm cái rét và cái tối của em bé càng thấm thía.</p></div>
+    <div class="buoc" data-so="2"><h4>Vì sao không dám về?</h4>
+      <blockquote class="trich"><p>Tuy nhiên, em không thể nào về nhà nếu không bán được ít bao diêm, hay không ai bố thí cho một đồng xu nào đem về; nhất định là cha em sẽ đánh em.</p>
+        <p>Vả lại ở nhà cũng rét thế thôi. Cha con em ở trên gác, sát mái nhà, và mặc dầu đã nhét giẻ rách vào các kẽ hở lớn trên vách, gió vẫn thổi rít vào trong nhà.</p></blockquote>
+      <p class="vi-sao">Lí do thứ hai mới thật buồn: về nhà cũng chẳng ấm hơn. Ngoài đường lạnh, trong nhà cũng lạnh — em bé không còn chỗ nào để trốn cái rét.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cô bé phải lang thang ngoài phố trong <b>đêm giao thừa</b> giá buốt: “Rét dữ dội, tuyết rơi. Trời đã tối hẳn.” Em không dám về nhà vì cả ngày chưa bán được bao diêm nào, cũng không ai cho một đồng xu, nên “nhất định là cha em sẽ đánh em”; hơn nữa, “ở nhà cũng rét thế thôi” — căn gác sát mái nhà dù đã nhét giẻ rách vào kẽ vách, gió vẫn thổi rít vào. Đêm mọi nhà quây quần, em bé không có lấy một chỗ ấm để về.</div>
+    <div class="bay">Chỉ nêu một lí do (sợ cha đánh) mà bỏ lí do thứ hai (ở nhà cũng rét). Hoặc quên vế đầu: không nói đó là <b>đêm giao thừa</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Miêu tả ngoại hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu các chi tiết miêu tả ngoại hình của cô bé bán diêm. Những chi tiết đó giúp em hình dung như thế nào về cuộc sống của nhân vật?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ đầu đến chân, trên người em bé có món nào lành lặn, ấm áp không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ngoại hình gồm cả trang phục, mái tóc, đôi chân, đôi tay. Gạch chân từng chi tiết trong nửa đầu truyện, rồi tự hỏi: một em bé được chăm sóc có ăn mặc như thế giữa đêm tuyết không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gom các chi tiết ngoại hình</h4>
+      <blockquote class="trich"><p>Giữa trời đông giá rét, một em gái nhỏ đầu trần, chân đi đất, đang dò dẫm trong đêm tối.</p>
+        <p>Giày ấy của mẹ em để lại, rộng quá, em đã liên tiếp làm văng mất cả hai chiếc khi em chạy qua đường, vào lúc hai chiếc xe ngựa đang phóng nước đại.</p>
+        <p>Thế rồi em phải đi đất, chân em đỏ ửng lên, rồi tím bầm lại vì rét.</p>
+        <p>Chiếc tạp dề cũ kĩ của em đựng đầy diêm và tay em còn cầm thêm một bao.</p>
+        <p>Bông tuyết bám đầy trên mái tóc dài xoã thành từng búp trên lưng em, em cũng không để ý.</p></blockquote>
+      <a class="xem-lai" href="#kt-mieu-ta">📌 Xem lại: miêu tả ngoại hình nhân vật</a></div>
+    <div class="buoc" data-so="2"><h4>Từ ngoại hình đoán ra cuộc sống</h4>
+      <p>Đôi giày là của mẹ “để lại” — em không còn mẹ ở bên; giày lại “rộng quá”, không ai sắm cho em một đôi vừa chân. Tạp dề thì “cũ kĩ”. Tuyết bám đầy tóc mà em “cũng không để ý” — em đã quá rét, quá đói để bận tâm.</p>
+      <p class="vi-sao">Nhà văn không cần viết “em rất nghèo, không ai thương”. Chỉ một đôi giày rộng mẹ để lại, một đôi chân “đỏ ửng lên, rồi tím bầm lại”, là người đọc hiểu hết.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cô bé hiện lên với “đầu trần, chân đi đất”; đôi giày vải “của mẹ em để lại, rộng quá” đã văng mất cả hai chiếc; đôi chân “đỏ ửng lên, rồi tím bầm lại vì rét”; chiếc tạp dề “cũ kĩ” đựng đầy diêm; mái tóc dài bám đầy tuyết mà em “cũng không để ý”; đôi bàn tay “đã cứng đờ ra”. Những chi tiết ấy cho em hình dung một cuộc sống <b>nghèo khổ, thiếu thốn và côi cút</b>: không còn mẹ ở bên, không ai sắm cho em quần áo ấm, đôi giày vừa chân, em phải một mình đi bán diêm giữa đêm đông để kiếm từng đồng xu. Trong khi những đứa trẻ khác đang ấm áp bên gia đình, em bé ấy chỉ có cái rét làm bạn.</div>
+    <div class="bay">Chỉ liệt kê chi tiết mà bỏ vế thứ hai (hình dung về <b>cuộc sống</b> của nhân vật). Hoặc kể lẫn các chi tiết không phải ngoại hình (em quẹt diêm, em nhớ bà).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Mộng tưởng và ước mong</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Những hình ảnh xuất hiện sau mỗi lần quẹt diêm thể hiện những ước mong nào của cô bé bán diêm? Theo em, có thể thay đổi trình tự xuất hiện của các hình ảnh đó không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi lần quẹt diêm, em bé thấy đúng cái thứ mà em đang <b>thiếu</b> nhất. Thiếu gì trước, thiếu gì sau?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lập bảng bốn dòng: lần quẹt — hình ảnh hiện ra — em bé đang cần gì. Nhớ cả lần cuối cùng em “quẹt tất cả những que diêm còn lại trong bao”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bốn lần quẹt, bốn điều mong</h4>
+      <table>
+        <tr><th>Lần quẹt</th><th>Hình ảnh hiện ra</th><th>Ước mong</th></tr>
+        <tr><td>Thứ nhất</td><td>“một lò sưởi bằng sắt”, lửa “toả ra hơi nóng dịu dàng”</td><td>được sưởi ấm</td></tr>
+        <tr><td>Thứ hai</td><td>bàn ăn “khăn trải trắng tinh”, con ngỗng quay “tiến về phía em bé”</td><td>được ăn no</td></tr>
+        <tr><td>Thứ ba</td><td>cây thông Nô-en, “Hàng ngàn ngọn nến sáng rực”</td><td>được vui đón năm mới như mọi người</td></tr>
+        <tr><td>Thứ tư</td><td>bà “đang mỉm cười với em”</td><td>được yêu thương, che chở</td></tr>
+        <tr><td>Cả bao còn lại</td><td>“hai bà cháu bay vụt lên cao”</td><td>được ở mãi bên bà, thoát khỏi “đói rét, đau buồn”</td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Có đổi được thứ tự không?</h4>
+      <blockquote class="trich"><p>– Bà ơi! – Em bé reo lên. – Cho cháu đi với! Cháu biết rằng diêm tắt thì bà cũng biến đi mất như lò sưởi, ngỗng quay và cây Nô-en ban nãy, nhưng xin bà đừng bỏ cháu ở nơi này</p><cite>— Lời em bé khi thấy bà</cite></blockquote>
+      <p class="vi-sao">Để ý: các hình ảnh nối với những gì em vừa trải qua. Em đang rét cóng → lò sưởi. Phố “sực nức mùi ngỗng quay” mà em “bụng đói” → con ngỗng. Năm ngoái em chỉ được ngắm cây thông “qua cửa kính một nhà buôn giàu có” → cây thông lộng lẫy hơn. Rồi ngôi sao đổi ngôi nhắc em nhớ lời bà → bà hiện ra. Đi từ cái cần cho thân thể (ấm, no) đến cái cần cho tâm hồn (niềm vui, tình thương) — xếp như vậy, bà phải là người đến sau cùng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi lần quẹt diêm là một ước mong: lò sưởi — mong được <b>sưởi ấm</b>; bàn ăn với con ngỗng quay — mong được <b>ăn no</b>; cây thông Nô-en rực nến — mong được <b>vui đón năm mới</b> như bao đứa trẻ khác; người bà mỉm cười — mong được <b>yêu thương, che chở</b>; và khi quẹt hết cả bao để “níu bà lại”, em mong được ở mãi bên bà, nơi “chẳng còn đói rét, đau buồn nào”. Theo em, <b>không nên thay đổi</b> trình tự ấy. Các hình ảnh đi từ nhu cầu cấp thiết của thân thể (ấm, no) đến niềm vui, rồi đến điều em khao khát nhất là tình thương của bà; mỗi hình ảnh lại gắn với điều em vừa gặp ngoài đời thực. Bà xuất hiện cuối cùng cũng cho thấy: thứ em bé thiếu nhất không phải hơi ấm hay miếng ăn, mà là một vòng tay yêu thương. (Em có ý khác cũng được, miễn nêu được lí do từ văn bản.)</div>
+    <div class="bay">Chỉ kể lại các hình ảnh mà không gọi tên <b>ước mong</b>. Hoặc trả lời vế sau bằng một chữ “không” mà không giải thích.</div>
+    <div class="gv-note">Vế hai là câu hỏi mở. Chấp nhận HS cho rằng có thể đổi thứ tự, nếu nêu được lí do; nhưng câu trả lời tốt thường nhận ra mối liên hệ giữa từng ảo ảnh với thực tế ngay trước đó (mùi ngỗng quay, cây thông năm ngoái, ngôi sao đổi ngôi).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy để ý cái giá của mỗi giấc mơ: một que diêm. Que diêm là thứ em phải bán để khỏi bị đánh. Vậy mà em vẫn quẹt — bởi có những lúc, một chút ấm áp dù chỉ vài giây cũng quý hơn mọi đồng xu.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c5" data-ten="Câu 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Thái độ người kể chuyện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nêu cảm nhận của em về thái độ của người kể chuyện đối với cô bé bán diêm. Phân tích một vài chi tiết làm cơ sở cho cảm nhận đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người kể giấu mình — nhưng có lúc nào người kể “lỡ” để lộ lòng thương của mình không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm những chữ người kể dùng để gọi em bé; những câu cảm thán (“Chà!…”); và câu cuối truyện nói về “những cái kì diệu em đã trông thấy”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một lời gọi chứa cả tấm lòng</h4>
+      <blockquote class="trich"><p>Em bé đáng thương, bụng đói rét vẫn lang thang trên đường.</p></blockquote>
+      <p class="vi-sao">“Đáng thương” là lời của người kể, không phải của nhân vật nào. Chỉ hai chữ ấy, người kể đã đứng hẳn về phía em bé.</p></div>
+    <div class="buoc" data-so="2"><h4>Kể giấc mơ bằng giọng của chính em bé</h4>
+      <blockquote class="trich"><p>Em hơ đôi tay trên que diêm sáng rực như than hồng. Chà! Ánh sáng kì diệu làm sao!</p></blockquote>
+      <p>Người kể như ngồi xuống bên em, reo lên cùng em mỗi khi diêm sáng.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu cuối truyện</h4>
+      <blockquote class="trich"><p>Nhưng chẳng ai biết những cái kì diệu em đã trông thấy, nhất là cảnh huy hoàng lúc hai bà cháu bay lên để đón lấy những niềm vui đầu năm.</p></blockquote>
+      <p class="vi-sao">Mọi người chỉ thấy một em bé chết rét; người kể thì biết, và nâng niu, những giấc mơ của em. Đó là sự trân trọng — và cũng là một lời trách nhẹ những người đã không nhìn thấy.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau, nhưng phải dựa vào chi tiết. <b>Một câu trả lời tham khảo:</b> Người kể chuyện dành cho cô bé bán diêm một tình thương sâu sắc và sự trân trọng. Người kể gọi em là “Em bé đáng thương”, kể tỉ mỉ từng nỗi khổ nhỏ nhất: đôi chân “đỏ ửng lên, rồi tím bầm lại”, đôi bàn tay “cứng đờ ra”. Khi em quẹt diêm, giọng kể reo vui cùng em: “Chà! Ánh sáng kì diệu làm sao!”, như muốn cho em được hưởng trọn từng giây ấm áp. Và khi mọi người chỉ thấy một em bé chết rét, người kể vẫn nhắc rằng “chẳng ai biết những cái kì diệu em đã trông thấy” — những giấc mơ của em được người kể nâng niu như một điều quý giá.</div>
+    <div class="bay">Nói “người kể thương em bé” mà không phân tích chi tiết nào. Đề yêu cầu rõ: phân tích một vài chi tiết làm cơ sở.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận các cảm nhận như thương xót, cảm thông, trân trọng, xót xa, thậm chí “buồn trách người đời” — miễn có chi tiết làm căn cứ. Lưu ý HS không lẫn “người kể chuyện” với “tác giả”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c6" data-ten="Câu 6" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Nhận xét cách ứng xử</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc lại một số câu văn miêu tả cách ứng xử của người đi đường trước tình cảnh của cô bé bán diêm. Em nghĩ gì về cách ứng xử của họ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có bao nhiêu người đi qua em bé trong đêm ấy? Có ai dừng lại không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có ít nhất ba chỗ: lúc em bé chào hàng; lúc que diêm thứ hai vụt tắt; và sáng mồng một. Đừng quên cả thằng bé nhặt được chiếc giày.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Những người đi qua</h4>
+      <blockquote class="trich"><p>Nhưng trời rét quá, khách qua đường đều rảo bước rất nhanh, chẳng ai đoái hoài đến lời chào hàng của em.</p></blockquote>
+      <blockquote class="trich"><p>mấy người khách qua đường quần áo ấm áp vội vã đi đến những nơi hẹn hò, hoàn toàn lãnh đạm với cảnh nghèo khổ của em bé bán diêm.</p></blockquote>
+      <p class="vi-sao">“Lãnh đạm” — chú thích của sách: “lạnh nhạt, không biểu hiện cảm xúc, không quan tâm”. Họ mặc “quần áo ấm áp”, nhưng lòng họ thì lạnh.</p></div>
+    <div class="buoc" data-so="2"><h4>Cả khi em bé đã mất</h4>
+      <blockquote class="trich"><p>Mọi người bảo nhau: “Chắc nó muốn sưởi ấm!”.</p></blockquote>
+      <p>Một câu nói đúng, mà dửng dưng. Người ta gọi em là “nó”, rồi đi tiếp những niềm vui đầu năm.</p>
+      <p class="vi-sao">Còn thằng bé nhặt được chiếc giày thì “cười sằng sặc, đem tung lên trời” — đến cả một đứa trẻ cũng không biết thương em.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Người đi đường “rảo bước rất nhanh, chẳng ai đoái hoài đến lời chào hàng của em”; họ “quần áo ấm áp vội vã đi đến những nơi hẹn hò, hoàn toàn lãnh đạm với cảnh nghèo khổ của em bé”; đến sáng mồng một, thấy em chết rét, họ chỉ “bảo nhau” một câu “Chắc nó muốn sưởi ấm!” rồi thôi. Em nghĩ họ thật <b>thờ ơ, vô cảm</b>. Chỉ cần một người dừng lại mua giúp một bao diêm, hay dắt em vào sưởi nhờ một lát, có lẽ em bé đã không phải chết trong đêm giao thừa. Cái rét của mùa đông đáng sợ, nhưng sự lạnh lùng của lòng người còn đáng sợ hơn.</div>
+    <div class="bay">Chỉ chép lại các câu văn mà không nói <b>em nghĩ gì</b>. Hoặc bênh vực một chiều “tại trời rét quá” mà bỏ qua chữ “lãnh đạm” người kể đã dùng.</div>
+    <div class="gv-note">Câu hỏi mở: có HS sẽ nói người đi đường “không biết” hoàn cảnh em bé — chấp nhận nếu có lập luận, nhưng gợi ý HS đối chiếu chữ “chẳng ai đoái hoài”, “hoàn toàn lãnh đạm”. Có thể liên hệ: mình có từng vội vã đi qua một người cần giúp?</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c7" data-ten="Câu 7*" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 7*</span><span class="nhan vd">Vận dụng</span><span class="nhan">Chi tiết tương phản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong truyện, tác giả đã sử dụng nhiều chi tiết, hình ảnh tương phản như: cảnh đoàn tụ của các gia đình đêm giao thừa với tình cảnh đói rét, đơn độc ngoài đường phố của cô bé bán diêm; không khí tươi vui của ngày đầu năm mới với cảnh tượng em bé chết rét nơi xó tường;… Em hãy chỉ ra ý nghĩa, tác dụng của một vài chi tiết, hình ảnh đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt hai bức tranh cạnh nhau: một bên sáng rực, một bên tối tăm. Bên nào làm em nhói lòng hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn hai cặp thôi, nhưng phân tích cho kĩ: mỗi cặp nói rõ vế này — vế kia — đặt cạnh nhau thì người đọc thấy điều gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cặp 1: Trong nhà — ngoài phố</h4>
+      <blockquote class="trich"><p>Cửa sổ mọi nhà đều sáng rực ánh đèn và trong phố sực nức mùi ngỗng quay. Chả là đêm giao thừa mà!</p></blockquote>
+      <p>Ngay sau đó, em bé “ngồi nép trong một góc tường, giữa hai ngôi nhà”, “bụng đói rét”.</p>
+      <p class="vi-sao">Em bé ngửi thấy mùi ngỗng quay, thấy ánh đèn — hạnh phúc ở ngay sát bên mà em không chạm tới. Cái gần mà xa ấy làm nỗi cô đơn của em đau hơn gấp bội.</p></div>
+    <div class="buoc" data-so="2"><h4>Cặp 2: Sáng đầu năm — xó tường</h4>
+      <blockquote class="trich"><p>Sáng hôm sau tuyết vẫn phủ kín mặt đất, nhưng mặt trời lên trong sáng, chói chang trên bầu trời nhạt. Mọi người vui vẻ ra khỏi nhà.</p>
+        <p>Trong buổi sáng lạnh lẽo ấy, ở một xó tường người ta thấy một em gái có đôi má hồng và đôi môi đang mỉm cười. Em đã chết vì rét trong đêm giao thừa.</p></blockquote>
+      <p class="vi-sao">Có cả tương phản ngay trong một hình ảnh: em đã chết mà “đôi má hồng và đôi môi đang mỉm cười”. Nụ cười ấy là nụ cười của giấc mơ được về với bà — nó làm người đọc vừa được an ủi một chút, vừa xót xa hơn rất nhiều.</p></div>
+    <div class="buoc" data-so="3"><h4>Cặp 3: Mộng — thực</h4>
+      <blockquote class="trich"><p>Rồi… que diêm vụt tắt; trước mặt em chỉ còn là những bức tường dầy đặc và lạnh lẽo.</p></blockquote>
+      <p class="vi-sao">Diêm sáng: lò sưởi, ngỗng quay, cây thông. Diêm tắt: tường lạnh, phố vắng. Mỗi lần ảo ảnh vụt tắt, thực tế lại hiện ra phũ phàng hơn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chẳng hạn: đêm giao thừa, “Cửa sổ mọi nhà đều sáng rực ánh đèn và trong phố sực nức mùi ngỗng quay”, còn em bé thì ngồi nép trong một góc tường, “bụng đói rét”; sáng mồng một, “mặt trời lên trong sáng”, “Mọi người vui vẻ ra khỏi nhà”, còn ở một xó tường là em bé “đã chết vì rét trong đêm giao thừa”; mỗi que diêm sáng lên là lò sưởi, bàn ăn, cây thông, còn khi diêm tắt chỉ còn “những bức tường dầy đặc và lạnh lẽo”. Đặt cạnh nhau, những hình ảnh ấm áp, vui tươi làm <b>nỗi đói rét, cô đơn của em bé hiện ra rõ hơn, đau hơn</b>; người đọc thêm <b>thương xót</b> em và nhận ra sự <b>thờ ơ</b> của những người xung quanh. Hạnh phúc của người khác ở ngay sát bên mà em bé không với tới được — đó là điều làm câu chuyện day dứt mãi.</div>
+    <div class="bay">Chỉ nhắc lại hai ví dụ có sẵn trong đề mà không nói <b>tác dụng</b>. Hoặc nêu tác dụng chung chung “làm câu chuyện hay hơn”.</div>
+    <div class="gv-note">Câu khó (có dấu *). “Tương phản” ở đây là từ của chính câu hỏi SGK, dùng để chỉ các chi tiết đối lập nhau; không yêu cầu HS gọi tên như một biện pháp tu từ. Chấp nhận HS phân tích một hoặc hai cặp, miễn nói rõ tác dụng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-c8" data-ten="Câu 8" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 8</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Kết thúc truyện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Những câu chuyện cổ tích thường kết thúc có hậu: nhân vật chính được hưởng cuộc sống bình yên, hạnh phúc. Theo em, truyện <i>Cô bé bán diêm</i> có kết thúc giống như vậy không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Em bé chết — nhưng em lại mỉm cười. Vậy đây là kết thúc buồn hay vui?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại hai đoạn cuối: đoạn hai bà cháu bay lên, và đoạn sáng mồng một. Một đoạn là mơ, một đoạn là thực — em dựa vào đoạn nào để trả lời?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trong giấc mơ</h4>
+      <blockquote class="trich"><p>Bà cụ cầm lấy tay em, rồi hai bà cháu bay vụt lên cao, cao mãi, chẳng còn đói rét, đau buồn nào đe doạ họ nữa.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Ngoài đời thực</h4>
+      <blockquote class="trich"><p>Em đã chết vì rét trong đêm giao thừa.</p></blockquote>
+      <p class="vi-sao">Câu văn ngắn, lạnh như một bản tin. Ở đời thực, em bé không được hưởng “cuộc sống bình yên, hạnh phúc” nào cả. Niềm hạnh phúc chỉ có trong mộng tưởng — và mộng tưởng ấy đã tắt cùng que diêm cuối cùng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Theo em, truyện <b>không có kết thúc có hậu</b> như nhiều truyện cổ tích khác. Em bé không được sống bình yên, hạnh phúc: “Em đã chết vì rét trong đêm giao thừa”, giữa lúc “Mọi người vui vẻ ra khỏi nhà”. Hạnh phúc của em chỉ có trong ảo ảnh, khi “hai bà cháu bay vụt lên cao”, “chẳng còn đói rét, đau buồn”. Nhà văn để em mất đi với “đôi môi đang mỉm cười” như một chút an ủi dành cho em, nhưng chính nụ cười ấy lại khiến người đọc đau lòng hơn. Kết thúc buồn ấy như một lời nhắc: đừng để những em bé đáng thương phải tìm hơi ấm trong những que diêm.</div>
+    <div class="bay">Trả lời “có hậu vì em được lên trời với bà” mà không phân biệt giấc mơ với thực tế. Nếu em chọn hướng này, phải giải thích rõ vì sao em vẫn coi đó là có hậu.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận cả hướng “có phần an ủi” (em bé được về với bà trong mơ, ra đi với nụ cười), nếu HS dẫn chi tiết. Câu trả lời tốt nhận ra hai lớp: hạnh phúc trong mộng tưởng và bi kịch ngoài đời thực.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v1-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn bày tỏ cảm xúc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết đoạn văn (khoảng 5 – 7 câu) với nhan đề: <i>Gửi tác giả truyện “Cô bé bán diêm”</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nếu được gặp An-đéc-xen một phút, em sẽ nói với ông điều gì đầu tiên?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đoạn văn như một lời nhắn gửi: mở đầu bằng lời gọi nhà văn, giữa đoạn nói một chi tiết làm em xúc động nhất và vì sao, cuối đoạn là một điều em muốn nói hoặc hứa với ông.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chất liệu: một chi tiết của riêng em</h4>
+      <p>Đừng nhắc cả câu chuyện. Chọn <b>một</b> khoảnh khắc: đôi giày rộng của mẹ? con ngỗng quay tiến về phía em bé? lời em bé xin bà “Cho cháu đi với!”? nụ cười trên đôi môi em sáng mồng một?</p>
+      <p class="vi-sao">Lời gửi càng gắn với một chi tiết cụ thể, nhà văn (và người đọc đoạn văn của em) càng tin rằng em đã đọc truyện bằng cả trái tim.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn giọng: lời của em gửi tới nhà văn</h4>
+      <p>Xưng “cháu” (hoặc “em”), gọi “ông” / “nhà văn An-đéc-xen”. Có thể nhắc tới điều SGK giới thiệu về ông: nhà văn Đan Mạch, người luôn khẳng định “Không có truyện kể nào hay hơn được những điều do chính cuộc sống tạo nên”.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Thưa nhà văn An-đéc-xen, đã hơn một tuần trôi qua mà cháu vẫn chưa quên được ánh lửa của những que diêm trong câu chuyện ông kể.</i></p>
+      <p>Tiếp theo: một chi tiết làm em xúc động và vì sao; điều em hiểu ra; lời cảm ơn hoặc lời hứa. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) đúng hình thức một đoạn văn, khoảng 5 – 7 câu, có nhan đề như đề bài; (2) là lời nhắn gửi tới nhà văn An-đéc-xen, xưng hô phù hợp và nhất quán; (3) nhắc đúng ít nhất một chi tiết của truyện và nói được vì sao chi tiết ấy làm em xúc động; (4) bày tỏ được cảm xúc, suy nghĩ chân thành của em (thương cảm, điều em hiểu ra, lời hứa…).</div>
+    <div class="bay">Viết thành bài cảm nhận chung chung về truyện, quên mất đây là lời <b>gửi tác giả</b>. Hoặc viết thành nhiều đoạn, xuống dòng nhiều lần.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 6 câu.</div>
+    <div class="tham-khao">
+    <h5>Gửi tác giả truyện “Cô bé bán diêm”</h5>
+    <p>Thưa nhà văn An-đéc-xen, cháu vừa đọc xong truyện “Cô bé bán diêm” của ông và mãi vẫn chưa gấp được trang sách lại. Cháu thương em bé “đầu trần, chân đi đất” lang thang giữa đêm giao thừa, thương nhất là lúc em quẹt hết những que diêm còn lại trong bao chỉ để níu bà ở lại thêm một chút. Ông đã cho em được thấy lò sưởi, con ngỗng quay, cây thông Nô-en và người bà hiền hậu, dù chỉ trong ánh sáng mong manh của mấy que diêm. Lúc đầu cháu đã trách ông, sao không để một người qua đường nào dừng lại mua giúp em một bao diêm. Nhưng đọc đến câu “chẳng ai biết những cái kì diệu em đã trông thấy”, cháu hiểu ông muốn chúng cháu phải biết nhìn thấy những em bé như thế ở quanh mình. Cháu hứa với ông, từ nay cháu sẽ không bao giờ là người “rảo bước rất nhanh” trước một bạn nhỏ đang cần giúp đỡ.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv1" data-chip="Tiếng Việt ①">Thực hành tiếng Việt<small>Cụm danh từ (sau Văn bản 1)</small></h2>
+
+<article class="the bai" id="tv1-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cụm danh từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm cụm danh từ trong những câu sau:</p>
+    <p>a. <i>Nhưng trời rét quá, khách qua đường đều rảo bước rất nhanh, chẳng ai đoái hoài đến lời chào hàng của em.</i></p>
+    <p>b. <i>Tất cả các ngọn nến bay lên, bay lên mãi rồi biến thành những ngôi sao trên trời.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — có phải cụm danh từ không?</b>
+    <div class="cau-thu"><span class="noi-dung">lời chào hàng của em</span><button class="chon chu" data-dung="1">Cụm danh từ</button><button class="chon chu" data-dung="0">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! Trung tâm là danh từ “lời”." data-sai-txt="Thử lại: bỏ phần phụ đi thì còn lại từ nào? Đó là danh từ hay động từ?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">rảo bước rất nhanh</span><button class="chon chu" data-dung="0">Cụm danh từ</button><button class="chon chu" data-dung="1">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! Đây là hoạt động (rảo bước), không phải sự vật." data-sai-txt="Thử lại: “rảo bước” chỉ sự vật hay chỉ hoạt động?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">những ngôi sao trên trời</span><button class="chon chu" data-dung="1">Cụm danh từ</button><button class="chon chu" data-dung="0">Không phải</button><span class="phan-hoi" data-dung-txt="Đúng! “những” chỉ số lượng, “trên trời” chỉ vị trí." data-sai-txt="Thử lại: “ngôi sao” là danh từ — các từ quanh nó bổ sung gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm danh từ trước — rồi xem những từ nào “bám” quanh nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi câu có hai cụm danh từ. Với mỗi cụm, chỉ ra danh từ trung tâm, phần phụ trước (nếu có), phần phụ sau (nếu có).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <table>
+        <tr><th>Cụm danh từ</th><th>Phụ trước</th><th>Trung tâm</th><th>Phụ sau</th></tr>
+        <tr><td>khách qua đường</td><td>—</td><td>khách</td><td>qua đường</td></tr>
+        <tr><td>lời chào hàng của em</td><td>—</td><td>lời</td><td>chào hàng, của em</td></tr>
+      </table>
+      <p class="vi-sao"><i>trời</i> chỉ là một danh từ đứng một mình, chưa thành cụm. <i>rảo bước rất nhanh</i> có trung tâm là “rảo bước” — chỉ hoạt động, nên không phải cụm danh từ.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <table>
+        <tr><th>Cụm danh từ</th><th>Phụ trước</th><th>Trung tâm</th><th>Phụ sau</th></tr>
+        <tr><td>Tất cả các ngọn nến</td><td>tất cả, các</td><td>ngọn nến</td><td>—</td></tr>
+        <tr><td>những ngôi sao trên trời</td><td>những</td><td>ngôi sao</td><td>trên trời</td></tr>
+      </table>
+      <p class="vi-sao">Đúng như SGK nói: từ đứng trước (<i>tất cả, các, những</i>) chỉ <b>số lượng</b>; từ đứng sau (<i>trên trời</i>) xác định <b>vị trí</b> của sự vật.</p>
+      <a class="xem-lai" href="#kt-cdt">📌 Xem lại: cụm danh từ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Có hai cụm danh từ: <b>khách qua đường</b> (trung tâm <i>khách</i>), <b>lời chào hàng của em</b> (trung tâm <i>lời</i>). b. Có hai cụm danh từ: <b>Tất cả các ngọn nến</b> (phụ trước <i>tất cả, các</i>; trung tâm <i>ngọn nến</i>), <b>những ngôi sao trên trời</b> (phụ trước <i>những</i>; trung tâm <i>ngôi sao</i>; phụ sau <i>trên trời</i>).</div>
+    <div class="bay">Gạch cả <i>rảo bước rất nhanh</i> hay <i>bay lên mãi</i> vì “dài như một cụm”. Cụm danh từ phải có trung tâm là <b>danh từ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c2" data-ten="Câu 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tạo cụm danh từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm một cụm danh từ trong truyện <i>Cô bé bán diêm</i>. Từ danh từ trung tâm trong cụm từ đó, hãy tạo ra ba cụm danh từ khác.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giữ nguyên “trái tim” của cụm, thay đổi “áo” khoác quanh nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một cụm có danh từ quen thuộc (que diêm, đôi giày, ngọn lửa…). Thay phần phụ trước (số lượng) hoặc phần phụ sau (đặc điểm, vị trí).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn cụm trong truyện</h4>
+      <blockquote class="trich"><p>Thế là em quẹt tất cả những que diêm còn lại trong bao.</p></blockquote>
+      <p>Cụm danh từ <i>tất cả những que diêm còn lại trong bao</i> — trung tâm là <b>que diêm</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Tạo cụm mới từ trung tâm “que diêm”</h4>
+      <p>Đổi phụ trước: <i>một que diêm</i>. Đổi phụ sau: <i>que diêm thứ hai</i>. Đổi cả hai: <i>mấy que diêm cuối cùng của em</i>.</p>
+      <p class="vi-sao">Tự soát: bỏ hết phần phụ đi, cụm nào cũng phải còn lại đúng chữ “que diêm”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách làm. Ví dụ: trong câu “Thế là em quẹt tất cả những que diêm còn lại trong bao” có cụm danh từ <b>tất cả những que diêm còn lại trong bao</b>, trung tâm là <i>que diêm</i>. Từ <i>que diêm</i> tạo ra ba cụm danh từ khác: <b>một que diêm</b>; <b>que diêm thứ hai</b>; <b>mấy que diêm cuối cùng của em</b>.</div>
+    <div class="bay">Ba cụm mới lại đổi mất danh từ trung tâm (<i>một bao diêm</i>, <i>ngọn lửa xanh</i>). Đề yêu cầu giữ nguyên danh từ trung tâm.</div>
+    <div class="gv-note">Chấp nhận mọi cụm đúng cấu tạo. Có thể gợi HS chọn các cụm khác: <i>một em gái nhỏ đầu trần</i> (em gái), <i>chiếc tạp dề cũ kĩ của em</i> (tạp dề), <i>những bức tường dầy đặc và lạnh lẽo</i> (bức tường).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tác dụng của cụm danh từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>So sánh những câu văn sau đây và rút ra nhận xét về tác dụng của việc dùng cụm danh từ làm thành phần chính của câu:</p>
+    <p>a. – <i>Em bé vẫn lang thang trên đường.</i><br>– <i>Em bé đáng thương, bụng đói rét vẫn lang thang trên đường.</i></p>
+    <p>b. – <i>Em gái đang dò dẫm trong đêm tối.</i><br>– <i>Một em gái nhỏ đầu trần, chân đi đất, đang dò dẫm trong đêm tối.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu ngắn cho em biết <b>ai</b>. Câu dài cho em biết thêm điều gì nữa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai câu trong mỗi cặp chỉ khác nhau ở <b>chủ ngữ</b>. Gạch chân phần được thêm vào, rồi hỏi: phần ấy cho biết thêm thông tin gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phần được thêm vào</h4>
+      <table>
+        <tr><th>Cặp</th><th>Chủ ngữ câu ngắn</th><th>Chủ ngữ câu dài</th><th>Thêm thông tin về</th></tr>
+        <tr><td>a</td><td>Em bé</td><td>Em bé <b>đáng thương, bụng đói rét</b></td><td>tình cảnh của em bé</td></tr>
+        <tr><td>b</td><td>Em gái</td><td><b>Một</b> em gái <b>nhỏ đầu trần, chân đi đất</b></td><td>số lượng, đặc điểm, dáng vẻ, trang phục</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-cum-tu">📌 Xem lại: mở rộng thành phần chính bằng cụm từ</a></div>
+    <div class="buoc" data-so="2"><h4>Rút ra nhận xét</h4>
+      <p class="vi-sao">Câu ngắn chỉ cho biết có một em bé đang đi. Câu dài cho người đọc <b>nhìn thấy</b> em bé: nhỏ bé, đầu trần, chân đất, đói rét — và vì nhìn thấy, người đọc <b>thương</b> em. Cụm danh từ không chỉ thêm chữ, mà thêm cả cảm xúc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. Câu thứ hai có chủ ngữ là cụm danh từ <i>Em bé đáng thương, bụng đói rét</i>, cho biết thêm <b>tình cảnh</b> của em bé: đáng thương, đói và rét. b. Câu thứ hai có chủ ngữ là cụm danh từ <i>Một em gái nhỏ đầu trần, chân đi đất</i>, cho biết thêm <b>số lượng</b> (một), <b>đặc điểm</b> (nhỏ), <b>dáng vẻ, trang phục</b> (đầu trần, chân đi đất). Nhận xét: dùng cụm danh từ làm thành phần chính giúp câu <b>cung cấp nhiều thông tin hơn</b>, người đọc hình dung nhân vật cụ thể, rõ nét hơn và thêm thương cảm em bé.</div>
+    <div class="bay">Chỉ nói “câu sau dài hơn, hay hơn”. Phải chỉ ra câu sau cho biết thêm <b>thông tin gì</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Mở rộng chủ ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các câu sau có chủ ngữ là một danh từ. Hãy mở rộng chủ ngữ thành cụm danh từ.</p>
+    <p>a. <i>Gió vẫn thổi rít vào trong nhà.</i></p>
+    <p>b. <i>Lửa toả ra hơi nóng dịu dàng.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gió nào? Lửa nào? Trả lời được hai câu hỏi ấy là em đã có cụm danh từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thêm từ chỉ số lượng ở trước (những, mấy, một…) và / hoặc từ chỉ đặc điểm, vị trí ở sau danh từ. Giữ nguyên phần vị ngữ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi để tìm phần phụ</h4>
+      <p>a. Gió thế nào? Gió mùa gì? → <i>Những cơn gió bấc lạnh buốt</i>. &nbsp; b. Lửa ở đâu? Lửa ra sao? → <i>Ngọn lửa nhỏ của que diêm</i>.</p>
+      <p class="vi-sao">Có thể mượn chất liệu ngay trong truyện: “gió bấc thổi vun vút”, “Ngọn lửa lúc đầu xanh lam”. Câu mới vì thế vẫn ăn khớp với khung cảnh của <i>Cô bé bán diêm</i>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách đúng. Ví dụ: a. <b>Những cơn gió bấc lạnh buốt</b> vẫn thổi rít vào trong nhà. b. <b>Ngọn lửa nhỏ của que diêm</b> toả ra hơi nóng dịu dàng. (Bỏ phần thêm vào, câu phải trở về đúng câu ban đầu.)</div>
+    <div class="bay">Mở rộng nhầm sang vị ngữ (<i>Gió vẫn thổi rít mãi vào trong căn gác nhỏ</i>) — đề chỉ yêu cầu mở rộng <b>chủ ngữ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv1-c5" data-ten="Câu 5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn tưởng tượng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy tưởng tượng và viết đoạn văn (khoảng 5 – 7 câu) về cảnh cô bé bán diêm gặp lại người bà của mình, trong đoạn văn có ít nhất một cụm danh từ làm thành phần chủ ngữ của câu.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Que diêm sáng lên — và bà ở đó. Em bé sẽ nhìn thấy gì đầu tiên ở bà?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại đoạn em bé thấy bà “đang mỉm cười với em” và lời em xin bà “Cho cháu đi với!”. Tưởng tượng thêm: dáng bà, đôi tay bà, lời bà nói, cảm giác của em.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chất liệu trong truyện</h4>
+      <blockquote class="trich"><p>Em quẹt một que diêm nữa vào tường, một ánh sáng xanh toả ra xung quanh và em bé nhìn thấy rõ ràng bà em đang mỉm cười với em.</p></blockquote>
+      <p class="vi-sao">Bà là “người hiền hậu độc nhất đối với em”. Tưởng tượng được tự do, nhưng đừng đi ngược truyện: bà hiền hậu, gặp bà em bé vui sướng, và em sợ bà biến mất khi diêm tắt.</p></div>
+    <div class="buoc" data-so="2"><h4>Đặt cụm danh từ vào chỗ chủ ngữ</h4>
+      <p>Chủ ngữ là phần trả lời câu hỏi <i>Ai? Cái gì?</i>. Ví dụ: <i>Bà nội hiền hậu của em</i>…, <i>Đôi bàn tay ấm áp của bà</i>…</p>
+      <a class="xem-lai" href="#kt-cdt">📌 Xem lại: cụm danh từ</a></div>
+    <div class="buoc" data-so="3"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Que diêm vừa bùng lên, một vầng sáng xanh dịu dàng lan ra khắp góc tường lạnh giá.</i> (Chủ ngữ <i>một vầng sáng xanh dịu dàng</i> là cụm danh từ.)</p>
+      <p>Viết tiếp 4 – 6 câu, rồi gạch chân cụm danh từ làm chủ ngữ để tự kiểm tra.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) là một đoạn văn khoảng 5 – 7 câu; (2) kể, tả cảnh cô bé gặp lại bà, có chi tiết tưởng tượng nhưng không trái với truyện (bà hiền hậu, em bé vui sướng, khao khát được ở bên bà); (3) có ít nhất <b>một cụm danh từ làm chủ ngữ</b>, chỉ ra được; (4) diễn đạt mạch lạc, có cảm xúc.</div>
+    <div class="bay">Cụm danh từ có trong đoạn nhưng không đứng ở vị trí chủ ngữ (ví dụ nằm sau động từ: <i>em nhìn thấy bà nội hiền hậu của em</i>). Đề yêu cầu cụm danh từ làm <b>chủ ngữ</b>.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 6 câu; cụm danh từ làm chủ ngữ: <i>một vầng sáng xanh dịu dàng</i>, <i>Bà nội hiền hậu của em</i>, <i>Đôi bàn tay ấm áp của bà</i>.</div>
+    <div class="tham-khao">
+    <p>Que diêm vừa bùng lên, một vầng sáng xanh dịu dàng lan ra khắp góc tường lạnh giá. Bà nội hiền hậu của em hiện ra giữa vầng sáng ấy, mỉm cười, đôi mắt nhìn em trìu mến như những đêm giao thừa năm xưa. Em bé reo lên, chìa đôi tay cứng đờ vì rét về phía bà. Đôi bàn tay ấm áp của bà nắm lấy tay em, khẽ phủi những bông tuyết bám trên mái tóc rối. Em nép vào lòng bà, nghe như tiếng gió rít ngoài phố bỗng xa dần, xa dần. Trong vòng tay bà, em không còn thấy đói, cũng chẳng còn thấy rét nữa.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb2" data-chip="Văn bản 2">Văn bản 2. Gió lạnh đầu mùa<small>Thạch Lam</small></h2>
+
+<article class="the bai" id="v2-tkd" data-ten="Trước khi đọc" data-muc="mo">
+  <div class="bai-dau"><span class="so">Trước khi đọc</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Chia sẻ, dự đoán</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> Kể về một sự giúp đỡ, chia sẻ mà em đã từng dành cho ai đó hoặc từng được đón nhận.</p>
+    <p><b>2.</b> Đọc nhan đề <i>Gió lạnh đầu mùa</i>, em dự đoán nhà văn sẽ kể câu chuyện gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Món quà nhỏ nhất em từng cho đi — em còn nhớ ánh mắt người nhận không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: kể một việc cụ thể, nhỏ thôi cũng được — ai giúp ai, giúp gì, lúc đó em thấy thế nào. Câu 2: “gió lạnh đầu mùa” gợi thời điểm nào trong năm? Mùa ấy ai là người khổ nhất?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể một sự chia sẻ có thật</h4>
+      <p>Cho bạn mượn áo mưa, nhường chỗ ngồi, được bạn chép bài giúp khi ốm… Kể ngắn: chuyện gì — khi nào — em cảm thấy thế nào.</p>
+      <p class="vi-sao">Hãy nhớ kĩ cảm giác của em lúc ấy. Nhân vật Sơn trong truyện sắp đọc cũng sẽ có một cảm giác rất đặc biệt sau khi chia sẻ.</p></div>
+    <div class="buoc" data-so="2"><h4>Đoán từ nhan đề</h4>
+      <p>Đầu mùa đông, trời trở lạnh: người có áo ấm, người thì không. Một câu chuyện về cái lạnh — có thể cũng là câu chuyện về hơi ấm của tình người.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em khác nhau. <b>Một câu trả lời tham khảo:</b> Năm lớp 5, có lần em bị sốt phải nghỉ học ba ngày; tối nào Lan, bạn cùng bàn, cũng mang vở sang chép bài giúp em và giảng lại những chỗ khó. Em thấy mình thật may mắn khi có một người bạn như thế. Đọc nhan đề <i>Gió lạnh đầu mùa</i>, em đoán nhà văn sẽ kể về những ngày đầu mùa đông trời trở rét, có những đứa trẻ nghèo không đủ áo ấm và được mọi người giúp đỡ, sẻ chia.</div>
+    <div class="gv-note">Hoạt động khởi động, không chấm đúng sai. Dự đoán chỉ để đối chiếu khi đọc xong (thẻ 🔎 Đối chiếu cuối truyện). Không ép HS kể chuyện được giúp đỡ nếu các em ngại về hoàn cảnh gia đình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Người kể chuyện</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Câu chuyện được kể bằng lời của người kể chuyện ngôi thứ mấy?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trong truyện có rất nhiều chữ “tôi”. Nhưng chữ “tôi” ấy nằm trong lời của ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xem người kể gọi nhân vật chính là gì. Rồi kiểm tra mọi chữ “tôi”: chúng đứng sau dấu gạch ngang (lời nhân vật) hay nằm trong lời kể?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chữ “tôi” là của nhân vật</h4>
+      <blockquote class="trich"><p>– Mợ tôi đâu hả vú?</p><cite>— Lời Sơn</cite></blockquote>
+      <blockquote class="trich"><p>– Đây, tôi cho mượn năm hào về mà may áo cho con.</p><cite>— Lời mẹ Sơn</cite></blockquote>
+      <p>Người kể thì luôn gọi “Sơn”, “chị Lan”, “mẹ Sơn” — người kể không xưng “tôi”.</p></div>
+    <div class="buoc" data-so="2"><h4>Người kể biết cả lòng nhân vật</h4>
+      <blockquote class="trich"><p>Sơn đứng lặng yên đợi, trong lòng tự nhiên thấy ấm áp vui vui.</p></blockquote>
+      <p class="vi-sao">Người kể đứng ngoài câu chuyện mà vẫn biết điều Sơn cảm thấy “trong lòng” — đó là người kể chuyện ngôi thứ ba.</p>
+      <a class="xem-lai" href="#kt-nguoi-ke">📌 Xem lại: người kể chuyện</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu chuyện được kể bằng lời của <b>người kể chuyện ngôi thứ ba</b>. Người kể không xưng “tôi” (mọi chữ “tôi” trong truyện đều nằm trong lời nhân vật), gọi nhân vật bằng tên “Sơn”, “chị Lan”, nhưng biết hết mọi chuyện, biết cả cảm xúc của Sơn (“Sơn thấy động lòng thương”, “trong lòng tự nhiên thấy ấm áp vui vui”).</div>
+    <div class="bay">Thấy chữ “tôi” trong lời thoại (“Mợ tôi đâu hả vú?”) rồi kết luận là ngôi thứ nhất. Phải phân biệt lời người kể chuyện với lời nhân vật.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Thái độ nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Liệt kê một số chi tiết, hình ảnh miêu tả thái độ của chị em Sơn với các bạn nhỏ.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lũ trẻ nghèo “không dám vồ vập”. Còn chị em Sơn thì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc phần (2), từ lúc hai chị em ra chợ đến lúc chị Lan chạy về lấy áo. Gạch chân những cử chỉ, lời nói của Sơn và chị Lan với lũ trẻ, với bé Hiên.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Với lũ trẻ ngoài chợ</h4>
+      <blockquote class="trich"><p>Chúng nó thấy chị em Sơn đến đều lộ vẻ vui mừng, nhưng chúng vẫn đứng xa, không dám vồ vập. Chúng như biết cái phận nghèo hèn của chúng vậy, tuy Sơn và chị vẫn thân mật chơi đùa với, chứ không kiêu kì và khinh khỉnh như các em họ của Sơn.</p></blockquote>
+      <p class="vi-sao">Lũ trẻ “lộ vẻ vui mừng” khi thấy chị em Sơn — chứng tỏ hai chị em vẫn chơi với chúng thường ngày. Nhà văn còn đặt cạnh “các em họ của Sơn” kiêu kì, khinh khỉnh, để tấm lòng chị em Sơn nổi rõ.</p></div>
+    <div class="buoc" data-so="2"><h4>Với bé Hiên</h4>
+      <blockquote class="trich"><p>– Sao không lại đây, Hiên? Lại đây chơi với tôi.</p><cite>— Lời chị Lan</cite></blockquote>
+      <blockquote class="trich"><p>– Hay là chúng ta đem cho nó cái áo bông cũ, chị ạ.</p><p>– Ừ, phải đấy. Để chị về lấy.</p><cite>— Lời Sơn và chị Lan</cite></blockquote>
+      <p>Chị Lan vẫy gọi, Sơn “bước đến gần”, chị Lan “cũng đến hỏi” vì sao áo Hiên rách; rồi chị “hăm hở chạy về nhà lấy áo”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chị em Sơn “vẫn thân mật chơi đùa” với lũ trẻ nghèo, “chứ không kiêu kì và khinh khỉnh như các em họ của Sơn”; Sơn để ý thấy các bạn mặc “những bộ quần áo màu nâu bạc đã vá nhiều chỗ”, “môi chúng nó tím lại”. Chị Lan “giơ tay vẫy” bé Hiên và gọi: “Sao không lại đây, Hiên? Lại đây chơi với tôi.”; Sơn “bước đến gần”, chị Lan “cũng đến hỏi” vì sao áo Hiên rách. Sơn “động lòng thương”, thì thầm bàn với chị đem cho Hiên cái áo bông cũ; chị Lan đồng ý ngay và “hăm hở chạy về nhà lấy áo”. Những chi tiết ấy cho thấy chị em Sơn <b>gần gũi, không coi thường bạn nghèo, biết quan tâm và thương bạn</b>.</div>
+    <div class="bay">Chỉ liệt kê việc cho áo mà bỏ qua thái độ hằng ngày của chị em Sơn (thân mật chơi đùa, không kiêu kì) — chính điều đó mới làm việc cho áo trở nên tự nhiên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Thế giới nội tâm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chỉ ra các câu văn miêu tả suy nghĩ, cảm xúc của Sơn khi nghe mẹ và vú già trò chuyện về chiếc áo bông cũ của em Duyên; khi Sơn nhớ ra cuộc sống nghèo khổ của mẹ con Hiên. Những suy nghĩ, cảm xúc ấy giúp em cảm nhận được gì về nhân vật này?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai nỗi thương — một buổi sáng và một buổi trưa — có sợi dây nào nối với nhau?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai thời điểm: phần (1), khi mẹ giơ cái áo bông cũ lên; phần (2), khi Sơn nghe Hiên nói “Hết áo rồi”. Để ý chữ “cũng như” ở câu thứ hai.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khi nghe chuyện về chiếc áo của em Duyên</h4>
+      <blockquote class="trich"><p>Duyên là đứa em gái bé của Sơn, chết từ năm lên bốn tuổi. Mẹ Sơn nhắc đến làm Sơn nhớ em, cảm động và thương em quá.</p><cite>— Phần (1)</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Khi nhớ ra cảnh nhà Hiên</h4>
+      <blockquote class="trich"><p>Sơn bấy giờ mới chợt nhớ ra là mẹ cái Hiên rất nghèo, chỉ có nghề đi mò cua bắt ốc thì còn lấy đâu ra tiền mà sắm áo cho con nữa. Sơn thấy động lòng thương cũng như ban sáng Sơn đã nhớ thương đến em Duyên ngày trước vẫn chơi cùng với Hiên, đùa nghịch ở vườn nhà. Một ý nghĩ tốt bỗng thoáng qua trong trí</p><cite>— Phần (2)</cite></blockquote>
+      <p class="vi-sao">“Cũng như” là sợi dây nối: nỗi thương em gái đã mất lan sang người bạn nhỏ từng chơi với em. Tình thương trong lòng Sơn không đứng yên — nó lớn lên, tìm đến người đang cần nó. Và “ý nghĩ tốt” ấy đến rất tự nhiên, “bỗng thoáng qua”, không ai bảo Sơn cả.</p>
+      <a class="xem-lai" href="#kt-mieu-ta">📌 Xem lại: thế giới nội tâm của nhân vật</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khi nghe mẹ và vú già nói về chiếc áo bông cũ: “Mẹ Sơn nhắc đến làm Sơn nhớ em, cảm động và thương em quá.” Khi nhớ ra cảnh nhà Hiên: “Sơn bấy giờ mới chợt nhớ ra là mẹ cái Hiên rất nghèo…”, “Sơn thấy động lòng thương cũng như ban sáng Sơn đã nhớ thương đến em Duyên ngày trước vẫn chơi cùng với Hiên”, rồi “Một ý nghĩ tốt bỗng thoáng qua trong trí”. Những suy nghĩ, cảm xúc ấy cho em thấy Sơn là một cậu bé <b>giàu tình cảm, nhạy cảm và nhân hậu</b>: Sơn thương nhớ em gái đã mất, và chính nỗi thương ấy khiến Sơn biết đặt mình vào cảnh của người bạn nghèo. Tấm lòng tốt của Sơn không do ai dạy bảo lúc ấy — nó tự nảy ra từ một trái tim biết thương.</div>
+    <div class="bay">Chỉ chép câu văn ở một thời điểm, hoặc chép đủ mà quên vế cuối: những suy nghĩ ấy giúp em <b>cảm nhận được gì</b> về Sơn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c4" data-ten="Câu 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa của sự chia sẻ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi cùng chị Lan mang chiếc áo bông cũ cho Hiên, Sơn cảm thấy như thế nào? Cảm xúc ấy giúp em hiểu gì về ý nghĩa của sự chia sẻ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người được áo là Hiên. Vậy tại sao người thấy ấm lại là Sơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm câu cuối phần (2). Rồi đọc lại phần Giới thiệu bài học của Bài 3 — có một câu nói đúng điều Sơn vừa trải qua.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cảm xúc của Sơn</h4>
+      <blockquote class="trich"><p>Với lòng ngây thơ của tuổi trẻ, chị Lan hăm hở chạy về nhà lấy áo. Sơn đứng lặng yên đợi, trong lòng tự nhiên thấy ấm áp vui vui.</p><cite>— Cuối phần (2)</cite></blockquote>
+      <p class="vi-sao">Gió vẫn lạnh, Sơn vẫn đứng giữa chợ vắng — vậy mà “trong lòng” lại “ấm áp”. Hơi ấm ấy không đến từ chiếc áo dạ Sơn đang mặc, mà đến từ việc Sơn sắp sưởi ấm cho người khác. Chữ “tự nhiên” cho thấy niềm vui ấy đến không cần ai khen.</p></div>
+    <div class="buoc" data-so="2"><h4>Đối chiếu với lời giới thiệu bài học</h4>
+      <blockquote class="trich"><p>Điều kì diệu nhất của yêu thương là càng chia sẻ lại càng giàu có; là cùng lúc mang đến niềm vui, hạnh phúc cho cả người được đón nhận và người trao tặng.</p><cite>— Giới thiệu Bài 3</cite></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khi chị Lan “hăm hở chạy về nhà lấy áo” cho Hiên, Sơn “đứng lặng yên đợi, trong lòng tự nhiên thấy ấm áp vui vui”. Cảm xúc ấy giúp em hiểu rằng chia sẻ không chỉ giúp đỡ người nhận mà còn đem lại <b>niềm vui, sự ấm áp cho chính người cho</b>. Giữa ngày gió lạnh, Hiên sắp có áo để mặc, còn Sơn có một thứ hơi ấm khác ở trong lòng. Càng biết cho đi, tâm hồn mình càng trở nên giàu có.</div>
+    <div class="bay">Chỉ trả lời “Sơn thấy vui” mà không dẫn câu văn, hoặc bỏ vế hai: ý nghĩa của sự chia sẻ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Có một thứ hơi ấm không đo được bằng nhiệt kế: hơi ấm của người vừa làm một việc tốt. Lần sau em nhường bạn chiếc áo mưa hay cho bạn mượn cây bút, hãy để ý xem lòng mình có “ấm áp vui vui” như Sơn không.</div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c5" data-ten="Câu 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Đánh giá nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hành động vội vã đi tìm Hiên để đòi lại chiếc áo bông cũ có làm em giảm bớt thiện cảm với nhân vật Sơn không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ý định đi đòi áo là của ai nghĩ ra — Sơn, hay một người khác?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc phần (3). Tìm xem ai bảo Sơn đi đòi áo, và Sơn đi đòi vì <b>tiếc áo</b> hay vì <b>sợ</b> điều gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vì sao Sơn đi đòi áo?</h4>
+      <blockquote class="trich"><p>– Con Sinh nó nói với tôi đấy […] Nó lại còn bảo hễ mợ về nó sẽ sang mách mợ cho cậu phải đòn.</p><cite>— Lời vú già</cite></blockquote>
+      <blockquote class="trich"><p>– Thế bây giờ làm thế nào, hở vú? Mợ tôi biết thì chết.</p>
+        <p>– Ai bảo cậu dại dột đem áo cho nó? Bây giờ cậu sang bảo cái Hiên trả lại thì không việc gì.</p><cite>— Sơn và vú già</cite></blockquote>
+      <p class="vi-sao">Để ý: ý định đòi áo là do vú già bày ra. Sơn đi đòi vì <b>sợ bị mẹ mắng, phải đòn</b> — chứ không phải vì hối tiếc đã thương Hiên. “Sơn lo quá, sắp ăn, bỏ đũa đứng dậy” — một nỗi sợ rất thật của đứa trẻ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Hành động ấy <b>không làm em giảm thiện cảm</b> với Sơn. Sơn đi đòi áo không phải vì tiếc hay vì hết thương Hiên, mà vì sợ: Sinh dọa sẽ “mách mợ cho cậu phải đòn”, Sơn lo đến mức “sắp ăn, bỏ đũa đứng dậy”, và chính vú già đã bảo Sơn “sang bảo cái Hiên trả lại thì không việc gì”. Đó là nỗi sợ rất thật của một cậu bé còn nhỏ, chưa dám tự quyết chuyện lớn trong nhà. Chi tiết này làm Sơn gần gũi hơn: Sơn không phải một “cậu bé hoàn hảo” trong sách, mà là một đứa trẻ thật, vừa tốt bụng vừa biết sợ — như chính chúng ta.</div>
+    <div class="bay">Kết luận “Sơn ích kỉ, cho rồi lại đòi” mà không xét nguyên nhân Sơn đi đòi áo. Hoặc chỉ nói “không” mà thiếu “vì sao”.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận cả câu trả lời “có giảm một chút”, nếu HS lập luận được (chẳng hạn Sơn chưa dám nhận trách nhiệm). Câu trả lời tốt nhận ra nguyên nhân hành động là nỗi sợ và lời bày của vú già.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c6" data-ten="Câu 6" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhận xét cách ứng xử</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy nhận xét về cách ứng xử của mẹ Hiên và mẹ Sơn trong đoạn kết của truyện.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mẹ Sơn hỏi rất nghiêm — nhưng bà chờ đến lúc nào mới ôm con vào lòng?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai người, hai thái độ. Mẹ Hiên: vì sao vội đem áo trả? Mẹ Sơn: lời nói lúc đầu, việc làm với bác Hiên, lời nói khi bác Hiên đã ra về.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Mẹ Hiên</h4>
+      <blockquote class="trich"><p>– Tôi về thấy cháu nó mặc cái áo bông tôi hỏi ngay. Nó bảo của cậu Sơn cho nó. Tôi biết cậu ở đây đùa, nên tôi phải vội vàng đem lại đây trả mợ.</p></blockquote>
+      <p class="vi-sao">Nghèo đến mức “chẳng để dành ra được đồng nào may áo cho con”, nhưng bác Hiên không nhận một chiếc áo khi người lớn nhà Sơn chưa biết. Nghèo mà thật thà, giữ lòng tự trọng.</p></div>
+    <div class="buoc" data-so="2"><h4>Mẹ Sơn</h4>
+      <blockquote class="trich"><p>– Kìa, hai cô cậu đã về kia. Thế áo bông của tôi đâu mà tự tiện đem cho đấy?</p>
+        <p>– Đây, tôi cho mượn năm hào về mà may áo cho con.</p>
+        <p>– Hai con tôi quý quá, dám tự do lấy áo đem cho người ta không sợ mẹ mắng ư?</p><cite>— Lời mẹ Sơn</cite></blockquote>
+      <p class="vi-sao">Ba lời nói, ba lớp ý. Lời đầu nghiêm: dạy con không được “tự tiện”. Lời giữa tế nhị: nói “cho mượn” để mẹ Hiên khỏi ngại. Lời cuối — chỉ nói “Khi bác Hiên bước ra khỏi cửa”, lúc ấy mới “âu yếm ôm vào lòng” — khen con mà không làm khách phải ngượng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mẹ Hiên thấy con mặc áo bông của Sơn thì “hỏi ngay” và “vội vàng đem lại đây trả mợ”: bác nghèo nhưng <b>thật thà, tự trọng</b>, không muốn nhận đồ do trẻ con tự ý cho. Mẹ Sơn lúc đầu “nghiêm nghị” hỏi con vì sao “tự tiện đem cho”, để dạy con biết xin phép; rồi bà hỏi han cảnh nhà Hiên và đưa tiền “cho mượn năm hào về mà may áo cho con” — một cách giúp đỡ <b>tế nhị</b>, giữ thể diện cho người nghèo; đợi bác Hiên ra về, bà mới “âu yếm ôm vào lòng” và khen “Hai con tôi quý quá”. Mẹ Sơn là người mẹ <b>nhân hậu, tinh tế, hiểu và trân trọng tấm lòng của con</b>. Cả hai bà mẹ đều cư xử đẹp: một người giữ được lòng tự trọng, một người biết giúp đỡ mà không làm ai phải ngại.</div>
+    <div class="bay">Chỉ nhận xét mẹ Sơn mà quên mẹ Hiên. Hoặc cho rằng mẹ Sơn “nghiêm khắc, sắp phạt con” vì chỉ đọc lời hỏi đầu tiên.</div>
+    <div class="gv-note">Có thể nhắc HS chi tiết ở phần (1): mẹ Sơn “hơi rơm rớm nước mắt” khi nhắc tới áo của Duyên — chiếc áo mang kỉ niệm về đứa con đã mất. Vì vậy lời khen cuối truyện càng đáng quý. Không suy diễn thêm việc chiếc áo cuối cùng ở đâu: văn bản không nói.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c7" data-ten="Câu 7" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 7</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Cảm nhận đoạn văn tả cảnh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc lại một số đoạn văn tác giả miêu tả những đổi thay của đất trời khi mùa đông đến. Em có thích những đoạn văn này không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhắm mắt lại khi nghe đọc đoạn ấy: em <b>nghe</b> thấy những âm thanh gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có hai đoạn tả cảnh: buổi sáng Sơn nhìn ra sân (phần 1), và lúc hai chị em ra chợ (phần 2). Tìm những từ gợi âm thanh, màu sắc, cảm giác.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cảnh sân nhà buổi sáng</h4>
+      <blockquote class="trich"><p>Nhìn ra ngoài sân, Sơn thấy đất khô trắng, luôn luôn cơn gió vi vu làm bốc lên những màn bụi nhỏ, thổi lăn những cái lá khô lạo xạo. Trời không u ám, toàn một màu trắng đục. Những cây lan trong chậu, lá rung động và hình như sắt lại vì rét.</p><cite>— Phần (1)</cite></blockquote>
+      <p class="vi-sao">“Vi vu”, “lạo xạo” — đọc lên là nghe được. Cây lan “hình như sắt lại vì rét”: cây cũng biết rét như người (Bài 2 em đã học: đó là phép nhân hoá).</p></div>
+    <div class="buoc" data-so="2"><h4>Cảnh chợ vắng</h4>
+      <blockquote class="trich"><p>Nhưng chân trời trong hơn mọi hôm, những làng ở xa, Sơn thấy rõ như gần. Mặt đất rắn lại và nứt nẻ những đường nho nhỏ, kêu vang lên tanh tách dưới nhịp guốc của hai chị em.</p><cite>— Phần (2)</cite></blockquote>
+      <p class="vi-sao">Chi tiết rất tinh: không khí lạnh, khô làm chân trời “trong hơn mọi hôm”, làng xa “thấy rõ như gần”. Chỉ người quan sát kĩ mới viết được như thế.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Em rất thích những đoạn văn này, vì đọc lên em như được đứng cạnh Sơn mà cảm nhận mùa đông về. Nhà văn tả bằng cả tai: gió “vi vu”, lá khô “lạo xạo”, mặt đất “kêu vang lên tanh tách dưới nhịp guốc”; tả bằng mắt: đất “khô trắng”, trời “toàn một màu trắng đục”, làng xa “thấy rõ như gần”. Em thích nhất hình ảnh những cây lan “hình như sắt lại vì rét” — cây cỏ cũng co mình như con người. Cảnh lạnh ấy còn báo trước câu chuyện: mùa đông đến, những đứa trẻ nghèo sẽ cần đến hơi ấm của tình người.</div>
+    <div class="bay">Chỉ nói “em thích vì tả rất hay, rất đẹp” mà không dẫn một từ ngữ, hình ảnh nào.</div>
+    <div class="gv-note">Câu hỏi mở: chấp nhận cả câu trả lời “không thích lắm” nếu HS có lí do chân thật và dẫn chi tiết. Được dùng “nhân hoá” (đã học ở Bài 2); không bắt buộc HS gọi tên biện pháp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-c8" data-ten="Câu 8" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 8</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh hai nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy chỉ ra một vài điểm giống nhau và khác nhau giữa hai nhân vật cô bé bán diêm (<i>Cô bé bán diêm</i>) và bé Hiên (<i>Gió lạnh đầu mùa</i>).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai em bé, cùng một cái rét. Điều gì khiến một em được sưởi ấm, còn một em thì không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lập bảng so sánh theo: hoàn cảnh, ngoại hình (trang phục), gia đình, cách người xung quanh đối xử, kết cục.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai bức chân dung giữa mùa đông</h4>
+      <blockquote class="trich"><p>Giữa trời đông giá rét, một em gái nhỏ đầu trần, chân đi đất, đang dò dẫm trong đêm tối.</p><cite>— Cô bé bán diêm</cite></blockquote>
+      <blockquote class="trich"><p>trông thấy con bé co ro đứng bên cột quán, chỉ mặc có manh áo rách tả tơi, hở cả lưng và tay.</p><cite>— Bé Hiên</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Bảng so sánh</h4>
+      <table>
+        <tr><th></th><th>Cô bé bán diêm</th><th>Bé Hiên</th></tr>
+        <tr><td>Giống</td><td colspan="2">Đều là trẻ em nhà nghèo, phải chịu rét giữa mùa đông với quần áo phong phanh, rách rưới.</td></tr>
+        <tr><td>Gia đình</td><td>bà đã mất, không còn mẹ ở bên, cha hay đánh mắng</td><td>có mẹ thương con, dù mẹ rất nghèo</td></tr>
+        <tr><td>Người xung quanh</td><td>“chẳng ai đoái hoài”, “hoàn toàn lãnh đạm”</td><td>chị em Sơn quan tâm, cho áo; mẹ Sơn cho mượn tiền may áo</td></tr>
+        <tr><td>Kết cục</td><td>chết rét trong đêm giao thừa</td><td>sắp có áo mới, được tình thương sưởi ấm</td></tr>
+      </table>
+      <p class="vi-sao">Hai em khác nhau không phải ở mức nghèo — mà ở chỗ có hay không có người bên cạnh biết thương mình.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Giống nhau:</b> cả hai đều là những em bé <b>nhà nghèo</b>, phải chịu rét giữa mùa đông trong cảnh ăn mặc <b>phong phanh, rách rưới</b>: cô bé bán diêm “đầu trần, chân đi đất”, bé Hiên “chỉ mặc có manh áo rách tả tơi, hở cả lưng và tay”. <b>Khác nhau:</b> cô bé bán diêm không còn mẹ ở bên, người bà thương em nhất đã mất, em sống với người cha hay đánh mắng; em <b>cô độc</b> giữa phố, người qua đường “hoàn toàn lãnh đạm”, và em <b>chết rét</b> trong đêm giao thừa. Bé Hiên còn có mẹ thương, được chị em Sơn <b>quan tâm, cho áo</b>, được mẹ Sơn cho mượn tiền may áo — em được tình thương sưởi ấm. Đặt hai em cạnh nhau, ta hiểu tình yêu thương của những người xung quanh có ý nghĩa lớn lao thế nào với những em bé thiệt thòi.</div>
+    <div class="bay">Chỉ nêu điểm giống hoặc chỉ nêu điểm khác. Hoặc so sánh hai tác phẩm (người kể, nhà văn) thay vì so sánh hai <b>nhân vật</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v2-viet" data-ten="Viết kết nối với đọc" data-muc="vd">
+  <div class="bai-dau"><span class="so">Viết kết nối với đọc</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn cảm nhận nhân vật</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có nhiều nhân vật trẻ em xuất hiện trong truyện <i>Gió lạnh đầu mùa</i>. Hãy viết đoạn văn (khoảng 5 – 7 câu) trình bày cảm nhận về một nhân vật mà em thấy thú vị.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngoài Sơn và Hiên, truyện còn những nhân vật trẻ em nào? Ai làm em bất ngờ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có thể chọn Sơn, chị Lan, bé Hiên, lũ trẻ ngoài chợ, thậm chí cậu em họ Sinh. Tìm 2 – 3 chi tiết về nhân vật (hành động, lời nói, suy nghĩ), mỗi chi tiết nói được một nét tính cách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn nhân vật, gom chi tiết</h4>
+      <p>Ví dụ với <b>chị Lan</b>: vẫy gọi Hiên; “hăm hở chạy về nhà lấy áo”; trách em khi sợ; rồi “đấu dịu”, an ủi em.</p>
+      <blockquote class="trich"><p>Chị Lan thở dài, nắm chặt lấy tay em, an ủi:</p><p>– Đằng nào cũng phải về cơ mà. May ra có lẽ mợ không mắng đâu.</p><cite>— Phần (3)</cite></blockquote>
+      <p class="vi-sao">Nhân vật thú vị thường là nhân vật có nhiều nét: chị Lan vừa hồn nhiên, vừa biết sợ, lại vừa biết nhường nhịn em. Đoạn văn hay là đoạn văn chỉ ra được những nét ấy bằng chi tiết.</p>
+      <a class="xem-lai" href="#kt-mieu-ta">📌 Xem lại: miêu tả nhân vật</a></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Đọc “Gió lạnh đầu mùa”, em cứ nhớ mãi cái nắm tay của chị Lan trên đường hai chị em lo lắng trở về nhà.</i></p>
+      <p>Tiếp theo: 3 – 4 câu nêu chi tiết và nhận xét; câu cuối nói em quý / học được gì ở nhân vật. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) là một đoạn văn khoảng 5 – 7 câu; (2) nêu rõ nhân vật trẻ em được chọn trong truyện; (3) dẫn được ít nhất hai chi tiết đúng với văn bản (hành động, lời nói, suy nghĩ…) và nhận xét được nét đáng chú ý của nhân vật; (4) nói được vì sao em thấy nhân vật thú vị, cảm xúc chân thành.</div>
+    <div class="bay">Kể lại cả câu chuyện thay vì nêu cảm nhận về một nhân vật. Hoặc chọn nhân vật người lớn (mẹ Sơn, vú già) — đề yêu cầu nhân vật <b>trẻ em</b>.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 7 câu, nhân vật chị Lan.</div>
+    <div class="tham-khao">
+    <p>Trong truyện “Gió lạnh đầu mùa”, nhân vật em thấy thú vị nhất là chị Lan, người chị gái của Sơn. Chị là người đầu tiên để ý tới bé Hiên đang đứng một mình bên cột quán và vẫy gọi bạn: “Sao không lại đây, Hiên? Lại đây chơi với tôi.”. Khi Sơn thì thầm muốn đem cho Hiên cái áo bông cũ, chị đồng ý ngay rồi “hăm hở chạy về nhà lấy áo”, chẳng chút đắn đo. Nhưng lúc biết sắp bị mẹ mắng, chị cũng quay sang trách em, y như bất kì cô bé nào đang sợ hãi. Điều em thích nhất là chỉ một lát sau, chị đã “đấu dịu”, nắm chặt lấy tay em mà an ủi: “Đằng nào cũng phải về cơ mà.”. Chị Lan vừa hồn nhiên, tốt bụng, vừa biết nhường nhịn và che chở cho em mình. Đọc truyện, em ước mình cũng có một người chị như thế.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-tv2" data-chip="Tiếng Việt ②">Thực hành tiếng Việt<small>Cụm động từ và cụm tính từ (sau Văn bản 2)</small></h2>
+
+<article class="the bai" id="tv2-c1" data-ten="Câu 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tạo cụm động từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm một cụm động từ trong truyện <i>Gió lạnh đầu mùa</i>. Từ động từ trung tâm của cụm từ đó, hãy tạo ra ba cụm động từ khác.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một động từ — ba cách mặc áo khác nhau cho nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn một cụm có động từ dễ dùng (mặc, chạy, đem…). Thay phần phụ trước (đã, đang, không, vẫn…) hoặc phần phụ sau (đối tượng, địa điểm, thời gian).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn cụm trong truyện</h4>
+      <blockquote class="trich"><p>Sơn đã mặc xong áo ấm</p><cite>— Đầu phần (2)</cite></blockquote>
+      <p>Cụm động từ <i>đã mặc xong áo ấm</i>: phụ trước <i>đã</i> (thời gian), trung tâm <b>mặc</b>, phụ sau <i>xong áo ấm</i>.</p>
+      <a class="xem-lai" href="#kt-cdgt">📌 Xem lại: cụm động từ</a></div>
+    <div class="buoc" data-so="2"><h4>Tạo cụm mới từ “mặc”</h4>
+      <p><i>đang mặc áo bông</i> (tiếp diễn) · <i>không mặc áo rách</i> (phủ định) · <i>vẫn mặc cái áo từ năm ngoái</i> (tiếp diễn, đối tượng).</p>
+      <p class="vi-sao">Tự soát: bỏ hết phần phụ, cụm nào cũng còn lại đúng động từ “mặc”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách làm. Ví dụ: trong câu “Sơn đã mặc xong áo ấm” có cụm động từ <b>đã mặc xong áo ấm</b>, trung tâm là <i>mặc</i>. Từ <i>mặc</i> tạo ra ba cụm động từ khác: <b>đang mặc áo bông</b>; <b>không mặc áo rách</b>; <b>vẫn mặc cái áo từ năm ngoái</b>.</div>
+    <div class="bay">Đổi mất động từ trung tâm (<i>đang may áo</i>, <i>đem cho áo</i>). Đề yêu cầu giữ nguyên động từ trung tâm.</div>
+    <div class="gv-note">Chấp nhận mọi cụm đúng cấu tạo. Các cụm khác trong truyện có thể dùng: <i>đem cho nó cái áo bông cũ</i> (đem), <i>chạy về nhà lấy áo</i> (chạy), <i>đi ra chợ tìm Hiên</i> (đi).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c2" data-ten="Câu 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cụm động từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm cụm động từ trong những câu sau. Xác định động từ trung tâm và những ý nghĩa mà động từ đó được bổ sung.</p>
+    <p>a. <i>Nhìn ra ngoài sân, Sơn thấy đất khô trắng.</i></p>
+    <p>b. <i>Mẹ Sơn lật cái vỉ buồm, lục đống quần áo rét.</i></p>
+    <p>c. <i>Với lòng ngây thơ của tuổi trẻ, chị Lan hăm hở chạy về nhà lấy áo.</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — động từ trung tâm là từ nào?</b>
+    <div class="cau-thu"><span class="noi-dung">lục đống quần áo rét</span><button class="chon chu" data-dung="1">lục</button><button class="chon chu" data-dung="0">quần áo</button><button class="chon chu" data-dung="0">rét</button><span class="phan-hoi" data-dung-txt="Đúng! “đống quần áo rét” là đối tượng của hoạt động lục." data-sai-txt="Thử lại: từ nào chỉ hoạt động của mẹ Sơn?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">hăm hở chạy về nhà lấy áo</span><button class="chon chu" data-dung="0">hăm hở</button><button class="chon chu" data-dung="1">chạy</button><button class="chon chu" data-dung="0">nhà</button><span class="phan-hoi" data-dung-txt="Đúng! “hăm hở” nói chị Lan chạy thế nào; “về nhà”, “lấy áo” nói chạy đi đâu, để làm gì." data-sai-txt="Thử lại: bỏ các từ phụ đi, hoạt động chính còn lại là gì?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm động từ chỉ hoạt động trước. Từ đứng sau nó trả lời câu hỏi gì: cái gì? ở đâu? để làm gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a có hai cụm, câu b có hai cụm, câu c có một cụm. Phần “Với lòng ngây thơ của tuổi trẻ” đứng đầu câu c không nằm trong cụm động từ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân tích từng cụm</h4>
+      <table>
+        <tr><th>Câu</th><th>Cụm động từ</th><th>Phụ trước</th><th>Trung tâm</th><th>Phụ sau (ý nghĩa)</th></tr>
+        <tr><td>a</td><td>nhìn ra ngoài sân</td><td>—</td><td>nhìn</td><td>ra ngoài sân (hướng, địa điểm)</td></tr>
+        <tr><td>a</td><td>thấy đất khô trắng</td><td>—</td><td>thấy</td><td>đất khô trắng (đối tượng — thấy cái gì)</td></tr>
+        <tr><td>b</td><td>lật cái vỉ buồm</td><td>—</td><td>lật</td><td>cái vỉ buồm (đối tượng)</td></tr>
+        <tr><td>b</td><td>lục đống quần áo rét</td><td>—</td><td>lục</td><td>đống quần áo rét (đối tượng)</td></tr>
+        <tr><td>c</td><td>hăm hở chạy về nhà lấy áo</td><td>hăm hở (cách thức)</td><td>chạy</td><td>về nhà (địa điểm), lấy áo (mục đích)</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-cdgt">📌 Xem lại: cụm động từ</a></div>
+    <div class="buoc" data-so="2"><h4>Về chữ “hăm hở”</h4>
+      <p class="vi-sao">SGK liệt kê các ý nghĩa của phần phụ trước “như: thời gian, khẳng định, phủ định, tiếp diễn,…” — dấu “…” cho biết còn những ý nghĩa khác. “Hăm hở” cho biết chị Lan chạy <b>như thế nào</b>: hào hứng, vội vàng — đúng với “lòng ngây thơ của tuổi trẻ”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>nhìn ra ngoài sân</b>: trung tâm <i>nhìn</i>, được bổ sung ý nghĩa về hướng, địa điểm (<i>ra ngoài sân</i>); <b>thấy đất khô trắng</b>: trung tâm <i>thấy</i>, được bổ sung ý nghĩa về đối tượng (<i>đất khô trắng</i>). b. <b>lật cái vỉ buồm</b>: trung tâm <i>lật</i>, bổ sung đối tượng (<i>cái vỉ buồm</i>); <b>lục đống quần áo rét</b>: trung tâm <i>lục</i>, bổ sung đối tượng (<i>đống quần áo rét</i>). c. <b>hăm hở chạy về nhà lấy áo</b>: trung tâm <i>chạy</i>; phụ trước <i>hăm hở</i> bổ sung ý nghĩa về cách thức; phụ sau <i>về nhà</i> chỉ địa điểm, <i>lấy áo</i> chỉ mục đích.</div>
+    <div class="bay">Đưa cả “Với lòng ngây thơ của tuổi trẻ” vào cụm động từ. Hoặc nhầm danh từ trong phần phụ sau (<i>quần áo</i>, <i>nhà</i>) là trung tâm.</div>
+    <div class="gv-note">Câu c: chấp nhận nếu HS tách thành hai cụm <i>hăm hở chạy về nhà</i> và <i>lấy áo</i>, miễn xác định đúng động từ trung tâm và ý nghĩa các phần phụ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chuỗi cụm động từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong truyện <i>Gió lạnh đầu mùa</i>, Thạch Lam thường sử dụng kiểu câu có vị ngữ là một chuỗi cụm động từ, chẳng hạn: “<i>Mẹ Sơn <b>nghe thấy</b>, <b>đặt chén nước chè xuống</b>, <b>bảo chị Lan</b>.</i>”. Hãy tìm thêm trong văn bản này hai câu văn có vị ngữ là một chuỗi cụm động từ và cho biết tác dụng của cách diễn đạt đó.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc nhanh câu mẫu: em có thấy mẹ Sơn làm ba việc chỉ trong một hơi thở không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm những câu có một chủ ngữ mà theo sau là nhiều hoạt động nối nhau, ngăn bằng dấu phẩy hoặc chữ “rồi”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu trong truyện</h4>
+      <blockquote class="trich"><p>Sơn cũng thấy lạnh, vội vơ lấy cái chăn trùm lên đầu rồi cất tiếng gọi chị.</p><cite>— Phần (1)</cite></blockquote>
+      <blockquote class="trich"><p>Sau cùng mẹ Sơn vuốt các tà áo cho phẳng phiu, rồi đẩy Sơn ra, bảo:</p><cite>— Phần (2)</cite></blockquote>
+      <blockquote class="trich"><p>Sơn lo quá, sắp ăn, bỏ đũa đứng dậy, van:</p><cite>— Phần (3)</cite></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Tác dụng</h4>
+      <p class="vi-sao">Các hoạt động nối nhau liền mạch, nhịp câu nhanh, nhân vật hiện ra như đang cử động trước mắt. Hơn nữa, qua chuỗi hoạt động ta đọc được cả tâm trạng: Sơn “sắp ăn, bỏ đũa đứng dậy” — lo đến mức bỏ cả bữa; mẹ Sơn “vuốt các tà áo cho phẳng phiu” — cử chỉ chăm chút của người mẹ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ hai câu: “Sơn cũng thấy lạnh, vội vơ lấy cái chăn trùm lên đầu rồi cất tiếng gọi chị.” (chuỗi: <i>thấy lạnh</i>, <i>vội vơ lấy cái chăn trùm lên đầu</i>, <i>cất tiếng gọi chị</i>); “Sau cùng mẹ Sơn vuốt các tà áo cho phẳng phiu, rồi đẩy Sơn ra, bảo:” (chuỗi: <i>vuốt các tà áo cho phẳng phiu</i>, <i>đẩy Sơn ra</i>, <i>bảo</i>). Tác dụng: diễn tả <b>nhiều hoạt động nối tiếp nhau</b> của nhân vật một cách gọn gàng, liền mạch; nhịp câu nhanh khiến cử chỉ của nhân vật hiện lên <b>cụ thể, sinh động</b> như đang diễn ra trước mắt; qua đó người đọc còn cảm được <b>tâm trạng, tình cảm</b> của nhân vật (Sơn co ro vì rét, mẹ Sơn chăm chút cho con).</div>
+    <div class="bay">Chọn câu chỉ có một cụm động từ, hoặc câu có nhiều chủ ngữ khác nhau (mỗi người làm một việc). Chuỗi cụm động từ là nhiều hoạt động của <b>cùng một</b> chủ ngữ.</div>
+    <div class="gv-note">Chấp nhận các câu khác trong truyện, ví dụ: “Chị Lan từ trong buồng đi ra, khệ nệ ôm cái thúng quần áo đặt lên đầu phản.”; “Chị Lan thở dài, nắm chặt lấy tay em, an ủi:”; “Sơn tung chăn tỉnh dậy, nhưng không bước xuống giường ngay như mọi khi, còn ngồi thu tay vào trong bọc…”. Không yêu cầu HS phân tích cấu tạo của từng cụm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c4" data-ten="Câu 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tạo cụm tính từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm một cụm tính từ trong truyện <i>Gió lạnh đầu mùa</i>. Từ tính từ trung tâm của cụm từ đó, hãy tạo ra ba cụm tính từ khác.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khổ đến mức nào? Khổ từ bao giờ? Mỗi câu trả lời là một cụm tính từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm tính từ chỉ đặc điểm, trạng thái (nghèo, khổ, lạnh, rõ…) có từ đi kèm. Tạo cụm mới bằng cách thêm từ chỉ mức độ (rất, quá, lắm, hơn…), thời gian, sự tiếp diễn (vẫn, còn, đang…).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn cụm trong truyện</h4>
+      <blockquote class="trich"><p>– Bẩm nhà cháu độ này khổ lắm, chẳng để dành ra được đồng nào may áo cho con cả.</p><cite>— Lời mẹ Hiên</cite></blockquote>
+      <p>Cụm tính từ <i>khổ lắm</i>: trung tâm <b>khổ</b>, phụ sau <i>lắm</i> (mức độ).</p>
+      <a class="xem-lai" href="#kt-ctt">📌 Xem lại: cụm tính từ</a></div>
+    <div class="buoc" data-so="2"><h4>Tạo cụm mới từ “khổ”</h4>
+      <p><i>rất khổ</i> (mức độ) · <i>vẫn còn khổ</i> (tiếp diễn) · <i>khổ hơn năm ngoái</i> (mức độ, so sánh).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách làm. Ví dụ: trong lời mẹ Hiên “Bẩm nhà cháu độ này khổ lắm” có cụm tính từ <b>khổ lắm</b>, trung tâm là <i>khổ</i>. Từ <i>khổ</i> tạo ra ba cụm tính từ khác: <b>rất khổ</b>; <b>vẫn còn khổ</b>; <b>khổ hơn năm ngoái</b>.</div>
+    <div class="bay">Lấy nhầm cụm có trung tâm là danh từ (<i>áo bông cũ</i> — trung tâm là <i>áo</i>). Cụm tính từ phải có trung tâm là tính từ.</div>
+    <div class="gv-note">Chấp nhận mọi cụm đúng. Các cụm khác trong truyện: <i>rất nghèo</i>, <i>trong hơn mọi hôm</i>, <i>rõ như gần</i>, <i>cũ nhưng còn lành lặn</i> (trung tâm <i>lành lặn</i> trong <i>còn lành lặn</i>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c5" data-ten="Câu 5" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cụm tính từ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm cụm tính từ trong những câu sau. Xác định tính từ trung tâm và những ý nghĩa mà tính từ đó được bổ sung.</p>
+    <p>a. <i>Nhưng chân trời trong hơn mọi hôm, những làng ở xa, Sơn thấy rõ như gần.</i></p>
+    <p>b. <i>Sơn bấy giờ mới nhớ ra là mẹ cái Hiên rất nghèo, chỉ có nghề đi mò cua bắt ốc thì còn lấy đâu ra tiền mà sắm áo cho con nữa.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Trong” và “rõ” — trong đến mức nào, rõ đến mức nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a có hai cụm tính từ, câu b có một. Tính từ chỉ đặc điểm: trong, rõ, nghèo.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân tích</h4>
+      <table>
+        <tr><th>Câu</th><th>Cụm tính từ</th><th>Phụ trước</th><th>Trung tâm</th><th>Phụ sau</th></tr>
+        <tr><td>a</td><td>trong hơn mọi hôm</td><td>—</td><td>trong</td><td>hơn mọi hôm (mức độ, so với mọi hôm)</td></tr>
+        <tr><td>a</td><td>rõ như gần</td><td>—</td><td>rõ</td><td>như gần (mức độ — rõ đến mức như ở gần)</td></tr>
+        <tr><td>b</td><td>rất nghèo</td><td>rất (mức độ)</td><td>nghèo</td><td>—</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-ctt">📌 Xem lại: cụm tính từ</a></div>
+    <div class="buoc" data-so="2"><h4>Vì sao phần phụ quan trọng?</h4>
+      <p class="vi-sao">Bỏ “hơn mọi hôm”, “như gần”, câu chỉ còn “chân trời trong”, “thấy rõ” — mất hẳn cái bất ngờ của ngày đầu đông. Bỏ “rất”, ta không còn thấy cái nghèo đến cùng cực của mẹ con Hiên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. <b>trong hơn mọi hôm</b>: tính từ trung tâm <i>trong</i>, phần phụ sau <i>hơn mọi hôm</i> bổ sung ý nghĩa về <b>mức độ</b> (so với mọi hôm); <b>rõ như gần</b>: tính từ trung tâm <i>rõ</i>, phần phụ sau <i>như gần</i> bổ sung ý nghĩa về <b>mức độ</b> (rõ đến mức như ở gần). b. <b>rất nghèo</b>: tính từ trung tâm <i>nghèo</i>, phần phụ trước <i>rất</i> bổ sung ý nghĩa về <b>mức độ</b>.</div>
+    <div class="bay">Coi “chân trời trong” là cụm tính từ — “chân trời” là chủ ngữ (danh từ), không thuộc cụm tính từ.</div>
+    <div class="gv-note">Câu b trong SGK (trang 75) viết “mới nhớ ra”, còn trong văn bản là “mới chợt nhớ ra” — khác một chữ, không ảnh hưởng tới bài tập.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tv2-c6" data-ten="Câu 6" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 6</span><span class="nhan vd">Vận dụng</span><span class="nhan">Mở rộng vị ngữ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các câu sau có vị ngữ là một tính từ. Hãy mở rộng vị ngữ thành cụm tính từ.</p>
+    <p>a. <i>Trời rét.</i></p>
+    <p>b. <i>Toà nhà cao.</i></p>
+    <p>c. <i>Cô ấy đẹp.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Rét thế nào? Cao đến đâu? Đẹp ra sao? Thêm câu trả lời vào sau — hoặc trước — tính từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thêm từ chỉ mức độ (rất, quá, lắm, nhất…), thời gian, tiếp diễn (đã, đang, vẫn…) hoặc so sánh (hơn…, như…). Giữ nguyên chủ ngữ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thêm phần phụ trước hoặc sau</h4>
+      <p>a. <i>Trời <b>vẫn</b> rét <b>quá</b>.</i> (giống câu mẫu của SGK) — hoặc <i>Trời <b>đang</b> rét <b>dần</b>.</i></p>
+      <p>b. <i>Toà nhà cao <b>nhất phố</b>.</i> — hoặc <i>Toà nhà <b>rất</b> cao.</i></p>
+      <p>c. <i>Cô ấy <b>vẫn</b> đẹp <b>như ngày xưa</b>.</i> — hoặc <i>Cô ấy đẹp <b>lắm</b>.</i></p>
+      <p class="vi-sao">Tự soát: bỏ phần in đậm, vị ngữ phải trở về đúng tính từ ban đầu.</p>
+      <a class="xem-lai" href="#kt-ctt">📌 Xem lại: cụm tính từ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có nhiều cách đúng. Ví dụ: a. Trời <b>vẫn rét quá</b>. b. Toà nhà <b>cao nhất phố</b>. c. Cô ấy <b>vẫn đẹp như ngày xưa</b>.</div>
+    <div class="bay">Mở rộng chủ ngữ thay vì vị ngữ (<i>Trời mùa đông rét</i>). Đề yêu cầu mở rộng <b>vị ngữ</b> thành cụm tính từ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-vb3" data-chip="Văn bản 3">Văn bản 3. Con chào mào<small>Mai Văn Phấn</small></h2>
+
+<article class="the bai" id="v3-c1" data-ten="Câu 1" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Hình dung, tưởng tượng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em có thể hình dung, tưởng tượng những hình ảnh gì khi đọc ba dòng thơ đầu?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba dòng thơ đầu: một dòng cho mắt, một dòng cho mắt nhìn lên cao, một dòng cho tai.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc to ba dòng đầu. Chú chim trông thế nào? Đậu ở đâu? Tiếng hót nghe ra sao? Xem thêm chú thích về chim chào mào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc ba dòng đầu</h4>
+      <blockquote class="trich tho"><p>Con chào mào đốm trắng mũ đỏ</p><p>Hót trên cây cao chót vót</p><p>triu… uýt… huýt… tu hìu…</p><cite>— Khổ 1</cite></blockquote>
+      <p class="vi-sao">Chú thích của sách: chào mào là “loài chim đầu có chỏm lông nhọn, tiếng hót trong, cao”. “Mũ đỏ” chính là cái chỏm lông ấy. Dòng thứ ba không có chữ nào để “tả” — nó <b>là</b> tiếng chim, viết chữ thường, ngắt bằng dấu chấm lửng như từng tiếng hót ngân ra rồi ngừng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời của mỗi em có thể khác nhau. <b>Một câu trả lời tham khảo:</b> Đọc ba dòng thơ đầu, em hình dung một chú chim chào mào nhỏ xinh, bộ lông có “đốm trắng”, trên đầu đội chiếc “mũ đỏ” nổi bật, đang đậu trên một ngọn cây “cao chót vót” giữa trời xanh. Em như nghe được tiếng chim “triu… uýt… huýt… tu hìu…” trong và cao, ngân vang rồi ngắt quãng, rộn ràng cả một khoảng trời. Chỉ ba dòng thơ mà có đủ màu sắc, độ cao và âm thanh.</div>
+    <div class="bay">Chỉ chép lại ba dòng thơ, hoặc chỉ nói “em thấy một con chim”. Câu trả lời tốt tả được cả màu sắc, vị trí và tiếng hót.</div>
+    <div class="gv-note">Câu hỏi mở: khuyến khích HS tưởng tượng thêm (nắng sớm, gió, bầu trời) miễn không trái với ba dòng thơ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c2" data-ten="Câu 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩ, cảm xúc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy nêu những ý nghĩ, cảm xúc của nhân vật “tôi” khi “vội vẽ chiếc lồng trong ý nghĩ”.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chiếc lồng ấy được vẽ ở đâu? Một chiếc lồng như thế có nhốt được chim không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc khổ 2 và khổ 3. Để ý chữ “vội”, chữ “Sợ”, và việc “tôi” ôm được gì khi chim đã bay đi.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khi vẽ chiếc lồng</h4>
+      <blockquote class="trich tho"><p>Tôi vội vẽ chiếc lồng trong ý nghĩ</p><p>Sợ chim bay đi</p><cite>— Khổ 2</cite></blockquote>
+      <p class="vi-sao">“Vội” — vì yêu tiếng hót quá, sợ mất nó ngay lập tức. Nhưng chiếc lồng chỉ ở “trong ý nghĩ”: không có nan, không có cửa, không làm chim đau. “Tôi” muốn giữ, mà giữ một cách rất hiền.</p></div>
+    <div class="buoc" data-so="2"><h4>Khi chim bay đi</h4>
+      <blockquote class="trich tho"><p>Vừa vẽ xong nó cất cánh</p><p>Tôi ôm khung nắng, khung gió</p><p>Nhành cây xanh hối hả đuổi theo</p><cite>— Khổ 3</cite></blockquote>
+      <p class="vi-sao">Lồng vẽ xong, chim đã bay. “Tôi” chỉ ôm được “khung nắng, khung gió” — một chiếc lồng rỗng. Đến “Nhành cây xanh” cũng “hối hả đuổi theo” (phép nhân hoá, Bài 2), như cùng tiếc nuối với “tôi”.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khi “vội vẽ chiếc lồng trong ý nghĩ”, nhân vật “tôi” <b>yêu thích</b> chú chào mào và tiếng hót của nó, muốn <b>giữ</b> chim ở lại bên mình; “tôi” <b>lo sợ</b> chim bay mất (“Sợ chim bay đi”) nên phải “vội” vẽ lồng. Nhưng chiếc lồng chỉ có “trong ý nghĩ”, nên mong muốn giữ chim ấy cũng thật hồn nhiên, nhẹ nhàng. Khi chim cất cánh, “tôi” chỉ còn ôm “khung nắng, khung gió” — một cảm giác <b>hụt hẫng, tiếc nuối</b> rất trẻ thơ.</div>
+    <div class="bay">Hiểu nhầm là “tôi” đã thật sự làm lồng bắt chim. Chiếc lồng chỉ được vẽ “trong ý nghĩ”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c3" data-ten="Câu 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sự thay đổi trong suy nghĩ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vì sao lúc đầu, nhân vật “tôi” “sợ chim bay đi” nhưng kết thúc bài thơ lại khẳng định: <i>Chẳng cần chim lại bay về/ Tiếng hót ấy giờ tôi nghe rất rõ</i>?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lúc đầu “tôi” muốn giữ chim cho mình. Đến khổ 4, “tôi” lại nghĩ cho ai?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chìa khoá nằm ở khổ 4, bắt đầu bằng “Trong vô tăm tích tôi nghĩ”. “Tôi” nghĩ chim sẽ làm gì? Và “tôi” có còn muốn nhốt chim không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khổ 4: ý nghĩ đổi chiều</h4>
+      <blockquote class="trich tho"><p>Trong vô tăm tích tôi nghĩ</p><p>Lát nữa chào mào sẽ mổ những con sâu</p><p>Trái cây chín đỏ</p><p>Từng giọt nước</p><p>Thanh sạch của tôi</p><cite>— Khổ 4</cite></blockquote>
+      <p class="vi-sao">Chim đã bay “vô tăm tích” (không có dấu vết nào), nhưng “tôi” không còn tiếc. “Tôi” hình dung chim được tự do kiếm ăn, và sẵn lòng dành cho chim những gì “Thanh sạch” nhất “của tôi”. Từ muốn <b>giữ</b>, “tôi” đã chuyển sang muốn <b>cho</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Khổ cuối: tiếng hót ở lại trong lòng</h4>
+      <blockquote class="trich tho"><p>Chẳng cần chim lại bay về</p><p>Tiếng hót ấy giờ tôi nghe rất rõ.</p><cite>— Khổ 6</cite></blockquote>
+      <p class="vi-sao">Không cần chiếc lồng, không cần chim quay lại: tiếng hót đã ở trong tâm hồn “tôi”. Thứ mình yêu thương thật lòng thì không bao giờ mất.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Lúc đầu, vì quá yêu tiếng chim, “tôi” muốn <b>giữ chim cho riêng mình</b> nên “sợ chim bay đi”. Nhưng khi chim bay “vô tăm tích”, “tôi” lại nghĩ đến cuộc sống tự do của chim: chim sẽ “mổ những con sâu”, ăn “Trái cây chín đỏ”, uống “Từng giọt nước / Thanh sạch của tôi”. “Tôi” đã hiểu rằng chim chỉ thật sự vui khi được tự do, và sẵn lòng chia sẻ cho chim những gì trong lành nhất của mình. Vì đã yêu thương bằng cả tấm lòng, tiếng hót ấy đã <b>ở lại trong tâm hồn</b> “tôi”, nên “Chẳng cần chim lại bay về”, “tôi” vẫn “nghe rất rõ”. Bài thơ gợi cho em một điều: yêu thương thật sự không phải là giữ chặt, mà là để cho điều mình yêu được tự do.</div>
+    <div class="bay">Chỉ giải thích “vì chim bay đi rồi nên không cần nữa” — bỏ qua sự thay đổi từ muốn giữ sang muốn cho, và ý tiếng hót còn vang trong lòng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Có những điều càng nắm chặt càng dễ mất — như nắm một nắm cát. Có những điều chỉ cần mở lòng ra là ở lại mãi — như tiếng chim trong bài thơ. Em thử nghĩ: có kỉ niệm nào em không giữ được bằng tay, mà vẫn còn nguyên trong lòng?</div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c4" data-ten="Câu 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dòng thơ lặp lại</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dòng thơ nào được lặp lại trong bài thơ? Theo em, việc lặp lại như vậy có tác dụng gì?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — dòng thơ ấy lặp lại mấy lần?</b>
+    <div class="cau-thu"><span class="noi-dung">triu… uýt… huýt… tu hìu…</span><button class="chon" data-dung="0">1</button><button class="chon" data-dung="1">2</button><button class="chon" data-dung="0">3</button><span class="phan-hoi" data-dung-txt="Đúng! Ở khổ 1 và khổ 5." data-sai-txt="Chưa khớp — đọc lại từ đầu, đếm cả dòng thơ đứng riêng thành một khổ."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có một dòng thơ không có chữ nào là “chữ” — chỉ toàn tiếng chim. Nó xuất hiện mấy lần?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm dòng thơ ấy lần thứ nhất và lần thứ hai. Lần đầu, chim đang ở đâu? Lần sau, chim còn ở đó không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai lần, hai hoàn cảnh</h4>
+      <blockquote class="trich tho"><p>Hót trên cây cao chót vót</p><p>triu… uýt… huýt… tu hìu…</p><cite>— Khổ 1: chim đang hót trên cây</cite></blockquote>
+      <blockquote class="trich tho"><p>triu… uýt… huýt… tu hìu…</p><cite>— Khổ 5: chim đã bay đi, dòng thơ đứng riêng một khổ</cite></blockquote>
+      <p class="vi-sao">Lần đầu là tiếng chim ngoài đời thật. Lần sau, chim đã bay “vô tăm tích” — vậy mà tiếng hót vẫn vang lên. Tiếng chim ấy giờ vang lên ở trong lòng “tôi”. Dòng thơ lặp lại chuẩn bị cho câu kết: “Tiếng hót ấy giờ tôi nghe rất rõ.”</p>
+      <p>Đây là biện pháp <b>điệp ngữ</b> (đã học ở Bài 2): lặp lại cả một dòng thơ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Dòng thơ được lặp lại là <b>“triu… uýt… huýt… tu hìu…”</b> (2 lần: ở khổ thứ nhất và khổ thứ năm). Việc lặp lại có tác dụng: <b>gợi tiếng hót</b> trong trẻo, ngân nga của chim chào mào, làm bài thơ có nhạc điệu vui tai; lần thứ hai vang lên khi chim đã bay đi cho thấy tiếng chim <b>vẫn còn vang mãi trong tâm hồn</b> nhân vật “tôi”, nhấn mạnh tình yêu của “tôi” với tiếng chim và chuẩn bị cho câu kết “Tiếng hót ấy giờ tôi nghe rất rõ.”</div>
+    <div class="bay">Chỉ nói “để nhấn mạnh” chung chung. Cần nói rõ lần lặp thứ hai xuất hiện khi nào (chim đã bay đi) và vì sao điều đó có ý nghĩa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="v3-c5" data-ten="Câu 5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Câu 5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoạn văn miêu tả</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Con chim chào mào đã bay đi rồi nhưng nhân vật “tôi” vẫn có thể “nghe rất rõ” tiếng chim hót. Viết đoạn văn (khoảng 5 – 7 câu) miêu tả một hình ảnh thiên nhiên tươi đẹp được em lưu giữ trong kí ức.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có một cảnh thiên nhiên mà đến giờ, chỉ cần nhắm mắt lại em vẫn “thấy rất rõ”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn <b>một</b> hình ảnh cụ thể (một buổi bình minh trên biển, một cánh đồng lúa chín, một gốc hoa sữa…). Tả bằng nhiều giác quan: màu gì, tiếng gì, mùi gì. Câu cuối nói vì sao hình ảnh ấy còn ở mãi trong em.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Học cách bài thơ lưu giữ tiếng chim</h4>
+      <p>Bài thơ không viết “tiếng chim rất hay” mà viết luôn “triu… uýt… huýt… tu hìu…”; không viết “con chim đẹp” mà viết “đốm trắng mũ đỏ”.</p>
+      <p class="vi-sao">Muốn người đọc cùng “thấy”, cùng “nghe” với em, hãy tả bằng chi tiết cụ thể — một màu, một âm thanh, một mùi hương riêng của khoảnh khắc ấy.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu một câu thôi, phần còn lại em tự viết nhé: <i>Đã ba năm rồi, nhưng chỉ cần nhắm mắt lại, em vẫn thấy cánh đồng lúa quê ngoại vàng rực dưới nắng sớm như một tấm thảm khổng lồ.</i></p>
+      <p>Tiếp theo: 3 – 4 câu tả (màu sắc, âm thanh, mùi hương, cảm giác); câu cuối nói hình ảnh ấy có ý nghĩa gì với em. Đếm lại: 5 – 7 câu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đoạn văn đạt yêu cầu khi: (1) là một đoạn văn khoảng 5 – 7 câu; (2) miêu tả <b>một</b> hình ảnh thiên nhiên cụ thể có thật trong kí ức của em; (3) có chi tiết miêu tả cụ thể (màu sắc, âm thanh, hương vị, cảm giác…), không chỉ dùng những lời chung như “rất đẹp”; (4) thể hiện được cảm xúc, nói được vì sao hình ảnh ấy còn đọng lại trong em.</div>
+    <div class="bay">Tả cả một chuyến đi chơi dài với nhiều cảnh, không tập trung vào một hình ảnh. Hoặc liệt kê khô khan, không có cảm xúc.</div>
+    <div class="gv-note">Bài tham khảo chỉ để GV đối chiếu; tránh phát cho HS chép. Đoạn tham khảo: 6 câu.</div>
+    <div class="tham-khao">
+    <p>Đã ba năm rồi, nhưng chỉ cần nhắm mắt lại, em vẫn thấy cánh đồng lúa quê ngoại vàng rực dưới nắng sớm như một tấm thảm khổng lồ. Những bông lúa chín trĩu hạt, cúi đầu sát vào nhau, mỗi khi gió thổi lại rì rào gợn lên từng đợt sóng vàng chạy mãi về phía chân đê. Mùi lúa chín thơm ngai ngái quyện với mùi rơm khô bay theo gió, len cả vào tóc, vào áo em. Trên bờ ruộng, mấy chú chim sẻ lích chích nhảy nhót, thỉnh thoảng lại vụt bay lên rồi sà xuống mổ những hạt thóc rơi. Ông ngoại đứng bên em, nheo mắt nhìn ra cánh đồng, nụ cười hiền như nắng. Bây giờ em đã lên thành phố học, nhưng cánh đồng ấy vẫn ở lại trong em, vàng óng và ấm áp như ngày đầu tiên.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-viet" data-chip="Viết">Viết<small>Viết bài văn kể lại một trải nghiệm của em</small></h2>
+
+<article class="the bai" id="viet" data-ten="Bài viết" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài viết</span><span class="nhan vd">Vận dụng</span><span class="nhan">Kể lại trải nghiệm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Viết bài văn kể lại một trải nghiệm của em.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ở Bài 1 em đã viết một bài như thế. Lần này, SGK đòi thêm điều gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So hai bảng yêu cầu: Bài 3 thêm “Sắp xếp các sự việc, chi tiết theo trình tự hợp lí”, “chi tiết miêu tả cụ thể về thời gian, không gian, nhân vật”, và phải “rút ra được ý nghĩa, sự quan trọng của trải nghiệm”. Chọn chuyện nào mà sau đó em thấy mình đã lớn lên một chút.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Học từ bài tham khảo trong SGK</h4>
+      <blockquote class="trich"><p>Tôi có nhiều trải nghiệm vui với gia đình và bạn bè. Nhưng tôi vẫn muốn kể lại một trải nghiệm buồn vì nó có ý nghĩa rất đặc biệt đối với tôi.</p><cite>— Mở bài <i>Trải nghiệm buồn của tôi</i></cite></blockquote>
+      <blockquote class="trich"><p>Tôi giữ nó trong trí nhớ như một lời nhắc nhở bản thân về hậu quả của sự nóng giận, về việc nhất định phải bình tĩnh khi nhận xét, đánh giá người khác.</p><cite>— Gần cuối bài</cite></blockquote>
+      <p class="vi-sao">Bài mẫu mở ra bằng lời giới thiệu, khép lại bằng một bài học được nói rõ thành lời. Ở giữa là những chi tiết rất cụ thể: “cuối tháng 9, năm tôi học lớp 6”, “mấy nét nguệch ngoạc ngang dọc”, “Hai má tôi lúc ấy nóng rực lên vì xấu hổ”.</p>
+      <a class="xem-lai" href="#kt-trai-nghiem">📌 Xem lại: yêu cầu của bài văn kể trải nghiệm</a></div>
+    <div class="buoc" data-so="2"><h4>Trước khi viết: chọn đề tài, tìm ý, lập dàn ý</h4>
+      <p>Liệt kê các sự việc quan trọng theo thời gian (vào Tiểu học, chia tay trường Tiểu học, chuyển nhà, ngày đầu vào THCS, làm quen bạn mới…). Tìm ý bằng câu hỏi: Chuyện gì? Khi nào? Ở đâu? Ai? Vì sao? Thế nào? Có thể nhắm mắt hình dung, tìm lại kỉ vật, hỏi người có liên quan.</p>
+      <p><b>Dàn ý:</b> Mở bài — giới thiệu câu chuyện. Thân bài — thời gian, không gian, nhân vật; các sự việc 1, 2, 3… theo trình tự hợp lí. Kết bài — cảm xúc và ý nghĩa, sự quan trọng của trải nghiệm.</p></div>
+    <div class="buoc" data-so="3"><h4>Viết bài — chi tiết và ý nghĩa</h4>
+      <p>Xưng “tôi” (hoặc “em”) nhất quán. Mỗi sự việc có một chi tiết “nhìn thấy được”. Kết bài nói rõ: chuyện ấy đã thay đổi em thế nào. Cô làm mẫu một câu mở bài thôi, phần còn lại em tự viết nhé: <i>Trong tủ quần áo của tôi có một khoảng trống nhỏ — chỗ chiếc áo khoác đỏ từng treo — và mỗi lần mở tủ, tôi lại mỉm cười.</i></p></div>
+    <div class="buoc" data-so="4"><h4>Chỉnh sửa theo bảng của SGK</h4>
+      <p>Khoanh từ xưng hô để soát sự nhất quán; đánh số các sự việc để soát trình tự; gạch dưới từ ngữ thể hiện cảm xúc; đánh dấu câu nói về ý nghĩa của trải nghiệm. Có thể nhờ bạn đọc và hỏi: phần nào chưa rõ? cần thêm gì? nên bớt câu nào?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài văn đạt yêu cầu khi: (1) kể bằng <b>người kể chuyện ngôi thứ nhất</b>, xưng hô nhất quán; (2) <b>giới thiệu được trải nghiệm</b> đáng nhớ; (3) <b>tập trung vào sự việc đã xảy ra</b>, không lan man; (4) các sự việc, chi tiết được <b>sắp xếp theo trình tự hợp lí</b> (thời gian, nguyên nhân – kết quả…); (5) có <b>chi tiết miêu tả cụ thể</b> về thời gian, không gian, nhân vật và diễn biến; (6) <b>thể hiện được cảm xúc</b> trước sự việc và <b>rút ra được ý nghĩa, sự quan trọng</b> của trải nghiệm đối với bản thân; (7) bố cục ba phần rõ ràng, đúng chính tả, diễn đạt mạch lạc.</div>
+    <div class="bay">Kết bài chỉ một câu “Đó là trải nghiệm đáng nhớ của em” mà không nói trải nghiệm ấy <b>có ý nghĩa gì, quan trọng thế nào</b> với em — đây chính là yêu cầu cao hơn của Bài 3 so với Bài 1.</div>
+    <div class="gv-note">Đánh giá theo 7 tiêu chí trong ô Gợi ý trả lời (bám mục Yêu cầu và bảng Chỉnh sửa bài viết của SGK). Bài tham khảo dưới đây hợp chủ đề “Yêu thương và chia sẻ”, chỉ để GV đối chiếu mức độ; tránh phát cho HS chép — theo nguyên tắc không viết hộ bài văn.</div>
+    <div class="tham-khao">
+    <h5>Chiếc áo khoác màu đỏ</h5>
+    <p>Trong tủ quần áo của tôi có một khoảng trống nhỏ — chỗ chiếc áo khoác đỏ từng treo — và mỗi lần mở tủ, tôi lại mỉm cười. Chiếc áo ấy không mất, cũng không rách. Tôi đã tự tay gửi nó đi, sau một buổi tối đắn đo nhất mà tôi từng có.</p>
+    <p>Chuyện xảy ra vào đầu tháng 12, năm tôi học lớp 6. Trong giờ sinh hoạt lớp hôm thứ Sáu, cô chủ nhiệm cho chúng tôi xem mấy tấm ảnh các bạn nhỏ ở một điểm trường vùng cao. Trời rét đến mức sương muối trắng cả bãi cỏ, vậy mà nhiều bạn chỉ mặc một chiếc áo mỏng, chân đi dép nhựa. Cô nói trường mình phát động phong trào quyên góp áo ấm, thứ Hai tuần sau sẽ gửi đi. Cả lớp nhao nhao hưởng ứng. Tôi cũng giơ tay thật cao, trong đầu đã nghĩ ngay đến mấy chiếc áo cũ đã chật.</p>
+    <p>Tối hôm ấy, tôi mở tủ, lôi ra hai chiếc áo len sờn cổ, xếp gọn vào túi. Tay tôi chạm vào chiếc áo khoác đỏ treo ở góc tủ. Đó là món quà bà ngoại mua cho tôi hồi đầu năm, lớp lông bên trong mềm như bông, mặc vào ấm đến tận lưng. Tôi mới mặc được vài lần. Một ý nghĩ thoáng qua: hay là gửi chiếc áo này? Rồi tôi vội gạt đi. Áo đẹp thế, lại là quà của bà, sao tôi nỡ cho.</p>
+    <p>Nhưng đêm ấy tôi trằn trọc mãi. Tôi cứ nhớ tấm ảnh một cô bé trạc tuổi tôi, đứng co ro trước cửa lớp, hai tay giấu vào trong vạt áo mỏng, đôi má nứt nẻ đỏ ửng. Tôi có ba chiếc áo khoác, còn bạn ấy có lẽ không có chiếc nào. Sáng Chủ nhật, tôi cầm chiếc áo đỏ sang nhà bà, ấp úng kể chuyện và hỏi bà có buồn không nếu cháu gửi tặng chiếc áo đi. Bà nhìn tôi rất lâu, rồi xoa đầu tôi: “Áo bà mua là để cháu ấm. Cháu đem cái ấm ấy cho người khác thì bà càng vui chứ sao lại buồn.”</p>
+    <p>Sáng thứ Hai, tôi gấp chiếc áo thật phẳng, kẹp vào túi áo một mẩu giấy nhỏ: “Chúc bạn một mùa đông thật ấm.” Lúc đặt túi áo vào thùng quyên góp của lớp, tim tôi đập nhanh, vừa có chút tiếc nuối, vừa có một niềm vui rất lạ mà tôi không biết gọi tên. Đứng giữa sân trường lộng gió, tôi lại thấy trong lòng ấm áp vô cùng.</p>
+    <p>Gần một tháng sau, cô chủ nhiệm cho cả lớp xem những tấm ảnh các thầy cô vùng cao gửi về. Tôi dán mắt vào màn hình và nhận ra ngay một màu đỏ quen thuộc giữa những chiếc áo đủ màu. Một cô bé đang cười rất tươi, hai tay đút trong túi chiếc áo khoác đỏ. Tôi không biết tên bạn ấy, nhưng tôi biết mùa đông năm ấy bạn đã được ấm hơn một chút.</p>
+    <p>Trải nghiệm ấy giúp tôi hiểu rằng cho đi những thứ mình không cần nữa thì dễ; cho đi thứ mình quý thì khó hơn nhiều, nhưng cũng đáng quý hơn nhiều. Đọc truyện <i>Gió lạnh đầu mùa</i>, đến đoạn Sơn “trong lòng tự nhiên thấy ấm áp vui vui”, tôi bật cười vì nhận ra chính mình. Từ đó, mỗi lần đứng trước một lựa chọn như thế, tôi lại nhớ đến khoảng trống nhỏ trong tủ áo và lời bà ngoại năm nào.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-noi" data-chip="Nói và nghe">Nói và nghe<small>Kể về một trải nghiệm của em</small></h2>
+
+<article class="the bai" id="noi" data-ten="Bài nói" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài nói</span><span class="nhan vd">Vận dụng</span><span class="nhan">Kể chuyện trước lớp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kể về một trải nghiệm của em (nói về trải nghiệm cá nhân để chia sẻ với người nghe một kinh nghiệm trong cuộc sống và thể hiện bản thân; người nghe: thầy cô, bạn bè, người thân và những người quan tâm đến trải nghiệm em chia sẻ).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài viết của em đã có. Vậy cần mang gì lên bục — cả trang giấy, hay vài mảnh giấy nhỏ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng lại bài viết của em. Đánh dấu những câu không thể bỏ qua, hoặc ghi ra vài mảnh giấy nhỏ: thời gian, không gian, nhân vật, sự việc, cảm xúc. Nhìn ý mà kể, đừng đọc thuộc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Trước khi nói: chuẩn bị nội dung và tập luyện</h4>
+      <p>Đọc lại bài viết nhiều lần. Chọn một trong hai cách: đánh dấu câu giới thiệu trải nghiệm, từ ngữ chỉ thời gian – không gian – nhân vật, câu kể diễn biến, từ ngữ chỉ cảm xúc; hoặc ghi ngắn gọn các ý ấy ra giấy. Tập nói nhiều lần, sau mỗi lần ghi lại điều em hài lòng và chưa hài lòng.</p>
+      <p class="vi-sao">Bài 3 đòi hỏi hơn Bài 1 ở chỗ biết <b>tự rút kinh nghiệm</b> sau mỗi lần tập — mỗi lần tập sửa được một điều là em đã tiến bộ.</p></div>
+    <div class="buoc" data-so="2"><h4>Khi nói: ghi chú và phương tiện hỗ trợ</h4>
+      <p>Dùng các mảnh giấy ghi chú để không bỏ sót ý. Có thể dùng tranh ảnh, đoạn phim ngắn (ví dụ tấm ảnh của chính trải nghiệm ấy) để bài nói thú vị hơn. Giọng kể, nét mặt, cử chỉ thay đổi theo diễn biến câu chuyện.</p></div>
+    <div class="buoc" data-so="3"><h4>Sau khi nói: trao đổi</h4>
+      <p>Ngoài những điều đã học ở Bài 1, trao đổi thêm: điệu bộ, cử chỉ, nét mặt của người nói có hợp với nội dung câu chuyện không? Tranh ảnh, đoạn phim có giúp câu chuyện hấp dẫn hơn không?</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nói đạt yêu cầu khi: (1) giới thiệu được trải nghiệm, kể đủ diễn biến chính theo trình tự hợp lí, có thời gian, không gian, nhân vật; (2) thể hiện được cảm xúc và nói được ý nghĩa của trải nghiệm với bản thân; (3) dùng ghi chú hiệu quả, không đọc lại nguyên bài viết; (4) yếu tố phi ngôn ngữ (điệu bộ, cử chỉ, nét mặt) phù hợp với nội dung; phương tiện hỗ trợ (nếu có) dùng đúng lúc; (5) biết lắng nghe, trao đổi với người nghe sau khi nói.</div>
+    <div class="bay">Cầm cả bài viết lên đọc, mắt không rời trang giấy. Hoặc dùng tranh ảnh quá nhiều, người nghe chỉ chú ý vào ảnh mà quên câu chuyện.</div>
+    <div class="gv-note">Có thể dùng 5 tiêu chí trong ô Gợi ý trả lời làm phiếu đánh giá đồng đẳng. Trải nghiệm riêng tư (chuyện gia đình, chuyện buồn): không ép HS kể trước lớp, cho phép chọn chuyện khác.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cc" data-chip="Củng cố">Củng cố, mở rộng</h2>
+
+<article class="the bai" id="cc-c1" data-ten="Câu 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Bảng so sánh hai văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kẻ bảng vào vở theo mẫu sau và điền thông tin ngắn gọn về hai văn bản <i>Cô bé bán diêm</i> và <i>Gió lạnh đầu mùa</i>: (Bảng gồm ba hàng: Thể loại · Nhân vật · Người kể chuyện; hai cột: <i>Cô bé bán diêm</i> · <i>Gió lạnh đầu mùa</i>.)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai truyện, ba hàng thông tin. Hàng nào em đã trả lời rồi ở phần đọc hiểu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thể loại: đọc khung 📌 <i>Tác giả, tác phẩm</i> của mỗi văn bản. Người kể chuyện: xem lại Câu 1 của hai văn bản.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tra đúng lời của SGK</h4>
+      <blockquote class="trich"><p>Cô bé bán diêm là một trong những truyện cổ tích nổi tiếng nhất của An-đéc-xen.</p></blockquote>
+      <blockquote class="trich"><p>Gió lạnh đầu mùa là một trong những truyện ngắn xuất sắc viết về đề tài trẻ em của Thạch Lam.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Điền bảng</h4>
+      <table>
+        <tr><th>Đặc điểm</th><th><i>Cô bé bán diêm</i></th><th><i>Gió lạnh đầu mùa</i></th></tr>
+        <tr><td>Thể loại</td><td>Truyện (truyện cổ tích của An-đéc-xen)</td><td>Truyện (truyện ngắn)</td></tr>
+        <tr><td>Nhân vật</td><td>Cô bé bán diêm (nhân vật chính); người bà; người cha; những người đi đường</td><td>Sơn (nhân vật chính); chị Lan; mẹ Sơn; vú già; bé Hiên, mẹ Hiên; lũ trẻ ngoài chợ</td></tr>
+        <tr><td>Người kể chuyện</td><td>Ngôi thứ ba</td><td>Ngôi thứ ba</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-nguoi-ke">📌 Xem lại: người kể chuyện</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><b>Thể loại:</b> <i>Cô bé bán diêm</i> — truyện (SGK giới thiệu là truyện cổ tích của An-đéc-xen); <i>Gió lạnh đầu mùa</i> — truyện (truyện ngắn). <b>Nhân vật:</b> <i>Cô bé bán diêm</i> — cô bé bán diêm (nhân vật chính), người bà, người cha, những người đi đường; <i>Gió lạnh đầu mùa</i> — Sơn (nhân vật chính), chị Lan, mẹ Sơn, vú già, bé Hiên, mẹ Hiên, lũ trẻ ngoài chợ. <b>Người kể chuyện:</b> cả hai truyện đều được kể bằng lời của <b>người kể chuyện ngôi thứ ba</b>.</div>
+    <div class="bay">Điền “ngôi thứ nhất” cho <i>Gió lạnh đầu mùa</i> vì thấy chữ “tôi” trong lời thoại.</div>
+    <div class="gv-note">Dòng Thể loại dẫn đúng chữ của khung 📌 <i>Tác giả, tác phẩm</i> (“truyện cổ tích”, “truyện ngắn”). Truyện cổ tích sẽ được học ở Bài 7; “truyện ngắn” chưa có trong Tri thức ngữ văn lớp 6 — không giảng thêm đặc điểm thể loại ở bài này.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cc-c2" data-ten="Câu 2" data-muc="mo">
+  <div class="bai-dau"><span class="so">Câu 2</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Truyện kể yêu thích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chọn một truyện kể em yêu thích và thực hiện các yêu cầu sau:</p>
+    <p>a. Xác định người kể chuyện.</p>
+    <p>b. Tóm tắt cốt truyện.</p>
+    <p>c. Phân tích đặc điểm nổi bật ở một nhân vật mà em yêu thích.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Truyện em thích có thể ngay trong SGK — phần Thực hành đọc ngay sau đây chẳng hạn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a — người kể có xưng “tôi” không? b — tóm tắt các sự việc chính theo thứ tự: mở đầu, diễn biến, kết thúc. c — chọn <b>một</b> đặc điểm nổi bật, tìm 2 – 3 chi tiết (ngoại hình, hành động, lời nói, nội tâm) làm bằng chứng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a — Người kể chuyện</h4>
+      <p>Lấy ví dụ đoạn trích <i>Lắc-ki thực sự may mắn</i> (trích <i>Chuyện con mèo dạy hải âu bay</i>, Lu-i Xe-pun-ve-da). Người kể không xưng “tôi”, gọi nhân vật là “Lắc-ki”, “Gióc-ba”, “con hải âu”, “con mèo” — <b>ngôi thứ ba</b>.</p>
+      <a class="xem-lai" href="#kt-nguoi-ke">📌 Xem lại: người kể chuyện</a></div>
+    <div class="buoc" data-so="2"><h4>b — Tóm tắt</h4>
+      <p>Lắc-ki lớn lên trong sự yêu thương của bầy mèo, nghĩ mình là mèo và không muốn bay → đười ươi Mét-thiu chế giễu, dọa rằng bầy mèo nuôi Lắc-ki béo để ăn thịt → Lắc-ki buồn, bỏ ăn → Gióc-ba giảng giải: cả bầy yêu Lắc-ki vì Lắc-ki là hải âu, và Lắc-ki phải bay → Gióc-ba hứa sẽ ở bên khi Lắc-ki tập bay.</p></div>
+    <div class="buoc" data-so="3"><h4>c — Đặc điểm nổi bật của Gióc-ba</h4>
+      <blockquote class="trich"><p>Chúng ta học được cách trân trọng, quý mến và yêu thương một kẻ không giống chúng ta.</p><cite>— Lời Gióc-ba</cite></blockquote>
+      <blockquote class="trich"><p>“Khi con tập bay, ta sẽ ở đó với con”, Gióc-ba thầm thì, liếm đầu Lắc-ki. “Ta đã hứa với mẹ con rồi.”</p></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Câu trả lời tuỳ truyện em chọn. <b>Ví dụ với đoạn trích <i>Lắc-ki thực sự may mắn</i>:</b> a. Người kể chuyện ngôi thứ ba (không xưng “tôi”, gọi tên các nhân vật). b. Hải âu Lắc-ki lớn lên trong tình thương của bầy mèo và nghĩ mình là mèo, không muốn bay. Đười ươi Mét-thiu chế giễu Lắc-ki và dọa rằng bầy mèo chỉ chờ Lắc-ki béo lên để ăn thịt. Lắc-ki buồn bã, bỏ ăn. Mèo Gióc-ba tìm thấy, an ủi và giảng giải: cả bầy yêu Lắc-ki chính vì Lắc-ki là một con hải âu, và Lắc-ki phải sống cuộc đời của hải âu, phải bay; Gióc-ba hứa sẽ ở bên khi Lắc-ki tập bay. c. Đặc điểm nổi bật của Gióc-ba là <b>tình yêu thương và sự tôn trọng khác biệt</b>: Gióc-ba “liếm khô nước mắt” cho Lắc-ki, nói “Tất cả chúng ta đều yêu con, Lắc-ki”, không hề muốn “biến con thành một con mèo” mà “yêu con như yêu một con hải âu”; Gióc-ba còn là người <b>giữ lời hứa</b>: “Ta đã hứa với mẹ con rồi.” Một chú mèo to đùng mà có trái tim dịu dàng đến thế — em rất quý Gióc-ba.</div>
+    <div class="bay">Tóm tắt quá dài, kể cả lời thoại; hoặc phần c chỉ nêu đặc điểm mà không có chi tiết làm bằng chứng.</div>
+    <div class="gv-note">Câu hỏi mở: HS chọn truyện nào cũng được (truyện trong SGK hay ngoài SGK). Gợi ý trả lời dùng văn bản Thực hành đọc của Bài 3 để HS nào cũng đối chiếu được. Bài tốt: xác định đúng ngôi kể có lí do, tóm tắt đủ sự việc chính theo trình tự, đặc điểm nhân vật có chi tiết làm căn cứ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-doc" data-chip="Thực hành đọc">Thực hành đọc<small><i>Lắc-ki thực sự may mắn</i> (trích <i>Chuyện con mèo dạy hải âu bay</i>, Lu-i Xe-pun-ve-da)</small></h2>
+
+<article class="the bai" id="doc" data-ten="Hướng dẫn đọc" data-muc="th">
+  <div class="bai-dau"><span class="so">Hướng dẫn đọc</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tự đọc văn bản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi đọc văn bản <i>Lắc-ki thực sự may mắn</i>, em cần chú ý những vấn đề sau:</p>
+    <p>– Tính chất gây tò mò của nhan đề <i>Chuyện con mèo dạy hải âu bay</i>.</p>
+    <p>– Những sự kiện chính được kể lại trong chương VI. <i>Lắc-ki (Lucky) thực sự may mắn</i>.</p>
+    <p>– Đặc điểm của hai nhân vật Gióc-ba (Zorba) và Lắc-ki.</p>
+    <p>– Ý nghĩa những lời giảng giải của Gióc-ba với Lắc-ki ở đoạn kết.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mèo thì không biết bay. Vậy mèo dạy hải âu bay bằng cách nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc cả chú thích (2) trang 84 — nó kể tóm tắt toàn bộ cuốn sách và lời hứa của Gióc-ba. Kẻ hai cột “Gióc-ba” và “Lắc-ki”, ghi những việc mỗi nhân vật làm, nói.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhan đề gây tò mò</h4>
+      <p>Mèo không bay được, lại vốn là loài săn chim. Vậy mà mèo lại <b>dạy</b> một con chim <b>bay</b>! Điều ngược đời ấy khiến người đọc muốn biết: vì sao mèo làm thế, và làm bằng cách nào?</p>
+      <p class="vi-sao">Chú thích (2) giải đáp một phần: Gióc-ba đã hứa với hải âu mẹ “sẽ ấp quả trứng, sẽ bảo vệ, nuôi lớn hải âu con và dạy nó bay”.</p></div>
+    <div class="buoc" data-so="2"><h4>Sự kiện chính và hai nhân vật</h4>
+      <blockquote class="trich"><p>“Nhưng con không thích bay. Và con cũng không thích làm hải âu”, Lắc-ki cãi lại. “Con muốn làm mèo, mà mèo thì không bay.”</p><cite>— Lắc-ki</cite></blockquote>
+      <blockquote class="trich"><p>Gióc-ba liếm khô nước mắt của Lắc-ki và bỗng nhiên nhận ra mình đang giảng giải cho con hải âu nhỏ, điều mà nó chưa từng làm trước đây</p><cite>— Gióc-ba</cite></blockquote>
+      <p class="vi-sao">Lắc-ki ngây thơ, muốn giống những người mình yêu, dễ tổn thương khi bị chế giễu. Gióc-ba to lớn mà dịu dàng, kiên nhẫn, giữ lời hứa. Chi tiết “chưa từng làm trước đây” cho thấy chính tình thương đã khiến Gióc-ba thay đổi.</p></div>
+    <div class="buoc" data-so="3"><h4>Ý nghĩa lời giảng giải ở đoạn kết</h4>
+      <blockquote class="trich"><p>Thật dễ dàng để chấp nhận và yêu thương một kẻ nào đó giống mình, nhưng để yêu thương ai đó khác mình thực sự rất khó khăn, và con đã giúp chúng ta làm được điều đó. Con là chim hải âu, và con phải sống cuộc đời của một con hải âu. Con phải bay.</p><cite>— Lời Gióc-ba</cite></blockquote></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhan đề <i>Chuyện con mèo dạy hải âu bay</i> gây tò mò vì nghe rất ngược đời: mèo không biết bay, lại là loài vẫn săn chim, sao có thể dạy chim bay? Chương VI kể các sự kiện chính: Lắc-ki lớn lên trong tình yêu thương của bầy mèo, nghĩ mình là mèo và không muốn bay; đười ươi Mét-thiu chế giễu, dọa rằng bầy mèo chờ Lắc-ki béo lên để ăn thịt; Lắc-ki buồn, bỏ ăn; Gióc-ba an ủi, giảng giải và hứa sẽ ở bên khi Lắc-ki tập bay. <b>Lắc-ki</b> ngây thơ, nhạy cảm, muốn được giống những người yêu thương mình; <b>Gióc-ba</b> to lớn mà dịu dàng, yêu thương Lắc-ki hết lòng, tôn trọng sự khác biệt và giữ đúng lời hứa. Lời giảng giải của Gióc-ba mang ý nghĩa sâu sắc: yêu thương thật sự là yêu một người vì chính con người họ, kể cả khi họ “không giống chúng ta”; và yêu thương cũng là giúp người mình yêu được sống đúng với mình — “Con là chim hải âu, và con phải sống cuộc đời của một con hải âu. Con phải bay.”</div>
+    <div class="gv-note">Phần Thực hành đọc không có câu hỏi trong SGK; bốn điều cần chú ý được chuyển thành câu hỏi tự đọc. Có thể nối với Văn bản 3 <i>Con chào mào</i>: cả hai đều nói về tình yêu thương để cho người mình yêu được tự do bay đi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Ngữ văn 6 · Kết nối tri thức với cuộc sống · Bài 3. Yêu thương và chia sẻ — Gợi ý trả lời do nhóm biên soạn, không phải đáp án chính thức của SGK. Câu hỏi mở không có một đáp án duy nhất: câu trả lời tốt là câu trả lời có căn cứ trong văn bản.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:ngu-van-6:b03';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-03-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-03-bai-giai.nguon.html" data-phien-ban="b89c388f4355">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

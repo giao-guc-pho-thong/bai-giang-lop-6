@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 2. My House — Bài tập &amp; lời giải · Tiếng Anh 6 Global Success</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .kt b.ten{text-transform:none} /* in hoa làm hỏng IPA: /æ/ → /Æ/ */
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="tieng-anh" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Tiếng Anh 6 (Global Success) › Tập một</div>
+    <div class="hang1">
+      <h1>Unit 2. My House — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Tiếng Anh 6 (Global Success) › Tập một</div><h1>Unit 2. My House — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-so-huu"><b class="ten">Possessive case — Remember!</b>
+      <span class="en">1. We use <b>'s</b> after a proper name. — This is <b>Elena's</b> room.</span><br>
+      <span class="en">2. We use <b>'s</b> after a singular noun. — This is my <b>mum's</b> book.</span><br>
+      → Muốn nói “của ai”: thêm <b>'s</b> sau <b>tên riêng</b> (<span class="en">Nam's</span>) hoặc sau <b>danh từ số ít</b> (<span class="en">my sister's</span>). Sau <b>'s</b> luôn là <b>vật được sở hữu</b>.</div>
+    <div class="kt" id="kt-gioi-tu"><b class="ten">Prepositions of place — Remember!</b>
+      <span class="en">Prepositions of place describe where people or things are.</span><br>
+      <span class="en"><b>in</b></span> (trong) · <span class="en"><b>on</b></span> (trên, trên bề mặt) · <span class="en"><b>under</b></span> (dưới gầm) · <span class="en"><b>behind</b></span> (phía sau) · <span class="en"><b>in front of</b></span> (phía trước) · <span class="en"><b>next to</b></span> (bên cạnh) · <span class="en"><b>between</b></span> (ở giữa — <span class="en">between A and B</span>).</div>
+    <div class="kt" id="kt-tu-vung"><b class="ten">Types of house · Rooms · Furniture</b>
+      <span class="en">town house, country house, flat</span> · <span class="en">hall, living room, bedroom, bathroom, kitchen</span> · <span class="en">lamp, toilet, picture, cupboard, sink, sofa, dishwasher, fridge, shower, chest of drawers, wardrobe, shelf, cooker</span></div>
+    <div class="kt" id="kt-am"><b class="ten">Final sounds: /s/ and /z/</b>
+      /s/: <span class="en">lamps, sinks, flats, toilets</span> &nbsp; /z/: <span class="en">cupboards, sofas, kitchens, rooms</span><br>
+      Cách nhớ (cô tóm lại, không phải chữ SGK): âm cuối của từ gốc là <b>/p/, /k/, /t/</b> (bật hơi, không rung cổ) → đuôi <i>s</i> đọc <b>/s/</b>; âm cuối rung cổ (/d/, /n/, /m/, nguyên âm…) → đọc <b>/z/</b>.</div>
+    <div class="kt" id="kt-goi-y"><b class="ten">Giving suggestions</b>
+      <span class="en"><b>How about + V-ing?</b> — How about putting a picture on the wall?</span><br>
+      <span class="en"><b>Let's + V.</b> — Let's go to the department store to buy one.</span><br>
+      Đồng ý: <span class="en">Great idea.</span></div>
+    <div class="kt" id="kt-there"><b class="ten">There is / There are</b>
+      <span class="en">There's a living room, three bedrooms, a kitchen and two bathrooms.</span> · <span class="en">Are there many rooms in your new flat? — Yes, there are.</span><br>
+      → <span class="en">There is</span> + một vật (số ít); <span class="en">There are</span> + nhiều vật (số nhiều).</div>
+    <p class="nguon">Nguồn: SGK Tiếng Anh 6 Global Success, Tập một — Unit 2. My House (trang 16 – 25).</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<h2 class="phan-tieu-de" id="p-gs" data-chip="Getting Started">Getting Started — A look inside<small>Trang 16 – 17</small></h2>
+
+<article class="the bai" id="gs1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listen and read</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Listen and read.</span> 🎧 (Track 10, tập một)</p>
+    <p class="en" lang="en">Mi: Wow! Your room looks so big, Nick. — Nick: It's Elena's room. She's my sister. — Mi: I see. Is there a TV behind you? — …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mi và Nick đang nói chuyện qua máy tính. Mỗi bạn sống ở loại nhà nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gạch chân các từ chỉ <b>loại nhà</b> (<span class="en">town house, country house, flat</span>) và các từ chỉ <b>phòng</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu những câu quan trọng</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">It's Elena's room. She's my sister.</td><td>Đó là phòng của Elena. Em ấy là em gái tớ.</td></tr>
+        <tr><td class="en" lang="en">Is there a TV behind you?</td><td>Phía sau cậu có cái ti vi à?</td></tr>
+        <tr><td class="en" lang="en">I live in a town house. And you?</td><td>Tớ sống ở nhà phố. Còn cậu?</td></tr>
+        <tr><td class="en" lang="en">I live in a country house. Who do you live with?</td><td>Tớ sống ở nhà vùng quê. Cậu sống với ai?</td></tr>
+        <tr><td class="en" lang="en">Yes. My aunt lives near there, and I can play with my cousin.</td><td>Ừ. Cô (dì) tớ sống gần đó, và tớ có thể chơi với em họ.</td></tr>
+        <tr><td class="en" lang="en">There's a living room, three bedrooms, a kitchen and two bathrooms.</td><td>Có một phòng khách, ba phòng ngủ, một bếp và hai phòng tắm.</td></tr>
+      </table>
+      <p class="vi-sao">Ngay câu thứ hai đã có <span class="en">Elena's room</span> — đúng điểm ngữ pháp <b>'s sở hữu</b> em học ở A Closer Look 2. Câu <span class="en">We're moving to a flat next month!</span> nghĩa là “Tháng sau nhà tớ chuyển đến căn hộ” — em chỉ cần hiểu nghĩa, cách nói này em học ở Unit 3.</p>
+      <a class="xem-lai" href="#kt-so-huu">📌 Xem lại: possessive case</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc, không có câu hỏi phải trả lời. Ý chính: Mi sống ở nhà phố (<i>town house</i>) với bố mẹ và em trai, sắp chuyển đến căn hộ (<i>flat</i>) có phòng khách, ba phòng ngủ, bếp và hai phòng tắm; Nick sống ở nhà vùng quê (<i>country house</i>); căn phòng Mi thấy là phòng của Elena — em gái Nick.</div>
+    <div class="bay">Đọc tên <i>Mi</i> thành “mai” theo kiểu tiếng Anh. Mi là tên người Việt — đọc đúng như tiếng Việt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs2" data-ten="Bài 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tick</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Which family members does Mi talk about? Put a tick (✓).</span></p>
+    <p class="en" lang="en">1. parents ✓ &nbsp; 2. sister &nbsp; 3. brother &nbsp; 4. aunt &nbsp; 5. cousin</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — Mi có nhắc tới không?</b>
+    <div class="cau-thu"><span class="noi-dung">2. sister</span><button class="chon chu" data-dung="0">Có</button><button class="chon chu" data-dung="1">Không</button><span class="phan-hoi" data-dung-txt="Đúng! Elena là em gái của Nick — Nick nói, không phải Mi." data-sai-txt="Câu “She's my sister” là ai nói?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">4. aunt</span><button class="chon chu" data-dung="1">Có</button><button class="chon chu" data-dung="0">Không</button><span class="phan-hoi" data-dung-txt="Đúng! “My aunt lives near there”." data-sai-txt="Đọc lại câu Mi giải thích vì sao vui khi chuyển nhà."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chỉ tick những người mà <b>chính Mi</b> nhắc tới — không tính người Nick nhắc tới.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm hai lượt lời của Mi: câu trả lời cho <span class="en">Who do you live with?</span> và câu ngay sau <span class="en">Are you?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm lời của Mi</h4>
+      <table>
+        <tr><th>Người</th><th>Dòng hội thoại làm căn cứ</th><th>Tick?</th></tr>
+        <tr><td>parents, brother</td><td class="en" lang="en">Mi: My parents and younger brother.</td><td>✓ ✓</td></tr>
+        <tr><td>aunt, cousin</td><td class="en" lang="en">Mi: Yes. My aunt lives near there, and I can play with my cousin.</td><td>✓ ✓</td></tr>
+        <tr><td>sister</td><td class="en" lang="en">Nick: It's Elena's room. She's my sister.</td><td>–</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">sister</span> có xuất hiện trong bài, nhưng là <b>Nick</b> nói về em gái mình. Đề hỏi Mi nói về ai.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tick: 1. parents (đã có sẵn), 3. brother, 4. aunt, 5. cousin. Không tick: 2. sister.</div>
+    <div class="bay">Tick cả <i>sister</i> vì thấy từ này trong bài. Phải xem <b>ai nói</b>: <span class="en">She's my sister</span> là lời Nick.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the gaps</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Read the conversation again. Complete each sentence with ONE word.</span></p>
+    <p class="en" lang="en">1. Elena is Nick's ______. &nbsp; 2. There is a ______ in Elena's room. &nbsp; 3. Now Mi lives in a ______ house. &nbsp; 4. Nick lives in a ______ house. &nbsp; 5. Mi's new flat has ______ bedrooms.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi chỗ trống chỉ <b>một từ</b>. Câu 5 cần một con số viết bằng chữ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 có chữ <b>Now</b> — nhà Mi đang ở bây giờ, không phải căn hộ sắp chuyển đến.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm câu chứa thông tin</h4>
+      <blockquote class="trich"><p>It's Elena's room. She's my sister.</p><p>Is there a TV behind you?</p><p>I live in a town house.</p><p>I live in a country house.</p><p>There's a living room, three bedrooms, a kitchen and two bathrooms.</p></blockquote>
+      <p class="vi-sao">Câu 1: <span class="en">Nick's</span> = của Nick. Elena là “em gái của Nick” → <span class="en">sister</span>. Câu 2: Mi hỏi <span class="en">Is there a TV behind you?</span> và Nick đáp <span class="en">Yes, there is.</span> — mà Nick đang ở trong phòng Elena.</p>
+      <a class="xem-lai" href="#kt-so-huu">📌 Xem lại: possessive case</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. sister &nbsp; 2. TV &nbsp; 3. town &nbsp; 4. country &nbsp; 5. three</div>
+    <div class="bay">Câu 5 điền <i>two</i> (nhìn nhầm sang <span class="en">two bathrooms</span>). Đọc lại: <span class="en">three bedrooms</span> — ba phòng ngủ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Word web</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Complete the word web. Use the words from the conversation and the ones you know.</span></p>
+    <p class="en" lang="en">TYPES OF HOUSE · town house · ______ · ______ · ______</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hội thoại có ba loại nhà. Một ô đã điền sẵn — còn hai loại nữa trong bài và một loại em tự biết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nick sống ở loại nhà nào? Gia đình Mi sắp chuyển đến đâu?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lấy từ trong hội thoại</h4>
+      <p><span class="en">country house</span> /ˌkʌntri ˈhaʊs/ — nhà ở vùng quê · <span class="en">flat</span> /flæt/ — căn hộ (cùng với <span class="en">town house</span> /ˈtaʊn haʊs/ — nhà phố đã điền sẵn).</p></div>
+    <div class="buoc" data-so="2"><h4>Thêm một từ em biết</h4>
+      <p>Ví dụ: <span class="en">villa</span> (biệt thự), <span class="en">stilt house</span> (nhà sàn), <span class="en">apartment</span> (căn hộ — cách nói khác của <i>flat</i>).</p>
+      <p class="vi-sao">Những từ này là <b>từ thêm</b>, không bắt buộc thuộc. Từ bắt buộc của bài là ba từ trong hội thoại.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">town house (có sẵn), country house, flat + một từ em biết (ví dụ: villa, stilt house).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="gs5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Work in groups. Ask your friends where they live. Then report their answers.</span></p>
+    <p class="en" lang="en">A: Where do you live? — B: I live in a flat.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hỏi xong phải <b>kể lại</b> — lúc kể, chủ ngữ là bạn ấy (he / she), động từ cần gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi: <span class="en">Where do you live?</span> Kể lại: <span class="en">Lan <b>lives</b> in a flat.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp</h4>
+      <p class="en">A: Where do you live, Nam?<br>B: I live in a town house.</p></div>
+    <div class="buoc" data-so="2"><h4>Kể lại cho cả lớp</h4>
+      <p class="en">Nam lives in a town house. Lan and Mai live in a flat. Hoa lives in a country house.</p>
+      <p class="vi-sao">Ôn lại Unit 1: chủ ngữ một người (<span class="en">Nam, Hoa</span>) → <span class="en">lives</span>; hai người (<span class="en">Lan and Mai</span>) → <span class="en">live</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Where do you live? — B: I live in a town house.</span> Kể lại: <span class="en">Nam lives in a town house. Lan and Mai live in a flat.</span></div>
+    <div class="bay">Kể lại mà quên <i>s</i>: <span class="en">Nam live in a town house.</span> Nam = he → <span class="en">lives</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl1" data-chip="A Closer Look 1">A Closer Look 1 — Vocabulary · Pronunciation<small>Trang 17 – 18</small></h2>
+
+<article class="the bai" id="cl1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Rooms</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Look at the house. Name the rooms in it.</span></p>
+    <p class="en" lang="en">hall · kitchen · bedroom · bathroom · living room</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn đồ đạc trong mỗi phòng của tranh SGK: có giường thì là phòng gì? Có bồn cầu thì là phòng gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ô <b>a. hall</b> (sảnh, chỗ cầu thang) đã điền sẵn. Đoán phòng qua đồ vật: sofa → phòng khách; giường → phòng ngủ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán phòng qua đồ vật (theo tranh SGK)</h4>
+      <table>
+        <tr><th>Ô</th><th>Trong phòng có</th><th>Phòng</th></tr>
+        <tr><td>b</td><td>ghế sofa, đèn cây, tranh</td><td class="en">living room</td></tr>
+        <tr><td>c</td><td>giường đôi, đèn ngủ</td><td class="en">bedroom</td></tr>
+        <tr><td>d</td><td>bồn tắm, bồn rửa mặt, bồn cầu</td><td class="en">bathroom</td></tr>
+        <tr><td>e</td><td>tủ bếp, bồn rửa, bếp, bàn ăn</td><td class="en">kitchen</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">hall</span> /hɔːl/ = sảnh (Glossary). <span class="en">living room</span> = phòng khách — nơi cả nhà ngồi chơi, xem ti vi.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a. hall (có sẵn) &nbsp; b. living room &nbsp; c. bedroom &nbsp; d. bathroom &nbsp; e. kitchen</div>
+    <div class="bay">Nhầm <span class="en">bathroom</span> (phòng tắm) với <span class="en">bedroom</span> (phòng ngủ) vì hai từ gần giống nhau. <i>bed</i> = giường, <i>bath</i> = bồn tắm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Furniture</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Name the things in each room in 1. Use the word list below. (You may use a word more than once.)</span></p>
+    <p class="en" lang="en">lamp · toilet · picture · cupboard · sink · sofa · dishwasher · fridge · shower · chest of drawers</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một từ có thể dùng cho hai phòng — phòng nào cũng có thể có đèn, có bồn rửa.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Biết nghĩa từng từ trước: <span class="en">fridge</span> tủ lạnh, <span class="en">dishwasher</span> máy rửa bát, <span class="en">shower</span> vòi hoa sen, <span class="en">chest of drawers</span> tủ có ngăn kéo.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nghĩa của các từ</h4>
+      <p><span class="en">lamp</span>: đèn · <span class="en">toilet</span>: bồn cầu · <span class="en">picture</span>: bức tranh · <span class="en">cupboard</span> /ˈkʌbəd/: tủ đựng bát đĩa / quần áo · <span class="en">sink</span> /sɪŋk/: bồn rửa · <span class="en">sofa</span>: ghế sofa · <span class="en">dishwasher</span> /ˈdɪʃwɒʃə/: máy rửa bát · <span class="en">fridge</span>: tủ lạnh · <span class="en">shower</span>: vòi hoa sen · <span class="en">chest of drawers</span> /ˌtʃest əv ˈdrɔːz/: tủ có ngăn kéo</p></div>
+    <div class="buoc" data-so="2"><h4>Xếp đồ vật vào từng phòng (theo tranh SGK)</h4>
+      <table>
+        <tr><th>Phòng</th><th>Đồ vật</th></tr>
+        <tr><td class="en">living room</td><td class="en">sofa, lamp, picture</td></tr>
+        <tr><td class="en">bedroom</td><td class="en">lamp, picture, chest of drawers</td></tr>
+        <tr><td class="en">bathroom</td><td class="en">shower, sink, toilet</td></tr>
+        <tr><td class="en">kitchen</td><td class="en">cupboard, sink, fridge, dishwasher</td></tr>
+        <tr><td class="en">hall</td><td class="en">picture</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">lamp, picture, sink</span> xuất hiện ở hơn một phòng — đúng như đề nói <span class="en">You may use a word more than once.</span></p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">living room: sofa, lamp, picture · bedroom: lamp, picture, chest of drawers · bathroom: shower, sink, toilet · kitchen: cupboard, sink, fridge, dishwasher · hall: picture.</div>
+    <div class="bay">Đọc <span class="en">cupboard</span> theo mặt chữ “cấp-bo”. Chữ <b>p</b> câm: /ˈkʌbəd/.</div>
+    <div class="gv-note">Hai chiếc tủ nhỏ hai bên giường trong tranh được coi là <i>chest of drawers</i> (tủ có ngăn kéo); HS gọi là “bedside table” cũng chấp nhận được nhưng không có trong danh sách. Kiểm lại tranh SGK trang 17 khi chữa.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Guessing game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Think of a room in your house. In pairs, ask and answer questions to guess it.</span></p>
+    <p class="en" lang="en">A: What's in your room? — B: A sofa and a television. — A: Is it the living room? — B: Yes.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn một phòng nhưng <b>đừng nói tên</b> — chỉ kể đồ vật trong đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng đúng ba câu của mẫu, chỉ thay đồ vật và tên phòng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đoán theo mẫu</h4>
+      <p class="en">A: What's in your room?<br>B: A fridge and a sink.<br>A: Is it the kitchen?<br>B: Yes.</p>
+      <p class="vi-sao">Đoán sai thì B nói <span class="en">No.</span> và kể thêm một đồ vật nữa để A đoán lại.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: What's in your room? — B: A fridge and a sink. — A: Is it the kitchen? — B: Yes.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-4" data-ten="Bài 4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Listen and repeat these words.</span> 🎧 (Track 11, tập một)</p>
+    <p class="en" lang="en">lamps · cupboards · sinks · sofas · flats · kitchens · toilets · rooms</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt tay lên cổ khi đọc <i>sinks</i> rồi <i>rooms</i>. Âm cuối nào làm cổ rung?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Sách xếp thành hai cột: cột trái đuôi <i>s</i> đọc /s/, cột phải đọc /z/.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia hai nhóm</h4>
+      <table>
+        <tr><th>/s/</th><th>/z/</th></tr>
+        <tr><td class="en">lamps<br>sinks<br>flats<br>toilets</td><td class="en">cupboards<br>sofas<br>kitchens<br>rooms</td></tr>
+      </table>
+      <p class="vi-sao">Từ gốc tận cùng bằng âm <b>/p/, /k/, /t/</b> (<i>lamp, sink, flat, toilet</i>) → /s/, không rung cổ. Tận cùng bằng âm rung cổ (<i>cupboard</i> /d/, <i>sofa</i> nguyên âm, <i>kitchen</i> /n/, <i>room</i> /m/) → /z/.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /s/ và /z/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe và nhắc lại. /s/: lamps, sinks, flats, toilets. /z/: cupboards, sofas, kitchens, rooms.</div>
+    <div class="bay">Nuốt mất âm cuối: đọc <i>lamps</i> thành “lam”. Phải giữ đủ /p/ rồi /s/ ở cuối từ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl1-5" data-ten="Bài 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Pronunciation</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Listen to the conversation. Underline the final <i>s</i> in the words and put them into the correct column.</span> 🎧 (Track 12, tập một)</p>
+    <p class="en" lang="en">Mi: Mum, are you home? — Mum: Yes, honey. I'm in the kitchen. I've bought these new bowls and chopsticks. — …</p>
+    <p lang="en"><b>Now practise the conversation with a partner.</b></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — /s/ hay /z/?</b>
+    <div class="cau-thu"><span class="noi-dung en">chopsticks</span><button class="chon chu" data-dung="1">/s/</button><button class="chon chu" data-dung="0">/z/</button><span class="phan-hoi" data-dung-txt="Đúng! chopstick tận cùng bằng /k/." data-sai-txt="Từ gốc chopstick kết thúc bằng âm gì? /k/ có rung cổ không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">homes</span><button class="chon chu" data-dung="0">/s/</button><button class="chon chu" data-dung="1">/z/</button><span class="phan-hoi" data-dung-txt="Đúng! home tận cùng bằng /m/ — rung cổ." data-sai-txt="Chữ e cuối của home không đọc. Âm cuối thật là /m/ — rung hay không rung?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm những danh từ <b>số nhiều</b> có đuôi <i>s</i> trong hội thoại — có 5 từ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Năm từ: <span class="en">bowls, chopsticks, things, homes, lamps</span>. Xét âm cuối của từ gốc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các từ có đuôi s</h4>
+      <blockquote class="trich"><p>I've bought these new bowls and chopsticks.</p><p>They have a lot of things for homes.</p><p>Don't forget we need two lamps for my bedroom, Mum.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Xếp vào cột</h4>
+      <table>
+        <tr><th>/s/</th><th>/z/</th></tr>
+        <tr><td class="en">chopsticks, lamps</td><td class="en">bowls, things, homes</td></tr>
+      </table>
+      <p class="vi-sao"><i>chopstick</i> (/k/), <i>lamp</i> (/p/) → /s/. <i>bowl</i> (/l/), <i>thing</i> (/ŋ/), <i>home</i> (/m/) → /z/.</p>
+      <a class="xem-lai" href="#kt-am">📌 Xem lại: /s/ và /z/</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">/s/: chopsticks, lamps. &nbsp; /z/: bowls, things, homes.</div>
+    <div class="bay">Xếp <span class="en">homes</span> vào /s/ vì thấy chữ <i>e</i> trước <i>s</i>. Chữ e câm — âm cuối là /m/, nên đọc /z/.</div>
+    <div class="gv-note">Đáp án suy từ cách phát âm Anh – Anh chuẩn; HS vẫn nên nghe Track 12 (tập một) để kiểm tra. Các từ <i>Yes, this, Let's</i> cũng có chữ s cuối nhưng không phải đuôi số nhiều — nếu HS xếp vào cột /s/ thì vẫn đúng âm, có thể chấp nhận. Hội thoại có <span class="en">I've bought</span>, <span class="en">did you buy</span> — chỉ cần hiểu nghĩa, không phải ngữ pháp lớp 6 của Unit này.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cl2" data-chip="A Closer Look 2">A Closer Look 2 — Grammar<small>Possessive case · Prepositions of place · Trang 18 – 20</small></h2>
+
+<article class="the bai" id="cl2-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Possessive case</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Choose the correct answer.</span></p>
+    <p class="en" lang="en">1. My (grandmothers / grandmother's) house is in Ha Noi. &nbsp; 2. This is my (sister's / sister') desk. &nbsp; 3. My (cousin's / cousin) dad is my uncle. &nbsp; 4. (Nam's / Nam') house is small. &nbsp; 5. There are two bedrooms in (Ans / An's) flat.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung en">4. ___ house is small.</span><button class="chon chu" data-dung="1">Nam's</button><button class="chon chu" data-dung="0">Nam'</button><span class="phan-hoi" data-dung-txt="Đúng! Tên riêng + 's." data-sai-txt="Remember!: sau tên riêng ta thêm gì — chỉ dấu ' hay cả 's?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">5. two bedrooms in ___ flat</span><button class="chon chu" data-dung="0">Ans</button><button class="chon chu" data-dung="1">An's</button><span class="phan-hoi" data-dung-txt="Đúng! Căn hộ của An → An's." data-sai-txt="“Ans” không có dấu ' — làm sao biết là “của An”?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu có hai cách viết — chỉ một cách có <b>'s</b> đúng chỗ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dạng đúng luôn là <b>tên / danh từ số ít + 's</b>. Không có dạng chỉ thêm dấu <b>'</b> mà thiếu chữ <b>s</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp quy tắc 's</h4>
+      <p>1. ngôi nhà <b>của bà</b> → <span class="en">my <b>grandmother's</b> house</span> (danh từ số ít + 's). &nbsp; 2. <span class="en">my <b>sister's</b> desk</span>. &nbsp; 3. <span class="en">My <b>cousin's</b> dad</span> — bố của em họ. &nbsp; 4. <span class="en"><b>Nam's</b> house</span> (tên riêng + 's). &nbsp; 5. <span class="en"><b>An's</b> flat</span>.</p>
+      <p class="vi-sao">Câu 3: <span class="en">My cousin dad</span> là hai danh từ đứng cạnh nhau, không nói được “của ai” → phải có <b>'s</b>.</p>
+      <a class="xem-lai" href="#kt-so-huu">📌 Xem lại: possessive case</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. grandmother's &nbsp; 2. sister's &nbsp; 3. cousin's &nbsp; 4. Nam's &nbsp; 5. An's</div>
+    <div class="bay">Câu 1 chọn <i>grandmothers</i> — đó là số nhiều “nhiều bà”, không phải “của bà”. Sở hữu phải có dấu <b>'</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Possessive case</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the sentences with the correct possessive forms.</span></p>
+    <p class="en" lang="en">1. Thuc Anh is ______ cousin. (Mi) &nbsp; 2. This is their ______ chair. (teacher) &nbsp; 3. Where is ______ computer? (Nick) &nbsp; 4. My ______ motorbike is in the garden. (father) &nbsp; 5. My ______ bedroom is next to the living room. (brother)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ trong ngoặc là “người sở hữu”. Đồ vật đứng ngay sau chỗ trống là của người đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỉ cần thêm <b>'s</b> vào từ trong ngoặc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thêm 's</h4>
+      <p>1. <span class="en">Thuc Anh is <b>Mi's</b> cousin.</span> — em họ của Mi. &nbsp; 2. <span class="en">their <b>teacher's</b> chair</span> — ghế của cô giáo họ. &nbsp; 3. <span class="en">Where is <b>Nick's</b> computer?</span> &nbsp; 4. <span class="en">My <b>father's</b> motorbike</span>. &nbsp; 5. <span class="en">My <b>brother's</b> bedroom</span>.</p>
+      <p class="vi-sao">Câu 2: <span class="en">their</span> đi với <span class="en">teacher</span> (cô giáo <b>của họ</b>), còn <span class="en">chair</span> là của cô giáo → <span class="en">their teacher's chair</span>.</p>
+      <a class="xem-lai" href="#kt-so-huu">📌 Xem lại: possessive case</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. Mi's &nbsp; 2. teacher's &nbsp; 3. Nick's &nbsp; 4. father's &nbsp; 5. brother's</div>
+    <div class="bay">Đọc tên <span class="en">Thuc Anh</span> thành “thắc an”. Đây là tên người Việt — đọc “Thục Anh”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Prepositions of place</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Write the correct preposition in the box under each picture. Say a sentence to describe the picture.</span></p>
+    <p class="en" lang="en">in · on · next to · behind · in front of · under · between</p>
+    <p class="en" lang="en">1. on — The dog is on the chair.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bảy tranh, bảy giới từ trong hộp. Tranh 1 đã dùng <i>on</i> — sáu tranh còn lại dùng sáu giới từ còn lại.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So từng tranh trong SGK với bảy hình nhỏ trong khung Remember! ở trang 19.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn giới từ cho từng tranh (theo tranh SGK)</h4>
+      <table>
+        <tr><th>Tranh</th><th>Vị trí</th><th>Giới từ</th></tr>
+        <tr><td>2</td><td>con chó ở bên cạnh ghế bành</td><td class="en">next to</td></tr>
+        <tr><td>3</td><td>con mèo thò đầu ra phía sau ti vi</td><td class="en">behind</td></tr>
+        <tr><td>4</td><td>con mèo ở bên trong tủ quần áo</td><td class="en">in</td></tr>
+        <tr><td>5</td><td>con chó nằm trước chuồng</td><td class="en">in front of</td></tr>
+        <tr><td>6</td><td>con mèo ở giữa đèn cây và ghế bành</td><td class="en">between</td></tr>
+        <tr><td>7</td><td>con mèo dưới gầm bàn</td><td class="en">under</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+    <div class="buoc" data-so="2"><h4>Nói một câu cho mỗi tranh</h4>
+      <p class="en">2. The dog is next to the armchair. &nbsp; 3. The cat is behind the TV. &nbsp; 4. The cat is in the wardrobe. &nbsp; 5. The dog is in front of the dog house. &nbsp; 6. The cat is between the lamp and the armchair. &nbsp; 7. The cat is under the table.</p>
+      <p class="vi-sao">Mẫu câu: <span class="en">The + con vật + is + giới từ + the + đồ vật.</span> <span class="en">between</span> cần <b>hai</b> vật nối bằng <span class="en">and</span>. <span class="en">armchair</span> (ghế bành), <span class="en">dog house</span> (chuồng chó) là từ thêm, không bắt buộc thuộc.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">2. next to &nbsp; 3. behind &nbsp; 4. in &nbsp; 5. in front of &nbsp; 6. between &nbsp; 7. under. Câu mẫu: <span class="en">The cat is under the table.</span></div>
+    <div class="bay">Câu 6 chỉ viết <span class="en">The cat is between the lamp.</span> — <i>between</i> luôn cần hai vật: <span class="en">between the lamp and the armchair</span>.</div>
+    <div class="gv-note">Tranh 5: chó nằm ngay cửa chuồng, đầu ở phía trong — HS trả lời <i>in</i> có thể chấp nhận nếu nói được lí do, nhưng theo cách chia mỗi giới từ một tranh thì tranh 5 là <i>in front of</i> (<i>in</i> đã dùng cho tranh 4).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-4" data-ten="Bài 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">True / False</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Look at the picture and write T (True) or F (False) for each sentence. Correct the false ones.</span></p>
+    <p class="en" lang="en">The books are under the table. F → The books are on the table.</p>
+    <p class="en" lang="en">1. The dog is behind the bed. &nbsp; 2. The school bag is on the table. &nbsp; 3. The picture is between the clocks. &nbsp; 4. The cat is in front of the computer. &nbsp; 5. The cap is under the pillow.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — True hay False?</b>
+    <div class="cau-thu"><span class="noi-dung">2. school bag / on the table</span><button class="chon chu" data-dung="0">T</button><button class="chon chu" data-dung="1">F</button><span class="phan-hoi" data-dung-txt="Đúng! Cặp sách ở dưới gầm bàn." data-sai-txt="Nhìn lại tranh: cặp sách màu xanh ở trên mặt bàn hay dưới sàn?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">3. picture / between the clocks</span><button class="chon chu" data-dung="0">T</button><button class="chon chu" data-dung="1">F</button><span class="phan-hoi" data-dung-txt="Đúng! Trên tường có một đồng hồ và hai bức tranh." data-sai-txt="Đếm lại: trên tường có mấy đồng hồ? mấy bức tranh?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu sai thì phải <b>sửa lại</b> — thường chỉ cần đổi giới từ, hoặc đổi chỗ hai đồ vật.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3: đếm xem trên tường có mấy bức tranh, mấy cái đồng hồ — <i>between</i> cần hai vật ở hai bên.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đối chiếu từng câu với tranh (theo tranh SGK)</h4>
+      <table>
+        <tr><th>Câu</th><th>Trong tranh</th><th>T/F</th></tr>
+        <tr><td>1</td><td>con chó nằm trên giường</td><td><b>F</b></td></tr>
+        <tr><td>2</td><td>cặp sách ở dưới gầm bàn</td><td><b>F</b></td></tr>
+        <tr><td>3</td><td>đồng hồ ở giữa hai bức tranh</td><td><b>F</b></td></tr>
+        <tr><td>4</td><td>con mèo ngồi trên bàn, trước màn hình máy tính</td><td><b>T</b></td></tr>
+        <tr><td>5</td><td>chiếc mũ nằm trên giường</td><td><b>F</b></td></tr>
+      </table></div>
+    <div class="buoc" data-so="2"><h4>Sửa các câu sai</h4>
+      <p class="en">1. The dog is on the bed. &nbsp; 2. The school bag is under the table. &nbsp; 3. The clock is between the pictures. &nbsp; 5. The cap is on the bed.</p>
+      <p class="vi-sao">Câu 3 không đổi giới từ mà <b>đổi chỗ hai danh từ</b>: một đồng hồ ở giữa hai bức tranh. Đổi luôn số ít – số nhiều: <span class="en">the clock</span>, <span class="en">the pictures</span>.</p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. F → The dog is on the bed. &nbsp; 2. F → The school bag is under the table. &nbsp; 3. F → The clock is between the pictures. &nbsp; 4. T &nbsp; 5. F → The cap is on the bed.</div>
+    <div class="bay">Câu 3 sửa thành <span class="en">The picture is between the clock.</span> — <i>between</i> cần hai vật; phải đổi chỗ: <span class="en">The clock is between the pictures.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cl2-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Memory game</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Work in pairs. Look at the picture in 4 carefully, and then cover it. Ask and answer questions about the position of things in the picture.</span></p>
+    <p class="en" lang="en">A: Where are the books? — B: They're on the table.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn tranh bài 4 trong 30 giây, rồi úp sách lại. Em nhớ được bao nhiêu đồ vật?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Một vật: <span class="en">Where <b>is</b> the cat? — <b>It's</b> …</span> Nhiều vật: <span class="en">Where <b>are</b> the books? — <b>They're</b> …</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hỏi – đáp theo mẫu</h4>
+      <p class="en">A: Where is the cat?<br>B: It's on the table, in front of the computer.<br>A: Where is the school bag?<br>B: It's under the table.<br>A: Where are the pictures?<br>B: They're on the wall.</p>
+      <p class="vi-sao">Chú ý cặp <span class="en">is – It's</span> và <span class="en">are – They're</span>: trả lời phải khớp với số ít / số nhiều của câu hỏi.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Where is the school bag? — B: It's under the table. A: Where are the pictures? — B: They're on the wall.</span></div>
+    <div class="bay">Hỏi <span class="en">Where is the books?</span> — <i>books</i> số nhiều nên dùng <span class="en">Where are</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-cm" data-chip="Communication">Communication — Giving suggestions · Living places<small>Trang 20 – 21</small></h2>
+
+<article class="the bai" id="cm1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Elena and her mum are discussing how to decorate her bedroom. Listen and read the dialogue. Pay attention to the highlighted sentences.</span> 🎧 (Track 13, tập một)</p>
+    <p class="en" lang="en">Elena: My bedroom isn't nice. — Mum: How about putting a picture on the wall? — Elena: Great idea, Mum. — Mum: Let's go to the department store to buy one.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mẹ của Elena đưa ra hai lời gợi ý. Mỗi lời bắt đầu bằng mấy chữ gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Sau <span class="en">How about</span> là động từ thêm <b>-ing</b>; sau <span class="en">Let's</span> là động từ <b>nguyên thể</b>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai câu gợi ý</h4>
+      <table>
+        <tr><th>Câu trong bài</th><th>Nghĩa</th></tr>
+        <tr><td class="en" lang="en">How about putting a picture on the wall?</td><td>Treo một bức tranh lên tường thì sao con?</td></tr>
+        <tr><td class="en" lang="en">Let's go to the department store to buy one.</td><td>Mình đi cửa hàng bách hoá mua một bức nhé.</td></tr>
+        <tr><td class="en" lang="en">Great idea, Mum.</td><td>Ý hay quá, mẹ ạ. (đồng ý)</td></tr>
+      </table>
+      <p class="vi-sao"><span class="en">put → putting</span>: động từ tận cùng một nguyên âm + một phụ âm thì gấp đôi phụ âm trước khi thêm <i>-ing</i>. <span class="en">department store</span> /dɪˈpɑːtmənt stɔː/ = cửa hàng bách hoá (Glossary).</p>
+      <a class="xem-lai" href="#kt-goi-y">📌 Xem lại: giving suggestions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài nghe – đọc. Hai cấu trúc gợi ý: <span class="en">How about + V-ing?</span> (How about putting a picture on the wall?) và <span class="en">Let's + V.</span> (Let's go to the department store to buy one.)</div>
+    <div class="bay">Viết <span class="en">How about put…</span> hoặc <span class="en">Let's going…</span> — đổi lẫn hai cấu trúc. <i>How about</i> + <b>V-ing</b>; <i>Let's</i> + <b>V</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm2" data-ten="Bài 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Everyday English</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Work in pairs. Make a similar dialogue. Remember to use the structures:</span></p>
+    <p class="en" lang="en">How about + V-ing? · Let's + V.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nghĩ một căn phòng “chưa đẹp” — thiếu đèn? thiếu kệ sách? thiếu cây xanh?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Giữ khung của bài 1, chỉ thay đồ vật và vị trí: <span class="en">How about putting a lamp next to the bed?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hội thoại mẫu</h4>
+      <p class="en">A: My living room isn't nice.<br>B: How about putting a sofa in the living room?<br>A: Great idea.<br>B: Let's go to the department store to buy one.</p>
+      <p class="vi-sao">Dùng lại giới từ chỉ vị trí vừa học: <span class="en">next to the bed, on the wall, in the living room</span>.</p>
+      <a class="xem-lai" href="#kt-goi-y">📌 Xem lại: giving suggestions</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: My living room isn't nice. — B: How about putting a sofa in the living room? — A: Great idea. — B: Let's go to the department store to buy one.</span></div>
+    <div class="bay">Quên đáp lại lời gợi ý. Bạn gợi ý xong thì người kia nói <span class="en">Great idea.</span> (đồng ý) trước khi bàn tiếp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Fill in the blanks</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Mi tells Nick about her grandparents' country house. Look at the pictures of her grandparents' house and complete the sentences.</span></p>
+    <p class="en" lang="en">1. My grandparents live in a ______ house in Ninh Binh. &nbsp; 2. There ______ four rooms in the house and a big garden. &nbsp; 3. I like the living room. There ______ a big window in this room. &nbsp; 4. There are four ______ and a table in the middle of the room. &nbsp; 5. There are two family photos ______ the wall.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai chỗ trống cần <i>is</i> hoặc <i>are</i>: nhìn danh từ đứng ngay sau — số ít hay số nhiều?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1: đề bài đã cho biết loại nhà. Câu 4: đếm đồ vật quanh bàn trong tranh.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1, 4, 5: từ vựng và giới từ</h4>
+      <p>1. Đề nói <span class="en">her grandparents' country house</span> → <span class="en"><b>country</b></span>. &nbsp; 4. Quanh bàn có bốn chiếc ghế → <span class="en">four <b>chairs</b></span>. &nbsp; 5. Ảnh treo trên tường → <span class="en"><b>on</b> the wall</span>.</p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 2, 3: There is hay There are?</h4>
+      <p>2. <span class="en">four rooms</span> (số nhiều) → <span class="en">There <b>are</b></span>. &nbsp; 3. <span class="en">a big window</span> (số ít) → <span class="en">There <b>is</b></span>.</p>
+      <a class="xem-lai" href="#kt-there">📌 Xem lại: There is / There are</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. country &nbsp; 2. are &nbsp; 3. is &nbsp; 4. chairs &nbsp; 5. on</div>
+    <div class="bay">Câu 4 viết <i>chair</i> — đã có <span class="en">four</span> thì danh từ phải ở số nhiều: <span class="en">chairs</span>.</div>
+    <div class="gv-note"><span class="en">grandparents'</span> (dấu ' sau s) là sở hữu của danh từ số nhiều — SGK chỉ dạy <i>'s</i> sau tên riêng và danh từ số ít; nếu HS hỏi, chỉ giải thích nghĩa “của ông bà”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Find the differences</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Student A looks at the pictures of Nick's house on this page. Student B looks at the pictures of Mi's house on page 25. Ask questions to find the differences between the two houses.</span></p>
+    <p class="en" lang="en">A: Where does Mi live? — B: She lives in a town house.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bạn A xem tranh nhà Nick, bạn B xem tranh nhà Mi ở trang 25. <b>Đừng</b> cho bạn nhìn tranh của mình.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hỏi về loại nhà, số phòng, đồ vật trong phòng: <span class="en">Where does … live? · How many bedrooms are there…? · Is there a … in the living room?</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Các câu hỏi nên dùng</h4>
+      <p class="en">Where does Nick / Mi live?<br>How many rooms are there in Mi's house?<br>Is there a sofa in Mi's living room?<br>How many bathrooms are there in Mi's house?</p>
+      <p class="vi-sao">Hỏi về Mi / Nick (= she / he) thì mượn <span class="en">does</span>: <span class="en">Where <b>does</b> Mi live?</span> — trả lời <span class="en">She live<b>s</b> …</span></p></div>
+    <div class="buoc" data-so="2"><h4>Một vài điểm khác nhau (theo tranh SGK)</h4>
+      <p class="en">Nick lives in a country house. Mi lives in a town house.</p>
+      <p>Nhà Mi có <b>hai phòng tắm</b>; phòng khách nhà Nick có lò sưởi và ghế bành màu hồng, phòng khách nhà Mi có ghế sofa màu hồng và đèn cây.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">A: Where does Mi live? — B: She lives in a town house. A: How many bathrooms are there in Mi's house? — B: There are two.</span> Khác nhau rõ nhất: Nick sống ở nhà vùng quê, Mi sống ở nhà phố.</div>
+    <div class="bay">Hỏi <span class="en">Where do Mi live?</span> — Mi là một người (she) → <span class="en">Where does Mi live?</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="cm5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Draw a simple picture of your house. Tell your partner about it.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vẽ đơn giản thôi — mỗi phòng một ô vuông, ghi tên phòng bằng tiếng Anh.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nói theo thứ tự: loại nhà → có mấy phòng, là những phòng nào → phòng em thích có gì.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khung câu</h4>
+      <p class="en">I live in a … · There are … rooms in my house: … · In my bedroom, there is a … next to the …</p></div>
+    <div class="buoc" data-so="2"><h4>Nói mẫu</h4>
+      <p class="en">I live in a town house. There are five rooms in my house: a living room, a kitchen, two bedrooms and a bathroom. In my bedroom, there is a desk next to the window.</p>
+      <a class="xem-lai" href="#kt-there">📌 Xem lại: There is / There are</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">I live in a town house. There are five rooms in my house: a living room, a kitchen, two bedrooms and a bathroom. In my bedroom, there is a desk next to the window.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s1" data-chip="Skills 1">Skills 1 — Reading · Speaking<small>Trang 22</small></h2>
+
+<article class="the bai" id="s1-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Predicting</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Look at the text. Answer the questions.</span></p>
+    <p class="en" lang="en">1. Is it an email or a letter? &nbsp; 2. What is the text about?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chưa cần đọc từng câu: nhìn phần đầu văn bản có <i>To:</i>, <i>Subject:</i> — đó là dấu hiệu của gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Làm đúng như mẹo <span class="en">Reading skill: Predicting</span> của sách: nhìn tranh, cách trình bày và tiêu đề trước khi đọc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhìn cách trình bày và tiêu đề</h4>
+      <blockquote class="trich"><p>Subject: A room at the Crazy House Hotel</p></blockquote>
+      <p>Có <span class="en">New message, To: phong@webmail.com</span> → đây là thư điện tử. Tiêu đề (<span class="en">Subject</span>) cho biết nội dung: một căn phòng ở khách sạn Crazy House.</p>
+      <p class="vi-sao">Đây là kĩ năng <b>đoán trước</b> (predicting): <span class="en">Before reading, look at the pictures, design and title.</span> Đoán đúng chủ đề thì đọc nhanh và dễ hiểu hơn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. It's an email. &nbsp; 2. It's about a room at the Crazy House Hotel in Da Lat (Nick's room — the Tiger Room).</div>
+    <div class="bay">Trả lời “a letter” vì thấy có lời chào <span class="en">Hi Phong and Mi</span> và kí tên. Thư tay không có địa chỉ <span class="en">@webmail.com</span> và dòng <span class="en">Subject</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Reading — Questions</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Read the text again and answer the questions.</span></p>
+    <p class="en" lang="en">1. Who is Nick in Da Lat with? &nbsp; 2. How many rooms are there in the hotel? &nbsp; 3. Why is the room called the Tiger Room? &nbsp; 4. Where is Nick's bag?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu hỏi có một từ khoá: <i>with, How many, Why, Where</i>. Tìm câu trong thư chứa từ đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu hỏi <span class="en">Why…?</span> → trả lời bằng <span class="en">Because…</span>; trong thư có sẵn chữ <span class="en">because</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm căn cứ trong thư</h4>
+      <blockquote class="trich"><p>I'm in Da Lat with my parents.</p><p>There are ten rooms in the hotel.</p><p>It's called the Tiger Room because there's a big tiger on the wall.</p><p>I put my bag under the bed.</p></blockquote></div>
+    <div class="buoc" data-so="2"><h4>Viết câu trả lời</h4>
+      <p>Câu 1 đổi <span class="en">my parents</span> (lời Nick) thành <span class="en">his parents</span> (mình nói về Nick). Câu 4: <span class="en">Nick's bag</span> = cái túi <b>của Nick</b> → trả lời bằng <span class="en">It's under the bed.</span></p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. He's with his parents. &nbsp; 2. There are ten rooms. &nbsp; 3. Because there's a big tiger on the wall. &nbsp; 4. It's under the bed.</div>
+    <div class="bay">Câu 1 chép nguyên <span class="en">He's with my parents.</span> — phải đổi <i>my</i> thành <i>his</i> vì đang nói về Nick.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-3" data-ten="Bài 3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Reading — Circle</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Circle the things in the Tiger Room.</span></p>
+    <p class="en" lang="en">a window · a wardrobe · a cooker · a cupboard · a shelf · a lamp · a desk · a tiger</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — có trong phòng Tiger không?</b>
+    <div class="cau-thu"><span class="noi-dung en">a cupboard</span><button class="chon chu" data-dung="0">Có</button><button class="chon chu" data-dung="1">Không</button><span class="phan-hoi" data-dung-txt="Đúng! Thư nói “a wardrobe”, không nói “a cupboard”." data-sai-txt="Đọc lại câu cuối đoạn ba: có những đồ vật gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung en">a desk</span><button class="chon chu" data-dung="1">Có</button><button class="chon chu" data-dung="0">Không</button><span class="phan-hoi" data-dung-txt="Đúng! “There's a lamp, a wardrobe and a desk.”" data-sai-txt="Tìm câu bắt đầu bằng “There's a lamp…”."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có 8 đồ vật trong bảng, đã khoanh sẵn <i>a window</i>. Đồ nào thật sự được nhắc trong thư?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc kĩ đoạn thứ ba của thư, câu cuối cùng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm đồ vật trong thư</h4>
+      <blockquote class="trich"><p>The tiger is between the bathroom door and the window.</p><p>There's a lamp, a wardrobe and a desk.</p></blockquote>
+      <p class="vi-sao">Không có <span class="en">cooker</span> (bếp nấu — Glossary /ˈkʊkə/), <span class="en">cupboard</span>, <span class="en">shelf</span>. Cẩn thận: <span class="en">wardrobe</span> và <span class="en">cupboard</span> đều có thể là tủ quần áo, nhưng thư chỉ viết <span class="en">wardrobe</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Khoanh: a window (có sẵn), a wardrobe, a lamp, a desk, a tiger. Không khoanh: a cooker, a cupboard, a shelf.</div>
+    <div class="bay">Khoanh <span class="en">a cooker</span> vì nghĩ khách sạn nào cũng có bếp. Chỉ khoanh những gì <b>bài đọc nói tới</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Plan</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Create a new room for the hotel. Draw a plan for the room.</span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khách sạn có phòng Kangaroo, Eagle, Ant, Tiger. Em đặt tên phòng mới theo con vật nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ hình chữ nhật làm căn phòng, đánh dấu cửa ra vào, cửa sổ, rồi đặt đồ vật; ghi tên đồ vật bằng tiếng Anh.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lên kế hoạch căn phòng</h4>
+      <p>Tên phòng: <span class="en">the Dolphin Room</span> (từ thêm: <i>dolphin</i> = cá heo). Con vật lớn vẽ ở đâu? Giường, đèn, bàn, tủ đặt ở đâu?</p>
+      <p class="vi-sao">Ghi tên đồ vật bằng từ của Unit: <span class="en">bed, lamp, desk, wardrobe, sofa, shelf</span> — để bài 5 nói được ngay.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Bản vẽ đạt khi: có tên phòng, có cửa ra vào / cửa sổ, có ít nhất 4 đồ vật ghi tên tiếng Anh.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s1-5" data-ten="Bài 5" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 5</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Speaking — Describe</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>5.</b> <span lang="en">Show your plan to your partner and describe it.</span></p>
+    <p class="en" lang="en">This is the Shark Room. There's a big shark at the door. There's a table and a sofa in the middle of the room …</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi câu nói về <b>một</b> đồ vật và <b>vị trí</b> của nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="en">This is the … Room. There's a … + giới từ + …</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nói mẫu</h4>
+      <p class="en">This is the Dolphin Room. There's a big dolphin on the wall. The bed is next to the window. There's a lamp between the bed and the desk. I put my bag under the bed.</p>
+      <p class="vi-sao">Mượn đúng cách viết trong thư của Nick: <span class="en">The bed is next to the window. I put my bag under the bed.</span></p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">This is the Dolphin Room. There's a big dolphin on the wall. The bed is next to the window. There's a lamp between the bed and the desk.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-s2" data-chip="Skills 2">Skills 2 — Listening · Writing<small>Trang 23</small></h2>
+
+<article class="the bai" id="s2-1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Listening — Guess</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Look at the pictures. Name each of them. Guess if they are mentioned in the listening text.</span></p>
+    <p><span lang="en"><b>Now listen and check your guesses.</b></span> 🎧 (Track 14, tập một)</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gọi tên năm đồ vật trước — tên nào em chưa nhớ thì xem lại A Closer Look 1.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tranh 1 là cái tủ có ba ngăn kéo — tên tiếng Anh dài ba chữ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên (theo tranh SGK)</h4>
+      <p>1. <span class="en">chest of drawers</span> &nbsp; 2. <span class="en">sofa</span> &nbsp; 3. <span class="en">desk</span> &nbsp; 4. <span class="en">clock</span> &nbsp; 5. <span class="en">window</span></p></div>
+    <div class="buoc" data-so="2"><h4>Đoán, rồi nghe kiểm tra</h4>
+      <p>Bài nghe là Mai kể về ngôi nhà của bạn ấy (bài 2). Em đoán đồ nào sẽ có trong phòng khách, phòng ngủ của Mai — ghi Yes / No bên cạnh từng tranh, rồi nghe Track 14 (tập một) để kiểm tra.</p>
+      <p class="vi-sao">Khi nghe, chỉ cần “bắt” đúng năm từ vừa gọi tên — không cần hiểu hết bài.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tên đồ vật: 1. chest of drawers &nbsp; 2. sofa &nbsp; 3. desk &nbsp; 4. clock &nbsp; 5. window. 🎧 Phần kiểm tra: đáp án nằm trong bài nghe Track 14 (tập một) — SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b>.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu đồ vật nào được nhắc tới bằng file nghe hoặc sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Listening — True / False</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Listen to Mai talking about her house. Tick (✓) T (True) or F (False).</span> 🎧 (Track 15, tập một)</p>
+    <p class="en" lang="en">1. There are four people in Mai's family. &nbsp; 2. Mai's house has seven rooms. &nbsp; 3. The living room is next to the kitchen. &nbsp; 4. In her bedroom, there's a clock on the wall. &nbsp; 5. She often listens to music in her bedroom.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đọc 5 câu <b>trước khi</b> nghe. Câu nào có con số? Câu nào có giới từ chỉ vị trí?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu có số (<i>four, seven</i>) là chỗ dễ bị lừa nhất — bài nghe có thể nhắc nhiều con số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuẩn bị từ khoá</h4>
+      <table><tr><th>Câu</th><th>Chờ nghe</th></tr>
+        <tr><td>1</td><td>số người trong gia đình — <i>four</i>?</td></tr>
+        <tr><td>2</td><td>số phòng — <i>seven</i>?</td></tr>
+        <tr><td>3</td><td>vị trí phòng khách — <i>next to the kitchen</i>?</td></tr>
+        <tr><td>4</td><td>phòng ngủ — <i>clock / on the wall</i>?</td></tr>
+        <tr><td>5</td><td>hoạt động trong phòng ngủ — <i>music</i>?</td></tr></table>
+      <p class="vi-sao">Câu 3 và câu 4 có hai phần (vật + vị trí): cả hai phần cùng đúng thì mới là T.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🎧 Đáp án nằm trong bài nghe Track 15 (tập một). SGK không in lời bài nghe nên trang này <b>không ghi đáp án</b> — em nghe băng, tick T/F rồi nhờ thầy cô kiểm tra.</div>
+    <div class="bay">Đoán theo nhà mình hoặc theo bài đọc Skills 1. Bài nghe là về nhà của Mai — chỉ bài nghe mới cho đáp án.</div>
+    <div class="gv-note">Không có transcript trong kho; đối chiếu bằng file nghe / sách giáo viên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-3" data-ten="Bài 3" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing — Answers</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Answer the questions.</span></p>
+    <p class="en" lang="en">1. Where do you live? &nbsp; 2. How many rooms are there in your house? What are they? &nbsp; 3. Which room do you like the best in your house? Why?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu trả lời này chính là “nguyên liệu” cho bức thư ở bài 4.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 2 trả lời bằng <span class="en">There are … rooms: …</span>; câu 3 có <span class="en">Why?</span> → thêm <span class="en">because …</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Khung câu trả lời</h4>
+      <p class="en">1. I live in a … in … &nbsp; 2. There are … rooms in my house. They are … &nbsp; 3. I like my … the best because …</p>
+      <a class="xem-lai" href="#kt-there">📌 Xem lại: There is / There are</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Mẫu: <span class="en">1. I live in a town house in Ha Noi. 2. There are five rooms in my house. They are a living room, a kitchen, two bedrooms and a bathroom. 3. I like my bedroom the best because it is small and nice.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="s2-4" data-ten="Bài 4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Writing — Email</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write an email to Mira, your penfriend. Tell her about your house. Use the answers to the questions in 3.</span></p>
+    <p class="en" lang="en">Hi Mira, — Thanks for your email. Now I'll tell you about my house. — ______ — What about you? Where do you live? Tell me in your next email. — All the best,</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thư đã có sẵn câu mở đầu và câu kết. Em chỉ viết phần giữa — dùng ba câu trả lời ở bài 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thứ tự: em sống ở đâu → nhà có mấy phòng, phòng gì → phòng em thích nhất, trong đó có gì và ở đâu, vì sao em thích.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sắp ý</h4>
+      <p>Đoạn 1: loại nhà + nơi ở. Đoạn 2: số phòng và tên phòng (<span class="en">There are…</span>). Đoạn 3: phòng thích nhất — 1 – 2 câu tả đồ vật bằng giới từ chỉ vị trí, rồi lí do (<span class="en">because…</span>).</p></div>
+    <div class="buoc" data-so="2"><h4>Viết — theo một câu mở mẫu</h4>
+      <p>Cô làm mẫu câu đầu thôi: <span class="en">I live in a town house in Ha Noi.</span> Phần còn lại em tự viết về ngôi nhà của mình nhé.</p></div>
+    <div class="buoc" data-so="3"><h4>Soát lỗi</h4>
+      <p><span class="en">There is</span> + số ít, <span class="en">There are</span> + số nhiều? Giới từ đúng chưa? Có kí tên dưới <span class="en">All the best,</span> chưa?</p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bức thư đạt yêu cầu khi: (1) trả lời đủ ba câu hỏi của bài 3 (ở đâu, mấy phòng – phòng gì, phòng thích nhất – vì sao); (2) có ít nhất một câu tả vị trí đồ vật bằng giới từ (in, on, next to…); (3) dùng đúng <i>There is / There are</i> và thì hiện tại đơn; (4) giữ câu mở, câu kết của thư và kí tên.</div>
+    <div class="bay">Viết <span class="en">There is two bedrooms.</span> — hai phòng là số nhiều: <span class="en">There are two bedrooms.</span></div>
+    <div class="gv-note">Theo nguyên tắc không viết hộ: HS chỉ thấy câu mở mẫu. Đề không giới hạn số từ; phần thân thư tham khảo dưới đây dành cho GV (đã đếm máy: 56 từ). Không dùng thì hiện tại tiếp diễn (Unit 3) và <i>so</i> (Unit 7).</div>
+    <div class="tham-khao">
+    <p lang="en">I live in a town house in Ha Noi. There are five rooms in my house: a living room, a kitchen, two bedrooms and a bathroom. I like my bedroom the best. There is a desk next to the window, and my books are on the shelf. I like it because it is small and nice.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<h2 class="phan-tieu-de" id="p-lb" data-chip="Looking Back">Looking Back &amp; Project<small>Trang 24 – 25</small></h2>
+
+<article class="the bai" id="lb1" data-ten="Bài 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Vocabulary</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>1.</b> <span lang="en">Put the words into the correct group. Add a new word to each group.</span></p>
+    <p class="en" lang="en">kitchen · dishwasher · sink · town house · flat · cupboard · bedroom · country house · fridge · chest of drawers · bathroom · living room</p>
+    <p class="en" lang="en">Types of house | Rooms | Furniture</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 12 từ, 3 nhóm. Từ nào có chữ <i>house</i> hoặc là chỗ để ở? Từ nào có chữ <i>room</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <b>Types of house</b> có 3 từ, <b>Rooms</b> có 4 từ, <b>Furniture</b> có 5 từ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp nhóm</h4>
+      <table>
+        <tr><th>Types of house</th><th>Rooms</th><th>Furniture</th></tr>
+        <tr><td class="en">town house<br>flat<br>country house</td><td class="en">kitchen<br>bedroom<br>bathroom<br>living room</td><td class="en">dishwasher<br>sink<br>cupboard<br>fridge<br>chest of drawers</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-tu-vung">📌 Xem lại: Types of house · Rooms · Furniture</a></div>
+    <div class="buoc" data-so="2"><h4>Thêm một từ mỗi nhóm</h4>
+      <p>Types of house: <span class="en">villa</span> (từ thêm) · Rooms: <span class="en">hall</span> · Furniture: <span class="en">wardrobe</span>, <span class="en">sofa</span>, <span class="en">lamp</span>.</p>
+      <p class="vi-sao"><span class="en">hall, wardrobe, sofa, lamp</span> đều đã gặp trong Unit 2 — ưu tiên dùng từ của Unit.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Types of house: town house, flat, country house (+ villa). Rooms: kitchen, bedroom, bathroom, living room (+ hall). Furniture: dishwasher, sink, cupboard, fridge, chest of drawers (+ wardrobe).</div>
+    <div class="bay">Xếp <span class="en">kitchen</span> vào nhóm đồ đạc vì nghĩ đến “đồ bếp”. <i>kitchen</i> là căn phòng (nhà bếp).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb2" data-ten="Bài 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Possessive case</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>2.</b> <span lang="en">Complete the second sentence with the correct possessive form.</span></p>
+    <p class="en" lang="en">1. My teacher has a house next to our house. → Our house is next to my ______ house. &nbsp; 2. My brother has a TV. → This is my ______ TV. &nbsp; 3. Elena has a big bookshelf in her bedroom. → There's a big bookshelf in ______ bedroom. &nbsp; 4. My grandfather likes the kitchen the best. → The kitchen is my ______ favourite room. &nbsp; 5. My aunt has a daughter, Vy. → I'm ______ cousin.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu đầu nói “ai có gì”. Câu sau phải nói “cái gì của ai” — dùng <b>'s</b>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 5: con gái của dì là Vy, vậy em là em / chị họ <b>của ai</b>?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu 1 – 4: người sở hữu có sẵn trong câu đầu</h4>
+      <p>1. <span class="en">my <b>teacher's</b> house</span> &nbsp; 2. <span class="en">my <b>brother's</b> TV</span> &nbsp; 3. <span class="en">in <b>Elena's</b> bedroom</span> &nbsp; 4. <span class="en">my <b>grandfather's</b> favourite room</span></p>
+      <a class="xem-lai" href="#kt-so-huu">📌 Xem lại: possessive case</a></div>
+    <div class="buoc" data-so="2"><h4>Câu 5: suy luận quan hệ họ hàng</h4>
+      <p>Vy là con gái của dì em → Vy và em là chị em họ → <span class="en">I'm <b>Vy's</b> cousin.</span></p>
+      <p class="vi-sao">Không viết <span class="en">my aunt's cousin</span> — em là cháu của dì, không phải em họ của dì.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. teacher's &nbsp; 2. brother's &nbsp; 3. Elena's &nbsp; 4. grandfather's &nbsp; 5. Vy's</div>
+    <div class="bay">Câu 5 điền <i>aunt's</i> vì thấy <span class="en">My aunt</span> đứng đầu câu trên. Đọc kĩ: em là <i>cousin</i> (anh chị em họ) của <b>Vy</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb3" data-ten="Bài 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Prepositions of place</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>3.</b> <span lang="en">Make sentences. Use prepositions of place.</span></p>
+    <p class="en" lang="en">1. The cat ______. &nbsp; 2. The dog ______. &nbsp; 3. The cat ______. &nbsp; 4. The cat ______. &nbsp; 5. The girl ______. &nbsp; 6. The boy ______.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi tranh: con vật / người ở đâu so với đồ vật? Câu 3 có <b>hai</b> đồ vật hai bên.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 3 dùng <span class="en">between … and …</span>. Đồ vật cạnh con mèo ở câu 3 là ghế bành và giá sách (<span class="en">bookshelf</span> — từ có ở bài 2).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định vị trí (theo tranh SGK)</h4>
+      <table>
+        <tr><th>Tranh</th><th>Vị trí</th><th>Giới từ</th></tr>
+        <tr><td>1</td><td>mèo ngồi trên mặt bàn</td><td class="en">on</td></tr>
+        <tr><td>2</td><td>chó nằm trước cửa chuồng</td><td class="en">in front of</td></tr>
+        <tr><td>3</td><td>mèo ngồi giữa ghế bành và giá sách</td><td class="en">between</td></tr>
+        <tr><td>4</td><td>mèo thò đầu ra sau màn hình máy tính</td><td class="en">behind</td></tr>
+        <tr><td>5</td><td>bạn nữ ngồi trên ghế sofa</td><td class="en">on</td></tr>
+        <tr><td>6</td><td>bạn nam đứng cạnh ghế bành</td><td class="en">next to</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+    <div class="buoc" data-so="2"><h4>Viết câu</h4>
+      <p class="en">1. The cat is on the table. &nbsp; 2. The dog is in front of the dog house. &nbsp; 3. The cat is between the armchair and the bookshelf. &nbsp; 4. The cat is behind the computer. &nbsp; 5. The girl is on the sofa. &nbsp; 6. The boy is next to the armchair.</p>
+      <p class="vi-sao">Câu nào cũng có <span class="en">is</span> trước giới từ — thiếu <i>is</i> là câu chưa có động từ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">1. The cat is on the table. &nbsp; 2. The dog is in front of the dog house. &nbsp; 3. The cat is between the armchair and the bookshelf. &nbsp; 4. The cat is behind the computer. &nbsp; 5. The girl is on the sofa. &nbsp; 6. The boy is next to the armchair.</div>
+    <div class="bay">Viết <span class="en">The cat on the table.</span> — thiếu động từ <i>is</i>. Tiếng Việt nói “con mèo trên bàn” được, tiếng Anh thì không.</div>
+    <div class="gv-note">Câu 2 chấp nhận <i>in the dog house</i> (đầu chó ở trong cửa chuồng); câu 6 chấp nhận <i>behind the armchair</i> (bạn nam đứng sát tay ghế, hơi lùi phía sau). <i>armchair, dog house</i> là từ thêm; HS viết <i>chair</i>, <i>sofa</i> vẫn chấp nhận.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lb4" data-ten="Bài 4" data-muc="mo">
+  <div class="bai-dau"><span class="so">Bài 4</span><span class="nhan mo">Câu hỏi mở</span><span class="nhan">Writing</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>4.</b> <span lang="en">Write three sentences to describe your favourite room in your house. Write the sentences in your notebook.</span></p>
+    <p class="en" lang="en">There's a big bed next to the door.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu, ba đồ vật — mỗi câu nhớ có một giới từ chỉ vị trí.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Khung câu: <span class="en">There's a + (tính từ) + đồ vật + giới từ + the + đồ vật khác.</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết theo khung</h4>
+      <p>Cô làm mẫu một câu: <span class="en">There's a small desk next to the window.</span> Hai câu còn lại em tả phòng của em nhé.</p>
+      <p class="vi-sao">Muốn câu hay hơn, thêm một tính từ trước đồ vật như câu mẫu SGK (<span class="en">a <b>big</b> bed</span>).</p>
+      <a class="xem-lai" href="#kt-gioi-tu">📌 Xem lại: prepositions of place</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đáp án duy nhất. Đạt khi: đủ ba câu, mỗi câu có một giới từ chỉ vị trí đúng, đúng <i>There is / There are</i>. Mẫu: <span class="en">There's a small desk next to the window.</span></div>
+    <div class="bay">Viết <span class="en">There's two pictures on the wall.</span> — hai bức tranh: <span class="en">There are two pictures on the wall.</span></div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="pj" data-ten="Project" data-muc="vd">
+  <div class="bai-dau"><span class="so">Project</span><span class="nhan vd">Vận dụng</span><span class="nhan">Strange houses</span><span class="trang-thai"></span></div>
+  <div class="de"><p lang="en"><b>STRANGE HOUSES</b> — These are some strange houses around the world.</p>
+    <p class="en" lang="en">1. Which one would you like to live in? Why? &nbsp; 2. Now work in groups. · Draw your own strange house. · Decorate it. · Tell the class about your house.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngôi nhà chiếc giày, ngôi nhà lộn ngược, ngôi nhà quả trứng — em thích ngôi nào? Vì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu 1 trả lời theo mẫu em đã gặp ở Unit 1: <span class="en">I'd like to …</span> + <span class="en">because …</span></div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn một ngôi nhà và nêu lí do</h4>
+      <p class="en">I'd like to live in house C because it is small and green.</p>
+      <p class="vi-sao"><span class="en">strange</span> /streɪndʒ/ = kì lạ (Glossary). <span class="en">I'd like to…</span> = em muốn…</p></div>
+    <div class="buoc" data-so="2"><h4>Vẽ và trang trí ngôi nhà của nhóm</h4>
+      <p>Chọn một hình dạng lạ (quả táo, con cá, chiếc ô tô…), vẽ các phòng bên trong, ghi tên phòng và đồ đạc bằng tiếng Anh.</p></div>
+    <div class="buoc" data-so="3"><h4>Trình bày — khung câu</h4>
+      <p class="en">Our strange house is a … It is in … There are … rooms: … In the living room, there is a … next to the … We like it because …</p>
+      <a class="xem-lai" href="#kt-there">📌 Xem lại: There is / There are</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bài trình bày đạt yêu cầu khi: (1) câu 1 chọn được một ngôi nhà và nói lí do bằng <i>because</i>; (2) có tranh vẽ ngôi nhà lạ, ghi tên phòng / đồ đạc bằng tiếng Anh; (3) dùng đúng <i>There is / There are</i> và giới từ chỉ vị trí; (4) mỗi bạn trong nhóm trình bày một phần.</div>
+    <div class="tham-khao">
+    <p lang="en">Our strange house is a big apple. It is in the country, next to a river. There are four rooms in the house: a living room, a kitchen, a bedroom and a bathroom. In the living room, there is a red sofa between two lamps. Our bedroom is at the top of the apple. We like it because it is crazy and beautiful.</p>
+  </div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Tiếng Anh 6 Global Success · Unit 2. My House — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK. Bài nghe: SGK không in lời bài nghe, trang này không ghi đáp án các câu phải nghe mới làm được.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:tieng-anh-6:u02';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="tieng-anh" data-tep="bài giải/tiếng anh/tieng-anh-lop-6-unit-02-bai-giai.html" data-nguon="bài giải/tiếng anh/nguon/tieng-anh-lop-6-unit-02-bai-giai.nguon.html" data-phien-ban="4c2a1a48b47a">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>
