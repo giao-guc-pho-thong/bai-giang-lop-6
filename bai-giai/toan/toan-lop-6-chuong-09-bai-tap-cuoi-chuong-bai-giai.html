@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài tập cuối chương IX — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương IX. Dữ liệu và xác suất thực nghiệm</div>
+    <div class="hang1">
+      <h1>Bài tập cuối chương IX — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương IX. Dữ liệu và xác suất thực nghiệm</div><h1>Bài tập cuối chương IX — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-thu-thap"><b class="ten">Thu thập dữ liệu (Bài 38)</b>
+      Có nhiều cách để <b>thu thập dữ liệu</b> như <i>quan sát</i>, <i>làm thí nghiệm</i>, <i>lập phiếu hỏi</i>,… hay <i>thu thập từ những nguồn có sẵn</i> như sách báo, trang web,…</div>
+    <div class="kt" id="kt-cot"><b class="ten">Biểu đồ cột, cột kép (Bài 40, 41)</b>
+      Vẽ trục ngang (các đối tượng), trục đứng (số lượng) chia vạch đều; mỗi đối tượng một hình chữ nhật (cột kép: hai hình chữ nhật cạnh nhau) có chiều cao bằng số lượng, chiều rộng bằng nhau; đặt tên biểu đồ, ghi chú thích.</div>
+    <div class="kt" id="kt-ket-qua"><b class="ten">Kết quả có thể (Bài 42)</b>
+      Các kết quả của trò chơi, thí nghiệm có thể xảy ra gọi là <b>kết quả có thể</b>.</div>
+    <div class="kt" id="kt-xstn"><b class="ten">Xác suất thực nghiệm (Bài 43)</b>
+      Thực hiện <span class="m">n</span> lần, sự kiện xảy ra <span class="m">k</span> lần thì xác suất thực nghiệm của sự kiện là <span class="m"><span class="frac"><b>k</b><span>n</span></span></span>.</div>
+    <div class="kt" id="kt-nhan-xet"><b class="ten">Nhận xét (Bài 43)</b>
+      Xác suất thực nghiệm phụ thuộc vào người thực hiện thí nghiệm, trò chơi và số lần người đó thực hiện thí nghiệm, trò chơi.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập hai — Chương IX (Bài 38 – 43), Bài tập cuối chương trang 98.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="b933" data-ten="Bài 9.33" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 9.33</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cách thu thập</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nam muốn tìm kiếm thông tin để trả lời các câu hỏi dưới đây. Em hãy gợi ý giúp Nam cách thu thập dữ liệu phù hợp cho mỗi câu hỏi:</p>
+    <p>a) Năm quốc gia nào có diện tích lớn nhất?</p>
+    <p>b) Có bao nhiêu bạn trong lớp có đồng hồ đeo tay?</p>
+    <p>c) Trong tuần trước, tổ nào trong lớp có nhiều lượt đi học muộn nhất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu hỏi, ba nguồn khác nhau: thế giới, lớp học, sổ sách của lớp.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi câu hỏi, tự hỏi: Nam có tự quan sát được không? Có cần hỏi ai không? Thông tin đã được ghi chép sẵn ở đâu chưa?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>Không thể tự đo diện tích các nước → thu thập <b>từ nguồn có sẵn</b>: sách Địa lí, bản đồ, Internet (trang web về số liệu các quốc gia).</p>
+      <a class="xem-lai" href="#kt-thu-thap">📌 Xem lại: các cách thu thập dữ liệu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><b>Quan sát</b> và đếm số bạn đeo đồng hồ trong lớp, hoặc <b>hỏi</b> (lập phiếu hỏi, giơ tay) để biết cả những bạn có đồng hồ nhưng hôm đó không đeo.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu c</h4>
+      <p>Thu thập <b>từ nguồn có sẵn</b> của lớp: sổ theo dõi nề nếp / sổ đầu bài, hoặc ghi chép của cán bộ lớp về các lượt đi muộn trong tuần trước.</p>
+      <p class="vi-sao">Tuần trước đã qua, không quan sát lại được nữa; hỏi từng bạn thì dễ nhớ sai.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Tra cứu nguồn có sẵn (sách, bản đồ, Internet). &nbsp; b) Quan sát và đếm, hoặc hỏi các bạn (phiếu hỏi). &nbsp; c) Dùng nguồn có sẵn: sổ theo dõi nề nếp / ghi chép của cán bộ lớp tuần trước.</div>
+    <div class="bay">Ở câu a đề xuất “lập phiếu hỏi các bạn”. Ý kiến của các bạn không cho số liệu diện tích chính xác — phải tra nguồn tin cậy.</div>
+    <div class="gv-note">Chấp nhận các phương án hợp lí khác, miễn phù hợp với từng câu hỏi (ví dụ câu c hỏi lớp trưởng, tổ trưởng).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b934" data-ten="Bài 9.34" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 9.34</span><span class="nhan vd">Vận dụng</span><span class="nhan">Phiếu hỏi, bảng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Việt muốn tìm hiểu về đội bóng yêu thích của một số bạn nam. Em hãy giúp Việt:</p>
+    <p>a) Lập phiếu hỏi để thu thập dữ liệu.</p>
+    <p>b) Thu thập trong phạm vi lớp em và ghi lại kết quả dưới dạng bảng.</p>
+    <p>Từ kết quả thu được em có kết luận gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba việc: phiếu hỏi → bảng kiểm đếm → một câu kết luận.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Phiếu hỏi chỉ phát cho các bạn nam; liệt kê vài đội bóng quen thuộc và một ô “Đội khác”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Lập phiếu hỏi</h4>
+      <div style="border:1.5px solid #5c6577;border-radius:8px;padding:8px 14px;max-width:440px;margin:6px auto">
+        <p style="text-align:center"><b>PHIẾU HỎI</b> <i>(dành cho các bạn nam)</i></p>
+        <p>Đội bóng bạn yêu thích nhất là:</p>
+        <p>☐ Việt Nam &nbsp; ☐ Manchester United &nbsp; ☐ Real Madrid</p>
+        <p>☐ Barcelona &nbsp; ☐ Liverpool &nbsp; ☐ Đội khác</p>
+        <p><i>(Tích ✓ vào một ô)</i></p>
+      </div>
+      <a class="xem-lai" href="#kt-thu-thap">📌 Xem lại: lập phiếu hỏi</a></div>
+    <div class="buoc" data-so="2"><h4>b) Ghi kết quả thành bảng</h4>
+      <p><i>Ví dụ</i> với 18 bạn nam (lớp em sẽ khác):</p>
+      <table>
+        <tr><th>Đội bóng</th><td>Việt Nam</td><td>Man. United</td><td>Real Madrid</td><td>Barcelona</td><td>Liverpool</td><td>Khác</td></tr>
+        <tr><th>Số bạn</th><td>6</td><td>3</td><td>4</td><td>2</td><td>2</td><td>1</td></tr>
+      </table>
+      <p class="vi-sao">Kiểm tra: 6 + 3 + 4 + 2 + 2 + 1 = 18, bằng số phiếu thu về.</p></div>
+    <div class="buoc" data-so="3"><h4>Kết luận</h4>
+      <p>Với số liệu ví dụ: đội tuyển Việt Nam được nhiều bạn nam yêu thích nhất (6 bạn), sau đó là Real Madrid (4 bạn).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ lớp em. Phiếu hỏi có câu “Đội bóng bạn yêu thích nhất là…” với các lựa chọn và ô “Đội khác”; bảng thống kê số bạn chọn mỗi đội; kết luận đội được yêu thích nhất. Ví dụ: Việt Nam 6, Man. United 3, Real Madrid 4, Barcelona 2, Liverpool 2, Khác 1 → đội tuyển Việt Nam được yêu thích nhất.</div>
+    <div class="bay">Phát phiếu cho cả bạn nữ trong khi đề chỉ hỏi bạn nam — dữ liệu không đúng đối tượng cần tìm hiểu.</div>
+    <div class="gv-note">Bài thực hành, không có đáp số cố định. Chấm: phiếu đúng đối tượng, có ô “khác”; bảng có tổng bằng số phiếu; kết luận khớp bảng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b935" data-ten="Bài 9.35" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 9.35</span><span class="nhan vd">Vận dụng</span><span class="nhan">Thí nghiệm, xác suất</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một túi đựng 2 quả bóng màu xanh, 4 quả bóng màu vàng và 1 quả bóng màu đỏ có cùng kích thước. Nam lấy một quả bóng mà không nhìn vào túi.</p>
+    <p>a) Quả bóng Nam lấy ra có thể có màu gì?</p>
+    <p>b) Em hãy lấy một quả bóng từ túi đó 20 lần, sau mỗi lần ghi lại xem quả bóng lấy được có màu gì rồi trả bóng lại túi trước khi lấy lần sau. Hoàn thiện bảng thống kê sau:</p>
+    <table style="max-width:420px"><tr><th>Màu bóng</th><td>Xanh</td><td>Vàng</td><td>Đỏ</td></tr><tr><th>Số lần</th><td>?</td><td>?</td><td>?</td></tr></table>
+    <p>c) Vẽ biểu đồ cột biểu diễn bảng thống kê trên.</p>
+    <p>d) Tính xác suất thực nghiệm của các sự kiện <i>Quả bóng lấy ra có màu</i> (1) <i>xanh</i>; (2) <i>vàng</i>; (3) <i>đỏ</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu b, c, d dùng kết quả lấy bóng thật của em — mẫu số luôn là 20.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a: trong túi có những màu nào? Câu d: xác suất thực nghiệm = số lần lấy được màu đó : 20.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Các màu có thể</h4>
+      <p>Quả bóng lấy ra có thể có màu <b>xanh, vàng hoặc đỏ</b>.</p>
+      <a class="xem-lai" href="#kt-ket-qua">📌 Xem lại: kết quả có thể</a></div>
+    <div class="buoc" data-so="2"><h4>b) Làm thí nghiệm và lập bảng</h4>
+      <p><i>Ví dụ</i> một kết quả 20 lần lấy (của em sẽ khác):</p>
+      <table style="max-width:420px"><tr><th>Màu bóng</th><td>Xanh</td><td>Vàng</td><td>Đỏ</td></tr><tr><th>Số lần</th><td>6</td><td>11</td><td>3</td></tr></table>
+      <p class="vi-sao">Kiểm tra: 6 + 11 + 3 = 20.</p></div>
+    <div class="buoc" data-so="3"><h4>c) Vẽ biểu đồ cột (theo số liệu ví dụ)</h4>
+      <svg viewBox="0 0 424 370" style="max-width:460px" role="img" aria-label="Biểu đồ cột ví dụ: Xanh 6, Vàng 11, Đỏ 3"><g font-family="Segoe UI,Arial,sans-serif" fill="#1f2430"><text x="212" y="24" text-anchor="middle" font-size="19" font-weight="700">Kết quả 20 lần lấy bóng</text><line x1="64" y1="294.0" x2="70" y2="294.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="300.0" text-anchor="end" font-size="17">0</text><line x1="70" y1="255.7" x2="408" y2="255.7" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="255.7" x2="70" y2="255.7" stroke="#5c6577" stroke-width="2"/><text x="60" y="261.7" text-anchor="end" font-size="17">2</text><line x1="70" y1="217.3" x2="408" y2="217.3" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="217.3" x2="70" y2="217.3" stroke="#5c6577" stroke-width="2"/><text x="60" y="223.3" text-anchor="end" font-size="17">4</text><line x1="70" y1="179.0" x2="408" y2="179.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="179.0" x2="70" y2="179.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="185.0" text-anchor="end" font-size="17">6</text><line x1="70" y1="140.7" x2="408" y2="140.7" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="140.7" x2="70" y2="140.7" stroke="#5c6577" stroke-width="2"/><text x="60" y="146.7" text-anchor="end" font-size="17">8</text><line x1="70" y1="102.3" x2="408" y2="102.3" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="102.3" x2="70" y2="102.3" stroke="#5c6577" stroke-width="2"/><text x="60" y="108.3" text-anchor="end" font-size="17">10</text><line x1="70" y1="64.0" x2="408" y2="64.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="64.0" x2="70" y2="64.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="70.0" text-anchor="end" font-size="17">12</text><line x1="70" y1="294" x2="70" y2="46" stroke="#5c6577" stroke-width="2"/><polygon points="65,48 70,38 75,48" fill="#5c6577"/><line x1="70" y1="294" x2="414" y2="294" stroke="#5c6577" stroke-width="2"/><polygon points="412,289 422,294 412,299" fill="#5c6577"/><text transform="translate(18 179) rotate(-90)" text-anchor="middle" font-size="17" fill="#5c6577">Số lần</text><rect x="97.0" y="179.0" width="56" height="115.0" fill="#2f6fdb"/><text x="125.0" y="173.0" text-anchor="middle" font-size="18" font-weight="700">6</text><text x="125.0" y="318" text-anchor="middle" font-size="18">Xanh</text><rect x="207.0" y="83.2" width="56" height="210.8" fill="#e0b100"/><text x="235.0" y="77.2" text-anchor="middle" font-size="18" font-weight="700">11</text><text x="235.0" y="318" text-anchor="middle" font-size="18">Vàng</text><rect x="317.0" y="236.5" width="56" height="57.5" fill="#c93c3c"/><text x="345.0" y="230.5" text-anchor="middle" font-size="18" font-weight="700">3</text><text x="345.0" y="318" text-anchor="middle" font-size="18">Đỏ</text><text x="235.0" y="362" text-anchor="middle" font-size="17" fill="#5c6577" font-style="italic">Màu bóng</text></g></svg>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: vẽ biểu đồ cột</a></div>
+    <div class="buoc" data-so="4"><h4>d) Xác suất thực nghiệm (theo số liệu ví dụ)</h4>
+      <p>(1) Xanh: <span class="m"><span class="frac"><b>6</b><span>20</span></span> = <span class="frac"><b>3</b><span>10</span></span></span>; &nbsp; (2) Vàng: <span class="m"><span class="frac"><b>11</b><span>20</span></span></span>; &nbsp; (3) Đỏ: <span class="m"><span class="frac"><b>3</b><span>20</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-xstn">📌 Xem lại: xác suất thực nghiệm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Xanh, vàng hoặc đỏ. b, c, d) Tuỳ kết quả thí nghiệm của em; xác suất thực nghiệm = số lần lấy được màu đó : 20. Ví dụ Xanh 6, Vàng 11, Đỏ 3 → <span class="m"><span class="frac"><b>6</b><span>20</span></span> = <span class="frac"><b>3</b><span>10</span></span>; <span class="frac"><b>11</b><span>20</span></span>; <span class="frac"><b>3</b><span>20</span></span></span>.</div>
+    <div class="bay">Ở câu d viết <span class="m"><span class="frac"><b>2</b><span>7</span></span></span>, <span class="m"><span class="frac"><b>4</b><span>7</span></span></span>, <span class="m"><span class="frac"><b>1</b><span>7</span></span></span> (dựa vào số bóng trong túi). Đó không phải xác suất thực nghiệm — phải dùng kết quả 20 lần lấy thật.</div>
+    <div class="gv-note">Phần b, c, d không có đáp số cố định. Chấm: tổng số lần = 20; biểu đồ đúng số liệu của HS; xác suất thực nghiệm có mẫu số 20. Không chấp nhận lời giải dùng số bóng trong túi (xác suất lí thuyết, lớp trên).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b936" data-ten="Bài 9.36" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 9.36</span><span class="nhan th">Thông hiểu</span><span class="nhan">Biểu đồ cột kép</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bình khảo sát môn thể thao yêu thích của các bạn trong lớp, thu được kết quả như trong Bảng thống kê 9.11.</p>
+    <table style="max-width:320px"><tr><th></th><th>Nữ</th><th>Nam</th></tr><tr><td>Bóng đá</td><td>3</td><td>6</td></tr><tr><td>Cầu lông</td><td>5</td><td>5</td></tr><tr><td>Bơi lội</td><td>7</td><td>2</td></tr><tr><td>Bóng rổ</td><td>1</td><td>3</td></tr><tr><td>Khác</td><td>0</td><td>2</td></tr></table>
+    <p>a) Vẽ biểu đồ cột kép biểu diễn bảng thống kê này.</p>
+    <p>b) Môn thể thao nào được các bạn nam yêu thích nhất? Môn thể thao nào được các bạn nữ yêu thích nhất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Năm môn, mỗi môn hai cột Nữ – Nam. Câu b: so các cột cùng màu với nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số lớn nhất là 7 nên trục đứng chia vạch 0, 1, 2, …, 8. Câu b: tìm số lớn nhất ở cột Nam, ở cột Nữ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Vẽ biểu đồ cột kép</h4>
+      <svg viewBox="0 0 554 386" style="max-width:560px" role="img" aria-label="Biểu đồ cột kép: Bóng đá nữ 3 nam 6, Cầu lông 5 và 5, Bơi lội 7 và 2, Bóng rổ 1 và 3, Khác 0 và 2"><g font-family="Segoe UI,Arial,sans-serif" fill="#1f2430"><text x="277" y="24" text-anchor="middle" font-size="19" font-weight="700">Môn thể thao yêu thích</text><line x1="64" y1="310.0" x2="70" y2="310.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="316.0" text-anchor="end" font-size="17">0</text><line x1="70" y1="281.2" x2="538" y2="281.2" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="281.2" x2="70" y2="281.2" stroke="#5c6577" stroke-width="2"/><text x="60" y="287.2" text-anchor="end" font-size="17">1</text><line x1="70" y1="252.5" x2="538" y2="252.5" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="252.5" x2="70" y2="252.5" stroke="#5c6577" stroke-width="2"/><text x="60" y="258.5" text-anchor="end" font-size="17">2</text><line x1="70" y1="223.8" x2="538" y2="223.8" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="223.8" x2="70" y2="223.8" stroke="#5c6577" stroke-width="2"/><text x="60" y="229.8" text-anchor="end" font-size="17">3</text><line x1="70" y1="195.0" x2="538" y2="195.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="195.0" x2="70" y2="195.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="201.0" text-anchor="end" font-size="17">4</text><line x1="70" y1="166.2" x2="538" y2="166.2" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="166.2" x2="70" y2="166.2" stroke="#5c6577" stroke-width="2"/><text x="60" y="172.2" text-anchor="end" font-size="17">5</text><line x1="70" y1="137.5" x2="538" y2="137.5" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="137.5" x2="70" y2="137.5" stroke="#5c6577" stroke-width="2"/><text x="60" y="143.5" text-anchor="end" font-size="17">6</text><line x1="70" y1="108.8" x2="538" y2="108.8" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="108.8" x2="70" y2="108.8" stroke="#5c6577" stroke-width="2"/><text x="60" y="114.8" text-anchor="end" font-size="17">7</text><line x1="70" y1="80.0" x2="538" y2="80.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="80.0" x2="70" y2="80.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="86.0" text-anchor="end" font-size="17">8</text><line x1="70" y1="310" x2="70" y2="62" stroke="#5c6577" stroke-width="2"/><polygon points="65,64 70,54 75,64" fill="#5c6577"/><line x1="70" y1="310" x2="544" y2="310" stroke="#5c6577" stroke-width="2"/><polygon points="542,305 552,310 542,315" fill="#5c6577"/><text transform="translate(18 195) rotate(-90)" text-anchor="middle" font-size="17" fill="#5c6577">Số học sinh</text><rect x="83.0" y="223.8" width="32" height="86.2" fill="#c93c3c"/><text x="99.0" y="218.8" text-anchor="middle" font-size="16" font-weight="700">3</text><rect x="117.0" y="137.5" width="32" height="172.5" fill="#2f6fdb"/><text x="133.0" y="132.5" text-anchor="middle" font-size="16" font-weight="700">6</text><text x="116.0" y="334" text-anchor="middle" font-size="18">Bóng đá</text><rect x="175.0" y="166.2" width="32" height="143.8" fill="#c93c3c"/><text x="191.0" y="161.2" text-anchor="middle" font-size="16" font-weight="700">5</text><rect x="209.0" y="166.2" width="32" height="143.8" fill="#2f6fdb"/><text x="225.0" y="161.2" text-anchor="middle" font-size="16" font-weight="700">5</text><text x="208.0" y="334" text-anchor="middle" font-size="18">Cầu lông</text><rect x="267.0" y="108.8" width="32" height="201.2" fill="#c93c3c"/><text x="283.0" y="103.8" text-anchor="middle" font-size="16" font-weight="700">7</text><rect x="301.0" y="252.5" width="32" height="57.5" fill="#2f6fdb"/><text x="317.0" y="247.5" text-anchor="middle" font-size="16" font-weight="700">2</text><text x="300.0" y="334" text-anchor="middle" font-size="18">Bơi lội</text><rect x="359.0" y="281.2" width="32" height="28.8" fill="#c93c3c"/><text x="375.0" y="276.2" text-anchor="middle" font-size="16" font-weight="700">1</text><rect x="393.0" y="223.8" width="32" height="86.2" fill="#2f6fdb"/><text x="409.0" y="218.8" text-anchor="middle" font-size="16" font-weight="700">3</text><text x="392.0" y="334" text-anchor="middle" font-size="18">Bóng rổ</text><rect x="451.0" y="310.0" width="32" height="0.0" fill="#c93c3c"/><text x="467.0" y="305.0" text-anchor="middle" font-size="16" font-weight="700">0</text><rect x="485.0" y="252.5" width="32" height="57.5" fill="#2f6fdb"/><text x="501.0" y="247.5" text-anchor="middle" font-size="16" font-weight="700">2</text><text x="484.0" y="334" text-anchor="middle" font-size="18">Khác</text><text x="300.0" y="378" text-anchor="middle" font-size="17" fill="#5c6577" font-style="italic">Môn thể thao</text><rect x="468.0" y="34" width="15" height="15" fill="#2f6fdb"/><text x="488.0" y="47" font-size="16">Nam</text><rect x="412.0" y="34" width="15" height="15" fill="#c93c3c"/><text x="432.0" y="47" font-size="16">Nữ</text></g></svg>
+      <p class="vi-sao">Môn “Khác”: Nữ bằng 0 nên không có cột đỏ, chỉ ghi số 0. Mỗi môn: cột Nữ bên trái, cột Nam bên phải, có chú thích màu.</p>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: vẽ biểu đồ cột kép</a></div>
+    <div class="buoc" data-so="2"><h4>b) Môn được yêu thích nhất</h4>
+      <p>Nam: 6 (bóng đá) là lớn nhất → <b>Bóng đá</b>. &nbsp; Nữ: 7 (bơi lội) là lớn nhất → <b>Bơi lội</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Biểu đồ cột kép 5 môn, mỗi môn hai cột — Nữ: 3, 5, 7, 1, 0; Nam: 6, 5, 2, 3, 2 (Bóng đá, Cầu lông, Bơi lội, Bóng rổ, Khác); có chú thích và tên biểu đồ. &nbsp; b) Nam thích nhất: Bóng đá (6 bạn); nữ thích nhất: Bơi lội (7 bạn).</div>
+    <div class="bay">Đọc nhầm cột: Bảng 9.11 ghi cột <b>Nữ trước, Nam sau</b> — dễ lấy nhầm 3 làm số bạn nam thích bóng đá.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b937" data-ten="Bài 9.37" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 9.37</span><span class="nhan nb">Nhận biết</span><span class="nhan">Xác suất thực nghiệm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Minh bỏ 7 viên bi đen và 3 viên bi trắng có cùng kích thước vào một cái túi. Mỗi lần Minh lấy ra ngẫu nhiên một viên bi từ túi, xem viên bi đó có màu gì rồi lại bỏ viên bi đó vào túi. Minh đã thực hiện 100 lần và thấy có 58 lần lấy được bi đen.</p>
+    <p>Tính xác suất thực nghiệm của sự kiện <i>Minh lấy được viên bi màu đen</i>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đề cho thừa một dữ kiện — dữ kiện nào không cần dùng?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">n</span> = số lần thực hiện, <span class="m">k</span> = số lần lấy được bi đen.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp công thức</h4>
+      <p><span class="m">n</span> = 100; <span class="m">k</span> = 58. Xác suất thực nghiệm: <span class="m"><span class="frac"><b>k</b><span>n</span></span> = <span class="frac"><b>58</b><span>100</span></span> = <span class="frac"><b>29</b><span>50</span></span></span>.</p>
+      <p class="vi-sao">Số bi trong túi (7 đen, 3 trắng) không dùng đến: xác suất thực nghiệm tính từ kết quả đã thực hiện.</p>
+      <a class="xem-lai" href="#kt-xstn">📌 Xem lại: xác suất thực nghiệm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m"><span class="frac"><b>58</b><span>100</span></span> = <span class="frac"><b>29</b><span>50</span></span></span>.</div>
+    <div class="bay">Trả lời <span class="m"><span class="frac"><b>7</b><span>10</span></span></span> vì “có 7 trên 10 viên là bi đen”. Đó là cách tính lớp trên, không phải xác suất thực nghiệm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b938" data-ten="Bài 9.38" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 9.38</span><span class="nhan vd">Vận dụng</span><span class="nhan">Kết quả có thể</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong hộp có 5 phần thưởng gồm 2 chiếc bút chì giống nhau và 3 chiếc bút bi cùng loại. Quỳnh chọn ngẫu nhiên hai phần thưởng trong hộp. Em hãy liệt kê các kết quả có thể.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai bút chì giống nhau, ba bút bi cùng loại — chỉ cần quan tâm <b>loại</b> bút.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai phần thưởng có thể cùng loại hoặc khác loại. Liệt kê theo số bút chì trong hai phần thưởng: 2, 1 hay 0.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Liệt kê theo số bút chì</h4>
+      <table>
+        <tr><th>Số bút chì</th><th>Số bút bi</th><th>Kết quả</th></tr>
+        <tr><td>2</td><td>0</td><td>2 bút chì</td></tr>
+        <tr><td>1</td><td>1</td><td>1 bút chì và 1 bút bi</td></tr>
+        <tr><td>0</td><td>2</td><td>2 bút bi</td></tr>
+      </table>
+      <p class="vi-sao">Các bút cùng loại giống nhau nên không phân biệt “bút chì thứ nhất” với “bút chì thứ hai”. Liệt kê theo số bút chì giúp không sót, không trùng.</p>
+      <a class="xem-lai" href="#kt-ket-qua">📌 Xem lại: kết quả có thể</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có 3 kết quả có thể: 2 bút chì; 1 bút chì và 1 bút bi; 2 bút bi.</div>
+    <div class="bay">Ghi cả “1 bút bi và 1 bút chì” như một kết quả mới — trùng với “1 bút chì và 1 bút bi”, vì thứ tự chọn không quan trọng.</div>
+    <div class="gv-note">Đề nhấn mạnh “giống nhau”, “cùng loại” nên kết quả chỉ phân biệt theo loại bút: 3 kết quả.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài tập cuối chương IX (trang 98) — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c09-btcc';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-09-bai-tap-cuoi-chuong-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-09-bai-tap-cuoi-chuong-bai-giai.nguon.html" data-phien-ban="bee0d80da409">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

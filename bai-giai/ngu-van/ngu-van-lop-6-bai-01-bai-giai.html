@@ -139,6 +139,10 @@ th{background:#f3f5fa}
 .chon.sai{background:var(--red-soft); border-color:var(--red)}
 .chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
 .lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
 .phan-hoi{font-size:14.5px}
 .phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
 
@@ -1547,7 +1551,7 @@ body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-d
 })();
 </script>
 <!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
-<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-01-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-01-bai-giai.nguon.html" data-phien-ban="1ef1ebd32fd9">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="ngu-van" data-tep="bài giải/ngữ văn/ngu-van-lop-6-bai-01-bai-giai.html" data-nguon="bài giải/ngữ văn/nguon/ngu-van-lop-6-bai-01-bai-giai.nguon.html" data-phien-ban="e7463a89b4b3">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
 <!-- gop-y:cuoi -->
 </body>
 </html>

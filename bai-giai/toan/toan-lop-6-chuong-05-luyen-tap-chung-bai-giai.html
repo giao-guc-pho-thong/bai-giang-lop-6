@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện tập chung (Chương V) — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương V. Tính đối xứng của hình phẳng trong tự nhiên</div>
+    <div class="hang1">
+      <h1>Luyện tập chung (Chương V) — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương V. Tính đối xứng của hình phẳng trong tự nhiên</div><h1>Luyện tập chung (Chương V) — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-truc"><b class="ten">Trục đối xứng (Bài 21)</b>
+      Có một đường thẳng <span class="m">d</span> chia hình thành hai phần mà nếu “gấp” hình theo đường thẳng <span class="m">d</span> thì hai phần đó “chồng khít” lên nhau. Những hình như thế gọi là <b>hình có trục đối xứng</b> và đường thẳng <span class="m">d</span> là <b>trục đối xứng</b> của hình.</div>
+    <div class="kt" id="kt-tam"><b class="ten">Tâm đối xứng (Bài 22)</b>
+      Mỗi hình có một điểm <span class="m">O</span>, mà khi quay hình đó xung quanh điểm <span class="m">O</span> đúng một nửa vòng thì hình thu được “chồng khít” với chính nó ở vị trí ban đầu (trước khi quay). Những hình như thế được gọi là <b>hình có tâm đối xứng</b> và điểm <span class="m">O</span> được gọi là <b>tâm đối xứng</b> của hình.</div>
+    <div class="kt" id="kt-pi"><b class="ten">Lưu ý (lời Pi)</b>
+      Mỗi hình có thể có nhiều trục đối xứng. Có những hình có tâm đối xứng và có nhiều trục đối xứng. Cũng có hình không có tâm đối xứng như hình tam giác đều, …</div>
+    <div class="kt" id="kt-dem-truc"><b class="ten">Vẽ đối xứng qua trục trên giấy kẻ ô (mẹo)</b>
+      Điểm cách trục <span class="m">d</span> mấy ô về một phía thì điểm đối xứng với nó cách <span class="m">d</span> bấy nhiêu ô về phía bên kia, trên cùng một dòng kẻ vuông góc với <span class="m">d</span>.</div>
+    <div class="kt" id="kt-dem-o"><b class="ten">Quay nửa vòng trên giấy kẻ ô (mẹo)</b>
+      Điểm nằm cách <span class="m">O</span> mấy ô sang phải, mấy ô lên trên thì sau khi quay nửa vòng quanh <span class="m">O</span> đến vị trí cách <span class="m">O</span> bấy nhiêu ô sang <b>trái</b>, bấy nhiêu ô xuống <b>dưới</b> (và ngược lại).</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 21, Bài 22. Hai ý cuối là mẹo đếm ô của nhóm biên soạn.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="b511" data-ten="Bài 5.11" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5.11</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trục và tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các hình bên, em hãy chỉ ra:</p>
+    <p>a) Những hình có tâm đối xứng;</p>
+    <p>b) Những hình có trục đối xứng.</p>
+    <p><i>(Tam giác đều; Cánh quạt (bốn cánh xếp chéo); Trái tim; Cánh diều.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tam giác đều có ba trục — nhưng Pi đã nhắc gì về tâm của nó?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi hình, hỏi hai câu: gấp đôi theo đường nào thì khít? Xoay ngược đầu (nửa vòng) thì có y như cũ không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm hình có tâm đối xứng</h4>
+      <p>Cánh quạt bốn cánh: bốn cánh giống nhau xếp đều, mỗi cánh có một cánh đối diện → quay nửa vòng quanh trục quạt thì khớp → <b>có</b> tâm.</p>
+      <p>Tam giác đều, trái tim, cánh diều: xoay ngược đầu thì đỉnh nhọn chĩa xuống thành chĩa lên… khác hình cũ → <b>không</b> có tâm.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: tâm đối xứng</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm hình có trục đối xứng</h4>
+      <p>Tam giác đều: 3 trục (qua mỗi đỉnh và trung điểm cạnh đối diện). Trái tim: 1 trục thẳng đứng ở giữa. Cánh diều: 1 trục dọc theo thân diều (nối đầu diều và đuôi diều).</p>
+      <p>Cánh quạt: các cánh đều “xoắn” về cùng một chiều quay, nên gấp theo đường nào cũng không khít → <b>không</b> có trục.</p>
+      <p class="vi-sao">Có tâm không có nghĩa là có trục, và ngược lại. Mỗi tính chất phải kiểm tra riêng: trục bằng cách <b>gấp</b>, tâm bằng cách <b>quay</b>.</p>
+      <a class="xem-lai" href="#kt-truc">📌 Xem lại: trục đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Hình có tâm đối xứng: cánh quạt. b) Hình có trục đối xứng: tam giác đều, trái tim, cánh diều.</div>
+    <div class="bay">Cho rằng tam giác đều có tâm đối xứng vì nó “đều” và có điểm chính giữa. Quay nửa vòng, tam giác chúc đỉnh xuống — không khớp (Pi đã lưu ý điều này).</div>
+    <div class="gv-note">Kho chỉ mô tả “cánh quạt (bốn cánh xếp chéo)”. Lời giải giả định cánh quạt vẽ kiểu cánh xoắn cùng chiều như quạt điện thường gặp — khi đó không có trục. Nếu hình in trong SGK có bốn cánh thẳng, cân đối hai bên thì cánh quạt có cả trục đối xứng; GV đối chiếu hình sách khi chấm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b512" data-ten="Bài 5.12" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.12</span><span class="nhan vd">Vận dụng</span><span class="nhan">Trục và tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các hình dưới đây, hình nào có trục đối xứng, hình nào có tâm đối xứng?</p>
+    <p><i>(a) Biểu tượng Chương trình Lương thực thế giới (WFP) — bàn tay cầm bó lúa giữa vòng nguyệt quế; b) Biểu tượng SEA Games — 11 vòng hình bầu dục bằng nhau xếp đều quanh một tâm, chồng lên nhau, ở giữa để trống một vòng tròn nhỏ; c) Biểu tượng Di sản thế giới (UNESCO) — vành tròn hở ở chính giữa phía dưới, nối với một hình vuông đặt xoay ở bên trong.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình b có 11 vòng — số lẻ. Nhớ lại chong chóng ba cánh ở Bài 22!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ở hình c, chỗ hở chỉ có ở phía dưới — quay nửa vòng thì chỗ hở chạy lên đâu? Ở hình b: 11 vòng có chia được thành từng cặp đối diện không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình a — WFP</h4>
+      <p>Vòng nguyệt quế cân đối hai bên, nhưng bàn tay và bó lúa ở giữa thì không → gấp kiểu nào cũng không khít, xoay ngược thì bàn tay lộn ngược → <b>không có trục, không có tâm</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Hình b — SEA Games</h4>
+      <p>11 vòng bằng nhau xếp đều quanh tâm. Đường thẳng đi qua tâm và qua giữa một vòng bầu dục chia hình thành hai nửa giống nhau → <b>có trục</b> (có 11 trục như vậy).</p>
+      <p>11 là số lẻ, nên không chia được thành từng cặp đối diện: quay nửa vòng, mỗi vòng đến đúng chỗ <b>khe</b> giữa hai vòng khác → <b>không có tâm</b>.</p>
+      <p class="vi-sao">Giống chong chóng ba cánh và hoa năm cánh: các phần giống nhau xếp đều, số phần lẻ thì không có tâm đối xứng.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: tâm đối xứng</a></div>
+    <div class="buoc" data-so="3"><h4>Hình c — UNESCO</h4>
+      <p>Đường thẳng đứng đi qua chỗ hở ở dưới và đỉnh trên của hình vuông chia hình thành hai nửa trái – phải chồng khít → <b>có trục</b>. Quay nửa vòng, chỗ hở chạy lên phía trên, mà phía trên vành tròn liền → <b>không có tâm</b>.</p>
+      <a class="xem-lai" href="#kt-truc">📌 Xem lại: trục đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình có trục đối xứng: b (SEA Games) và c (UNESCO). Không hình nào có tâm đối xứng. Hình a (WFP) không có trục, cũng không có tâm đối xứng.</div>
+    <div class="bay">Thấy hình b “tròn đều” rồi kết luận có tâm. Với 11 vòng (số lẻ), quay nửa vòng không khớp.</div>
+    <div class="gv-note">Câu b dựa trên mô tả “11 vòng bằng nhau, xếp đều quanh một tâm”: có trục (11 trục), không có tâm. Một số tài liệu tham khảo ghi hình b có tâm đối xứng — không đúng với 11 vòng xếp đều. Nếu hình in thể hiện các vòng đan cài kiểu trên – dưới (vòng này đè vòng kia theo một chiều) thì cả trục cũng mất; chấp nhận HS lập luận theo hình in. Câu a: kho không mô tả chi tiết bàn tay, nhưng hình bàn tay cầm bó lúa không cân đối hai bên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b513" data-ten="Bài 5.13" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.13</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ hình nhận d làm trục</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ các hình sau vào giấy kẻ ô vuông rồi vẽ thêm để được hình nhận đường thẳng <span class="m">d</span> là trục đối xứng.</p>
+    <p><i>(a) Nửa hình cây thông màu xanh lá bên trái đường thẳng <span class="m">d</span> thẳng đứng; b) Nửa hình đa giác màu xám phía trên đường thẳng <span class="m">d</span> nằm ngang, có hai đỉnh nằm trên <span class="m">d</span>.)</i></p>
+    <p style="display:flex;justify-content:center;gap:10px;text-align:center"><span style="width:45%;max-width:200px">a)<svg viewBox="0 0 204 204" style="max-width:180px" role="img" aria-label="Nửa cây thông đã cho bên trái đường thẳng d"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="190.0"/><line x1="36.0" y1="14.0" x2="36.0" y2="190.0"/><line x1="58.0" y1="14.0" x2="58.0" y2="190.0"/><line x1="80.0" y1="14.0" x2="80.0" y2="190.0"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0"/><line x1="124.0" y1="14.0" x2="124.0" y2="190.0"/><line x1="146.0" y1="14.0" x2="146.0" y2="190.0"/><line x1="168.0" y1="14.0" x2="168.0" y2="190.0"/><line x1="190.0" y1="14.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="190.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="168.0" x2="190.0" y2="168.0"/><line x1="14.0" y1="146.0" x2="190.0" y2="146.0"/><line x1="14.0" y1="124.0" x2="190.0" y2="124.0"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0"/><line x1="14.0" y1="80.0" x2="190.0" y2="80.0"/><line x1="14.0" y1="58.0" x2="190.0" y2="58.0"/><line x1="14.0" y1="36.0" x2="190.0" y2="36.0"/><line x1="14.0" y1="14.0" x2="190.0" y2="14.0"/></g><polygon points="102.0,36.0 58.0,102.0 80.0,102.0 36.0,168.0 102.0,168.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0" stroke="#c93c3c" stroke-width="2" stroke-dasharray="7 5"/><text x="108.0" y="28.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">d</text></svg></span><span style="width:45%;max-width:200px">b)<svg viewBox="0 0 204 204" style="max-width:190px" role="img" aria-label="Nửa hình đã cho phía trên đường thẳng d"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="190.0"/><line x1="36.0" y1="14.0" x2="36.0" y2="190.0"/><line x1="58.0" y1="14.0" x2="58.0" y2="190.0"/><line x1="80.0" y1="14.0" x2="80.0" y2="190.0"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0"/><line x1="124.0" y1="14.0" x2="124.0" y2="190.0"/><line x1="146.0" y1="14.0" x2="146.0" y2="190.0"/><line x1="168.0" y1="14.0" x2="168.0" y2="190.0"/><line x1="190.0" y1="14.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="190.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="168.0" x2="190.0" y2="168.0"/><line x1="14.0" y1="146.0" x2="190.0" y2="146.0"/><line x1="14.0" y1="124.0" x2="190.0" y2="124.0"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0"/><line x1="14.0" y1="80.0" x2="190.0" y2="80.0"/><line x1="14.0" y1="58.0" x2="190.0" y2="58.0"/><line x1="14.0" y1="36.0" x2="190.0" y2="36.0"/><line x1="14.0" y1="14.0" x2="190.0" y2="14.0"/></g><polygon points="36.0,36.0 102.0,80.0 124.0,58.0 168.0,36.0 168.0,80.0 146.0,102.0 58.0,102.0 36.0,80.0" fill="#8a8f99" fill-opacity="0.5" stroke="#8a8f99" stroke-width="2" stroke-linejoin="round"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0" stroke="#c93c3c" stroke-width="2" stroke-dasharray="7 5"/><text x="178.0" y="96.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">d</text></svg></span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi đỉnh có một “bạn” bên kia đường <i>d</i>, cách <i>d</i> đúng bằng số ô.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hình a: đỉnh cách <span class="m">d</span> 2 ô bên trái → vẽ điểm cách <span class="m">d</span> 2 ô bên phải, cùng dòng kẻ ngang. Hình b: đỉnh cách <span class="m">d</span> 3 ô phía trên → vẽ điểm cách <span class="m">d</span> 3 ô phía dưới, cùng cột.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình a — cây thông</h4>
+      <svg viewBox="0 0 204 204" style="max-width:220px" role="img" aria-label="Cây thông: nửa trái đã cho và nửa phải vẽ thêm đối xứng qua đường thẳng d"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="190.0"/><line x1="36.0" y1="14.0" x2="36.0" y2="190.0"/><line x1="58.0" y1="14.0" x2="58.0" y2="190.0"/><line x1="80.0" y1="14.0" x2="80.0" y2="190.0"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0"/><line x1="124.0" y1="14.0" x2="124.0" y2="190.0"/><line x1="146.0" y1="14.0" x2="146.0" y2="190.0"/><line x1="168.0" y1="14.0" x2="168.0" y2="190.0"/><line x1="190.0" y1="14.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="190.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="168.0" x2="190.0" y2="168.0"/><line x1="14.0" y1="146.0" x2="190.0" y2="146.0"/><line x1="14.0" y1="124.0" x2="190.0" y2="124.0"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0"/><line x1="14.0" y1="80.0" x2="190.0" y2="80.0"/><line x1="14.0" y1="58.0" x2="190.0" y2="58.0"/><line x1="14.0" y1="36.0" x2="190.0" y2="36.0"/><line x1="14.0" y1="14.0" x2="190.0" y2="14.0"/></g><polygon points="102.0,36.0 58.0,102.0 80.0,102.0 36.0,168.0 102.0,168.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><polygon points="102.0,36.0 146.0,102.0 124.0,102.0 168.0,168.0 102.0,168.0" fill="#6b4fc9" fill-opacity="0.3" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0" stroke="#c93c3c" stroke-width="2" stroke-dasharray="7 5"/><text x="108.0" y="28.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">d</text></svg>
+      <p>Ngọn cây nằm trên <span class="m">d</span> nên giữ nguyên. Các đỉnh cách <span class="m">d</span> 2 ô, 1 ô, 3 ô bên trái được vẽ thêm cách <span class="m">d</span> 2 ô, 1 ô, 3 ô bên phải, cùng độ cao. Nối lại theo thứ tự, ta được cây thông hai tầng hoàn chỉnh.</p>
+      <p class="vi-sao">Gấp giấy theo <span class="m">d</span> thì mỗi đỉnh mới trùng đúng đỉnh cũ — đó là nghĩa của “nhận <span class="m">d</span> là trục đối xứng”.</p>
+      <a class="xem-lai" href="#kt-dem-truc">📌 Xem lại: vẽ đối xứng qua trục trên giấy kẻ ô</a></div>
+    <div class="buoc" data-so="2"><h4>Hình b — đối xứng qua đường nằm ngang</h4>
+      <svg viewBox="0 0 204 204" style="max-width:230px" role="img" aria-label="Hình b: nửa trên đã cho, nửa dưới vẽ thêm đối xứng qua đường thẳng d nằm ngang"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="190.0"/><line x1="36.0" y1="14.0" x2="36.0" y2="190.0"/><line x1="58.0" y1="14.0" x2="58.0" y2="190.0"/><line x1="80.0" y1="14.0" x2="80.0" y2="190.0"/><line x1="102.0" y1="14.0" x2="102.0" y2="190.0"/><line x1="124.0" y1="14.0" x2="124.0" y2="190.0"/><line x1="146.0" y1="14.0" x2="146.0" y2="190.0"/><line x1="168.0" y1="14.0" x2="168.0" y2="190.0"/><line x1="190.0" y1="14.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="190.0" x2="190.0" y2="190.0"/><line x1="14.0" y1="168.0" x2="190.0" y2="168.0"/><line x1="14.0" y1="146.0" x2="190.0" y2="146.0"/><line x1="14.0" y1="124.0" x2="190.0" y2="124.0"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0"/><line x1="14.0" y1="80.0" x2="190.0" y2="80.0"/><line x1="14.0" y1="58.0" x2="190.0" y2="58.0"/><line x1="14.0" y1="36.0" x2="190.0" y2="36.0"/><line x1="14.0" y1="14.0" x2="190.0" y2="14.0"/></g><polygon points="36.0,36.0 102.0,80.0 124.0,58.0 168.0,36.0 168.0,80.0 146.0,102.0 58.0,102.0 36.0,80.0" fill="#8a8f99" fill-opacity="0.5" stroke="#8a8f99" stroke-width="2" stroke-linejoin="round"/><polygon points="36.0,168.0 102.0,124.0 124.0,146.0 168.0,168.0 168.0,124.0 146.0,102.0 58.0,102.0 36.0,124.0" fill="#6b4fc9" fill-opacity="0.3" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><line x1="14.0" y1="102.0" x2="190.0" y2="102.0" stroke="#c93c3c" stroke-width="2" stroke-dasharray="7 5"/><text x="178.0" y="96.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">d</text></svg>
+      <p>Hai đỉnh nằm trên <span class="m">d</span> giữ nguyên. Các đỉnh cách <span class="m">d</span> 3 ô, 1 ô, 2 ô phía trên được vẽ thêm cách <span class="m">d</span> 3 ô, 1 ô, 2 ô phía dưới, cùng cột. Nối lại, nửa dưới là hình “lộn ngược” của nửa trên.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Vẽ thêm nửa cây thông bên phải <span class="m">d</span>, mỗi đỉnh cách <span class="m">d</span> đúng bằng số ô của đỉnh tương ứng bên trái, cùng độ cao; được cây thông hoàn chỉnh. b) Vẽ thêm nửa hình phía dưới <span class="m">d</span>, mỗi đỉnh cách <span class="m">d</span> đúng bằng số ô của đỉnh tương ứng phía trên, cùng cột; hai đỉnh trên <span class="m">d</span> giữ nguyên.</div>
+    <div class="bay">Ở hình b, chép nguyên nửa trên xuống dưới (tịnh tiến) thay vì lật qua <span class="m">d</span>. Đỉnh càng xa <span class="m">d</span> ở trên thì càng xa <span class="m">d</span> ở dưới — hình phải “lộn ngược”.</div>
+    <div class="gv-note">Hình vẽ dựa trên số ô trong mô tả của kho. Nên cho HS kiểm tra bằng cách gấp giấy theo <i>d</i> và soi lên đèn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b514" data-ten="Bài 5.14" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.14</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ hình nhận O làm tâm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ hình dưới đây vào giấy kẻ ô vuông rồi vẽ thêm để được hình nhận điểm <span class="m">O</span> làm tâm đối xứng.</p>
+    <p><i>(Hai đường tròn cùng tâm <span class="m">O</span>. Ở nửa bên trái đã vẽ hai cánh hình tứ giác chung đỉnh <span class="m">O</span>, một cánh trên, một cánh dưới; mỗi cánh có hai đỉnh trên đường tròn nhỏ và một đỉnh trên đường tròn lớn.)</i></p>
+    <svg viewBox="0 0 298 298" style="max-width:260px" role="img" aria-label="Hai đường tròn cùng tâm O và hai cánh đã cho bên trái"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="284.0"/><line x1="23.0" y1="14.0" x2="23.0" y2="284.0"/><line x1="32.0" y1="14.0" x2="32.0" y2="284.0"/><line x1="41.0" y1="14.0" x2="41.0" y2="284.0"/><line x1="50.0" y1="14.0" x2="50.0" y2="284.0"/><line x1="59.0" y1="14.0" x2="59.0" y2="284.0"/><line x1="68.0" y1="14.0" x2="68.0" y2="284.0"/><line x1="77.0" y1="14.0" x2="77.0" y2="284.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="284.0"/><line x1="95.0" y1="14.0" x2="95.0" y2="284.0"/><line x1="104.0" y1="14.0" x2="104.0" y2="284.0"/><line x1="113.0" y1="14.0" x2="113.0" y2="284.0"/><line x1="122.0" y1="14.0" x2="122.0" y2="284.0"/><line x1="131.0" y1="14.0" x2="131.0" y2="284.0"/><line x1="140.0" y1="14.0" x2="140.0" y2="284.0"/><line x1="149.0" y1="14.0" x2="149.0" y2="284.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="284.0"/><line x1="167.0" y1="14.0" x2="167.0" y2="284.0"/><line x1="176.0" y1="14.0" x2="176.0" y2="284.0"/><line x1="185.0" y1="14.0" x2="185.0" y2="284.0"/><line x1="194.0" y1="14.0" x2="194.0" y2="284.0"/><line x1="203.0" y1="14.0" x2="203.0" y2="284.0"/><line x1="212.0" y1="14.0" x2="212.0" y2="284.0"/><line x1="221.0" y1="14.0" x2="221.0" y2="284.0"/><line x1="230.0" y1="14.0" x2="230.0" y2="284.0"/><line x1="239.0" y1="14.0" x2="239.0" y2="284.0"/><line x1="248.0" y1="14.0" x2="248.0" y2="284.0"/><line x1="257.0" y1="14.0" x2="257.0" y2="284.0"/><line x1="266.0" y1="14.0" x2="266.0" y2="284.0"/><line x1="275.0" y1="14.0" x2="275.0" y2="284.0"/><line x1="284.0" y1="14.0" x2="284.0" y2="284.0"/><line x1="14.0" y1="284.0" x2="284.0" y2="284.0"/><line x1="14.0" y1="275.0" x2="284.0" y2="275.0"/><line x1="14.0" y1="266.0" x2="284.0" y2="266.0"/><line x1="14.0" y1="257.0" x2="284.0" y2="257.0"/><line x1="14.0" y1="248.0" x2="284.0" y2="248.0"/><line x1="14.0" y1="239.0" x2="284.0" y2="239.0"/><line x1="14.0" y1="230.0" x2="284.0" y2="230.0"/><line x1="14.0" y1="221.0" x2="284.0" y2="221.0"/><line x1="14.0" y1="212.0" x2="284.0" y2="212.0"/><line x1="14.0" y1="203.0" x2="284.0" y2="203.0"/><line x1="14.0" y1="194.0" x2="284.0" y2="194.0"/><line x1="14.0" y1="185.0" x2="284.0" y2="185.0"/><line x1="14.0" y1="176.0" x2="284.0" y2="176.0"/><line x1="14.0" y1="167.0" x2="284.0" y2="167.0"/><line x1="14.0" y1="158.0" x2="284.0" y2="158.0"/><line x1="14.0" y1="149.0" x2="284.0" y2="149.0"/><line x1="14.0" y1="140.0" x2="284.0" y2="140.0"/><line x1="14.0" y1="131.0" x2="284.0" y2="131.0"/><line x1="14.0" y1="122.0" x2="284.0" y2="122.0"/><line x1="14.0" y1="113.0" x2="284.0" y2="113.0"/><line x1="14.0" y1="104.0" x2="284.0" y2="104.0"/><line x1="14.0" y1="95.0" x2="284.0" y2="95.0"/><line x1="14.0" y1="86.0" x2="284.0" y2="86.0"/><line x1="14.0" y1="77.0" x2="284.0" y2="77.0"/><line x1="14.0" y1="68.0" x2="284.0" y2="68.0"/><line x1="14.0" y1="59.0" x2="284.0" y2="59.0"/><line x1="14.0" y1="50.0" x2="284.0" y2="50.0"/><line x1="14.0" y1="41.0" x2="284.0" y2="41.0"/><line x1="14.0" y1="32.0" x2="284.0" y2="32.0"/><line x1="14.0" y1="23.0" x2="284.0" y2="23.0"/><line x1="14.0" y1="14.0" x2="284.0" y2="14.0"/></g><circle cx="149.0" cy="149.0" r="100.6" fill="none" fill-opacity="1" stroke="#5c6577" stroke-width="1.5"/><circle cx="149.0" cy="149.0" r="127.3" fill="none" fill-opacity="1" stroke="#5c6577" stroke-width="1.5"/><polygon points="149.0,149.0 104.0,59.0 59.0,59.0 59.0,104.0" fill="#2f6fdb" fill-opacity="0.45" stroke="#2f6fdb" stroke-width="2" stroke-linejoin="round"/><polygon points="149.0,149.0 104.0,239.0 59.0,239.0 59.0,194.0" fill="#0f8a68" fill-opacity="0.45" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><circle cx="149.0" cy="149.0" r="4" fill="#c93c3c"/><text x="157.0" y="154.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai đường tròn cùng tâm <i>O</i> đã “tự” có tâm đối xứng. Phần nào còn thiếu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Quay nửa vòng quanh <span class="m">O</span> thì cánh <b>trên bên trái</b> đến vị trí nào? Cánh <b>dưới bên trái</b> đến vị trí nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hai đường tròn giữ nguyên</h4>
+      <p>Đường tròn quay nửa vòng quanh tâm của nó thì vẫn nằm đúng chỗ cũ, nên hai đường tròn không cần vẽ thêm gì.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: tâm đối xứng</a></div>
+    <div class="buoc" data-so="2"><h4>Vẽ thêm hai cánh bên phải</h4>
+      <svg viewBox="0 0 298 298" style="max-width:330px" role="img" aria-label="Hai đường tròn cùng tâm O, hai cánh đã cho bên trái và hai cánh vẽ thêm bên phải"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="284.0"/><line x1="23.0" y1="14.0" x2="23.0" y2="284.0"/><line x1="32.0" y1="14.0" x2="32.0" y2="284.0"/><line x1="41.0" y1="14.0" x2="41.0" y2="284.0"/><line x1="50.0" y1="14.0" x2="50.0" y2="284.0"/><line x1="59.0" y1="14.0" x2="59.0" y2="284.0"/><line x1="68.0" y1="14.0" x2="68.0" y2="284.0"/><line x1="77.0" y1="14.0" x2="77.0" y2="284.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="284.0"/><line x1="95.0" y1="14.0" x2="95.0" y2="284.0"/><line x1="104.0" y1="14.0" x2="104.0" y2="284.0"/><line x1="113.0" y1="14.0" x2="113.0" y2="284.0"/><line x1="122.0" y1="14.0" x2="122.0" y2="284.0"/><line x1="131.0" y1="14.0" x2="131.0" y2="284.0"/><line x1="140.0" y1="14.0" x2="140.0" y2="284.0"/><line x1="149.0" y1="14.0" x2="149.0" y2="284.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="284.0"/><line x1="167.0" y1="14.0" x2="167.0" y2="284.0"/><line x1="176.0" y1="14.0" x2="176.0" y2="284.0"/><line x1="185.0" y1="14.0" x2="185.0" y2="284.0"/><line x1="194.0" y1="14.0" x2="194.0" y2="284.0"/><line x1="203.0" y1="14.0" x2="203.0" y2="284.0"/><line x1="212.0" y1="14.0" x2="212.0" y2="284.0"/><line x1="221.0" y1="14.0" x2="221.0" y2="284.0"/><line x1="230.0" y1="14.0" x2="230.0" y2="284.0"/><line x1="239.0" y1="14.0" x2="239.0" y2="284.0"/><line x1="248.0" y1="14.0" x2="248.0" y2="284.0"/><line x1="257.0" y1="14.0" x2="257.0" y2="284.0"/><line x1="266.0" y1="14.0" x2="266.0" y2="284.0"/><line x1="275.0" y1="14.0" x2="275.0" y2="284.0"/><line x1="284.0" y1="14.0" x2="284.0" y2="284.0"/><line x1="14.0" y1="284.0" x2="284.0" y2="284.0"/><line x1="14.0" y1="275.0" x2="284.0" y2="275.0"/><line x1="14.0" y1="266.0" x2="284.0" y2="266.0"/><line x1="14.0" y1="257.0" x2="284.0" y2="257.0"/><line x1="14.0" y1="248.0" x2="284.0" y2="248.0"/><line x1="14.0" y1="239.0" x2="284.0" y2="239.0"/><line x1="14.0" y1="230.0" x2="284.0" y2="230.0"/><line x1="14.0" y1="221.0" x2="284.0" y2="221.0"/><line x1="14.0" y1="212.0" x2="284.0" y2="212.0"/><line x1="14.0" y1="203.0" x2="284.0" y2="203.0"/><line x1="14.0" y1="194.0" x2="284.0" y2="194.0"/><line x1="14.0" y1="185.0" x2="284.0" y2="185.0"/><line x1="14.0" y1="176.0" x2="284.0" y2="176.0"/><line x1="14.0" y1="167.0" x2="284.0" y2="167.0"/><line x1="14.0" y1="158.0" x2="284.0" y2="158.0"/><line x1="14.0" y1="149.0" x2="284.0" y2="149.0"/><line x1="14.0" y1="140.0" x2="284.0" y2="140.0"/><line x1="14.0" y1="131.0" x2="284.0" y2="131.0"/><line x1="14.0" y1="122.0" x2="284.0" y2="122.0"/><line x1="14.0" y1="113.0" x2="284.0" y2="113.0"/><line x1="14.0" y1="104.0" x2="284.0" y2="104.0"/><line x1="14.0" y1="95.0" x2="284.0" y2="95.0"/><line x1="14.0" y1="86.0" x2="284.0" y2="86.0"/><line x1="14.0" y1="77.0" x2="284.0" y2="77.0"/><line x1="14.0" y1="68.0" x2="284.0" y2="68.0"/><line x1="14.0" y1="59.0" x2="284.0" y2="59.0"/><line x1="14.0" y1="50.0" x2="284.0" y2="50.0"/><line x1="14.0" y1="41.0" x2="284.0" y2="41.0"/><line x1="14.0" y1="32.0" x2="284.0" y2="32.0"/><line x1="14.0" y1="23.0" x2="284.0" y2="23.0"/><line x1="14.0" y1="14.0" x2="284.0" y2="14.0"/></g><circle cx="149.0" cy="149.0" r="100.6" fill="none" fill-opacity="1" stroke="#5c6577" stroke-width="1.5"/><circle cx="149.0" cy="149.0" r="127.3" fill="none" fill-opacity="1" stroke="#5c6577" stroke-width="1.5"/><polygon points="149.0,149.0 104.0,59.0 59.0,59.0 59.0,104.0" fill="#2f6fdb" fill-opacity="0.45" stroke="#2f6fdb" stroke-width="2" stroke-linejoin="round"/><polygon points="149.0,149.0 104.0,239.0 59.0,239.0 59.0,194.0" fill="#0f8a68" fill-opacity="0.45" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><polygon points="149.0,149.0 194.0,59.0 239.0,59.0 239.0,104.0" fill="#0f8a68" fill-opacity="0.25" stroke="#0f8a68" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><polygon points="149.0,149.0 194.0,239.0 239.0,239.0 239.0,194.0" fill="#2f6fdb" fill-opacity="0.25" stroke="#2f6fdb" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><circle cx="149.0" cy="149.0" r="4" fill="#c93c3c"/><text x="157.0" y="154.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg>
+      <p>Cánh trên bên trái (đỉnh cách <span class="m">O</span> 5 ô trái 10 ô lên, 10 ô trái 10 ô lên, 10 ô trái 5 ô lên) → cánh <b>dưới bên phải</b> (đỉnh cách <span class="m">O</span> 5 ô phải 10 ô xuống, 10 ô phải 10 ô xuống, 10 ô phải 5 ô xuống).</p>
+      <p>Cánh dưới bên trái → cánh <b>trên bên phải</b> (đỉnh cách <span class="m">O</span> 5 ô phải 10 ô lên, 10 ô phải 10 ô lên, 10 ô phải 5 ô lên).</p>
+      <p class="vi-sao">Các đỉnh mới cách <span class="m">O</span> bằng các đỉnh cũ, nên đỉnh nào nằm trên đường tròn nhỏ (lớn) vẫn nằm trên đường tròn nhỏ (lớn).</p>
+      <a class="xem-lai" href="#kt-dem-o">📌 Xem lại: quay nửa vòng trên giấy kẻ ô</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Giữ nguyên hai đường tròn; vẽ thêm hai cánh bên phải: cánh trên bên phải (đối xứng với cánh dưới bên trái qua <span class="m">O</span>) và cánh dưới bên phải (đối xứng với cánh trên bên trái qua <span class="m">O</span>). Hình nhận được có bốn cánh xếp đều quanh <span class="m">O</span>.</div>
+    <div class="bay">Vẽ cánh mới bằng cách lật qua đường thẳng đứng qua <span class="m">O</span>. Ở bài này kết quả tình cờ giống nhau (vì hai cánh đã cho đối xứng trên – dưới), nhưng cách nghĩ đúng phải là quay nửa vòng: cánh trên trái ↔ cánh dưới phải.</div>
+    <div class="gv-note">Toạ độ theo ô trong kho: cánh trên <i>O</i>, (−5; 10), (−10; 10), (−10; 5); cánh dưới đối xứng qua đường ngang. Không dùng cách nói toạ độ với HS (lớp 7). Có thể hỏi thêm: hình hoàn chỉnh có mấy trục đối xứng? (4: đường ngang, đường dọc và hai đường chéo qua <i>O</i>.)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b515" data-ten="Bài 5.15" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5.15</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trục và tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các hình sau, hình nào có trục đối xứng, hình nào có tâm đối xứng?</p>
+    <p><i>(a) Chữ SOS màu đỏ; b) Chữ VTV màu xanh lá.)</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">SOS</span><button class="chon chu" data-dung="0">Có trục</button><button class="chon chu" data-dung="1">Có tâm</button><span class="phan-hoi" data-dung-txt="Đúng! Xoay ngược tờ giấy, SOS vẫn đọc là SOS." data-sai-txt="Thử gấp đôi chữ S theo chiều dọc — hai nửa có trùng nhau không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">VTV</span><button class="chon chu" data-dung="1">Có trục</button><button class="chon chu" data-dung="0">Có tâm</button><span class="phan-hoi" data-dung-txt="Đúng! Trục thẳng đứng đi qua giữa chữ T." data-sai-txt="Xoay ngược VTV — chữ V có còn là V không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chữ S: gấp đôi thì sao? Quay ngược thì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xét từng chữ cái trước, rồi xét cả cụm: chữ ở giữa phải đối xứng, hai chữ hai đầu phải “khớp” sang nhau.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>SOS</h4>
+      <svg viewBox="0 0 200 100" style="max-width:220px" role="img" aria-label="Chữ SOS có tâm đối xứng ở giữa chữ O"><text x="100" y="52" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="60" text-anchor="middle" dominant-baseline="central" fill="#c93c3c" letter-spacing="2">SOS</text><circle cx="100" cy="52" r="6" fill="#6b4fc9" stroke="#fff" stroke-width="2"/></svg>
+      <p>Chữ S quay nửa vòng vẫn là S; chữ O cũng vậy. Quay cả cụm nửa vòng quanh tâm chữ O: chữ S đầu đến chỗ chữ S cuối và ngược lại → SOS <b>có tâm đối xứng</b> (tâm chữ O).</p>
+      <p>Chữ S gấp dọc hay gấp ngang đều không khít (S lật gương thành chữ S ngược) → SOS <b>không có trục</b>.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: tâm đối xứng</a></div>
+    <div class="buoc" data-so="2"><h4>VTV</h4>
+      <svg viewBox="0 0 200 100" style="max-width:220px" role="img" aria-label="Chữ VTV có trục đối xứng thẳng đứng đi qua giữa chữ T"><text x="100" y="52" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="60" text-anchor="middle" dominant-baseline="central" fill="#0f8a68" letter-spacing="2">VTV</text><line x1="100" y1="6" x2="100" y2="96" stroke="#c93c3c" stroke-width="2" stroke-dasharray="6 4"/></svg>
+      <p>Chữ V và chữ T đều có trục thẳng đứng. Gấp cụm VTV theo đường thẳng đứng qua giữa chữ T: chữ V trái trùng chữ V phải → VTV <b>có trục đối xứng</b>.</p>
+      <p>Quay nửa vòng thì chữ V thành chữ Λ (lộn ngược), chữ T lộn ngược → VTV <b>không có tâm</b>.</p>
+      <a class="xem-lai" href="#kt-truc">📌 Xem lại: trục đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) SOS có tâm đối xứng (tâm của chữ O), không có trục đối xứng. b) VTV có trục đối xứng (đường thẳng đứng đi qua giữa chữ T), không có tâm đối xứng.</div>
+    <div class="bay">Nói SOS có trục thẳng đứng vì “hai chữ S hai bên giống nhau”. Lật gương thì chữ S bên trái thành chữ S ngược, không trùng chữ S bên phải.</div>
+    <div class="gv-note">Phụ thuộc kiểu chữ: với kiểu chữ in đậm thông thường như trong SGK, S có tâm nhưng không có trục.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b516" data-ten="Bài 5.16" data-muc="vdc">
+  <div class="bai-dau"><span class="so">Bài 5.16</span><span class="nhan vdc">Vận dụng cao</span><span class="nhan">Vẽ hình đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hình gấp khúc dưới đây gồm bốn đoạn thẳng có độ dài bằng 1 cm. Em hãy vẽ hình đó vào giấy kẻ ô vuông và vẽ thêm một đường gấp khúc có độ dài bằng 8 cm để được một hình có cả trục đối xứng và tâm đối xứng.</p>
+    <p><i>(Đường gấp khúc dạng bậc thang gồm bốn đoạn: lên, sang phải, lên, sang phải.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 4 cm đã có + 8 cm vẽ thêm = 12 đoạn dài 1 cm. Hình quen thuộc nào có chu vi 12 cạnh ô và rất cân đối?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bậc thang “lên – phải – lên – phải” giống góc trên bên trái của một dấu cộng (hình chữ thập) ghép từ 5 ô vuông.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận ra bậc thang là một phần viền hình chữ thập</h4>
+      <p>Hình chữ thập gồm 5 ô vuông cạnh 1 cm (một ô ở giữa, bốn ô bốn phía). Đi theo viền từ cánh trái lên cánh trên: lên 1, phải 1, lên 1, phải 1 — đúng đường gấp khúc đã cho.</p></div>
+    <div class="buoc" data-so="2"><h4>Vẽ tiếp phần viền còn lại</h4>
+      <svg viewBox="0 0 188 188" style="max-width:220px" role="img" aria-label="Đường gấp khúc bậc thang đã cho (màu xanh) và đường gấp khúc vẽ thêm (màu đỏ) tạo thành đường viền hình chữ thập"><g stroke="#d9dee8" stroke-width="1"><line x1="34.0" y1="14.0" x2="34.0" y2="174.0"/><line x1="74.0" y1="14.0" x2="74.0" y2="174.0"/><line x1="114.0" y1="14.0" x2="114.0" y2="174.0"/><line x1="154.0" y1="14.0" x2="154.0" y2="174.0"/><line x1="14.0" y1="154.0" x2="174.0" y2="154.0"/><line x1="14.0" y1="114.0" x2="174.0" y2="114.0"/><line x1="14.0" y1="74.0" x2="174.0" y2="74.0"/><line x1="14.0" y1="34.0" x2="174.0" y2="34.0"/></g><polyline points="114.0,34.0 114.0,74.0 154.0,74.0 154.0,114.0 114.0,114.0 114.0,154.0 74.0,154.0 74.0,114.0 34.0,114.0" fill="none" stroke="#c93c3c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><polyline points="34.0,114.0 34.0,74.0 74.0,74.0 74.0,34.0 114.0,34.0" fill="none" stroke="#2f6fdb" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><line x1="94.0" y1="170.0" x2="94.0" y2="18.0" stroke="#6b4fc9" stroke-width="1.5" stroke-dasharray="7 5"/><line x1="18.0" y1="94.0" x2="170.0" y2="94.0" stroke="#6b4fc9" stroke-width="1.5" stroke-dasharray="7 5"/><circle cx="94.0" cy="94.0" r="3.5" fill="#6b4fc9"/><text x="100.0" y="88.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#6b4fc9" text-anchor="start">O</text></svg>
+      <p>Từ điểm cuối, đi tiếp theo viền chữ thập: xuống 1, phải 1, xuống 1, trái 1, xuống 1, trái 1, lên 1, trái 1 — về đúng điểm đầu. Đó là 8 đoạn dài 1 cm, tổng 8 cm.</p>
+      <p class="vi-sao">Viền hình chữ thập có 12 đoạn 1 cm (4 + 8 = 12 ✓). Hình chữ thập có 4 trục đối xứng (2 đường nét tím và 2 đường chéo) và có tâm đối xứng là điểm <span class="m">O</span> ở tâm ô giữa.</p>
+      <a class="xem-lai" href="#kt-pi">📌 Xem lại: hình vừa có tâm vừa có trục</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vẽ thêm đường gấp khúc gồm 8 đoạn 1 cm nối tiếp: xuống, phải, xuống, trái, xuống, trái, lên, trái — cùng với đường đã cho tạo thành viền hình chữ thập (5 ô vuông). Hình này có 4 trục đối xứng và có tâm đối xứng là tâm ô vuông ở giữa.</div>
+    <div class="bay">Vẽ thêm đường gấp khúc chỉ tạo ra trục đối xứng (ví dụ lật bậc thang qua một đường thẳng) mà quên kiểm tra tâm. Đề yêu cầu <b>cả</b> trục và tâm.</div>
+    <div class="gv-note">Bài có thể có đáp án khác; chấp nhận mọi hình có tổng độ dài phần vẽ thêm đúng 8 cm, có cả trục và tâm đối xứng, chứa đường gấp khúc đã cho. Hình chữ thập là đáp án gọn nhất. Kiểm tra độ dài phần vẽ thêm bằng cách đếm cạnh ô.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Luyện tập chung (Chương V) — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c05-ltc';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-05-luyen-tap-chung-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-05-luyen-tap-chung-bai-giai.nguon.html" data-phien-ban="1c3ae5c5825c">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

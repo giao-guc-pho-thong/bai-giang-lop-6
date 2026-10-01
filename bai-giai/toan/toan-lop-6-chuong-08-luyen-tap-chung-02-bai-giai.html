@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện tập chung (trang 65) — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương VIII. Những hình hình học cơ bản</div>
+    <div class="hang1">
+      <h1>Luyện tập chung (trang 65) — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương VIII. Những hình hình học cơ bản</div><h1>Luyện tập chung (trang 65) — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-goc"><b class="ten">Góc, góc bẹt (Bài 36)</b>
+      Góc là hình gồm hai tia chung gốc; gốc chung là đỉnh, hai tia là hai cạnh. Khi hai cạnh là hai tia đối nhau, ta có góc bẹt.</div>
+    <div class="kt" id="kt-diem-trong"><b class="ten">Điểm trong của góc (Bài 36)</b>
+      Với góc không là góc bẹt, điểm nằm giữa hai cạnh là điểm trong của góc. Các điểm nằm trên hai cạnh hoặc ở ngoài không phải là điểm trong.</div>
+    <div class="kt" id="kt-dac-biet"><b class="ten">Góc vuông, nhọn, tù, bẹt (Bài 37)</b>
+      Góc có số đo bằng 90° là góc vuông. Góc bẹt có số đo bằng 180°. Góc nhỏ hơn góc vuông là góc nhọn. Góc lớn hơn góc vuông, nhỏ hơn góc bẹt là góc tù.</div>
+    <div class="kt" id="kt-so-sanh"><b class="ten">Đo và so sánh góc (Bài 37)</b>
+      Đặt tâm thước đo góc trùng đỉnh, một cạnh đi qua vạch 0, đọc số ở cạnh kia. Người ta so sánh hai góc bằng cách so sánh số đo của chúng.</div>
+    <div class="kt" id="kt-hinh"><b class="ten">Góc của một số hình (Chương IV)</b>
+      Tam giác đều có ba góc bằng nhau và bằng 60°. Hình vuông có bốn góc bằng nhau và bằng 90°.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống — Bài 36, Bài 37 (Tập hai), Bài 18 (Tập một), Luyện tập chung trang 65.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="b835" data-ten="Bài 8.35" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.35</span><span class="nhan vd">Vận dụng</span><span class="nhan">Phân loại góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy dùng ê ke để kiểm tra và cho biết góc nào là góc nhọn, góc vuông, góc tù, góc bẹt có trong hình sau.</p>
+    <p><i>(Hình: hình thang vuông <span class="m">ABCD</span> với <span class="m">A</span> dưới trái, <span class="m">B</span> trên trái, <span class="m">C</span> trên phải, <span class="m">D</span> dưới phải; <span class="m">AB</span> thẳng đứng, <span class="m">BC</span> và <span class="m">AD</span> nằm ngang. Đường chéo <span class="m">AC</span>. Điểm <span class="m">E</span> nằm trên <span class="m">AC</span>, nối <span class="m">B</span> với <span class="m">E</span>.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Liệt kê góc theo từng đỉnh <i>A, B, C, D, E</i> trước, rồi mới kiểm tra bằng ê ke.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đỉnh <span class="m">A</span> có 3 tia (<span class="m">AB</span>, <span class="m">AC</span>, <span class="m">AD</span>); đỉnh <span class="m">B</span> có 3 tia (<span class="m">BA</span>, <span class="m">BE</span>, <span class="m">BC</span>); đỉnh <span class="m">C</span> có 3 tia; đỉnh <span class="m">D</span> có 2 tia; đỉnh <span class="m">E</span> có 3 tia (<span class="m">EA</span>, <span class="m">EB</span>, <span class="m">EC</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Liệt kê các góc theo đỉnh</h4>
+      <svg viewBox="0 0 620 320" style="max-width:520px" role="img" aria-label="Hình thang vuông ABCD, đường chéo AC, điểm E trên AC, đoạn BE">
+  <line x1="30.0" y1="288.5" x2="30.0" y2="30.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="30.0" x2="307.8" y2="30.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="307.8" y1="30.0" x2="589.3" y2="288.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="589.3" y1="288.5" x2="30.0" y2="288.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="288.5" x2="307.8" y2="30.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="30.0" x2="109.3" y2="211.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="30.0,275.5 43.0,275.5 43.0,288.5" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <polyline points="30.0,43.0 43.0,43.0 43.0,30.0" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <circle cx="30.0" cy="288.5" r="4.5" fill="#1f2430"/>
+  <text x="16.0" y="304.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <circle cx="30.0" cy="30.0" r="4.5" fill="#1f2430"/>
+  <text x="16.0" y="26.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">B</text>
+  <circle cx="307.8" cy="30.0" r="4.5" fill="#1f2430"/>
+  <text x="307.8" y="18.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">C</text>
+  <circle cx="589.3" cy="288.5" r="4.5" fill="#1f2430"/>
+  <text x="601.3" y="304.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">D</text>
+  <circle cx="109.3" cy="211.5" r="4.5" fill="#1f2430"/>
+  <text x="123.3" y="227.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">E</text>
+</svg>
+      <p>Đỉnh <span class="m">A</span>: <span class="m">BAC</span>, <span class="m">CAD</span>, <span class="m">BAD</span>. Đỉnh <span class="m">B</span>: <span class="m">ABE</span>, <span class="m">EBC</span>, <span class="m">ABC</span>. Đỉnh <span class="m">C</span>: <span class="m">BCA</span>, <span class="m">ACD</span>, <span class="m">BCD</span>. Đỉnh <span class="m">D</span>: <span class="m">ADC</span>. Đỉnh <span class="m">E</span>: <span class="m">AEB</span>, <span class="m">BEC</span>, <span class="m">AEC</span>.</p>
+      <a class="xem-lai" href="#kt-goc">📌 Xem lại: góc</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra bằng ê ke và phân loại</h4>
+      <p><b>Góc vuông:</b> <span class="m">BAD</span>, <span class="m">ABC</span> (khít với góc ê ke — đây là hình thang vuông).</p>
+      <p><b>Góc nhọn:</b> <span class="m">BAC</span>, <span class="m">CAD</span>, <span class="m">ABE</span>, <span class="m">EBC</span>, <span class="m">BCA</span>, <span class="m">ADC</span>, <span class="m">BEC</span>.</p>
+      <p><b>Góc tù:</b> <span class="m">BCD</span>, <span class="m">ACD</span>, <span class="m">AEB</span>.</p>
+      <p><b>Góc bẹt:</b> <span class="m">AEC</span> (vì <span class="m">E</span> nằm trên đoạn <span class="m">AC</span>, hai tia <span class="m">EA</span>, <span class="m">EC</span> đối nhau).</p>
+      <p class="vi-sao">Ê ke: đặt đỉnh góc vuông của ê ke trùng đỉnh góc, một cạnh ê ke trùng một cạnh góc. Cạnh kia của góc nằm trong ê ke → nhọn; trùng → vuông; nằm ngoài → tù.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: góc vuông, nhọn, tù, bẹt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Góc vuông: <span class="m">BAD</span>, <span class="m">ABC</span>. Góc nhọn: <span class="m">BAC</span>, <span class="m">CAD</span>, <span class="m">ABE</span>, <span class="m">EBC</span>, <span class="m">BCA</span>, <span class="m">ADC</span>, <span class="m">BEC</span>. Góc tù: <span class="m">BCD</span>, <span class="m">ACD</span>, <span class="m">AEB</span>. Góc bẹt: <span class="m">AEC</span>.</div>
+    <div class="bay">Quên góc bẹt <span class="m">AEC</span> vì nó “không có hình góc”. Hai tia <span class="m">EA</span>, <span class="m">EC</span> đối nhau vẫn tạo thành một góc — góc bẹt.</div>
+    <div class="gv-note">Phân loại theo hình SGK (bản scan trang 66, đo bằng toạ độ điểm ảnh): BAC khoảng 47°, CAD khoảng 43°, ABE khoảng 24°, EBC khoảng 66°, BCA khoảng 43°, ADC khoảng 43°, BEC khoảng 69°, AEB khoảng 111°, BCD khoảng 137°, ACD khoảng 94°. Góc <i>ACD</i> chỉ lớn hơn góc vuông khoảng 4° — HS cần đặt ê ke cẩn thận mới thấy; chấp nhận nếu HS lí giải được. <i>BE</i> không vuông góc với <i>AC</i> trên hình in (góc <i>AEB</i> tù). Chấp nhận các tên tương đương: <i>BAE</i> = <i>BAC</i>, <i>EAD</i> = <i>CAD</i>, <i>BCE</i> = <i>BCA</i>, <i>ECD</i> = <i>ACD</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b836" data-ten="Bài 8.36" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.36</span><span class="nhan vd">Vận dụng</span><span class="nhan">Góc trong tam giác đều</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong hình vẽ sau, cho tam giác đều <span class="m">ABC</span> và góc <span class="m">DBC</span> bằng 20°.</p>
+    <p><i>(Hình: tam giác đều <span class="m">ABC</span> với <span class="m">A</span> ở trên, <span class="m">B</span> dưới trái, <span class="m">C</span> dưới phải. Điểm <span class="m">D</span> nằm trong tam giác, nối <span class="m">A</span> với <span class="m">D</span> (đoạn thẳng đứng) và <span class="m">B</span> với <span class="m">D</span>; góc <span class="m">DBC</span> = 20°.)</i></p>
+    <p>a) Kể tên các góc trong hình vẽ trên. Những góc nào có số đo bằng 60°?</p>
+    <p>b) Điểm <span class="m">D</span> có nằm trong góc <span class="m">ABC</span> không? Điểm <span class="m">C</span> có nằm trong góc <span class="m">ADB</span> không?</p>
+    <p>c) Em hãy dự đoán số đo góc <span class="m">ABD</span> và sử dụng thước đo góc để kiểm tra lại dự đoán của mình.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu c: góc <i>ABC</i> = 60° bị tia <i>BD</i> chia làm hai phần, một phần đã biết là 20°.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tam giác đều có ba góc bằng 60°. Với góc <span class="m">ADB</span>, hai cạnh là tia <span class="m">DA</span> (thẳng lên) và tia <span class="m">DB</span> (xuống trái): <span class="m">C</span> ở phía nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Kể tên các góc</h4>
+      <svg viewBox="0 0 360 310" style="max-width:320px" role="img" aria-label="Tam giác đều ABC; D nằm trong tam giác, AD thẳng đứng, góc DBC bằng 20 độ">
+  <line x1="180.0" y1="37.5" x2="40.0" y2="280.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="280.0" x2="320.0" y2="280.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="320.0" y1="280.0" x2="180.0" y2="37.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="180.0" y1="37.5" x2="180.0" y2="229.0" stroke="#1f2430" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40.0" y1="280.0" x2="180.0" y2="229.0" stroke="#1f2430" stroke-width="2" stroke-linecap="round"/>
+  <path d="M100.0,280.0 A60,60 0 0 0 96.4,259.5" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="122.0" y="276.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="middle" fill="#c93c3c">20°</text>
+  <path d="M73.8,267.7 A36,36 0 0 0 58.0,248.8" fill="none" stroke="#0f8a68" stroke-width="2"/>
+  <text x="80.0" y="248.0" font-family="Segoe UI,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#0f8a68">?</text>
+  <circle cx="180.0" cy="37.5" r="4.5" fill="#1f2430"/>
+  <text x="180.0" y="27.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <circle cx="40.0" cy="280.0" r="4.5" fill="#1f2430"/>
+  <text x="28.0" y="296.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">B</text>
+  <circle cx="320.0" cy="280.0" r="4.5" fill="#1f2430"/>
+  <text x="332.0" y="296.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">C</text>
+  <circle cx="180.0" cy="229.0" r="4.5" fill="#1f2430"/>
+  <text x="194.0" y="229.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">D</text>
+</svg>
+      <p>Đỉnh <span class="m">A</span>: <span class="m">BAD</span>, <span class="m">DAC</span>, <span class="m">BAC</span>. Đỉnh <span class="m">B</span>: <span class="m">ABD</span>, <span class="m">DBC</span>, <span class="m">ABC</span>. Đỉnh <span class="m">C</span>: <span class="m">ACB</span>. Đỉnh <span class="m">D</span>: <span class="m">ADB</span>.</p>
+      <p>Các góc bằng 60°: <span class="m">BAC</span>, <span class="m">ABC</span>, <span class="m">ACB</span> (ba góc của tam giác đều).</p>
+      <a class="xem-lai" href="#kt-hinh">📌 Xem lại: góc của tam giác đều</a></div>
+    <div class="buoc" data-so="2"><h4>b) Điểm trong của góc</h4>
+      <p><span class="m">D</span> nằm giữa hai cạnh <span class="m">BA</span> và <span class="m">BC</span> → <span class="m">D</span> <b>nằm trong</b> góc <span class="m">ABC</span>.</p>
+      <p>Góc <span class="m">ADB</span> có hai cạnh: tia <span class="m">DA</span> (đi lên) và tia <span class="m">DB</span> (đi xuống bên trái); phần trong của góc nằm ở bên trái tia <span class="m">DA</span>. Điểm <span class="m">C</span> ở bên phải, nên <span class="m">C</span> <b>không nằm trong</b> góc <span class="m">ADB</span>.</p>
+      <a class="xem-lai" href="#kt-diem-trong">📌 Xem lại: điểm trong của góc</a></div>
+    <div class="buoc" data-so="3"><h4>c) Dự đoán và kiểm tra góc ABD</h4>
+      <p>Tia <span class="m">BD</span> nằm trong góc <span class="m">ABC</span> = 60° và tách ra phần <span class="m">DBC</span> = 20°, nên dự đoán phần còn lại <span class="m">ABD</span> = 60° − 20° = 40°.</p>
+      <p>Đo bằng thước đo góc: <span class="m">∠ABD</span> khoảng 40°, đúng như dự đoán.</p>
+      <p class="vi-sao">Góc <span class="m">ABC</span> được chia thành hai góc <span class="m">ABD</span> và <span class="m">DBC</span> “ghép sát” nhau, giống như đoạn thẳng được chia bởi một điểm nằm giữa.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: đo góc</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Các góc: <span class="m">BAD</span>, <span class="m">DAC</span>, <span class="m">BAC</span>, <span class="m">ABD</span>, <span class="m">DBC</span>, <span class="m">ABC</span>, <span class="m">ACB</span>, <span class="m">ADB</span>; các góc bằng 60°: <span class="m">BAC</span>, <span class="m">ABC</span>, <span class="m">ACB</span>. &nbsp; b) <span class="m">D</span> nằm trong góc <span class="m">ABC</span>; <span class="m">C</span> không nằm trong góc <span class="m">ADB</span>. &nbsp; c) Dự đoán <span class="m">∠ABD</span> = 60° − 20° = 40°; đo kiểm tra được khoảng 40°.</div>
+    <div class="bay">Câu b: nhìn thấy <span class="m">C</span> “ở trong tam giác lớn” nên cho rằng <span class="m">C</span> nằm trong góc <span class="m">ADB</span>. Phải xét đúng hai cạnh <span class="m">DA</span>, <span class="m">DB</span> của góc này.</div>
+    <div class="gv-note">Ở lớp 6 chưa có quy tắc cộng góc; câu c chỉ yêu cầu <b>dự đoán</b> rồi <b>đo</b>, nên phép trừ 60° − 20° dùng như một dự đoán hợp lí, kết luận dựa vào đo. Trên hình SGK, <i>AD</i> thẳng đứng nên <i>BAD</i> = <i>DAC</i> khoảng 30° và <i>ADB</i> khoảng 110° (không hỏi). Góc <i>ADB</i> có thể kể thêm vì <i>D</i> là đỉnh chung của <i>DA</i>, <i>DB</i>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b837" data-ten="Bài 8.37" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.37</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đo, so sánh góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho hình vuông <span class="m">MNPQ</span> và số đo các góc ghi tương ứng như trên hình sau.</p>
+    <p><i>(Hình: hình vuông <span class="m">MNPQ</span> với <span class="m">N</span> trên trái, <span class="m">P</span> trên phải, <span class="m">M</span> dưới trái, <span class="m">Q</span> dưới phải. Điểm <span class="m">A</span> nằm trên cạnh <span class="m">NP</span> gần <span class="m">N</span>; điểm <span class="m">C</span> nằm trên cạnh <span class="m">PQ</span>. Nối <span class="m">M</span> với <span class="m">A</span> và <span class="m">M</span> với <span class="m">C</span>. Góc <span class="m">NMA</span> = 15°; góc <span class="m">CMQ</span> = 30°.)</i></p>
+    <p>a) Kể tên các điểm nằm trong góc <span class="m">AMC</span>;</p>
+    <p>b) Cho biết số đo của góc <span class="m">AMC</span> bằng cách đo;</p>
+    <p>c) Sắp xếp các góc <span class="m">NMA</span>, <span class="m">AMC</span> và <span class="m">CMQ</span> theo thứ tự số đo tăng dần.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Góc <i>NMQ</i> của hình vuông là 90°, bị hai tia <i>MA</i>, <i>MC</i> chia thành ba góc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trong các điểm đã đặt tên (<span class="m">N</span>, <span class="m">P</span>, <span class="m">Q</span>, <span class="m">A</span>, <span class="m">C</span>), điểm nào nằm giữa hai tia <span class="m">MA</span> và <span class="m">MC</span>?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Điểm trong góc AMC</h4>
+      <svg viewBox="0 0 330 320" style="max-width:300px" role="img" aria-label="Hình vuông MNPQ; A trên NP, C trên PQ; góc NMA 15 độ, góc CMQ 30 độ, góc AMC 45 độ">
+  <polygon points="40.0,290.0 104.3,50.0 280.0,50.0 280.0,151.4" fill="#0f8a68" fill-opacity="0.12" stroke="none" stroke-linejoin="round"/>
+  <line x1="40.0" y1="290.0" x2="40.0" y2="50.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="50.0" x2="280.0" y2="50.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="280.0" y1="50.0" x2="280.0" y2="290.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="280.0" y1="290.0" x2="40.0" y2="290.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="290.0" x2="104.3" y2="50.0" stroke="#2f6fdb" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="290.0" x2="280.0" y2="151.4" stroke="#2f6fdb" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M58.1,222.4 A70,70 0 0 0 40.0,220.0" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="44.0" y="212.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="start" fill="#c93c3c">15°</text>
+  <path d="M100.0,290.0 A60,60 0 0 0 92.0,260.0" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="106.0" y="282.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="start" fill="#c93c3c">30°</text>
+  <path d="M76.4,269.0 A42,42 0 0 0 50.9,249.4" fill="none" stroke="#0f8a68" stroke-width="2.5"/>
+  <text x="88.0" y="250.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="start" fill="#0f8a68">45°</text>
+  <circle cx="40.0" cy="290.0" r="4.5" fill="#1f2430"/>
+  <text x="28.0" y="308.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">M</text>
+  <circle cx="40.0" cy="50.0" r="4.5" fill="#1f2430"/>
+  <text x="28.0" y="44.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">N</text>
+  <circle cx="280.0" cy="50.0" r="4.5" fill="#1f2430"/>
+  <text x="292.0" y="44.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">P</text>
+  <circle cx="280.0" cy="290.0" r="4.5" fill="#1f2430"/>
+  <text x="292.0" y="308.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">Q</text>
+  <circle cx="104.3" cy="50.0" r="4.5" fill="#2f6fdb"/>
+  <text x="104.3" y="40.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">A</text>
+  <circle cx="280.0" cy="151.4" r="4.5" fill="#2f6fdb"/>
+  <text x="294.0" y="151.4" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">C</text>
+</svg>
+      <p>Phần trong góc <span class="m">AMC</span> là phần tô màu. Chỉ có <span class="m">P</span> nằm trong phần này. <span class="m">A</span>, <span class="m">C</span> nằm trên hai cạnh; <span class="m">N</span>, <span class="m">Q</span> nằm ngoài.</p>
+      <a class="xem-lai" href="#kt-diem-trong">📌 Xem lại: điểm trong của góc</a></div>
+    <div class="buoc" data-so="2"><h4>b) Đo góc AMC</h4>
+      <p>Đặt tâm thước tại <span class="m">M</span>, vạch 0 trùng tia <span class="m">MC</span>, đọc ở tia <span class="m">MA</span>: <span class="m">∠AMC</span> = 45°.</p>
+      <p class="vi-sao">Kiểm tra: góc <span class="m">NMQ</span> của hình vuông bằng 90°, gồm ba phần 15°, ? và 30°; 15 + 45 + 30 = 90 — khớp.</p>
+      <a class="xem-lai" href="#kt-hinh">📌 Xem lại: góc của hình vuông</a></div>
+    <div class="buoc" data-so="3"><h4>c) Sắp xếp</h4>
+      <p>15° &lt; 30° &lt; 45°, nên <span class="m">∠NMA &lt; ∠CMQ &lt; ∠AMC</span>.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh góc</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Điểm <span class="m">P</span>. &nbsp; b) <span class="m">∠AMC</span> = 45°. &nbsp; c) <span class="m">∠NMA</span> (15°) &lt; <span class="m">∠CMQ</span> (30°) &lt; <span class="m">∠AMC</span> (45°).</div>
+    <div class="bay">Câu a kể cả <span class="m">A</span> và <span class="m">C</span>. Điểm nằm trên cạnh của góc không phải là điểm trong.</div>
+    <div class="gv-note">Đề yêu cầu đo; đo trên hình SGK (bản scan trang 66) được khoảng 45° – 46°. Phép kiểm tra 90 − 15 − 30 = 45 chỉ dùng để đối chiếu (lớp 6 chưa học cộng góc).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b838" data-ten="Bài 8.38" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.38</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đo góc thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong hình bên, góc <span class="m">xOy</span> là góc nghiêng khi đặt thang. Biết rằng góc nghiêng khi đặt thang đảm bảo an toàn là khoảng 75°, em hãy đo góc <span class="m">xOy</span> để kiểm tra xem chiếc thang ở hình bên đã đảm bảo an toàn hay chưa.</p>
+    <p><i>(Hình: người đứng dưới chân thang dựa vào tường nhà; chân thang tại <span class="m">O</span> trên mặt đất, tia <span class="m">Ox</span> nằm ngang trên mặt đất hướng về tường, tia <span class="m">Oy</span> dọc theo thang.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đo đúng góc tạo bởi mặt đất (<i>Ox</i>) và thân thang (<i>Oy</i>), rồi so với 75°.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt tâm thước tại <span class="m">O</span>, vạch 0 trùng tia <span class="m">Ox</span> (mặt đất), đọc số ở tia <span class="m">Oy</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo góc xOy</h4>
+      <svg viewBox="0 0 260 285" style="max-width:220px" role="img" aria-label="Thang dựa tường, góc nghiêng xOy khoảng 75 độ">
+  <rect x="108.2" y="25" width="60" height="230" fill="#dbe8fb" stroke="#5c6577"/>
+  <line x1="15.0" y1="255.0" x2="250.0" y2="255.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50.0" y1="255.0" x2="108.2" y2="37.7" stroke="#d9822b" stroke-width="5" stroke-linecap="round"/>
+  <line x1="50.0" y1="255.0" x2="108.2" y2="255.0" stroke="#c93c3c" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M84.0,255.0 A34,34 0 0 0 58.8,222.2" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="94.0" y="245.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="middle" fill="#c93c3c">75°</text>
+  <text x="46.0" y="277.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">O</text>
+  <text x="100.2" y="277.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">x</text>
+  <text x="92.2" y="55.7" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#d9822b">y</text>
+</svg>
+      <p>Đo trên hình được <span class="m">∠xOy</span> khoảng 75°.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: đo góc</a></div>
+    <div class="buoc" data-so="2"><h4>Kết luận</h4>
+      <p>Góc nghiêng xấp xỉ 75°, đúng mức an toàn, nên chiếc thang đã được đặt <b>đảm bảo an toàn</b>.</p>
+      <p class="vi-sao">Góc quá nhỏ (thang ngả nhiều) thì chân thang dễ trượt; góc quá lớn (thang gần thẳng đứng) thì dễ ngã ngửa ra sau.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">∠xOy</span> khoảng 75°, nên chiếc thang đã đảm bảo an toàn.</div>
+    <div class="bay">Đo góc giữa thang và <b>tường</b> (khoảng 15°) rồi kết luận không an toàn. Góc nghiêng là góc giữa thang và <b>mặt đất</b>.</div>
+    <div class="gv-note">Hình là ảnh minh hoạ nhỏ, đường <i>Oy</i> vẽ dọc thang; đo trên bản scan (trang 66) được khoảng 71° – 75° tuỳ chọn mép thang. Chấp nhận kết luận “gần 75°, đảm bảo an toàn” nếu HS đo trong khoảng 70° – 80°; nên cho HS đo trên sách in của mình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Chương VIII — Luyện tập chung (sau Bài 37) — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c08-ltc2';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-08-luyen-tap-chung-02-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-08-luyen-tap-chung-02-bai-giai.nguon.html" data-phien-ban="1dab0e92fb63">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

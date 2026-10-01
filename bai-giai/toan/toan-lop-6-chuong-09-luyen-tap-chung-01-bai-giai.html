@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện tập chung (trang 87) — Em sẽ làm gì trong tương lai? — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương IX. Dữ liệu và xác suất thực nghiệm</div>
+    <div class="hang1">
+      <h1>Luyện tập chung (trang 87): Em sẽ làm gì trong tương lai? — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương IX. Dữ liệu và xác suất thực nghiệm</div><h1>Luyện tập chung (trang 87): Em sẽ làm gì trong tương lai? — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 4 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-thu-thap"><b class="ten">Thu thập dữ liệu (Bài 38)</b>
+      Có nhiều cách để <b>thu thập dữ liệu</b> như <i>quan sát</i>, <i>làm thí nghiệm</i>, <i>lập phiếu hỏi</i>,… hay <i>thu thập từ những nguồn có sẵn</i> như sách báo, trang web,…</div>
+    <div class="kt" id="kt-bang"><b class="ten">Bảng thống kê (Bài 39)</b>
+      Đếm số dữ liệu mỗi loại (kiểm đếm bằng gạch) rồi ghi vào bảng — đó là <b>bảng thống kê</b>.</div>
+    <div class="kt" id="kt-cot"><b class="ten">Biểu đồ cột (Bài 40)</b>
+      Với mỗi đối tượng trên trục ngang, vẽ một hình chữ nhật có chiều cao bằng số lượng (chiều rộng các hình chữ nhật bằng nhau); đặt tên biểu đồ, ghi chú thích.</div>
+    <div class="kt" id="kt-kep"><b class="ten">Biểu đồ cột kép (Bài 41)</b>
+      Với mỗi đối tượng, vẽ hai hình chữ nhật cạnh nhau với chiều rộng bằng nhau; tô màu để phân biệt hai nhóm và ghi chú thích. Biểu đồ cột kép giúp nhìn thấy ngay tương quan giữa hai nhóm.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 38 – 41 và Luyện tập chung trang 87 – 88.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="b1" data-ten="Bước 1. Thu thập dữ liệu" data-muc="th" data-chip="Bước 1">
+  <div class="bai-dau"><span class="so">Bước 1. Thu thập dữ liệu</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lập phiếu hỏi</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em sẽ làm gì trong tương lai? Chia lớp thành các nhóm. Mỗi nhóm sẽ thực hiện điều tra độc lập và chia sẻ lại dữ liệu của nhóm mình với các nhóm khác sau khi hoàn thành.</p>
+    <p>❶ Mỗi nhóm lập phiếu hỏi (theo mẫu: Giới tính: Nam ☐ Nữ ☐; Bạn mơ ước sau này trở thành: Bác sĩ ☐ Ca sĩ ☐ … Khác ☐; với mỗi câu hỏi tích ✓ vào một trong các lựa chọn). Em có thể lựa chọn một danh sách công việc khác để phù hợp với các bạn trong lớp mình.</p>
+    <p>❷ Phát phiếu hỏi cho các bạn trong nhóm để thu thập dữ liệu.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phiếu hỏi này hỏi <b>hai</b> điều — vì sao lại cần hỏi cả giới tính?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chọn khoảng 6 – 8 nghề mà các bạn trong lớp hay nhắc đến, và luôn có ô “Khác”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập phiếu hỏi</h4>
+      <div style="border:1.5px solid #5c6577;border-radius:8px;padding:8px 14px;max-width:440px;margin:6px auto">
+        <p style="text-align:center"><b>PHIẾU HỎI</b></p>
+        <p>Giới tính: &nbsp; Nam ☐ &nbsp;&nbsp; Nữ ☐</p>
+        <p>Bạn mơ ước sau này trở thành:</p>
+        <p>Bác sĩ ☐ &nbsp; Ca sĩ ☐ &nbsp; Giáo viên ☐ &nbsp; Lập trình viên ☐</p>
+        <p>Đầu bếp ☐ &nbsp; Hoạ sĩ ☐ &nbsp; Vận động viên ☐ &nbsp; Khác ☐</p>
+        <p><i>(Với mỗi câu hỏi tích ✓ vào một trong các lựa chọn)</i></p>
+      </div>
+      <p class="vi-sao">Hỏi giới tính để sau này vẽ được biểu đồ cột kép so sánh lựa chọn của bạn nam và bạn nữ (Bước 3).</p>
+      <a class="xem-lai" href="#kt-thu-thap">📌 Xem lại: thu thập dữ liệu</a></div>
+    <div class="buoc" data-so="2"><h4>Phát và thu phiếu</h4>
+      <p>Phát mỗi bạn trong nhóm một phiếu, nhắc mỗi câu chỉ tích <b>một</b> ô, rồi thu lại đủ số phiếu.</p>
+      <p class="vi-sao">Đây là cách thu thập dữ liệu bằng <b>lập phiếu hỏi</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Phiếu hỏi gồm hai câu: giới tính (Nam/Nữ) và nghề mơ ước (danh sách nghề + ô “Khác”), mỗi câu tích một ô; phát cho từng bạn trong nhóm rồi thu lại.</div>
+    <div class="bay">Một bạn tích hai nghề — khi tổng hợp sẽ không biết xếp vào đâu. Nhắc rõ “chỉ tích một ô”.</div>
+    <div class="gv-note">Hoạt động dự án, không có đáp số cố định. Chấm theo: phiếu đủ hai câu hỏi, có ô “Khác”, có hướng dẫn tích.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b2" data-ten="Bước 2. Lập bảng thống kê" data-muc="th" data-chip="Bước 2">
+  <div class="bai-dau"><span class="so">Bước 2. Lập bảng thống kê</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lập bảng thống kê</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thu phiếu hỏi trong nhóm và tổng hợp dữ liệu theo mẫu như bảng bên (<i>mỗi gạch ứng với một bạn</i>): bảng có cột “Nghề nghiệp”, “Nam”, “Nữ”; ví dụ dòng Bác sĩ: Nam //, Nữ /.</p>
+    <p>Tổng hợp dữ liệu của các nhóm thành dữ liệu chung của cả lớp.</p>
+    <p>Lập bảng thống kê biểu diễn số lượng nam, nữ yêu thích các nghề nghiệp.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi phiếu cho <b>một</b> gạch, ở đúng dòng nghề và đúng cột Nam hoặc Nữ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi nhóm kiểm đếm bằng gạch; sau đó cộng số bạn của các nhóm ở cùng một ô (cùng nghề, cùng giới tính).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kiểm đếm trong nhóm, cộng cả lớp</h4>
+      <p>Đọc từng phiếu: phiếu “Nam – Bác sĩ” ghi một gạch vào ô (Bác sĩ, Nam)… Xong, đếm số gạch mỗi ô. Cộng kết quả các nhóm ở cùng một ô để được số liệu cả lớp.</p>
+      <p class="vi-sao">Kiểm tra: tổng tất cả các ô phải bằng số phiếu thu được của cả lớp.</p>
+      <a class="xem-lai" href="#kt-bang">📌 Xem lại: bảng thống kê</a></div>
+    <div class="buoc" data-so="2"><h4>Bảng thống kê (ví dụ theo số liệu mẫu của SGK, Hình 9.25)</h4>
+      <table>
+        <tr><th>Nghề nghiệp</th><th>Nam</th><th>Nữ</th><th>Cả lớp</th></tr>
+        <tr><td>Bác sĩ</td><td>2</td><td>2</td><td>4</td></tr>
+        <tr><td>Ca sĩ</td><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>Giáo viên</td><td>0</td><td>3</td><td>3</td></tr>
+        <tr><td>Lập trình viên</td><td>5</td><td>2</td><td>7</td></tr>
+        <tr><td>Đầu bếp</td><td>4</td><td>1</td><td>5</td></tr>
+        <tr><td>Hoạ sĩ</td><td>3</td><td>5</td><td>8</td></tr>
+        <tr><td>Vận động viên</td><td>4</td><td>1</td><td>5</td></tr>
+        <tr><td>Nghề khác</td><td>1</td><td>1</td><td>2</td></tr>
+        <tr style="background:#e6f7f1"><td><b>Tổng</b></td><td><b>20</b></td><td><b>17</b></td><td><b>37</b></td></tr>
+      </table>
+      <p class="vi-sao">Cột “Cả lớp” = Nam + Nữ; nó dùng để vẽ biểu đồ cột ở Bước 3. Lớp em sẽ có số liệu khác.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bảng thống kê có cột Nghề nghiệp – Nam – Nữ, số liệu lấy từ phiếu của cả lớp (tổng các ô bằng số phiếu). Ví dụ theo Hình 9.25: Bác sĩ 2 – 2; Ca sĩ 1 – 2; Giáo viên 0 – 3; Lập trình viên 5 – 2; Đầu bếp 4 – 1; Hoạ sĩ 3 – 5; Vận động viên 4 – 1; Nghề khác 1 – 1.</div>
+    <div class="bay">Cộng số liệu các nhóm nhưng một nhóm dùng danh sách nghề khác — phải thống nhất cùng một danh sách nghề trước khi tổng hợp.</div>
+    <div class="gv-note">Số liệu mẫu đọc từ mô tả Hình 9.25a, 9.25b (hai hình khớp nhau: tổng Nam + Nữ mỗi nghề đúng bằng cột ở Hình 9.25a). Số liệu thật tuỳ lớp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b3" data-ten="Bước 3. Vẽ biểu đồ" data-muc="vd" data-chip="Bước 3">
+  <div class="bai-dau"><span class="so">Bước 3. Vẽ biểu đồ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ biểu đồ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>– Vẽ biểu đồ cột theo mẫu như Hình 9.25a biểu diễn số học sinh theo lựa chọn nghề nghiệp.</p>
+    <p>– Vẽ biểu đồ cột kép theo mẫu Hình 9.25b biểu diễn số học sinh nam, nữ theo lựa chọn nghề nghiệp.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai biểu đồ, hai mục đích: một cho cả lớp, một để so sánh nam với nữ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Biểu đồ cột dùng cột “Cả lớp” của bảng ở Bước 2; biểu đồ cột kép dùng hai cột “Nam” và “Nữ”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Biểu đồ cột (theo số liệu mẫu)</h4>
+      <div style="overflow-x:auto"><svg viewBox="0 0 734 392" style="max-width:720px;min-width:600px" role="img" aria-label="Biểu đồ cột: Bác sĩ 4, Ca sĩ 3, Giáo viên 3, Lập trình viên 7, Đầu bếp 5, Hoạ sĩ 8, Vận động viên 5, Nghề khác 2"><g font-family="Segoe UI,Arial,sans-serif" fill="#1f2430"><text x="12" y="24" text-anchor="start" font-size="19" font-weight="700">Lựa chọn nghề nghiệp tương lai</text><line x1="64" y1="294.0" x2="70" y2="294.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="300.0" text-anchor="end" font-size="17">0</text><line x1="70" y1="268.4" x2="718" y2="268.4" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="268.4" x2="70" y2="268.4" stroke="#5c6577" stroke-width="2"/><text x="60" y="274.4" text-anchor="end" font-size="17">1</text><line x1="70" y1="242.9" x2="718" y2="242.9" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="242.9" x2="70" y2="242.9" stroke="#5c6577" stroke-width="2"/><text x="60" y="248.9" text-anchor="end" font-size="17">2</text><line x1="70" y1="217.3" x2="718" y2="217.3" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="217.3" x2="70" y2="217.3" stroke="#5c6577" stroke-width="2"/><text x="60" y="223.3" text-anchor="end" font-size="17">3</text><line x1="70" y1="191.8" x2="718" y2="191.8" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="191.8" x2="70" y2="191.8" stroke="#5c6577" stroke-width="2"/><text x="60" y="197.8" text-anchor="end" font-size="17">4</text><line x1="70" y1="166.2" x2="718" y2="166.2" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="166.2" x2="70" y2="166.2" stroke="#5c6577" stroke-width="2"/><text x="60" y="172.2" text-anchor="end" font-size="17">5</text><line x1="70" y1="140.7" x2="718" y2="140.7" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="140.7" x2="70" y2="140.7" stroke="#5c6577" stroke-width="2"/><text x="60" y="146.7" text-anchor="end" font-size="17">6</text><line x1="70" y1="115.1" x2="718" y2="115.1" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="115.1" x2="70" y2="115.1" stroke="#5c6577" stroke-width="2"/><text x="60" y="121.1" text-anchor="end" font-size="17">7</text><line x1="70" y1="89.6" x2="718" y2="89.6" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="89.6" x2="70" y2="89.6" stroke="#5c6577" stroke-width="2"/><text x="60" y="95.6" text-anchor="end" font-size="17">8</text><line x1="70" y1="64.0" x2="718" y2="64.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="64.0" x2="70" y2="64.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="70.0" text-anchor="end" font-size="17">9</text><line x1="70" y1="294" x2="70" y2="46" stroke="#5c6577" stroke-width="2"/><polygon points="65,48 70,38 75,48" fill="#5c6577"/><line x1="70" y1="294" x2="724" y2="294" stroke="#5c6577" stroke-width="2"/><polygon points="722,289 732,294 722,299" fill="#5c6577"/><text transform="translate(18 179) rotate(-90)" text-anchor="middle" font-size="17" fill="#5c6577">Số học sinh</text><rect x="88.0" y="191.8" width="44" height="102.2" fill="#e58a1f"/><text x="110.0" y="185.8" text-anchor="middle" font-size="18" font-weight="700">4</text><text x="110.0" y="318" text-anchor="middle" font-size="18">Bác sĩ</text><rect x="168.0" y="217.3" width="44" height="76.7" fill="#e58a1f"/><text x="190.0" y="211.3" text-anchor="middle" font-size="18" font-weight="700">3</text><text x="190.0" y="318" text-anchor="middle" font-size="18">Ca sĩ</text><rect x="248.0" y="217.3" width="44" height="76.7" fill="#e58a1f"/><text x="270.0" y="211.3" text-anchor="middle" font-size="18" font-weight="700">3</text><text x="270.0" y="318" text-anchor="middle" font-size="18">Giáo</text><text x="270.0" y="339" text-anchor="middle" font-size="18">viên</text><rect x="328.0" y="115.1" width="44" height="178.9" fill="#e58a1f"/><text x="350.0" y="109.1" text-anchor="middle" font-size="18" font-weight="700">7</text><text x="350.0" y="318" text-anchor="middle" font-size="18">Lập trình</text><text x="350.0" y="339" text-anchor="middle" font-size="18">viên</text><rect x="408.0" y="166.2" width="44" height="127.8" fill="#e58a1f"/><text x="430.0" y="160.2" text-anchor="middle" font-size="18" font-weight="700">5</text><text x="430.0" y="318" text-anchor="middle" font-size="18">Đầu</text><text x="430.0" y="339" text-anchor="middle" font-size="18">bếp</text><rect x="488.0" y="89.6" width="44" height="204.4" fill="#e58a1f"/><text x="510.0" y="83.6" text-anchor="middle" font-size="18" font-weight="700">8</text><text x="510.0" y="318" text-anchor="middle" font-size="18">Hoạ sĩ</text><rect x="568.0" y="166.2" width="44" height="127.8" fill="#e58a1f"/><text x="590.0" y="160.2" text-anchor="middle" font-size="18" font-weight="700">5</text><text x="590.0" y="318" text-anchor="middle" font-size="18">Vận động</text><text x="590.0" y="339" text-anchor="middle" font-size="18">viên</text><rect x="648.0" y="242.9" width="44" height="51.1" fill="#e58a1f"/><text x="670.0" y="236.9" text-anchor="middle" font-size="18" font-weight="700">2</text><text x="670.0" y="318" text-anchor="middle" font-size="18">Nghề</text><text x="670.0" y="339" text-anchor="middle" font-size="18">khác</text><text x="390.0" y="384" text-anchor="middle" font-size="17" fill="#5c6577" font-style="italic">Nghề nghiệp</text></g></svg></div>
+      <p class="vi-sao">Trục đứng chia vạch 0, 1, 2, …, 9 như Hình 9.25a vì các số đều nhỏ. Trên điện thoại, vuốt ngang để xem hết biểu đồ.</p>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: biểu đồ cột</a></div>
+    <div class="buoc" data-so="2"><h4>Biểu đồ cột kép (theo số liệu mẫu)</h4>
+      <div style="overflow-x:auto"><svg viewBox="0 0 734 408" style="max-width:720px;min-width:600px" role="img" aria-label="Biểu đồ cột kép Nam – Nữ: Bác sĩ 2-2, Ca sĩ 1-2, Giáo viên 0-3, Lập trình viên 5-2, Đầu bếp 4-1, Hoạ sĩ 3-5, Vận động viên 4-1, Nghề khác 1-1"><g font-family="Segoe UI,Arial,sans-serif" fill="#1f2430"><text x="12" y="24" text-anchor="start" font-size="19" font-weight="700">Lựa chọn nghề nghiệp tương lai</text><line x1="64" y1="310.0" x2="70" y2="310.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="316.0" text-anchor="end" font-size="17">0</text><line x1="70" y1="271.7" x2="718" y2="271.7" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="271.7" x2="70" y2="271.7" stroke="#5c6577" stroke-width="2"/><text x="60" y="277.7" text-anchor="end" font-size="17">1</text><line x1="70" y1="233.3" x2="718" y2="233.3" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="233.3" x2="70" y2="233.3" stroke="#5c6577" stroke-width="2"/><text x="60" y="239.3" text-anchor="end" font-size="17">2</text><line x1="70" y1="195.0" x2="718" y2="195.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="195.0" x2="70" y2="195.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="201.0" text-anchor="end" font-size="17">3</text><line x1="70" y1="156.7" x2="718" y2="156.7" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="156.7" x2="70" y2="156.7" stroke="#5c6577" stroke-width="2"/><text x="60" y="162.7" text-anchor="end" font-size="17">4</text><line x1="70" y1="118.3" x2="718" y2="118.3" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="118.3" x2="70" y2="118.3" stroke="#5c6577" stroke-width="2"/><text x="60" y="124.3" text-anchor="end" font-size="17">5</text><line x1="70" y1="80.0" x2="718" y2="80.0" stroke="#dde2ea" stroke-width="1"/><line x1="64" y1="80.0" x2="70" y2="80.0" stroke="#5c6577" stroke-width="2"/><text x="60" y="86.0" text-anchor="end" font-size="17">6</text><line x1="70" y1="310" x2="70" y2="62" stroke="#5c6577" stroke-width="2"/><polygon points="65,64 70,54 75,64" fill="#5c6577"/><line x1="70" y1="310" x2="724" y2="310" stroke="#5c6577" stroke-width="2"/><polygon points="722,305 732,310 722,315" fill="#5c6577"/><text transform="translate(18 195) rotate(-90)" text-anchor="middle" font-size="17" fill="#5c6577">Số học sinh</text><rect x="79.0" y="233.3" width="30" height="76.7" fill="#e0b100"/><text x="94.0" y="228.3" text-anchor="middle" font-size="16" font-weight="700">2</text><rect x="111.0" y="233.3" width="30" height="76.7" fill="#2f9fd0"/><text x="126.0" y="228.3" text-anchor="middle" font-size="16" font-weight="700">2</text><text x="110.0" y="334" text-anchor="middle" font-size="18">Bác sĩ</text><rect x="159.0" y="271.7" width="30" height="38.3" fill="#e0b100"/><text x="174.0" y="266.7" text-anchor="middle" font-size="16" font-weight="700">1</text><rect x="191.0" y="233.3" width="30" height="76.7" fill="#2f9fd0"/><text x="206.0" y="228.3" text-anchor="middle" font-size="16" font-weight="700">2</text><text x="190.0" y="334" text-anchor="middle" font-size="18">Ca sĩ</text><rect x="239.0" y="310.0" width="30" height="0.0" fill="#e0b100"/><text x="254.0" y="305.0" text-anchor="middle" font-size="16" font-weight="700">0</text><rect x="271.0" y="195.0" width="30" height="115.0" fill="#2f9fd0"/><text x="286.0" y="190.0" text-anchor="middle" font-size="16" font-weight="700">3</text><text x="270.0" y="334" text-anchor="middle" font-size="18">Giáo</text><text x="270.0" y="355" text-anchor="middle" font-size="18">viên</text><rect x="319.0" y="118.3" width="30" height="191.7" fill="#e0b100"/><text x="334.0" y="113.3" text-anchor="middle" font-size="16" font-weight="700">5</text><rect x="351.0" y="233.3" width="30" height="76.7" fill="#2f9fd0"/><text x="366.0" y="228.3" text-anchor="middle" font-size="16" font-weight="700">2</text><text x="350.0" y="334" text-anchor="middle" font-size="18">Lập trình</text><text x="350.0" y="355" text-anchor="middle" font-size="18">viên</text><rect x="399.0" y="156.7" width="30" height="153.3" fill="#e0b100"/><text x="414.0" y="151.7" text-anchor="middle" font-size="16" font-weight="700">4</text><rect x="431.0" y="271.7" width="30" height="38.3" fill="#2f9fd0"/><text x="446.0" y="266.7" text-anchor="middle" font-size="16" font-weight="700">1</text><text x="430.0" y="334" text-anchor="middle" font-size="18">Đầu</text><text x="430.0" y="355" text-anchor="middle" font-size="18">bếp</text><rect x="479.0" y="195.0" width="30" height="115.0" fill="#e0b100"/><text x="494.0" y="190.0" text-anchor="middle" font-size="16" font-weight="700">3</text><rect x="511.0" y="118.3" width="30" height="191.7" fill="#2f9fd0"/><text x="526.0" y="113.3" text-anchor="middle" font-size="16" font-weight="700">5</text><text x="510.0" y="334" text-anchor="middle" font-size="18">Hoạ sĩ</text><rect x="559.0" y="156.7" width="30" height="153.3" fill="#e0b100"/><text x="574.0" y="151.7" text-anchor="middle" font-size="16" font-weight="700">4</text><rect x="591.0" y="271.7" width="30" height="38.3" fill="#2f9fd0"/><text x="606.0" y="266.7" text-anchor="middle" font-size="16" font-weight="700">1</text><text x="590.0" y="334" text-anchor="middle" font-size="18">Vận động</text><text x="590.0" y="355" text-anchor="middle" font-size="18">viên</text><rect x="639.0" y="271.7" width="30" height="38.3" fill="#e0b100"/><text x="654.0" y="266.7" text-anchor="middle" font-size="16" font-weight="700">1</text><rect x="671.0" y="271.7" width="30" height="38.3" fill="#2f9fd0"/><text x="686.0" y="266.7" text-anchor="middle" font-size="16" font-weight="700">1</text><text x="670.0" y="334" text-anchor="middle" font-size="18">Nghề</text><text x="670.0" y="355" text-anchor="middle" font-size="18">khác</text><text x="390.0" y="400" text-anchor="middle" font-size="17" fill="#5c6577" font-style="italic">Nghề nghiệp</text><rect x="136.0" y="34" width="15" height="15" fill="#2f9fd0"/><text x="156.0" y="47" font-size="16">Nữ</text><rect x="70.0" y="34" width="15" height="15" fill="#e0b100"/><text x="90.0" y="47" font-size="16">Nam</text></g></svg></div>
+      <p class="vi-sao">Giáo viên: Nam bằng 0 nên chỉ có cột Nữ (vẫn ghi số 0 ở chỗ cột Nam). Mỗi cặp cột: vàng (Nam) bên trái, xanh (Nữ) bên phải.</p>
+      <a class="xem-lai" href="#kt-kep">📌 Xem lại: biểu đồ cột kép</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Biểu đồ cột: trục ngang các nghề, chiều cao cột = số học sinh cả lớp chọn nghề đó. Biểu đồ cột kép: mỗi nghề hai cột Nam – Nữ, có chú thích màu. (Ví dụ theo Hình 9.25: cột 4, 3, 3, 7, 5, 8, 5, 2; cặp cột 2–2, 1–2, 0–3, 5–2, 4–1, 3–5, 4–1, 1–1.)</div>
+    <div class="bay">Vẽ biểu đồ cột kép nhưng quên chú thích màu — không biết cột nào là Nam, cột nào là Nữ.</div>
+    <div class="gv-note">Biểu đồ vẽ theo số liệu mẫu để HS đối chiếu với Hình 9.25; biểu đồ của lớp phải dùng số liệu lớp mình. Có thể cho HS vẽ bằng Excel (Hoạt động thực hành trải nghiệm).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="c1" data-ten="Bước 4 – Câu 1" data-muc="th" data-chip="Câu 1">
+  <div class="bai-dau"><span class="so">Bước 4 – Câu 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân tích dữ liệu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trả lời các câu hỏi sau dựa trên dữ liệu và các biểu đồ thu được.</p>
+    <p>1. Công việc nào được nhiều bạn lựa chọn nhất? Nhiều bạn nam lựa chọn nhất? Nhiều bạn nữ lựa chọn nhất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba câu hỏi nhỏ — mỗi câu nhìn vào một loại cột khác nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> “Nhiều bạn nhất” → cột cao nhất ở biểu đồ cột. “Nam nhiều nhất” → cột vàng cao nhất ở biểu đồ cột kép; “Nữ nhiều nhất” → cột xanh cao nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc ba cột cao nhất (số liệu mẫu)</h4>
+      <p>• Cả lớp: cột cao nhất là <b>Hoạ sĩ</b> (8 bạn).</p>
+      <p>• Bạn nam: cột vàng cao nhất là <b>Lập trình viên</b> (5 bạn).</p>
+      <p>• Bạn nữ: cột xanh cao nhất là <b>Hoạ sĩ</b> (5 bạn).</p>
+      <p class="vi-sao">Ba câu hỏi dùng ba dãy số khác nhau: cả lớp, chỉ nam, chỉ nữ. Nghề được cả lớp chọn nhiều nhất chưa chắc là nghề được nam chọn nhiều nhất.</p>
+      <a class="xem-lai" href="#kt-kep">📌 Xem lại: biểu đồ cột kép</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ dữ liệu lớp em. Theo số liệu mẫu (Hình 9.25): cả lớp chọn nhiều nhất là Hoạ sĩ (8); nam chọn nhiều nhất là Lập trình viên (5); nữ chọn nhiều nhất là Hoạ sĩ (5).</div>
+    <div class="bay">Trả lời “Lập trình viên” cho câu cả lớp vì cột Nam của nó cao nhất. Cả lớp phải xét tổng Nam + Nữ: Hoạ sĩ 8 &gt; Lập trình viên 7.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="c2" data-ten="Bước 4 – Câu 2" data-muc="th" data-chip="Câu 2">
+  <div class="bai-dau"><span class="so">Bước 4 – Câu 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân tích dữ liệu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>2. Các bạn nam có xu hướng chọn những công việc nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Xu hướng” — nhìn những cột vàng cao hơn hẳn các cột vàng khác.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xếp các cột vàng (Nam) từ cao xuống thấp, chọn những nghề đứng đầu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp các cột Nam (số liệu mẫu)</h4>
+      <p>Lập trình viên 5; Đầu bếp 4; Vận động viên 4; Hoạ sĩ 3; Bác sĩ 2; Ca sĩ 1; Nghề khác 1; Giáo viên 0.</p>
+      <p>→ Các bạn nam có xu hướng chọn <b>Lập trình viên, Đầu bếp, Vận động viên</b>.</p>
+      <p class="vi-sao">Ba nghề này chiếm 5 + 4 + 4 = 13 trong 20 bạn nam — hơn một nửa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ dữ liệu lớp em. Theo số liệu mẫu: các bạn nam có xu hướng chọn Lập trình viên, Đầu bếp, Vận động viên (không bạn nam nào chọn Giáo viên).</div>
+    <div class="bay">Chỉ nêu một nghề. “Xu hướng” là nhóm những nghề được chọn nhiều, có thể nêu hai, ba nghề.</div>
+    <div class="gv-note">Câu mở: chấp nhận cách nêu 2 – 3 nghề có cột Nam cao nhất. Có thể trao đổi thêm với HS: mọi nghề đều phù hợp với cả nam và nữ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="c3" data-ten="Bước 4 – Câu 3" data-muc="th" data-chip="Câu 3">
+  <div class="bai-dau"><span class="so">Bước 4 – Câu 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân tích dữ liệu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>3. Các bạn nữ có xu hướng chọn những công việc nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Làm giống câu 2, nhưng với các cột xanh (Nữ).</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xếp các cột xanh (Nữ) từ cao xuống thấp.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp các cột Nữ (số liệu mẫu)</h4>
+      <p>Hoạ sĩ 5; Giáo viên 3; Bác sĩ 2; Ca sĩ 2; Lập trình viên 2; Đầu bếp 1; Vận động viên 1; Nghề khác 1.</p>
+      <p>→ Các bạn nữ có xu hướng chọn <b>Hoạ sĩ, Giáo viên</b>.</p>
+      <p class="vi-sao">Đây là hai nghề duy nhất có cột Nữ cao hơn hẳn các nghề khác; ở Giáo viên, cột Nữ (3) còn cao hơn cột Nam (0).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ dữ liệu lớp em. Theo số liệu mẫu: các bạn nữ có xu hướng chọn Hoạ sĩ, Giáo viên.</div>
+    <div class="bay">So cột Nữ với cột Nam rồi kết luận “nữ chọn Giáo viên vì nam không chọn” — câu hỏi là nghề nào được <b>nhiều bạn nữ</b> chọn, nên phải xếp các cột Nữ với nhau.</div>
+    <div class="gv-note">Chấp nhận các câu trả lời hợp lí theo dữ liệu (ví dụ thêm Bác sĩ, Ca sĩ, Lập trình viên cùng 2 bạn).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Luyện tập chung (trang 87 – 88), Chương IX — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c09-ltc1';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-09-luyen-tap-chung-01-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-09-luyen-tap-chung-01-bai-giai.nguon.html" data-phien-ban="e218a8daa1d7">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

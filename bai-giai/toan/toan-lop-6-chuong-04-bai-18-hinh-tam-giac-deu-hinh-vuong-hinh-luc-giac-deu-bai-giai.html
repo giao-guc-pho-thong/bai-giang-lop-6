@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 18. Hình tam giác đều. Hình vuông. Hình lục giác đều — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương IV. Một số hình phẳng trong thực tiễn</div>
+    <div class="hang1">
+      <h1>Bài 18. Hình tam giác đều. Hình vuông. Hình lục giác đều — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương IV. Một số hình phẳng trong thực tiễn</div><h1>Bài 18. Hình tam giác đều. Hình vuông. Hình lục giác đều — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 6 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-tgd"><b class="ten">Tam giác đều</b>
+      Trong tam giác đều: Ba cạnh bằng nhau. Ba góc bằng nhau và bằng 60°.</div>
+    <div class="kt" id="kt-ve-tg"><b class="ten">Vẽ tam giác đều ABC cạnh 3 cm (Thực hành 1)</b>
+      Bước 1. Vẽ đoạn thẳng <span class="m">AB</span> = 3 cm. Bước 2. Dùng ê ke có góc 60° vẽ góc <span class="m">BAx</span> bằng 60°. Bước 3. Vẽ góc <span class="m">ABy</span> bằng 60°. Ta thấy <span class="m">Ax</span> và <span class="m">By</span> cắt nhau tại <span class="m">C</span>, ta được tam giác đều <span class="m">ABC</span>.</div>
+    <div class="kt" id="kt-hv"><b class="ten">Hình vuông</b>
+      Trong hình vuông: Bốn cạnh bằng nhau. Bốn góc bằng nhau và bằng 90°. Hai đường chéo bằng nhau.</div>
+    <div class="kt" id="kt-ve-hv"><b class="ten">Vẽ hình vuông ABCD cạnh 4 cm (Thực hành 2)</b>
+      Bước 1. Vẽ đoạn thẳng <span class="m">AB</span> = 4 cm. Bước 2. Vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">A</span>. Xác định điểm <span class="m">D</span> trên đường thẳng đó sao cho <span class="m">AD</span> = 4 cm. Bước 3. Vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">B</span>. Xác định điểm <span class="m">C</span> trên đường thẳng đó sao cho <span class="m">BC</span> = 4 cm. Bước 4. Nối <span class="m">C</span> với <span class="m">D</span> ta được hình vuông <span class="m">ABCD</span>.</div>
+    <div class="kt" id="kt-lgd"><b class="ten">Hình lục giác đều</b>
+      Hình lục giác đều có: Sáu cạnh bằng nhau. Sáu góc bằng nhau, mỗi góc bằng 120°. Ba đường chéo chính bằng nhau.</div>
+    <div class="kt" id="kt-cheo-phu"><b class="ten">Đường chéo phụ (lời Pi)</b>
+      <span class="m">AC</span>, <span class="m">BD</span>, <span class="m">CE</span>, <span class="m">DF</span>, <span class="m">EA</span>, <span class="m">FB</span> còn gọi là <i>đường chéo phụ</i> của hình lục giác đều <span class="m">ABCDEF</span>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 18. Hình tam giác đều. Hình vuông. Hình lục giác đều.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhận dạng hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các hình dưới đây (H.4.1), hình nào là tam giác đều?</p>
+    <p><i>Hình 4.1: a) tam giác màu vàng có một góc tù; b) tam giác màu xanh lá có ba cạnh bằng nhau; c) tam giác màu xanh dương dẹt, các cạnh không bằng nhau.</i></p>
+    <p>Em hãy tìm một số hình ảnh hình tam giác đều trong thực tế.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tam giác “đều” là đều ở chỗ nào — cạnh hay góc?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tam giác đều có ba cạnh bằng nhau. Xem tam giác nào có đủ điều đó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét từng hình</h4>
+      <p>a) Có một góc tù — ba góc không bằng nhau nên <b>không</b> là tam giác đều.</p>
+      <p>b) Ba cạnh bằng nhau — <b>là</b> tam giác đều.</p>
+      <p>c) Dẹt, các cạnh không bằng nhau — <b>không</b> là tam giác đều.</p>
+      <p class="vi-sao">Tam giác đều có ba cạnh bằng nhau và ba góc đều bằng 60°. Một góc tù (lớn hơn góc vuông) thì không thể bằng 60°.</p>
+      <a class="xem-lai" href="#kt-tgd">📌 Xem lại: tam giác đều</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm hình ảnh trong thực tế</h4>
+      <p>Ví dụ: biển báo giao thông hình tam giác (biển báo nguy hiểm), kệ gỗ treo tường hình tam giác đều, giá để bi-a (khung xếp bóng), miếng bánh sandwich cắt chéo đều, mái nhà có dạng tam giác đều…</p>
+      <p class="vi-sao">Muốn chắc là “đều”, em có thể đo ba cạnh xem có bằng nhau không.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình b) là tam giác đều. Ví dụ trong thực tế: biển báo giao thông hình tam giác, kệ gỗ treo tường hình tam giác đều, khung xếp bóng bi-a.</div>
+    <div class="bay">Chọn cả hình a) vì “trông cũng là tam giác”. Mọi hình đều là tam giác, nhưng chỉ tam giác có <b>ba cạnh bằng nhau</b> mới là tam giác đều.</div>
+    <div class="gv-note">Phần tìm hình ảnh thực tế là câu mở — chấp nhận mọi ví dụ hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Yếu tố của hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho tam giác đều <span class="m">ABC</span> như Hình 4.2.</p>
+    <p>❶ Gọi tên các đỉnh, cạnh, góc của tam giác đều <span class="m">ABC</span>.</p>
+    <p>❷ Dùng thước thẳng để đo và so sánh các cạnh của tam giác <span class="m">ABC</span>.</p>
+    <p>❸ Sử dụng thước đo góc để đo và so sánh các góc của tam giác <span class="m">ABC</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba đỉnh, ba cạnh, ba góc — gọi tên đủ cả ba nhóm nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cạnh là đoạn thẳng nối hai đỉnh; góc được gọi theo tên đỉnh của nó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên đỉnh, cạnh, góc</h4>
+      <svg viewBox="-31.8 -168.9 213.6 210.6" style="max-width:214px" role="img" aria-label="Tam giác đều ABC cạnh 3 cm, ba góc 60 độ"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 150,0 75,-129.9" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><line x1="75" y1="6" x2="75" y2="-6" stroke="#2f6fdb" stroke-width="1.6"/><line x1="117.7" y1="-68" x2="107.3" y2="-62" stroke="#2f6fdb" stroke-width="1.6"/><line x1="32.3" y1="-68" x2="42.7" y2="-62" stroke="#2f6fdb" stroke-width="1.6"/><path d="M18,0 A18,18 0 0 0 9,-15.6" fill="none" stroke="#1f2430" stroke-width="1.6"/><text x="29.4" y="-12.5" text-anchor="middle" fill="#1f2430" font-size="13">60°</text><path d="M141,-15.6 A18,18 0 0 0 132,0" fill="none" stroke="#1f2430" stroke-width="1.6"/><text x="120.6" y="-12.4" text-anchor="middle" fill="#1f2430" font-size="13">60°</text><path d="M67,-116 A16,16 0 0 0 83,-116" fill="none" stroke="#1f2430" stroke-width="1.6"/><text x="75" y="-94.4" text-anchor="middle" fill="#1f2430" font-size="13">60°</text><text x="-13" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="163" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="75" y="-138.9" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="75" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">3 cm</text></g></svg>
+      <p>Các đỉnh: <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>.</p>
+      <p>Các cạnh: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CA</span>.</p>
+      <p>Các góc: góc <span class="m">A</span>, góc <span class="m">B</span>, góc <span class="m">C</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Đo cạnh và đo góc</h4>
+      <p>Đo bằng thước thẳng: <span class="m">AB = BC = CA</span> — ba cạnh bằng nhau.</p>
+      <p>Đo bằng thước đo góc: góc <span class="m">A</span> = góc <span class="m">B</span> = góc <span class="m">C</span> = 60° — ba góc bằng nhau.</p>
+      <p class="vi-sao">Đây chính là hai đặc điểm của tam giác đều mà SGK rút ra trong phần Nhận xét.</p>
+      <a class="xem-lai" href="#kt-tgd">📌 Xem lại: tam giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ Đỉnh: <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>; cạnh: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CA</span>; góc: góc <span class="m">A</span>, góc <span class="m">B</span>, góc <span class="m">C</span>. ❷ Ba cạnh bằng nhau: <span class="m">AB = BC = CA</span>. ❸ Ba góc bằng nhau, mỗi góc bằng 60°.</div>
+    <div class="bay">Đọc số đo góc ở thang đo sai, ra 120°. Góc của tam giác đều là góc nhọn, nên số đo phải nhỏ hơn 90°.</div>
+    <div class="gv-note">Độ dài cạnh đo được tuỳ theo kích thước hình in trong sách; điều cần chấm là kết luận “bằng nhau”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="th1" data-ten="Thực hành 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Thực hành 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vẽ hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Vẽ tam giác đều <span class="m">ABC</span> cạnh 3 cm theo hướng dẫn sau:</p>
+    <p>Bước 1. Vẽ đoạn thẳng <span class="m">AB</span> = 3 cm.</p>
+    <p>Bước 2. Dùng ê ke có góc 60° vẽ góc <span class="m">BAx</span> bằng 60°.</p>
+    <p>Bước 3. Vẽ góc <span class="m">ABy</span> bằng 60°. Ta thấy <span class="m">Ax</span> và <span class="m">By</span> cắt nhau tại <span class="m">C</span>, ta được tam giác đều <span class="m">ABC</span>.</p>
+    <p>❷ Em hãy kiểm tra lại hình vừa vẽ, xem các cạnh của tam giác <span class="m">ABC</span> có bằng nhau không? Các góc có bằng nhau không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai góc 60° ở hai đầu đoạn <i>AB</i> sẽ “gặp nhau” ở đâu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt đỉnh góc 60° của ê ke trùng với <span class="m">A</span>, một cạnh ê ke nằm dọc theo <span class="m">AB</span>; kẻ theo cạnh còn lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ theo ba bước</h4>
+      <p>① Đặt thước, vạch 0 trùng điểm <span class="m">A</span>, kẻ đến vạch 3 cm, được <span class="m">AB</span> = 3 cm.</p>
+      <p>② Đặt ê ke sao cho đỉnh góc 60° trùng <span class="m">A</span>, một cạnh của góc 60° nằm dọc theo <span class="m">AB</span>; kẻ tia <span class="m">Ax</span> theo cạnh còn lại của góc đó.</p>
+      <p>③ Làm tương tự tại <span class="m">B</span> (quay ê ke lại), kẻ tia <span class="m">By</span>. Hai tia cắt nhau tại <span class="m">C</span>.</p>
+      <svg viewBox="-31.8 -203.3 213.6 245" style="max-width:214px" role="img" aria-label="Tam giác đều ABC cạnh 3 cm, vẽ bằng ê ke: góc BAx và góc ABy bằng 60 độ, hai tia cắt nhau tại C"><g font-family="Segoe UI,Arial,sans-serif"><line x1="75" y1="-129.9" x2="97.5" y2="-168.9" stroke="#9aa3b5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="5 4"/><line x1="75" y1="-129.9" x2="52.5" y2="-168.9" stroke="#9aa3b5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="5 4"/><polygon points="0,0 150,0 75,-129.9" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><path d="M20,0 A20,20 0 0 0 10,-17.3" fill="none" stroke="#0f8a68" stroke-width="1.6"/><text x="31.2" y="-13.5" text-anchor="middle" fill="#0f8a68" font-size="13">60°</text><path d="M140,-17.3 A20,20 0 0 0 130,0" fill="none" stroke="#0f8a68" stroke-width="1.6"/><text x="118.8" y="-13.4" text-anchor="middle" fill="#0f8a68" font-size="13">60°</text><text x="-13" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="163" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="75" y="-137.9" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="91.5" y="-173.3" text-anchor="middle" fill="#9aa3b5" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">x</text><text x="58.5" y="-173.3" text-anchor="middle" fill="#9aa3b5" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">y</text><text x="75" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">3 cm</text></g></svg>
+      <p class="vi-sao">Hai tia đều nghiêng 60° về phía nhau nên chắc chắn gặp nhau, và điểm gặp nhau tạo ra tam giác có ba góc 60°.</p>
+      <a class="xem-lai" href="#kt-ve-tg">📌 Xem lại: các bước vẽ tam giác đều</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra lại</h4>
+      <p>Đo <span class="m">AC</span> và <span class="m">BC</span>: đều bằng 3 cm, tức là <span class="m">AB = BC = CA</span> = 3 cm. Đo góc <span class="m">C</span>: được 60°, nên ba góc bằng nhau.</p>
+      <p class="vi-sao">Nếu đo ra lệch vài mi-li-mét, hãy xem lại chỗ đặt ê ke — sai số nhỏ do bút chì và thước là bình thường.</p>
+      <a class="xem-lai" href="#kt-tgd">📌 Xem lại: tam giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ Tam giác đều <span class="m">ABC</span> có <span class="m">AB</span> = 3 cm, góc <span class="m">A</span> = góc <span class="m">B</span> = 60°. ❷ Có: ba cạnh bằng nhau (cùng bằng 3 cm), ba góc bằng nhau (cùng bằng 60°).</div>
+    <div class="bay">Vẽ góc 60° ở <span class="m">A</span> nhưng ở <span class="m">B</span> lại đặt ê ke ra phía ngoài, khiến hai tia không gặp nhau. Hai tia phải cùng nằm về <b>một phía</b> của <span class="m">AB</span>.</div>
+    <div class="gv-note">Câu hỏi của Vuông (“cách khác?”): vẽ <span class="m">AB</span> = 3 cm, rồi dùng compa vẽ hai cung tròn bán kính 3 cm tâm <span class="m">A</span> và tâm <span class="m">B</span>; giao điểm của hai cung là <span class="m">C</span>. Có thể giới thiệu ở mức thao tác, không yêu cầu giải thích.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hình trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy tìm một số hình ảnh của hình vuông trong thực tế.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn quanh lớp học: ô gạch, ô cửa, mặt bàn cờ…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm những vật có bốn cạnh bằng nhau và bốn góc vuông.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể vài ví dụ</h4>
+      <p>Các ô trên bàn cờ vua, viên gạch lát nền hình vuông, khăn mùi xoa, mặt của khối ru-bích, tờ giấy gấp origami, ô cửa sổ hình vuông…</p>
+      <p class="vi-sao">Muốn chắc là hình vuông, em đo xem bốn cạnh có bằng nhau và bốn góc có vuông không (dùng ê ke).</p>
+      <a class="xem-lai" href="#kt-hv">📌 Xem lại: hình vuông</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: ô bàn cờ vua, viên gạch lát nền hình vuông, khăn mùi xoa, mặt khối ru-bích.</div>
+    <div class="bay">Kể cả cánh cửa ra vào hay quyển vở — đó là hình chữ nhật (hai cạnh kề không bằng nhau), không phải hình vuông.</div>
+    <div class="gv-note">Câu mở — chấp nhận mọi ví dụ có bốn cạnh bằng nhau, bốn góc vuông.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Yếu tố của hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát Hình 4.3a (<i>hình vuông có chú thích: đỉnh, cạnh, đường chéo, góc</i>).</p>
+    <p>❶ Nêu tên các đỉnh, cạnh, đường chéo của hình vuông <span class="m">ABCD</span> (H.4.3b).</p>
+    <p>❷ Dùng thước thẳng đo và so sánh độ dài các cạnh của hình vuông; hai đường chéo của hình vuông.</p>
+    <p>❸ Dùng thước đo góc để đo và so sánh các góc của hình vuông.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình vuông có mấy đường chéo? Chúng nối những đỉnh nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đường chéo nối hai đỉnh <b>không</b> kề nhau (đối diện nhau).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên các yếu tố</h4>
+      <svg viewBox="-29.4 -194.6 218.8 236.3" style="max-width:219px" role="img" aria-label="Hình vuông ABCD cạnh 4 cm, bốn góc vuông"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 160,0 160,-160 0,-160" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><line x1="80" y1="6" x2="80" y2="-6" stroke="#2f6fdb" stroke-width="1.6"/><line x1="166" y1="-80" x2="154" y2="-80" stroke="#2f6fdb" stroke-width="1.6"/><line x1="80" y1="-166" x2="80" y2="-154" stroke="#2f6fdb" stroke-width="1.6"/><line x1="-6" y1="-80" x2="6" y2="-80" stroke="#2f6fdb" stroke-width="1.6"/><polyline points="9,0 9,-9 0,-9" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="160,-9 151,-9 151,0" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="151,-160 151,-151 160,-151" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="0,-151 9,-151 9,-160" fill="none" stroke="#1f2430" stroke-width="1.5"/><text x="-10.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="170.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="170.6" y="-164.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="-10.6" y="-164.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="80" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">4 cm</text></g></svg>
+      <p>Đỉnh: <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>. Cạnh: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CD</span>, <span class="m">DA</span>. Đường chéo: <span class="m">AC</span>, <span class="m">BD</span>.</p>
+      <p class="vi-sao"><span class="m">AB</span> nối hai đỉnh kề nhau nên là cạnh; <span class="m">AC</span> nối hai đỉnh đối diện nên là đường chéo.</p></div>
+    <div class="buoc" data-so="2"><h4>Đo và so sánh</h4>
+      <p>Bốn cạnh bằng nhau: <span class="m">AB = BC = CD = DA</span>. Hai đường chéo bằng nhau: <span class="m">AC = BD</span>.</p>
+      <p>Bốn góc đều đo được 90° (góc vuông), nên bằng nhau.</p>
+      <a class="xem-lai" href="#kt-hv">📌 Xem lại: hình vuông</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ Đỉnh <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>; cạnh <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CD</span>, <span class="m">DA</span>; đường chéo <span class="m">AC</span>, <span class="m">BD</span>. ❷ Bốn cạnh bằng nhau; hai đường chéo bằng nhau. ❸ Bốn góc bằng nhau và bằng 90°.</div>
+    <div class="bay">Kể <span class="m">AC</span> là một cạnh. Cạnh chỉ nối hai đỉnh <b>liền nhau</b> khi đi vòng quanh hình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="th2" data-ten="Thực hành 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Thực hành 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vẽ, gấp, cắt hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Vẽ hình vuông <span class="m">ABCD</span> có cạnh 4 cm theo hướng dẫn sau:</p>
+    <p>Bước 1. Vẽ đoạn thẳng <span class="m">AB</span> = 4 cm.</p>
+    <p>Bước 2. Vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">A</span>. Xác định điểm <span class="m">D</span> trên đường thẳng đó sao cho <span class="m">AD</span> = 4 cm.</p>
+    <p>Bước 3. Vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">B</span>. Xác định điểm <span class="m">C</span> trên đường thẳng đó sao cho <span class="m">BC</span> = 4 cm.</p>
+    <p>Bước 4. Nối <span class="m">C</span> với <span class="m">D</span> ta được hình vuông <span class="m">ABCD</span>.</p>
+    <p>❷ Em hãy kiểm tra lại hình vừa vẽ, xem các cạnh có bằng nhau không? Các góc có bằng nhau không?</p>
+    <p>❸ a) Hãy gấp và cắt một hình vuông từ tờ giấy hình chữ nhật như hình bên.</p>
+    <p>b) Cắt hình vuông đó theo hai đường chéo thành bốn phần rồi ghép thành hai hình vuông.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình vuông cần góc vuông ở mỗi đỉnh — dụng cụ nào tạo được góc vuông?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng góc vuông của ê ke để kẻ đường vuông góc với <span class="m">AB</span>. Câu ❸b: bốn mảnh là bốn tam giác giống hệt nhau — thử ghép từng đôi theo cạnh dài nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶ Vẽ hình vuông cạnh 4 cm</h4>
+      <p>Kẻ <span class="m">AB</span> = 4 cm. Đặt ê ke sao cho đỉnh góc vuông trùng <span class="m">A</span>, một cạnh góc vuông nằm dọc <span class="m">AB</span>; kẻ theo cạnh góc vuông kia và lấy <span class="m">D</span> sao cho <span class="m">AD</span> = 4 cm. Làm tương tự tại <span class="m">B</span>, lấy <span class="m">C</span> sao cho <span class="m">BC</span> = 4 cm (cùng phía với <span class="m">D</span>). Nối <span class="m">C</span> với <span class="m">D</span>.</p>
+      <svg viewBox="-29.4 -194.6 218.8 236.3" style="max-width:219px" role="img" aria-label="Hình vuông ABCD cạnh 4 cm, bốn góc vuông"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 160,0 160,-160 0,-160" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><line x1="80" y1="6" x2="80" y2="-6" stroke="#2f6fdb" stroke-width="1.6"/><line x1="166" y1="-80" x2="154" y2="-80" stroke="#2f6fdb" stroke-width="1.6"/><line x1="80" y1="-166" x2="80" y2="-154" stroke="#2f6fdb" stroke-width="1.6"/><line x1="-6" y1="-80" x2="6" y2="-80" stroke="#2f6fdb" stroke-width="1.6"/><polyline points="9,0 9,-9 0,-9" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="160,-9 151,-9 151,0" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="151,-160 151,-151 160,-151" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="0,-151 9,-151 9,-160" fill="none" stroke="#1f2430" stroke-width="1.5"/><text x="-10.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="170.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="170.6" y="-164.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="-10.6" y="-164.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="80" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">4 cm</text></g></svg>
+      <a class="xem-lai" href="#kt-ve-hv">📌 Xem lại: các bước vẽ hình vuông</a></div>
+    <div class="buoc" data-so="2"><h4>❷ Kiểm tra</h4>
+      <p>Đo <span class="m">CD</span>: được 4 cm, nên bốn cạnh đều bằng 4 cm. Dùng ê ke kiểm tra góc <span class="m">C</span> và góc <span class="m">D</span>: đều vuông, nên bốn góc bằng nhau (cùng 90°).</p>
+      <p class="vi-sao">Ta chỉ tự tay tạo ra ba cạnh và hai góc vuông; cạnh <span class="m">CD</span> và hai góc còn lại “tự đúng” — kiểm tra là để thấy điều đó.</p>
+      <a class="xem-lai" href="#kt-hv">📌 Xem lại: hình vuông</a></div>
+    <div class="buoc" data-so="3"><h4>❸a Gấp, cắt hình vuông từ giấy chữ nhật</h4>
+      <p>Gấp một góc của tờ giấy theo nếp chéo sao cho cạnh ngắn nằm khít lên cạnh dài. Phần giấy thừa ra (một dải hình chữ nhật) cắt bỏ. Mở nếp gấp ra, ta được hình vuông.</p>
+      <svg viewBox="-14 -134 208 148" style="max-width:208px" role="img" aria-label="Tờ giấy hình chữ nhật: gấp một góc theo nếp chéo để cạnh ngắn nằm trên cạnh dài, cắt bỏ dải thừa, được hình vuông"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 180,0 180,-120 0,-120" fill="#fff" stroke="#9aa3b5" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="5 4"/><polygon points="0,0 120,0 120,-120 0,-120" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><polygon points="120,0 180,0 180,-120 120,-120" fill="#fdeceb" stroke="#c93c3c" stroke-width="1.5" stroke-linejoin="round"/><line x1="0" y1="0" x2="120" y2="-120" stroke="#0f8a68" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/><text x="150" y="-62" text-anchor="middle" fill="#c93c3c" font-size="13">phần</text><text x="150" y="-46" text-anchor="middle" fill="#c93c3c" font-size="13">cắt bỏ</text><text x="60" y="-36" text-anchor="middle" fill="#2f6fdb" font-size="13" font-weight="700">hình vuông</text><text x="70" y="-87" text-anchor="end" fill="#0f8a68" font-size="13">nếp gấp</text></g></svg>
+      <p class="vi-sao">Khi gấp, cạnh ngắn chồng khít lên một đoạn của cạnh dài, nên hai cạnh kề của phần giữ lại bằng nhau — và góc ở đó vốn là góc vuông của tờ giấy.</p></div>
+    <div class="buoc" data-so="4"><h4>❸b Cắt theo hai đường chéo, ghép hai hình vuông</h4>
+      <p>Cắt theo hai đường chéo được bốn tam giác giống nhau (1, 2, 3, 4). Ghép tam giác 1 với tam giác 3 theo cạnh dài nhất (vốn là cạnh của hình vuông lớn) được một hình vuông nhỏ; ghép 2 với 4 được hình vuông nhỏ thứ hai.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin:6px 0"><svg viewBox="-14 -106 120 120" style="width:120px;max-width:100%;margin:0" role="img" aria-label="Hình vuông cắt theo hai đường chéo thành bốn tam giác 1, 2, 3, 4"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 92,0 46,-46" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="46" y="-10.3" text-anchor="middle" fill="#2f6fdb" font-size="14" font-weight="700">1</text><polygon points="92,0 92,-92 46,-46" fill="#e6f7f1" stroke="#0f8a68" stroke-width="1.8" stroke-linejoin="round"/><text x="76.7" y="-41" text-anchor="middle" fill="#0f8a68" font-size="14" font-weight="700">2</text><polygon points="92,-92 0,-92 46,-46" fill="#efeafb" stroke="#6b4fc9" stroke-width="1.8" stroke-linejoin="round"/><text x="46" y="-71.7" text-anchor="middle" fill="#6b4fc9" font-size="14" font-weight="700">3</text><polygon points="0,-92 0,0 46,-46" fill="#fdf1dc" stroke="#d98a1c" stroke-width="1.8" stroke-linejoin="round"/><text x="15.3" y="-41" text-anchor="middle" fill="#d98a1c" font-size="14" font-weight="700">4</text></g></svg><span style="font-size:26px;color:#5c6577;line-height:1">→</span><svg viewBox="-14 -106 230.4 120" style="width:230px;max-width:100%;margin:0" role="img" aria-label="Ghép tam giác 1 với 3, tam giác 2 với 4 theo cạnh dài được hai hình vuông nhỏ"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,-46 46,-92 92,-46" fill="#efeafb" stroke="#6b4fc9" stroke-width="1.8" stroke-linejoin="round"/><polygon points="0,-46 46,0 92,-46" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="46" y="-61.7" text-anchor="middle" fill="#6b4fc9" font-size="15" font-weight="700">3</text><text x="46" y="-20.3" text-anchor="middle" fill="#2f6fdb" font-size="15" font-weight="700">1</text><polygon points="110.4,-46 156.4,-92 202.4,-46" fill="#fdf1dc" stroke="#d98a1c" stroke-width="1.8" stroke-linejoin="round"/><polygon points="110.4,-46 156.4,0 202.4,-46" fill="#e6f7f1" stroke="#0f8a68" stroke-width="1.8" stroke-linejoin="round"/><text x="156.4" y="-61.7" text-anchor="middle" fill="#d98a1c" font-size="15" font-weight="700">4</text><text x="156.4" y="-20.3" text-anchor="middle" fill="#0f8a68" font-size="15" font-weight="700">2</text></g></svg></div>
+      <p class="vi-sao">Hai đường chéo của hình vuông bằng nhau và cắt nhau tại điểm chính giữa, nên bốn đoạn từ tâm ra bốn đỉnh bằng nhau; mỗi tam giác có một góc vuông ở tâm. Hai tam giác ghép lại có bốn cạnh bằng nhau và bốn góc vuông.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ Hình vuông <span class="m">ABCD</span> cạnh 4 cm. ❷ Bốn cạnh bằng nhau (4 cm), bốn góc bằng nhau (90°). ❸ a) Gấp một góc tờ giấy để cạnh ngắn nằm trên cạnh dài, cắt bỏ phần thừa rồi mở ra; b) cắt theo hai đường chéo được 4 tam giác bằng nhau, ghép từng đôi theo cạnh dài nhất được 2 hình vuông nhỏ.</div>
+    <div class="bay">Ở Bước 3 lấy điểm <span class="m">C</span> ở phía bên kia của <span class="m">AB</span> (khác phía với <span class="m">D</span>), khiến nối <span class="m">CD</span> ra một hình bắt chéo. <span class="m">C</span> và <span class="m">D</span> phải cùng một phía.</div>
+    <div class="gv-note">❸b: mỗi hình vuông nhỏ có diện tích bằng một nửa hình vuông lớn — có thể gợi mở khi sang Bài 20.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd5" data-ten="HĐ5" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ghép hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Cắt sáu hình tam giác đều giống nhau và ghép lại như Hình 4.4a để được hình lục giác đều như Hình 4.4b.</p>
+    <p>❷ Kể tên các đỉnh, cạnh, góc của hình lục giác đều <span class="m">ABCDEF</span>.</p>
+    <p>❸ Các cạnh của hình này có bằng nhau không?</p>
+    <p>❹ Các góc của hình này có bằng nhau không và bằng bao nhiêu độ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi góc của lục giác được tạo bởi mấy góc của các tam giác đều?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi góc của tam giác đều bằng 60°. Nhìn đỉnh <span class="m">B</span>: có mấy tam giác chạm vào đó?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶ Ghép sáu tam giác đều</h4>
+      <p>Xếp sáu tam giác đều quanh một điểm chung <span class="m">O</span>, hai tam giác cạnh nhau chung một cạnh. Viền ngoài là hình lục giác đều <span class="m">ABCDEF</span>.</p>
+      <svg viewBox="-113.8 -106.3 227.6 235.6" style="max-width:228px" role="img" aria-label="Lục giác đều ABCDEF ghép từ sáu tam giác đều chung đỉnh O; góc B gồm hai góc 60 độ thành 120 độ"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 -40,-69.3 40,-69.3" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="0,0 40,-69.3 80,-0" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="0,0 80,-0 40,69.3" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="0,0 40,69.3 -40,69.3" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="0,0 -40,69.3 -80,0" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="0,0 -80,0 -40,-69.3" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1.6" stroke-linejoin="round"/><polygon points="-40,-69.3 40,-69.3 80,-0 40,69.3 -40,69.3 -80,0" fill="none" stroke="#1f2430" stroke-width="2.6" stroke-linejoin="round"/><path d="M24,-69.3 A16,16 0 0 0 32,-55.4" fill="none" stroke="#c93c3c" stroke-width="1.6"/><path d="M29,-50.2 A22,22 0 0 0 51,-50.2" fill="none" stroke="#6b4fc9" stroke-width="1.6"/><text x="0" y="111.3" text-anchor="middle" fill="#c93c3c" font-size="13">Góc B = 60° + 60° = 120°</text><text x="-47.5" y="-76.3" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="47.5" y="-76.3" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="95" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="47.5" y="88.3" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="-47.5" y="88.3" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">E</text><text x="-95" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">F</text><text x="0" y="20" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17">O</text></g></svg>
+      <p class="vi-sao">Sáu góc 60° chụm ở <span class="m">O</span> vừa khít, không chừa khe hở nào — vì vậy sáu tam giác đều ghép được quanh một điểm.</p></div>
+    <div class="buoc" data-so="2"><h4>❷ Gọi tên</h4>
+      <p>Đỉnh: <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span>, <span class="m">F</span>. Cạnh: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CD</span>, <span class="m">DE</span>, <span class="m">EF</span>, <span class="m">FA</span>. Góc: góc <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span>, <span class="m">F</span>.</p></div>
+    <div class="buoc" data-so="3"><h4>❸ ❹ So sánh cạnh và góc</h4>
+      <p>Mỗi cạnh của lục giác là một cạnh của một tam giác đều, mà sáu tam giác giống nhau, nên <b>sáu cạnh bằng nhau</b>.</p>
+      <p>Mỗi góc của lục giác gồm đúng hai góc của tam giác đều: 60° + 60° = <b>120°</b>. Vậy sáu góc bằng nhau, mỗi góc 120°.</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: hình lục giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❷ Đỉnh <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span>, <span class="m">F</span>; cạnh <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CD</span>, <span class="m">DE</span>, <span class="m">EF</span>, <span class="m">FA</span>; góc <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span>, <span class="m">F</span>. ❸ Sáu cạnh bằng nhau. ❹ Sáu góc bằng nhau, mỗi góc bằng 120°.</div>
+    <div class="bay">Nghĩ góc của lục giác đều cũng bằng 60° “như tam giác đều”. Mỗi góc lục giác ghép từ <b>hai</b> góc 60°, nên bằng 120°.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd6" data-ten="HĐ6" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đường chéo chính</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy quan sát Hình 4.5 (<i>lục giác đều ABCDEF với ba đường chéo chính vẽ nét đứt, cắt nhau tại tâm</i>).</p>
+    <p>❶ Hãy kể tên các đường chéo chính của hình lục giác đều <span class="m">ABCDEF</span>.</p>
+    <p>❷ Hãy so sánh độ dài các đường chéo chính với nhau.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đường chéo chính nối hai đỉnh đối diện và đi qua tâm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ mỗi đỉnh, đi qua tâm <span class="m">O</span> sẽ đến đỉnh nào? Mỗi nửa đường chéo là cạnh của một tam giác đều ở HĐ5.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể tên</h4>
+      <svg viewBox="-103.8 -97.6 207.6 195.2" style="max-width:208px" role="img" aria-label="Lục giác đều ABCDEF với ba đường chéo chính AD, BE, CF cắt nhau tại tâm O"><g font-family="Segoe UI,Arial,sans-serif"><line x1="-35" y1="-60.6" x2="35" y2="60.6" stroke="#2f6fdb" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 5"/><line x1="35" y1="-60.6" x2="-35" y2="60.6" stroke="#0f8a68" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 5"/><line x1="70" y1="-0" x2="-70" y2="0" stroke="#6b4fc9" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 5"/><polygon points="-35,-60.6 35,-60.6 70,-0 35,60.6 -35,60.6 -70,0" fill="none" stroke="#1f2430" stroke-width="2.4" stroke-linejoin="round"/><circle cx="0" cy="0" r="3.5" fill="#1f2430"/><text x="-42.5" y="-67.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="42.5" y="-67.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="85" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="42.5" y="79.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="-42.5" y="79.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">E</text><text x="-85" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">F</text><text x="0" y="22" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17">O</text></g></svg>
+      <p>Ba đường chéo chính: <span class="m">AD</span>, <span class="m">BE</span>, <span class="m">CF</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p>Đo được <span class="m">AD = BE = CF</span>.</p>
+      <p class="vi-sao">Mỗi đường chéo chính gồm hai đoạn từ tâm ra đỉnh, mỗi đoạn là một cạnh tam giác đều (bằng cạnh lục giác). Nên mỗi đường chéo chính dài gấp đôi cạnh lục giác — ba đường bằng nhau.</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: hình lục giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ <span class="m">AD</span>, <span class="m">BE</span>, <span class="m">CF</span>. ❷ Ba đường chéo chính bằng nhau: <span class="m">AD = BE = CF</span>.</div>
+    <div class="bay">Kể cả <span class="m">AC</span>, <span class="m">BD</span> là đường chéo chính. Đó là đường chéo <b>phụ</b> (không đi qua tâm).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt" data-ten="Luyện tập" data-muc="vd">
+  <div class="bai-dau"><span class="so">Luyện tập</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đếm hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho hình lục giác đều như Hình 4.6 (<i>đỉnh B, C ở trên; D bên phải; E, F ở dưới; A bên trái; tâm O; vẽ tất cả các đường chéo chính và đường chéo phụ</i>).</p>
+    <p>Ta đã biết, 6 hình tam giác đều ghép lại thành hình lục giác đều, đó là những tam giác đều nào? Ngoài 6 tam giác đều đó, trong hình em còn thấy những tam giác đều nào khác?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ngoài 6 tam giác nhỏ quanh tâm, có tam giác nào “to” hơn được tạo bởi các đường chéo phụ không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thử nối các đỉnh <b>cách một</b>: <span class="m">A</span>, <span class="m">C</span>, <span class="m">E</span>. Các cạnh của tam giác đó là những đường gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sáu tam giác đều quanh tâm</h4>
+      <p><span class="m">OAB</span>, <span class="m">OBC</span>, <span class="m">OCD</span>, <span class="m">ODE</span>, <span class="m">OEF</span>, <span class="m">OFA</span>.</p>
+      <p class="vi-sao">Mỗi tam giác có một đỉnh là tâm <span class="m">O</span> và một cạnh là cạnh của lục giác.</p></div>
+    <div class="buoc" data-so="2"><h4>Hai tam giác đều tạo bởi đường chéo phụ</h4>
+      <svg viewBox="-118.8 -110.6 237.6 221.2" style="max-width:238px" role="img" aria-label="Lục giác đều ABCDEF có đủ các đường chéo; tam giác ACE tô xanh dương, tam giác BDF tô xanh lá"><g font-family="Segoe UI,Arial,sans-serif"><line x1="-85" y1="-0" x2="42.5" y2="-73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="-85" y1="-0" x2="85" y2="-0" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="-85" y1="-0" x2="42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="-42.5" y1="-73.6" x2="85" y2="-0" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="-42.5" y1="-73.6" x2="42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="-42.5" y1="-73.6" x2="-42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="42.5" y1="-73.6" x2="42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="42.5" y1="-73.6" x2="-42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><line x1="85" y1="-0" x2="-42.5" y2="73.6" stroke="#c3c9d6" stroke-width="1.3" stroke-linecap="round"/><polygon points="-85,-0 42.5,-73.6 42.5,73.6" fill="#e8f0fd" fill-opacity="0.55" stroke="#2f6fdb" stroke-width="2.6" stroke-linejoin="round"/><polygon points="-42.5,-73.6 85,-0 -42.5,73.6" fill="#e6f7f1" fill-opacity="0.55" stroke="#0f8a68" stroke-width="2.6" stroke-linejoin="round"/><polygon points="-85,-0 -42.5,-73.6 42.5,-73.6 85,-0 42.5,73.6 -42.5,73.6" fill="none" stroke="#1f2430" stroke-width="2.4" stroke-linejoin="round"/><text x="-100" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="-50" y="-80.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="50" y="-80.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="100" y="6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="50" y="92.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">E</text><text x="-50" y="92.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">F</text><text x="0" y="19" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="16">O</text></g></svg>
+      <p>Tam giác <span class="m">ACE</span> (ba cạnh <span class="m">AC</span>, <span class="m">CE</span>, <span class="m">EA</span>) và tam giác <span class="m">BDF</span> (ba cạnh <span class="m">BD</span>, <span class="m">DF</span>, <span class="m">FB</span>).</p>
+      <p class="vi-sao">Sáu đường chéo phụ dài bằng nhau (dùng compa để kiểm tra), nên mỗi tam giác có ba cạnh là ba đường chéo phụ đều là tam giác đều.</p>
+      <a class="xem-lai" href="#kt-cheo-phu">📌 Xem lại: đường chéo phụ</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sáu tam giác đều ghép thành lục giác: <span class="m">OAB</span>, <span class="m">OBC</span>, <span class="m">OCD</span>, <span class="m">ODE</span>, <span class="m">OEF</span>, <span class="m">OFA</span>. Các tam giác đều khác: <span class="m">ACE</span> và <span class="m">BDF</span>.</div>
+    <div class="bay">Kể tam giác <span class="m">ABC</span> hay <span class="m">ABD</span> là tam giác đều. Tam giác <span class="m">ABC</span> có <span class="m">AB = BC</span> nhưng <span class="m">AC</span> dài hơn hẳn — không đều.</div>
+    <div class="gv-note">Nếu em tinh mắt: hai tam giác <span class="m">ACE</span> và <span class="m">BDF</span> chồng lên nhau thành ngôi sao sáu cánh; mỗi “cánh sao” (ở sáu đỉnh lục giác) cũng là một tam giác đều nhỏ — thêm 6 tam giác nữa, nhưng các đỉnh của chúng chưa được đặt tên trong hình. Chấp nhận nếu em chỉ ra được.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hãy tưởng tượng sáu bạn đứng ở sáu đỉnh. Ba bạn “cách một người” (<span class="m">A</span>, <span class="m">C</span>, <span class="m">E</span>) nắm tay nhau thì thành một tam giác đều to; ba bạn còn lại (<span class="m">B</span>, <span class="m">D</span>, <span class="m">F</span>) nắm tay nhau thành tam giác đều thứ hai.</div>
+  </div>
+</article>
+
+<article class="the bai" id="vd" data-ten="Vận dụng" data-muc="nb">
+  <div class="bai-dau"><span class="so">Vận dụng</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hình trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy tìm một số hình ảnh có dạng hình lục giác đều trong thực tế.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Con ong là “kiến trúc sư” lục giác giỏi nhất!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tìm vật có sáu cạnh bằng nhau: trong bếp, trên bàn học, ngoài sân…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể vài ví dụ</h4>
+      <p>Mặt tổ ong, hộp mứt Tết hình lục giác, đầu bu lông và đai ốc (ê-cu), mặt cắt cây bút chì lục giác, viên gạch lát hình lục giác, mặt đáy một số cốc, bông tuyết (có dạng sáu cánh đều).</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: hình lục giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: tổ ong, hộp mứt Tết hình lục giác, đầu bu lông và đai ốc, thân bút chì lục giác, gạch lát hình lục giác.</div>
+    <div class="bay">Kể cả hình có sáu cạnh nhưng dài ngắn khác nhau. Lục giác <b>đều</b> phải có sáu cạnh bằng nhau.</div>
+    <div class="gv-note">Câu mở — chấp nhận mọi ví dụ hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch" data-ten="Câu hỏi" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu hỏi</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh đặc điểm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Qua tìm hiểu về hình tam giác đều, hình vuông, hình lục giác đều, em có nhận xét gì về đặc điểm chung (cạnh, góc) của các hình nói trên?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt ba nhận xét cạnh nhau — điểm nào lặp lại ở cả ba?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lập bảng: số cạnh, các cạnh thế nào, các góc thế nào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập bảng so sánh</h4>
+      <table>
+        <tr><th>Hình</th><th>Các cạnh</th><th>Các góc</th></tr>
+        <tr><td>Tam giác đều</td><td>3 cạnh bằng nhau</td><td>3 góc bằng nhau (60°)</td></tr>
+        <tr><td>Hình vuông</td><td>4 cạnh bằng nhau</td><td>4 góc bằng nhau (90°)</td></tr>
+        <tr><td>Lục giác đều</td><td>6 cạnh bằng nhau</td><td>6 góc bằng nhau (120°)</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: ba nhận xét trong bài</a></div>
+    <div class="buoc" data-so="2"><h4>Rút ra điểm chung</h4>
+      <p>Cả ba hình đều có <b>tất cả các cạnh bằng nhau</b> và <b>tất cả các góc bằng nhau</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đặc điểm chung: các cạnh đều bằng nhau và các góc đều bằng nhau.</div>
+    <div class="bay">Chỉ nêu “các cạnh bằng nhau” mà quên góc. Đề hỏi cả cạnh <b>và</b> góc.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vdc">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vdc">Vận dụng cao</span><span class="nhan">Chia hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Mặt trên của một cái bánh có dạng hình lục giác đều (như Hình 4.7). Em hãy cắt bánh để chia đều cho:</p>
+    <p>a) 6 bạn; &nbsp; b) 12 bạn; &nbsp; c) 4 bạn.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia 6 thì dễ. Còn 12 bạn và 4 bạn — mỗi bạn được bao nhiêu “miếng tam giác”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lục giác đều ghép từ 6 tam giác đều bằng nhau. 4 bạn thì mỗi bạn được một tam giác rưỡi.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) 6 bạn</h4>
+      <p>Cắt theo ba đường chéo chính → 6 miếng tam giác đều bằng nhau.</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: lục giác đều</a></div>
+    <div class="buoc" data-so="2"><h4>b) 12 bạn</h4>
+      <p>Cắt như câu a, rồi cắt mỗi miếng tam giác làm đôi bằng một nhát từ tâm đến <b>điểm chính giữa</b> cạnh ngoài của miếng đó → 12 miếng bằng nhau.</p>
+      <p class="vi-sao">Nhát cắt từ đỉnh tới điểm chính giữa cạnh đối diện chia tam giác đều thành hai nửa giống hệt nhau (gấp lại thì trùng khít).</p></div>
+    <div class="buoc" data-so="3"><h4>c) 4 bạn</h4>
+      <p>Cắt theo <b>một</b> đường chéo chính (chia bánh làm đôi), rồi cắt một nhát qua tâm nối điểm chính giữa của hai cạnh đối diện (vuông góc với nhát đầu) → 4 miếng bằng nhau.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin:6px 0"><svg viewBox="-76 -67.7 152 167.7" style="width:152px;max-width:100%;margin:0" role="img" aria-label="Cắt bánh lục giác đều thành 6 phần"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 -62,-0 -31,-53.7" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 -31,-53.7 31,-53.7" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 31,-53.7 62,-0" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 62,-0 31,53.7" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 31,53.7 -31,53.7" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 -31,53.7 -62,-0" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="-62,-0 -31,-53.7 31,-53.7 62,-0 31,53.7 -31,53.7" fill="none" stroke="#1f2430" stroke-width="2.2" stroke-linejoin="round"/><text x="0" y="82" text-anchor="middle" fill="#1f2430" font-size="14" font-weight="700">a) 6 phần</text></g></svg><svg viewBox="-76 -67.7 152 167.7" style="width:152px;max-width:100%;margin:0" role="img" aria-label="Cắt bánh lục giác đều thành 12 phần"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 -62,-0 -31,-53.7" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 -31,-53.7 31,-53.7" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 31,-53.7 62,-0" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 62,-0 31,53.7" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 31,53.7 -31,53.7" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 -31,53.7 -62,-0" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><line x1="0" y1="0" x2="-46.5" y2="-26.8" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="0" x2="0" y2="-53.7" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="0" x2="46.5" y2="-26.8" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="0" x2="46.5" y2="26.8" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="0" x2="0" y2="53.7" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="0" x2="-46.5" y2="26.8" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><polygon points="-62,-0 -31,-53.7 31,-53.7 62,-0 31,53.7 -31,53.7" fill="none" stroke="#1f2430" stroke-width="2.2" stroke-linejoin="round"/><text x="0" y="82" text-anchor="middle" fill="#1f2430" font-size="14" font-weight="700">b) 12 phần</text></g></svg><svg viewBox="-76 -67.7 152 167.7" style="width:152px;max-width:100%;margin:0" role="img" aria-label="Cắt bánh lục giác đều thành 4 phần"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="-62,-0 -31,-53.7 0,-53.7 0,0" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 0,-53.7 31,-53.7 62,-0" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="-62,-0 0,0 0,53.7 -31,53.7" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><polygon points="0,0 62,-0 31,53.7 0,53.7" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="1" stroke-linejoin="round"/><line x1="-62" y1="-0" x2="62" y2="-0" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><line x1="0" y1="-53.7" x2="0" y2="53.7" stroke="#c93c3c" stroke-width="1.8" stroke-linecap="round"/><polygon points="-62,-0 -31,-53.7 31,-53.7 62,-0 31,53.7 -31,53.7" fill="none" stroke="#1f2430" stroke-width="2.2" stroke-linejoin="round"/><text x="0" y="82" text-anchor="middle" fill="#1f2430" font-size="14" font-weight="700">c) 4 phần</text></g></svg></div>
+      <p class="vi-sao">Mỗi miếng gồm một tam giác đều và nửa tam giác đều, tức 1,5 phần trong 6 phần — đúng một phần tư cái bánh.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Cắt theo 3 đường chéo chính → 6 phần bằng nhau. b) Cắt thêm 6 nhát từ tâm đến điểm chính giữa mỗi cạnh → 12 phần bằng nhau. c) Cắt theo 1 đường chéo chính và 1 nhát qua tâm nối điểm chính giữa hai cạnh đối diện → 4 phần bằng nhau.</div>
+    <div class="bay">Câu c cắt theo hai đường chéo chính (như chữ X): được 2 miếng to (mỗi miếng 2 tam giác) và 2 miếng nhỏ (mỗi miếng 1 tam giác) — không đều.</div>
+    <div class="gv-note">Còn nhiều cách khác đúng (vd. câu b: cắt mỗi miếng tam giác đều theo đường nối đỉnh ngoài với điểm chính giữa cạnh đối diện). Chấm theo tiêu chí: các phần bằng nhau (chồng khít được). Chưa học khái niệm “trung điểm” (Chương VIII) nên lời giải nói “điểm chính giữa”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Nghĩ cái bánh là 6 miếng tam giác. 12 bạn: mỗi bạn nửa miếng. 4 bạn: 6 miếng chia 4 người, mỗi người một miếng rưỡi — nên phải có nhát cắt đôi một số miếng.</div>
+  </div>
+</article>
+
+<article class="the bai" id="b41" data-ten="Bài 4.1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 4.1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hình trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy kể tên một số vật dụng, hoạ tiết, công trình kiến trúc, … có hình ảnh của hình tam giác đều, hình vuông, hình lục giác đều.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba loại hình — mỗi loại tìm ít nhất một ví dụ.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ tới biển báo, gạch lát, bàn cờ, tổ ong, kim tự tháp…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể theo từng loại hình</h4>
+      <p><b>Tam giác đều:</b> biển báo nguy hiểm, khung xếp bóng bi-a, mặt bên của Kim tự tháp Kheops (theo SGK).</p>
+      <p><b>Hình vuông:</b> bàn cờ vua, gạch lát nền, đáy Kim tự tháp Kheops, khăn mùi xoa.</p>
+      <p><b>Lục giác đều:</b> tổ ong, đai ốc, hộp mứt Tết, gạch lát lục giác, hoạ tiết sàn nhà.</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: đặc điểm ba hình</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ — tam giác đều: biển báo nguy hiểm, khung xếp bóng bi-a; hình vuông: bàn cờ vua, gạch lát nền, đáy kim tự tháp Kheops; lục giác đều: tổ ong, đai ốc, hộp mứt Tết.</div>
+    <div class="bay">Xếp biển báo hình chữ nhật hay viên gạch chữ nhật vào nhóm hình vuông. Hình vuông cần bốn cạnh <b>bằng nhau</b>.</div>
+    <div class="gv-note">Câu mở — chấp nhận mọi ví dụ hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b42" data-ten="Bài 4.2" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4.2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vẽ hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ hình tam giác đều có cạnh bằng 2 cm.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giống Thực hành 1, chỉ đổi 3 cm thành 2 cm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ đoạn 2 cm trước, rồi dùng góc 60° của ê ke ở hai đầu đoạn thẳng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ theo ba bước</h4>
+      <p>① Vẽ đoạn thẳng <span class="m">AB</span> = 2 cm.</p>
+      <p>② Dùng ê ke có góc 60° vẽ góc <span class="m">BAx</span> bằng 60°.</p>
+      <p>③ Vẽ góc <span class="m">ABy</span> bằng 60° (cùng phía với <span class="m">Ax</span>). <span class="m">Ax</span> và <span class="m">By</span> cắt nhau tại <span class="m">C</span>. Tam giác <span class="m">ABC</span> là tam giác đều cạnh 2 cm.</p>
+      <svg viewBox="-31.8 -169.5 183.6 211.2" style="max-width:184px" role="img" aria-label="Tam giác đều ABC cạnh 2 cm, góc A và góc B bằng 60 độ"><g font-family="Segoe UI,Arial,sans-serif"><line x1="60" y1="-103.9" x2="78" y2="-135.1" stroke="#9aa3b5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="5 4"/><line x1="60" y1="-103.9" x2="42" y2="-135.1" stroke="#9aa3b5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="5 4"/><polygon points="0,0 120,0 60,-103.9" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><path d="M20,0 A20,20 0 0 0 10,-17.3" fill="none" stroke="#0f8a68" stroke-width="1.6"/><text x="31.2" y="-13.4" text-anchor="middle" fill="#0f8a68" font-size="13">60°</text><path d="M110,-17.3 A20,20 0 0 0 100,0" fill="none" stroke="#0f8a68" stroke-width="1.6"/><text x="88.8" y="-13.4" text-anchor="middle" fill="#0f8a68" font-size="13">60°</text><text x="-13" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="133" y="13.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="60" y="-111.9" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="72" y="-139.5" text-anchor="middle" fill="#9aa3b5" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">x</text><text x="48" y="-139.5" text-anchor="middle" fill="#9aa3b5" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">y</text><text x="60" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">2 cm</text></g></svg>
+      <a class="xem-lai" href="#kt-ve-tg">📌 Xem lại: các bước vẽ tam giác đều</a></div>
+    <div class="buoc" data-so="2"><h4>Kiểm tra</h4>
+      <p>Đo lại: <span class="m">AC</span> = <span class="m">BC</span> = 2 cm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tam giác đều <span class="m">ABC</span> có <span class="m">AB = BC = CA</span> = 2 cm (cách vẽ: <span class="m">AB</span> = 2 cm, góc 60° tại <span class="m">A</span> và tại <span class="m">B</span>, hai tia cắt nhau tại <span class="m">C</span>).</div>
+    <div class="bay">Vẽ <span class="m">AB</span> = 2 cm rồi “ước chừng” điểm <span class="m">C</span> bằng mắt. Phải dùng ê ke (hoặc compa) để <span class="m">C</span> nằm đúng chỗ.</div>
+    <div class="gv-note">Chấp nhận cách vẽ bằng compa: hai cung tròn bán kính 2 cm tâm <span class="m">A</span> và tâm <span class="m">B</span> cắt nhau tại <span class="m">C</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b43" data-ten="Bài 4.3" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4.3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Vẽ hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ hình vuông có cạnh bằng 5 cm.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giống Thực hành 2, chỉ đổi 4 cm thành 5 cm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai đường vuông góc với <span class="m">AB</span> tại <span class="m">A</span> và tại <span class="m">B</span> — kẻ bằng ê ke.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ theo bốn bước</h4>
+      <p>① Vẽ đoạn thẳng <span class="m">AB</span> = 5 cm.</p>
+      <p>② Dùng ê ke vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">A</span>; lấy <span class="m">D</span> trên đó sao cho <span class="m">AD</span> = 5 cm.</p>
+      <p>③ Vẽ đường thẳng vuông góc với <span class="m">AB</span> tại <span class="m">B</span>; lấy <span class="m">C</span> (cùng phía với <span class="m">D</span>) sao cho <span class="m">BC</span> = 5 cm.</p>
+      <p>④ Nối <span class="m">C</span> với <span class="m">D</span>.</p>
+      <svg viewBox="-29.4 -204.6 228.8 246.3" style="max-width:229px" role="img" aria-label="Hình vuông ABCD cạnh 5 cm, bốn góc vuông"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 170,0 170,-170 0,-170" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><line x1="85" y1="6" x2="85" y2="-6" stroke="#2f6fdb" stroke-width="1.6"/><line x1="176" y1="-85" x2="164" y2="-85" stroke="#2f6fdb" stroke-width="1.6"/><line x1="85" y1="-176" x2="85" y2="-164" stroke="#2f6fdb" stroke-width="1.6"/><line x1="-6" y1="-85" x2="6" y2="-85" stroke="#2f6fdb" stroke-width="1.6"/><polyline points="9,0 9,-9 0,-9" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="170,-9 161,-9 161,0" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="161,-170 161,-161 170,-161" fill="none" stroke="#1f2430" stroke-width="1.5"/><polyline points="0,-161 9,-161 9,-170" fill="none" stroke="#1f2430" stroke-width="1.5"/><text x="-10.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="180.6" y="16.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="180.6" y="-174.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">C</text><text x="-10.6" y="-174.6" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">D</text><text x="85" y="23.7" text-anchor="middle" fill="#1f2430" font-size="14">5 cm</text></g></svg>
+      <a class="xem-lai" href="#kt-ve-hv">📌 Xem lại: các bước vẽ hình vuông</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình vuông <span class="m">ABCD</span> có bốn cạnh bằng 5 cm và bốn góc vuông (cách vẽ: <span class="m">AB</span> = 5 cm, kẻ <span class="m">AD</span> = <span class="m">BC</span> = 5 cm vuông góc với <span class="m">AB</span>, nối <span class="m">CD</span>).</div>
+    <div class="bay">Kẻ đường vuông góc “bằng mắt”, không dùng ê ke — hình ra méo, góc không vuông.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b44" data-ten="Bài 4.4" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4.4</span><span class="nhan vd">Vận dụng</span><span class="nhan">Cắt, ghép hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cắt và ghép để được một cái hộp có nắp theo hình gợi ý dưới đây:</p>
+    <p><i>(Hình gợi ý: 6 hình vuông xếp thành chữ thập — hàng ngang có 4 ô, ô thứ hai có thêm một ô phía trên và một ô phía dưới.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sáu ô vuông: một ô làm đáy, bốn ô dựng lên thành thành hộp, ô còn lại là gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ 6 hình vuông bằng nhau đúng như hình mẫu (dùng cách vẽ hình vuông đã học), cắt theo viền ngoài rồi gấp theo các cạnh chung.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ và cắt hình khai triển</h4>
+      <p>Trên tờ bìa, vẽ 6 hình vuông cạnh bằng nhau (chẳng hạn 5 cm) xếp như hình: hàng ngang 4 ô; ô thứ hai có thêm một ô bên trên và một ô bên dưới. Cắt theo đường viền ngoài.</p>
+      <svg viewBox="-14 -106 212 166" style="max-width:212px" role="img" aria-label="Hình khai triển cái hộp: sáu hình vuông bằng nhau, hàng ngang bốn ô gồm Bên, Đáy, Bên, Nắp; ô Đáy có thêm một ô Bên phía trên và một ô Bên phía dưới"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 46,0 46,-46 0,-46" fill="#fff" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="23" y="-18" text-anchor="middle" fill="#1f2430" font-size="13">Bên</text><polygon points="46,0 92,0 92,-46 46,-46" fill="#e6f7f1" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="69" y="-18" text-anchor="middle" fill="#1f2430" font-size="13" font-weight="700">Đáy</text><polygon points="92,0 138,0 138,-46 92,-46" fill="#fff" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="115" y="-18" text-anchor="middle" fill="#1f2430" font-size="13">Bên</text><polygon points="138,0 184,0 184,-46 138,-46" fill="#bfe3f5" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="161" y="-18" text-anchor="middle" fill="#2f6fdb" font-size="13" font-weight="700">Nắp</text><polygon points="46,-46 92,-46 92,-92 46,-92" fill="#fff" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="69" y="-64" text-anchor="middle" fill="#1f2430" font-size="13">Bên</text><polygon points="46,46 92,46 92,0 46,0" fill="#fff" stroke="#2f6fdb" stroke-width="1.8" stroke-linejoin="round"/><text x="69" y="28" text-anchor="middle" fill="#1f2430" font-size="13">Bên</text></g></svg>
+      <a class="xem-lai" href="#kt-ve-hv">📌 Xem lại: vẽ hình vuông</a></div>
+    <div class="buoc" data-so="2"><h4>Gấp thành hộp</h4>
+      <p>Lấy ô thứ hai làm <b>đáy</b>. Gấp bốn ô xung quanh nó (trái, phải, trên, dưới) dựng đứng lên thành bốn mặt bên. Ô ngoài cùng bên phải gắn với một mặt bên — gập xuống làm <b>nắp</b>. Dán các mép bằng băng dính.</p>
+      <p class="vi-sao">Các ô là hình vuông bằng nhau nên các mặt khớp nhau vừa khít; nắp chỉ gắn một cạnh nên mở ra đóng vào được.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vẽ 6 hình vuông bằng nhau theo hình chữ thập, cắt ra; lấy ô thứ hai làm đáy, gấp 4 ô quanh nó thành 4 mặt bên, ô ngoài cùng làm nắp, dán các mép lại được hộp có nắp.</div>
+    <div class="bay">Cắt rời từng ô vuông ra rồi mới dán — hộp rất khó ghép và không có “bản lề” cho nắp. Phải cắt theo viền ngoài, giữ nguyên các cạnh chung để gấp.</div>
+    <div class="gv-note">Có thể chừa thêm mép dán nhỏ (vạt hình thang) ở vài cạnh cho dễ dán. Đây là hoạt động thực hành — chấm theo sản phẩm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b45" data-ten="Bài 4.5" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4.5</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ, trang trí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có nhiều cách để trang trí một hình vuông, chẳng hạn như hình dưới. Em hãy vẽ một hình vuông trên tờ giấy A4 và trang trí theo cách của mình.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn hoạ tiết cân đối, hãy kẻ trước hai đường chéo và các đường nối điểm chính giữa các cạnh.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ hình vuông cạnh khoảng 15 cm cho vừa tờ A4, rồi kẻ các đường phụ làm “khung xương”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ hình vuông</h4>
+      <p>Trên tờ A4 (rộng khoảng 21 cm), vẽ hình vuông cạnh 15 cm theo các bước đã học: đoạn <span class="m">AB</span> = 15 cm, hai đường vuông góc tại <span class="m">A</span>, <span class="m">B</span>, lấy <span class="m">AD = BC</span> = 15 cm, nối <span class="m">CD</span>.</p>
+      <a class="xem-lai" href="#kt-ve-hv">📌 Xem lại: vẽ hình vuông</a></div>
+    <div class="buoc" data-so="2"><h4>Trang trí</h4>
+      <p>Kẻ nhẹ hai đường chéo và hai đường nối điểm chính giữa các cạnh đối diện. Dựa vào các đường này, vẽ hoạ tiết lặp lại giống nhau ở bốn góc (cánh hoa, tam giác, hình vuông nhỏ…), rồi tô màu.</p>
+      <p class="vi-sao">Các đường phụ chia hình vuông thành những phần giống nhau, nên hoạ tiết vẽ lặp lại sẽ cân đối.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sản phẩm: một hình vuông vẽ đúng (bốn cạnh bằng nhau, bốn góc vuông) trên giấy A4, trang trí tuỳ ý.</div>
+    <div class="bay">Vẽ hình vuông quá to (cạnh 25 cm) không vừa tờ A4 — tờ A4 chỉ rộng khoảng 21 cm.</div>
+    <div class="gv-note">Câu sáng tạo — chấm hình vuông đúng kĩ thuật và tính cân đối, thẩm mĩ của hoạ tiết.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b46" data-ten="Bài 4.6" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 4.6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đường đi trên lưới</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát hình dưới đây và chỉ ra ít nhất hai cách, để một con kiến bò từ <span class="m">A</span> đến <span class="m">B</span> theo đường chéo của các hình vuông nhỏ.</p>
+    <p><i>(Hình: lưới 3 × 3 hình vuông nhỏ; A ở góc dưới bên trái, B ở góc trên bên phải.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Con kiến chỉ được bò theo đường chéo của từng ô nhỏ — nó không đi dọc cạnh ô.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cách dễ nhất: đi thẳng theo đường chéo của ba ô nằm trên một hàng chéo. Cách khác: thử “rẽ” sang ô bên cạnh rồi quay lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ các đường đi</h4>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin:6px 0"><svg viewBox="-28 -147.2 170 196.2" style="width:170px;max-width:100%;margin:0" role="img" aria-label="Cách 1: đường đi của con kiến từ A đến B theo đường chéo các ô vuông nhỏ"><g font-family="Segoe UI,Arial,sans-serif"><line x1="0" y1="0" x2="0" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="0" x2="114" y2="0" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="38" y1="0" x2="38" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-38" x2="114" y2="-38" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="76" y1="0" x2="76" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-76" x2="114" y2="-76" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="114" y1="0" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-114" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><polyline points="0,0 38,-38 76,-76 114,-114" fill="none" stroke="#2f6fdb" stroke-width="3" stroke-linejoin="round"/><circle cx="0" cy="0" r="4" fill="#2f6fdb"/><circle cx="114" cy="-114" r="4" fill="#2f6fdb"/><text x="-9.2" y="15.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="123.2" y="-117.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="57" y="31" text-anchor="middle" fill="#2f6fdb" font-size="14" font-weight="700">Cách 1</text></g></svg><svg viewBox="-28 -147.2 170 196.2" style="width:170px;max-width:100%;margin:0" role="img" aria-label="Cách 2: đường đi của con kiến từ A đến B theo đường chéo các ô vuông nhỏ"><g font-family="Segoe UI,Arial,sans-serif"><line x1="0" y1="0" x2="0" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="0" x2="114" y2="0" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="38" y1="0" x2="38" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-38" x2="114" y2="-38" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="76" y1="0" x2="76" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-76" x2="114" y2="-76" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="114" y1="0" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-114" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><polyline points="0,0 38,-38 0,-76 38,-114 76,-76 114,-114" fill="none" stroke="#0f8a68" stroke-width="3" stroke-linejoin="round"/><circle cx="0" cy="0" r="4" fill="#2f6fdb"/><circle cx="114" cy="-114" r="4" fill="#2f6fdb"/><text x="-9.2" y="15.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="123.2" y="-117.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="57" y="31" text-anchor="middle" fill="#0f8a68" font-size="14" font-weight="700">Cách 2</text></g></svg><svg viewBox="-28 -147.2 170 196.2" style="width:170px;max-width:100%;margin:0" role="img" aria-label="Cách 3: đường đi của con kiến từ A đến B theo đường chéo các ô vuông nhỏ"><g font-family="Segoe UI,Arial,sans-serif"><line x1="0" y1="0" x2="0" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="0" x2="114" y2="0" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="38" y1="0" x2="38" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-38" x2="114" y2="-38" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="76" y1="0" x2="76" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-76" x2="114" y2="-76" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="114" y1="0" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><line x1="0" y1="-114" x2="114" y2="-114" stroke="#8d95a5" stroke-width="1.2" stroke-linecap="butt"/><polyline points="0,0 38,-38 76,0 114,-38 76,-76 114,-114" fill="none" stroke="#6b4fc9" stroke-width="3" stroke-linejoin="round"/><circle cx="0" cy="0" r="4" fill="#2f6fdb"/><circle cx="114" cy="-114" r="4" fill="#2f6fdb"/><text x="-9.2" y="15.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="123.2" y="-117.2" text-anchor="middle" fill="#2f6fdb" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="57" y="31" text-anchor="middle" fill="#6b4fc9" font-size="14" font-weight="700">Cách 3</text></g></svg></div>
+      <p><b>Cách 1:</b> đi theo đường chéo của 3 ô vuông nằm dọc đường chéo lớn, từ <span class="m">A</span> thẳng đến <span class="m">B</span>.</p>
+      <p><b>Cách 2</b> (xanh lá): chéo lên phải → chéo lên trái → chéo lên phải (chạm hàng trên cùng) → chéo xuống phải → chéo lên phải đến <span class="m">B</span>.</p>
+      <p><b>Cách 3</b> (tím): chéo lên phải → chéo xuống phải (chạm hàng dưới cùng) → chéo lên phải → chéo lên trái → chéo lên phải đến <span class="m">B</span>.</p>
+      <p class="vi-sao">Mỗi bước kiến đi theo đường chéo một ô, từ góc ô này sang góc đối diện. Chỉ cần nối liền được từ <span class="m">A</span> tới <span class="m">B</span> là một cách.</p>
+      <a class="xem-lai" href="#kt-hv">📌 Xem lại: đường chéo hình vuông</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh độ dài</h4>
+      <p>Cách 1 đi qua 3 đường chéo ô nhỏ; cách 2 và cách 3 đi qua 5 đường chéo. Cách 1 là ngắn nhất.</p>
+      <p class="vi-sao">Các ô vuông nhỏ bằng nhau nên đường chéo của chúng dài bằng nhau — chỉ cần đếm số đường chéo.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: Cách 1 — đi theo đường chéo của 3 ô vuông nằm trên đường chéo lớn từ <span class="m">A</span> đến <span class="m">B</span>. Cách 2 — đi theo 5 đường chéo ô nhỏ, đường gấp khúc vòng sang bên trái (hoặc bên phải) rồi lên <span class="m">B</span> (xem hình).</div>
+    <div class="bay">Cho kiến bò dọc theo cạnh các ô vuông. Đề yêu cầu bò theo <b>đường chéo</b> của các hình vuông nhỏ.</div>
+    <div class="gv-note">Có nhiều đường đúng; chấm mọi đường gấp khúc gồm các đường chéo ô nhỏ nối liền từ <span class="m">A</span> đến <span class="m">B</span>. Có thể hỏi thêm: cách nào ngắn nhất? (3 đường chéo).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b47" data-ten="Bài 4.7" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4.7</span><span class="nhan vd">Vận dụng</span><span class="nhan">Gấp, cắt hình</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Gấp và cắt hình tam giác đều từ một tờ giấy hình vuông theo hướng dẫn sau:</p>
+    <p><i>(① gấp đôi tờ giấy hình vuông theo đường thẳng đứng giữa; ② gấp một góc dưới sao cho đỉnh chạm đường gấp giữa; ③ cắt theo đường đánh dấu để được tam giác đều.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đỉnh thứ ba của tam giác đều phải nằm trên nếp gấp giữa — vì sao nhỉ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gọi hai góc dưới của tờ giấy là <span class="m">A</span>, <span class="m">B</span>. Khi gấp, cạnh <span class="m">AB</span> “quay” quanh <span class="m">A</span> tới chạm nếp gấp giữa ở điểm <span class="m">P</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gấp theo các bước</h4>
+      <p>① Gấp đôi tờ giấy vuông rồi mở ra, được nếp gấp giữa (thẳng đứng).</p>
+      <p>② Giữ góc <span class="m">A</span> cố định, gấp sao cho góc <span class="m">B</span> chạm đúng nếp gấp giữa; đánh dấu điểm chạm là <span class="m">P</span>.</p>
+      <p>③ Mở ra, cắt theo hai đoạn <span class="m">AP</span> và <span class="m">BP</span>, được tam giác <span class="m">ABP</span>.</p>
+      <svg viewBox="-32.2 -203 232.4 233.7" style="max-width:232px" role="img" aria-label="Tờ giấy vuông có nếp gấp giữa; điểm P trên nếp gấp giữa sao cho AP bằng AB; tam giác ABP là tam giác đều"><g font-family="Segoe UI,Arial,sans-serif"><polygon points="0,0 168,0 168,-168 0,-168" fill="#fff" stroke="#9aa3b5" stroke-width="1.5" stroke-linejoin="round"/><line x1="84" y1="0" x2="84" y2="-168" stroke="#9aa3b5" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4"/><polygon points="0,0 168,0 84,-145.5" fill="#e8f0fd" stroke="#2f6fdb" stroke-width="2.4" stroke-linejoin="round"/><path d="M168,0 A168,168 0 0 0 84,-145.5" fill="none" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="84" y1="6" x2="84" y2="-6" stroke="#2f6fdb" stroke-width="1.6"/><line x1="47.2" y1="-69.7" x2="36.8" y2="-75.7" stroke="#2f6fdb" stroke-width="1.6"/><line x1="131.2" y1="-75.7" x2="120.8" y2="-69.7" stroke="#2f6fdb" stroke-width="1.6"/><text x="-13.4" y="12.7" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">A</text><text x="181.4" y="12.7" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">B</text><text x="97.9" y="-147.5" text-anchor="middle" fill="#1f2430" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="19">P</text><text x="84" y="-176" text-anchor="middle" fill="#9aa3b5" font-size="13">nếp gấp giữa</text></g></svg></div>
+    <div class="buoc" data-so="2"><h4>Vì sao là tam giác đều?</h4>
+      <p>Khi gấp, đoạn <span class="m">AB</span> chồng khít lên <span class="m">AP</span> nên <span class="m">AP = AB</span>. Điểm <span class="m">P</span> nằm trên nếp gấp giữa, gấp đôi tờ giấy thì <span class="m">PA</span> chồng khít <span class="m">PB</span> nên <span class="m">PA = PB</span>. Vậy <span class="m">AB = AP = BP</span>.</p>
+      <p class="vi-sao">Ba cạnh bằng nhau thì là tam giác đều. Em có thể dùng thước hay compa kiểm tra lại.</p>
+      <a class="xem-lai" href="#kt-tgd">📌 Xem lại: tam giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Gấp đôi tờ giấy lấy nếp giữa; gấp góc <span class="m">B</span> quanh góc <span class="m">A</span> cho chạm nếp giữa tại <span class="m">P</span>; cắt theo <span class="m">AP</span>, <span class="m">BP</span> được tam giác đều <span class="m">ABP</span> (cạnh bằng cạnh tờ giấy).</div>
+    <div class="bay">Gấp góc nhưng không giữ góc kia cố định, điểm chạm nằm lệch khỏi nếp giữa — hai cạnh <span class="m">PA</span>, <span class="m">PB</span> sẽ không bằng nhau.</div>
+    <div class="gv-note">Lời giải viết theo hình dung chung từ mô tả ba bước của SGK; hình minh hoạ trong sách có thể gấp nửa tờ giấy rồi mới gấp góc — kết quả như nhau. Phần “vì sao” chỉ là quan sát chồng khít, không phải chứng minh.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b48" data-ten="Bài 4.8" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 4.8</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Người ta muốn đặt một trạm biến áp để đưa điện về sáu ngôi nhà. Phải đặt trạm biến áp ở đâu để khoảng cách từ trạm biến áp đến sáu ngôi nhà bằng nhau, biết rằng sáu ngôi nhà ở vị trí sáu đỉnh của hình lục giác đều?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhớ lại: lục giác đều được ghép từ 6 tam giác đều chung một đỉnh.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Điểm chung của 6 tam giác đều (HĐ5) cách mỗi đỉnh lục giác bao xa?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm điểm cách đều sáu đỉnh</h4>
+      <p>Đặt trạm ở <b>tâm</b> <span class="m">O</span> của hình lục giác đều — giao điểm của ba đường chéo chính.</p>
+      <svg viewBox="-90 -80.6 180 161.2" style="max-width:180px" role="img" aria-label="Sáu ngôi nhà ở sáu đỉnh lục giác đều, trạm biến áp ở tâm, nối tới sáu nhà bằng sáu đoạn bằng nhau"><g font-family="Segoe UI,Arial,sans-serif"><line x1="0" y1="0" x2="-70" y2="-0" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><line x1="0" y1="0" x2="-35" y2="-60.6" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><line x1="0" y1="0" x2="35" y2="-60.6" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><line x1="0" y1="0" x2="70" y2="-0" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><line x1="0" y1="0" x2="35" y2="60.6" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><line x1="0" y1="0" x2="-35" y2="60.6" stroke="#0f8a68" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 4"/><polygon points="-70,-0 -35,-60.6 35,-60.6 70,-0 35,60.6 -35,60.6" fill="#fff" stroke="#9aa3b5" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4 4"/><circle cx="-70" cy="-0" r="6" fill="#2f6fdb"/><circle cx="-35" cy="-60.6" r="6" fill="#2f6fdb"/><circle cx="35" cy="-60.6" r="6" fill="#2f6fdb"/><circle cx="70" cy="-0" r="6" fill="#2f6fdb"/><circle cx="35" cy="60.6" r="6" fill="#2f6fdb"/><circle cx="-35" cy="60.6" r="6" fill="#2f6fdb"/><circle cx="0" cy="0" r="6" fill="#c93c3c"/><text x="0" y="24" text-anchor="middle" fill="#c93c3c" font-size="13" font-weight="700">Trạm</text></g></svg>
+      <p class="vi-sao">Lục giác đều gồm 6 tam giác đều chung đỉnh <span class="m">O</span>. Mỗi đoạn từ <span class="m">O</span> đến một đỉnh là cạnh của một tam giác đều, và các tam giác này bằng nhau, nên sáu đoạn đó bằng nhau (bằng cạnh lục giác).</p>
+      <a class="xem-lai" href="#kt-lgd">📌 Xem lại: hình lục giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đặt trạm biến áp tại tâm của hình lục giác đều (giao điểm của ba đường chéo chính); khi đó khoảng cách đến sáu nhà bằng nhau và bằng cạnh lục giác.</div>
+    <div class="bay">Đặt trạm tại một đỉnh hay trên một cạnh “cho gần đường”. Khi đó trạm gần nhà này, xa nhà kia — không bằng nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 18. Hình tam giác đều. Hình vuông. Hình lục giác đều — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c04-b18';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-04-bai-18-hinh-tam-giac-deu-hinh-vuong-hinh-luc-giac-deu-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-04-bai-18-hinh-tam-giac-deu-hinh-vuong-hinh-luc-giac-deu-bai-giai.nguon.html" data-phien-ban="d2b1dc75be07">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

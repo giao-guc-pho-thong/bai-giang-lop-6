@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 13. Tập hợp các số nguyên — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương III. Số nguyên</div>
+    <div class="hang1">
+      <h1>Bài 13. Tập hợp các số nguyên — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương III. Số nguyên</div><h1>Bài 13. Tập hợp các số nguyên — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-so-nguyen"><b class="ten">Số nguyên dương, số nguyên âm, tập ℤ</b>
+      Các số tự nhiên (khác 0) 1; 2; 3; 4; … còn được gọi là các <b>số nguyên dương</b>. Các số −1; −2; −3; … gọi là các <b>số nguyên âm</b>.
+      Tập hợp <span class="m up">ℤ</span> gồm các số nguyên âm, số 0 và các số nguyên dương gọi là tập hợp <b>số nguyên</b>:
+      <span class="m up">ℤ = {…; −4; −3; −2; −1; 0; 1; 2; 3; 4; …}</span>.</div>
+    <div class="kt" id="kt-chu-y"><b class="ten">Chú ý</b>
+      Số 0 không là số nguyên dương, cũng không là số nguyên âm. Đôi khi ta còn viết thêm dấu “+” ngay trước một số nguyên dương, chẳng hạn số 6 còn viết là +6 (đọc là “dương sáu”).</div>
+    <div class="kt" id="kt-y-nghia"><b class="ten">Khi nào dùng số âm?</b>
+      Số dương và số âm được dùng để biểu thị các <b>đại lượng đối lập nhau</b>, hoặc <b>có hướng ngược nhau</b>: nhiệt độ trên / dưới 0&nbsp;°C; độ cao trên / dưới mực nước biển; số tiền hiện có / còn nợ; số tiền lãi / lỗ; độ viễn thị / cận thị.</div>
+    <div class="kt" id="kt-truc-so"><b class="ten">Trục số</b>
+      Chiều từ trái sang phải là <b>chiều dương</b>; chiều ngược lại là <b>chiều âm</b>. Điểm biểu diễn số nguyên <span class="m">a</span> gọi là điểm <span class="m">a</span>.
+      Cho hai số nguyên <span class="m">a</span> và <span class="m">b</span>. Trên trục số, nếu điểm <span class="m">a</span> nằm trước điểm <span class="m">b</span> thì số <span class="m">a</span> nhỏ hơn số <span class="m">b</span>, kí hiệu <span class="m">a &lt; b</span>.</div>
+    <div class="kt" id="kt-so-sanh"><b class="ten">So sánh hai số nguyên</b>
+      1. Mọi số nguyên âm đều nhỏ hơn 0, do đó nhỏ hơn mọi số nguyên dương.<br>
+      2. Nếu <span class="m">a</span>, <span class="m">b</span> là hai số nguyên dương và <span class="m">a &gt; b</span> thì <span class="m">−a &lt; −b</span>.<br>
+      Kí hiệu <span class="m">a ≤ b</span> có nghĩa là “<span class="m">a &lt; b</span> hoặc <span class="m">a = b</span>”.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 13. Tập hợp các số nguyên.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đọc số nguyên âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Số −3 đọc là “âm 3”. Tương tự, hãy đọc các số âm mà em thấy trên bản đồ thời tiết (H.3.1) và trên chiếc nhiệt kế (H.3.2).</p>
+    <p><i>Hình 3.1: bản đồ thời tiết châu Âu với các nhiệt độ −8; −2; −11; 4; 2; 9; 10; 9; 17. Hình 3.2: nhiệt kế dạng đồng hồ với thang đo từ −30 đến 50.</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số âm đọc giống số tự nhiên, chỉ thêm chữ “âm” ở đầu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỉ chọn những số có dấu “−” đứng trước, rồi đọc “âm” + tên số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các số âm trên bản đồ (H.3.1)</h4>
+      <p>Các số có dấu “−” là: −8; −2; −11.</p>
+      <p>Đọc: −8 là “âm tám”; −2 là “âm hai”; −11 là “âm mười một”.</p>
+      <p class="vi-sao">Các số 4; 2; 9; 10; 17 không có dấu “−” nên là số dương, không phải số âm.</p>
+      <a class="xem-lai" href="#kt-so-nguyen">📌 Xem lại: số nguyên âm</a></div>
+    <div class="buoc" data-so="2"><h4>Đọc số âm trên nhiệt kế (H.3.2)</h4>
+      <p>Thang đo bắt đầu từ −30, đọc là “âm ba mươi”. Các vạch số âm khác ghi trên thang (em nhìn trong SGK) đọc theo cùng cách, chẳng hạn −20 là “âm hai mươi”, −10 là “âm mười”.</p>
+      <p class="vi-sao">Trên nhiệt kế, các số âm nằm ở phía dưới số 0 — đó là các nhiệt độ dưới 0&nbsp;°C.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trên bản đồ: −8 (âm tám), −2 (âm hai), −11 (âm mười một). Trên nhiệt kế: −30 (âm ba mươi) và các vạch số âm khác đọc tương tự (−20: âm hai mươi; −10: âm mười).</div>
+    <div class="bay">Đọc −8 là “trừ tám”. Dấu “−” đứng trước một số để chỉ số âm thì đọc là <b>“âm”</b>; “trừ” là tên phép tính.</div>
+    <div class="gv-note">Mô tả hình trong kho chỉ ghi thang đo nhiệt kế “từ −30 đến 50”, không liệt kê các vạch số âm ở giữa. Nhờ HS đọc trực tiếp trên H.3.2 trong SGK; chấp nhận mọi số âm đọc đúng có trên hình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Viết số nguyên âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng cách sử dụng dấu “−”, hãy viết các số âm được nói đến trong Hình 3.3.</p>
+    <p>– Độ cao trung bình của thềm lục địa Việt Nam so với mực nước biển là âm 65 mét.<br>– Độ cao của đáy vịnh Cam Ranh so với mực nước biển là khoảng âm 30 mét.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Âm 65” viết bằng kí hiệu thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> “Âm” viết thành dấu “−” đặt ngay trước số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đổi chữ “âm” thành dấu “−”</h4>
+      <p>Âm 65 mét → <b>−65</b> m. &nbsp; Âm 30 mét → <b>−30</b> m.</p>
+      <p class="vi-sao">Hai nơi này nằm dưới mực nước biển nên độ cao của chúng được biểu thị bằng số âm.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Độ cao thềm lục địa Việt Nam: −65 m; độ cao đáy vịnh Cam Ranh: khoảng −30 m.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đọc, viết số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a) Viết ba số nguyên dương và ba số nguyên âm;</p><p>b) Đọc các số mà em đã viết.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số 0 có được tính là số nguyên dương hay số nguyên âm không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số nguyên dương là các số tự nhiên khác 0; số nguyên âm là các số có dấu “−” đứng trước: −1; −2; −3; …</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết ba số nguyên dương và ba số nguyên âm</h4>
+      <p>Ví dụ: ba số nguyên dương 3; 15; 100. Ba số nguyên âm −2; −7; −50.</p>
+      <p class="vi-sao">Không chọn số 0, vì số 0 không là số nguyên dương, cũng không là số nguyên âm.</p>
+      <a class="xem-lai" href="#kt-chu-y">📌 Xem lại: chú ý về số 0</a></div>
+    <div class="buoc" data-so="2"><h4>Đọc các số</h4>
+      <p>3: ba (hoặc “dương ba”); 15: mười lăm; 100: một trăm; −2: âm hai; −7: âm bảy; −50: âm năm mươi.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: a) Số nguyên dương: 3; 15; 100. Số nguyên âm: −2; −7; −50. b) Đọc: ba, mười lăm, một trăm, âm hai, âm bảy, âm năm mươi.</div>
+    <div class="bay">Lấy số 0 làm số nguyên dương hoặc số nguyên âm. Số 0 không thuộc loại nào trong hai loại đó.</div>
+    <div class="gv-note">Đáp án mở — chấp nhận mọi số đúng loại, đọc đúng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (mục 1)" data-muc="th" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 1)</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ý nghĩa số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khi được hỏi còn tiền không, Nam hóm hỉnh đáp: “Mình còn âm mười nghìn đồng”. Em hiểu câu nói đó của Nam có nghĩa là gì?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với tiền, số âm biểu thị điều gì: tiền có hay tiền nợ?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xem lại bảng “Khi nào dùng số âm?”: số tiền hiện có dùng số dương, còn số tiền … dùng số âm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hiểu “âm mười nghìn đồng”</h4>
+      <p>Số tiền dương là tiền đang có; số tiền âm là tiền <b>còn nợ</b>. Vậy “còn âm mười nghìn đồng” nghĩa là Nam không còn tiền, mà còn đang <b>nợ</b> người khác 10 000 đồng.</p>
+      <p class="vi-sao">Số dương và số âm biểu thị hai đại lượng đối lập: có tiền — nợ tiền.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nam không còn tiền và đang nợ 10 000 đồng.</div>
+    <div class="bay">Hiểu là “Nam còn 10 000 đồng”. Chữ “âm” làm nghĩa đảo ngược: không phải có, mà là <b>nợ</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hình dung ví tiền như cái giếng. Có tiền là nước còn trong giếng (số dương). Hết sạch nước mà còn phải đi vay thêm một xô — đó là “âm một xô”: em phải trả lại xô đó trước rồi mới bắt đầu có nước.</div>
+  </div>
+</article>
+
+<article class="the bai" id="vd1" data-ten="Vận dụng 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Ý nghĩa số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Ông M nhận được hai tin nhắn từ một ngân hàng với nội dung như sau:</p>
+    <p>1. “Tài khoản …010. Số tiền giao dịch: +160 000. …”<br>2. “Tài khoản …010. Số tiền giao dịch: −4 000 000. …”</p>
+    <p>Em hãy giải thích ý nghĩa của số âm và số dương trong mỗi tin nhắn trên.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dấu “+” và dấu “−” trong tin nhắn ngân hàng cho biết tiền vào hay tiền ra?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số tiền trong tài khoản tăng lên hay giảm đi? Hai việc đó là hai đại lượng đối lập.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tin nhắn 1: số dương</h4>
+      <p>+160 000 nghĩa là tài khoản của ông M được <b>cộng thêm</b> (nhận vào) 160 000 đồng.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+    <div class="buoc" data-so="2"><h4>Tin nhắn 2: số âm</h4>
+      <p>−4 000 000 nghĩa là tài khoản của ông M bị <b>trừ đi</b> (chi ra, chuyển đi hoặc rút ra) 4 000 000 đồng.</p>
+      <p class="vi-sao">Tiền vào và tiền ra là hai đại lượng đối lập, nên ngân hàng dùng số dương cho tiền vào, số âm cho tiền ra.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">+160 000: tài khoản được cộng thêm 160 000 đồng. −4 000 000: tài khoản bị trừ đi 4 000 000 đồng.</div>
+    <div class="bay">Hiểu −4 000 000 là “ông M nợ ngân hàng 4 triệu”. Đây là <b>số tiền giao dịch</b> (tiền đi ra), không phải số dư trong tài khoản.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (mục 2)" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 2)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Trục số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trên trục số, mỗi điểm sau nằm cách gốc <span class="m">O</span> bao nhiêu đơn vị?</p><p>a) Điểm 2; &nbsp; b) Điểm −4.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đếm số khoảng (bước) từ gốc O, không đếm số vạch.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ điểm 0 đi sang phải (hoặc sang trái) từng bước một, mỗi bước là 1 đơn vị.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm trên trục số</h4>
+      <svg viewBox="0 0 378 114" style="max-width:378px" role="img" aria-label="Trục số: từ gốc O đến điểm 2 là 2 đơn vị, đến điểm −4 là 4 đơn vị"><line x1="8" y1="54" x2="366" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="366,49 376,54 366,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="60" y1="48" x2="60" y2="60"/><line x1="96" y1="48" x2="96" y2="60"/><line x1="132" y1="48" x2="132" y2="60"/><line x1="168" y1="48" x2="168" y2="60"/><line x1="204" y1="48" x2="204" y2="60"/><line x1="240" y1="48" x2="240" y2="60"/><line x1="276" y1="48" x2="276" y2="60"/><line x1="312" y1="48" x2="312" y2="60"/><line x1="348" y1="48" x2="348" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="81">−5</text><text x="60" y="81" font-weight="700" fill="#0f8a68">−4</text><text x="96" y="81">−3</text><text x="132" y="81">−2</text><text x="168" y="81">−1</text><text x="204" y="81">0</text><text x="240" y="81">1</text><text x="276" y="81" font-weight="700" fill="#2f6fdb">2</text><text x="312" y="81">3</text><text x="348" y="81">4</text></g><line x1="204" y1="30" x2="204" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="204" y1="30" x2="267" y2="30" stroke="#2f6fdb" stroke-width="3"/><polygon points="276,30 265,24 265,36" fill="#2f6fdb"/><line x1="276" y1="30" x2="276" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="240" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">2 đơn vị</text><line x1="204" y1="30" x2="204" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="204" y1="30" x2="69" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="60,30 71,24 71,36" fill="#0f8a68"/><line x1="60" y1="30" x2="60" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="132" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">4 đơn vị</text><circle cx="276" cy="54" r="6" fill="#2f6fdb"/><circle cx="60" cy="54" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="204" y="104" fill="#1f2430">O</text></g></svg>
+      <p>a) Từ <span class="m">O</span> đi sang phải 2 bước thì đến điểm 2: điểm 2 cách gốc <span class="m">O</span> <b>2 đơn vị</b>.</p>
+      <p>b) Từ <span class="m">O</span> đi sang trái 4 bước thì đến điểm −4: điểm −4 cách gốc <span class="m">O</span> <b>4 đơn vị</b>.</p>
+      <p class="vi-sao">Khoảng cách luôn là một số tự nhiên — điểm −4 nằm bên trái <span class="m">O</span> nhưng vẫn cách <span class="m">O</span> 4 đơn vị, không phải “−4 đơn vị”.</p>
+      <a class="xem-lai" href="#kt-truc-so">📌 Xem lại: trục số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Điểm 2 cách gốc <span class="m">O</span> 2 đơn vị; b) Điểm −4 cách gốc <span class="m">O</span> 4 đơn vị.</div>
+    <div class="bay">Trả lời “điểm −4 cách <span class="m">O</span> −4 đơn vị”. Khoảng cách không mang dấu âm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Trục số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Xuất phát từ gốc <span class="m">O</span>, ta sẽ đi đến điểm nào nếu:</p><p>a) Di chuyển 5 đơn vị theo chiều dương?</p><p>b) Di chuyển 5 đơn vị theo chiều âm?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chiều dương là sang phải hay sang trái?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trên trục số nằm ngang, chiều dương là chiều từ trái sang phải.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Di chuyển trên trục số</h4>
+      <svg viewBox="0 0 486 114" style="max-width:486px" role="img" aria-label="Trục số: từ O đi 5 đơn vị sang phải đến 5, sang trái đến −5"><line x1="8" y1="54" x2="474" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="474,49 484,54 474,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="60" y1="48" x2="60" y2="60"/><line x1="96" y1="48" x2="96" y2="60"/><line x1="132" y1="48" x2="132" y2="60"/><line x1="168" y1="48" x2="168" y2="60"/><line x1="204" y1="48" x2="204" y2="60"/><line x1="240" y1="48" x2="240" y2="60"/><line x1="276" y1="48" x2="276" y2="60"/><line x1="312" y1="48" x2="312" y2="60"/><line x1="348" y1="48" x2="348" y2="60"/><line x1="384" y1="48" x2="384" y2="60"/><line x1="420" y1="48" x2="420" y2="60"/><line x1="456" y1="48" x2="456" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="81">−6</text><text x="60" y="81" font-weight="700" fill="#c93c3c">−5</text><text x="96" y="81">−4</text><text x="132" y="81">−3</text><text x="168" y="81">−2</text><text x="204" y="81">−1</text><text x="240" y="81">0</text><text x="276" y="81">1</text><text x="312" y="81">2</text><text x="348" y="81">3</text><text x="384" y="81">4</text><text x="420" y="81" font-weight="700" fill="#2f6fdb">5</text><text x="456" y="81">6</text></g><line x1="240" y1="30" x2="240" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="240" y1="30" x2="411" y2="30" stroke="#2f6fdb" stroke-width="3"/><polygon points="420,30 409,24 409,36" fill="#2f6fdb"/><line x1="420" y1="30" x2="420" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="330" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">chiều dương</text><line x1="240" y1="30" x2="240" y2="54" stroke="#c93c3c" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="240" y1="30" x2="69" y2="30" stroke="#c93c3c" stroke-width="3"/><polygon points="60,30 71,24 71,36" fill="#c93c3c"/><line x1="60" y1="30" x2="60" y2="54" stroke="#c93c3c" stroke-width="1.5" stroke-dasharray="3 3"/><text x="150" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">chiều âm</text><circle cx="420" cy="54" r="6" fill="#2f6fdb"/><circle cx="60" cy="54" r="6" fill="#c93c3c"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="240" y="104" fill="#1f2430">O</text></g></svg>
+      <p>a) Theo chiều dương (sang phải) 5 đơn vị: đến <b>điểm 5</b>.</p>
+      <p>b) Theo chiều âm (sang trái) 5 đơn vị: đến <b>điểm −5</b>.</p>
+      <p class="vi-sao">Hai điểm 5 và −5 cùng cách <span class="m">O</span> 5 đơn vị nhưng nằm ở hai phía của gốc <span class="m">O</span>.</p>
+      <a class="xem-lai" href="#kt-truc-so">📌 Xem lại: chiều dương, chiều âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Điểm 5; b) Điểm −5.</div>
+    <div class="bay">Nhầm chiều: đi theo chiều âm mà lại sang phải. Chiều âm là chiều từ phải sang trái.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">So sánh số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trên trục số, điểm biểu diễn các số nguyên âm nằm trước hay sau gốc <span class="m">O</span>? Từ đó em hãy sắp xếp ba số 0, 1 và −1 theo thứ tự từ nhỏ đến lớn.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Nằm trước” trên trục số nằm ngang là bên trái hay bên phải?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn trục số ở Hình 3.6: các số −1; −2; −3; … nằm ở phía nào của 0?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vị trí các số nguyên âm</h4>
+      <svg viewBox="0 0 270 82" style="max-width:320px" role="img" aria-label="Trục số từ −3 đến 3, tô ba điểm −1, 0, 1"><line x1="8" y1="22" x2="258" y2="22" stroke="#5c6577" stroke-width="2"/><polygon points="258,17 268,22 258,27" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="16" x2="24" y2="28"/><line x1="60" y1="16" x2="60" y2="28"/><line x1="96" y1="16" x2="96" y2="28"/><line x1="132" y1="16" x2="132" y2="28"/><line x1="168" y1="16" x2="168" y2="28"/><line x1="204" y1="16" x2="204" y2="28"/><line x1="240" y1="16" x2="240" y2="28"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="49">−3</text><text x="60" y="49">−2</text><text x="96" y="49" font-weight="700" fill="#c93c3c">−1</text><text x="132" y="49" font-weight="700" fill="#6b4fc9">0</text><text x="168" y="49" font-weight="700" fill="#2f6fdb">1</text><text x="204" y="49">2</text><text x="240" y="49">3</text></g><circle cx="96" cy="22" r="6" fill="#c93c3c"/><circle cx="132" cy="22" r="6" fill="#6b4fc9"/><circle cx="168" cy="22" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="132" y="72" fill="#1f2430">O</text></g></svg>
+      <p>Các số nguyên âm nằm bên trái gốc <span class="m">O</span>, tức là nằm <b>trước</b> gốc <span class="m">O</span>.</p>
+      <a class="xem-lai" href="#kt-truc-so">📌 Xem lại: trục số</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp xếp 0, 1, −1</h4>
+      <p>Từ trái sang phải ta gặp lần lượt điểm −1, điểm 0, điểm 1. Vậy <span class="m">−1 &lt; 0 &lt; 1</span>.</p>
+      <p class="vi-sao">Điểm nằm trước thì số nhỏ hơn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các điểm biểu diễn số nguyên âm nằm trước gốc <span class="m">O</span>. Thứ tự từ nhỏ đến lớn: −1; 0; 1.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát trên trục số (H.3.6), ta thấy: 3 &lt; 5 nhưng −3 &gt; −5; 4 &gt; 1 nhưng −4 &lt; −1.</p><p>Theo em, trong hai số −12 và −15, số nào lớn hơn?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">−12 ? −15</span><button class="chon" data-dung="0">&lt;</button><button class="chon" data-dung="1">&gt;</button><span class="phan-hoi" data-dung-txt="Đúng! −12 nằm gần 0 hơn, tức nằm sau −15." data-sai-txt="Chưa đúng — trên trục số, điểm −12 hay điểm −15 nằm xa về bên trái hơn?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 3 &lt; 5 nhưng −3 &gt; −5 — thứ tự bị đảo ngược!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So 12 với 15 trước, rồi nhớ: với số âm, thứ tự bị đảo ngược.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So sánh hai phần số tự nhiên</h4>
+      <p>Ta có 12 &lt; 15.</p></div>
+    <div class="buoc" data-so="2"><h4>Đảo ngược thứ tự khi thêm dấu “−”</h4>
+      <p>Vì 12 &lt; 15 nên <span class="m">−12 &gt; −15</span>. Vậy <b>−12 lớn hơn</b>.</p>
+      <p class="vi-sao">Trên trục số, −15 nằm xa về bên trái hơn −12 (cách <span class="m">O</span> 15 đơn vị so với 12 đơn vị), nên −15 nằm trước, tức là nhỏ hơn.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">−12 lớn hơn −15 (−12 &gt; −15).</div>
+    <div class="bay">Thấy 15 &gt; 12 rồi kết luận −15 &gt; −12. Với hai số âm, số nào có phần số tự nhiên <b>lớn hơn</b> thì lại <b>nhỏ hơn</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Nghĩ đến nhiệt độ: −15&nbsp;°C lạnh hơn −12&nbsp;°C. Lạnh hơn tức là nhiệt độ thấp hơn, nên −15 &lt; −12.</div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sắp xếp, so sánh</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Sắp xếp các số sau theo thứ tự tăng dần: 2; −4; 0; 5; −11; −3; 9.</p>
+    <p>❷ Trong tập <span class="m">{x ∈ ℤ | −5 &lt; x ≤ 2}</span>, những số nào lớn hơn −1?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ý ❷: “−5 &lt; x” không lấy −5, còn “x ≤ 2” thì có lấy 2.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chia các số thành ba nhóm: số âm, số 0, số dương. Số âm nhỏ nhất, rồi đến 0, rồi đến số dương.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶ Sắp xếp theo ba nhóm</h4>
+      <p>Số âm: −4; −11; −3. Vì 11 &gt; 4 &gt; 3 nên −11 &lt; −4 &lt; −3.</p>
+      <p>Số dương: 2; 5; 9, ta có 2 &lt; 5 &lt; 9.</p>
+      <p>Thứ tự tăng dần: <b>−11; −4; −3; 0; 2; 5; 9</b>.</p>
+      <p class="vi-sao">Mọi số nguyên âm nhỏ hơn 0, nên nhỏ hơn mọi số nguyên dương — chỉ cần sắp xếp trong từng nhóm.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>❷ Liệt kê tập hợp rồi chọn</h4>
+      <p>Các số nguyên lớn hơn −5 và nhỏ hơn hoặc bằng 2 là: −4; −3; −2; −1; 0; 1; 2.</p>
+      <p>Trong đó các số lớn hơn −1 là: <b>0; 1; 2</b>.</p>
+      <p class="vi-sao">−1 không lớn hơn chính nó, nên không lấy −1.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ −11; −4; −3; 0; 2; 5; 9. &nbsp; ❷ Tập hợp là {−4; −3; −2; −1; 0; 1; 2}; các số lớn hơn −1 là 0; 1; 2.</div>
+    <div class="bay">Xếp −3 trước −4 (vì nghĩ 3 &lt; 4 thì −3 &lt; −4). Thực ra −4 &lt; −3.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd2" data-ten="Vận dụng 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">So sánh trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhiệt độ trung bình vào tháng Giêng của ba thành phố lớn của nước Nga được ghi lại trong bảng bên (theo <i>Wikipedia</i>).</p>
+    <table><tr><th>Thành phố</th><th>Nhiệt độ</th></tr><tr><td>Moscow (Ma-xcơ-va)</td><td>−9&nbsp;°C</td></tr><tr><td>Saint Peterburg (Xanh Pê-téc-bua)</td><td>−8&nbsp;°C</td></tr><tr><td>Vladivostok (Vơ-la-đi-vô-xtốc)</td><td>−12&nbsp;°C</td></tr></table>
+    <p>Hãy sắp xếp ba thành phố trên theo thứ tự giảm dần về nhiệt độ. Theo em thời tiết ở nơi nào lạnh hơn cả?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Giảm dần” nghĩa là từ ấm nhất đến lạnh nhất.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả ba số đều âm. Số âm nào có phần số tự nhiên nhỏ nhất thì lớn nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So sánh ba nhiệt độ</h4>
+      <p>Ta có 8 &lt; 9 &lt; 12 nên −8 &gt; −9 &gt; −12.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp xếp và kết luận</h4>
+      <p>Giảm dần về nhiệt độ: Saint Peterburg (−8&nbsp;°C), Moscow (−9&nbsp;°C), Vladivostok (−12&nbsp;°C).</p>
+      <p>Nhiệt độ thấp nhất là −12&nbsp;°C nên <b>Vladivostok</b> lạnh hơn cả.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Thứ tự giảm dần: Saint Peterburg (−8&nbsp;°C); Moscow (−9&nbsp;°C); Vladivostok (−12&nbsp;°C). Vladivostok lạnh hơn cả.</div>
+    <div class="bay">Xếp Vladivostok đứng đầu vì “12 lớn nhất”. Nhiệt độ −12&nbsp;°C là <b>thấp nhất</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tl" data-ten="Tranh luận" data-muc="vd">
+  <div class="bai-dau"><span class="so">Tranh luận</span><span class="nhan vd">Vận dụng</span><span class="nhan">Ý nghĩa số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Giả sử một con kiến bò trên sợi dây (giống như một trục số). Nếu nó đi được 4 đơn vị theo chiều dương, ta nói kiến bò được 4 đơn vị; nếu nó đi được 4 đơn vị nhưng theo chiều âm, ta nói kiến bò được −4 đơn vị.</p>
+    <p>a) Em hiểu thế nào nếu nói: “Kiến <span class="m">A</span> bò được 12 đơn vị” và “Kiến <span class="m">B</span> bò được −15 đơn vị”?</p>
+    <p>b) Từ nhận xét rằng 12 &gt; −15, An kết luận: Kiến <span class="m">A</span> bò được quãng đường dài hơn kiến <span class="m">B</span>. Em có đồng ý với An không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 So sánh hai số nguyên khác với so sánh độ dài quãng đường!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dấu “−” cho biết hướng bò. Còn quãng đường bò được là bao nhiêu đơn vị?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Hiểu dấu của số</h4>
+      <p>Kiến <span class="m">A</span> bò được 12 đơn vị theo <b>chiều dương</b>. Kiến <span class="m">B</span> bò được 15 đơn vị theo <b>chiều âm</b>.</p>
+      <p class="vi-sao">Số dương và số âm biểu thị hai hướng ngược nhau.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+    <div class="buoc" data-so="2"><h4>b) So sánh quãng đường</h4>
+      <p>Quãng đường kiến <span class="m">A</span> bò: 12 đơn vị; kiến <span class="m">B</span> bò: 15 đơn vị. Vì 12 &lt; 15 nên kiến <span class="m">B</span> bò được quãng đường <b>dài hơn</b>. Em <b>không đồng ý</b> với An.</p>
+      <p class="vi-sao">12 &gt; −15 là so sánh hai số nguyên (có tính cả hướng), không phải so sánh độ dài quãng đường. Muốn so quãng đường thì chỉ so phần số tự nhiên: 12 và 15.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Kiến <span class="m">A</span> bò 12 đơn vị theo chiều dương; kiến <span class="m">B</span> bò 15 đơn vị theo chiều âm. b) Không đồng ý: kiến <span class="m">B</span> bò được quãng đường dài hơn (15 đơn vị &gt; 12 đơn vị).</div>
+    <div class="bay">Đồng ý với An vì “12 &gt; −15”. Dấu “−” chỉ hướng bò, không làm quãng đường ngắn đi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hai bạn cùng đi bộ từ cổng trường: bạn An đi về phía nhà sách 12 bước, bạn Bình đi về phía ngược lại 15 bước. Ai đi nhiều bước hơn? Bình — dù đi ngược chiều.</div>
+  </div>
+</article>
+
+<article class="the bai" id="b31" data-ten="Bài 3.1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đọc nhiệt kế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Mỗi nhiệt kế dưới đây chỉ bao nhiêu độ C?</p>
+    <p><i>(Hình: bốn nhiệt kế có thang đo từ −20 đến 50&nbsp;°C. Cột chất lỏng lần lượt ở mức: khoảng −15; khoảng 30; khoảng 5; khoảng −18.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mức chất lỏng nằm trên hay dưới vạch 0?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cột chất lỏng dừng ở dưới vạch 0 thì nhiệt độ là số âm; ở trên vạch 0 thì là số dương.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc từng nhiệt kế</h4>
+      <p>Nhiệt kế thứ nhất: −15&nbsp;°C (dưới 0&nbsp;°C). Nhiệt kế thứ hai: 30&nbsp;°C. Nhiệt kế thứ ba: 5&nbsp;°C. Nhiệt kế thứ tư: −18&nbsp;°C (dưới 0&nbsp;°C).</p>
+      <p class="vi-sao">Phía dưới số 0 của nhiệt kế ghi các số âm, chỉ nhiệt độ dưới 0&nbsp;°C.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Lần lượt: −15&nbsp;°C; 30&nbsp;°C; 5&nbsp;°C; −18&nbsp;°C.</div>
+    <div class="bay">Quên dấu “−”: thấy cột chất lỏng dừng ở vạch 15 phía <b>dưới</b> số 0 mà ghi 15&nbsp;°C. Dưới 0 thì phải là số âm: −15&nbsp;°C.</div>
+    <div class="gv-note">Mô tả hình chỉ ghi các mức “khoảng −15; khoảng 30; khoảng 5; khoảng −18”. Đề nghị HS đối chiếu với hình trong SGK để đọc chính xác vạch chia.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b32" data-ten="Bài 3.2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Diễn tả bằng số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy sử dụng số nguyên âm để diễn tả lại ý nghĩa của các câu sau đây:</p>
+    <p>a) Độ sâu trung bình của vịnh Thái Lan khoảng 45 m và độ sâu lớn nhất là 80 m dưới mực nước biển;</p>
+    <p>b) Mùa đông ở Siberia (Nga) dài và khắc nghiệt, với nhiệt độ trung bình tháng 1 là 25&nbsp;°C dưới 0&nbsp;°C;</p>
+    <p>c) Năm 2012, núi lửa Havre (Bắc New Zealand) phun ra cột tro từ độ sâu 700 m dưới mực nước biển.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Dưới mực nước biển”, “dưới 0&nbsp;°C” — những chữ này báo hiệu số âm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Độ sâu <span class="m">n</span> m dưới mực nước biển tức là độ cao −<span class="m">n</span> m.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chuyển “dưới” thành dấu “−”</h4>
+      <p>a) Vịnh Thái Lan có độ cao trung bình khoảng <b>−45 m</b>, nơi sâu nhất có độ cao <b>−80 m</b>.</p>
+      <p>b) Nhiệt độ trung bình tháng 1 ở Siberia là <b>−25&nbsp;°C</b>.</p>
+      <p>c) Núi lửa Havre phun cột tro từ độ cao <b>−700 m</b>.</p>
+      <p class="vi-sao">Mực nước biển là 0 m, dưới mực nước biển là độ cao âm; dưới 0&nbsp;°C là nhiệt độ âm.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Độ cao trung bình của vịnh Thái Lan khoảng −45 m, độ cao nơi sâu nhất là −80 m. b) Nhiệt độ trung bình tháng 1 ở Siberia là −25&nbsp;°C. c) Cột tro phun ra từ độ cao −700 m.</div>
+    <div class="bay">Viết “độ sâu −45 m”. Đã nói “độ sâu” thì dùng số dương; dùng số âm thì phải nói “<b>độ cao</b> −45 m”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b33" data-ten="Bài 3.3" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Ý nghĩa số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hiểu ý nghĩa của mỗi câu sau như thế nào (diễn tả bằng một câu không sử dụng số âm):</p>
+    <p>a) Khi máy bay ở độ cao 10 000 m, nhiệt độ bên ngoài có thể xuống đến −50&nbsp;°C;</p>
+    <p>b) Cá voi xanh có thể lặn được −2 500 m.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bỏ dấu “−” đi thì phải thêm chữ gì để giữ đúng nghĩa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> −50&nbsp;°C là nhiệt độ “… 0&nbsp;°C”; −2 500 m là độ cao “… mực nước biển”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Diễn đạt lại không dùng số âm</h4>
+      <p>a) Khi máy bay ở độ cao 10 000 m, nhiệt độ bên ngoài có thể xuống đến <b>50&nbsp;°C dưới 0&nbsp;°C</b>.</p>
+      <p>b) Cá voi xanh có thể lặn <b>sâu 2 500 m dưới mực nước biển</b>.</p>
+      <p class="vi-sao">Dấu “−” được thay bằng chữ “dưới”, nên nghĩa không đổi.</p>
+      <a class="xem-lai" href="#kt-y-nghia">📌 Xem lại: khi nào dùng số âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Nhiệt độ bên ngoài có thể xuống đến 50&nbsp;°C dưới 0&nbsp;°C. b) Cá voi xanh có thể lặn sâu 2 500 m dưới mực nước biển.</div>
+    <div class="bay">Viết “nhiệt độ là 50&nbsp;°C” — bỏ dấu “−” mà không thêm “dưới 0&nbsp;°C” thì nghĩa thành rất nóng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b34" data-ten="Bài 3.4" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Biểu diễn trên trục số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy biểu diễn các số sau đây trên cùng một trục số: 3; −3; −5; 6; −4; 4.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trục số phải đủ dài để chứa cả −5 lẫn 6.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ trục số nằm ngang, đánh dấu gốc <span class="m">O</span>, chia các đoạn bằng nhau từ −5 đến 6, rồi chấm các điểm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Vẽ trục số và chấm điểm</h4>
+      <svg viewBox="0 0 522 82" style="max-width:522px" role="img" aria-label="Trục số từ −6 đến 7, tô các điểm −5, −4, −3, 3, 4, 6"><line x1="8" y1="22" x2="510" y2="22" stroke="#5c6577" stroke-width="2"/><polygon points="510,17 520,22 510,27" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="16" x2="24" y2="28"/><line x1="60" y1="16" x2="60" y2="28"/><line x1="96" y1="16" x2="96" y2="28"/><line x1="132" y1="16" x2="132" y2="28"/><line x1="168" y1="16" x2="168" y2="28"/><line x1="204" y1="16" x2="204" y2="28"/><line x1="240" y1="16" x2="240" y2="28"/><line x1="276" y1="16" x2="276" y2="28"/><line x1="312" y1="16" x2="312" y2="28"/><line x1="348" y1="16" x2="348" y2="28"/><line x1="384" y1="16" x2="384" y2="28"/><line x1="420" y1="16" x2="420" y2="28"/><line x1="456" y1="16" x2="456" y2="28"/><line x1="492" y1="16" x2="492" y2="28"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="49">−6</text><text x="60" y="49" font-weight="700" fill="#c93c3c">−5</text><text x="96" y="49" font-weight="700" fill="#c93c3c">−4</text><text x="132" y="49" font-weight="700" fill="#c93c3c">−3</text><text x="168" y="49">−2</text><text x="204" y="49">−1</text><text x="240" y="49">0</text><text x="276" y="49">1</text><text x="312" y="49">2</text><text x="348" y="49" font-weight="700" fill="#2f6fdb">3</text><text x="384" y="49" font-weight="700" fill="#2f6fdb">4</text><text x="420" y="49">5</text><text x="456" y="49" font-weight="700" fill="#2f6fdb">6</text><text x="492" y="49">7</text></g><circle cx="60" cy="22" r="6" fill="#c93c3c"/><circle cx="96" cy="22" r="6" fill="#c93c3c"/><circle cx="132" cy="22" r="6" fill="#c93c3c"/><circle cx="348" cy="22" r="6" fill="#2f6fdb"/><circle cx="384" cy="22" r="6" fill="#2f6fdb"/><circle cx="456" cy="22" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="240" y="72" fill="#1f2430">O</text></g></svg>
+      <p>Các số âm −5; −4; −3 nằm bên trái gốc <span class="m">O</span>; các số dương 3; 4; 6 nằm bên phải.</p>
+      <p class="vi-sao">Điểm −3 và điểm 3 cùng cách <span class="m">O</span> 3 đơn vị, ở hai phía của <span class="m">O</span> (tương tự −4 và 4).</p>
+      <a class="xem-lai" href="#kt-truc-so">📌 Xem lại: trục số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trên trục số, từ trái sang phải: −5; −4; −3; (0); 3; 4; 6 — các số âm bên trái gốc <span class="m">O</span>, các số dương bên phải.</div>
+    <div class="bay">Chia khoảng không đều nhau (khoảng từ 0 đến 1 dài hơn khoảng từ 0 đến −1). Mọi khoảng giữa hai vạch liền nhau phải bằng nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b35" data-ten="Bài 3.5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đọc trục số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span> và <span class="m">E</span> trong hình dưới đây biểu diễn những số nào?</p>
+    <p><i>(Hình: trục số với các vạch cách đều; điểm E ở vị trí −1, điểm D ở vị trí 0; điểm B nằm bên trái E cách 4 vạch; điểm C nằm bên phải D cách 5 vạch; điểm A nằm bên phải D cách 9 vạch.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm hai điểm đã biết trước (điểm 0 và điểm −1), rồi đếm vạch.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai vạch liền nhau cách nhau 1 đơn vị (vì E là −1, D là 0). Đi sang phải thì số tăng, sang trái thì số giảm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xác định đơn vị</h4>
+      <p>Điểm <span class="m">E</span> là −1 và điểm <span class="m">D</span> là 0 nên mỗi khoảng giữa hai vạch liền nhau là 1 đơn vị. Vậy <span class="m">D</span> = 0, <span class="m">E</span> = −1.</p>
+      <a class="xem-lai" href="#kt-truc-so">📌 Xem lại: trục số</a></div>
+    <div class="buoc" data-so="2"><h4>Đếm vạch để tìm B, C, A</h4>
+      <svg viewBox="0 0 566 82" style="max-width:566px" role="img" aria-label="Trục số: B ở −5, E ở −1, D ở 0, C ở 5, A ở 9"><line x1="8" y1="22" x2="554" y2="22" stroke="#5c6577" stroke-width="2"/><polygon points="554,17 564,22 554,27" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="16" x2="24" y2="28"/><line x1="56" y1="16" x2="56" y2="28"/><line x1="88" y1="16" x2="88" y2="28"/><line x1="120" y1="16" x2="120" y2="28"/><line x1="152" y1="16" x2="152" y2="28"/><line x1="184" y1="16" x2="184" y2="28"/><line x1="216" y1="16" x2="216" y2="28"/><line x1="248" y1="16" x2="248" y2="28"/><line x1="280" y1="16" x2="280" y2="28"/><line x1="312" y1="16" x2="312" y2="28"/><line x1="344" y1="16" x2="344" y2="28"/><line x1="376" y1="16" x2="376" y2="28"/><line x1="408" y1="16" x2="408" y2="28"/><line x1="440" y1="16" x2="440" y2="28"/><line x1="472" y1="16" x2="472" y2="28"/><line x1="504" y1="16" x2="504" y2="28"/><line x1="536" y1="16" x2="536" y2="28"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="49">−6</text><text x="56" y="49" font-weight="700" fill="#c93c3c">−5</text><text x="88" y="49">−4</text><text x="120" y="49">−3</text><text x="152" y="49">−2</text><text x="184" y="49" font-weight="700" fill="#c93c3c">−1</text><text x="216" y="49" font-weight="700" fill="#6b4fc9">0</text><text x="248" y="49">1</text><text x="280" y="49">2</text><text x="312" y="49">3</text><text x="344" y="49">4</text><text x="376" y="49" font-weight="700" fill="#2f6fdb">5</text><text x="408" y="49">6</text><text x="440" y="49">7</text><text x="472" y="49">8</text><text x="504" y="49" font-weight="700" fill="#2f6fdb">9</text><text x="536" y="49">10</text></g><circle cx="56" cy="22" r="6" fill="#c93c3c"/><circle cx="184" cy="22" r="6" fill="#c93c3c"/><circle cx="216" cy="22" r="6" fill="#6b4fc9"/><circle cx="376" cy="22" r="6" fill="#2f6fdb"/><circle cx="504" cy="22" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="56" y="72" fill="#c93c3c">B</text><text x="184" y="72" fill="#c93c3c">E</text><text x="216" y="72" fill="#6b4fc9">D</text><text x="376" y="72" fill="#2f6fdb">C</text><text x="504" y="72" fill="#2f6fdb">A</text></g></svg>
+      <p><span class="m">B</span>: từ −1 sang trái 4 vạch → −2, −3, −4, −5. Vậy <span class="m">B</span> = −5.</p>
+      <p><span class="m">C</span>: từ 0 sang phải 5 vạch → 5. &nbsp; <span class="m">A</span>: từ 0 sang phải 9 vạch → 9.</p>
+      <p class="vi-sao"><span class="m">B</span> cách <span class="m">E</span> 4 vạch, nhưng phải đếm từ <span class="m">E</span> (−1), không phải từ 0 — nên <span class="m">B</span> là −5 chứ không phải −4.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">A</span>: 9; <span class="m">B</span>: −5; <span class="m">C</span>: 5; <span class="m">D</span>: 0; <span class="m">E</span>: −1.</div>
+    <div class="bay">Đếm 4 vạch tính từ 0 nên ra <span class="m">B</span> = −4. Điểm <span class="m">B</span> cách <span class="m">E</span> (không phải cách <span class="m">D</span>) 4 vạch.</div>
+    <div class="gv-note">Lời giải dựa trên mô tả hình trong kho (E ở −1, D ở 0, B cách E 4 vạch, C cách D 5 vạch, A cách D 9 vạch). Nên cho HS đối chiếu hình trong SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b36" data-ten="Bài 3.6" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sắp xếp số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy sắp xếp các số sau theo thứ tự tăng dần.</p><p>−3; +4; 7; −7; 0; −1; +15; −8; 25.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 +4 và 4 là một số; +15 cũng chỉ là 15.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tách thành nhóm số âm, số 0, nhóm số dương. Sắp xếp trong từng nhóm rồi ghép lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sắp xếp nhóm số âm</h4>
+      <p>Số âm: −3; −7; −1; −8. Vì 8 &gt; 7 &gt; 3 &gt; 1 nên −8 &lt; −7 &lt; −3 &lt; −1.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp xếp nhóm số dương và ghép lại</h4>
+      <p>Số dương: +4; 7; +15; 25, ta có 4 &lt; 7 &lt; 15 &lt; 25.</p>
+      <p>Thứ tự tăng dần: <b>−8; −7; −3; −1; 0; +4; 7; +15; 25</b>.</p>
+      <p class="vi-sao">Số âm &lt; 0 &lt; số dương, nên nhóm âm đứng đầu, số 0 ở giữa, nhóm dương ở cuối.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">−8; −7; −3; −1; 0; +4; 7; +15; 25.</div>
+    <div class="bay">Sắp số âm theo phần số tự nhiên: −1; −3; −7; −8. Với số âm, phần số tự nhiên càng lớn thì số càng nhỏ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b37" data-ten="Bài 3.7" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.7</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>So sánh hai số:</p><p>a) −39 và −54; &nbsp; b) −3 179 và −3 279.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">a) −39 ? −54</span><button class="chon" data-dung="0">&lt;</button><button class="chon" data-dung="1">&gt;</button><span class="phan-hoi" data-dung-txt="Đúng! 39 &lt; 54 nên −39 &gt; −54." data-sai-txt="Thử lại: điểm nào nằm xa về bên trái hơn trên trục số, −39 hay −54?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">b) −3 179 ? −3 279</span><button class="chon" data-dung="0">&lt;</button><button class="chon" data-dung="1">&gt;</button><span class="phan-hoi" data-dung-txt="Đúng! 3 179 &lt; 3 279 nên −3 179 &gt; −3 279." data-sai-txt="Thử lại: so 3 179 với 3 279 trước, rồi nhớ dấu “−” đảo ngược thứ tự."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai số âm: số nào “xa 0 hơn” thì nhỏ hơn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh hai phần số tự nhiên trước, rồi đảo ngược kết quả.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) So sánh −39 và −54</h4>
+      <p>39 &lt; 54 nên <span class="m">−39 &gt; −54</span>.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: nếu a &gt; b thì −a &lt; −b</a></div>
+    <div class="buoc" data-so="2"><h4>b) So sánh −3 179 và −3 279</h4>
+      <p>So 3 179 và 3 279: hàng nghìn bằng nhau, hàng trăm 1 &lt; 2, nên 3 179 &lt; 3 279. Do đó <span class="m">−3 179 &gt; −3 279</span>.</p>
+      <p class="vi-sao">Dấu “−” đặt trước làm thứ tự đảo ngược.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −39 &gt; −54; b) −3 179 &gt; −3 279.</div>
+    <div class="bay">Viết −39 &lt; −54 vì 39 &lt; 54 — quên đảo ngược thứ tự khi so hai số âm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b38" data-ten="Bài 3.8" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.8</span><span class="nhan th">Thông hiểu</span><span class="nhan">Liệt kê tập hợp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Liệt kê các phần tử của mỗi tập hợp sau:</p>
+    <p>a) <span class="m">A = {x ∈ ℤ | −2 ≤ x &lt; 4}</span>; &nbsp; b) <span class="m">B = {x ∈ ℤ | −2 &lt; x ≤ 4}</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai tập trông gần giống nhau, chỉ khác chỗ đặt dấu “≤” và “&lt;”.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ở mỗi đầu, “≤” thì lấy số đó, “&lt;” thì không lấy. Kể các số nguyên từ đầu nhỏ đến đầu lớn, nhớ có cả số 0.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Tập A</h4>
+      <p><span class="m">−2 ≤ x</span>: lấy cả −2; <span class="m">x &lt; 4</span>: không lấy 4.</p>
+      <p><span class="m">A = {−2; −1; 0; 1; 2; 3}</span>.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: kí hiệu ≤</a></div>
+    <div class="buoc" data-so="2"><h4>b) Tập B</h4>
+      <p><span class="m">−2 &lt; x</span>: không lấy −2; <span class="m">x ≤ 4</span>: lấy cả 4.</p>
+      <p><span class="m">B = {−1; 0; 1; 2; 3; 4}</span>.</p>
+      <p class="vi-sao">Các số nguyên nằm giữa −2 và 4 trên trục số là −1; 0; 1; 2; 3 — chỉ khác nhau ở hai đầu mút.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">A = {−2; −1; 0; 1; 2; 3}</span>; b) <span class="m">B = {−1; 0; 1; 2; 3; 4}</span>.</div>
+    <div class="bay">Quên số 0 khi liệt kê từ số âm sang số dương. Số 0 là số nguyên, nằm giữa −1 và 1.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 13. Tập hợp các số nguyên — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c03-b13';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-03-bai-13-tap-hop-cac-so-nguyen-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-03-bai-13-tap-hop-cac-so-nguyen-bai-giai.nguon.html" data-phien-ban="deb8fc788217">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

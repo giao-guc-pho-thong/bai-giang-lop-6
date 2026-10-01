@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 14. Phép cộng và phép trừ số nguyên — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương III. Số nguyên</div>
+    <div class="hang1">
+      <h1>Bài 14. Phép cộng và phép trừ số nguyên — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương III. Số nguyên</div><h1>Bài 14. Phép cộng và phép trừ số nguyên — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-cong-am"><b class="ten">Cộng hai số nguyên âm</b>
+      Muốn cộng hai số nguyên âm, ta cộng phần số tự nhiên của chúng với nhau rồi đặt dấu “−” trước kết quả.
+      Ví dụ: <span class="m">(−28) + (−37) = −(28 + 37) = −65</span>. (Mỗi số nguyên có hai phần: <b>phần dấu</b> và <b>phần số tự nhiên</b>; với −3, dấu “−” là phần dấu, 3 là phần số tự nhiên.)</div>
+    <div class="kt" id="kt-so-doi"><b class="ten">Số đối</b>
+      Trên trục số, hai điểm 3 và −3 có cùng khoảng cách đến gốc <span class="m">O</span>; ta gọi 3 và −3 là <b>hai số đối nhau</b>. Số đối của 0 là chính nó. Tổng của hai số đối nhau luôn bằng 0.
+      Kí hiệu số đối của số nguyên <span class="m">a</span> là <span class="m">−a</span>; số đối của <span class="m">−a</span> là <span class="m">−(−a) = a</span>. (Tròn: muốn tìm số đối của một số, ta chỉ việc đổi dấu của nó.)</div>
+    <div class="kt" id="kt-cong-khac"><b class="ten">Cộng hai số nguyên khác dấu</b>
+      1. Hai số nguyên đối nhau thì có tổng bằng 0.<br>
+      2. Muốn cộng hai số nguyên khác dấu (không đối nhau), ta tìm hiệu hai phần số tự nhiên của chúng (số lớn trừ số nhỏ) rồi đặt trước hiệu tìm được dấu của số có phần số tự nhiên lớn hơn.
+      Ví dụ: <span class="m">9 + (−5) = 9 − 5 = 4</span>; <span class="m">(−12) + 9 = −(12 − 9) = −3</span>.</div>
+    <div class="kt" id="kt-tinh-chat"><b class="ten">Tính chất của phép cộng</b>
+      Giao hoán: <span class="m">a + b = b + a</span>; Kết hợp: <span class="m">(a + b) + c = a + (b + c)</span>. Mỗi số cộng với 0 thì bằng chính số đó: <span class="m">a + 0 = 0 + a = a</span>.</div>
+    <div class="kt" id="kt-tru"><b class="ten">Trừ hai số nguyên</b>
+      Muốn trừ số nguyên <span class="m">a</span> cho số nguyên <span class="m">b</span>, ta cộng <span class="m">a</span> với số đối của <span class="m">b</span>: <span class="m">a − b = a + (−b)</span>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 14. Phép cộng và phép trừ số nguyên.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Trục số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Từ gốc <span class="m">O</span> trên trục số, di chuyển <i>sang trái</i> 3 đơn vị đến điểm <span class="m">A</span> (H.3.10). Điểm <span class="m">A</span> biểu diễn số nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sang trái là đi về phía các số âm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đếm từ 0 sang trái từng bước: −1, −2, …</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm 3 bước sang trái</h4>
+      <svg viewBox="0 0 450 114" style="max-width:450px" role="img" aria-label="Trục số: từ O sang trái 3 đơn vị đến A là −3"><line x1="8" y1="54" x2="438" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="438,49 448,54 438,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="60" y1="48" x2="60" y2="60"/><line x1="96" y1="48" x2="96" y2="60"/><line x1="132" y1="48" x2="132" y2="60"/><line x1="168" y1="48" x2="168" y2="60"/><line x1="204" y1="48" x2="204" y2="60"/><line x1="240" y1="48" x2="240" y2="60"/><line x1="276" y1="48" x2="276" y2="60"/><line x1="312" y1="48" x2="312" y2="60"/><line x1="348" y1="48" x2="348" y2="60"/><line x1="384" y1="48" x2="384" y2="60"/><line x1="420" y1="48" x2="420" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="81">−9</text><text x="60" y="81">−8</text><text x="96" y="81">−7</text><text x="132" y="81">−6</text><text x="168" y="81">−5</text><text x="204" y="81">−4</text><text x="240" y="81" font-weight="700" fill="#2f6fdb">−3</text><text x="276" y="81">−2</text><text x="312" y="81">−1</text><text x="348" y="81" font-weight="700" fill="#1f2430">0</text><text x="384" y="81">1</text><text x="420" y="81">2</text></g><line x1="348" y1="30" x2="348" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="348" y1="30" x2="249" y2="30" stroke="#2f6fdb" stroke-width="3"/><polygon points="240,30 251,24 251,36" fill="#2f6fdb"/><line x1="240" y1="30" x2="240" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="294" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">3 đơn vị</text><circle cx="348" cy="54" r="6" fill="#1f2430"/><circle cx="240" cy="54" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="348" y="104" fill="#1f2430">O</text><text x="240" y="104" fill="#2f6fdb">A</text></g></svg>
+      <p>Từ 0 sang trái: −1, −2, −3. Vậy điểm <span class="m">A</span> biểu diễn số <b>−3</b>.</p>
+      <p class="vi-sao">Sang trái là chiều âm, nên điểm đến là số âm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">A</span> biểu diễn số −3.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Di chuyển tiếp sang trái thêm 5 đơn vị đến điểm <span class="m">B</span> (H.3.11). <span class="m">B</span> chính là điểm biểu diễn kết quả của phép cộng (−3) + (−5). Điểm <span class="m">B</span> biểu diễn số nào? Từ đó suy ra giá trị của tổng (−3) + (−5).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đi tiếp sang trái thì càng xa gốc <i>O</i> về phía âm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ điểm <span class="m">A</span> (−3), đếm tiếp 5 bước sang trái.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm tiếp 5 bước từ A</h4>
+      <svg viewBox="0 0 450 146" style="max-width:450px" role="img" aria-label="Trục số: từ O sang trái 3 đơn vị đến A, rồi sang trái 5 đơn vị đến B là −8"><line x1="8" y1="86" x2="438" y2="86" stroke="#5c6577" stroke-width="2"/><polygon points="438,81 448,86 438,91" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="80" x2="24" y2="92"/><line x1="60" y1="80" x2="60" y2="92"/><line x1="96" y1="80" x2="96" y2="92"/><line x1="132" y1="80" x2="132" y2="92"/><line x1="168" y1="80" x2="168" y2="92"/><line x1="204" y1="80" x2="204" y2="92"/><line x1="240" y1="80" x2="240" y2="92"/><line x1="276" y1="80" x2="276" y2="92"/><line x1="312" y1="80" x2="312" y2="92"/><line x1="348" y1="80" x2="348" y2="92"/><line x1="384" y1="80" x2="384" y2="92"/><line x1="420" y1="80" x2="420" y2="92"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="113">−9</text><text x="60" y="113" font-weight="700" fill="#0f8a68">−8</text><text x="96" y="113">−7</text><text x="132" y="113">−6</text><text x="168" y="113">−5</text><text x="204" y="113">−4</text><text x="240" y="113" font-weight="700" fill="#2f6fdb">−3</text><text x="276" y="113">−2</text><text x="312" y="113">−1</text><text x="348" y="113" font-weight="700" fill="#1f2430">0</text><text x="384" y="113">1</text><text x="420" y="113">2</text></g><line x1="348" y1="62" x2="348" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="348" y1="62" x2="249" y2="62" stroke="#2f6fdb" stroke-width="3"/><polygon points="240,62 251,56 251,68" fill="#2f6fdb"/><line x1="240" y1="62" x2="240" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="294" y="56" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">−3</text><line x1="240" y1="30" x2="240" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="240" y1="30" x2="69" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="60,30 71,24 71,36" fill="#0f8a68"/><line x1="60" y1="30" x2="60" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="150" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">−5</text><circle cx="348" cy="86" r="6" fill="#1f2430"/><circle cx="240" cy="86" r="6" fill="#2f6fdb"/><circle cx="60" cy="86" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="348" y="136" fill="#1f2430">O</text><text x="240" y="136" fill="#2f6fdb">A</text><text x="60" y="136" fill="#0f8a68">B</text></g></svg>
+      <p>Từ −3 sang trái 5 bước: −4, −5, −6, −7, −8. Điểm <span class="m">B</span> biểu diễn số <b>−8</b>.</p></div>
+    <div class="buoc" data-so="2"><h4>Suy ra tổng</h4>
+      <p><span class="m">(−3) + (−5) = −8</span>.</p>
+      <p class="vi-sao">Tổng cộng ta đã đi 3 + 5 = 8 đơn vị, đều theo chiều âm — nên kết quả là −8. Đây chính là quy tắc cộng hai số nguyên âm.</p>
+      <a class="xem-lai" href="#kt-cong-am">📌 Xem lại: cộng hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">B</span> biểu diễn số −8; <span class="m">(−3) + (−5) = −8</span>.</div>
+    <div class="bay">Tính (−3) + (−5) = −2 hoặc = 2 (lấy 5 − 3). Hai số cùng âm thì đi <b>cùng một chiều</b>, phải cộng phần số tự nhiên: 3 + 5 = 8.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thực hiện các phép cộng sau: (−12) + (−48); &nbsp; (−236) + (−1 025).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tổng của hai số nguyên âm là số âm hay số dương?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cộng hai phần số tự nhiên rồi đặt dấu “−” trước kết quả.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc</h4>
+      <p><span class="m">(−12) + (−48) = −(12 + 48) = −60</span>.</p>
+      <p><span class="m">(−236) + (−1 025) = −(236 + 1 025) = −1 261</span>.</p>
+      <p class="vi-sao">Hai số cùng âm: “nợ thêm nợ” thì nợ nhiều hơn, nên kết quả là số âm có phần số tự nhiên bằng tổng.</p>
+      <a class="xem-lai" href="#kt-cong-am">📌 Xem lại: cộng hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(−12) + (−48) = −60; &nbsp; (−236) + (−1 025) = −1 261.</div>
+    <div class="bay">Quên dấu “−” ở kết quả: viết (−12) + (−48) = 60.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd1" data-ten="Vận dụng 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Sử dụng phép cộng hai số nguyên âm để giải bài toán sau</i> (H.3.12):</p>
+    <p>Một chiếc tàu ngầm cần lặn (coi là theo phương thẳng đứng) xuống điểm <span class="m">A</span> dưới đáy biển. Khi tàu đến điểm <span class="m">B</span> ở độ cao −135 m, máy đo báo rằng tàu còn cách <span class="m">A</span> một khoảng 45 m. Hỏi điểm <span class="m">A</span> nằm ở độ cao bao nhiêu mét?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Điểm <i>A</i> ở cao hơn hay thấp hơn điểm <i>B</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lặn xuống thêm 45 m có nghĩa là độ cao “tăng” −45 m.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết phép tính</h4>
+      <p>Tàu còn phải lặn xuống 45 m nữa mới tới <span class="m">A</span>, tức là độ cao thay đổi −45 m. Độ cao của <span class="m">A</span> là: <span class="m">(−135) + (−45)</span>.</p>
+      <p class="vi-sao">Đi xuống là theo chiều âm, nên dùng số −45.</p></div>
+    <div class="buoc" data-so="2"><h4>Tính</h4>
+      <p><span class="m">(−135) + (−45) = −(135 + 45) = −180</span> (m).</p>
+      <a class="xem-lai" href="#kt-cong-am">📌 Xem lại: cộng hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">A</span> nằm ở độ cao −180 m.</div>
+    <div class="bay">Tính (−135) + 45 = −90 (nghĩ “còn cách 45 m” là cộng 45). Tàu đang <b>lặn xuống</b>, nên phải cộng −45.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch" data-ten="Câu hỏi" data-muc="nb">
+  <div class="bai-dau"><span class="so">Câu hỏi</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số đối</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm số đối của 4; −5; 9; −11.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số đối: chỉ việc đổi dấu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số dương thì số đối là số âm, và ngược lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đổi dấu từng số</h4>
+      <p>Số đối của 4 là −4; số đối của −5 là 5; số đối của 9 là −9; số đối của −11 là 11.</p>
+      <p class="vi-sao">Hai số đối nhau nằm ở hai phía của gốc <span class="m">O</span> và cách đều <span class="m">O</span>.</p>
+      <a class="xem-lai" href="#kt-so-doi">📌 Xem lại: số đối</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đối của 4; −5; 9; −11 lần lượt là −4; 5; −9; 11.</div>
+    <div class="bay">Nghĩ số đối của −5 là −5 hoặc “số âm nào đó”. Số đối của số âm là số dương: −(−5) = 5.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số đối</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm số đối của mỗi số 5 và −2 rồi biểu diễn chúng trên cùng một trục số.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai số đối nhau cách gốc <i>O</i> bằng nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đổi dấu để tìm số đối, rồi chấm cả bốn số lên một trục số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm số đối</h4>
+      <p>Số đối của 5 là −5; số đối của −2 là 2.</p>
+      <a class="xem-lai" href="#kt-so-doi">📌 Xem lại: số đối</a></div>
+    <div class="buoc" data-so="2"><h4>Biểu diễn trên trục số</h4>
+      <svg viewBox="0 0 486 82" style="max-width:486px" role="img" aria-label="Trục số với các điểm −5, −2, 2, 5"><line x1="8" y1="22" x2="474" y2="22" stroke="#5c6577" stroke-width="2"/><polygon points="474,17 484,22 474,27" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="16" x2="24" y2="28"/><line x1="60" y1="16" x2="60" y2="28"/><line x1="96" y1="16" x2="96" y2="28"/><line x1="132" y1="16" x2="132" y2="28"/><line x1="168" y1="16" x2="168" y2="28"/><line x1="204" y1="16" x2="204" y2="28"/><line x1="240" y1="16" x2="240" y2="28"/><line x1="276" y1="16" x2="276" y2="28"/><line x1="312" y1="16" x2="312" y2="28"/><line x1="348" y1="16" x2="348" y2="28"/><line x1="384" y1="16" x2="384" y2="28"/><line x1="420" y1="16" x2="420" y2="28"/><line x1="456" y1="16" x2="456" y2="28"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="49">−6</text><text x="60" y="49" font-weight="700" fill="#2f6fdb">−5</text><text x="96" y="49">−4</text><text x="132" y="49">−3</text><text x="168" y="49" font-weight="700" fill="#0f8a68">−2</text><text x="204" y="49">−1</text><text x="240" y="49">0</text><text x="276" y="49">1</text><text x="312" y="49" font-weight="700" fill="#0f8a68">2</text><text x="348" y="49">3</text><text x="384" y="49">4</text><text x="420" y="49" font-weight="700" fill="#2f6fdb">5</text><text x="456" y="49">6</text></g><circle cx="420" cy="22" r="6" fill="#2f6fdb"/><circle cx="60" cy="22" r="6" fill="#2f6fdb"/><circle cx="168" cy="22" r="6" fill="#0f8a68"/><circle cx="312" cy="22" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="240" y="72" fill="#1f2430">O</text></g></svg>
+      <p>Điểm 5 và −5 cùng cách <span class="m">O</span> 5 đơn vị; điểm −2 và 2 cùng cách <span class="m">O</span> 2 đơn vị.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đối của 5 là −5, số đối của −2 là 2; trên trục số: −5 và 5 đối xứng nhau qua gốc <span class="m">O</span> (cùng cách <span class="m">O</span> 5 đơn vị), −2 và 2 cùng cách <span class="m">O</span> 2 đơn vị.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một ngày tại Paris có nhiệt độ là −5&nbsp;°C. Theo dự báo thời tiết ngày hôm sau tăng thêm 3&nbsp;°C. a) Hỏi nhiệt độ dự báo của ngày hôm sau sẽ là bao nhiêu?</p>
+    <p><b>HĐ3.</b> Từ điểm <span class="m">A</span> biểu diễn số −5 trên trục số di chuyển sang phải 3 đơn vị (H.3.15) đến điểm <span class="m">B</span>. Điểm <span class="m">B</span> biểu diễn kết quả phép cộng nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Sang phải 3 đơn vị từ −5: đã qua được gốc <i>O</i> chưa?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xuất phát ở −5, “tăng 3” là đi sang phải 3 đơn vị.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Di chuyển trên trục số</h4>
+      <svg viewBox="0 0 414 114" style="max-width:414px" role="img" aria-label="Trục số: từ A ở −5 sang phải 3 đơn vị đến B ở −2"><line x1="8" y1="54" x2="402" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="402,49 412,54 402,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="60" y1="48" x2="60" y2="60"/><line x1="96" y1="48" x2="96" y2="60"/><line x1="132" y1="48" x2="132" y2="60"/><line x1="168" y1="48" x2="168" y2="60"/><line x1="204" y1="48" x2="204" y2="60"/><line x1="240" y1="48" x2="240" y2="60"/><line x1="276" y1="48" x2="276" y2="60"/><line x1="312" y1="48" x2="312" y2="60"/><line x1="348" y1="48" x2="348" y2="60"/><line x1="384" y1="48" x2="384" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="81">−6</text><text x="60" y="81" font-weight="700" fill="#2f6fdb">−5</text><text x="96" y="81">−4</text><text x="132" y="81">−3</text><text x="168" y="81" font-weight="700" fill="#0f8a68">−2</text><text x="204" y="81">−1</text><text x="240" y="81" font-weight="700" fill="#1f2430">0</text><text x="276" y="81">1</text><text x="312" y="81">2</text><text x="348" y="81">3</text><text x="384" y="81">4</text></g><line x1="60" y1="30" x2="60" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="60" y1="30" x2="159" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="168,30 157,24 157,36" fill="#0f8a68"/><line x1="168" y1="30" x2="168" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="114" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">+3</text><circle cx="60" cy="54" r="6" fill="#2f6fdb"/><circle cx="168" cy="54" r="6" fill="#0f8a68"/><circle cx="240" cy="54" r="6" fill="#1f2430"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="60" y="104" fill="#2f6fdb">A</text><text x="168" y="104" fill="#0f8a68">B</text><text x="240" y="104" fill="#1f2430">O</text></g></svg>
+      <p>Từ −5 sang phải 3 bước: −4, −3, −2. Điểm <span class="m">B</span> biểu diễn số −2.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết phép cộng</h4>
+      <p>Điểm <span class="m">B</span> biểu diễn kết quả phép cộng <span class="m">(−5) + 3 = −2</span>. Vậy nhiệt độ dự báo ngày hôm sau là −2&nbsp;°C.</p>
+      <p class="vi-sao">Phần số tự nhiên 5 &gt; 3, nên chưa đi tới gốc <span class="m">O</span>: kết quả vẫn âm, bằng −(5 − 3).</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">B</span> biểu diễn kết quả phép cộng (−5) + 3 = −2. Nhiệt độ dự báo ngày hôm sau là −2&nbsp;°C.</div>
+    <div class="gv-note">Câu a), b) về nhiệt độ Paris là tình huống dẫn của HĐ3, HĐ4 (SGK không đánh số riêng); trang này giải câu a) cùng HĐ3, câu b) cùng HĐ4.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>b) Thực tế, nhiệt độ ngày hôm sau lại tăng thêm 8&nbsp;°C. Hỏi nhiệt độ thực tế ngày hôm sau là bao nhiêu?</p>
+    <p><b>HĐ4.</b> Từ điểm <span class="m">A</span> di chuyển sang phải 8 đơn vị (H.3.16) đến điểm <span class="m">C</span>. Điểm <span class="m">C</span> biểu diễn kết quả của phép cộng nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Lần này đi xa hơn: 8 đơn vị — vượt qua gốc <i>O</i> rồi!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ −5 đi 5 bước thì tới 0; còn lại bao nhiêu bước nữa?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Di chuyển trên trục số</h4>
+      <svg viewBox="0 0 414 114" style="max-width:414px" role="img" aria-label="Trục số: từ A ở −5 sang phải 8 đơn vị đến C ở 3"><line x1="8" y1="54" x2="402" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="402,49 412,54 402,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="60" y1="48" x2="60" y2="60"/><line x1="96" y1="48" x2="96" y2="60"/><line x1="132" y1="48" x2="132" y2="60"/><line x1="168" y1="48" x2="168" y2="60"/><line x1="204" y1="48" x2="204" y2="60"/><line x1="240" y1="48" x2="240" y2="60"/><line x1="276" y1="48" x2="276" y2="60"/><line x1="312" y1="48" x2="312" y2="60"/><line x1="348" y1="48" x2="348" y2="60"/><line x1="384" y1="48" x2="384" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="81">−6</text><text x="60" y="81" font-weight="700" fill="#2f6fdb">−5</text><text x="96" y="81">−4</text><text x="132" y="81">−3</text><text x="168" y="81">−2</text><text x="204" y="81">−1</text><text x="240" y="81" font-weight="700" fill="#1f2430">0</text><text x="276" y="81">1</text><text x="312" y="81">2</text><text x="348" y="81" font-weight="700" fill="#0f8a68">3</text><text x="384" y="81">4</text></g><line x1="60" y1="30" x2="60" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="60" y1="30" x2="339" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="348,30 337,24 337,36" fill="#0f8a68"/><line x1="348" y1="30" x2="348" y2="54" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="204" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">+8</text><circle cx="60" cy="54" r="6" fill="#2f6fdb"/><circle cx="240" cy="54" r="6" fill="#1f2430"/><circle cx="348" cy="54" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="60" y="104" fill="#2f6fdb">A</text><text x="240" y="104" fill="#1f2430">O</text><text x="348" y="104" fill="#0f8a68">C</text></g></svg>
+      <p>Từ −5 đi 5 bước sang phải thì tới 0; đi tiếp 3 bước nữa thì tới 3. Điểm <span class="m">C</span> biểu diễn số 3.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết phép cộng</h4>
+      <p>Điểm <span class="m">C</span> biểu diễn kết quả phép cộng <span class="m">(−5) + 8 = 3</span>. Nhiệt độ thực tế ngày hôm sau là 3&nbsp;°C.</p>
+      <p class="vi-sao">8 &gt; 5 nên vượt qua gốc <span class="m">O</span>: kết quả dương, bằng 8 − 5 = 3.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">C</span> biểu diễn kết quả phép cộng (−5) + 8 = 3. Nhiệt độ thực tế ngày hôm sau là 3&nbsp;°C.</div>
+    <div class="bay">Viết (−5) + 8 = −3 (giữ dấu “−” của số đứng đầu). Dấu của kết quả là dấu của số có phần số tự nhiên <b>lớn hơn</b> — ở đây là 8, dương.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Cộng hai số khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thực hiện các phép tính: a) 203 + (−195); &nbsp; b) (−137) + 86.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai bước: tìm hiệu hai phần số tự nhiên, rồi chọn dấu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số lớn trừ số nhỏ; dấu của kết quả là dấu của số có phần số tự nhiên lớn hơn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) 203 + (−195)</h4>
+      <p>203 &gt; 195 nên kết quả mang dấu của 203 (dương): <span class="m">203 + (−195) = 203 − 195 = 8</span>.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>b) (−137) + 86</h4>
+      <p>137 &gt; 86 nên kết quả mang dấu của −137 (âm): <span class="m">(−137) + 86 = −(137 − 86) = −51</span>.</p>
+      <p class="vi-sao">“Nợ 137, trả 86” thì vẫn còn nợ 51.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 203 + (−195) = 8; b) (−137) + 86 = −51.</div>
+    <div class="bay">Cộng cả hai phần số tự nhiên: 137 + 86 = 223. Hai số <b>khác dấu</b> thì phải lấy <b>hiệu</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd2" data-ten="Vận dụng 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p><i>Sử dụng phép cộng hai số nguyên khác dấu để giải bài toán sau:</i></p>
+    <p>Một máy thăm dò đáy biển ngày hôm trước hoạt động ở độ cao −946 m (so với mực nước biển). Ngày hôm sau người ta cho máy nổi lên 55 m so với hôm trước. Hỏi ngày hôm sau máy thăm dò đáy biển hoạt động ở độ cao nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Nổi lên” là đi lên — độ cao tăng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nổi lên 55 m: độ cao tăng 55 m. Tính (−946) + 55.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết phép tính</h4>
+      <p>Độ cao ngày hôm sau: <span class="m">(−946) + 55</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Cộng hai số khác dấu</h4>
+      <p>946 &gt; 55 nên kết quả âm: <span class="m">(−946) + 55 = −(946 − 55) = −891</span> (m).</p>
+      <p class="vi-sao">Nổi lên 55 m vẫn còn rất sâu dưới mực nước biển, nên độ cao vẫn là số âm.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ngày hôm sau máy hoạt động ở độ cao −891 m.</div>
+    <div class="bay">Tính −946 − 55 = −1 001 (nghĩ “nổi lên” là trừ). Nổi lên làm độ cao <b>tăng</b>, nên cộng 55.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tl" data-ten="Tranh luận" data-muc="th">
+  <div class="bai-dau"><span class="so">Tranh luận</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu của tổng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tròn: Đố bạn: tổng của hai số nguyên khác dấu là số dương hay số âm? Vuông: ???</p><p>Em hãy trả lời giúp Vuông.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thử vài ví dụ đi — kết quả có luôn cùng một dấu không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhìn lại Ví dụ 2: 9 + (−9); 9 + (−5); (−12) + 9.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Thử ví dụ</h4>
+      <p>9 + (−5) = 4 (dương); &nbsp; (−12) + 9 = −3 (âm); &nbsp; 9 + (−9) = 0 (không dương, không âm).</p></div>
+    <div class="buoc" data-so="2"><h4>Kết luận</h4>
+      <p>Tổng của hai số nguyên khác dấu <b>có thể dương, có thể âm, hoặc bằng 0</b>:</p>
+      <p>– Bằng 0 nếu hai số đối nhau.<br>– Dương nếu số dương có phần số tự nhiên lớn hơn.<br>– Âm nếu số âm có phần số tự nhiên lớn hơn.</p>
+      <p class="vi-sao">Dấu của tổng là dấu của số có phần số tự nhiên lớn hơn.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chưa chắc: tổng hai số nguyên khác dấu bằng 0 nếu hai số đối nhau; dương nếu số dương có phần số tự nhiên lớn hơn; âm nếu số âm có phần số tự nhiên lớn hơn.</div>
+    <div class="bay">Chọn một trong hai đáp án “dương” hoặc “âm”. Câu hỏi có bẫy: còn trường hợp tổng bằng 0 và dấu phụ thuộc vào từng cặp số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Kéo co: đội “dương” và đội “âm”. Đội nào khoẻ hơn (phần số tự nhiên lớn hơn) thì dây bị kéo về phía đội đó. Hai đội khoẻ bằng nhau thì dây đứng yên ở giữa — tổng bằng 0.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd5" data-ten="HĐ5" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tính chất giao hoán</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính và so sánh giá trị của <span class="m">a + b</span> và <span class="m">b + a</span> với <span class="m">a = −7</span>, <span class="m">b = 11</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đổi chỗ hai số hạng thì tổng có đổi không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thay số vào rồi dùng quy tắc cộng hai số khác dấu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính hai tổng</h4>
+      <p><span class="m">a + b = (−7) + 11 = 11 − 7 = 4</span>.</p>
+      <p><span class="m">b + a = 11 + (−7) = 11 − 7 = 4</span>.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p>Hai tổng bằng nhau: <span class="m">a + b = b + a</span>.</p>
+      <p class="vi-sao">Đây là tính chất giao hoán — giống như với số tự nhiên.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất của phép cộng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">a + b = 4</span>; <span class="m">b + a = 4</span>; hai giá trị bằng nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd6" data-ten="HĐ6" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tính chất kết hợp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính và so sánh giá trị của <span class="m">(a + b) + c</span> và <span class="m">a + (b + c)</span> với <span class="m">a = 2</span>, <span class="m">b = −4</span>, <span class="m">c = −6</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhóm khác nhau, kết quả có khác không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tính trong ngoặc trước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính (a + b) + c</h4>
+      <p><span class="m">(a + b) + c = [2 + (−4)] + (−6) = (−2) + (−6) = −8</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Tính a + (b + c)</h4>
+      <p><span class="m">a + (b + c) = 2 + [(−4) + (−6)] = 2 + (−10) = −8</span>.</p>
+      <p class="vi-sao">Hai cách nhóm cho cùng kết quả: đó là tính chất kết hợp.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất của phép cộng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">(a + b) + c = −8</span>; <span class="m">a + (b + c) = −8</span>; hai giá trị bằng nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt4" data-ten="Luyện tập 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tính hợp lí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính một cách hợp lí:</p><p>a) (−2 019) + (−550) + (−451); &nbsp; b) (−2) + 5 + (−6) + 9.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm hai số hạng nào cộng lại ra số “tròn”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) 550 + 451 = ? &nbsp; b) Gom các số âm với nhau, các số dương với nhau.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Nhóm hai số hạng cuối</h4>
+      <p><span class="m">(−2 019) + [(−550) + (−451)] = (−2 019) + (−1 001) = −3 020</span>.</p>
+      <p class="vi-sao">550 + 451 = 1 001, và 2 019 + 1 001 = 3 020 rất dễ nhẩm (tính chất kết hợp).</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất của phép cộng</a></div>
+    <div class="buoc" data-so="2"><h4>b) Gom số âm, gom số dương</h4>
+      <p><span class="m">(−2) + 5 + (−6) + 9 = [(−2) + (−6)] + (5 + 9) = (−8) + 14 = 6</span>.</p>
+      <p class="vi-sao">Đổi chỗ (giao hoán) rồi nhóm (kết hợp): chỉ còn một phép cộng hai số khác dấu ở cuối.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −3 020; b) 6.</div>
+    <div class="bay">Ở câu b, đổi chỗ số mà quên mang theo dấu “−” của nó. Mỗi số hạng phải đi kèm dấu của chính nó: (−6) chứ không phải 6.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd7" data-ten="HĐ7" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ7</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trừ số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nửa tháng đầu một cửa hàng bán lẻ lãi được 5 triệu đồng, nửa tháng sau bị lỗ 2 triệu đồng. Hỏi tháng đó cửa hàng lãi hay lỗ bao nhiêu triệu đồng?</p>
+    <p>Giải bài toán trên bằng hai cách:</p><p><i>Cách 1.</i> Tính hiệu giữa số tiền lãi và số tiền lỗ.</p><p><i>Cách 2.</i> Hiểu lỗ 2 triệu là “lãi” −2 triệu để quy về tính tổng của hai số nguyên.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Lỗ 2 triệu” có thể coi là “lãi bao nhiêu”?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cách 1: 5 − 2. Cách 2: 5 + (−2).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cách 1</h4>
+      <p>Số tiền lãi lớn hơn số tiền lỗ: <span class="m">5 − 2 = 3</span> (triệu đồng). Cửa hàng lãi 3 triệu đồng.</p></div>
+    <div class="buoc" data-so="2"><h4>Cách 2</h4>
+      <p>Lỗ 2 triệu là “lãi” −2 triệu: <span class="m">5 + (−2) = 3</span> (triệu đồng). Cửa hàng lãi 3 triệu đồng.</p>
+      <p class="vi-sao">Hai cách cùng ra 3, tức là <span class="m">5 − 2 = 5 + (−2)</span>: trừ đi một số giống như cộng với số đối của nó.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tháng đó cửa hàng lãi 3 triệu đồng (5 − 2 = 5 + (−2) = 3).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd8" data-ten="HĐ8" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ8</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trừ số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy quan sát ba dòng đầu và dự đoán kết quả ở hai dòng cuối:</p>
+    <p>3 − 1 = 3 + (−1)<br>3 − 2 = 3 + (−2)<br>3 − 3 = 3 + (−3)<br>3 − 4 = ?<br>3 − 5 = ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba dòng đầu theo một quy luật — dòng 4, 5 cũng vậy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ở mỗi dòng, số trừ được thay bằng gì ở vế phải?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận ra quy luật</h4>
+      <p>Trừ đi một số = cộng với số đối của số đó.</p></div>
+    <div class="buoc" data-so="2"><h4>Áp dụng cho hai dòng cuối</h4>
+      <p><span class="m">3 − 4 = 3 + (−4) = −1</span>; &nbsp; <span class="m">3 − 5 = 3 + (−5) = −2</span>.</p>
+      <p class="vi-sao">Kiểm tra bằng lời Pi: (−1) + 4 = 3 đúng, nên 3 − 4 = −1.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">3 − 4 = 3 + (−4) = −1; &nbsp; 3 − 5 = 3 + (−5) = −2.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt5" data-ten="Luyện tập 5" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trừ số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính các hiệu sau: a) 5 − (−3); &nbsp; b) (−7) − 8.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trừ đi một số âm thì kết quả tăng hay giảm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đổi phép trừ thành phép cộng với số đối của số trừ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) 5 − (−3)</h4>
+      <p>Số đối của −3 là 3: <span class="m">5 − (−3) = 5 + 3 = 8</span>.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>b) (−7) − 8</h4>
+      <p>Số đối của 8 là −8: <span class="m">(−7) − 8 = (−7) + (−8) = −15</span>.</p>
+      <p class="vi-sao">Sau khi đổi thành phép cộng, dùng quy tắc cộng hai số nguyên âm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 5 − (−3) = 8; b) (−7) − 8 = −15.</div>
+    <div class="bay">Viết 5 − (−3) = 2. Trừ đi −3 là <b>cộng</b> 3, nên kết quả lớn hơn 5.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Bớt đi một khoản nợ thì mình giàu thêm: đang có 5 nghìn, được xoá nợ 3 nghìn — giống như có thêm 3 nghìn, thành 8 nghìn.</div>
+  </div>
+</article>
+
+<article class="the bai" id="vd3" data-ten="Vận dụng 3" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 3</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhiệt độ bên ngoài của một máy bay ở độ cao 10 000 m là −48&nbsp;°C. Khi hạ cánh, nhiệt độ ở sân bay là 27&nbsp;°C. Hỏi nhiệt độ bên ngoài của máy bay khi ở độ cao 10 000 m và khi hạ cánh chênh lệch bao nhiêu độ C?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chênh lệch = nhiệt độ cao hơn trừ nhiệt độ thấp hơn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lấy 27 − (−48).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết phép trừ</h4>
+      <p>27&nbsp;°C cao hơn −48&nbsp;°C, nên độ chênh lệch là <span class="m">27 − (−48)</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Tính</h4>
+      <p><span class="m">27 − (−48) = 27 + 48 = 75</span> (°C).</p>
+      <p class="vi-sao">Từ −48&nbsp;°C lên 0&nbsp;°C là tăng 48&nbsp;°C, từ 0&nbsp;°C lên 27&nbsp;°C tăng thêm 27&nbsp;°C: tổng cộng 75&nbsp;°C.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhiệt độ chênh lệch 75&nbsp;°C.</div>
+    <div class="bay">Tính 48 − 27 = 21. Hai nhiệt độ nằm ở <b>hai phía</b> của 0&nbsp;°C, nên độ chênh lệch là tổng 48 + 27.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b39" data-ten="Bài 3.9" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.9</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính tổng hai số cùng dấu:</p><p>a) (−7) + (−2); &nbsp; b) (−8) + (−5); &nbsp; c) (−11) + (−7); &nbsp; d) (−6) + (−15).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cùng âm: cộng phần số tự nhiên, giữ dấu “−”.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">(−a) + (−b) = −(a + b)</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc cộng hai số nguyên âm</h4>
+      <p>a) <span class="m">−(7 + 2) = −9</span>; &nbsp; b) <span class="m">−(8 + 5) = −13</span>; &nbsp; c) <span class="m">−(11 + 7) = −18</span>; &nbsp; d) <span class="m">−(6 + 15) = −21</span>.</p>
+      <a class="xem-lai" href="#kt-cong-am">📌 Xem lại: cộng hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −9; b) −13; c) −18; d) −21.</div>
+    <div class="bay">Lấy hiệu (7 − 2 = 5) như khi cộng hai số khác dấu. Hai số <b>cùng</b> dấu thì <b>cộng</b> phần số tự nhiên.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b310" data-ten="Bài 3.10" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.10</span><span class="nhan nb">Nhận biết</span><span class="nhan">Cộng hai số khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính tổng hai số khác dấu:</p><p>a) 6 + (−2); &nbsp; b) 9 + (−3); &nbsp; c) (−10) + 4; &nbsp; d) (−1) + 8.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — tổng mang dấu gì?</b>
+    <div class="cau-thu"><span class="noi-dung">c) (−10) + 4</span><button class="chon chu" data-dung="0">Dương</button><button class="chon chu" data-dung="1">Âm</button><span class="phan-hoi" data-dung-txt="Đúng! 10 &gt; 4 nên tổng mang dấu của −10." data-sai-txt="Thử lại: số nào có phần số tự nhiên lớn hơn, −10 hay 4?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">d) (−1) + 8</span><button class="chon chu" data-dung="1">Dương</button><button class="chon chu" data-dung="0">Âm</button><span class="phan-hoi" data-dung-txt="Đúng! 8 &gt; 1 nên tổng mang dấu của 8." data-sai-txt="Thử lại: số đứng đầu không quyết định dấu — so 1 với 8."></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dấu của tổng theo số có phần số tự nhiên lớn hơn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Lấy số lớn trừ số nhỏ (phần số tự nhiên), rồi đặt dấu của số có phần số tự nhiên lớn hơn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính từng câu</h4>
+      <p>a) <span class="m">6 + (−2) = 6 − 2 = 4</span>; &nbsp; b) <span class="m">9 + (−3) = 9 − 3 = 6</span>;</p>
+      <p>c) <span class="m">(−10) + 4 = −(10 − 4) = −6</span>; &nbsp; d) <span class="m">(−1) + 8 = 8 − 1 = 7</span>.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 4; b) 6; c) −6; d) 7.</div>
+    <div class="bay">Câu d viết −7 vì thấy số đứng đầu là số âm. Dấu của tổng không theo vị trí, mà theo phần số tự nhiên lớn hơn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b311" data-ten="Bài 3.11" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.11</span><span class="nhan nb">Nhận biết</span><span class="nhan">Số đối</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Biểu diễn −4 và số đối của nó trên cùng một trục số.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số đối của −4 nằm ở phía nào của gốc <i>O</i>?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số đối của −4 là −(−4) = ?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm số đối</h4>
+      <p>Số đối của −4 là <span class="m">−(−4) = 4</span>.</p>
+      <a class="xem-lai" href="#kt-so-doi">📌 Xem lại: số đối</a></div>
+    <div class="buoc" data-so="2"><h4>Biểu diễn</h4>
+      <svg viewBox="0 0 414 82" style="max-width:414px" role="img" aria-label="Trục số với hai điểm −4 và 4"><line x1="8" y1="22" x2="402" y2="22" stroke="#5c6577" stroke-width="2"/><polygon points="402,17 412,22 402,27" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="16" x2="24" y2="28"/><line x1="60" y1="16" x2="60" y2="28"/><line x1="96" y1="16" x2="96" y2="28"/><line x1="132" y1="16" x2="132" y2="28"/><line x1="168" y1="16" x2="168" y2="28"/><line x1="204" y1="16" x2="204" y2="28"/><line x1="240" y1="16" x2="240" y2="28"/><line x1="276" y1="16" x2="276" y2="28"/><line x1="312" y1="16" x2="312" y2="28"/><line x1="348" y1="16" x2="348" y2="28"/><line x1="384" y1="16" x2="384" y2="28"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="49">−5</text><text x="60" y="49" font-weight="700" fill="#c93c3c">−4</text><text x="96" y="49">−3</text><text x="132" y="49">−2</text><text x="168" y="49">−1</text><text x="204" y="49">0</text><text x="240" y="49">1</text><text x="276" y="49">2</text><text x="312" y="49">3</text><text x="348" y="49" font-weight="700" fill="#2f6fdb">4</text><text x="384" y="49">5</text></g><circle cx="60" cy="22" r="6" fill="#c93c3c"/><circle cx="348" cy="22" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="204" y="72" fill="#1f2430">O</text></g></svg>
+      <p>Điểm −4 và điểm 4 cùng cách gốc <span class="m">O</span> 4 đơn vị, ở hai phía của <span class="m">O</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số đối của −4 là 4; trên trục số, điểm −4 và điểm 4 nằm ở hai phía gốc <span class="m">O</span>, cùng cách <span class="m">O</span> 4 đơn vị.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b312" data-ten="Bài 3.12" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.12</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trừ số nguyên</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thực hiện các phép trừ sau:</p><p>a) 9 − (−2); &nbsp; b) (−7) − 4; &nbsp; c) 27 − 30; &nbsp; d) (−63) − (−15).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mọi phép trừ đều đổi được thành phép cộng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">a − b = a + (−b)</span>: giữ số bị trừ, đổi dấu số trừ, đổi “−” thành “+”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) và b)</h4>
+      <p>a) <span class="m">9 − (−2) = 9 + 2 = 11</span>.</p>
+      <p>b) <span class="m">(−7) − 4 = (−7) + (−4) = −11</span>.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>c) và d)</h4>
+      <p>c) <span class="m">27 − 30 = 27 + (−30) = −(30 − 27) = −3</span>.</p>
+      <p>d) <span class="m">(−63) − (−15) = (−63) + 15 = −(63 − 15) = −48</span>.</p>
+      <p class="vi-sao">Ở câu c, số bị trừ nhỏ hơn số trừ nên hiệu là số âm — điều mà với số tự nhiên ta chưa làm được.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 11; b) −11; c) −3; d) −48.</div>
+    <div class="bay">Câu d viết (−63) − (−15) = −78 (cộng 63 với 15). Trừ đi −15 là <b>cộng</b> 15: (−63) + 15 = −48.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b313" data-ten="Bài 3.13" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 3.13</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán chuyển động</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hai ca nô cùng xuất phát từ <span class="m">C</span> đi về phía <span class="m">A</span> hoặc <span class="m">B</span> như hình vẽ. Ta quy ước chiều từ <span class="m">C</span> đến <span class="m">B</span> là chiều dương (nghĩa là vận tốc và quãng đường đi từ <span class="m">C</span> về phía <span class="m">B</span> được biểu thị bằng số dương và theo chiều ngược lại là số âm). Hỏi sau một giờ hai ca nô cách nhau bao nhiêu kilômét nếu vận tốc của chúng lần lượt là</p>
+    <p>a) 11 km/h và 6 km/h? &nbsp; b) 11 km/h và −6 km/h?</p>
+    <p><i>(Hình: đường thẳng với ba điểm A, C, B theo thứ tự từ trái sang phải.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vận tốc âm nghĩa là ca nô đi về phía nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Coi <span class="m">C</span> là gốc 0 của một trục số, chiều dương hướng về <span class="m">B</span>. Sau 1 giờ, mỗi ca nô ở điểm nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Hai ca nô cùng đi về phía B</h4>
+      <svg viewBox="0 0 529 146" style="max-width:529px" role="img" aria-label="Trục số gốc C: ca nô thứ nhất ở 11, ca nô thứ hai ở 6"><line x1="8" y1="86" x2="517" y2="86" stroke="#5c6577" stroke-width="2"/><polygon points="517,81 527,86 517,91" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="80" x2="24" y2="92"/><line x1="49" y1="80" x2="49" y2="92"/><line x1="74" y1="80" x2="74" y2="92"/><line x1="99" y1="80" x2="99" y2="92"/><line x1="124" y1="80" x2="124" y2="92"/><line x1="149" y1="80" x2="149" y2="92"/><line x1="174" y1="80" x2="174" y2="92"/><line x1="199" y1="80" x2="199" y2="92"/><line x1="224" y1="80" x2="224" y2="92"/><line x1="249" y1="80" x2="249" y2="92"/><line x1="274" y1="80" x2="274" y2="92"/><line x1="299" y1="80" x2="299" y2="92"/><line x1="324" y1="80" x2="324" y2="92"/><line x1="349" y1="80" x2="349" y2="92"/><line x1="374" y1="80" x2="374" y2="92"/><line x1="399" y1="80" x2="399" y2="92"/><line x1="424" y1="80" x2="424" y2="92"/><line x1="449" y1="80" x2="449" y2="92"/><line x1="474" y1="80" x2="474" y2="92"/><line x1="499" y1="80" x2="499" y2="92"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="49" y="113">−6</text><text x="199" y="113" font-weight="700" fill="#6b4fc9">0</text><text x="349" y="113" font-weight="700" fill="#0f8a68">6</text><text x="474" y="113" font-weight="700" fill="#2f6fdb">11</text></g><line x1="199" y1="62" x2="199" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="199" y1="62" x2="340" y2="62" stroke="#0f8a68" stroke-width="3"/><polygon points="349,62 338,56 338,68" fill="#0f8a68"/><line x1="349" y1="62" x2="349" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="274" y="56" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">6 km</text><line x1="199" y1="30" x2="199" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="199" y1="30" x2="465" y2="30" stroke="#2f6fdb" stroke-width="3"/><polygon points="474,30 463,24 463,36" fill="#2f6fdb"/><line x1="474" y1="30" x2="474" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="336" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">11 km</text><circle cx="199" cy="86" r="6" fill="#6b4fc9"/><circle cx="349" cy="86" r="6" fill="#0f8a68"/><circle cx="474" cy="86" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="199" y="136" fill="#6b4fc9">C</text></g></svg>
+      <p>Sau 1 giờ, ca nô thứ nhất ở điểm 11, ca nô thứ hai ở điểm 6 (cùng phía <span class="m">B</span>). Khoảng cách: <span class="m">11 − 6 = 5</span> (km).</p>
+      <p class="vi-sao">Hai ca nô cùng chiều nên ca nô nhanh hơn chỉ bỏ xa ca nô kia một khoảng bằng hiệu hai quãng đường.</p></div>
+    <div class="buoc" data-so="2"><h4>b) Hai ca nô đi ngược chiều</h4>
+      <svg viewBox="0 0 529 114" style="max-width:529px" role="img" aria-label="Trục số gốc C: ca nô thứ nhất ở 11, ca nô thứ hai ở −6"><line x1="8" y1="54" x2="517" y2="54" stroke="#5c6577" stroke-width="2"/><polygon points="517,49 527,54 517,59" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="48" x2="24" y2="60"/><line x1="49" y1="48" x2="49" y2="60"/><line x1="74" y1="48" x2="74" y2="60"/><line x1="99" y1="48" x2="99" y2="60"/><line x1="124" y1="48" x2="124" y2="60"/><line x1="149" y1="48" x2="149" y2="60"/><line x1="174" y1="48" x2="174" y2="60"/><line x1="199" y1="48" x2="199" y2="60"/><line x1="224" y1="48" x2="224" y2="60"/><line x1="249" y1="48" x2="249" y2="60"/><line x1="274" y1="48" x2="274" y2="60"/><line x1="299" y1="48" x2="299" y2="60"/><line x1="324" y1="48" x2="324" y2="60"/><line x1="349" y1="48" x2="349" y2="60"/><line x1="374" y1="48" x2="374" y2="60"/><line x1="399" y1="48" x2="399" y2="60"/><line x1="424" y1="48" x2="424" y2="60"/><line x1="449" y1="48" x2="449" y2="60"/><line x1="474" y1="48" x2="474" y2="60"/><line x1="499" y1="48" x2="499" y2="60"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="49" y="81" font-weight="700" fill="#c93c3c">−6</text><text x="199" y="81" font-weight="700" fill="#6b4fc9">0</text><text x="349" y="81">6</text><text x="474" y="81" font-weight="700" fill="#2f6fdb">11</text></g><line x1="199" y1="30" x2="199" y2="54" stroke="#c93c3c" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="199" y1="30" x2="58" y2="30" stroke="#c93c3c" stroke-width="3"/><polygon points="49,30 60,24 60,36" fill="#c93c3c"/><line x1="49" y1="30" x2="49" y2="54" stroke="#c93c3c" stroke-width="1.5" stroke-dasharray="3 3"/><text x="124" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">6 km</text><line x1="199" y1="30" x2="199" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="199" y1="30" x2="465" y2="30" stroke="#2f6fdb" stroke-width="3"/><polygon points="474,30 463,24 463,36" fill="#2f6fdb"/><line x1="474" y1="30" x2="474" y2="54" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="336" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">11 km</text><circle cx="199" cy="54" r="6" fill="#6b4fc9"/><circle cx="49" cy="54" r="6" fill="#c93c3c"/><circle cx="474" cy="54" r="6" fill="#2f6fdb"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="199" y="104" fill="#6b4fc9">C</text></g></svg>
+      <p>Ca nô thứ hai có vận tốc −6 km/h nên đi về phía <span class="m">A</span>, sau 1 giờ ở điểm −6. Khoảng cách: <span class="m">11 − (−6) = 11 + 6 = 17</span> (km).</p>
+      <p class="vi-sao">Hai ca nô ở hai phía của <span class="m">C</span>, nên khoảng cách là tổng hai quãng đường 11 km và 6 km.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Sau một giờ hai ca nô cách nhau 5 km. b) Sau một giờ hai ca nô cách nhau 17 km.</div>
+    <div class="bay">Câu b vẫn tính 11 − 6 = 5 km. Vận tốc −6 km/h nghĩa là đi theo chiều ngược lại (về phía <span class="m">A</span>), hai ca nô xa nhau dần theo hai hướng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b314" data-ten="Bài 3.14" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.14</span><span class="nhan th">Thông hiểu</span><span class="nhan">Trục số và phép cộng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Mỗi hình sau đây mô phỏng phép tính nào?</p>
+    <p><i>(Hình a: trục số, mũi tên xanh dương từ O (0) sang trái đến −5; mũi tên xanh lá từ −5 sang phải 3 đơn vị.)</i></p>
+    <p><i>(Hình b: trục số, mũi tên xanh dương từ O (0) sang phải đến 2; mũi tên xanh lá từ 2 sang trái 5 đơn vị.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mũi tên đầu cho số hạng thứ nhất, mũi tên sau cho số hạng thứ hai.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Sang trái <span class="m">n</span> đơn vị ứng với số −<span class="m">n</span>, sang phải ứng với số <span class="m">n</span>. Điểm cuối của mũi tên thứ hai là kết quả.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình a</h4>
+      <svg viewBox="0 0 342 146" style="max-width:340px" role="img" aria-label="Hình a: từ 0 sang trái đến −5, rồi sang phải 3 đơn vị đến −2"><line x1="8" y1="86" x2="330" y2="86" stroke="#5c6577" stroke-width="2"/><polygon points="330,81 340,86 330,91" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="80" x2="24" y2="92"/><line x1="60" y1="80" x2="60" y2="92"/><line x1="96" y1="80" x2="96" y2="92"/><line x1="132" y1="80" x2="132" y2="92"/><line x1="168" y1="80" x2="168" y2="92"/><line x1="204" y1="80" x2="204" y2="92"/><line x1="240" y1="80" x2="240" y2="92"/><line x1="276" y1="80" x2="276" y2="92"/><line x1="312" y1="80" x2="312" y2="92"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="113">−6</text><text x="60" y="113">−5</text><text x="96" y="113">−4</text><text x="132" y="113">−3</text><text x="168" y="113" font-weight="700" fill="#0f8a68">−2</text><text x="204" y="113">−1</text><text x="240" y="113" font-weight="700" fill="#1f2430">0</text><text x="276" y="113">1</text><text x="312" y="113">2</text></g><line x1="240" y1="62" x2="240" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="240" y1="62" x2="69" y2="62" stroke="#2f6fdb" stroke-width="3"/><polygon points="60,62 71,56 71,68" fill="#2f6fdb"/><line x1="60" y1="62" x2="60" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="150" y="56" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">−5</text><line x1="60" y1="30" x2="60" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="60" y1="30" x2="159" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="168,30 157,24 157,36" fill="#0f8a68"/><line x1="168" y1="30" x2="168" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="114" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">+3</text><circle cx="240" cy="86" r="6" fill="#1f2430"/><circle cx="168" cy="86" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="240" y="136" fill="#1f2430">O</text></g></svg>
+      <p>Mũi tên xanh dương: −5; mũi tên xanh lá: +3; điểm cuối là −2. Phép tính: <span class="m">(−5) + 3 = −2</span>.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>Hình b</h4>
+      <svg viewBox="0 0 306 146" style="max-width:310px" role="img" aria-label="Hình b: từ 0 sang phải đến 2, rồi sang trái 5 đơn vị đến −3"><line x1="8" y1="86" x2="294" y2="86" stroke="#5c6577" stroke-width="2"/><polygon points="294,81 304,86 294,91" fill="#5c6577"/><g stroke="#5c6577" stroke-width="2"><line x1="24" y1="80" x2="24" y2="92"/><line x1="60" y1="80" x2="60" y2="92"/><line x1="96" y1="80" x2="96" y2="92"/><line x1="132" y1="80" x2="132" y2="92"/><line x1="168" y1="80" x2="168" y2="92"/><line x1="204" y1="80" x2="204" y2="92"/><line x1="240" y1="80" x2="240" y2="92"/><line x1="276" y1="80" x2="276" y2="92"/></g><g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle" fill="#1f2430"><text x="24" y="113">−4</text><text x="60" y="113" font-weight="700" fill="#0f8a68">−3</text><text x="96" y="113">−2</text><text x="132" y="113">−1</text><text x="168" y="113" font-weight="700" fill="#1f2430">0</text><text x="204" y="113">1</text><text x="240" y="113">2</text><text x="276" y="113">3</text></g><line x1="168" y1="62" x2="168" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="168" y1="62" x2="231" y2="62" stroke="#2f6fdb" stroke-width="3"/><polygon points="240,62 229,56 229,68" fill="#2f6fdb"/><line x1="240" y1="62" x2="240" y2="86" stroke="#2f6fdb" stroke-width="1.5" stroke-dasharray="3 3"/><text x="204" y="56" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">+2</text><line x1="240" y1="30" x2="240" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><line x1="240" y1="30" x2="69" y2="30" stroke="#0f8a68" stroke-width="3"/><polygon points="60,30 71,24 71,36" fill="#0f8a68"/><line x1="60" y1="30" x2="60" y2="86" stroke="#0f8a68" stroke-width="1.5" stroke-dasharray="3 3"/><text x="150" y="24" font-family="Segoe UI,Arial" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">−5</text><circle cx="168" cy="86" r="6" fill="#1f2430"/><circle cx="60" cy="86" r="6" fill="#0f8a68"/><g font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="21" text-anchor="middle"><text x="168" y="136" fill="#1f2430">O</text></g></svg>
+      <p>Mũi tên xanh dương: 2; mũi tên xanh lá: −5; điểm cuối là −3. Phép tính: <span class="m">2 + (−5) = −3</span>.</p>
+      <p class="vi-sao">Cũng có thể viết hình b là phép trừ <span class="m">2 − 5 = −3</span>, vì trừ 5 chính là cộng −5.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình a: (−5) + 3 = −2. Hình b: 2 + (−5) = −3 (hay 2 − 5 = −3).</div>
+    <div class="bay">Đọc mũi tên xanh lá ở hình a là “đến 3” rồi viết (−5) + 8. Mũi tên xanh lá dài <b>3 đơn vị</b>, không phải đi tới điểm 3.</div>
+    <div class="gv-note">Chấp nhận cả cách viết phép trừ cho hình b (2 − 5 = −3), và cả cách viết không ghi kết quả nếu HS chỉ nêu phép tính.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b315" data-ten="Bài 3.15" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.15</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tính nhẩm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính nhẩm:</p><p>a) (−3) + (−2); &nbsp; b) (−8) − 7; &nbsp; c) (−35) + (−15); &nbsp; d) 12 − (−8).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu b và d là phép trừ — đổi thành phép cộng trong đầu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> (−8) − 7 = (−8) + (−7); 12 − (−8) = 12 + 8.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhẩm từng câu</h4>
+      <p>a) −(3 + 2) = <b>−5</b>; &nbsp; b) (−8) + (−7) = <b>−15</b>;</p>
+      <p>c) −(35 + 15) = <b>−50</b>; &nbsp; d) 12 + 8 = <b>20</b>.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −5; b) −15; c) −50; d) 20.</div>
+    <div class="bay">Câu b nhẩm (−8) − 7 = −1 (lấy 8 − 7). Trừ 7 là cộng −7: hai số cùng âm, nên cộng: −15.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b316" data-ten="Bài 3.16" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.16</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tính hợp lí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính một cách hợp lí:</p><p>a) 152 + (−73) − (−18) − 127; &nbsp; b) 7 + 8 + (−9) + (−10).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu a: tìm hai số hạng âm cộng lại ra số tròn trăm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đổi các phép trừ thành phép cộng trước. Ở câu a, 73 + 127 = ?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Đổi trừ thành cộng, rồi nhóm</h4>
+      <p><span class="m">152 + (−73) − (−18) − 127 = 152 + (−73) + 18 + (−127)</span></p>
+      <p><span class="m">= (152 + 18) + [(−73) + (−127)] = 170 + (−200) = −30</span>.</p>
+      <p class="vi-sao">Nhóm hai số dương được 170, hai số âm được −200 (số tròn), phép cộng cuối rất dễ nhẩm.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất của phép cộng</a></div>
+    <div class="buoc" data-so="2"><h4>b) Nhóm số dương, nhóm số âm</h4>
+      <p><span class="m">7 + 8 + (−9) + (−10) = 15 + (−19) = −4</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −30; b) −4.</div>
+    <div class="bay">Câu a coi “− (−18)” là trừ 18. Trừ đi −18 là <b>cộng 18</b>.</div>
+    <div class="gv-note">Câu b cũng có thể nhóm [7 + (−9)] + [8 + (−10)] = (−2) + (−2) = −4.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b317" data-ten="Bài 3.17" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.17</span><span class="nhan th">Thông hiểu</span><span class="nhan">Giá trị biểu thức</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính giá trị của biểu thức (−156) − <span class="m">x</span>, khi:</p><p>a) <span class="m">x = −26</span>; &nbsp; b) <span class="m">x = 76</span>; &nbsp; c) <span class="m">x = (−28) − (−143)</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khi thay <i>x</i> là số âm, nhớ đặt <i>x</i> trong dấu ngoặc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu c: tính giá trị của <span class="m">x</span> trước, rồi mới thay vào.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) x = −26</h4>
+      <p><span class="m">(−156) − (−26) = (−156) + 26 = −(156 − 26) = −130</span>.</p>
+      <a class="xem-lai" href="#kt-tru">📌 Xem lại: trừ hai số nguyên</a></div>
+    <div class="buoc" data-so="2"><h4>b) x = 76</h4>
+      <p><span class="m">(−156) − 76 = (−156) + (−76) = −232</span>.</p></div>
+    <div class="buoc" data-so="3"><h4>c) Tính x rồi thay vào</h4>
+      <p><span class="m">x = (−28) − (−143) = (−28) + 143 = 115</span>.</p>
+      <p><span class="m">(−156) − 115 = (−156) + (−115) = −271</span>.</p>
+      <p class="vi-sao">Tính <span class="m">x</span> ra một số gọn trước thì biểu thức chỉ còn một phép trừ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −130; b) −232; c) <span class="m">x</span> = 115, giá trị biểu thức là −271.</div>
+    <div class="bay">Câu a viết −156 − −26 rồi rối dấu. Thay số âm phải đặt trong ngoặc: (−156) − (−26).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b318" data-ten="Bài 3.18" data-muc="vdc">
+  <div class="bai-dau"><span class="so">Bài 3.18</span><span class="nhan vdc">Vận dụng cao</span><span class="nhan">Tìm chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thay mỗi dấu “*” bằng một chữ số thích hợp để có:</p>
+    <p>a) <span class="m">(−<span style="text-decoration:overline">6*</span>) + (−34) = −100</span>; &nbsp; b) <span class="m">(−789) + <span style="text-decoration:overline">2**</span> = −515</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đưa về phép cộng hai phần số tự nhiên, rồi tìm số chưa biết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) Hai số cùng âm: tổng hai phần số tự nhiên phải bằng 100. b) Hai số khác dấu, kết quả âm: hiệu 789 − <span style="text-decoration:overline">2**</span> phải bằng 515.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Cộng hai số nguyên âm</h4>
+      <p>Theo quy tắc, <span style="text-decoration:overline">6*</span> + 34 = 100.</p>
+      <p>Số hạng chưa biết = tổng − số hạng đã biết: <span style="text-decoration:overline">6*</span> = 100 − 34 = 66. Vậy * = 6.</p>
+      <p class="vi-sao">Thử lại: (−66) + (−34) = −(66 + 34) = −100 ✓.</p>
+      <a class="xem-lai" href="#kt-cong-am">📌 Xem lại: cộng hai số nguyên âm</a></div>
+    <div class="buoc" data-so="2"><h4>b) Cộng hai số khác dấu</h4>
+      <p>Kết quả −515 là số âm, nên phần số tự nhiên 789 lớn hơn, và 789 − <span style="text-decoration:overline">2**</span> = 515.</p>
+      <p>Số trừ = số bị trừ − hiệu: <span style="text-decoration:overline">2**</span> = 789 − 515 = 274. Vậy hai dấu * lần lượt là 7 và 4.</p>
+      <p class="vi-sao">Thử lại: (−789) + 274 = −(789 − 274) = −515 ✓.</p>
+      <a class="xem-lai" href="#kt-cong-khac">📌 Xem lại: cộng hai số khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) * = 6: (−66) + (−34) = −100. b) Các dấu * lần lượt là 7; 4: (−789) + 274 = −515.</div>
+    <div class="bay">Câu b tính 789 + 515 = 1 304. Hai số khác dấu thì phần số tự nhiên của kết quả là <b>hiệu</b>, không phải tổng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 14. Phép cộng và phép trừ số nguyên — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c03-b14';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-03-bai-14-phep-cong-va-phep-tru-so-nguyen-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-03-bai-14-phep-cong-va-phep-tru-so-nguyen-bai-giai.nguon.html" data-phien-ban="c7704f80175d">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

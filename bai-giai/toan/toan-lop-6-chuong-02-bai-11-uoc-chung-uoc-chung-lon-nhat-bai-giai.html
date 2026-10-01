@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 11. Ước chung. Ước chung lớn nhất — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 11. Ước chung. Ước chung lớn nhất — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div><h1>Bài 11. Ước chung. Ước chung lớn nhất — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-uc"><b class="ten">Ước chung, ước chung lớn nhất</b>
+      <b>Ước chung</b> của hai hay nhiều số là ước của tất cả các số đó. <b>Ước chung lớn nhất</b> của hai hay nhiều số là số lớn nhất trong tập hợp các ước chung của các số đó.<br>
+      ƯC(<span class="m">a</span>, <span class="m">b</span>) là một tập hợp; ƯCLN(<span class="m">a</span>, <span class="m">b</span>) là một số (lời Tròn).</div>
+    <div class="kt" id="kt-dac-biet"><b class="ten">Trường hợp đặc biệt</b>
+      Trong các số đã cho, nếu số nhỏ nhất là ước của các số còn lại thì ƯCLN của các số đã cho chính là số nhỏ nhất ấy: nếu <span class="m">a ⋮ b</span> thì ƯCLN(<span class="m">a</span>, <span class="m">b</span>) = <span class="m">b</span>. ƯCLN(<span class="m">a</span>, 1) = 1.</div>
+    <div class="kt" id="kt-cach-tim"><b class="ten">Các bước tìm ƯCLN</b>
+      ❶ Phân tích mỗi số ra thừa số nguyên tố; ❷ Chọn ra các <b>thừa số nguyên tố chung</b>; ❸ Lập tích các thừa số đã chọn, mỗi thừa số lấy với <b>số mũ nhỏ nhất</b>. Tích đó là ƯCLN phải tìm.</div>
+    <div class="kt" id="kt-uc-tu-ucln"><b class="ten">Tìm ước chung từ ƯCLN</b>
+      ❶ Tìm ƯCLN của các số đó. ❷ Tìm các ước của ƯCLN đó.</div>
+    <div class="kt" id="kt-toi-gian"><b class="ten">Phân số tối giản</b>
+      Phân số <span class="m"><span class="frac"><b>a</b><span>b</span></span></span> được gọi là <b>phân số tối giản</b> nếu <span class="m">a</span> và <span class="m">b</span> không có ước chung nào khác 1, nghĩa là ƯCLN(<span class="m">a</span>, <span class="m">b</span>) = 1. Để đưa một phân số chưa tối giản <span class="m"><span class="frac"><b>a</b><span>b</span></span></span> về phân số tối giản, ta chia cả tử và mẫu cho ƯCLN(<span class="m">a</span>, <span class="m">b</span>).</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 11. Ước chung. Ước chung lớn nhất.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tìm ước</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm các tập hợp Ư(24) và Ư(28).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm ước theo cặp có tích bằng số đó để khỏi sót.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 24 = 1 · 24 = 2 · 12 = … Ghi lại từng cặp.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm ước theo cặp</h4>
+      <p>24: <span class="m">1 · 24</span>, <span class="m">2 · 12</span>, <span class="m">3 · 8</span>, <span class="m">4 · 6</span> → Ư(24) = {1; 2; 3; 4; 6; 8; 12; 24}.</p>
+      <p>28: <span class="m">1 · 28</span>, <span class="m">2 · 14</span>, <span class="m">4 · 7</span> → Ư(28) = {1; 2; 4; 7; 14; 28}.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ư(24) = {1; 2; 3; 4; 6; 8; 12; 24}; Ư(28) = {1; 2; 4; 7; 14; 28}.</div>
+    <div class="bay">Sót ước “ở giữa” như 6 và 8 của 24, hoặc 7 và 14 của 28.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Ước chung</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Gọi ƯC(24, 28) là tập hợp các số vừa là ước của 24, vừa là ước của 28. Hãy viết tập hợp ƯC(24, 28).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số nào có mặt trong CẢ HAI tập ở HĐ1?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Duyệt Ư(28) (ít phần tử hơn), số nào cũng có trong Ư(24) thì giữ lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn số có ở cả hai tập</h4>
+      <p>Trong Ư(28) = {1; 2; 4; 7; 14; 28}: 1; 2; 4 có trong Ư(24); 7; 14; 28 thì không.</p>
+      <a class="xem-lai" href="#kt-uc">📌 Xem lại: ước chung</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">ƯC(24, 28) = {1; 2; 4}.</div>
+    <div class="bay">Gộp hết các ước của hai số vào một tập. Ước <b>chung</b> chỉ lấy phần có ở cả hai.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Giống hai câu lạc bộ: Ư(24) là danh sách CLB Toán, Ư(28) là danh sách CLB Cờ. Ước chung là những bạn tham gia cả hai CLB.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Ước chung lớn nhất</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm số lớn nhất trong tập ƯC(24, 28).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn tập ƯC(24, 28) vừa tìm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> ƯC(24, 28) = {1; 2; 4}.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn số lớn nhất</h4>
+      <p>Số lớn nhất trong {1; 2; 4} là 4. Số này gọi là ước chung lớn nhất: ƯCLN(24, 28) = 4.</p>
+      <a class="xem-lai" href="#kt-uc">📌 Xem lại: ước chung lớn nhất</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số lớn nhất là 4 (ƯCLN(24, 28) = 4).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (ƯCLN(90, 10))" data-muc="nb" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (ƯCLN(90, 10))</span><span class="nhan nb">Nhận biết</span><span class="nhan">ƯCLN đặc biệt</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm ƯCLN(90, 10).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 90 có chia hết cho 10 không? Nếu có thì khỏi phải liệt kê!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cách của Vuông: nếu <span class="m">a ⋮ b</span> thì ƯCLN(<span class="m">a</span>, <span class="m">b</span>) = <span class="m">b</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dùng nhận xét</h4>
+      <p><span class="m">90 = 10 · 9</span> nên <span class="m">90 ⋮ 10</span>. Vậy ƯCLN(90, 10) = 10.</p>
+      <p class="vi-sao">10 là ước lớn nhất của chính nó, và 10 cũng là ước của 90 — nên không có ước chung nào lớn hơn 10.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: trường hợp đặc biệt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">ƯCLN(90, 10) = 10.</div>
+    <div class="bay">Trả lời 90 (lấy số lớn hơn). ƯCLN không thể lớn hơn số nhỏ nhất trong các số đã cho.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ước chung thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bố có 12 quả bóng màu xanh và 15 quả bóng màu đỏ. Bố muốn chia số bóng cho ba anh em Việt, Hà và Nam đều như nhau gồm cả bóng màu xanh và bóng màu đỏ. Hỏi bố có thực hiện được điều đó hay không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia đều cho 3 anh em cả bóng xanh lẫn bóng đỏ: 3 phải là ước của số nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chia đều được khi 3 ∈ ƯC(12, 15).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kiểm tra 3 có là ước chung không</h4>
+      <p><span class="m">12 = 3 · 4</span> nên <span class="m">12 ⋮ 3</span>; <span class="m">15 = 3 · 5</span> nên <span class="m">15 ⋮ 3</span>. Vậy 3 ∈ ƯC(12, 15).</p>
+      <a class="xem-lai" href="#kt-uc">📌 Xem lại: ước chung</a></div>
+    <div class="buoc" data-so="2"><h4>Trả lời</h4>
+      <p>Bố chia được: mỗi bạn nhận <span class="m">12 : 3 = 4</span> quả xanh và <span class="m">15 : 3 = 5</span> quả đỏ.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Được. Vì 3 là ước chung của 12 và 15, mỗi bạn nhận 4 quả xanh và 5 quả đỏ.</div>
+    <div class="bay">Cộng chung 12 + 15 = 27 rồi chia 3. Như vậy chưa chắc mỗi màu chia đều — phải xét riêng từng màu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd1" data-ten="Vận dụng 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Ước chung thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tuần này lớp 6A và 6B gồm 40 học sinh nữ và 36 học sinh nam được phân công đi thu gom rác làm sạch bờ biển ở địa phương. Nếu chia nhóm sao cho số học sinh nam và nữ trong các nhóm bằng nhau thì:</p>
+    <p>a) Có thể chia được thành bao nhiêu nhóm học sinh?</p><p>b) Có thể chia nhiều nhất bao nhiêu nhóm học sinh?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số nhóm phải chia đều được cả 40 bạn nữ lẫn 36 bạn nam.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số nhóm là ước chung của 40 và 36. Câu b hỏi “nhiều nhất” → ƯCLN.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Số nhóm là ước chung</h4>
+      <p>Các nhóm có số nữ bằng nhau nên 40 chia hết cho số nhóm; có số nam bằng nhau nên 36 chia hết cho số nhóm. Vậy số nhóm ∈ ƯC(40, 36).</p>
+      <a class="xem-lai" href="#kt-uc">📌 Xem lại: ước chung</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm ƯC(40, 36)</h4>
+      <p>Ư(36) = {1; 2; 3; 4; 6; 9; 12; 18; 36}; trong đó chỉ 1; 2; 4 là ước của 40. ƯC(40, 36) = {1; 2; 4}.</p></div>
+    <div class="buoc" data-so="3"><h4>Trả lời hai câu</h4>
+      <p>a) Có thể chia thành 2 nhóm (mỗi nhóm 20 nữ, 18 nam) hoặc 4 nhóm (mỗi nhóm 10 nữ, 9 nam); số 1 ứng với cả đoàn là một nhóm.</p>
+      <p>b) Nhiều nhất: ƯCLN(40, 36) = 4 nhóm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Số nhóm có thể là 1; 2; 4 (chia thật sự thì 2 nhóm hoặc 4 nhóm). &nbsp; b) Nhiều nhất 4 nhóm, mỗi nhóm 10 nữ và 9 nam.</div>
+    <div class="bay">Trả lời câu b là 76 nhóm hoặc 36 nhóm. Mỗi nhóm phải có cả nam lẫn nữ chia đều — số nhóm phải chia hết cả 40 và 36.</div>
+    <div class="gv-note">Câu a chấp nhận cả {1; 2; 4} hoặc “2 hoặc 4 nhóm” — tuỳ có tính trường hợp không chia (1 nhóm) hay không.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (ƯCLN(45, 150))" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (ƯCLN(45, 150))</span><span class="nhan nb">Nhận biết</span><span class="nhan">ƯCLN bằng phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm ƯCLN(45, 150), biết <span class="m">45 = 3<sup>2</sup> · 5</span> và <span class="m">150 = 2 · 3 · 5<sup>2</sup></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thừa số nào có mặt ở CẢ HAI phân tích? Lấy số mũ nhỏ hơn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thừa số 2 chỉ có ở 150 — có chọn không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn thừa số nguyên tố chung</h4>
+      <p>Thừa số chung: 3 và 5 (2 chỉ có ở 150 nên không chọn).</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+    <div class="buoc" data-so="2"><h4>Lấy số mũ nhỏ nhất</h4>
+      <p>3: mũ 2 và mũ 1 → lấy mũ 1. &nbsp; 5: mũ 1 và mũ 2 → lấy mũ 1.</p>
+      <p>ƯCLN(45, 150) = <span class="m">3 · 5 = 15</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">ƯCLN(45, 150) = 15.</div>
+    <div class="bay">Lấy số mũ lớn nhất (<span class="m">3<sup>2</sup> · 5<sup>2</sup> = 225</span>). 225 lớn hơn cả 45, không thể là ước của 45.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">ƯCLN bằng phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm ƯCLN(36, 84).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Phân tích cả hai số, rồi làm đúng ba bước.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">36 = 2<sup>2</sup> · 3<sup>2</sup></span>. Còn 84?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân tích ra thừa số nguyên tố</h4>
+      <p><span class="m">36 = 2<sup>2</sup> · 3<sup>2</sup></span>; &nbsp; <span class="m">84 = 2<sup>2</sup> · 3 · 7</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn thừa số chung, mũ nhỏ nhất</h4>
+      <p>Thừa số chung: 2 (mũ nhỏ nhất 2) và 3 (mũ nhỏ nhất 1). ƯCLN(36, 84) = <span class="m">2<sup>2</sup> · 3 = 12</span>.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">ƯCLN(36, 84) = 12.</div>
+    <div class="bay">Đưa cả thừa số 7 vào tích. 7 chỉ có ở 84, không phải thừa số chung.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd2" data-ten="Vận dụng 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">ƯCLN thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một đại đội bộ binh có ba trung đội: trung đội I có 24 chiến sĩ, trung đội II có 28 chiến sĩ, trung đội III có 36 chiến sĩ. Trong cuộc diễu binh, cả ba trung đội phải xếp thành các hàng dọc đều nhau mà không có chiến sĩ nào trong mỗi trung đội bị lẻ hàng. Hỏi có thể xếp được nhiều nhất bao nhiêu hàng dọc?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi trung đội đều chia đều vào các hàng — số hàng là ước chung của ba số. “Nhiều nhất” → ƯCLN.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Số hàng dọc nhiều nhất = ƯCLN(24, 28, 36).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đưa về ƯCLN</h4>
+      <p>Mỗi trung đội chia đều vào các hàng dọc, không ai lẻ, nên số hàng là ước chung của 24, 28 và 36. Nhiều nhất → ƯCLN(24, 28, 36).</p></div>
+    <div class="buoc" data-so="2"><h4>Tính ƯCLN</h4>
+      <p><span class="m">24 = 2<sup>3</sup> · 3</span>; <span class="m">28 = 2<sup>2</sup> · 7</span>; <span class="m">36 = 2<sup>2</sup> · 3<sup>2</sup></span>.</p>
+      <p>Thừa số chung của cả ba số chỉ có 2, mũ nhỏ nhất là 2: ƯCLN = <span class="m">2<sup>2</sup> = 4</span>.</p>
+      <p class="vi-sao">3 có ở 24 và 36 nhưng không có ở 28 nên không phải thừa số chung của cả ba.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhiều nhất 4 hàng dọc (khi đó mỗi hàng có 6 chiến sĩ trung đội I, 7 chiến sĩ trung đội II, 9 chiến sĩ trung đội III).</div>
+    <div class="bay">Chọn 3 là thừa số chung vì thấy nó ở hai trong ba số. Thừa số chung phải có mặt ở <b>tất cả</b> các số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch3" data-ten="Câu hỏi (ƯC(75, 105))" data-muc="nb" data-chip="Câu hỏi ③">
+  <div class="bai-dau"><span class="so">Câu hỏi (ƯC(75, 105))</span><span class="nhan nb">Nhận biết</span><span class="nhan">ƯC từ ƯCLN</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Biết ƯCLN(75, 105) = 15, hãy tìm ƯC(75, 105).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đã có ƯCLN rồi — ước chung chính là các ước của nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> ƯC(75, 105) = Ư(15).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các ước của 15</h4>
+      <p>Ư(15) = {1; 3; 5; 15}.</p>
+      <a class="xem-lai" href="#kt-uc-tu-ucln">📌 Xem lại: tìm ước chung từ ƯCLN</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">ƯC(75, 105) = {1; 3; 5; 15}.</div>
+    <div class="bay">Chỉ ghi {15}. ƯC là một <b>tập hợp</b> gồm mọi ước của ƯCLN, không chỉ riêng ƯCLN.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vdc">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vdc">Vận dụng cao</span><span class="nhan">ƯC thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vào ngày thứ Bảy, cô Lan tổ chức cho học sinh đi tham quan Bảo tàng Dân tộc học. Các học sinh đóng tiền mua vé, mỗi em một vé. Số tiền cô Lan thu được từng ngày được ghi lại ở bảng bên.</p>
+    <table style="width:auto"><tr><th>Ngày</th><th>Số tiền đóng (nghìn đồng)</th></tr><tr><td>Thứ Hai</td><td>56</td></tr><tr><td>Thứ Ba</td><td>28</td></tr><tr><td>Thứ Tư</td><td>42</td></tr><tr><td>Thứ Năm</td><td>98</td></tr></table>
+    <p>a) Hỏi số tiền để mua một vé (giá vé được tính theo đơn vị nghìn đồng) có thể là bao nhiêu, biết giá vé lớn hơn 2 nghìn đồng?</p>
+    <p>b) Có bao nhiêu học sinh tham gia chuyến đi, biết số học sinh tham gia trong khoảng từ 20 đến 40 người?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi ngày, số tiền thu được phải chia hết cho giá một vé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Giá vé là ước chung của 56; 28; 42; 98. Tìm ƯCLN trước, rồi lấy các ước của nó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Giá vé là ước chung</h4>
+      <p>Mỗi ngày thu tiền của một số em, mỗi em một vé, nên mỗi số tiền đều chia hết cho giá vé: giá vé ∈ ƯC(56, 28, 42, 98).</p></div>
+    <div class="buoc" data-so="2"><h4>Tìm ƯC qua ƯCLN</h4>
+      <p><span class="m">56 = 2<sup>3</sup> · 7</span>; <span class="m">28 = 2<sup>2</sup> · 7</span>; <span class="m">42 = 2 · 3 · 7</span>; <span class="m">98 = 2 · 7<sup>2</sup></span>.</p>
+      <p>ƯCLN = <span class="m">2 · 7 = 14</span>; ƯC = Ư(14) = {1; 2; 7; 14}. Giá vé lớn hơn 2 nghìn → <b>7 hoặc 14</b> nghìn đồng.</p>
+      <a class="xem-lai" href="#kt-uc-tu-ucln">📌 Xem lại: tìm ước chung từ ƯCLN</a></div>
+    <div class="buoc" data-so="3"><h4>Câu b — số học sinh</h4>
+      <p>Tổng số tiền: <span class="m">56 + 28 + 42 + 98 = 224</span> (nghìn đồng).</p>
+      <p>Nếu vé 7 nghìn: <span class="m">224 : 7 = 32</span> học sinh. Nếu vé 14 nghìn: <span class="m">224 : 14 = 16</span> học sinh.</p>
+      <p>Chỉ 32 nằm trong khoảng từ 20 đến 40 → có 32 học sinh (giá vé 7 nghìn đồng).</p>
+      <p class="vi-sao">Số học sinh = tổng số tiền : giá một vé. Điều kiện “từ 20 đến 40” giúp chọn ra giá vé đúng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Giá vé có thể là 7 nghìn đồng hoặc 14 nghìn đồng. &nbsp; b) Có 32 học sinh (giá vé 7 nghìn đồng).</div>
+    <div class="bay">Chỉ trả lời 14 nghìn đồng (lấy ƯCLN). Đề hỏi “có thể là bao nhiêu” — phải lấy mọi ước chung lớn hơn 2.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch4" data-ten="Câu hỏi (phân số tối giản)" data-muc="nb" data-chip="Câu hỏi ④">
+  <div class="bai-dau"><span class="so">Câu hỏi (phân số tối giản)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Phân số tối giản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Phân số <span class="m"><span class="frac"><b>16</b><span>10</span></span></span> đã là phân số tối giản chưa? Nếu chưa, hãy rút gọn về phân số tối giản.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 16 và 10 có ước chung nào khác 1 không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cả 16 và 10 đều là số chẵn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm ƯCLN của tử và mẫu</h4>
+      <p><span class="m">16 = 2<sup>4</sup></span>, <span class="m">10 = 2 · 5</span> → ƯCLN(16, 10) = 2 ≠ 1, nên chưa tối giản.</p>
+      <a class="xem-lai" href="#kt-toi-gian">📌 Xem lại: phân số tối giản</a></div>
+    <div class="buoc" data-so="2"><h4>Chia cả tử và mẫu cho ƯCLN</h4>
+      <p><span class="m"><span class="frac"><b>16</b><span>10</span></span> = <span class="frac"><b>16 : 2</b><span>10 : 2</span></span> = <span class="frac"><b>8</b><span>5</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chưa tối giản. <span class="m"><span class="frac"><b>16</b><span>10</span></span> = <span class="frac"><b>8</b><span>5</span></span></span>.</div>
+    <div class="bay">Nghĩ phân số có tử lớn hơn mẫu thì không rút gọn được. Rút gọn không phụ thuộc tử lớn hay nhỏ hơn mẫu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Rút gọn phân số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Rút gọn về phân số tối giản: a) <span class="m"><span class="frac"><b>90</b><span>27</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>50</b><span>125</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia cho ƯCLN — một lần là xong.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">90 = 2 · 3<sup>2</sup> · 5</span>, <span class="m">27 = 3<sup>3</sup></span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>ƯCLN(90, 27) = <span class="m">3<sup>2</sup> = 9</span>. &nbsp; <span class="m"><span class="frac"><b>90</b><span>27</span></span> = <span class="frac"><b>90 : 9</b><span>27 : 9</span></span> = <span class="frac"><b>10</b><span>3</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-toi-gian">📌 Xem lại: phân số tối giản</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m">50 = 2 · 5<sup>2</sup></span>, <span class="m">125 = 5<sup>3</sup></span> → ƯCLN(50, 125) = <span class="m">5<sup>2</sup> = 25</span>.</p>
+      <p><span class="m"><span class="frac"><b>50</b><span>125</span></span> = <span class="frac"><b>50 : 25</b><span>125 : 25</span></span> = <span class="frac"><b>2</b><span>5</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>10</b><span>3</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>2</b><span>5</span></span></span>.</div>
+    <div class="bay">Chia cho 3 (hoặc 5) một lần rồi dừng: <span class="m"><span class="frac"><b>30</b><span>9</span></span></span>, <span class="m"><span class="frac"><b>10</b><span>25</span></span></span> — chưa tối giản. Chia cho ƯCLN mới chắc chắn tối giản.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b230" data-ten="Bài 2.30" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2.30</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tìm ước chung</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm tập hợp ước chung của:</p><p>a) 30 và 45; &nbsp; b) 42 và 70.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tìm ƯCLN trước, rồi lấy các ước của nó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">30 = 2 · 3 · 5</span>, <span class="m">45 = 3<sup>2</sup> · 5</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>ƯCLN(30, 45) = <span class="m">3 · 5 = 15</span> → ƯC(30, 45) = Ư(15) = {1; 3; 5; 15}.</p>
+      <a class="xem-lai" href="#kt-uc-tu-ucln">📌 Xem lại: tìm ước chung từ ƯCLN</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m">42 = 2 · 3 · 7</span>, <span class="m">70 = 2 · 5 · 7</span> → ƯCLN(42, 70) = <span class="m">2 · 7 = 14</span>.</p>
+      <p>ƯC(42, 70) = Ư(14) = {1; 2; 7; 14}.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) ƯC(30, 45) = {1; 3; 5; 15}. &nbsp; b) ƯC(42, 70) = {1; 2; 7; 14}.</div>
+    <div class="bay">Chỉ ghi ƯCLN (15; 14) thay vì cả tập ước chung.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b231" data-ten="Bài 2.31" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2.31</span><span class="nhan nb">Nhận biết</span><span class="nhan">ƯCLN bằng phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm ƯCLN của hai số:</p><p>a) 40 và 70; &nbsp; b) 55 và 77.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba bước: phân tích → chọn thừa số chung → mũ nhỏ nhất.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">40 = 2<sup>3</sup> · 5</span>; 55 và 77 đều chia hết cho 11.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m">40 = 2<sup>3</sup> · 5</span>, <span class="m">70 = 2 · 5 · 7</span>. Thừa số chung 2 (mũ nhỏ nhất 1), 5 (mũ 1). ƯCLN(40, 70) = <span class="m">2 · 5 = 10</span>.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m">55 = 5 · 11</span>, <span class="m">77 = 7 · 11</span>. Thừa số chung chỉ có 11. ƯCLN(55, 77) = 11.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) ƯCLN(40, 70) = 10. &nbsp; b) ƯCLN(55, 77) = 11.</div>
+    <div class="bay">Lấy <span class="m">2<sup>3</sup></span> ở câu a (mũ lớn nhất) — được 40, không phải ước của 70.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b232" data-ten="Bài 2.32" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.32</span><span class="nhan th">Thông hiểu</span><span class="nhan">ƯCLN từ dạng phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm ƯCLN của:</p><p>a) <span class="m">2<sup>2</sup> · 5</span> và <span class="m">2 · 3 · 5</span>;</p><p>b) <span class="m">2<sup>4</sup> · 3</span>; <span class="m">2<sup>2</sup> · 3<sup>2</sup> · 5</span> và <span class="m">2<sup>4</sup> · 11</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Các số đã phân tích sẵn — chỉ việc chọn thừa số chung và mũ nhỏ nhất.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu b: thừa số 3 có mặt ở số thứ ba không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>Thừa số chung: 2 (mũ 2 và 1 → lấy 1), 5 (mũ 1). ƯCLN = <span class="m">2 · 5 = 10</span>.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p>Thừa số chung của cả ba số chỉ có 2 (3 không có ở <span class="m">2<sup>4</sup> · 11</span>; 5 và 11 chỉ có ở một số). Mũ của 2: 4; 2; 4 → nhỏ nhất là 2.</p>
+      <p>ƯCLN = <span class="m">2<sup>2</sup> = 4</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 10 (<span class="m">= 2 · 5</span>). &nbsp; b) 4 (<span class="m">= 2<sup>2</sup></span>).</div>
+    <div class="bay">Ở câu b đưa cả 3 vào ƯCLN (vì có ở hai số đầu) → 12. Phải có mặt ở <b>cả ba</b> số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b233" data-ten="Bài 2.33" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.33</span><span class="nhan th">Thông hiểu</span><span class="nhan">ƯCLN và ƯC</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho hai số <span class="m">a</span> = 72 và <span class="m">b</span> = 96.</p><p>a) Phân tích <span class="m">a</span> và <span class="m">b</span> ra thừa số nguyên tố;</p><p>b) Tìm ƯCLN(<span class="m">a</span>, <span class="m">b</span>), rồi tìm ƯC(<span class="m">a</span>, <span class="m">b</span>).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Làm câu a cẩn thận — câu b dùng ngay kết quả đó.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng sơ đồ cột, chia liên tiếp cho 2 đến khi không chia được nữa.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m">72 = 2 · 2 · 2 · 3 · 3 = 2<sup>3</sup> · 3<sup>2</sup></span>; &nbsp; <span class="m">96 = 2 · 2 · 2 · 2 · 2 · 3 = 2<sup>5</sup> · 3</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu b — ƯCLN</h4>
+      <p>Thừa số chung 2 (mũ nhỏ nhất 3), 3 (mũ nhỏ nhất 1). ƯCLN(72, 96) = <span class="m">2<sup>3</sup> · 3 = 24</span>.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+    <div class="buoc" data-so="3"><h4>Câu b — ƯC</h4>
+      <p>ƯC(72, 96) = Ư(24) = {1; 2; 3; 4; 6; 8; 12; 24}.</p>
+      <a class="xem-lai" href="#kt-uc-tu-ucln">📌 Xem lại: tìm ước chung từ ƯCLN</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">72 = 2<sup>3</sup> · 3<sup>2</sup></span>; <span class="m">96 = 2<sup>5</sup> · 3</span>. &nbsp; b) ƯCLN(72, 96) = 24; ƯC(72, 96) = {1; 2; 3; 4; 6; 8; 12; 24}.</div>
+    <div class="bay">Đếm sai số lần chia cho 2 ở 96 (viết <span class="m">2<sup>4</sup> · 3 = 48</span>). Kiểm lại bằng cách nhân ngược: <span class="m">32 · 3 = 96</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b234" data-ten="Bài 2.34" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.34</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân số tối giản</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các phân số sau đã là phân số tối giản chưa? Nếu chưa, hãy rút gọn về phân số tối giản:</p>
+    <p>a) <span class="m"><span class="frac"><b>50</b><span>85</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>23</b><span>81</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tính ƯCLN của tử và mẫu: bằng 1 thì đã tối giản.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 50 và 85 đều tận cùng là 0 hoặc 5. 23 là số nguyên tố.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m">50 = 2 · 5<sup>2</sup></span>, <span class="m">85 = 5 · 17</span> → ƯCLN(50, 85) = 5 ≠ 1: chưa tối giản.</p>
+      <p><span class="m"><span class="frac"><b>50</b><span>85</span></span> = <span class="frac"><b>50 : 5</b><span>85 : 5</span></span> = <span class="frac"><b>10</b><span>17</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-toi-gian">📌 Xem lại: phân số tối giản</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p>23 là số nguyên tố, <span class="m">81 = 3<sup>4</sup></span> không chia hết cho 23 → ƯCLN(23, 81) = 1: đã tối giản.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Chưa tối giản; <span class="m"><span class="frac"><b>50</b><span>85</span></span> = <span class="frac"><b>10</b><span>17</span></span></span>. &nbsp; b) <span class="m"><span class="frac"><b>23</b><span>81</span></span></span> đã tối giản.</div>
+    <div class="bay">Nghĩ 81 là hợp số nên <span class="m"><span class="frac"><b>23</b><span>81</span></span></span> chưa tối giản. Tối giản hay không phụ thuộc vào <b>ước chung</b> của tử và mẫu, không phải mẫu là số gì.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b235" data-ten="Bài 2.35" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2.35</span><span class="nhan vd">Vận dụng</span><span class="nhan">Hai số nguyên tố cùng nhau</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy cho hai ví dụ về hai số có ƯCLN bằng 1 mà cả hai đều là hợp số.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn hai hợp số được “làm” từ những số nguyên tố khác hẳn nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Một số chỉ có thừa số nguyên tố 2, số kia chỉ có thừa số nguyên tố 3. Ví dụ <span class="m">4 = 2<sup>2</sup></span> và …?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ý tưởng</h4>
+      <p>Hai số không có thừa số nguyên tố chung nào thì ƯCLN = 1. Chọn hai hợp số có các thừa số nguyên tố khác nhau.</p>
+      <a class="xem-lai" href="#kt-cach-tim">📌 Xem lại: các bước tìm ƯCLN</a></div>
+    <div class="buoc" data-so="2"><h4>Hai ví dụ</h4>
+      <p>4 và 9: <span class="m">4 = 2<sup>2</sup></span>, <span class="m">9 = 3<sup>2</sup></span> — không có thừa số chung → ƯCLN(4, 9) = 1.</p>
+      <p>8 và 15: <span class="m">8 = 2<sup>3</sup></span>, <span class="m">15 = 3 · 5</span> → ƯCLN(8, 15) = 1.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: 4 và 9; 8 và 15 (cả bốn số đều là hợp số, ƯCLN của mỗi cặp bằng 1).</div>
+    <div class="bay">Chọn 4 và 7 — 7 là số nguyên tố, không phải hợp số. Hoặc chọn 6 và 9 — có chung thừa số 3 nên ƯCLN = 3.</div>
+    <div class="gv-note">Đáp án mở: chấp nhận mọi cặp hai hợp số không có thừa số nguyên tố chung (10 và 21, 25 và 12…).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 11. Ước chung. Ước chung lớn nhất — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c02-b11';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-02-bai-11-uoc-chung-uoc-chung-lon-nhat-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-02-bai-11-uoc-chung-uoc-chung-lon-nhat-bai-giai.nguon.html" data-phien-ban="8b6f15565417">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 37. Số đo góc — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương VIII. Những hình hình học cơ bản</div>
+    <div class="hang1">
+      <h1>Bài 37. Số đo góc — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương VIII. Những hình hình học cơ bản</div><h1>Bài 37. Số đo góc — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-do"><b class="ten">Cách đo góc</b>
+      Muốn đo góc <span class="m">xOy</span>, ta đặt thước đo góc sao cho tâm của thước trùng với <span class="m">O</span>, tia <span class="m">Ox</span> đi qua vạch 0. Khi đó tia <span class="m">Oy</span> đi qua vạch chỉ số đo của góc. Ví dụ <span class="m">Oy</span> đi qua vạch 110 thì ta viết <span class="m">∠xOy</span> = 110°.</div>
+    <div class="kt" id="kt-so-do"><b class="ten">Số đo góc</b>
+      Mỗi góc có một số đo. Số đo của một góc không vượt quá 180°.</div>
+    <div class="kt" id="kt-so-sanh"><b class="ten">So sánh hai góc</b>
+      Người ta so sánh hai góc bằng cách so sánh số đo của chúng. Hai góc có số đo bằng nhau thì bằng nhau; góc có số đo lớn hơn thì lớn hơn.</div>
+    <div class="kt" id="kt-dac-biet"><b class="ten">Góc vuông, góc nhọn, góc tù, góc bẹt</b>
+      – Góc có số đo bằng 90° là <b>góc vuông</b>.<br>
+      – Góc bẹt có số đo bằng 180°.<br>
+      – Góc nhỏ hơn góc vuông là <b>góc nhọn</b> (0° &lt; số đo &lt; 90°).<br>
+      – Góc lớn hơn góc vuông, nhỏ hơn góc bẹt là <b>góc tù</b> (90° &lt; số đo &lt; 180°).</div>
+    <div class="kt" id="kt-khong"><b class="ten">Góc không (Chú ý)</b>
+      Góc tạo bởi kim giờ và kim phút khi đồng hồ chỉ 12 giờ cho ta hình ảnh của <i>góc không</i>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 37. Số đo góc.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (mục 1)" data-muc="nb" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 1)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đọc số đo góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đọc số đo của góc <span class="m">mOn</span> trong Hình 8.52.</p>
+    <p><i>(Hình 8.52: thước đo góc đặt với tâm tại <span class="m">O</span>, tia <span class="m">On</span> đi qua vạch 0 (bên phải), tia <span class="m">Om</span> xiên lên trái đi qua vạch 130.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tia <i>On</i> đi qua vạch 0 ở bên <b>phải</b> — vậy đọc theo hàng số nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc trên hàng số bắt đầu bằng 0 ở phía tia <span class="m">On</span>, rồi lần theo hàng số đó tới chỗ tia <span class="m">Om</span> cắt qua.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc số trên thước</h4>
+      <svg viewBox="0 0 380 230" style="max-width:360px" role="img" aria-label="Thước đo góc tâm O; tia On qua vạch 0, tia Om qua vạch 130">
+  <path d="M340.0,200.0 A150,150 0 0 0 40.0,200.0 Z" fill="#eaf2ff" fill-opacity="0.7" stroke="#2f6fdb" stroke-width="1.5"/>
+  <line x1="340.0" y1="200.0" x2="328.0" y2="200.0" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="316.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">0</text>
+  <line x1="337.7" y1="174.0" x2="330.8" y2="175.2" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="331.0" y1="148.7" x2="324.4" y2="151.1" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="319.9" y1="125.0" x2="309.5" y2="131.0" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="299.1" y="142.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">30</text>
+  <line x1="304.9" y1="103.6" x2="299.5" y2="108.1" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="286.4" y1="85.1" x2="281.9" y2="90.5" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="265.0" y1="70.1" x2="259.0" y2="80.5" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="253.0" y="95.9" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">60</text>
+  <line x1="241.3" y1="59.0" x2="238.9" y2="65.6" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="216.0" y1="52.3" x2="214.8" y2="59.2" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="190.0" y1="50.0" x2="190.0" y2="62.0" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="190.0" y="79.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">90</text>
+  <line x1="164.0" y1="52.3" x2="165.2" y2="59.2" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="138.7" y1="59.0" x2="141.1" y2="65.6" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="115.0" y1="70.1" x2="121.0" y2="80.5" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="127.0" y="95.9" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">120</text>
+  <line x1="93.6" y1="85.1" x2="98.1" y2="90.5" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="75.1" y1="103.6" x2="80.5" y2="108.1" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="60.1" y1="125.0" x2="70.5" y2="131.0" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="80.9" y="142.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">150</text>
+  <line x1="49.0" y1="148.7" x2="55.6" y2="151.1" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="42.3" y1="174.0" x2="49.2" y2="175.2" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="40.0" y1="200.0" x2="52.0" y2="200.0" stroke="#5c6577" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="64.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#5c6577">180</text>
+  <line x1="190.0" y1="200.0" x2="365.0" y2="200.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="190.0" y1="200.0" x2="71.1" y2="58.3" stroke="#c93c3c" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M230.0,200.0 A40,40 0 0 0 164.3,169.4" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="363.0" y="222.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">n</text>
+  <text x="59.1" y="62.3" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">m</text>
+  <circle cx="190.0" cy="200.0" r="4.5" fill="#1f2430"/>
+  <text x="190.0" y="222.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">O</text>
+  <text x="214.5" y="147.4" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#c93c3c">130°</text>
+</svg>
+      <p>Tâm thước trùng <span class="m">O</span>, tia <span class="m">On</span> qua vạch 0 bên phải. Đếm theo hàng số bắt đầu từ 0 ở bên phải, tia <span class="m">Om</span> đi qua vạch 130. Vậy <span class="m">∠mOn</span> = 130°.</p>
+      <p class="vi-sao">Góc <span class="m">mOn</span> “mở rộng” hơn góc vuông (tia <span class="m">Om</span> đã ngả qua bên trái đường thẳng đứng), nên số đo phải lớn hơn 90°: là 130 chứ không phải 50.</p>
+      <a class="xem-lai" href="#kt-do">📌 Xem lại: cách đo góc</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">∠mOn</span> = 130°.</div>
+    <div class="bay">Đọc nhầm hàng số ngoài thành 50°. Trước khi đọc, nhìn xem góc nhọn hay tù: góc này tù nên số đo phải lớn hơn 90°.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đo góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng thước đo góc, em hãy đo và viết số đo của các góc trong mỗi hình sau.</p>
+    <p><i>(Hình a: góc <span class="m">mAn</span> với đỉnh <span class="m">A</span>, tia <span class="m">An</span> nằm ngang sang phải, tia <span class="m">Am</span> xiên lên gần thẳng đứng. Hình b: góc <span class="m">xOz</span> với đỉnh <span class="m">O</span> ở dưới, tia <span class="m">Ox</span> xiên lên trái, tia <span class="m">Oz</span> xiên lên phải. Hình c: góc <span class="m">xMy</span> với đỉnh <span class="m">M</span> ở bên phải, tia <span class="m">Mx</span> gần thẳng đứng lên trên, tia <span class="m">My</span> nằm ngang sang trái.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi lần đo: tâm thước vào đỉnh, vạch 0 nằm trên một cạnh, đọc số ở cạnh kia.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ước lượng trước: góc nào nhỏ hơn góc vuông, góc nào lớn hơn? Điều đó giúp em chọn đúng hàng số trên thước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo từng góc</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;align-items:flex-end"><svg width="200" viewBox="0 0 200 200" style="max-width:200px" role="img" aria-label="Góc mAn khoảng 70 độ">
+  <line x1="30.0" y1="165.0" x2="190.0" y2="165.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="165.0" x2="81.3" y2="24.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M64.0,165.0 A34,34 0 0 0 41.6,133.1" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="80.8" y="134.4" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">70°</text>
+  <text x="186.0" y="187.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">n</text>
+  <text x="93.3" y="28.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">m</text>
+  <circle cx="30.0" cy="165.0" r="4.5" fill="#1f2430"/>
+  <text x="26.0" y="187.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <text x="16.0" y="20.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" text-anchor="middle" fill="#1f2430">a)</text>
+</svg><svg width="250" viewBox="0 0 250 200" style="max-width:250px" role="img" aria-label="Góc xOz khoảng 107 độ">
+  <line x1="140.0" y1="165.0" x2="240.3" y2="119.7" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="140.0" y1="165.0" x2="42.0" y2="51.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M171.0,151.0 A34,34 0 0 0 117.8,139.3" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="153.4" y="109.5" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">107°</text>
+  <text x="246.3" y="137.7" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">z</text>
+  <text x="32.0" y="55.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">x</text>
+  <circle cx="140.0" cy="165.0" r="4.5" fill="#1f2430"/>
+  <text x="140.0" y="189.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">O</text>
+  <text x="16.0" y="20.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" text-anchor="middle" fill="#1f2430">b)</text>
+</svg><svg width="200" viewBox="0 0 200 200" style="max-width:200px" role="img" aria-label="Góc xMy khoảng 86 độ">
+  <line x1="175.0" y1="150.0" x2="150.9" y2="22.3" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="175.0" y1="150.0" x2="16.0" y2="168.1" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M168.7,116.6 A34,34 0 0 0 141.2,153.8" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="125.1" y="118.2" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">86°</text>
+  <text x="162.9" y="26.3" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">x</text>
+  <text x="12.0" y="190.1" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">y</text>
+  <circle cx="175.0" cy="150.0" r="4.5" fill="#1f2430"/>
+  <text x="181.0" y="172.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">M</text>
+  <text x="16.0" y="20.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" text-anchor="middle" fill="#1f2430">c)</text>
+</svg></div>
+      <p>a) <span class="m">∠mAn</span> khoảng 70° (nhỏ hơn góc vuông).</p>
+      <p>b) <span class="m">∠xOz</span> khoảng 107° (lớn hơn góc vuông).</p>
+      <p>c) <span class="m">∠xMy</span> khoảng 86° (gần bằng nhưng nhỏ hơn góc vuông một chút).</p>
+      <p class="vi-sao">Ở hình c, đỉnh <span class="m">M</span> ở bên phải: đặt tâm thước vào <span class="m">M</span>, vạch 0 trùng tia <span class="m">My</span> (hướng sang trái), rồi đọc số ở tia <span class="m">Mx</span>.</p>
+      <a class="xem-lai" href="#kt-do">📌 Xem lại: cách đo góc</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">∠mAn</span> khoảng 70°; &nbsp; b) <span class="m">∠xOz</span> khoảng 107°; &nbsp; c) <span class="m">∠xMy</span> khoảng 86°.</div>
+    <div class="bay">Đặt vạch 0 không trùng cạnh của góc (để lệch vài độ) hoặc đặt tâm thước lệch khỏi đỉnh. Hai việc này phải làm cẩn thận trước khi đọc số.</div>
+    <div class="gv-note">Số đo đọc trên hình SGK (bản scan trang 62, đo bằng toạ độ điểm ảnh): a khoảng 70°, b khoảng 106° – 107°, c khoảng 85° – 86°. Hình in có thể lệch vài độ; chấp nhận a: 68° – 72°, b: 104° – 110°, c: 84° – 88°.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd" data-ten="HĐ" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ</span><span class="nhan nb">Nhận biết</span><span class="nhan">So sánh với 90°</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng cách đo, hãy so sánh số đo của các góc trong hình sau với 90°.</p>
+    <p><i>(Hình: góc <span class="m">aOb</span> với đỉnh <span class="m">O</span> ở trên, hai tia xuống dưới tạo góc nhọn; góc <span class="m">pMq</span> với tia <span class="m">Mp</span> thẳng đứng lên, tia <span class="m">Mq</span> nằm ngang sang phải; góc <span class="m">mAn</span> với tia <span class="m">An</span> nằm ngang sang phải, tia <span class="m">Am</span> xiên lên trái.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Có thể dùng góc vuông của ê ke để so nhanh trước khi đo.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đo từng góc rồi so với 90°: nhỏ hơn, bằng hay lớn hơn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo và so sánh</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;align-items:flex-end"><svg width="180" viewBox="0 0 180 190" style="max-width:180px" role="img" aria-label="Góc aOb khoảng 50 độ">
+  <line x1="40.0" y1="20.0" x2="168.0" y2="76.7" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="20.0" x2="82.8" y2="174.2" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M49.1,52.8 A34,34 0 0 0 71.1,33.8" fill="none" stroke="#0f8a68" stroke-width="2"/>
+  <text x="90.5" y="71.9" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#0f8a68">50°</text>
+  <text x="178.0" y="80.7" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">a</text>
+  <text x="72.8" y="188.2" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">b</text>
+  <circle cx="40.0" cy="20.0" r="4.5" fill="#1f2430"/>
+  <text x="28.0" y="20.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">O</text>
+</svg><svg width="190" viewBox="0 0 190 190" style="max-width:190px" role="img" aria-label="Góc pMq bằng 90 độ">
+  <line x1="30.0" y1="165.0" x2="170.0" y2="165.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="165.0" x2="30.0" y2="15.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="43.0,165.0 43.0,152.0 30.0,152.0" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="83.8" y="126.2" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#2f6fdb">90°</text>
+  <text x="166.0" y="187.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">q</text>
+  <text x="18.0" y="23.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">p</text>
+  <circle cx="30.0" cy="165.0" r="4.5" fill="#1f2430"/>
+  <text x="18.0" y="183.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">M</text>
+</svg><svg width="220" viewBox="0 0 220 190" style="max-width:220px" role="img" aria-label="Góc mAn khoảng 110 độ">
+  <line x1="80.0" y1="165.0" x2="210.0" y2="165.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="80.0" y1="165.0" x2="20.6" y2="16.4" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M114.0,165.0 A34,34 0 0 0 67.4,133.4" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="114.8" y="118.7" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#c93c3c">110°</text>
+  <text x="206.0" y="187.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">n</text>
+  <text x="8.6" y="22.4" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">m</text>
+  <circle cx="80.0" cy="165.0" r="4.5" fill="#1f2430"/>
+  <text x="80.0" y="187.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+</svg></div>
+      <p><span class="m">∠aOb</span> khoảng 50° &lt; 90°; &nbsp; <span class="m">∠pMq</span> = 90°; &nbsp; <span class="m">∠mAn</span> khoảng 110° &gt; 90°.</p>
+      <p class="vi-sao">Đây chính là ba loại góc: nhỏ hơn 90° (góc nhọn), bằng 90° (góc vuông), lớn hơn 90° (góc tù).</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: góc vuông, nhọn, tù</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">∠aOb</span> khoảng 50° nhỏ hơn 90°; <span class="m">∠pMq</span> = 90°; <span class="m">∠mAn</span> khoảng 110° lớn hơn 90°.</div>
+    <div class="gv-note">Số đo đọc trên hình SGK (bản scan trang 62): aOb khoảng 50° – 51°, mAn khoảng 111° – 112°. Điều cần chấm là kết luận so với 90°.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (mục 2)" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 2)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Góc trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy chỉ ra một số hình ảnh góc nhọn, góc vuông, góc tù, góc bẹt có trong thực tế mà em biết.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Góc bàn, kim đồng hồ, cái kéo, cuốn sách mở phẳng…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Góc vuông: so với góc của trang vở. Góc bẹt: hai cạnh nằm trên một đường thẳng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Một số ví dụ</h4>
+      <p><b>Góc nhọn:</b> hai lưỡi kéo hé mở; hai kim đồng hồ lúc 1 giờ.</p>
+      <p><b>Góc vuông:</b> góc của trang vở, góc bảng, góc giữa tường và sàn nhà; hai kim lúc 3 giờ.</p>
+      <p><b>Góc tù:</b> lưng ghế ngả ra sau; hai kim đồng hồ lúc 4 giờ.</p>
+      <p><b>Góc bẹt:</b> hai kim đồng hồ lúc 6 giờ; cuốn sách mở phẳng ra trên bàn.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: các góc đặc biệt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: góc nhọn — kéo hé mở, kim đồng hồ lúc 1 giờ; góc vuông — góc trang vở, kim lúc 3 giờ; góc tù — lưng ghế ngả, kim lúc 4 giờ; góc bẹt — kim lúc 6 giờ, sách mở phẳng.</div>
+    <div class="gv-note">Câu hỏi mở — chấp nhận mọi ví dụ hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">So sánh góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy sắp xếp các góc sau theo thứ tự số đo từ bé đến lớn: góc vuông, góc nhọn, góc tù và góc bẹt.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 So từng loại góc với 90° và 180°.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Góc nhọn &lt; 90°; góc vuông = 90°; góc tù nằm giữa 90° và 180°; góc bẹt = 180°.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Sắp xếp</h4>
+      <p>Góc nhọn (nhỏ hơn 90°) &lt; góc vuông (90°) &lt; góc tù (giữa 90° và 180°) &lt; góc bẹt (180°).</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: các góc đặc biệt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Góc nhọn, góc vuông, góc tù, góc bẹt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd" data-ten="Vận dụng" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng</span><span class="nhan vd">Vận dụng</span><span class="nhan">Góc trên mặt đồng hồ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a) Dùng thước đo góc để đo các góc tạo bởi kim phút và kim giờ trong các mặt đồng hồ sau:</p>
+    <p><i>(Hình minh hoạ bốn mặt đồng hồ: chỉ 8 giờ (kim giờ ở số 8, kim phút ở số 12); chỉ 9 giờ; chỉ 6 giờ; chỉ 2 giờ.)</i></p>
+    <p>b) Trong các góc đó, chỉ ra góc vuông, góc nhọn, góc tù, góc bẹt.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mặt đồng hồ chia làm 12 khoảng đều nhau; nửa vòng (từ số 12 tới số 6) là một góc bẹt.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ số 12 đến số 6 có 6 khoảng và tạo thành góc bẹt 180°, nên mỗi khoảng giữa hai số liền nhau ứng với 180° : 6 = 30°. Dùng điều này để kiểm tra kết quả đo.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo các góc</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center"><svg width="160" viewBox="0 0 180 215" style="max-width:170px" role="img" aria-label="Đồng hồ chỉ 8 giờ, góc giữa hai kim 120°">
+  <circle cx="90.0" cy="90.0" r="78.0" fill="#fffdf6" stroke="#5c6577" stroke-width="3"/>
+  <path d="M90.0,90.0 L24.5,127.8 A75.7,75.7 0 0 1 90.0,14.3 Z" fill="#c93c3c" fill-opacity="0.2"/>
+  <line x1="90.0" y1="12.0" x2="90.0" y2="21.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="40.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">12</text>
+  <line x1="129.0" y1="22.5" x2="124.3" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">1</text>
+  <line x1="157.5" y1="51.0" x2="149.4" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">2</text>
+  <line x1="168.0" y1="90.0" x2="158.6" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="146.2" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">3</text>
+  <line x1="157.5" y1="129.0" x2="149.4" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">4</text>
+  <line x1="129.0" y1="157.5" x2="124.3" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">5</text>
+  <line x1="90.0" y1="168.0" x2="90.0" y2="158.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="153.2" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">6</text>
+  <line x1="51.0" y1="157.5" x2="55.7" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">7</text>
+  <line x1="22.5" y1="129.0" x2="30.6" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">8</text>
+  <line x1="12.0" y1="90.0" x2="21.4" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="33.8" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">9</text>
+  <line x1="22.5" y1="51.0" x2="30.6" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">10</text>
+  <line x1="51.0" y1="22.5" x2="55.7" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">11</text>
+  <line x1="90.0" y1="90.0" x2="56.2" y2="109.5" stroke="#1f2430" stroke-width="5" stroke-linecap="round"/>
+  <line x1="90.0" y1="90.0" x2="90.0" y2="29.2" stroke="#1f2430" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="90.0" cy="90.0" r="4" fill="#1f2430"/>
+  <text x="90.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#c93c3c">8 giờ: 120°</text>
+</svg><svg width="160" viewBox="0 0 180 215" style="max-width:170px" role="img" aria-label="Đồng hồ chỉ 9 giờ, góc giữa hai kim 90°">
+  <circle cx="90.0" cy="90.0" r="78.0" fill="#fffdf6" stroke="#5c6577" stroke-width="3"/>
+  <path d="M90.0,90.0 L14.3,90.0 A75.7,75.7 0 0 1 90.0,14.3 Z" fill="#6b4fc9" fill-opacity="0.2"/>
+  <line x1="90.0" y1="12.0" x2="90.0" y2="21.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="40.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">12</text>
+  <line x1="129.0" y1="22.5" x2="124.3" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">1</text>
+  <line x1="157.5" y1="51.0" x2="149.4" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">2</text>
+  <line x1="168.0" y1="90.0" x2="158.6" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="146.2" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">3</text>
+  <line x1="157.5" y1="129.0" x2="149.4" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">4</text>
+  <line x1="129.0" y1="157.5" x2="124.3" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">5</text>
+  <line x1="90.0" y1="168.0" x2="90.0" y2="158.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="153.2" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">6</text>
+  <line x1="51.0" y1="157.5" x2="55.7" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">7</text>
+  <line x1="22.5" y1="129.0" x2="30.6" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">8</text>
+  <line x1="12.0" y1="90.0" x2="21.4" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="33.8" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">9</text>
+  <line x1="22.5" y1="51.0" x2="30.6" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">10</text>
+  <line x1="51.0" y1="22.5" x2="55.7" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">11</text>
+  <line x1="90.0" y1="90.0" x2="51.0" y2="90.0" stroke="#1f2430" stroke-width="5" stroke-linecap="round"/>
+  <line x1="90.0" y1="90.0" x2="90.0" y2="29.2" stroke="#1f2430" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="90.0" cy="90.0" r="4" fill="#1f2430"/>
+  <text x="90.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#6b4fc9">9 giờ: 90°</text>
+</svg><svg width="160" viewBox="0 0 180 215" style="max-width:170px" role="img" aria-label="Đồng hồ chỉ 6 giờ, góc giữa hai kim 180°">
+  <circle cx="90.0" cy="90.0" r="78.0" fill="#fffdf6" stroke="#5c6577" stroke-width="3"/>
+  <path d="M90.0,90.0 L90.0,14.3 A75.7,75.7 0 0 1 90.0,165.7 Z" fill="#0f8a68" fill-opacity="0.2"/>
+  <line x1="90.0" y1="12.0" x2="90.0" y2="21.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="40.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">12</text>
+  <line x1="129.0" y1="22.5" x2="124.3" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">1</text>
+  <line x1="157.5" y1="51.0" x2="149.4" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">2</text>
+  <line x1="168.0" y1="90.0" x2="158.6" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="146.2" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">3</text>
+  <line x1="157.5" y1="129.0" x2="149.4" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">4</text>
+  <line x1="129.0" y1="157.5" x2="124.3" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">5</text>
+  <line x1="90.0" y1="168.0" x2="90.0" y2="158.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="153.2" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">6</text>
+  <line x1="51.0" y1="157.5" x2="55.7" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">7</text>
+  <line x1="22.5" y1="129.0" x2="30.6" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">8</text>
+  <line x1="12.0" y1="90.0" x2="21.4" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="33.8" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">9</text>
+  <line x1="22.5" y1="51.0" x2="30.6" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">10</text>
+  <line x1="51.0" y1="22.5" x2="55.7" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">11</text>
+  <line x1="90.0" y1="90.0" x2="90.0" y2="129.0" stroke="#1f2430" stroke-width="5" stroke-linecap="round"/>
+  <line x1="90.0" y1="90.0" x2="90.0" y2="29.2" stroke="#1f2430" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="90.0" cy="90.0" r="4" fill="#1f2430"/>
+  <text x="90.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#0f8a68">6 giờ: 180°</text>
+</svg><svg width="160" viewBox="0 0 180 215" style="max-width:170px" role="img" aria-label="Đồng hồ chỉ 2 giờ, góc giữa hai kim 60°">
+  <circle cx="90.0" cy="90.0" r="78.0" fill="#fffdf6" stroke="#5c6577" stroke-width="3"/>
+  <path d="M90.0,90.0 L90.0,14.3 A75.7,75.7 0 0 1 155.5,52.2 Z" fill="#d9822b" fill-opacity="0.2"/>
+  <line x1="90.0" y1="12.0" x2="90.0" y2="21.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="40.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">12</text>
+  <line x1="129.0" y1="22.5" x2="124.3" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">1</text>
+  <line x1="157.5" y1="51.0" x2="149.4" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">2</text>
+  <line x1="168.0" y1="90.0" x2="158.6" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="146.2" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">3</text>
+  <line x1="157.5" y1="129.0" x2="149.4" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="138.6" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">4</text>
+  <line x1="129.0" y1="157.5" x2="124.3" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="118.1" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">5</text>
+  <line x1="90.0" y1="168.0" x2="90.0" y2="158.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="90.0" y="153.2" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">6</text>
+  <line x1="51.0" y1="157.5" x2="55.7" y2="149.4" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="145.7" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">7</text>
+  <line x1="22.5" y1="129.0" x2="30.6" y2="124.3" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="125.1" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">8</text>
+  <line x1="12.0" y1="90.0" x2="21.4" y2="90.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="33.8" y="97.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">9</text>
+  <line x1="22.5" y1="51.0" x2="30.6" y2="55.7" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="41.4" y="68.9" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">10</text>
+  <line x1="51.0" y1="22.5" x2="55.7" y2="30.6" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <text x="61.9" y="48.4" font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle" fill="#1f2430">11</text>
+  <line x1="90.0" y1="90.0" x2="123.8" y2="70.5" stroke="#1f2430" stroke-width="5" stroke-linecap="round"/>
+  <line x1="90.0" y1="90.0" x2="90.0" y2="29.2" stroke="#1f2430" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="90.0" cy="90.0" r="4" fill="#1f2430"/>
+  <text x="90.0" y="205.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#d9822b">2 giờ: 60°</text>
+</svg></div>
+      <p>8 giờ: hai kim cách nhau 4 khoảng (từ 8 tới 12) → 120°. 9 giờ: 3 khoảng → 90°. 6 giờ: 6 khoảng → 180°. 2 giờ: 2 khoảng → 60°.</p>
+      <p class="vi-sao">Lúc 8 giờ, đi từ số 8 lên số 12 theo phía ngắn hơn (qua 9, 10, 11) là 4 khoảng, không phải 8 khoảng.</p>
+      <a class="xem-lai" href="#kt-do">📌 Xem lại: cách đo góc</a></div>
+    <div class="buoc" data-so="2"><h4>Phân loại</h4>
+      <p>Góc vuông: lúc 9 giờ (90°). Góc nhọn: lúc 2 giờ (60°). Góc tù: lúc 8 giờ (120°). Góc bẹt: lúc 6 giờ (180°).</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: các góc đặc biệt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 8 giờ: 120°; 9 giờ: 90°; 6 giờ: 180°; 2 giờ: 60°. &nbsp; b) Góc vuông: 9 giờ; góc nhọn: 2 giờ; góc tù: 8 giờ; góc bẹt: 6 giờ.</div>
+    <div class="bay">Lúc 8 giờ đếm 8 khoảng (từ 12 đi xuôi tới 8) thành 240°. Số đo góc không vượt quá 180°: phải lấy phía hẹp hơn.</div>
+    <div class="gv-note">Đề yêu cầu đo bằng thước; cách đếm khoảng 30° chỉ dùng để kiểm tra (dựa trên góc bẹt 180° = 6 khoảng). Chú ý của SGK: lúc 12 giờ hai kim trùng nhau cho hình ảnh “góc không”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b831" data-ten="Bài 8.31" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 8.31</span><span class="nhan nb">Nhận biết</span><span class="nhan">Phân loại góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho các góc với số đo như dưới đây: <span class="m">∠A</span> = 63°; <span class="m">∠M</span> = 135°; <span class="m">∠B</span> = 91°; <span class="m">∠T</span> = 179°.</p>
+    <p>Trong các góc đó, kể tên các góc nhọn, góc tù.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">63°</span><button class="chon chu" data-dung="1">Nhọn</button><button class="chon chu" data-dung="0">Tù</button><span class="phan-hoi" data-dung-txt="Đúng! 63° &lt; 90°." data-sai-txt="63 lớn hơn hay nhỏ hơn 90?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">91°</span><button class="chon chu" data-dung="0">Nhọn</button><button class="chon chu" data-dung="1">Tù</button><span class="phan-hoi" data-dung-txt="Đúng! 91° &gt; 90° dù chỉ hơn 1°." data-sai-txt="91 lớn hơn hay nhỏ hơn 90?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">179°</span><button class="chon chu" data-dung="0">Bẹt</button><button class="chon chu" data-dung="1">Tù</button><span class="phan-hoi" data-dung-txt="Đúng! Góc bẹt phải đúng 180°." data-sai-txt="Góc bẹt có số đo đúng bằng bao nhiêu?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 So từng số đo với 90°. Cẩn thận với 91° và 179°.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhọn: nhỏ hơn 90°. Tù: lớn hơn 90° và nhỏ hơn 180°.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So từng góc với 90° và 180°</h4>
+      <p>63° &lt; 90° → <span class="m">∠A</span> nhọn. 135°, 91°, 179° đều lớn hơn 90° và nhỏ hơn 180° → <span class="m">∠M</span>, <span class="m">∠B</span>, <span class="m">∠T</span> tù.</p>
+      <p class="vi-sao">91° chỉ hơn góc vuông 1° nhưng vẫn là góc tù; 179° chỉ kém góc bẹt 1° nhưng chưa phải góc bẹt.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: góc nhọn, góc tù</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Góc nhọn: <span class="m">∠A</span> (63°). Góc tù: <span class="m">∠M</span> (135°), <span class="m">∠B</span> (91°), <span class="m">∠T</span> (179°).</div>
+    <div class="bay">Xếp 91° là góc vuông (“gần 90”) hoặc 179° là góc bẹt. Góc vuông phải <b>đúng</b> 90°, góc bẹt phải <b>đúng</b> 180°.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b832" data-ten="Bài 8.32" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 8.32</span><span class="nhan th">Thông hiểu</span><span class="nhan">Ước lượng, đo góc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát hình sau.</p>
+    <p><i>(Hình: năm góc <span class="m">BEC</span>, <span class="m">xOy</span>, <span class="m">MIN</span>, <span class="m">tAu</span>, <span class="m">mEn</span>; trong đó <span class="m">E</span> nằm trên đường thẳng <span class="m">mn</span> nên <span class="m">mEn</span> là góc bẹt.)</i></p>
+    <p>a) Ước lượng bằng mắt xem góc nào là góc nhọn, góc vuông, góc tù, góc bẹt;</p>
+    <p>b) Dùng ê ke để kiểm tra lại kết quả của câu a;</p>
+    <p>c) Dùng thước đo góc để tìm số đo của mỗi góc.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ước lượng trước, rồi mới dùng ê ke và thước đo góc để kiểm tra.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt góc vuông của ê ke trùng đỉnh, một cạnh ê ke trùng một cạnh góc: cạnh còn lại của góc nằm trong ê ke → góc nhọn; trùng cạnh ê ke → góc vuông; nằm ngoài → góc tù.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a), b) Ước lượng và kiểm tra bằng ê ke</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;align-items:flex-end"><svg width="170" viewBox="0 0 170 150" style="max-width:170px" role="img" aria-label="Góc BEC khoảng 30 độ">
+  <line x1="150.0" y1="75.0" x2="22.4" y2="31.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="150.0" y1="75.0" x2="12.6" y2="102.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M106.5,60.0 A46,46 0 0 0 104.9,83.9" fill="none" stroke="#0f8a68" stroke-width="2"/>
+  <text x="64.0" y="81.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#0f8a68">30°</text>
+  <circle cx="60.2" cy="44.1" r="4.5" fill="#1f2430"/>
+  <text x="60.2" y="34.1" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">B</text>
+  <circle cx="56.8" cy="93.3" r="4.5" fill="#1f2430"/>
+  <text x="56.8" y="115.3" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">C</text>
+  <text x="152.0" y="65.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">E</text>
+</svg><svg width="190" viewBox="0 0 190 150" style="max-width:190px" role="img" aria-label="Góc xOy bằng 90 độ">
+  <line x1="95.0" y1="28.0" x2="29.4" y2="103.5" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="95.0" y1="28.0" x2="170.9" y2="93.1" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="86.5,37.8 96.3,46.3 104.9,36.5" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="95.0" y="20.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">O</text>
+  <text x="21.4" y="109.5" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">x</text>
+  <text x="180.9" y="99.1" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">y</text>
+  <text x="95.0" y="78.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#2f6fdb">90°</text>
+</svg><svg width="170" viewBox="0 0 170 175" style="max-width:170px" role="img" aria-label="Góc MIN khoảng 80 độ">
+  <line x1="30.0" y1="70.0" x2="157.5" y2="12.2" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.0" y1="70.0" x2="92.1" y2="160.8" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M46.9,94.8 A30,30 0 0 0 57.3,57.6" fill="none" stroke="#0f8a68" stroke-width="2"/>
+  <text x="18.0" y="76.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">I</text>
+  <circle cx="112.0" cy="32.8" r="4.5" fill="#1f2430"/>
+  <text x="112.0" y="20.8" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">M</text>
+  <circle cx="78.0" cy="140.1" r="4.5" fill="#1f2430"/>
+  <text x="64.0" y="150.1" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">N</text>
+  <text x="96.0" y="92.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#0f8a68">80°</text>
+</svg><svg width="240" viewBox="0 0 240 150" style="max-width:240px" role="img" aria-label="Góc tAu khoảng 120 độ">
+  <line x1="100.0" y1="130.0" x2="14.1" y2="39.2" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100.0" y1="130.0" x2="211.8" y2="103.2" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M129.2,123.0 A30,30 0 0 0 79.4,108.2" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <text x="100.0" y="150.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <text x="6.1" y="47.2" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">t</text>
+  <text x="215.8" y="123.2" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">u</text>
+  <text x="110.0" y="88.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#c93c3c">120°</text>
+</svg><svg width="170" viewBox="0 0 170 150" style="max-width:170px" role="img" aria-label="Góc mEn bằng 180 độ (góc bẹt)">
+  <line x1="15.0" y1="90.0" x2="155.0" y2="90.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M103.0,90.0 A18,18 0 0 0 67.0,90.0" fill="none" stroke="#6b4fc9" stroke-width="2"/>
+  <circle cx="85.0" cy="90.0" r="4.5" fill="#1f2430"/>
+  <text x="85.0" y="114.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">E</text>
+  <text x="18.0" y="114.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">m</text>
+  <text x="148.0" y="114.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">n</text>
+  <text x="85.0" y="64.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#6b4fc9">180°</text>
+</svg></div>
+      <p><span class="m">∠BEC</span>: rất hẹp → nhọn. <span class="m">∠xOy</span>: khít với góc ê ke → vuông. <span class="m">∠MIN</span>: cạnh <span class="m">IN</span> còn nằm trong góc ê ke → nhọn (gần vuông). <span class="m">∠tAu</span>: cạnh vượt ra ngoài góc ê ke → tù. <span class="m">∠mEn</span>: hai cạnh là hai tia đối nhau → bẹt.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: các góc đặc biệt</a></div>
+    <div class="buoc" data-so="2"><h4>c) Đo bằng thước đo góc</h4>
+      <p><span class="m">∠BEC</span> khoảng 30°; <span class="m">∠xOy</span> = 90°; <span class="m">∠MIN</span> khoảng 80°; <span class="m">∠tAu</span> khoảng 120°; <span class="m">∠mEn</span> = 180°.</p>
+      <p class="vi-sao">Số đo phải khớp với phân loại: nhọn thì dưới 90°, tù thì trên 90°.</p>
+      <a class="xem-lai" href="#kt-do">📌 Xem lại: cách đo góc</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Góc nhọn: <span class="m">∠BEC</span> ( khoảng 30°), <span class="m">∠MIN</span> ( khoảng 80°). Góc vuông: <span class="m">∠xOy</span> (90°). Góc tù: <span class="m">∠tAu</span> ( khoảng 120°). Góc bẹt: <span class="m">∠mEn</span> (180°).</div>
+    <div class="bay">Ước lượng bằng mắt rồi dừng ở đó: góc <span class="m">MIN</span> “trông” khá rộng nhưng kiểm tra bằng ê ke mới thấy nhỏ hơn góc vuông.</div>
+    <div class="gv-note">Số đo và phân loại lấy theo hình SGK (bản scan trang 64, đo bằng toạ độ điểm ảnh): BEC khoảng 30°, xOy khoảng 90°, MIN khoảng 80°, tAu khoảng 120°, mEn = 180°. Lưu ý: mô tả chữ của hình trong kho kiến thức ghi “MIN tạo góc tù” và “tAu gần vuông” — không khớp hình in; lời giải theo số đo thực trên hình. Nếu sách in của lớp khác, GV đo lại trên sách.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b833" data-ten="Bài 8.33" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.33</span><span class="nhan vd">Vận dụng</span><span class="nhan">Góc trên mặt đồng hồ</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát hình ảnh mặt đồng hồ, em hãy tìm một thời điểm mà góc tạo bởi kim giờ và kim phút là:</p>
+    <p>a) Góc nhọn; &nbsp; b) Góc vuông; &nbsp; c) Góc tù; &nbsp; d) Góc bẹt.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn giờ đúng (kim phút ở số 12) cho dễ: mỗi khoảng giữa hai số liền nhau là 30°.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Như phần Vận dụng: 2 giờ → 60°, 9 giờ → 90°, 8 giờ → 120°, 6 giờ → 180°.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn thời điểm giờ đúng</h4>
+      <p>a) 2 giờ: hai kim cách 2 khoảng → 60° (nhọn). b) 3 giờ: 3 khoảng → 90° (vuông). c) 4 giờ: 4 khoảng → 120° (tù). d) 6 giờ: 6 khoảng → 180° (bẹt).</p>
+      <p class="vi-sao">Góc bẹt 180° ứng với 6 khoảng, nên mỗi khoảng 30°; góc nhọn cần ít hơn 3 khoảng, góc tù cần từ 4 đến 5 khoảng.</p>
+      <a class="xem-lai" href="#kt-dac-biet">📌 Xem lại: các góc đặc biệt</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: a) 2 giờ (60°); b) 3 giờ (90°); c) 4 giờ (120°); d) 6 giờ (180°).</div>
+    <div class="bay">Chọn 12 giờ cho góc nhọn. Lúc 12 giờ hai kim trùng nhau — đó là “góc không”, không phải góc nhọn.</div>
+    <div class="gv-note">Câu mở, nhiều đáp án: nhọn — 1 giờ, 2 giờ, 10 giờ, 11 giờ; vuông — 3 giờ, 9 giờ; tù — 4, 5, 7, 8 giờ; bẹt — 6 giờ. Nếu HS chọn thời điểm lẻ phút (ví dụ 3 giờ 30 phút) cần lưu ý kim giờ đã lệch khỏi vạch số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b834" data-ten="Bài 8.34" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 8.34</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đo góc, tính tổng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đo các góc của tứ giác <span class="m">ABCD</span> rồi tính tổng số đo của các góc đó.</p>
+    <p><i>(Hình: tứ giác <span class="m">ABCD</span> với <span class="m">A</span> dưới trái, <span class="m">B</span> trên trái, <span class="m">C</span> trên phải (cao hơn <span class="m">B</span>), <span class="m">D</span> dưới phải; cạnh <span class="m">AD</span> nằm ngang.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ở mỗi đỉnh, góc của tứ giác là góc tạo bởi hai cạnh đi qua đỉnh đó, nằm phía trong hình.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn góc là <span class="m">∠DAB</span>, <span class="m">∠ABC</span>, <span class="m">∠BCD</span>, <span class="m">∠CDA</span>. Trước khi đo, đoán xem góc nào nhọn, góc nào tù.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo bốn góc</h4>
+      <svg viewBox="-10 -10 580 365" style="max-width:460px" role="img" aria-label="Tứ giác ABCD: góc A khoảng 60 độ, B khoảng 150 độ, C khoảng 100 độ, D khoảng 50 độ">
+  <line x1="30.0" y1="318.0" x2="142.0" y2="115.6" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="142.0" y1="115.6" x2="290.8" y2="30.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="290.8" y1="30.0" x2="527.6" y2="318.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="527.6" y1="318.0" x2="30.0" y2="318.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M60.0,318.0 A30,30 0 0 0 44.5,291.8" fill="none" stroke="#c93c3c" stroke-width="2"/>
+  <path d="M130.4,136.6 A24,24 0 0 0 162.8,103.6" fill="none" stroke="#0f8a68" stroke-width="2"/>
+  <path d="M270.0,42.0 A24,24 0 0 0 306.0,48.5" fill="none" stroke="#2f6fdb" stroke-width="2"/>
+  <path d="M508.5,294.8 A30,30 0 0 0 497.6,318.0" fill="none" stroke="#6b4fc9" stroke-width="2"/>
+  <text x="92.0" y="304.0" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#c93c3c">60°</text>
+  <text x="186.0" y="145.6" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#0f8a68">150°</text>
+  <text x="290.8" y="78.0" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#2f6fdb">100°</text>
+  <text x="469.6" y="306.0" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#6b4fc9">50°</text>
+  <circle cx="30.0" cy="318.0" r="4.5" fill="#1f2430"/>
+  <text x="18.0" y="334.0" font-family="Cambria Math,Times New Roman,serif" font-size="26" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <circle cx="142.0" cy="115.6" r="4.5" fill="#1f2430"/>
+  <text x="128.0" y="111.6" font-family="Cambria Math,Times New Roman,serif" font-size="26" font-style="italic" text-anchor="middle" fill="#1f2430">B</text>
+  <circle cx="290.8" cy="30.0" r="4.5" fill="#1f2430"/>
+  <text x="290.8" y="20.0" font-family="Cambria Math,Times New Roman,serif" font-size="26" font-style="italic" text-anchor="middle" fill="#1f2430">C</text>
+  <circle cx="527.6" cy="318.0" r="4.5" fill="#1f2430"/>
+  <text x="539.6" y="334.0" font-family="Cambria Math,Times New Roman,serif" font-size="26" font-style="italic" text-anchor="middle" fill="#1f2430">D</text>
+</svg>
+      <p><span class="m">∠DAB</span> khoảng 60° (nhọn); <span class="m">∠ABC</span> khoảng 150° (tù); <span class="m">∠BCD</span> khoảng 100° (tù); <span class="m">∠CDA</span> khoảng 50° (nhọn).</p>
+      <a class="xem-lai" href="#kt-do">📌 Xem lại: cách đo góc</a></div>
+    <div class="buoc" data-so="2"><h4>Tính tổng</h4>
+      <p>60° + 150° + 100° + 50° = 360°.</p>
+      <p class="vi-sao">Dù đo lệch mỗi góc một vài độ, tổng vẫn xấp xỉ 360°. Đây là một nhận xét đáng nhớ về tứ giác (em sẽ được học kĩ hơn ở lớp trên).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đo được khoảng: <span class="m">∠A</span> khoảng 60°, <span class="m">∠B</span> khoảng 150°, <span class="m">∠C</span> khoảng 100°, <span class="m">∠D</span> khoảng 50°. Tổng: 60° + 150° + 100° + 50° = 360°.</div>
+    <div class="bay">Ở đỉnh <span class="m">B</span>, đọc nhầm hàng số và ghi 30°. Góc <span class="m">B</span> rõ ràng tù (rộng hơn góc vuông), nên số đo phải lớn hơn 90°.</div>
+    <div class="gv-note">Số đo lấy theo hình SGK (bản scan trang 64): A khoảng 61°, B khoảng 149°, C khoảng 99° – 100°, D khoảng 51°; tổng khoảng 360°. Chấp nhận mỗi góc lệch 1° – 3°, tổng trong khoảng 355° – 365°. Tổng 360° chỉ là nhận xét từ đo đạc, không yêu cầu chứng minh.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 37. Số đo góc — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c08-b37';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-08-bai-37-so-do-goc-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-08-bai-37-so-do-goc-bai-giai.nguon.html" data-phien-ban="f205d5cad043">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

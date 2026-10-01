@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 16. Phép nhân số nguyên — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương III. Số nguyên</div>
+    <div class="hang1">
+      <h1>Bài 16. Phép nhân số nguyên — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương III. Số nguyên</div><h1>Bài 16. Phép nhân số nguyên — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-khac-dau"><b class="ten">Nhân hai số nguyên khác dấu</b>
+      Muốn nhân hai số nguyên khác dấu, ta nhân phần số tự nhiên của hai số đó với nhau rồi đặt dấu “−” trước kết quả nhận được.
+      Nếu <span class="m">m, n ∈ ℕ<sup>*</sup></span> thì <span class="m">m · (−n) = (−n) · m = −(m · n)</span>. (Pi: tích của hai số nguyên khác dấu luôn là một số nguyên âm.)</div>
+    <div class="kt" id="kt-cung-dau"><b class="ten">Nhân hai số nguyên âm</b>
+      Muốn nhân hai số nguyên âm, ta nhân phần số tự nhiên của hai số đó với nhau.
+      Nếu <span class="m">m, n ∈ ℕ<sup>*</sup></span> thì <span class="m">(−m) · (−n) = (−n) · (−m) = m · n</span>. (Pi: tích của hai số nguyên cùng dấu luôn là số nguyên dương.)</div>
+    <div class="kt" id="kt-so-0"><b class="ten">Nhân với 0</b>
+      Tích của một số nguyên với 0 luôn bằng 0: <span class="m">a · 0 = 0 · a = 0</span>.</div>
+    <div class="kt" id="kt-tinh-chat"><b class="ten">Tính chất của phép nhân</b>
+      Giao hoán: <span class="m">a · b = b · a</span>; Kết hợp: <span class="m">a · (b · c) = (a · b) · c</span>;
+      Phân phối của phép nhân đối với phép cộng: <span class="m">a · (b + c) = a · b + a · c</span>. (Pi: phép nhân cũng có tính chất phân phối đối với phép trừ: <span class="m">a(b − c) = ab − ac</span>.)</div>
+    <div class="kt" id="kt-doi-dau"><b class="ten">Đổi dấu một thừa số (HĐ3)</b>
+      Mỗi khi đổi dấu một thừa số và giữ nguyên thừa số còn lại thì tích đổi dấu: <span class="m">(−3) · 7 = −21</span>, <span class="m">3 · 7 = 21</span>, <span class="m">3 · (−7) = −21</span>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 16. Phép nhân số nguyên.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dựa vào phép cộng các số âm, hãy tính tích (−11) · 3 rồi so sánh kết quả với −(11 · 3).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhân với 3 nghĩa là cộng 3 lần.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> (−11) · 3 = (−11) + (−11) + (−11).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết thành tổng</h4>
+      <p><span class="m">(−11) · 3 = (−11) + (−11) + (−11) = −(11 + 11 + 11) = −33</span>.</p>
+      <p class="vi-sao">Giống như với số tự nhiên: <span class="m">a · 3 = a + a + a</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p><span class="m">−(11 · 3) = −33</span>. Hai kết quả bằng nhau: <span class="m">(−11) · 3 = −(11 · 3)</span>.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(−11) · 3 = −33 = −(11 · 3); hai kết quả bằng nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy dự đoán kết quả của các phép nhân 5 · (−7) và (−6) · 8.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Theo HĐ1, nhân hai số khác dấu thì được số âm hay dương?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhân hai phần số tự nhiên rồi đặt dấu “−” trước kết quả, giống HĐ1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dự đoán theo HĐ1</h4>
+      <p><span class="m">5 · (−7) = −(5 · 7) = −35</span>; &nbsp; <span class="m">(−6) · 8 = −(6 · 8) = −48</span>.</p>
+      <p class="vi-sao">Kiểm tra: 5 · (−7) = (−7) · 5 = (−7) + (−7) + (−7) + (−7) + (−7) = −35 ✓.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">5 · (−7) = −35; &nbsp; (−6) · 8 = −48.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Thực hiện các phép nhân sau: a) (−12) · 12; &nbsp; b) 137 · (−15).</p><p>❷ Tính nhẩm: 5 · (−12).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Khác dấu → kết quả luôn mang dấu “−”.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhân hai phần số tự nhiên, rồi thêm dấu “−”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶ Áp dụng quy tắc</h4>
+      <p>a) <span class="m">(−12) · 12 = −(12 · 12) = −144</span>.</p>
+      <p>b) <span class="m">137 · (−15) = −(137 · 15) = −2 055</span>.</p>
+      <p class="vi-sao">137 · 15 = 137 · 10 + 137 · 5 = 1 370 + 685 = 2 055.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>❷ Tính nhẩm</h4>
+      <p><span class="m">5 · (−12) = −(5 · 12) = −60</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ a) −144; b) −2 055. ❷ 5 · (−12) = −60.</div>
+    <div class="bay">Viết (−12) · 12 = 144 — quên dấu “−”. Hai số khác dấu thì tích luôn âm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd1" data-ten="Vận dụng 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Sử dụng phép nhân hai số nguyên khác dấu để giải bài toán mở đầu.</p>
+    <p><i>(Bài toán mở đầu: Bạn Cao dùng số nguyên âm để ghi các khoản chi. Cuối tháng, trong sổ có ba lần ghi −15 000 đồng. Trong ba lần ấy, bạn Cao đã chi tất cả bao nhiêu tiền?)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba lần ghi −15 000 — viết thành một phép nhân.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba lần ghi −15 000 đồng: tính 3 · (−15 000).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết và tính tích</h4>
+      <p><span class="m">3 · (−15 000) = −(3 · 15 000) = −45 000</span> (đồng).</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>Hiểu kết quả</h4>
+      <p>Số âm biểu thị tiền chi ra, nên −45 000 đồng nghĩa là bạn Cao đã chi tất cả <b>45 000 đồng</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">3 · (−15 000) = −45 000; bạn Cao đã chi tất cả 45 000 đồng.</div>
+    <div class="bay">Trả lời “bạn Cao chi −45 000 đồng”. Câu hỏi là “chi bao nhiêu tiền” — trả lời bằng số tiền: 45 000 đồng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu của tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quan sát ba dòng đầu và nhận xét về dấu của tích mỗi khi đổi dấu một thừa số và giữ nguyên thừa số còn lại.</p>
+    <p>(−3) · 7 = −21 &nbsp;→ (đổi dấu) → &nbsp;3 · 7 = 21 &nbsp;→ (đổi dấu) → &nbsp;3 · (−7) = −21 &nbsp;→ (đổi dấu) → &nbsp;(−3) · (−7) = ?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Theo dõi từng mũi tên “đổi dấu”: tích thay đổi thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh dấu của −21 và 21 khi chuyển từ dòng này sang dòng kia.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So sánh từng bước</h4>
+      <p>(−3) · 7 = −21 → đổi dấu −3 thành 3 → 3 · 7 = 21: tích đổi từ âm sang dương.</p>
+      <p>3 · 7 = 21 → đổi dấu 7 thành −7 → 3 · (−7) = −21: tích đổi từ dương sang âm.</p></div>
+    <div class="buoc" data-so="2"><h4>Nhận xét</h4>
+      <p>Mỗi khi đổi dấu một thừa số (giữ nguyên thừa số còn lại) thì <b>tích đổi dấu</b>; phần số tự nhiên của tích (21) không đổi.</p>
+      <a class="xem-lai" href="#kt-doi-dau">📌 Xem lại: đổi dấu một thừa số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi khi đổi dấu một thừa số và giữ nguyên thừa số còn lại thì tích đổi dấu (phần số tự nhiên của tích không đổi).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhân hai số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dựa vào nhận xét ở HĐ3, hãy dự đoán kết quả của (−3) · (−7).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Từ 3 · (−7) = −21, đổi dấu thừa số 3 thành −3 thì tích sẽ…?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đi tiếp mũi tên cuối: từ 3 · (−7) = −21, đổi dấu thừa số 3.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng nhận xét HĐ3</h4>
+      <p>3 · (−7) = −21. Đổi dấu thừa số 3 thành −3 thì tích đổi dấu: <span class="m">(−3) · (−7) = 21</span>.</p>
+      <p class="vi-sao">Tích −21 đổi dấu thành 21 — đây là lí do “âm nhân âm thành dương”.</p>
+      <a class="xem-lai" href="#kt-cung-dau">📌 Xem lại: nhân hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">(−3) · (−7) = 21.</div>
+    <div class="bay">Đoán (−3) · (−7) = −21 vì “hai số đều âm thì tích cũng âm”. Hãy nhớ: đổi dấu một thừa số thì tích đổi dấu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Đổi dấu giống như <b>quay người lại</b>: quay một lần thì nhìn về hướng ngược lại, quay thêm lần nữa thì lại nhìn về hướng cũ. So với 3 · 7 = 21, tích (−3) · (−7) đã đổi dấu <b>hai lần</b> (một lần ở mỗi thừa số), nên lại dương: 21.</div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân hai số âm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thực hiện các phép nhân sau:</p><p>a) (−12) · (−12); &nbsp; b) (−137) · (−15).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Âm nhân âm — kết quả dương.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chỉ cần nhân hai phần số tự nhiên.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc</h4>
+      <p>a) <span class="m">(−12) · (−12) = 12 · 12 = 144</span>.</p>
+      <p>b) <span class="m">(−137) · (−15) = 137 · 15 = 2 055</span>.</p>
+      <p class="vi-sao">So với Luyện tập 1: đổi thêm dấu một thừa số nên tích đổi từ −144 thành 144, từ −2 055 thành 2 055.</p>
+      <a class="xem-lai" href="#kt-cung-dau">📌 Xem lại: nhân hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 144; b) 2 055.</div>
+    <div class="bay">Viết (−12) · (−12) = −144. Hai số cùng dấu thì tích dương.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vdc">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vdc">Vận dụng cao</span><span class="nhan">Tháp số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thay mỗi dấu “?” bằng số sao cho số trong mỗi ô ở hàng trên bằng tích các số trong hai ô kề với nó ở hàng dưới (H.3.18).</p>
+    <svg viewBox="0 0 300 204" style="max-width:260px" role="img" aria-label="Tháp số Hình 3.18: hàng dưới −1, ?, ?, −1; hàng ba −1, ?, 1; hàng hai ?, ?; đỉnh ?"><rect x="118" y="10" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="150" y="37" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="82" y="58" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="114" y="85" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="154" y="58" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="186" y="85" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="46" y="106" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="78" y="133" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#1f2430">−1</text><rect x="118" y="106" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="150" y="133" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="190" y="106" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="222" y="133" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#1f2430">1</text><rect x="10" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="42" y="181" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#1f2430">−1</text><rect x="82" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="114" y="181" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="154" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="186" y="181" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#c93c3c">?</text><rect x="226" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="258" y="181" font-family="Segoe UI,Arial" font-size="19" text-anchor="middle" fill="#1f2430">−1</text></svg></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bắt đầu từ ô “?” nằm cạnh ô đã biết ở cả hàng dưới lẫn hàng trên.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ô −1 ở hàng thứ ba = (−1) · (ô “?” thứ nhất ở hàng dưới cùng). Số nào nhân với −1 được −1?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm hai ô ở hàng dưới cùng</h4>
+      <p>Ô −1 (hàng ba) = (−1) · ? → tích bằng −1. Phần số tự nhiên của ô ? phải là 1 (vì 1 · 1 = 1), và tích âm nên ô ? khác dấu với −1, tức là <b>1</b>.</p>
+      <p>Ô 1 (hàng ba) = ? · (−1) → tích bằng 1, dương, nên ô ? cùng dấu với −1, tức là <b>−1</b>.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: dấu của tích</a></div>
+    <div class="buoc" data-so="2"><h4>Tính dần lên trên</h4>
+      <p>Hàng ba, ô giữa: <span class="m">1 · (−1) = −1</span>.</p>
+      <p>Hàng hai: <span class="m">(−1) · (−1) = 1</span> và <span class="m">(−1) · 1 = −1</span>.</p>
+      <p>Đỉnh: <span class="m">1 · (−1) = −1</span>.</p>
+      <svg viewBox="0 0 300 204" style="max-width:300px" role="img" aria-label="Tháp số đã điền: hàng dưới −1, 1, −1, −1; hàng ba −1, −1, 1; hàng hai 1, −1; đỉnh −1"><rect x="118" y="10" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="150" y="37" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">−1</text><rect x="82" y="58" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="114" y="85" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">1</text><rect x="154" y="58" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="186" y="85" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">−1</text><rect x="46" y="106" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="78" y="133" font-family="Segoe UI,Arial" font-size="19" font-weight="400" text-anchor="middle" fill="#1f2430">−1</text><rect x="118" y="106" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="150" y="133" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">−1</text><rect x="190" y="106" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="222" y="133" font-family="Segoe UI,Arial" font-size="19" font-weight="400" text-anchor="middle" fill="#1f2430">1</text><rect x="10" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="42" y="181" font-family="Segoe UI,Arial" font-size="19" font-weight="400" text-anchor="middle" fill="#1f2430">−1</text><rect x="82" y="154" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="114" y="181" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">1</text><rect x="154" y="154" width="64" height="40" rx="4" fill="#e6f7f1" stroke="#5c6577" stroke-width="1.5"/><text x="186" y="181" font-family="Segoe UI,Arial" font-size="19" font-weight="700" text-anchor="middle" fill="#0f8a68">−1</text><rect x="226" y="154" width="64" height="40" rx="4" fill="#ffffff" stroke="#5c6577" stroke-width="1.5"/><text x="258" y="181" font-family="Segoe UI,Arial" font-size="19" font-weight="400" text-anchor="middle" fill="#1f2430">−1</text></svg>
+      <p class="vi-sao">Ô màu xanh là các số vừa tìm. Kiểm tra từng ô: số ở trên luôn bằng tích hai số kề nó ở dưới.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hàng dưới cùng: −1; 1; −1; −1. Hàng ba: −1; −1; 1. Hàng hai: 1; −1. Ô trên cùng: −1.</div>
+    <div class="bay">Điền ô hàng dưới là −1 vì “−1 · −1 = −1”. Âm nhân âm phải ra dương: (−1) · (−1) = 1.</div>
+    <div class="gv-note">Kết quả duy nhất. Lời giải tránh phép chia số nguyên (Bài 17, chưa học) — chỉ dùng phần số tự nhiên và quy tắc dấu của tích.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch" data-ten="Câu hỏi" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu hỏi</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tính chất phân phối</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính <span class="m">a(b + c)</span> và <span class="m">ab + ac</span> khi <span class="m">a = −2</span>, <span class="m">b = 14</span>, <span class="m">c = −4</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai cách tính có ra cùng một số không? Thử xem!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thay số vào, nhớ đặt số âm trong ngoặc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính a(b + c)</h4>
+      <p><span class="m">(−2) · [14 + (−4)] = (−2) · 10 = −20</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Tính ab + ac</h4>
+      <p><span class="m">(−2) · 14 + (−2) · (−4) = (−28) + 8 = −20</span>.</p>
+      <p class="vi-sao">Hai cách cùng bằng −20: đó là tính chất phân phối của phép nhân đối với phép cộng.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất của phép nhân</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">a(b + c) = −20</span>; <span class="m">ab + ac = −20</span>.</div>
+    <div class="bay">Tính (−2) · (−4) = −8. Âm nhân âm ra dương: 8.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tính hợp lí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ a) Tính giá trị của tích <span class="m">P = 3 · (−4) · 5 · (−6)</span>;</p><p>&nbsp;&nbsp;&nbsp; b) Tích <span class="m">P</span> sẽ thay đổi thế nào nếu ta đổi dấu tất cả các thừa số?</p><p>❷ Tính 4 · (−39) − 4 · (−14).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ý ❶b: đổi dấu bao nhiêu thừa số? Mỗi lần đổi, tích đổi dấu một lần.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> ❶a) Nhóm hai số dương với nhau, hai số âm với nhau. ❷ Có thừa số chung là 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶a) Nhóm các thừa số</h4>
+      <p><span class="m">P = (3 · 5) · [(−4) · (−6)] = 15 · 24 = 360</span>.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất giao hoán, kết hợp</a></div>
+    <div class="buoc" data-so="2"><h4>❶b) Đổi dấu cả bốn thừa số</h4>
+      <p>Mỗi lần đổi dấu một thừa số thì tích đổi dấu. Đổi 4 lần: dương → âm → dương → âm → dương. Tích <b>không thay đổi</b>, vẫn bằng 360.</p>
+      <p class="vi-sao">Kiểm tra: <span class="m">(−3) · 4 · (−5) · 6 = [(−3) · (−5)] · (4 · 6) = 15 · 24 = 360</span>.</p>
+      <a class="xem-lai" href="#kt-doi-dau">📌 Xem lại: đổi dấu một thừa số</a></div>
+    <div class="buoc" data-so="3"><h4>❷ Dùng tính chất phân phối với phép trừ</h4>
+      <p><span class="m">4 · (−39) − 4 · (−14) = 4 · [(−39) − (−14)] = 4 · (−25) = −100</span>.</p>
+      <p class="vi-sao">(−39) − (−14) = (−39) + 14 = −25, và 4 · 25 = 100 rất dễ nhẩm.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ a) <span class="m">P</span> = 360; b) Đổi dấu tất cả (4) thừa số thì <span class="m">P</span> không thay đổi (vẫn bằng 360). ❷ −100.</div>
+    <div class="bay">❶b trả lời “tích đổi dấu” vì nghĩ đổi dấu thừa số thì tích đổi dấu. Đổi dấu <b>bốn</b> thừa số là đổi dấu tích bốn lần — quay về như cũ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b332" data-ten="Bài 3.32" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.32</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân khác dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhân hai số khác dấu:</p><p>a) 24 · (−25); &nbsp; b) (−15) · 12.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 24 · 25 có cách nhẩm nhanh đấy: 25 · 4 = 100.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhân phần số tự nhiên rồi đặt dấu “−”.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc</h4>
+      <p>a) <span class="m">24 · (−25) = −(24 · 25) = −600</span> (vì 24 · 25 = 6 · 4 · 25 = 6 · 100).</p>
+      <p>b) <span class="m">(−15) · 12 = −(15 · 12) = −180</span>.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −600; b) −180.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b333" data-ten="Bài 3.33" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 3.33</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhân cùng dấu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nhân hai số cùng dấu:</p><p>a) (−298) · (−4); &nbsp; b) (−10) · (−135).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cùng dấu → tích dương.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhân hai phần số tự nhiên. 298 · 4 = (300 − 2) · 4.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc</h4>
+      <p>a) <span class="m">(−298) · (−4) = 298 · 4 = 1 192</span> (vì 300 · 4 − 2 · 4 = 1 200 − 8).</p>
+      <p>b) <span class="m">(−10) · (−135) = 10 · 135 = 1 350</span>.</p>
+      <a class="xem-lai" href="#kt-cung-dau">📌 Xem lại: nhân hai số nguyên âm</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 1 192; b) 1 350.</div>
+    <div class="bay">Viết (−298) · (−4) = −1 192. Hai số âm nhân nhau thì tích dương.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b334" data-ten="Bài 3.34" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.34</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu của tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một tích nhiều thừa số sẽ mang dấu dương hay âm nếu trong tích đó có</p>
+    <p>a) Ba thừa số mang dấu âm, các thừa số khác đều dương?</p><p>b) Bốn thừa số mang dấu âm, các thừa số khác đều dương?</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung">a) Ba thừa số âm</span><button class="chon chu" data-dung="0">Dương</button><button class="chon chu" data-dung="1">Âm</button><span class="phan-hoi" data-dung-txt="Đúng! Một cặp cho tích dương, còn thừa một thừa số âm." data-sai-txt="Thử lại: ghép ba thừa số âm thành cặp — có thừa ra thừa số nào không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">b) Bốn thừa số âm</span><button class="chon chu" data-dung="1">Dương</button><button class="chon chu" data-dung="0">Âm</button><span class="phan-hoi" data-dung-txt="Đúng! Bốn thừa số âm ghép được đúng hai cặp." data-sai-txt="Thử lại: (−1) · (−1) · (−1) · (−1) bằng bao nhiêu?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ghép các thừa số âm thành từng cặp — mỗi cặp cho tích dương.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tích hai số âm là số dương. Thử với các số −1 cho dễ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Ba thừa số âm</h4>
+      <p>Hai thừa số âm nhân với nhau cho tích dương; còn lại một thừa số âm nhân với các số dương → tích <b>âm</b>.</p>
+      <p class="vi-sao">Ví dụ: (−1) · (−1) · (−1) · 2 = 1 · (−1) · 2 = −2.</p>
+      <a class="xem-lai" href="#kt-cung-dau">📌 Xem lại: dấu của tích</a></div>
+    <div class="buoc" data-so="2"><h4>b) Bốn thừa số âm</h4>
+      <p>Bốn thừa số âm ghép thành hai cặp, mỗi cặp cho tích dương → cả tích <b>dương</b>.</p>
+      <p class="vi-sao">Ví dụ: (−1) · (−1) · (−1) · (−1) · 2 = 1 · 1 · 2 = 2.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Tích mang dấu âm. b) Tích mang dấu dương.</div>
+    <div class="bay">Nghĩ “có số âm thì tích âm”. Phải đếm số thừa số âm: số lẻ → âm, số chẵn → dương.</div>
+    <div class="gv-note">Ngầm hiểu các thừa số khác 0 (nếu có thừa số 0 thì tích bằng 0). Có thể hỏi thêm lớp: “Nếu có 2 021 thừa số âm thì sao?”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b335" data-ten="Bài 3.35" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.35</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tính hợp lí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính một cách hợp lí:</p><p>a) 4 · (1 930 + 2 019) + 4 · (−2 019); &nbsp; b) (−3) · (−17) + 3 · (120 − 17).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Thấy thừa số chung — dùng tính chất phân phối!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) Thừa số chung là 4. b) Viết (−3) · (−17) thành 3 · 17 để có thừa số chung 3.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Đặt thừa số chung 4</h4>
+      <p><span class="m">4 · (1 930 + 2 019) + 4 · (−2 019) = 4 · [1 930 + 2 019 + (−2 019)] = 4 · 1 930 = 7 720</span>.</p>
+      <p class="vi-sao">2 019 và −2 019 đối nhau nên tổng bằng 0.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất phân phối</a></div>
+    <div class="buoc" data-so="2"><h4>b) Đưa về thừa số chung 3</h4>
+      <p><span class="m">(−3) · (−17) + 3 · (120 − 17) = 3 · 17 + 3 · (120 − 17)</span></p>
+      <p><span class="m">= 3 · (17 + 120 − 17) = 3 · 120 = 360</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 7 720; b) 360.</div>
+    <div class="bay">Câu b không nhận ra (−3) · (−17) = 3 · 17 nên tính dài dòng; hoặc tệ hơn, viết (−3) · (−17) = −51.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b336" data-ten="Bài 3.36" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 3.36</span><span class="nhan th">Thông hiểu</span><span class="nhan">Dấu của tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho biết tích của hai số tự nhiên <span class="m">n</span> và <span class="m">m</span> là 36. Mỗi tích <span class="m">n · (−m)</span> và <span class="m">(−n) · (−m)</span> bằng bao nhiêu?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Không cần biết <i>n</i>, <i>m</i> là số nào — chỉ cần biết tích của chúng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng hai quy tắc: <span class="m">n · (−m) = −(n · m)</span>; <span class="m">(−n) · (−m) = n · m</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Áp dụng quy tắc dấu</h4>
+      <p><span class="m">n · (−m) = −(n · m) = −36</span>.</p>
+      <p><span class="m">(−n) · (−m) = n · m = 36</span>.</p>
+      <p class="vi-sao">Vì <span class="m">n · m = 36 ≠ 0</span> nên <span class="m">n</span>, <span class="m">m</span> đều khác 0 — đúng điều kiện <span class="m">m, n ∈ ℕ<sup>*</sup></span> của quy tắc.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">n · (−m) = −36</span>; <span class="m">(−n) · (−m) = 36</span>.</div>
+    <div class="bay">Đi tìm cụ thể <span class="m">n</span> và <span class="m">m</span> (4 và 9, 6 và 6…) rồi lo không biết chọn cặp nào. Cặp nào cũng cho cùng kết quả.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b337" data-ten="Bài 3.37" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 3.37</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tính hợp lí</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính giá trị của biểu thức sau một cách hợp lí:</p><p>a) (−8) · 72 + 8 · (−19) − (−8); &nbsp; b) (−27) · 1 011 − 27 · (−12) + 27 · (−1).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu a: biến cả ba số hạng về dạng (−8) · … Câu b: dạng (−27) · …</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 8 · (−19) = (−8) · 19; − (−8) = + (−8) · (−1)… Tìm cách viết mỗi số hạng có thừa số chung.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>a) Thừa số chung −8</h4>
+      <p><span class="m">8 · (−19) = (−8) · 19</span>; &nbsp; <span class="m">−(−8) = 8 = (−8) · (−1)</span>.</p>
+      <p><span class="m">(−8) · 72 + (−8) · 19 + (−8) · (−1) = (−8) · (72 + 19 − 1) = (−8) · 90 = −720</span>.</p>
+      <a class="xem-lai" href="#kt-tinh-chat">📌 Xem lại: tính chất phân phối</a></div>
+    <div class="buoc" data-so="2"><h4>b) Thừa số chung −27</h4>
+      <p>Số hạng thứ hai: <span class="m">− 27 · (−12) = + 27 · 12 = (−27) · (−12)</span> (cùng bằng 324). Số hạng thứ ba: <span class="m">27 · (−1) = (−27) · 1</span>.</p>
+      <p><span class="m">(−27) · 1 011 + (−27) · (−12) + (−27) · 1 = (−27) · (1 011 − 12 + 1) = (−27) · 1 000 = −27 000</span>.</p>
+      <p class="vi-sao">Chọn thừa số chung −27 để trong ngoặc ra số tròn 1 000.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) −720; b) −27 000.</div>
+    <div class="bay">Câu a bỏ quên số hạng − (−8), hoặc coi nó là (−8) · 1 nên trong ngoặc ra 72 + 19 + 1 = 92. Thực ra − (−8) = 8 = (−8) · (−1).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b338" data-ten="Bài 3.38" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 3.38</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Ba bạn An, Bình, Cường chơi ném tiêu với bia gồm năm vòng như Hình 3.19. Kết quả được ghi lại trong bảng sau:</p>
+    <table><tr><th>Vòng</th><th>10 điểm</th><th>7 điểm</th><th>3 điểm</th><th>−1 điểm</th><th>−3 điểm</th></tr>
+      <tr><td>An</td><td>1</td><td>2</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>Bình</td><td>2</td><td>0</td><td>1</td><td>0</td><td>2</td></tr>
+      <tr><td>Cường</td><td>0</td><td>3</td><td>1</td><td>1</td><td>0</td></tr></table>
+    <p>Hỏi trong ba bạn, bạn nào đạt điểm cao nhất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ném vào vòng −3 điểm hai lần thì bị trừ bao nhiêu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Điểm mỗi bạn = (số lần trúng vòng) · (điểm của vòng), cộng lại cho cả năm vòng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính điểm từng bạn</h4>
+      <p>An: <span class="m">10 · 1 + 7 · 2 + 3 · 0 + (−1) · 1 + (−3) · 1 = 10 + 14 + 0 − 1 − 3 = 20</span>.</p>
+      <p>Bình: <span class="m">10 · 2 + 7 · 0 + 3 · 1 + (−1) · 0 + (−3) · 2 = 20 + 0 + 3 + 0 − 6 = 17</span>.</p>
+      <p>Cường: <span class="m">10 · 0 + 7 · 3 + 3 · 1 + (−1) · 1 + (−3) · 0 = 0 + 21 + 3 − 1 + 0 = 23</span>.</p>
+      <a class="xem-lai" href="#kt-khac-dau">📌 Xem lại: nhân hai số nguyên khác dấu</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p>23 &gt; 20 &gt; 17. Bạn <b>Cường</b> đạt điểm cao nhất (23 điểm).</p>
+      <p class="vi-sao">Bình trúng vòng 10 điểm nhiều nhất nhưng bị trừ 6 điểm vì hai lần vào vòng −3.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">An 20 điểm, Bình 17 điểm, Cường 23 điểm. Cường đạt điểm cao nhất.</div>
+    <div class="bay">Cộng số lần ném trúng hoặc quên các vòng điểm âm (tính Bình được 23 điểm). Điểm âm làm giảm tổng điểm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 16. Phép nhân số nguyên — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c03-b16';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-03-bai-16-phep-nhan-so-nguyen-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-03-bai-16-phep-nhan-so-nguyen-bai-giai.nguon.html" data-phien-ban="d921b4c63033">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

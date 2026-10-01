@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 24. So sánh phân số. Hỗn số dương — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương VI. Phân số</div>
+    <div class="hang1">
+      <h1>Bài 24. So sánh phân số. Hỗn số dương — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương VI. Phân số</div><h1>Bài 24. So sánh phân số. Hỗn số dương — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-quy-dong"><b class="ten">Quy đồng mẫu nhiều phân số</b>
+      Để quy đồng mẫu hai hay nhiều phân số có mẫu dương, ta làm như sau:<br>
+      ❶ Tìm một bội chung (thường là BCNN) của các mẫu để làm mẫu chung.<br>
+      ❷ Tìm thừa số phụ của mỗi mẫu bằng cách chia mẫu chung cho từng mẫu.<br>
+      ❸ Nhân tử và mẫu của mỗi phân số với thừa số phụ tương ứng.<br>
+      <i>Lời Pi:</i> Với các phân số có mẫu âm, ta viết lại thành các phân số mới bằng nó nhưng có mẫu dương.</div>
+    <div class="kt" id="kt-cung-mau"><b class="ten">So sánh hai phân số cùng mẫu</b>
+      Trong hai phân số có cùng một mẫu dương, phân số nào có tử lớn hơn thì phân số đó lớn hơn.</div>
+    <div class="kt" id="kt-khac-mau"><b class="ten">So sánh hai phân số không cùng mẫu</b>
+      Muốn so sánh hai phân số không cùng mẫu, ta viết chúng dưới dạng hai phân số có cùng một mẫu dương rồi so sánh các tử với nhau: phân số nào có tử lớn hơn thì phân số đó lớn hơn.</div>
+    <div class="kt" id="kt-so-0"><b class="ten">So với số 0 (lời Tròn)</b>
+      Vì <span class="m"><span class="frac"><b>−15</b><span>81</span></span> &lt; 0</span> và <span class="m">0 &lt; <span class="frac"><b>7</b><span>90</span></span></span> nên <span class="m"><span class="frac"><b>−15</b><span>81</span></span> &lt; <span class="frac"><b>7</b><span>90</span></span></span>.</div>
+    <div class="kt" id="kt-hon-so"><b class="ten">Hỗn số dương</b>
+      <span class="m"><span class="frac"><b>3</b><span>2</span></span> = 1 + <span class="frac"><b>1</b><span>2</span></span></span>, viết gọn <span class="m"><span class="frac"><b>3</b><span>2</span></span> = 1<span class="frac"><b>1</b><span>2</span></span></span>. <span class="m">1<span class="frac"><b>1</b><span>2</span></span></span> là một <b>hỗn số</b> (dương): 1 là <b>phần nguyên</b>, <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> là <b>phần phân số</b>.<br>
+      Phân số → hỗn số: <span class="m">23 : 5 = 4</span> (dư 3), nên <span class="m"><span class="frac"><b>23</b><span>5</span></span> = 4 + <span class="frac"><b>3</b><span>5</span></span> = 4<span class="frac"><b>3</b><span>5</span></span></span>.<br>
+      Hỗn số → phân số: <span class="m">3<span class="frac"><b>4</b><span>5</span></span> = <span class="frac"><b>3 · 5 + 4</b><span>5</span></span> = <span class="frac"><b>19</b><span>5</span></span></span>.<br>
+      <i>Lời Vuông:</i> Phần phân số của hỗn số luôn nhỏ hơn 1.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 24. So sánh phân số. Hỗn số dương.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Quy đồng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em thực hiện các yêu cầu sau để quy đồng mẫu hai phân số <span class="m"><span class="frac"><b>5</b><span>6</span></span></span> và <span class="m"><span class="frac"><b>7</b><span>4</span></span></span>:</p>
+    <p>• Tìm bội chung nhỏ nhất của hai mẫu số.</p>
+    <p>• Viết hai phân số mới bằng hai phân số đã cho và có mẫu là số vừa tìm được.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mẫu chung là bội chung nhỏ nhất của 6 và 4 — đâu phải lúc nào cũng là 6 · 4.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Liệt kê vài bội của 6: 6, 12, 18… Số nào trong đó chia hết cho 4?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm BCNN của hai mẫu</h4>
+      <p><span class="m">6 = 2 · 3</span>; <span class="m">4 = 2<sup>2</sup></span>. BCNN(6; 4) = <span class="m">2<sup>2</sup> · 3 = 12</span>.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết hai phân số có mẫu 12</h4>
+      <p>Thừa số phụ: <span class="m">12 : 6 = 2</span>; <span class="m">12 : 4 = 3</span>.</p>
+      <p><span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>5 · 2</b><span>6 · 2</span></span> = <span class="frac"><b>10</b><span>12</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>7</b><span>4</span></span> = <span class="frac"><b>7 · 3</b><span>4 · 3</span></span> = <span class="frac"><b>21</b><span>12</span></span></span>.</p>
+      <p class="vi-sao">Nhân cả tử và mẫu với cùng một số thì được phân số bằng phân số đã cho (tính chất cơ bản ở Bài 23).</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">BCNN(6; 4) = 12; &nbsp; <span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>10</b><span>12</span></span></span>, <span class="m"><span class="frac"><b>7</b><span>4</span></span> = <span class="frac"><b>21</b><span>12</span></span></span>.</div>
+    <div class="bay">Chỉ nhân mẫu với thừa số phụ mà quên nhân tử: <span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>5</b><span>12</span></span></span>. Tử cũng phải nhân với cùng số đó.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Quy đồng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tương tự HĐ1, em hãy quy đồng mẫu hai phân số <span class="m"><span class="frac"><b>−3</b><span>5</span></span></span> và <span class="m"><span class="frac"><b>−1</b><span>2</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tử âm thì vẫn quy đồng như thường — chỉ cần cẩn thận dấu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> BCNN(5; 2) = ? (5 và 2 không có ước chung nào khác 1).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Mẫu chung và thừa số phụ</h4>
+      <p>BCNN(5; 2) = 10. Thừa số phụ: <span class="m">10 : 5 = 2</span>; <span class="m">10 : 2 = 5</span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Nhân tử và mẫu với thừa số phụ</h4>
+      <p><span class="m"><span class="frac"><b>−3</b><span>5</span></span> = <span class="frac"><b>(−3) · 2</b><span>5 · 2</span></span> = <span class="frac"><b>−6</b><span>10</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>−1</b><span>2</span></span> = <span class="frac"><b>(−1) · 5</b><span>2 · 5</span></span> = <span class="frac"><b>−5</b><span>10</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m"><span class="frac"><b>−3</b><span>5</span></span> = <span class="frac"><b>−6</b><span>10</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>−1</b><span>2</span></span> = <span class="frac"><b>−5</b><span>10</span></span></span>.</div>
+    <div class="bay">Viết <span class="m">(−3) · 2 = 6</span>. Âm nhân dương ra âm: <span class="m">−6</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quy đồng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quy đồng mẫu các phân số: <span class="m"><span class="frac"><b>−3</b><span>4</span></span></span>; <span class="m"><span class="frac"><b>5</b><span>9</span></span></span>; <span class="m"><span class="frac"><b>2</b><span>3</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba mẫu 4; 9; 3 — mẫu chung phải chia hết cho cả ba.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 9 đã chia hết cho 3, nên chỉ cần tìm BCNN(4; 9).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm mẫu chung</h4>
+      <p><span class="m">4 = 2<sup>2</sup></span>; <span class="m">9 = 3<sup>2</sup></span>; <span class="m">3 = 3</span>. BCNN(4; 9; 3) = <span class="m">2<sup>2</sup> · 3<sup>2</sup> = 36</span>.</p>
+      <p>Thừa số phụ: <span class="m">36 : 4 = 9</span>; <span class="m">36 : 9 = 4</span>; <span class="m">36 : 3 = 12</span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Viết các phân số mới</h4>
+      <p><span class="m"><span class="frac"><b>−3</b><span>4</span></span> = <span class="frac"><b>(−3) · 9</b><span>4 · 9</span></span> = <span class="frac"><b>−27</b><span>36</span></span></span>;</p>
+      <p><span class="m"><span class="frac"><b>5</b><span>9</span></span> = <span class="frac"><b>5 · 4</b><span>9 · 4</span></span> = <span class="frac"><b>20</b><span>36</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>2 · 12</b><span>3 · 12</span></span> = <span class="frac"><b>24</b><span>36</span></span></span>.</p>
+      <p class="vi-sao">Mỗi phân số nhân với thừa số phụ <b>của chính mẫu nó</b>, không dùng chung một số.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m"><span class="frac"><b>−3</b><span>4</span></span> = <span class="frac"><b>−27</b><span>36</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>5</b><span>9</span></span> = <span class="frac"><b>20</b><span>36</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>24</b><span>36</span></span></span>.</div>
+    <div class="bay">Lấy mẫu chung <span class="m">4 · 9 · 3 = 108</span>. Vẫn đúng nhưng số to, dễ tính nhầm — dùng BCNN = 36 gọn hơn nhiều.</div>
+    <div class="gv-note">Chấp nhận mẫu chung là bội chung khác (72, 108…) nếu tính đúng; SGK nói “thường là BCNN”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">So sánh cùng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy nhắc lại quy tắc so sánh hai phân số có cùng mẫu (tử và mẫu đều dương), rồi so sánh hai phân số <span class="m"><span class="frac"><b>7</b><span>11</span></span></span> và <span class="m"><span class="frac"><b>9</b><span>11</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cùng mẫu thì chỉ cần nhìn tử.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Cùng chia thành 11 phần bằng nhau: lấy 7 phần hay lấy 9 phần thì nhiều hơn?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhắc quy tắc và so sánh</h4>
+      <p>Quy tắc: trong hai phân số có cùng mẫu (tử và mẫu dương), phân số nào có tử lớn hơn thì lớn hơn.</p>
+      <p>Vì <span class="m">7 &lt; 9</span> nên <span class="m"><span class="frac"><b>7</b><span>11</span></span> &lt; <span class="frac"><b>9</b><span>11</span></span></span>.</p>
+      <p class="vi-sao">Cùng mẫu là cùng “cỡ phần” (mỗi phần là <span class="m"><span class="frac"><b>1</b><span>11</span></span></span>); 7 phần ít hơn 9 phần.</p>
+      <a class="xem-lai" href="#kt-cung-mau">📌 Xem lại: so sánh cùng mẫu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Quy tắc: cùng mẫu dương, tử lớn hơn thì phân số lớn hơn. <span class="m"><span class="frac"><b>7</b><span>11</span></span> &lt; <span class="frac"><b>9</b><span>11</span></span></span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh cùng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm dấu thích hợp (&gt;, &lt;) thay cho dấu “?”.</p>
+    <p>a) <span class="m"><span class="frac"><b>−2</b><span>9</span></span> ? <span class="frac"><b>−7</b><span>9</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>5</b><span>7</span></span> ? <span class="frac"><b>−10</b><span>7</span></span></span>.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh</b>
+    <div class="cau-thu"><span class="noi-dung"><span class="m"><span class="frac"><b>−2</b><span>9</span></span> ? <span class="frac"><b>−7</b><span>9</span></span></span></span><button class="chon" data-dung="0">&lt;</button><button class="chon" data-dung="1">&gt;</button><span class="phan-hoi" data-dung-txt="Đúng! −2 &gt; −7." data-sai-txt="Thử lại: trên trục số, −2 nằm bên trái hay bên phải −7?"></span></div>
+    <div class="cau-thu"><span class="noi-dung"><span class="m"><span class="frac"><b>5</b><span>7</span></span> ? <span class="frac"><b>−10</b><span>7</span></span></span></span><button class="chon" data-dung="0">&lt;</button><button class="chon" data-dung="1">&gt;</button><span class="phan-hoi" data-dung-txt="Đúng! Số dương luôn lớn hơn số âm." data-sai-txt="Thử lại: 5 và −10, số nào lớn hơn?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 So sánh hai tử là hai số nguyên — nhớ lại trục số: số âm nào lớn hơn?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Hai phân số đều có mẫu dương 9 (và 7) — chỉ cần so sánh hai tử.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>Cùng mẫu dương 9; vì <span class="m">−2 &gt; −7</span> nên <span class="m"><span class="frac"><b>−2</b><span>9</span></span> &gt; <span class="frac"><b>−7</b><span>9</span></span></span>.</p>
+      <p class="vi-sao">Trên trục số, <span class="m">−2</span> nằm bên phải <span class="m">−7</span> nên <span class="m">−2 &gt; −7</span> (Chương III).</p>
+      <a class="xem-lai" href="#kt-cung-mau">📌 Xem lại: so sánh cùng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p>Cùng mẫu dương 7; vì <span class="m">5 &gt; −10</span> nên <span class="m"><span class="frac"><b>5</b><span>7</span></span> &gt; <span class="frac"><b>−10</b><span>7</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>−2</b><span>9</span></span> &gt; <span class="frac"><b>−7</b><span>9</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>5</b><span>7</span></span> &gt; <span class="frac"><b>−10</b><span>7</span></span></span>.</div>
+    <div class="bay">Câu a chọn “&lt;” vì “7 lớn hơn 2”. Với số âm thì ngược lại: <span class="m">−7</span> nhỏ hơn <span class="m">−2</span> (nợ 7 nhiều hơn nợ 2).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh khác mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Để giải quyết tình huống mở đầu (Vuông còn <span class="m"><span class="frac"><b>3</b><span>4</span></span></span> cái bánh, Tròn còn <span class="m"><span class="frac"><b>5</b><span>6</span></span></span> cái bánh), ta cần so sánh <span class="m"><span class="frac"><b>3</b><span>4</span></span></span> và <span class="m"><span class="frac"><b>5</b><span>6</span></span></span>. Em hãy thực hiện các yêu cầu sau:</p>
+    <p>• Viết hai phân số trên dưới dạng hai phân số có cùng một mẫu dương bằng cách quy đồng mẫu số.</p>
+    <p>• So sánh hai phân số cùng mẫu vừa nhận được. Từ đó kết luận về phần bánh còn lại của hai bạn Vuông và Tròn.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn so sánh tử thì trước hết phải có cùng mẫu.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> BCNN(4; 6) = 12.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quy đồng mẫu</h4>
+      <p><span class="m"><span class="frac"><b>3</b><span>4</span></span> = <span class="frac"><b>3 · 3</b><span>4 · 3</span></span> = <span class="frac"><b>9</b><span>12</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>5 · 2</b><span>6 · 2</span></span> = <span class="frac"><b>10</b><span>12</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh và kết luận</h4>
+      <p>Vì <span class="m">9 &lt; 10</span> nên <span class="m"><span class="frac"><b>9</b><span>12</span></span> &lt; <span class="frac"><b>10</b><span>12</span></span></span>, tức là <span class="m"><span class="frac"><b>3</b><span>4</span></span> &lt; <span class="frac"><b>5</b><span>6</span></span></span>.</p>
+      <p>Phần bánh còn lại của <b>Tròn nhiều hơn</b> của Vuông.</p>
+      <a class="xem-lai" href="#kt-khac-mau">📌 Xem lại: so sánh khác mẫu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m"><span class="frac"><b>3</b><span>4</span></span> = <span class="frac"><b>9</b><span>12</span></span></span>, <span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>10</b><span>12</span></span></span>; <span class="m"><span class="frac"><b>3</b><span>4</span></span> &lt; <span class="frac"><b>5</b><span>6</span></span></span>. Phần bánh còn lại của Tròn nhiều hơn.</div>
+    <div class="bay">Kết luận <span class="m"><span class="frac"><b>3</b><span>4</span></span> = <span class="frac"><b>5</b><span>6</span></span></span> vì “cả hai đều chỉ thiếu 1 phần”. Thiếu <span class="m"><span class="frac"><b>1</b><span>4</span></span></span> cái bánh nhiều hơn thiếu <span class="m"><span class="frac"><b>1</b><span>6</span></span></span> cái bánh.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Cắt một chiếc bánh làm 4 miếng thì mỗi miếng to hơn khi cắt làm 6 miếng. Vuông thiếu 1 miếng <b>to</b> (<span class="m"><span class="frac"><b>1</b><span>4</span></span></span>), Tròn chỉ thiếu 1 miếng <b>nhỏ</b> (<span class="m"><span class="frac"><b>1</b><span>6</span></span></span>) — nên Tròn còn nhiều hơn.</div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh khác mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>So sánh các phân số sau: a) <span class="m"><span class="frac"><b>7</b><span>10</span></span></span> và <span class="m"><span class="frac"><b>11</b><span>15</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>−1</b><span>8</span></span></span> và <span class="m"><span class="frac"><b>−5</b><span>24</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu b có hai phân số âm — so sánh tử âm cẩn thận nhé.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) BCNN(10; 15) = 30. b) 24 chia hết cho 8, nên mẫu chung là 24.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m"><span class="frac"><b>7</b><span>10</span></span> = <span class="frac"><b>21</b><span>30</span></span></span>; <span class="m"><span class="frac"><b>11</b><span>15</span></span> = <span class="frac"><b>22</b><span>30</span></span></span>. Vì <span class="m">21 &lt; 22</span> nên <span class="m"><span class="frac"><b>7</b><span>10</span></span> &lt; <span class="frac"><b>11</b><span>15</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-khac-mau">📌 Xem lại: so sánh khác mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m"><span class="frac"><b>−1</b><span>8</span></span> = <span class="frac"><b>(−1) · 3</b><span>8 · 3</span></span> = <span class="frac"><b>−3</b><span>24</span></span></span>. Vì <span class="m">−3 &gt; −5</span> nên <span class="m"><span class="frac"><b>−3</b><span>24</span></span> &gt; <span class="frac"><b>−5</b><span>24</span></span></span>, tức là <span class="m"><span class="frac"><b>−1</b><span>8</span></span> &gt; <span class="frac"><b>−5</b><span>24</span></span></span>.</p>
+      <p class="vi-sao">Mẫu 24 đã là bội của 8, chỉ cần đổi một phân số.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>7</b><span>10</span></span> &lt; <span class="frac"><b>11</b><span>15</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>−1</b><span>8</span></span> &gt; <span class="frac"><b>−5</b><span>24</span></span></span>.</div>
+    <div class="bay">Câu b: so <span class="m">−3</span> và <span class="m">−5</span> rồi viết “&lt;” vì “3 &lt; 5”. Với số âm: <span class="m">−3 &gt; −5</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vd">Vận dụng</span><span class="nhan">So sánh qua số 0</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Không quy đồng mẫu số, em hãy so sánh <span class="m"><span class="frac"><b>31</b><span>32</span></span></span> và <span class="m"><span class="frac"><b>−5</b><span>57</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Một phân số dương, một phân số âm — cần quy đồng không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Làm như Tròn: so sánh từng phân số với số 0.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>So sánh mỗi phân số với 0</h4>
+      <p><span class="m">0 = <span class="frac"><b>0</b><span>57</span></span></span>, mà <span class="m">−5 &lt; 0</span> nên <span class="m"><span class="frac"><b>−5</b><span>57</span></span> &lt; 0</span>.</p>
+      <p><span class="m">0 = <span class="frac"><b>0</b><span>32</span></span></span>, mà <span class="m">31 &gt; 0</span> nên <span class="m"><span class="frac"><b>31</b><span>32</span></span> &gt; 0</span>.</p>
+      <p class="vi-sao">Viết số 0 thành phân số cùng mẫu thì dùng được quy tắc so sánh cùng mẫu.</p>
+      <a class="xem-lai" href="#kt-cung-mau">📌 Xem lại: so sánh cùng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Kết luận</h4>
+      <p>Vì <span class="m"><span class="frac"><b>−5</b><span>57</span></span> &lt; 0</span> và <span class="m">0 &lt; <span class="frac"><b>31</b><span>32</span></span></span> nên <span class="m"><span class="frac"><b>−5</b><span>57</span></span> &lt; <span class="frac"><b>31</b><span>32</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-so-0">📌 Xem lại: so với số 0</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m"><span class="frac"><b>31</b><span>32</span></span> &gt; <span class="frac"><b>−5</b><span>57</span></span></span> (vì <span class="m"><span class="frac"><b>31</b><span>32</span></span> &gt; 0</span> còn <span class="m"><span class="frac"><b>−5</b><span>57</span></span> &lt; 0</span>).</div>
+    <div class="bay">Đi tìm BCNN(32; 57) = 1 824 như Vuông. Đúng nhưng rất dài — đề bảo <b>không</b> quy đồng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd5" data-ten="HĐ5" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Phân số từ phép chia</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chia đều ba cái bánh cho hai bạn. Viết phân số biểu thị phần bánh của mỗi bạn.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia đều 3 cái bánh cho 2 bạn — đó là phép chia nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kết quả của phép chia <span class="m">3 : 2</span> viết dưới dạng phân số là gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết phép chia thành phân số</h4>
+      <p>Mỗi bạn được <span class="m">3 : 2 = <span class="frac"><b>3</b><span>2</span></span></span> cái bánh.</p>
+      <p class="vi-sao">Thương của phép chia số nguyên cho số nguyên khác 0 viết được thành phân số (Bài 23).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi bạn được <span class="m"><span class="frac"><b>3</b><span>2</span></span></span> cái bánh.</div>
+    <div class="bay">Viết <span class="m"><span class="frac"><b>2</b><span>3</span></span></span>. Số bánh (3) là số bị chia, nằm ở tử.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd6" data-ten="HĐ6" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Hỗn số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tròn nói mỗi bạn được 1 cái bánh và <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> cái bánh. Em có đồng ý với Tròn không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi bạn được một cái bánh nguyên trước đã — còn lại bao nhiêu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chia trước 2 cái bánh nguyên, mỗi bạn 1 cái. Cái bánh thứ ba chia thế nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia từng bước</h4>
+      <p>Hai cái bánh đầu: mỗi bạn 1 cái. Cái bánh thứ ba cắt đôi: mỗi bạn thêm <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> cái.</p>
+      <p>Vậy mỗi bạn được 1 cái và <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> cái bánh, tức là <span class="m"><span class="frac"><b>3</b><span>2</span></span> = 1 + <span class="frac"><b>1</b><span>2</span></span></span>. Đồng ý với Tròn.</p>
+      <p class="vi-sao">Ba nửa cái bánh (<span class="m"><span class="frac"><b>3</b><span>2</span></span></span>) = hai nửa (một cái nguyên) + một nửa.</p>
+      <a class="xem-lai" href="#kt-hon-so">📌 Xem lại: hỗn số dương</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đồng ý: <span class="m"><span class="frac"><b>3</b><span>2</span></span> = 1 + <span class="frac"><b>1</b><span>2</span></span></span>, mỗi bạn được 1 cái bánh và <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> cái bánh.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch" data-ten="Câu hỏi" data-muc="th">
+  <div class="bai-dau"><span class="so">Câu hỏi</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hỗn số</span><span class="trang-thai"></span></div>
+  <div class="de"><p><span class="m">2<span class="frac"><b>5</b><span>4</span></span></span> có là một hỗn số không? Vì sao?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhớ lời Vuông: phần phân số của hỗn số phải thế nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So sánh phần phân số <span class="m"><span class="frac"><b>5</b><span>4</span></span></span> với 1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét phần phân số</h4>
+      <p><span class="m"><span class="frac"><b>5</b><span>4</span></span> &gt; <span class="frac"><b>4</b><span>4</span></span> = 1</span>: phần phân số lớn hơn 1.</p>
+      <p>Vậy <span class="m">2<span class="frac"><b>5</b><span>4</span></span></span> <b>không</b> phải là hỗn số.</p>
+      <p class="vi-sao">Phần phân số của hỗn số luôn nhỏ hơn 1 — nếu nó từ 1 trở lên thì còn “gom” thêm được vào phần nguyên.</p>
+      <a class="xem-lai" href="#kt-hon-so">📌 Xem lại: hỗn số dương</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không, vì phần phân số <span class="m"><span class="frac"><b>5</b><span>4</span></span></span> lớn hơn 1 (phần phân số của hỗn số phải nhỏ hơn 1).</div>
+    <div class="bay">Trả lời “có” vì “có phần nguyên và phần phân số”. Thiếu điều kiện phần phân số nhỏ hơn 1.</div>
+    <div class="gv-note">Mở rộng: <span class="m"><span class="frac"><b>5</b><span>4</span></span> = 1<span class="frac"><b>1</b><span>4</span></span></span>, nên viết đúng phải là <span class="m">3<span class="frac"><b>1</b><span>4</span></span></span> (= <span class="m"><span class="frac"><b>13</b><span>4</span></span></span>).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt4" data-ten="Luyện tập 4" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 4</span><span class="nhan th">Thông hiểu</span><span class="nhan">Hỗn số ↔ phân số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a) Viết phân số <span class="m"><span class="frac"><b>24</b><span>7</span></span></span> dưới dạng hỗn số; &nbsp; b) Viết hỗn số <span class="m">5<span class="frac"><b>2</b><span>3</span></span></span> dưới dạng phân số.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 a) Chia có dư; b) “nhân phần nguyên với mẫu, cộng tử”.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) <span class="m">24 : 7</span> được thương bao nhiêu, dư bao nhiêu? b) <span class="m">5<span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>5 · 3 + 2</b><span>3</span></span></span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m">24 : 7 = 3</span> (dư 3). Thương 3 là phần nguyên, số dư 3 là tử của phần phân số:</p>
+      <p><span class="m"><span class="frac"><b>24</b><span>7</span></span> = 3 + <span class="frac"><b>3</b><span>7</span></span> = 3<span class="frac"><b>3</b><span>7</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-hon-so">📌 Xem lại: hỗn số dương</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m">5<span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>5 · 3 + 2</b><span>3</span></span> = <span class="frac"><b>17</b><span>3</span></span></span>.</p>
+      <p class="vi-sao">5 cái nguyên = <span class="m"><span class="frac"><b>15</b><span>3</span></span></span>, thêm <span class="m"><span class="frac"><b>2</b><span>3</span></span></span> là <span class="m"><span class="frac"><b>17</b><span>3</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>24</b><span>7</span></span> = 3<span class="frac"><b>3</b><span>7</span></span></span>; &nbsp; b) <span class="m">5<span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>17</b><span>3</span></span></span>.</div>
+    <div class="bay">Câu b viết <span class="m"><span class="frac"><b>5 · 2 + 3</b><span>3</span></span></span> hoặc <span class="m"><span class="frac"><b>5 + 2</b><span>3</span></span> = <span class="frac"><b>7</b><span>3</span></span></span>. Phải nhân phần nguyên với <b>mẫu</b> rồi mới cộng tử.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b68" data-ten="Bài 6.8" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 6.8</span><span class="nhan th">Thông hiểu</span><span class="nhan">Quy đồng mẫu</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Quy đồng mẫu các phân số sau:</p>
+    <p>a) <span class="m"><span class="frac"><b>2</b><span>3</span></span></span> và <span class="m"><span class="frac"><b>−6</b><span>7</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>5</b><span>2<sup>2</sup> · 3<sup>2</sup></span></span></span> và <span class="m"><span class="frac"><b>−7</b><span>2<sup>2</sup> · 3</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu b: mẫu đã phân tích sẵn ra thừa số nguyên tố — tận dụng ngay!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> b) BCNN: lấy mọi thừa số nguyên tố, mỗi thừa số với số mũ lớn nhất.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>BCNN(3; 7) = 21. Thừa số phụ: 7 và 3.</p>
+      <p><span class="m"><span class="frac"><b>2</b><span>3</span></span> = <span class="frac"><b>2 · 7</b><span>3 · 7</span></span> = <span class="frac"><b>14</b><span>21</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>−6</b><span>7</span></span> = <span class="frac"><b>(−6) · 3</b><span>7 · 3</span></span> = <span class="frac"><b>−18</b><span>21</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — tìm mẫu chung</h4>
+      <p>BCNN(<span class="m">2<sup>2</sup> · 3<sup>2</sup></span>; <span class="m">2<sup>2</sup> · 3</span>) = <span class="m">2<sup>2</sup> · 3<sup>2</sup> = 36</span>.</p>
+      <p>Thừa số phụ: <span class="m">36 : 36 = 1</span>; <span class="m">36 : 12 = 3</span>.</p>
+      <p class="vi-sao">Mẫu thứ nhất <span class="m">2<sup>2</sup> · 3<sup>2</sup> = 36</span> đã chia hết cho mẫu thứ hai <span class="m">2<sup>2</sup> · 3 = 12</span>, nên nó chính là mẫu chung.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu b — viết các phân số mới</h4>
+      <p><span class="m"><span class="frac"><b>5</b><span>2<sup>2</sup> · 3<sup>2</sup></span></span> = <span class="frac"><b>5</b><span>36</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>−7</b><span>2<sup>2</sup> · 3</span></span> = <span class="frac"><b>−7</b><span>12</span></span> = <span class="frac"><b>(−7) · 3</b><span>12 · 3</span></span> = <span class="frac"><b>−21</b><span>36</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>14</b><span>21</span></span></span> và <span class="m"><span class="frac"><b>−18</b><span>21</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>5</b><span>36</span></span></span> và <span class="m"><span class="frac"><b>−21</b><span>36</span></span></span>.</div>
+    <div class="bay">Câu b lấy mẫu chung <span class="m">36 · 12 = 432</span>. Không sai nhưng không phải BCNN — phân số mới sẽ chưa gọn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b69" data-ten="Bài 6.9" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 6.9</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh phân số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>So sánh các phân số sau:</p>
+    <p>a) <span class="m"><span class="frac"><b>−11</b><span>8</span></span></span> và <span class="m"><span class="frac"><b>1</b><span>24</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>3</b><span>20</span></span></span> và <span class="m"><span class="frac"><b>6</b><span>15</span></span></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu a: một phân số âm, một phân số dương — có cần quy đồng không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) So mỗi phân số với 0. b) Rút gọn <span class="m"><span class="frac"><b>6</b><span>15</span></span></span> trước cho dễ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m"><span class="frac"><b>−11</b><span>8</span></span> &lt; 0</span> (tử âm, mẫu dương) và <span class="m"><span class="frac"><b>1</b><span>24</span></span> &gt; 0</span>. Vậy <span class="m"><span class="frac"><b>−11</b><span>8</span></span> &lt; <span class="frac"><b>1</b><span>24</span></span></span>.</p>
+      <p class="vi-sao">Cách khác: quy đồng mẫu 24 được <span class="m"><span class="frac"><b>−33</b><span>24</span></span> &lt; <span class="frac"><b>1</b><span>24</span></span></span> — cùng kết quả.</p>
+      <a class="xem-lai" href="#kt-so-0">📌 Xem lại: so với số 0</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m"><span class="frac"><b>6</b><span>15</span></span> = <span class="frac"><b>2</b><span>5</span></span> = <span class="frac"><b>8</b><span>20</span></span></span>. Vì <span class="m">3 &lt; 8</span> nên <span class="m"><span class="frac"><b>3</b><span>20</span></span> &lt; <span class="frac"><b>8</b><span>20</span></span></span>, tức là <span class="m"><span class="frac"><b>3</b><span>20</span></span> &lt; <span class="frac"><b>6</b><span>15</span></span></span>.</p>
+      <p class="vi-sao">Rút gọn trước làm mẫu nhỏ đi: mẫu chung chỉ còn 20 thay vì 60.</p>
+      <a class="xem-lai" href="#kt-khac-mau">📌 Xem lại: so sánh khác mẫu</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>−11</b><span>8</span></span> &lt; <span class="frac"><b>1</b><span>24</span></span></span>; &nbsp; b) <span class="m"><span class="frac"><b>3</b><span>20</span></span> &lt; <span class="frac"><b>6</b><span>15</span></span></span>.</div>
+    <div class="bay">Câu b thấy “mẫu 20 lớn hơn mẫu 15” rồi kết luận <span class="m"><span class="frac"><b>3</b><span>20</span></span></span> lớn hơn. Khác mẫu thì phải quy đồng rồi mới so tử.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b610" data-ten="Bài 6.10" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 6.10</span><span class="nhan vd">Vận dụng</span><span class="nhan">So sánh trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Lớp 6A có <span class="m"><span class="frac"><b>4</b><span>5</span></span></span> số học sinh thích bóng bàn, <span class="m"><span class="frac"><b>7</b><span>10</span></span></span> số học sinh thích bóng đá và <span class="m"><span class="frac"><b>1</b><span>2</span></span></span> số học sinh thích bóng chuyền. Hỏi môn thể thao nào được các bạn học sinh lớp 6A yêu thích nhất?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Môn được yêu thích nhất ứng với phân số lớn nhất.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> BCNN(5; 10; 2) = 10. Quy đồng rồi so tử.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quy đồng mẫu 10</h4>
+      <p><span class="m"><span class="frac"><b>4</b><span>5</span></span> = <span class="frac"><b>8</b><span>10</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>7</b><span>10</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>1</b><span>2</span></span> = <span class="frac"><b>5</b><span>10</span></span></span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p>Vì <span class="m">8 &gt; 7 &gt; 5</span> nên <span class="m"><span class="frac"><b>4</b><span>5</span></span> &gt; <span class="frac"><b>7</b><span>10</span></span> &gt; <span class="frac"><b>1</b><span>2</span></span></span>. Bóng bàn có phân số lớn nhất.</p>
+      <p class="vi-sao">Ba phân số đều là “phần của cùng một lớp”, nên phân số lớn hơn thì số học sinh nhiều hơn.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Bóng bàn được yêu thích nhất (<span class="m"><span class="frac"><b>4</b><span>5</span></span> = <span class="frac"><b>8</b><span>10</span></span></span> lớn nhất).</div>
+    <div class="bay">Chọn bóng đá vì “7 và 10 là số to nhất”. Phải quy đồng rồi mới so: <span class="m"><span class="frac"><b>4</b><span>5</span></span> = <span class="frac"><b>8</b><span>10</span></span> &gt; <span class="frac"><b>7</b><span>10</span></span></span>.</div>
+    <div class="gv-note">Tổng ba phân số lớn hơn 1 là hợp lí: một bạn có thể thích nhiều môn. Có thể hỏi thêm lớp câu này.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b611" data-ten="Bài 6.11" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 6.11</span><span class="nhan th">Thông hiểu</span><span class="nhan">So sánh trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>a) Khối lượng nào lớn hơn: <span class="m"><span class="frac"><b>5</b><span>3</span></span></span> kg hay <span class="m"><span class="frac"><b>15</b><span>11</span></span></span> kg?</p>
+    <p>b) Vận tốc nào nhỏ hơn: <span class="m"><span class="frac"><b>5</b><span>6</span></span></span> km/h hay <span class="m"><span class="frac"><b>4</b><span>5</span></span></span> km/h?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu a hỏi “lớn hơn”, câu b hỏi “nhỏ hơn” — đọc kĩ trước khi kết luận.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> a) BCNN(3; 11) = 33. b) BCNN(6; 5) = 30.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m"><span class="frac"><b>5</b><span>3</span></span> = <span class="frac"><b>55</b><span>33</span></span></span>; <span class="m"><span class="frac"><b>15</b><span>11</span></span> = <span class="frac"><b>45</b><span>33</span></span></span>. Vì <span class="m">55 &gt; 45</span> nên <span class="m"><span class="frac"><b>5</b><span>3</span></span> &gt; <span class="frac"><b>15</b><span>11</span></span></span>.</p>
+      <p class="vi-sao">Cách khác cũng hay: <span class="m"><span class="frac"><b>5</b><span>3</span></span> = <span class="frac"><b>15</b><span>9</span></span></span>; cùng tử 15, chia thành 9 phần thì mỗi phần to hơn chia thành 11 phần.</p>
+      <a class="xem-lai" href="#kt-khac-mau">📌 Xem lại: so sánh khác mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m"><span class="frac"><b>5</b><span>6</span></span> = <span class="frac"><b>25</b><span>30</span></span></span>; <span class="m"><span class="frac"><b>4</b><span>5</span></span> = <span class="frac"><b>24</b><span>30</span></span></span>. Vì <span class="m">24 &lt; 25</span> nên <span class="m"><span class="frac"><b>4</b><span>5</span></span> &lt; <span class="frac"><b>5</b><span>6</span></span></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m"><span class="frac"><b>5</b><span>3</span></span></span> kg lớn hơn <span class="m"><span class="frac"><b>15</b><span>11</span></span></span> kg. &nbsp; b) <span class="m"><span class="frac"><b>4</b><span>5</span></span></span> km/h nhỏ hơn <span class="m"><span class="frac"><b>5</b><span>6</span></span></span> km/h.</div>
+    <div class="bay">Câu b so xong đúng nhưng trả lời <span class="m"><span class="frac"><b>5</b><span>6</span></span></span> km/h vì quen tìm số “lớn hơn”. Đề hỏi vận tốc <b>nhỏ hơn</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b612" data-ten="Bài 6.12" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 6.12</span><span class="nhan vd">Vận dụng</span><span class="nhan">Sắp xếp phân số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bảng sau cho biết chiều dài (theo đơn vị feet, 1 feet xấp xỉ bằng 30,48 cm) của một số loài động vật có vú nhỏ nhất trên thế giới.</p>
+    <table><tr><th>Chuột chũi châu Âu</th><th>Dơi Kitti</th><th>Chuột túi có gai</th><th>Sóc chuột phương Đông</th></tr>
+      <tr><td><span class="m"><span class="frac"><b>5</b><span>12</span></span></span></td><td><span class="m"><span class="frac"><b>83</b><span>100</span></span></span></td><td><span class="m"><span class="frac"><b>1</b><span>4</span></span></span></td><td><span class="m"><span class="frac"><b>1</b><span>3</span></span></span></td></tr></table>
+    <p>(Theo <i>Scholastic Book of World Records</i>)</p>
+    <p>Hãy sắp xếp các động vật trên theo thứ tự chiều dài từ lớn đến bé.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn mẫu 12; 100; 4; 3 — tìm một mẫu chung cho cả bốn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">12 = 2<sup>2</sup> · 3</span>; <span class="m">100 = 2<sup>2</sup> · 5<sup>2</sup></span>. BCNN(12; 100; 4; 3) = 300.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quy đồng mẫu 300</h4>
+      <p><span class="m"><span class="frac"><b>5</b><span>12</span></span> = <span class="frac"><b>125</b><span>300</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>83</b><span>100</span></span> = <span class="frac"><b>249</b><span>300</span></span></span>;</p>
+      <p><span class="m"><span class="frac"><b>1</b><span>4</span></span> = <span class="frac"><b>75</b><span>300</span></span></span>; &nbsp; <span class="m"><span class="frac"><b>1</b><span>3</span></span> = <span class="frac"><b>100</b><span>300</span></span></span>.</p>
+      <p class="vi-sao">Thừa số phụ: <span class="m">300 : 12 = 25</span>; <span class="m">300 : 100 = 3</span>; <span class="m">300 : 4 = 75</span>; <span class="m">300 : 3 = 100</span>.</p>
+      <a class="xem-lai" href="#kt-quy-dong">📌 Xem lại: quy đồng mẫu</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp xếp từ lớn đến bé</h4>
+      <p><span class="m">249 &gt; 125 &gt; 100 &gt; 75</span>, nên <span class="m"><span class="frac"><b>83</b><span>100</span></span> &gt; <span class="frac"><b>5</b><span>12</span></span> &gt; <span class="frac"><b>1</b><span>3</span></span> &gt; <span class="frac"><b>1</b><span>4</span></span></span>.</p>
+      <p>Thứ tự: Dơi Kitti; Chuột chũi châu Âu; Sóc chuột phương Đông; Chuột túi có gai.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Từ lớn đến bé: Dơi Kitti (<span class="m"><span class="frac"><b>83</b><span>100</span></span></span>); Chuột chũi châu Âu (<span class="m"><span class="frac"><b>5</b><span>12</span></span></span>); Sóc chuột phương Đông (<span class="m"><span class="frac"><b>1</b><span>3</span></span></span>); Chuột túi có gai (<span class="m"><span class="frac"><b>1</b><span>4</span></span></span>).</div>
+    <div class="bay">Xếp ngược thứ tự (từ bé đến lớn). Đề yêu cầu <b>từ lớn đến bé</b>.</div>
+    <div class="gv-note">Đã đối chiếu bản PDF: SGK in đúng <span class="m"><span class="frac"><b>83</b><span>100</span></span></span> cho Dơi Kitti. (Ngoài thực tế dơi Kitti rất nhỏ, chỉ khoảng 0,1 feet — số liệu này có vẻ không khớp nguồn gốc, nhưng HS cứ giải theo số liệu SGK.) Cũng có thể so nhanh: <span class="m"><span class="frac"><b>1</b><span>4</span></span> &lt; <span class="frac"><b>1</b><span>3</span></span> = <span class="frac"><b>4</b><span>12</span></span> &lt; <span class="frac"><b>5</b><span>12</span></span> &lt; <span class="frac"><b>1</b><span>2</span></span> &lt; <span class="frac"><b>83</b><span>100</span></span></span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b613" data-ten="Bài 6.13" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 6.13</span><span class="nhan vd">Vận dụng</span><span class="nhan">Hỗn số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Mẹ có 15 quả táo, mẹ muốn chia đều số quả táo đó cho bốn anh em. Hỏi mỗi người con được mấy quả táo và mấy phần của quả táo?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Mấy quả và mấy phần của quả” — đó chính là phần nguyên và phần phân số của hỗn số.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Mỗi người được <span class="m"><span class="frac"><b>15</b><span>4</span></span></span> quả. Viết phân số này thành hỗn số.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phần táo của mỗi người</h4>
+      <p>Mỗi người được <span class="m">15 : 4 = <span class="frac"><b>15</b><span>4</span></span></span> quả táo.</p></div>
+    <div class="buoc" data-so="2"><h4>Viết thành hỗn số</h4>
+      <p><span class="m">15 : 4 = 3</span> (dư 3), nên <span class="m"><span class="frac"><b>15</b><span>4</span></span> = 3<span class="frac"><b>3</b><span>4</span></span></span>.</p>
+      <p class="vi-sao">Chia trước 12 quả, mỗi người 3 quả nguyên; còn 3 quả, mỗi quả cắt làm 4, mỗi người thêm 3 miếng = <span class="m"><span class="frac"><b>3</b><span>4</span></span></span> quả.</p>
+      <a class="xem-lai" href="#kt-hon-so">📌 Xem lại: hỗn số dương</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi người con được 3 quả táo và <span class="m"><span class="frac"><b>3</b><span>4</span></span></span> quả táo (<span class="m"><span class="frac"><b>15</b><span>4</span></span> = 3<span class="frac"><b>3</b><span>4</span></span></span> quả).</div>
+    <div class="bay">Trả lời “3 quả, dư 3 quả”. Đề hỏi mấy <b>phần của quả</b> — 3 quả dư phải chia tiếp cho 4 người.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 24. So sánh phân số. Hỗn số dương — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c06-b24';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-06-bai-24-so-sanh-phan-so-hon-so-duong-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-06-bai-24-so-sanh-phan-so-hon-so-duong-bai-giai.nguon.html" data-phien-ban="c1b76d58297b">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

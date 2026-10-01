@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 22. Hình có tâm đối xứng — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương V. Tính đối xứng của hình phẳng trong tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 22. Hình có tâm đối xứng — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương V. Tính đối xứng của hình phẳng trong tự nhiên</div><h1>Bài 22. Hình có tâm đối xứng — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-tam"><b class="ten">Hình có tâm đối xứng</b>
+      Mỗi hình có một điểm <span class="m">O</span>, mà khi quay hình đó xung quanh điểm <span class="m">O</span> đúng một nửa vòng thì hình thu được “chồng khít” với chính nó ở vị trí ban đầu (trước khi quay). Những hình như thế được gọi là <b>hình có tâm đối xứng</b> và điểm <span class="m">O</span> được gọi là <b>tâm đối xứng</b> của hình.</div>
+    <div class="kt" id="kt-tu-giac"><b class="ten">Hình bình hành, hình thoi, hình vuông, hình chữ nhật</b>
+      Tâm đối xứng của hình bình hành, hình thoi, hình vuông, hình chữ nhật là giao điểm của hai đường chéo.</div>
+    <div class="kt" id="kt-luc-giac"><b class="ten">Hình lục giác đều</b>
+      Tâm đối xứng của hình lục giác đều là giao điểm của các đường chéo chính.</div>
+    <div class="kt" id="kt-pi"><b class="ten">Lưu ý (lời Pi)</b>
+      Có những hình có tâm đối xứng và có nhiều trục đối xứng.<br>
+      Cũng có hình không có tâm đối xứng như hình tam giác đều, …</div>
+    <div class="kt" id="kt-dem-o"><b class="ten">Mẹo trên giấy kẻ ô (không có trong SGK)</b>
+      Quay nửa vòng quanh <span class="m">O</span>: điểm nằm cách <span class="m">O</span> mấy ô sang phải, mấy ô lên trên thì đến vị trí mới cách <span class="m">O</span> bấy nhiêu ô sang <b>trái</b>, bấy nhiêu ô xuống <b>dưới</b> (và ngược lại).</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 22. Hình có tâm đối xứng. Ý cuối là mẹo đếm ô của nhóm biên soạn, giúp vẽ hình trên giấy kẻ ô.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Quay nửa vòng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Đặt chiếc chong chóng màu đỏ có hai cánh trên mặt giấy. Dùng bút màu xanh tô theo viền của chong chóng để đánh dấu vị trí ban đầu của nó và ghim chong chóng tại điểm <span class="m">O</span> (màu vàng). Quan sát chong chóng quay xung quanh điểm <span class="m">O</span> như dưới đây (H.5.6).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chú ý chữ “đúng một nửa vòng” — giữa chừng thì sao, đến nửa vòng thì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> So hình chong chóng ở vị trí cuối (Hình 5.6) với viền xanh đã tô lúc đầu.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quan sát từng vị trí</h4>
+      <p>Khi đang quay (vị trí thứ hai, thứ ba), chong chóng lệch khỏi viền xanh. Khi quay <b>đúng một nửa vòng</b>, cánh trên chuyển xuống chỗ cánh dưới, cánh dưới chuyển lên chỗ cánh trên, và chong chóng <b>khớp lại đúng</b> với viền xanh.</p>
+      <p class="vi-sao">Hai cánh chong chóng giống hệt nhau và nằm hai phía đối diện của <span class="m">O</span>, nên đổi chỗ cho nhau mà vẫn khớp viền cũ.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sau khi quay đúng một nửa vòng quanh <span class="m">O</span>, chong chóng hai cánh chồng khít với chính nó ở vị trí trước khi quay (khớp với viền xanh).</div>
+    <div class="bay">Nghĩ rằng phải quay <b>cả vòng</b> mới khớp. Quay cả vòng thì hình nào cũng về chỗ cũ — điều đặc biệt ở đây là chỉ cần <b>nửa vòng</b>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Quay nửa vòng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tương tự như vậy, ta quan sát hình tròn (H.5.7a), hình chong chóng ba cánh (H.5.7b) và hình chong chóng bốn cánh (H.5.7c) lúc đầu và sau khi quay nửa vòng quanh điểm <span class="m">O</span>.</p>
+    <p>Trong ba hình trên, sau khi quay nửa vòng quanh điểm <span class="m">O</span>, hình nào “chồng khít” với chính nó ở vị trí trước khi quay?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với chong chóng ba cánh: sau nửa vòng, chỗ cánh cũ (đường chấm chấm) có cánh nào nằm vào không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Một hình chồng khít sau nửa vòng khi mỗi phần của nó có một phần “giống hệt” ở <b>phía đối diện</b> qua <span class="m">O</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét từng hình</h4>
+      <p>• a) Hình tròn: quay nửa vòng quanh tâm, hình tròn vẫn nằm đúng chỗ cũ → chồng khít.</p>
+      <p>• b) Chong chóng ba cánh: sau nửa vòng, chỗ cánh chứa điểm <span class="m">A</span> lúc đầu (đường chấm chấm) <b>không có cánh nào</b> → không chồng khít.</p>
+      <p>• c) Chong chóng bốn cánh: cánh trên bên trái chuyển xuống đúng chỗ cánh dưới bên phải → chồng khít.</p>
+      <p class="vi-sao">Bốn cánh chia thành hai cặp đối diện nhau qua <span class="m">O</span>; ba cánh thì không chia cặp được, cánh nào cũng đối diện với một chỗ trống.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình tròn (a) và chong chóng bốn cánh (c) chồng khít với chính nó sau khi quay nửa vòng quanh <span class="m">O</span>; chong chóng ba cánh (b) thì không.</div>
+    <div class="bay">Nghĩ chong chóng ba cánh cũng chồng khít vì “ba cánh đều nhau”. Ba cánh đều nhau thì chỉ chồng khít khi quay một phần ba vòng, còn quay nửa vòng thì không.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhận biết tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Đoạn thẳng là một hình có tâm đối xứng. Tâm đối xứng của nó là điểm nào?</p>
+    <p>❷ Những chữ cái nào dưới đây có tâm đối xứng? Hãy dự đoán tâm đối xứng của chúng, rồi kiểm tra điều đó bằng cách quay hình nửa vòng.</p>
+    <p style="font-size:1.25em;font-weight:700;letter-spacing:.4em">H K M N X</p>
+    <p>❸ Những hình nào dưới đây có tâm đối xứng?</p>
+    <p><i>(Bốn biển báo: a) biển tròn viền đỏ nền xanh có dấu gạch chéo đỏ — cấm dừng và đỗ xe; b) biển tam giác có dấu chấm than — nguy hiểm khác; c) biển vuông nền xanh có hình giao lộ chữ X — nơi giao nhau; d) biển tròn xanh có ba mũi tên vòng tròn — nơi giao nhau chạy theo vòng xuyến.)</i></p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh câu ❷ — quay nửa vòng, chữ có giữ nguyên không?</b>
+    <div class="cau-thu"><span class="noi-dung">N</span><button class="chon chu" data-dung="1">Có tâm</button><button class="chon chu" data-dung="0">Không có</button><span class="phan-hoi" data-dung-txt="Đúng! Quay ngược N vẫn là N; tâm là trung điểm nét xiên." data-sai-txt="Thử viết chữ N ra giấy rồi xoay ngược tờ giấy — em đọc được chữ gì?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">M</span><button class="chon chu" data-dung="0">Có tâm</button><button class="chon chu" data-dung="1">Không có</button><span class="phan-hoi" data-dung-txt="Đúng! Quay ngược M thành chữ W." data-sai-txt="Xoay ngược chữ M — nó trông giống chữ nào?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">K</span><button class="chon chu" data-dung="0">Có tâm</button><button class="chon chu" data-dung="1">Không có</button><span class="phan-hoi" data-dung-txt="Đúng! Quay ngược, nét thẳng của K sang bên phải." data-sai-txt="Quay ngược chữ K: nét thẳng đứng nằm bên trái hay bên phải?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu ❷: xoay quyển vở ngược đầu lại (nửa vòng) rồi đọc chữ — chữ nào vẫn y nguyên?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tâm đối xứng thường nằm ở “chính giữa” hình. Với đoạn thẳng: điểm nào chia đoạn thẳng thành hai phần bằng nhau?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu ❶ — đoạn thẳng</h4>
+      <p>Quay đoạn thẳng <span class="m">AB</span> nửa vòng quanh <b>trung điểm</b> <span class="m">M</span>: điểm <span class="m">A</span> đến chỗ của <span class="m">B</span>, điểm <span class="m">B</span> đến chỗ của <span class="m">A</span> → đoạn thẳng chồng khít với chính nó. Tâm đối xứng là trung điểm của đoạn thẳng.</p>
+      <p class="vi-sao">Quay nửa vòng thì mỗi điểm đi sang phía đối diện, giữ nguyên khoảng cách tới tâm. Vì <span class="m">MA = MB</span> nên <span class="m">A</span> và <span class="m">B</span> đổi chỗ được cho nhau.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu ❷ — các chữ cái</h4>
+      <svg viewBox="0 0 360 112" style="max-width:400px" role="img" aria-label="Chữ H, N, X có tâm đối xứng (chấm đỏ ở chính giữa); K, M không có"><text x="40.0" y="53.0" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f6fdb">H</text><circle cx="40.0" cy="53.0" r="5" fill="#c93c3c" stroke="#fff" stroke-width="1.5"/><text x="40.0" y="110" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">có tâm</text><text x="110.0" y="53.0" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#5c6577">K</text><text x="110.0" y="110" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">không có</text><text x="180.0" y="53.0" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#5c6577">M</text><text x="180.0" y="110" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">không có</text><text x="250.0" y="53.0" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f6fdb">N</text><circle cx="250.0" cy="53.0" r="5" fill="#c93c3c" stroke="#fff" stroke-width="1.5"/><text x="250.0" y="110" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">có tâm</text><text x="320.0" y="53.0" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="64" text-anchor="middle" dominant-baseline="central" fill="#2f6fdb">X</text><circle cx="320.0" cy="53.0" r="5" fill="#c93c3c" stroke="#fff" stroke-width="1.5"/><text x="320.0" y="110" font-family="Segoe UI,Arial" font-size="13" text-anchor="middle" fill="#5c6577">có tâm</text></svg>
+      <p>• <b>H</b>: tâm là trung điểm nét ngang. • <b>N</b>: tâm là trung điểm nét xiên. • <b>X</b>: tâm là giao điểm hai nét.</p>
+      <p>• <b>K</b> và <b>M</b>: quay nửa vòng thì K bị lật ngược khác hẳn, M thành W → không có tâm đối xứng.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+    <div class="buoc" data-so="3"><h4>Câu ❸ — các biển báo</h4>
+      <p>• a) Biển cấm dừng và đỗ xe: hình tròn với dấu gạch chéo đi qua tâm → quay nửa vòng vẫn như cũ → <b>có</b> tâm (tâm biển).</p>
+      <p>• b) Biển tam giác có dấu chấm than: quay nửa vòng thì tam giác chúc đỉnh xuống, dấu chấm than lộn ngược → <b>không</b>.</p>
+      <p>• c) Biển vuông có giao lộ chữ X: hình vuông và chữ X đều có tâm ở giữa → <b>có</b> (tâm biển).</p>
+      <p>• d) Biển vòng xuyến ba mũi tên: ba mũi tên giống chong chóng ba cánh → quay nửa vòng không khớp → <b>không</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ Tâm đối xứng của đoạn thẳng là trung điểm của đoạn thẳng đó.<br>❷ Các chữ có tâm đối xứng: H, N, X (tâm ở chính giữa chữ: trung điểm nét ngang của H, trung điểm nét xiên của N, giao điểm hai nét của X). K, M không có tâm đối xứng.<br>❸ Hình a và hình c có tâm đối xứng; hình b và hình d không có.</div>
+    <div class="bay">Chọn M vì M có trục đối xứng. Có trục đối xứng <b>không</b> có nghĩa là có tâm đối xứng: quay nửa vòng, M biến thành W.</div>
+    <div class="gv-note">Câu ❸ dựa trên mô tả: biển a có dấu gạch chéo qua tâm (dù là một vạch hay hai vạch chéo nhau thì đều có tâm). Biển d có ba mũi tên — giống chong chóng ba cánh ở HĐ2. Có thể đưa câu hỏi thêm: “Chữ nào trong năm chữ vừa có trục, vừa có tâm?” (H và X).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="th1" data-ten="Thực hành 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Thực hành 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Gấp – cắt – kiểm tra</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Gấp đôi tờ giấy hai lần theo Hình 5.8a. Cắt tờ giấy vừa gấp theo một đường như Hình 5.8b. Mở phần cắt được ra ta có một hình bông hoa bốn cánh (H.5.8c).</p>
+    <p>Gọi giao điểm của hai nếp gấp là <span class="m">O</span>. Cố định điểm <span class="m">O</span> bằng đinh ghim để có thể quay hình đó quanh <span class="m">O</span>.</p>
+    <p>Bằng cách quay hình nửa vòng quanh <span class="m">O</span>, em hãy kiểm tra xem điểm <span class="m">O</span> có phải là tâm đối xứng của hình không.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bông hoa có bốn cánh — giống chong chóng bốn cánh ở HĐ2 hay giống chong chóng ba cánh?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Bốn cánh hoa được cắt <b>cùng một nhát kéo</b>, nên chúng giống hệt nhau. Sau nửa vòng, mỗi cánh đi đến chỗ của cánh nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quay nửa vòng và quan sát</h4>
+      <p>Khi quay nửa vòng quanh <span class="m">O</span>, cánh trên đến chỗ cánh dưới, cánh trái đến chỗ cánh phải (và ngược lại). Bông hoa chồng khít với chính nó ở vị trí ban đầu.</p>
+      <p class="vi-sao">Bốn lớp giấy được cắt cùng lúc nên bốn cánh giống hệt nhau và chia thành hai cặp đối diện nhau qua <span class="m">O</span> — giống chong chóng bốn cánh ở HĐ2.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có. Quay bông hoa nửa vòng quanh <span class="m">O</span> thì hình chồng khít với chính nó, nên <span class="m">O</span> (giao điểm hai nếp gấp) là tâm đối xứng của bông hoa.</div>
+    <div class="bay">Ghim đinh lệch khỏi giao điểm hai nếp gấp rồi kết luận “không phải tâm”. Phải ghim đúng tại <span class="m">O</span>.</div>
+    <div class="gv-note">Hoạt động thực hành. Có thể hỏi thêm: hai nếp gấp có phải là trục đối xứng của bông hoa không? (Có — đây là hình vừa có tâm vừa có trục.)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tâm hình bình hành</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cắt một hình bình hành bằng giấy. Bằng cách quay hình bình hành một nửa vòng quanh giao điểm của hai đường chéo, hãy cho biết giao điểm này có là tâm đối xứng của hình bình hành không.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình bình hành có hai cặp cạnh đối diện bằng nhau — quay nửa vòng thì cạnh nào đến chỗ cạnh nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghim hình bình hành giấy tại giao điểm hai đường chéo, đánh dấu viền trước rồi quay nửa vòng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Quay và quan sát</h4>
+      <p>Sau nửa vòng, mỗi đỉnh đi đến vị trí của đỉnh đối diện; cạnh trên đến chỗ cạnh dưới, cạnh trái đến chỗ cạnh phải. Hình bình hành chồng khít với viền cũ.</p>
+      <p class="vi-sao">Hai cạnh đối diện của hình bình hành bằng nhau và song song, còn giao điểm hai đường chéo là trung điểm của mỗi đường chéo, nên hai đỉnh đối diện đổi chỗ cho nhau được.</p>
+      <a class="xem-lai" href="#kt-tu-giac">📌 Xem lại: tâm đối xứng của hình bình hành</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có. Giao điểm của hai đường chéo là tâm đối xứng của hình bình hành.</div>
+    <div class="bay">Nhầm với trục: thử <b>gấp</b> hình bình hành theo đường chéo thấy không khít rồi kết luận “không có tâm”. Tâm đối xứng kiểm tra bằng cách <b>quay</b>, không phải gấp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hình bình hành giống một tấm thảm chùi chân: em quay ngược đầu tấm thảm (nửa vòng), nó vẫn nằm vừa khít chỗ cũ trước cửa — dù gấp đôi nó thì hai nửa không trùng nhau.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tâm của hình quen thuộc</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bằng cách làm tương tự HĐ3, em hãy chỉ ra tâm đối xứng của mỗi hình dưới đây (nếu có).</p>
+    <p><i>(Hình vuông, hình chữ nhật, hình lục giác đều, hình thoi — mỗi hình có các đường chéo vẽ nét đứt.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn hình này có “họ hàng” với hình bình hành không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghim mỗi hình tại giao điểm các đường chéo rồi quay nửa vòng.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình vuông, hình chữ nhật, hình thoi</h4>
+      <p>Cả ba hình đều có tâm đối xứng là <b>giao điểm của hai đường chéo</b>. Quay nửa vòng quanh điểm đó, mỗi đỉnh đến chỗ đỉnh đối diện.</p>
+      <a class="xem-lai" href="#kt-tu-giac">📌 Xem lại: tâm đối xứng của các tứ giác</a></div>
+    <div class="buoc" data-so="2"><h4>Hình lục giác đều</h4>
+      <p>Tâm đối xứng là <b>giao điểm của ba đường chéo chính</b>. Quay nửa vòng, mỗi đỉnh đến chỗ đỉnh đối diện.</p>
+      <p class="vi-sao">Lục giác đều có 6 đỉnh chia thành 3 cặp đối diện, các đường chéo chính nối các cặp đó và cắt nhau tại một điểm ở chính giữa.</p>
+      <a class="xem-lai" href="#kt-luc-giac">📌 Xem lại: tâm đối xứng của lục giác đều</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cả bốn hình đều có tâm đối xứng: hình vuông, hình chữ nhật, hình thoi — giao điểm của hai đường chéo; hình lục giác đều — giao điểm của các đường chéo chính.</div>
+    <div class="bay">Với lục giác đều, chọn giao điểm của hai đường chéo bất kì (không phải đường chéo chính). Đường chéo ngắn không đi qua chính giữa hình.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ hình nhận O làm tâm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ lại các hình bên vào giấy kẻ ô vuông rồi vẽ thêm để được một hình nhận điểm <span class="m">O</span> là tâm đối xứng.</p>
+    <p><i>(a) Hình bảy đỉnh màu vàng nằm phía trên điểm <span class="m">O</span>, <span class="m">O</span> là đỉnh nhọn dưới cùng; b) hình màu xanh gồm một dải thẳng đứng rộng 1 ô, cao 6 ô và một nét xiên gắn vào bên phải phía trên của dải, <span class="m">O</span> ở trung điểm cạnh thẳng đứng bên phải của nét xiên.)</i></p>
+    <p style="display:flex;justify-content:center;gap:12px;text-align:center"><span style="width:45%;max-width:200px">a)<svg viewBox="0 0 172 220" style="max-width:200px" role="img" aria-label="Hình a đã cho, nằm phía trên điểm O"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="158.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="158.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="158.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="158.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="158.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="158.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="158.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="158.0" y2="14.0"/></g><polygon points="86.0,110.0 134.0,86.0 134.0,62.0 110.0,38.0 62.0,38.0 38.0,62.0 38.0,86.0" fill="#e0a100" fill-opacity="0.5" stroke="#e0a100" stroke-width="2" stroke-linejoin="round"/><circle cx="86.0" cy="110.0" r="4" fill="#c93c3c"/><text x="93.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg></span><span style="width:45%;max-width:200px">b)<svg viewBox="0 0 172 220" style="max-width:200px" role="img" aria-label="Hình b đã cho, điểm O nằm ở trung điểm cạnh thẳng đứng bên phải của nét xiên"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="158.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="158.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="158.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="158.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="158.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="158.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="158.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="158.0" y2="14.0"/></g><polygon points="38.0,38.0 62.0,38.0 86.0,86.0 86.0,134.0 62.0,86.0 62.0,182.0 38.0,182.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><circle cx="86.0" cy="110.0" r="4" fill="#c93c3c"/><text x="93.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg></span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi đỉnh cần có một “bạn” ở phía đối diện qua <i>O</i>: đếm ô sang phải – lên trên, rồi đi ngược lại đúng bấy nhiêu ô.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Quay nửa vòng quanh <span class="m">O</span>: đỉnh cách <span class="m">O</span> 2 ô sang phải, 1 ô lên trên sẽ đến chỗ cách <span class="m">O</span> 2 ô sang trái, 1 ô xuống dưới. Làm vậy với từng đỉnh rồi nối lại.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình a — tìm vị trí mới của từng đỉnh</h4>
+      <p>Lấy đỉnh: 2 ô phải 1 ô lên → 2 ô trái 1 ô xuống; 2 ô phải 2 ô lên → 2 ô trái 2 ô xuống; 1 ô phải 3 ô lên → 1 ô trái 3 ô xuống; và tương tự với ba đỉnh bên trái.</p>
+      <svg viewBox="0 0 172 220" style="max-width:200px" role="img" aria-label="Hình a và phần vẽ thêm (nét đứt màu tím) đối xứng qua O"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="158.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="158.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="158.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="158.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="158.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="158.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="158.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="158.0" y2="14.0"/></g><polygon points="86.0,110.0 134.0,86.0 134.0,62.0 110.0,38.0 62.0,38.0 38.0,62.0 38.0,86.0" fill="#e0a100" fill-opacity="0.5" stroke="#e0a100" stroke-width="2" stroke-linejoin="round"/><polygon points="86.0,110.0 38.0,134.0 38.0,158.0 62.0,182.0 110.0,182.0 134.0,158.0 134.0,134.0" fill="#6b4fc9" fill-opacity="0.35" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><circle cx="86.0" cy="110.0" r="4" fill="#c93c3c"/><text x="93.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg>
+      <p>Nối các đỉnh mới theo đúng thứ tự, ta được một hình bảy đỉnh giống hệt hình cũ nhưng “lộn ngược” nằm phía dưới <span class="m">O</span>. Hai hình chung đỉnh <span class="m">O</span>.</p>
+      <p class="vi-sao">Quay nửa vòng thì phần trên đến chỗ phần dưới và phần dưới đến chỗ phần trên, nên cả hình mới chồng khít với chính nó.</p>
+      <a class="xem-lai" href="#kt-dem-o">📌 Xem lại: mẹo đếm ô khi quay nửa vòng</a></div>
+    <div class="buoc" data-so="2"><h4>Hình b — làm tương tự</h4>
+      <svg viewBox="0 0 172 220" style="max-width:200px" role="img" aria-label="Hình b và phần vẽ thêm (nét đứt màu tím): ghép lại thành chữ N"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="158.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="158.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="158.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="158.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="158.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="158.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="158.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="158.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="158.0" y2="14.0"/></g><polygon points="38.0,38.0 62.0,38.0 86.0,86.0 86.0,134.0 62.0,86.0 62.0,182.0 38.0,182.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><polygon points="134.0,182.0 110.0,182.0 86.0,134.0 86.0,86.0 110.0,134.0 110.0,38.0 134.0,38.0" fill="#6b4fc9" fill-opacity="0.35" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><circle cx="86.0" cy="110.0" r="4" fill="#c93c3c"/><text x="93.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg>
+      <p>Dải thẳng đứng bên trái (cách <span class="m">O</span> 1 – 2 ô sang trái) sinh ra một dải thẳng đứng bên phải (cách <span class="m">O</span> 1 – 2 ô sang phải). Nét xiên đi từ trên trái xuống <span class="m">O</span> được nối tiếp bằng nét xiên đi từ <span class="m">O</span> xuống dưới phải. Hình mới là <b>chữ N</b>.</p>
+      <p class="vi-sao">Ở Luyện tập 1 em đã thấy chữ N có tâm đối xứng là trung điểm nét xiên — đúng vị trí của <span class="m">O</span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Vẽ thêm hình bảy đỉnh giống hệt hình đã cho nhưng lộn ngược, nằm phía dưới <span class="m">O</span> (chung đỉnh <span class="m">O</span>): mỗi đỉnh cách <span class="m">O</span> <i>m</i> ô sang phải, <i>n</i> ô lên trên được vẽ thành đỉnh cách <span class="m">O</span> <i>m</i> ô sang trái, <i>n</i> ô xuống dưới (và ngược lại).<br>b) Vẽ thêm dải thẳng đứng bên phải và nét xiên đi xuống từ <span class="m">O</span>, được hình chữ N có tâm đối xứng <span class="m">O</span>.</div>
+    <div class="bay">Vẽ thêm phần đối xứng qua một <b>đường thẳng</b> (lật như soi gương) thay vì quay nửa vòng quanh <span class="m">O</span>. Ở hình b, lật gương qua đường thẳng đứng sẽ ra một hình giống chữ M, không phải chữ N.</div>
+    <div class="gv-note">Kho chỉ có toạ độ đỉnh theo ô (đã dùng để vẽ hình trên). Mẹo đếm ô là cách giải thích của nhóm biên soạn, không dùng chữ “toạ độ” với HS (mặt phẳng toạ độ là kiến thức lớp 7).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="th2" data-ten="Thực hành 2" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thực hành 2</span><span class="nhan vd">Vận dụng</span><span class="nhan">Cắt giấy</span><span class="trang-thai"></span></div>
+  <div class="de"><p><b>Ứng dụng tính đối xứng trong nghệ thuật cắt giấy.</b> Cắt hình cỏ bốn lá theo hướng dẫn sau:</p>
+    <p>❶ Chuẩn bị một mảnh giấy hình vuông kích thước 4 cm × 4 cm. Gấp đôi mảnh giấy hai lần sao cho các cạnh đối diện của nó trùng lên nhau (H.5.9a).</p>
+    <p>❷ Vẽ theo Hình 5.9b rồi cắt theo nét vẽ, sau đó mở ra ta được hình cỏ bốn lá (H.5.9c).</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Gấp đôi hai lần thì một nhát cắt tạo ra mấy chiếc lá?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Góc có hai nếp gấp gặp nhau chính là tâm của tờ giấy. Vẽ chiếc lá sao cho cuống lá chạm vào góc đó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gấp giấy</h4>
+      <p>Gấp đôi tờ giấy vuông 4 cm × 4 cm (cạnh trên trùng cạnh dưới), rồi gấp đôi tiếp (cạnh trái trùng cạnh phải). Ta được hình vuông nhỏ cạnh 2 cm, gồm 4 lớp giấy.</p>
+      <p class="vi-sao">Hai nếp gấp là hai trục đối xứng; góc nơi hai nếp gấp gặp nhau là tâm <span class="m">O</span> của tờ giấy.</p></div>
+    <div class="buoc" data-so="2"><h4>Vẽ, cắt, mở ra</h4>
+      <p>Vẽ một chiếc lá hình trái tim ở góc có hai nếp gấp (như Hình 5.9b), cắt theo nét vẽ, mở ra được cỏ bốn lá.</p>
+      <p>Kiểm tra: quay cỏ bốn lá nửa vòng quanh <span class="m">O</span> thì hình chồng khít → <span class="m">O</span> là tâm đối xứng; gấp theo mỗi nếp gấp cũng chồng khít.</p>
+      <a class="xem-lai" href="#kt-pi">📌 Xem lại: hình vừa có tâm vừa có trục</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Gấp tờ giấy vuông 4 cm × 4 cm đôi hai lần (được hình vuông 2 cm × 2 cm, 4 lớp), vẽ một chiếc lá hình trái tim ở góc có hai nếp gấp, cắt theo nét vẽ rồi mở ra được cỏ bốn lá; cỏ bốn lá có tâm đối xứng là giao điểm hai nếp gấp.</div>
+    <div class="bay">Vẽ chiếc lá ở góc <b>không</b> có nếp gấp (góc là mép ngoài tờ giấy) — mở ra sẽ được bốn chiếc lá rời nhau ở bốn góc.</div>
+    <div class="gv-note">Hoạt động thực hành, chấm theo sản phẩm. Phần lá chạm vào hai nếp gấp không được cắt đứt để bốn lá dính liền nhau.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tâm đối xứng trong thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy dự đoán tâm đối xứng của các hình sau:</p>
+    <p><i>(Ngôi sao sáu cánh; Biểu tượng của Hiệp hội các quốc gia Đông Nam Á (ASEAN); Hình ảnh “Bông tuyết”.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình nào có số “cánh” chẵn và các cánh đều nhau? Hình nào có phần trên khác hẳn phần dưới?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tưởng tượng xoay mỗi hình ngược đầu (nửa vòng). Hình nào vẫn y như cũ?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Ngôi sao sáu cánh và bông tuyết</h4>
+      <p>Ngôi sao sáu cánh: 6 cánh đều nhau, chia thành 3 cặp cánh đối diện → tâm đối xứng là <b>tâm ngôi sao</b> (giao điểm các đường nối đỉnh hai cánh đối diện).</p>
+      <p>Bông tuyết: 6 nhánh giống nhau xếp đều quanh tâm → tâm đối xứng là <b>điểm chính giữa bông tuyết</b>.</p>
+      <p class="vi-sao">Số cánh chẵn và đều nhau: mỗi cánh có một cánh giống hệt nằm ở phía đối diện, nên quay nửa vòng thì khớp.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+    <div class="buoc" data-so="2"><h4>Biểu tượng ASEAN</h4>
+      <p>Biểu tượng ASEAN là bó lúa đặt thẳng đứng trong một hình tròn. Quay nửa vòng, bó lúa bị lộn ngược (bông lúa chúc xuống) → <b>không</b> có tâm đối xứng (chỉ có trục đối xứng thẳng đứng).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ngôi sao sáu cánh: tâm đối xứng là tâm ngôi sao. Bông tuyết: tâm đối xứng là điểm chính giữa bông tuyết. Biểu tượng ASEAN: không có tâm đối xứng.</div>
+    <div class="bay">Nghĩ biểu tượng ASEAN có tâm vì nó nằm trong hình tròn. Hình tròn có tâm, nhưng bó lúa bên trong thì không — phải xét cả hình.</div>
+    <div class="gv-note">Kho chỉ ghi tên ba hình, không mô tả chi tiết. Lời giải dựa trên biểu tượng ASEAN chính thức (bó lúa 10 nhánh trong vòng tròn) và bông tuyết sáu nhánh như hình quen thuộc — đề nghị GV đối chiếu hình in trong SGK. Đề nói “dự đoán” nên chấp nhận HS trả lời ASEAN “không có tâm” kèm lí do.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b55" data-ten="Bài 5.5" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5.5</span><span class="nhan th">Thông hiểu</span><span class="nhan">Nhận biết tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các hình dưới đây, hình nào có tâm đối xứng?</p>
+    <p><i>(a) Cỏ bốn lá; b) Hoa năm cánh màu tím; c) Hoa tám cánh màu hồng; d) Hoa màu đỏ sáu cánh: hai cánh phía trên, một cánh bên trái, một cánh bên phải, hai cánh phía dưới.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đếm số cánh hoa: chẵn hay lẻ? Đó là chìa khoá đấy.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nhớ lại HĐ2: chong chóng bốn cánh có tâm, chong chóng ba cánh thì không. Quay nửa vòng, mỗi cánh phải gặp một cánh ở phía đối diện.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét từng hình</h4>
+      <p>• a) Cỏ bốn lá: 4 lá thành 2 cặp đối diện → <b>có</b> tâm (chính giữa cỏ).</p>
+      <p>• b) Hoa năm cánh: cánh trên cùng quay nửa vòng thì chúc xuống, nhưng phía dưới chính giữa là khe giữa hai cánh → <b>không</b> có tâm.</p>
+      <p>• c) Hoa tám cánh: 8 cánh thành 4 cặp đối diện → <b>có</b> tâm.</p>
+      <p>• d) Hoa sáu cánh: hai cánh trên đối diện với hai cánh dưới, cánh trái đối diện cánh phải → <b>có</b> tâm.</p>
+      <p class="vi-sao">Với hoa có các cánh giống nhau xếp đều quanh nhuỵ: số cánh chẵn thì mỗi cánh có một cánh đối diện; số cánh lẻ thì cánh nào cũng đối diện với một khe trống.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các hình có tâm đối xứng: a (cỏ bốn lá), c (hoa tám cánh), d (hoa sáu cánh). Hình b (hoa năm cánh) không có tâm đối xứng.</div>
+    <div class="bay">Chọn cả hoa năm cánh vì “cánh đều nhau, rất cân đối”. Hoa năm cánh có trục đối xứng nhưng không có tâm đối xứng.</div>
+    <div class="gv-note">Giả định các cánh hoa giống nhau và xếp đều quanh nhuỵ (như hình in trong SGK theo mô tả). Mẹo “số cánh chẵn / lẻ” chỉ đúng khi các cánh giống nhau và xếp đều.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b56" data-ten="Bài 5.6" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5.6</span><span class="nhan th">Thông hiểu</span><span class="nhan">Kiểm tra tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong mỗi hình dưới đây, điểm <span class="m">O</span> có phải là tâm đối xứng không?</p>
+    <p><i>(a) Hai hình vuông bằng nhau chung tâm <span class="m">O</span>, một hình đặt thẳng, một hình xoay chéo; b) Hai đường tròn khác cỡ cắt nhau: tròn nhỏ ở trên, tròn lớn ở dưới, <span class="m">O</span> là tâm đường tròn nhỏ; c) Hình mũi tên bốn hướng, <span class="m">O</span> ở tâm; d) Ba đoạn gấp khúc xuất phát từ <span class="m">O</span> theo ba hướng khác nhau.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ở hình b, quay nửa vòng quanh <i>O</i> thì đường tròn lớn ở phía dưới đi đâu?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">O</span> là tâm đối xứng khi <b>mọi</b> phần của hình đều có phần giống hệt ở phía đối diện qua <span class="m">O</span>, cùng khoảng cách.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét từng hình</h4>
+      <p>• a) Mỗi hình vuông nhận tâm của nó (giao điểm hai đường chéo) là tâm đối xứng, mà hai hình vuông chung tâm <span class="m">O</span> → quay nửa vòng cả hai cùng khớp → <span class="m">O</span> <b>là</b> tâm đối xứng.</p>
+      <p>• b) Đường tròn nhỏ khớp lại, nhưng đường tròn lớn ở phía dưới sau nửa vòng lên phía trên, chỗ đó không có đường tròn lớn nào → <span class="m">O</span> <b>không</b> phải tâm đối xứng.</p>
+      <p>• c) Bốn mũi tên giống nhau chĩa bốn hướng, mỗi mũi tên đối diện một mũi tên → <span class="m">O</span> <b>là</b> tâm đối xứng.</p>
+      <p>• d) Ba nhánh — như chong chóng ba cánh: mỗi nhánh đối diện một khoảng trống → <span class="m">O</span> <b>không</b> phải tâm đối xứng.</p>
+      <a class="xem-lai" href="#kt-tu-giac">📌 Xem lại: tâm của hình vuông</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Có; b) Không; c) Có; d) Không.</div>
+    <div class="bay">Ở hình b, chỉ nhìn đường tròn nhỏ (có tâm <span class="m">O</span>) rồi trả lời “có”. Phải xét <b>cả hình</b>, gồm cả đường tròn lớn.</div>
+    <div class="gv-note">Hình c, d: kho chỉ mô tả ngắn (“mũi tên bốn hướng, <i>O</i> ở tâm”; “ba đoạn gấp khúc theo ba hướng”); lời giải giả định bốn mũi tên giống nhau và ba nhánh không có nhánh nào thẳng hàng với nhánh khác qua <i>O</i> như hình SGK.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b57" data-ten="Bài 5.7" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 5.7</span><span class="nhan th">Thông hiểu</span><span class="nhan">Xác định tâm đối xứng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hình nào dưới đây có tâm đối xứng? Em hãy xác định tâm đối xứng (nếu có) của chúng.</p>
+    <p><i>(a) Hai hình elip bằng nhau cắt nhau vuông góc tại tâm; b) Bốn cánh chung một đỉnh ở giữa: hai cánh dọc (lên, xuống) là hai tam giác dài bằng nhau, hai cánh ngang (trái, phải) là hai tam giác ngắn bằng nhau đầu bo tròn; c) Ba hình chữ nhật bằng nhau xếp quanh một điểm theo ba hướng; d) Hình ngũ giác.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình b có cánh dài, cánh ngắn khác nhau — nhưng cánh trên có giống cánh dưới không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Không cần cả bốn cánh giống nhau. Chỉ cần mỗi phần có một phần <b>giống nó</b> ở phía đối diện.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét từng hình</h4>
+      <p>• a) Mỗi hình elip quay nửa vòng quanh tâm của nó thì khớp; hai elip chung tâm → <b>có</b> tâm đối xứng là giao điểm (tâm chung) của hai elip.</p>
+      <p>• b) Cánh trên đối diện cánh dưới (hai cánh dài bằng nhau), cánh trái đối diện cánh phải (hai cánh ngắn bằng nhau) → <b>có</b> tâm đối xứng là đỉnh chung ở giữa.</p>
+      <p>• c) Ba hình chữ nhật theo ba hướng — như chong chóng ba cánh → <b>không</b> có tâm.</p>
+      <p>• d) Hình ngũ giác: quay nửa vòng thì một đỉnh chĩa lên trở thành chĩa xuống, chỗ đó lại là một cạnh → <b>không</b> có tâm.</p>
+      <a class="xem-lai" href="#kt-tam">📌 Xem lại: hình có tâm đối xứng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hình a có tâm đối xứng là giao điểm (tâm chung) của hai hình elip. Hình b có tâm đối xứng là đỉnh chung ở giữa của bốn cánh. Hình c và hình d không có tâm đối xứng.</div>
+    <div class="bay">Loại hình b vì “cánh dọc dài, cánh ngang ngắn, không đều”. Tâm đối xứng chỉ cần các cánh <b>đối diện</b> giống nhau.</div>
+    <div class="gv-note">Hình d: kho chỉ ghi “hình ngũ giác”, giả định là ngũ giác đều (hoặc ngũ giác bất kì như in trong sách) — ngũ giác có số đỉnh lẻ nên đỉnh nào cũng đối diện một cạnh, không có tâm. “Elip” là từ SGK dùng ở đề, HS chỉ cần nhận biết bằng mắt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b58" data-ten="Bài 5.8" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.8</span><span class="nhan vd">Vận dụng</span><span class="nhan">Gấp – cắt giấy</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy trình bày các bước gấp và cắt giấy như trong Thực hành 2 (cắt hình cỏ bốn lá) ở mục 2 để gấp và cắt hình bên.</p>
+    <p><i>(Bốn hình bát giác nhỏ màu xanh nhạt xếp thành hình vuông lớn, ở giữa có khoảng trống hình thoi.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình có bốn phần giống nhau quanh tâm — giống cỏ bốn lá. Vậy gấp giấy mấy lần?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Gấp đôi hai lần như cỏ bốn lá. Trên hình vuông nhỏ chỉ cần vẽ <b>một phần tư</b> hình: một hình bát giác, có góc khuyết quay về phía tâm.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Bước 1 — gấp giấy</h4>
+      <p>Chuẩn bị một tờ giấy hình vuông. Gấp đôi tờ giấy hai lần sao cho các cạnh đối diện trùng nhau, được hình vuông nhỏ bằng một phần tư tờ giấy. Góc có hai nếp gấp gặp nhau là tâm <span class="m">O</span> của hình cần cắt.</p>
+      <p class="vi-sao">Hình cần cắt gồm 4 phần giống nhau, nhận hai nếp gấp (ngang, dọc) làm trục đối xứng — nên chỉ cần cắt một phần, gấp 4 lớp sẽ ra đủ 4 phần.</p>
+      <a class="xem-lai" href="#kt-pi">📌 Xem lại: hình vừa có tâm vừa có trục</a></div>
+    <div class="buoc" data-so="2"><h4>Bước 2 — vẽ một phần tư hình</h4>
+      <p>Trên hình vuông nhỏ, vẽ một hình bát giác: hai cạnh của bát giác nằm sát hai nếp gấp (để khi mở ra các bát giác dính liền nhau); góc của bát giác ở phía <span class="m">O</span> được vát chéo — phần vát này khi mở ra ghép thành khoảng trống hình thoi ở giữa.</p></div>
+    <div class="buoc" data-so="3"><h4>Bước 3 — cắt và mở ra</h4>
+      <p>Cắt theo nét vẽ (không cắt phần sát nếp gấp), rồi mở giấy ra: được bốn hình bát giác xếp thành hình vuông lớn, ở giữa có khoảng trống hình thoi.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">① Gấp đôi tờ giấy vuông hai lần (các cạnh đối diện trùng nhau) được hình vuông nhỏ, góc có hai nếp gấp là tâm. ② Vẽ một hình bát giác có hai cạnh nằm sát hai nếp gấp, góc phía tâm vát chéo. ③ Cắt theo nét vẽ rồi mở ra được hình cần cắt.</div>
+    <div class="bay">Vẽ bát giác lọt hẳn vào trong hình vuông nhỏ, không chạm nếp gấp — mở ra sẽ được bốn bát giác rời nhau, không thành một hình.</div>
+    <div class="gv-note">Kho chỉ mô tả hình là “bốn hình bát giác nhỏ xếp thành hình vuông lớn, ở giữa có khoảng trống hình thoi”, không ghi kích thước hay chỗ nối giữa các bát giác. Lời giải giả định các bát giác dính nhau dọc theo nếp gấp; nếu hình SGK khác (chẳng hạn bát giác chỉ chạm nhau tại một điểm), cần điều chỉnh Bước 2. Chấp nhận mọi cách trình bày hợp lí.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b59" data-ten="Bài 5.9" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.9</span><span class="nhan vd">Vận dụng</span><span class="nhan">Vẽ hình nhận O làm tâm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vẽ lại các hình sau vào giấy kẻ ô vuông rồi vẽ thêm để được một hình nhận điểm <span class="m">O</span> là tâm đối xứng.</p>
+    <p><i>(a) Hình màu đỏ cam dạng bậc, có cạnh xiên nhận <span class="m">O</span> là trung điểm; b) Hình màu xanh lá dạng mũi tên chỉ sang trái, có khe lõm hình chữ V mở về phía phải; <span class="m">O</span> nằm ngoài hình, ở miệng khe lõm, cách đỉnh lõm 1 ô về bên phải.)</i></p>
+    <p style="display:flex;justify-content:center;gap:10px;text-align:center"><span style="width:45%;max-width:200px">a)<svg viewBox="0 0 220 220" style="max-width:200px" role="img" aria-label="Hình a đã cho"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="182.0" y1="14.0" x2="182.0" y2="206.0"/><line x1="206.0" y1="14.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="206.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="206.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="206.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="206.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="206.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="206.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="206.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="206.0" y2="14.0"/></g><polygon points="86.0,38.0 134.0,38.0 134.0,86.0 182.0,86.0 182.0,134.0 134.0,134.0 86.0,86.0" fill="#e06a2c" fill-opacity="0.5" stroke="#e06a2c" stroke-width="2" stroke-linejoin="round"/><circle cx="110.0" cy="110.0" r="4" fill="#c93c3c"/><text x="117.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg></span><span style="width:45%;max-width:200px">b)<svg viewBox="0 0 220 220" style="max-width:200px" role="img" aria-label="Hình b đã cho"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="182.0" y1="14.0" x2="182.0" y2="206.0"/><line x1="206.0" y1="14.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="206.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="206.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="206.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="206.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="206.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="206.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="206.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="206.0" y2="14.0"/></g><polygon points="86.0,38.0 110.0,38.0 110.0,86.0 86.0,110.0 110.0,134.0 110.0,182.0 86.0,182.0 38.0,134.0 38.0,86.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><circle cx="110.0" cy="110.0" r="4" fill="#c93c3c"/><text x="117.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg></span></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình a có một cạnh xiên đi qua <i>O</i> — cạnh ấy sẽ là chỗ “nối” hai nửa.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi đỉnh: đếm số ô sang phải/trái và lên/xuống tính từ <span class="m">O</span>, rồi đánh dấu điểm mới ở phía ngược lại, cùng số ô.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Hình a</h4>
+      <svg viewBox="0 0 220 220" style="max-width:230px" role="img" aria-label="Hình a và phần vẽ thêm: ghép lại thành hình chữ thập"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="182.0" y1="14.0" x2="182.0" y2="206.0"/><line x1="206.0" y1="14.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="206.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="206.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="206.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="206.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="206.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="206.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="206.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="206.0" y2="14.0"/></g><polygon points="86.0,38.0 134.0,38.0 134.0,86.0 182.0,86.0 182.0,134.0 134.0,134.0 86.0,86.0" fill="#e06a2c" fill-opacity="0.5" stroke="#e06a2c" stroke-width="2" stroke-linejoin="round"/><polygon points="134.0,182.0 86.0,182.0 86.0,134.0 38.0,134.0 38.0,86.0 86.0,86.0 134.0,134.0" fill="#6b4fc9" fill-opacity="0.35" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><circle cx="110.0" cy="110.0" r="4" fill="#c93c3c"/><text x="117.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg>
+      <p>Đỉnh 1 ô trái 3 ô lên → 1 ô phải 3 ô xuống; đỉnh 3 ô phải 1 ô lên → 3 ô trái 1 ô xuống; … Hai đầu cạnh xiên đổi chỗ cho nhau nên cạnh xiên được dùng chung. Hình mới (phần đã cho + phần tím) là <b>hình chữ thập</b> (dấu cộng).</p>
+      <p class="vi-sao">Cạnh xiên nhận <span class="m">O</span> là trung điểm, nên quay nửa vòng nó nằm lại đúng chỗ cũ — phần vẽ thêm khít vào hình đã cho.</p>
+      <a class="xem-lai" href="#kt-dem-o">📌 Xem lại: mẹo đếm ô khi quay nửa vòng</a></div>
+    <div class="buoc" data-so="2"><h4>Hình b</h4>
+      <svg viewBox="0 0 220 220" style="max-width:230px" role="img" aria-label="Hình b và phần vẽ thêm: ghép lại thành hình tám cạnh có lỗ hình vuông ở giữa"><g stroke="#d9dee8" stroke-width="1"><line x1="14.0" y1="14.0" x2="14.0" y2="206.0"/><line x1="38.0" y1="14.0" x2="38.0" y2="206.0"/><line x1="62.0" y1="14.0" x2="62.0" y2="206.0"/><line x1="86.0" y1="14.0" x2="86.0" y2="206.0"/><line x1="110.0" y1="14.0" x2="110.0" y2="206.0"/><line x1="134.0" y1="14.0" x2="134.0" y2="206.0"/><line x1="158.0" y1="14.0" x2="158.0" y2="206.0"/><line x1="182.0" y1="14.0" x2="182.0" y2="206.0"/><line x1="206.0" y1="14.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="206.0" x2="206.0" y2="206.0"/><line x1="14.0" y1="182.0" x2="206.0" y2="182.0"/><line x1="14.0" y1="158.0" x2="206.0" y2="158.0"/><line x1="14.0" y1="134.0" x2="206.0" y2="134.0"/><line x1="14.0" y1="110.0" x2="206.0" y2="110.0"/><line x1="14.0" y1="86.0" x2="206.0" y2="86.0"/><line x1="14.0" y1="62.0" x2="206.0" y2="62.0"/><line x1="14.0" y1="38.0" x2="206.0" y2="38.0"/><line x1="14.0" y1="14.0" x2="206.0" y2="14.0"/></g><polygon points="86.0,38.0 110.0,38.0 110.0,86.0 86.0,110.0 110.0,134.0 110.0,182.0 86.0,182.0 38.0,134.0 38.0,86.0" fill="#0f8a68" fill-opacity="0.5" stroke="#0f8a68" stroke-width="2" stroke-linejoin="round"/><polygon points="134.0,182.0 110.0,182.0 110.0,134.0 134.0,110.0 110.0,86.0 110.0,38.0 134.0,38.0 182.0,86.0 182.0,134.0" fill="#6b4fc9" fill-opacity="0.35" stroke="#6b4fc9" stroke-width="2" stroke-dasharray="6 4" stroke-linejoin="round"/><circle cx="110.0" cy="110.0" r="4" fill="#c93c3c"/><text x="117.0" y="128.0" font-family="Cambria Math,Times New Roman,serif" font-style="italic" font-size="17" fill="#c93c3c" text-anchor="start">O</text></svg>
+      <p>Mũi tên chỉ sang trái sinh ra một mũi tên chỉ sang phải ở bên kia <span class="m">O</span>; hai khe lõm quay vào nhau tạo thành một <b>lỗ hình vuông</b> (đặt xoay) ở giữa, có tâm <span class="m">O</span>. Hình mới là hình tám cạnh có lỗ ở giữa.</p>
+      <p class="vi-sao">Đỉnh lõm cách <span class="m">O</span> 1 ô bên trái → đỉnh lõm mới cách <span class="m">O</span> 1 ô bên phải. Phần trên của mũi tên cũ (1 ô bên trái <span class="m">O</span>, 1 – 3 ô lên trên) đến chỗ 1 ô bên phải, 1 – 3 ô xuống dưới.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Vẽ thêm phần giống hình đã cho, quay ngược qua <span class="m">O</span>, chung cạnh xiên; hình nhận được là hình chữ thập (dấu cộng). b) Vẽ thêm một mũi tên chỉ sang phải, quay ngược qua <span class="m">O</span>; hình nhận được là hình tám cạnh có một lỗ hình vuông đặt xoay ở giữa, tâm <span class="m">O</span>.</div>
+    <div class="bay">Ở hình b, vẽ thêm bằng cách lật gương qua một đường thẳng đứng đi qua <span class="m">O</span>. Lần này kết quả trông giống nhau vì hình đã cho cũng đối xứng trên – dưới; nhưng em vẫn phải làm bằng cách quay nửa vòng (đếm ô sang trái ↔ phải <b>và</b> lên ↔ xuống) để không sai ở các bài khác.</div>
+    <div class="gv-note">Hình vẽ dựa trên toạ độ đỉnh trong kho. Có thể hỏi thêm: hình chữ thập ở câu a có mấy trục đối xứng? (4.) Hình ở câu b có trục đối xứng không? (Có — đường ngang và đường dọc qua <i>O</i>.)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b510" data-ten="Bài 5.10" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 5.10</span><span class="nhan vd">Vận dụng</span><span class="nhan">Đoán chữ cắt giấy</span><span class="trang-thai"></span></div>
+  <div class="de"><p>An gấp những mảnh giấy kích thước 3 cm × 5 cm lần lượt theo chiều ngang và chiều dọc rồi cắt như những hình sau. Theo em, khi mở những mảnh giấy này, An sẽ nhận được chữ gì?</p>
+    <p><i>(a) Phần còn lại màu đỏ có dạng góc chữ H — một nét dọc với một nét ngang ngắn; b) Phần còn lại màu đỏ có dạng một phần tư đường cong — dạng góc chữ O.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Giấy gấp hai lần: phần cắt ra sẽ được “nhân bốn” qua cả nếp gấp ngang lẫn nếp gấp dọc.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Vẽ phần còn lại ra nháp, “soi gương” qua nếp gấp dọc, rồi soi tiếp cả hình qua nếp gấp ngang.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Mở từng mảnh giấy</h4>
+      <p>a) Một nét dọc với nửa nét ngang sát nếp gấp: mở nếp dọc → hai nét dọc nối bằng nét ngang ở dưới cùng (nửa trên của chữ H); mở tiếp nếp ngang → chữ <b>H</b>.</p>
+      <p>b) Một phần tư đường cong: mở nếp dọc được nửa vòng cung, mở nếp ngang được vòng cong khép kín → chữ <b>O</b>.</p>
+      <p class="vi-sao">Gấp hai lần thì hai nếp gấp là hai trục đối xứng của chữ. Chữ H và chữ O đều có cả trục dọc lẫn trục ngang, nên cắt được bằng cách này.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Chữ H; b) Chữ O.</div>
+    <div class="bay">Chỉ mở một nếp gấp rồi đoán là chữ U hoặc chữ C. Giấy được gấp <b>hai</b> lần, phải mở cả hai.</div>
+    <div class="gv-note">Bài này dùng trục đối xứng (Bài 21) dù nằm ở Bài 22. Có thể hỏi thêm: H và O có tâm đối xứng không? (Có.)</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 22. Hình có tâm đối xứng — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c05-b22';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-05-bai-22-hinh-co-tam-doi-xung-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-05-bai-22-hinh-co-tam-doi-xung-bai-giai.nguon.html" data-phien-ban="993201a09f6e">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

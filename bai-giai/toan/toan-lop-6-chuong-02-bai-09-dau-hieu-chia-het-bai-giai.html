@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 9. Dấu hiệu chia hết — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 9. Dấu hiệu chia hết — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div><h1>Bài 9. Dấu hiệu chia hết — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 4 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-dh25"><b class="ten">Dấu hiệu chia hết cho 2, cho 5</b>
+      Các số có chữ số tận cùng là 0, 2, 4, 6, 8 thì <b>chia hết cho 2</b> và chỉ những số đó mới chia hết cho 2.<br>
+      Các số có chữ số tận cùng là 0 hoặc 5 thì <b>chia hết cho 5</b> và chỉ những số đó mới chia hết cho 5.</div>
+    <div class="kt" id="kt-dh9"><b class="ten">Dấu hiệu chia hết cho 9</b>
+      Các số có tổng các chữ số chia hết cho 9 thì <b>chia hết cho 9</b> và chỉ những số đó mới chia hết cho 9.</div>
+    <div class="kt" id="kt-dh3"><b class="ten">Dấu hiệu chia hết cho 3</b>
+      Các số có tổng các chữ số <b>chia hết cho 3</b> thì chia hết cho 3 và chỉ những số đó mới chia hết cho 3.</div>
+    <div class="kt" id="kt-tong"><b class="ten">Tính chất chia hết của một tổng (Bài 8)</b>
+      Nếu <span class="m">a ⋮ m</span> và <span class="m">b ⋮ m</span> thì <span class="m">(a + b) ⋮ m</span>. Nếu <span class="m">a ⋮ m</span> và <span class="m">b ⋮̸ m</span> thì <span class="m">(a + b) ⋮̸ m</span>. Cả hai tính chất cũng đúng với một hiệu.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 9. Dấu hiệu chia hết; Bài 8. Quan hệ chia hết và tính chất.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chia hết cho 2, 5</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Xét số <span class="m">n</span> = <span style="text-decoration:overline">23*</span> (* là chữ số tận cùng của <span class="m">n</span>). Ta viết <span class="m">n = 230 + *</span>.</p>
+    <p>Số 230 có chia hết cho 2 và chia hết cho 5 không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 230 = 23 · 10 — số 10 chia hết cho những số nào?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Viết 230 thành tích có chứa thừa số 10, rồi tách 10 = 2 · 5.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Viết 230 thành tích</h4>
+      <p><span class="m">230 = 23 · 10 = 23 · 2 · 5</span>.</p>
+      <p>Tích có thừa số 2 nên <span class="m">230 ⋮ 2</span>; có thừa số 5 nên <span class="m">230 ⋮ 5</span>.</p>
+      <p class="vi-sao">Trong một tích, nếu có một thừa số chia hết cho một số thì tích chia hết cho số đó (lời Pi ở Bài 8).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có. <span class="m">230 = 23 · 2 · 5</span> nên 230 chia hết cho cả 2 và 5.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Chia hết cho 2, 5</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Vận dụng tính chất chia hết của một tổng, hãy cho biết:</p>
+    <p>a) Thay dấu * bởi chữ số nào thì <span class="m">n</span> chia hết cho 2?</p>
+    <p>b) Thay dấu * bởi chữ số nào thì <span class="m">n</span> chia hết cho 5?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 230 đã chia hết cho 2 và 5. Vậy chỉ còn phụ thuộc vào chữ số *.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">n = 230 + *</span> và <span class="m">230 ⋮ 2</span>. Theo tính chất 1 và 2, <span class="m">n ⋮ 2</span> khi nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đưa về chữ số *</h4>
+      <p>Vì 230 chia hết cho 2 (và cho 5) nên: <span class="m">n</span> chia hết cho 2 khi * chia hết cho 2; <span class="m">n</span> chia hết cho 5 khi * chia hết cho 5.</p>
+      <a class="xem-lai" href="#kt-tong">📌 Xem lại: tính chất chia hết của một tổng</a></div>
+    <div class="buoc" data-so="2"><h4>Chọn chữ số</h4>
+      <p>a) Các chữ số chia hết cho 2: 0; 2; 4; 6; 8.</p>
+      <p>b) Các chữ số chia hết cho 5: 0; 5.</p>
+      <p class="vi-sao">Đây chính là lí do dấu hiệu chia hết cho 2, cho 5 chỉ cần nhìn <b>chữ số tận cùng</b>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) * ∈ {0; 2; 4; 6; 8}. &nbsp; b) * ∈ {0; 5}.</div>
+    <div class="bay">Quên chữ số 0. Số 0 chia hết cho mọi số khác 0, nên 230 cũng thoả cả hai câu.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Tổng, hiệu chia hết cho 2, 5</span><span class="trang-thai"></span></div>
+  <div class="de"><p>❶ Không thực hiện phép tính, em hãy cho biết tổng (hiệu) sau có chia hết cho 2 không.</p>
+    <p>a) <span class="m">1 954 + 1 975</span>; &nbsp; b) <span class="m">2 020 − 938</span>.</p>
+    <p>❷ Không thực hiện phép tính, em hãy cho biết tổng (hiệu) sau có chia hết cho 5 không.</p>
+    <p>a) <span class="m">1 945 + 2 020</span>; &nbsp; b) <span class="m">1 954 − 1 930</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn chữ số tận cùng của từng số hạng — không cần cộng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Xét từng số bằng dấu hiệu chia hết, rồi dùng tính chất chia hết của tổng (hiệu) như Ví dụ 2.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>❶ Chia hết cho 2</h4>
+      <p>a) 1 954 tận cùng 4 → chia hết cho 2; 1 975 tận cùng 5 → không chia hết cho 2. Vậy tổng <b>không</b> chia hết cho 2.</p>
+      <p>b) 2 020 tận cùng 0, 938 tận cùng 8 → cả hai chia hết cho 2. Vậy hiệu chia hết cho 2.</p>
+      <a class="xem-lai" href="#kt-dh25">📌 Xem lại: dấu hiệu chia hết cho 2, cho 5</a></div>
+    <div class="buoc" data-so="2"><h4>❷ Chia hết cho 5</h4>
+      <p>a) 1 945 tận cùng 5, 2 020 tận cùng 0 → cả hai chia hết cho 5. Vậy tổng chia hết cho 5.</p>
+      <p>b) 1 954 tận cùng 4 → không chia hết cho 5; 1 930 tận cùng 0 → chia hết cho 5. Vậy hiệu <b>không</b> chia hết cho 5.</p>
+      <a class="xem-lai" href="#kt-tong">📌 Xem lại: tính chất chia hết của một tổng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">❶ a) Không; b) Có. &nbsp; ❷ a) Có; b) Không.</div>
+    <div class="bay">Chỉ nhìn số hạng đầu rồi kết luận cho cả tổng. Phải xét đủ mọi số hạng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chia hết cho 9</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho các số 27; 82; 195; 234.</p><p>Hãy sắp xếp các số trên thành hai nhóm: Nhóm các số chia hết cho 9 và nhóm các số không chia hết cho 9.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia thử từng số cho 9.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thực hiện phép chia từng số cho 9 và xem có dư không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia từng số cho 9</h4>
+      <p><span class="m">27 = 9 · 3</span>; <span class="m">234 = 9 · 26</span>; 82 chia 9 được 9 dư 1; 195 chia 9 được 21 dư 6.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhóm chia hết cho 9: 27; 234. Nhóm không chia hết cho 9: 82; 195.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chia hết cho 9</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính tổng các chữ số của mỗi số và xét tính chia hết cho 9 của các tổng đó trong mỗi nhóm.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 So tổng các chữ số của hai nhóm — em thấy điều gì giống nhau?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ví dụ 27 có tổng các chữ số là 2 + 7.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính tổng các chữ số</h4>
+      <table>
+        <tr><th>Nhóm</th><th>Số</th><th>Tổng các chữ số</th><th>Chia hết cho 9?</th></tr>
+        <tr><td rowspan="2">Chia hết cho 9</td><td>27</td><td>2 + 7 = 9</td><td style="background:#e6f7f1">có</td></tr>
+        <tr><td>234</td><td>2 + 3 + 4 = 9</td><td style="background:#e6f7f1">có</td></tr>
+        <tr><td rowspan="2">Không chia hết cho 9</td><td>82</td><td>8 + 2 = 10</td><td>không</td></tr>
+        <tr><td>195</td><td>1 + 9 + 5 = 15</td><td>không</td></tr>
+      </table>
+      <p class="vi-sao">Số chia hết cho 9 thì tổng các chữ số cũng chia hết cho 9, và ngược lại — đó là dấu hiệu chia hết cho 9.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhóm chia hết cho 9: tổng các chữ số của 27 và 234 đều bằng 9, chia hết cho 9. Nhóm còn lại: 82 có tổng 10, 195 có tổng 15, đều không chia hết cho 9.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Điền chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thay dấu * bởi một chữ số để được số <span style="text-decoration:overline">12*</span> chia hết cho 9.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 1 + 2 + * phải chia hết cho 9. * chỉ là một chữ số (0 đến 9).</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tổng các chữ số là <span class="m">3 + *</span>. Bội nào của 9 nằm trong khoảng từ 3 đến 12?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập điều kiện</h4>
+      <p>Tổng các chữ số: <span class="m">1 + 2 + * = 3 + *</span>, phải chia hết cho 9.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm chữ số</h4>
+      <p>* từ 0 đến 9 nên <span class="m">3 + *</span> từ 3 đến 12. Chỉ có 9 chia hết cho 9 → <span class="m">3 + * = 9</span> → * = 6.</p>
+      <p>Thử lại: 126 = 9 · 14 ✓.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">* = 6, được số 126.</div>
+    <div class="bay">Ghi * = 9 vì “chia hết cho 9 thì điền 9”. 129 có tổng các chữ số 12, không chia hết cho 9.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd" data-ten="Vận dụng" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán trồng cây</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trên một bờ đất dài 108 m, một bác nông dân có kế hoạch trồng một số cây dừa thành một hàng sao cho hai cây cách đều nhau là 9 m và luôn có cây ở vị trí đầu và cuối của bờ đất. Hỏi bác nông dân có trồng được như vậy không? Nếu được, bác cần bao nhiêu cây dừa để trồng?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trồng được không — tức là 108 có chia hết cho 9 không? Còn số cây: đừng quên cây ở đầu bờ!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Có cây ở cả hai đầu thì bờ đất được chia thành các khoảng 9 m vừa khít. Số cây hơn số khoảng mấy cây?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kiểm tra có trồng được không</h4>
+      <p>108 có tổng các chữ số <span class="m">1 + 0 + 8 = 9</span> chia hết cho 9, nên <span class="m">108 ⋮ 9</span>. Bờ đất chia vừa khít thành các khoảng 9 m → trồng được.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+    <div class="buoc" data-so="2"><h4>Đếm số cây</h4>
+      <p>Số khoảng cách: <span class="m">108 : 9 = 12</span> (khoảng).</p>
+      <svg viewBox="0 0 420 76" style="max-width:420px" role="img" aria-label="Sơ đồ: 4 cây chia bờ thành 3 khoảng; số cây nhiều hơn số khoảng 1 cây">
+        <line x1="30" y1="35" x2="390" y2="35" stroke="#8a6d3b" stroke-width="4"/>
+        <g font-family="Segoe UI,Arial" font-size="17" text-anchor="middle">
+          <circle cx="30" cy="35" r="9" fill="#0f8a68"/><circle cx="150" cy="35" r="9" fill="#0f8a68"/><circle cx="270" cy="35" r="9" fill="#0f8a68"/><circle cx="390" cy="35" r="9" fill="#0f8a68"/>
+          <text x="90" y="24" fill="#2f6fdb">9 m</text><text x="210" y="24" fill="#2f6fdb">9 m</text><text x="330" y="24" fill="#2f6fdb">9 m</text>
+          <text x="210" y="70" fill="#1f2430">ví dụ: 3 khoảng → 4 cây</text>
+        </g>
+      </svg>
+      <p>Có cây ở cả hai đầu nên số cây nhiều hơn số khoảng 1: <span class="m">12 + 1 = 13</span> (cây).</p>
+      <p class="vi-sao">Cô vẽ sơ đồ nhỏ cho dễ hình dung: mỗi khoảng có một cây ở đầu bên trái, riêng cây cuối bờ là “thêm” một cây.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trồng được (vì <span class="m">108 ⋮ 9</span>). Bác cần 13 cây dừa.</div>
+    <div class="bay">Trả lời 12 cây (lấy luôn 108 : 9). Đó là số <b>khoảng cách</b>; vì có cây ở cả đầu và cuối nên phải cộng thêm 1.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Giống như xòe bàn tay: 5 ngón tay tạo ra 4 khe hở. Ngón tay là cây, khe hở là khoảng 9 m — số ngón luôn nhiều hơn số khe 1.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd5" data-ten="HĐ5" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ5</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chia hết cho 3</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Cho các số 42; 80; 191; 234.</p><p>Hãy sắp xếp các số trên thành hai nhóm: Nhóm các số chia hết cho 3 và nhóm các số không chia hết cho 3.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia thử từng số cho 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thực hiện phép chia từng số cho 3.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia từng số cho 3</h4>
+      <p><span class="m">42 = 3 · 14</span>; <span class="m">234 = 3 · 78</span>; 80 chia 3 được 26 dư 2; 191 chia 3 được 63 dư 2.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhóm chia hết cho 3: 42; 234. Nhóm không chia hết cho 3: 80; 191.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd6" data-ten="HĐ6" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ6</span><span class="nhan nb">Nhận biết</span><span class="nhan">Chia hết cho 3</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tính tổng các chữ số của mỗi số và xét tính chia hết cho 3 của các tổng đó trong mỗi nhóm.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Làm như HĐ4, nhưng lần này xét chia hết cho 3.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 42 có tổng các chữ số 4 + 2 = 6.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính tổng các chữ số</h4>
+      <table>
+        <tr><th>Nhóm</th><th>Số</th><th>Tổng các chữ số</th><th>Chia hết cho 3?</th></tr>
+        <tr><td rowspan="2">Chia hết cho 3</td><td>42</td><td>4 + 2 = 6</td><td style="background:#e6f7f1">có</td></tr>
+        <tr><td>234</td><td>2 + 3 + 4 = 9</td><td style="background:#e6f7f1">có</td></tr>
+        <tr><td rowspan="2">Không chia hết cho 3</td><td>80</td><td>8 + 0 = 8</td><td>không</td></tr>
+        <tr><td>191</td><td>1 + 9 + 1 = 11</td><td>không</td></tr>
+      </table>
+      <a class="xem-lai" href="#kt-dh3">📌 Xem lại: dấu hiệu chia hết cho 3</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhóm chia hết cho 3: tổng các chữ số của 42 là 6, của 234 là 9 — đều chia hết cho 3. Nhóm còn lại: 80 có tổng 8, 191 có tổng 11 — đều không chia hết cho 3.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Điền chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thay dấu * bằng một chữ số để số <span style="text-decoration:overline">12*5</span> chia hết cho 3.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bài này có nhiều hơn một đáp án — tìm hết nhé!</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tổng các chữ số là <span class="m">8 + *</span>. Những bội của 3 nào nằm trong khoảng từ 8 đến 17?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Lập điều kiện</h4>
+      <p>Tổng các chữ số: <span class="m">1 + 2 + * + 5 = 8 + *</span>, phải chia hết cho 3.</p>
+      <a class="xem-lai" href="#kt-dh3">📌 Xem lại: dấu hiệu chia hết cho 3</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm các chữ số</h4>
+      <p><span class="m">8 + *</span> từ 8 đến 17; các số chia hết cho 3 trong khoảng đó: 9; 12; 15.</p>
+      <p>Suy ra * = 1; 4; 7, được các số 1 215; 1 245; 1 275.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">* ∈ {1; 4; 7}, được các số 1 215; 1 245; 1 275.</div>
+    <div class="bay">Chỉ tìm một chữ số rồi dừng. Đề nói “một chữ số” nghĩa là mỗi lần thay một chữ số — có thể có nhiều cách thay.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tìm đường — dấu hiệu chia hết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bạn Hà cần tìm đường đến siêu thị. Biết rằng Hà chỉ có thể đi qua ô có chứa số chia hết cho 2 hoặc chia hết cho 3 và mỗi ô chỉ đi qua một lần. Em hãy giúp Hà đến được siêu thị nhé.</p>
+    <table>
+      <tr><td>5</td><td>24</td><td>17</td><td>72</td><td>123</td><td>136</td></tr>
+      <tr><td>Hà</td><td>21</td><td>15</td><td>2 020</td><td>65</td><td>1 245</td></tr>
+      <tr><td>12</td><td>6</td><td>19</td><td>54</td><td>77</td><td>Siêu thị</td></tr>
+    </table></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đánh dấu trước những ô “cấm đi”, rồi mới tìm đường.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ô nào <b>không</b> chia hết cho 2 và cũng không chia hết cho 3 thì Hà không được đi qua. Thử tìm những ô đó trước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các ô bị cấm</h4>
+      <p>Số lẻ (không chia hết cho 2) và tổng các chữ số không chia hết cho 3: 5; 17; 65 (tổng 11); 19 (tổng 10); 77 (tổng 14). Đó là các ô cấm.</p>
+      <p>Các ô đi được: 24; 72; 136; 2 020; 12; 6; 54 (số chẵn) và 123 (tổng 6); 21 (tổng 3); 15 (tổng 6); 1 245 (tổng 12).</p>
+      <a class="xem-lai" href="#kt-dh3">📌 Xem lại: dấu hiệu chia hết cho 3</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm đường</h4>
+      <table>
+        <tr><td style="background:#fdeceb">5</td><td>24</td><td style="background:#fdeceb">17</td><td style="background:#e6f7f1"><b>72</b></td><td style="background:#e6f7f1"><b>123</b></td><td style="background:#e6f7f1"><b>136</b></td></tr>
+        <tr><td><b>Hà</b></td><td style="background:#e6f7f1"><b>21</b></td><td style="background:#e6f7f1"><b>15</b></td><td style="background:#e6f7f1"><b>2 020</b></td><td style="background:#fdeceb">65</td><td style="background:#e6f7f1"><b>1 245</b></td></tr>
+        <tr><td>12</td><td>6</td><td style="background:#fdeceb">19</td><td>54</td><td style="background:#fdeceb">77</td><td><b>Siêu thị</b></td></tr>
+      </table>
+      <p>Hà → 21 → 15 → 2 020 → 72 → 123 → 136 → 1 245 → Siêu thị.</p>
+      <p class="vi-sao">Siêu thị chỉ nối với 77 (cấm) và 1 245, nên phải đi vào từ 1 245; mà 1 245 chỉ còn nối với 136 (vì 65 cấm)… Lần ngược từ đích như vậy, con đường hiện ra.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Hà → 21 → 15 → 2 020 → 72 → 123 → 136 → 1 245 → Siêu thị (cũng có thể đi vòng Hà → 12 → 6 → 21 → … như trên).</div>
+    <div class="bay">Đi qua 65 vì thấy tận cùng là 5. Tận cùng 5 thì chia hết cho 5, nhưng đề chỉ cho đi qua ô chia hết cho 2 <b>hoặc</b> cho 3.</div>
+    <div class="gv-note">Kho SGK chỉ mô tả lưới 3 hàng × 6 cột, “các ô liền kề theo hàng và cột được nối với nhau”. Lời giải coi mọi ô kề cạnh đều nối nhau; nếu hình trong sách thiếu một đoạn nối nào thì cần kiểm lại. Chỉ có 2 đường đi: đường trên và đường vòng qua 12; 6 (24 và 54 là ngõ cụt).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b210" data-ten="Bài 2.10" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2.10</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dấu hiệu chia hết cho 2, 5</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các số sau, số nào chia hết cho 2, số nào chia hết cho 5?</p><p>324; 248; 2 020; 2 025.</p></div>
+  <div class="thu chi-hs"><b>🎯 Thử nhanh — mỗi số chia hết cho số nào?</b>
+    <div class="cau-thu"><span class="noi-dung">324</span><button class="chon chu" data-dung="1">Chỉ cho 2</button><button class="chon chu" data-dung="0">Chỉ cho 5</button><button class="chon chu" data-dung="0">Cả 2 và 5</button><span class="phan-hoi" data-dung-txt="Đúng! Tận cùng 4." data-sai-txt="Thử lại: chữ số tận cùng của 324 là 0 hoặc 5 không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">2 020</span><button class="chon chu" data-dung="0">Chỉ cho 2</button><button class="chon chu" data-dung="0">Chỉ cho 5</button><button class="chon chu" data-dung="1">Cả 2 và 5</button><span class="phan-hoi" data-dung-txt="Đúng! Tận cùng 0 thì chia hết cho cả 2 và 5." data-sai-txt="Thử lại: chữ số 0 có nằm trong cả hai dấu hiệu không?"></span></div>
+    <div class="cau-thu"><span class="noi-dung">2 025</span><button class="chon chu" data-dung="0">Chỉ cho 2</button><button class="chon chu" data-dung="1">Chỉ cho 5</button><button class="chon chu" data-dung="0">Cả 2 và 5</button><span class="phan-hoi" data-dung-txt="Đúng! Tận cùng 5 — số lẻ." data-sai-txt="Thử lại: 5 có phải chữ số chẵn không?"></span></div>
+  </div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chỉ cần nhìn chữ số tận cùng. Một số có thể ở cả hai nhóm.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tận cùng 0, 2, 4, 6, 8 → chia hết cho 2. Tận cùng 0 hoặc 5 → chia hết cho 5.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét chữ số tận cùng</h4>
+      <p>324 (tận cùng 4), 248 (tận cùng 8), 2 020 (tận cùng 0) chia hết cho 2.</p>
+      <p>2 020 (tận cùng 0), 2 025 (tận cùng 5) chia hết cho 5.</p>
+      <a class="xem-lai" href="#kt-dh25">📌 Xem lại: dấu hiệu chia hết cho 2, cho 5</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chia hết cho 2: 324; 248; 2 020. Chia hết cho 5: 2 020; 2 025.</div>
+    <div class="bay">Quên ghi 2 020 vào cả hai nhóm. Số tận cùng 0 chia hết cho cả 2 và 5.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b211" data-ten="Bài 2.11" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2.11</span><span class="nhan nb">Nhận biết</span><span class="nhan">Dấu hiệu chia hết cho 3, 9</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các số sau, số nào chia hết cho 3, số nào chia hết cho 9?</p><p>450; 123; 2 019; 2 025.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Cộng các chữ số. Chia hết cho 9 thì chắc chắn chia hết cho 3 — nhưng ngược lại thì sao?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Tính tổng các chữ số của từng số, rồi xét tổng đó chia hết cho 3, cho 9 hay không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính tổng các chữ số</h4>
+      <table>
+        <tr><th>Số</th><th>Tổng các chữ số</th><th>⋮ 3?</th><th>⋮ 9?</th></tr>
+        <tr><td>450</td><td>4 + 5 + 0 = 9</td><td style="background:#e6f7f1">có</td><td style="background:#e6f7f1">có</td></tr>
+        <tr><td>123</td><td>1 + 2 + 3 = 6</td><td style="background:#e6f7f1">có</td><td>không</td></tr>
+        <tr><td>2 019</td><td>2 + 0 + 1 + 9 = 12</td><td style="background:#e6f7f1">có</td><td>không</td></tr>
+        <tr><td>2 025</td><td>2 + 0 + 2 + 5 = 9</td><td style="background:#e6f7f1">có</td><td style="background:#e6f7f1">có</td></tr>
+      </table>
+      <p class="vi-sao">Tổng 6 và 12 chia hết cho 3 nhưng không chia hết cho 9. Vì vậy 123 và 2 019 chỉ chia hết cho 3.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Chia hết cho 3: 450; 123; 2 019; 2 025. Chia hết cho 9: 450; 2 025.</div>
+    <div class="bay">Thấy 2 019 có chữ số 9 rồi cho là chia hết cho 9. Phải xét <b>tổng các chữ số</b> (bằng 12), không phải nhìn chữ số tận cùng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b212" data-ten="Bài 2.12" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.12</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bài toán chia nhóm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Khối lớp 6 của một trường có 290 học sinh đi dã ngoại. Cô phụ trách muốn chia đều số học sinh của khối 6 thành 9 nhóm. Hỏi cô có chia nhóm được như vậy không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chia đều thành 9 nhóm được khi 290 chia hết cho 9.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng dấu hiệu chia hết cho 9 với số 290.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét 290 có chia hết cho 9 không</h4>
+      <p>Tổng các chữ số của 290: <span class="m">2 + 9 + 0 = 11</span>, không chia hết cho 9. Vậy <span class="m">290 ⋮̸ 9</span>.</p>
+      <p class="vi-sao">Chia đều thành 9 nhóm nghĩa là 290 phải chia hết cho 9.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không chia được, vì 290 có tổng các chữ số là 11, không chia hết cho 9.</div>
+    <div class="bay">Thấy 290 có chữ số 9 nên kết luận chia hết cho 9.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b213" data-ten="Bài 2.13" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.13</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bài toán chia nhóm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có 162 học sinh tham gia chương trình đào tạo bóng đá, được chia thành các đội. Mỗi đội cần có 9 học sinh. Hỏi có đội nào không có đủ 9 học sinh hay không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Có đội nào thiếu người không” — tức là 162 có chia hết cho 9 không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nếu 162 chia hết cho 9 thì các đội đều đủ 9 người.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xét 162 có chia hết cho 9 không</h4>
+      <p>Tổng các chữ số: <span class="m">1 + 6 + 2 = 9</span> chia hết cho 9, nên <span class="m">162 ⋮ 9</span>. Ta có <span class="m">162 : 9 = 18</span>.</p>
+      <a class="xem-lai" href="#kt-dh9">📌 Xem lại: dấu hiệu chia hết cho 9</a></div>
+    <div class="buoc" data-so="2"><h4>Trả lời</h4>
+      <p>Chia được đúng 18 đội, mỗi đội 9 học sinh, không đội nào thiếu.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Không có đội nào thiếu, vì <span class="m">162 ⋮ 9</span> (chia được 18 đội, mỗi đội đủ 9 học sinh).</div>
+    <div class="bay">Trả lời “Có” vì hiểu nhầm câu hỏi. Đọc kĩ: đề hỏi có đội nào <b>không đủ</b> người không.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b214" data-ten="Bài 2.14" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.14</span><span class="nhan th">Thông hiểu</span><span class="nhan">Điền chữ số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Thay dấu * bởi một chữ số để số <span style="text-decoration:overline">345*</span>:</p>
+    <p>a) Chia hết cho 2; &nbsp; b) Chia hết cho 3;</p><p>c) Chia hết cho 5; &nbsp; d) Chia hết cho 9.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bốn câu, bốn dấu hiệu khác nhau. Câu b có nhiều đáp án hơn câu d.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu a, c: nhìn chữ số tận cùng (chính là *). Câu b, d: tổng các chữ số là <span class="m">12 + *</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a và c — chữ số tận cùng</h4>
+      <p>a) * ∈ {0; 2; 4; 6; 8}. &nbsp; c) * ∈ {0; 5}.</p>
+      <a class="xem-lai" href="#kt-dh25">📌 Xem lại: dấu hiệu chia hết cho 2, cho 5</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b và d — tổng các chữ số</h4>
+      <p>Tổng: <span class="m">3 + 4 + 5 + * = 12 + *</span>, nằm trong khoảng 12 đến 21.</p>
+      <p>b) Chia hết cho 3: 12; 15; 18; 21 → * ∈ {0; 3; 6; 9}.</p>
+      <p>d) Chia hết cho 9: chỉ có 18 → * = 6.</p>
+      <a class="xem-lai" href="#kt-dh3">📌 Xem lại: dấu hiệu chia hết cho 3</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) * ∈ {0; 2; 4; 6; 8}; &nbsp; b) * ∈ {0; 3; 6; 9}; &nbsp; c) * ∈ {0; 5}; &nbsp; d) * = 6.</div>
+    <div class="bay">Ở câu b quên * = 0 (khi đó tổng là 12, vẫn chia hết cho 3).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b215" data-ten="Bài 2.15" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.15</span><span class="nhan th">Thông hiểu</span><span class="nhan">Lập số chia hết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng ba chữ số 3; 0; 4, hãy viết các số tự nhiên có ba chữ số khác nhau và thoả mãn một trong hai điều kiện:</p>
+    <p>a) Các số đó chia hết cho 2;</p><p>b) Các số đó chia hết cho 5.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chữ số 0 không được đứng đầu. Chia hết cho 2, 5 — chỉ cần lo chữ số cuối.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Liệt kê hết các số có ba chữ số khác nhau lập từ 3; 0; 4 trước, rồi lọc.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Liệt kê mọi số lập được</h4>
+      <p>Chữ số hàng trăm là 3 hoặc 4 (không thể là 0): 304; 340; 403; 430.</p></div>
+    <div class="buoc" data-so="2"><h4>Lọc theo điều kiện</h4>
+      <p>a) Tận cùng là chữ số chẵn (0 hoặc 4): 304; 340; 430.</p>
+      <p>b) Tận cùng là 0 (vì không có chữ số 5): 340; 430.</p>
+      <a class="xem-lai" href="#kt-dh25">📌 Xem lại: dấu hiệu chia hết cho 2, cho 5</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 304; 340; 430. &nbsp; b) 340; 430.</div>
+    <div class="bay">Viết thêm 034 hoặc 043 — đó không phải số có ba chữ số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b216" data-ten="Bài 2.16" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2.16</span><span class="nhan vd">Vận dụng</span><span class="nhan">Lập số chia hết</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Từ các chữ số 5; 0; 4; 2, viết các số tự nhiên có ba chữ số khác nhau sao cho mỗi số đó chia hết cho 3.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chọn bộ ba chữ số có tổng chia hết cho 3 trước, rồi mới xếp thứ tự.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Một số chia hết cho 3 chỉ phụ thuộc tổng các chữ số. Có 4 cách chọn ra 3 chữ số — xét tổng của từng bộ.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chọn bộ ba chữ số</h4>
+      <p>{5; 0; 4}: tổng 9 ✓ &nbsp; {5; 0; 2}: tổng 7 ✗ &nbsp; {5; 4; 2}: tổng 11 ✗ &nbsp; {0; 4; 2}: tổng 6 ✓.</p>
+      <a class="xem-lai" href="#kt-dh3">📌 Xem lại: dấu hiệu chia hết cho 3</a></div>
+    <div class="buoc" data-so="2"><h4>Xếp thành số có ba chữ số</h4>
+      <p>Từ 5; 0; 4: 405; 450; 504; 540.</p>
+      <p>Từ 0; 4; 2: 204; 240; 402; 420.</p>
+      <p class="vi-sao">Mỗi bộ có chữ số 0 nên chỉ xếp được 4 số (0 không đứng đầu).</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có 8 số: 204; 240; 402; 405; 420; 450; 504; 540.</div>
+    <div class="bay">Đổi chỗ các chữ số rồi tưởng tổng thay đổi. Đổi thứ tự không làm đổi tổng các chữ số — cả bộ cùng đạt hoặc cùng không đạt.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 9. Dấu hiệu chia hết — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c02-b09';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-02-bai-09-dau-hieu-chia-het-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-02-bai-09-dau-hieu-chia-het-bai-giai.nguon.html" data-phien-ban="c9a3283358f3">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

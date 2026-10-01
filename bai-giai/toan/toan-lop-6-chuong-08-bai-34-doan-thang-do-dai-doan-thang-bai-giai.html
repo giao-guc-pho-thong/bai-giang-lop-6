@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 34. Đoạn thẳng. Độ dài đoạn thẳng — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương VIII. Những hình hình học cơ bản</div>
+    <div class="hang1">
+      <h1>Bài 34. Đoạn thẳng. Độ dài đoạn thẳng — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương VIII. Những hình hình học cơ bản</div><h1>Bài 34. Đoạn thẳng. Độ dài đoạn thẳng — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <div class="kt" id="kt-doan"><b class="ten">Đoạn thẳng</b>
+      <b>Đoạn thẳng <span class="m">AB</span></b>, hay đoạn thẳng <span class="m">BA</span>, là hình gồm hai điểm <span class="m">A</span>, <span class="m">B</span> cùng với tất cả các điểm nằm giữa <span class="m">A</span> và <span class="m">B</span>. <span class="m">A</span>, <span class="m">B</span> là hai <b>đầu mút</b> (<b>mút</b>) của đoạn thẳng <span class="m">AB</span>.</div>
+    <div class="kt" id="kt-do-dai"><b class="ten">Độ dài đoạn thẳng</b>
+      Mỗi đoạn thẳng có một <b>độ dài</b>. Khi chọn một đơn vị độ dài thì độ dài mỗi đoạn thẳng được biểu diễn bởi một số dương (thường viết kèm đơn vị). Ví dụ: <span class="m">AB</span> = 23 mm, <span class="m">CD</span> = 4 cm.</div>
+    <div class="kt" id="kt-khoang-cach"><b class="ten">Khoảng cách</b>
+      Độ dài đoạn thẳng <span class="m">AB</span> còn gọi là <b>khoảng cách</b> giữa hai điểm <span class="m">A</span> và <span class="m">B</span>. Ta quy ước khoảng cách giữa hai điểm trùng nhau bằng 0 (đơn vị).</div>
+    <div class="kt" id="kt-so-sanh"><b class="ten">So sánh hai đoạn thẳng</b>
+      Hai đoạn thẳng <span class="m">AB</span> và <span class="m">EG</span> có cùng độ dài: ta viết <span class="m">AB = EG</span>. Đoạn <span class="m">AB</span> có độ dài nhỏ hơn đoạn <span class="m">CD</span>: ta viết <span class="m">AB &lt; CD</span> (<span class="m">AB</span> ngắn hơn <span class="m">CD</span>) hoặc <span class="m">CD &gt; AB</span> (<span class="m">CD</span> dài hơn <span class="m">AB</span>).</div>
+    <div class="kt" id="kt-cong"><b class="ten">Đo đoạn thẳng dài hơn thước (lời Pi, Ví dụ)</b>
+      Đặt thước từ <span class="m">A</span> đến <span class="m">M</span>, rồi đo tiếp từ <span class="m">M</span> đến <span class="m">B</span>: <span class="m">AB = AM + MB</span> = 20 + 4 = 24 (cm). Tổng quát (Ví dụ trong bài): điểm <span class="m">B</span> nằm giữa <span class="m">A</span> và <span class="m">C</span> thì <span class="m">AC = AB + BC</span>.</div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập hai — Bài 34. Đoạn thẳng. Độ dài đoạn thẳng.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đoạn thẳng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một người đi xe đạp trên một đoạn đường thẳng từ <span class="m">A</span> đến <span class="m">B</span> (H.8.23).</p>
+    <p>Em có nhận xét gì về những vị trí mà người đó đã đi qua so với hai điểm <span class="m">A</span> và <span class="m">B</span>?</p>
+    <p><i>(Hình 8.23: người đi xe đạp trên đường thẳng từ ngôi nhà (điểm <span class="m">A</span>) đến siêu thị (điểm <span class="m">B</span>).)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Người đi xe đạp có đi qua chỗ nào nằm ngoài khoảng từ nhà tới siêu thị không?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Nghĩ về từ “nằm giữa” của Bài 33.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhận xét</h4>
+      <p>Người đó đi qua điểm <span class="m">A</span>, điểm <span class="m">B</span> và tất cả các vị trí <b>nằm giữa</b> <span class="m">A</span> và <span class="m">B</span>; không đi qua vị trí nào ở ngoài khoảng đó.</p>
+      <p class="vi-sao">Đường thẳng, đi từ <span class="m">A</span> đến <span class="m">B</span> rồi dừng — giống một vạch thước kẻ từ <span class="m">A</span> đến <span class="m">B</span>: đó chính là hình ảnh của <b>đoạn thẳng</b> <span class="m">AB</span>.</p>
+      <a class="xem-lai" href="#kt-doan">📌 Xem lại: đoạn thẳng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Các vị trí người đó đi qua là điểm <span class="m">A</span>, điểm <span class="m">B</span> và mọi điểm nằm giữa <span class="m">A</span> và <span class="m">B</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đoạn thẳng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Lấy các điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span> phân biệt và thẳng hàng theo thứ tự như Hình 8.24.</p>
+    <p>Dùng thước thẳng và bút màu đen kẻ một vạch thẳng bắt đầu từ <span class="m">A</span> và kết thúc ở <span class="m">B</span>.</p>
+    <p>Em có nhận xét gì về vị trí của hai điểm <span class="m">C</span> và <span class="m">D</span> đối với phần vạch thẳng màu đen?</p>
+    <p><i>(Hình 8.24: đường thẳng nét đứt với các điểm theo thứ tự từ trái sang phải: <span class="m">A</span>, <span class="m">C</span>, <span class="m">B</span>, <span class="m">D</span>.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Vạch đen bắt đầu ở <i>A</i>, dừng ở <i>B</i>. <i>C</i> và <i>D</i> ở trong hay ngoài khoảng đó?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Điểm nào nằm giữa <span class="m">A</span> và <span class="m">B</span>?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kẻ vạch và quan sát</h4>
+      <svg viewBox="0 0 440 80" style="max-width:400px" role="img" aria-label="Vạch đen từ A đến B; C nằm trên vạch đen, D nằm ngoài">
+  <line x1="20.0" y1="45.0" x2="420.0" y2="45.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <line x1="70.0" y1="45.0" x2="280.0" y2="45.0" stroke="#1f2430" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="70.0" cy="45.0" r="4.5" fill="#2f6fdb"/>
+  <text x="70.0" y="31.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">A</text>
+  <circle cx="170.0" cy="45.0" r="4.5" fill="#0f8a68"/>
+  <text x="170.0" y="31.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#0f8a68">C</text>
+  <circle cx="280.0" cy="45.0" r="4.5" fill="#2f6fdb"/>
+  <text x="280.0" y="31.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">B</text>
+  <circle cx="370.0" cy="45.0" r="4.5" fill="#c93c3c"/>
+  <text x="370.0" y="31.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">D</text>
+</svg>
+      <p><span class="m">C</span> nằm giữa <span class="m">A</span> và <span class="m">B</span> nên <span class="m">C</span> <b>nằm trên</b> vạch đen. <span class="m">D</span> ở bên ngoài, sau <span class="m">B</span>, nên <span class="m">D</span> <b>không nằm trên</b> vạch đen.</p>
+      <p class="vi-sao">Vạch đen gồm <span class="m">A</span>, <span class="m">B</span> và các điểm nằm giữa chúng — đó là đoạn thẳng <span class="m">AB</span>.</p>
+      <a class="xem-lai" href="#kt-doan">📌 Xem lại: đoạn thẳng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Điểm <span class="m">C</span> nằm trên vạch đen (vì <span class="m">C</span> nằm giữa <span class="m">A</span> và <span class="m">B</span>); điểm <span class="m">D</span> không nằm trên vạch đen.</div>
+    <div class="bay">Nghĩ <span class="m">D</span> thuộc vạch đen vì <span class="m">D</span> nằm trên đường thẳng <span class="m">AB</span>. Vạch đen chỉ là một phần của đường thẳng, dừng ở <span class="m">B</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (mục 1)" data-muc="nb" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 1)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Gọi tên đoạn thẳng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy đọc tên tất cả các đoạn thẳng trong Hình 8.26.</p>
+    <p><i>(Hình 8.26: tam giác với ba đỉnh <span class="m">A</span> (trên), <span class="m">B</span> (dưới trái), <span class="m">C</span> (phải).)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tam giác có mấy cạnh? Mỗi cạnh là một đoạn thẳng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đoạn thẳng được gọi tên bằng hai đầu mút của nó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Gọi tên ba cạnh</h4>
+      <p>Hình có ba đoạn thẳng nối từng cặp đỉnh: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CA</span>.</p>
+      <p class="vi-sao">Mỗi đoạn có hai đầu mút là hai đỉnh của tam giác; <span class="m">AB</span> và <span class="m">BA</span> là một đoạn.</p>
+      <a class="xem-lai" href="#kt-doan">📌 Xem lại: đoạn thẳng, đầu mút</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ba đoạn thẳng: <span class="m">AB</span>, <span class="m">BC</span>, <span class="m">CA</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đếm đoạn thẳng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Với bốn điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span> như Hình 8.27, em hãy kể tên các đoạn thẳng có đầu mút là:</p>
+    <p>a) Hai trong ba điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>;</p>
+    <p>b) Hai trong bốn điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>.</p>
+    <p><i>(Hình 8.27: lưới ô vuông; ba điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span> nằm trên cùng một đường ngang ở hàng trên; điểm <span class="m">D</span> nằm ở hàng dưới, ngay bên dưới <span class="m">B</span>.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Ba điểm <i>A, B, C</i> thẳng hàng — vẫn có đủ 3 đoạn thẳng, kể cả đoạn “dài” <i>AC</i>.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghép có thứ tự: <span class="m">A</span> với từng điểm sau nó, rồi <span class="m">B</span> với từng điểm sau nó, …</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — ba điểm A, B, C</h4>
+      <p><span class="m">A</span> ghép với <span class="m">B</span>, <span class="m">C</span>: <span class="m">AB</span>, <span class="m">AC</span>. <span class="m">B</span> ghép với <span class="m">C</span>: <span class="m">BC</span>. Có 3 đoạn thẳng.</p>
+      <p class="vi-sao"><span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span> thẳng hàng nên ba đoạn nằm chồng lên nhau trên một đường, nhưng vẫn là ba đoạn khác nhau (khác đầu mút).</p>
+      <a class="xem-lai" href="#kt-doan">📌 Xem lại: đoạn thẳng</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — thêm điểm D</h4>
+      <svg viewBox="0 0 300 230" style="max-width:300px" role="img" aria-label="Lưới ô: A, B, C ở hàng trên, D ở dưới B; sáu đoạn thẳng nối bốn điểm">
+  <line x1="30.0" y1="30.0" x2="30.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="78.0" y1="30.0" x2="78.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="126.0" y1="30.0" x2="126.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="174.0" y1="30.0" x2="174.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="222.0" y1="30.0" x2="222.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="270.0" y1="30.0" x2="270.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="30.0" y1="30.0" x2="270.0" y2="30.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="30.0" y1="78.0" x2="270.0" y2="78.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="30.0" y1="126.0" x2="270.0" y2="126.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="30.0" y1="174.0" x2="270.0" y2="174.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="30.0" y1="222.0" x2="270.0" y2="222.0" stroke="#d5dae3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="78.0" y1="58.8" x2="222.0" y2="58.8" stroke="#2f6fdb" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.0" y1="58.8" x2="126.0" y2="193.2" stroke="#0f8a68" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="126.0" y1="58.8" x2="126.0" y2="193.2" stroke="#6b4fc9" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="222.0" y1="58.8" x2="126.0" y2="193.2" stroke="#d9822b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="78.0" cy="58.8" r="4.5" fill="#1f2430"/>
+  <text x="66.0" y="50.8" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">A</text>
+  <circle cx="126.0" cy="58.8" r="4.5" fill="#1f2430"/>
+  <text x="126.0" y="46.8" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">B</text>
+  <circle cx="222.0" cy="58.8" r="4.5" fill="#1f2430"/>
+  <text x="234.0" y="50.8" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">C</text>
+  <circle cx="126.0" cy="193.2" r="4.5" fill="#1f2430"/>
+  <text x="140.0" y="209.2" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">D</text>
+</svg>
+      <p>Ngoài 3 đoạn ở câu a, <span class="m">D</span> ghép với <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>: <span class="m">AD</span>, <span class="m">BD</span>, <span class="m">CD</span>. Có tất cả 6 đoạn thẳng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">AB</span>, <span class="m">AC</span>, <span class="m">BC</span>. &nbsp; b) <span class="m">AB</span>, <span class="m">AC</span>, <span class="m">AD</span>, <span class="m">BC</span>, <span class="m">BD</span>, <span class="m">CD</span> (6 đoạn thẳng).</div>
+    <div class="bay">Quên đoạn <span class="m">AC</span> vì nó “chồng lên” <span class="m">AB</span> và <span class="m">BC</span>. <span class="m">AC</span> có đầu mút khác nên vẫn là một đoạn thẳng riêng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd1" data-ten="Vận dụng 1" data-muc="vd">
+  <div class="bai-dau"><span class="so">Vận dụng 1</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Có 5 hòn đảo biểu thị bởi 5 điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span> như Hình 8.28. Người ta đã xây một cây cầu nối hai đảo <span class="m">A</span> và <span class="m">B</span> (biểu thị bởi đoạn thẳng <span class="m">AB</span>). Hỏi phải xây thêm ít nhất bao nhiêu cây cầu nữa để có thể đi lại giữa 5 hòn đảo đó qua những cây cầu (mỗi cây cầu chỉ nối hai đảo với nhau)?</p>
+    <p><i>(Hình 8.28: năm điểm <span class="m">A</span>, <span class="m">B</span>, <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span> nằm rải rác; đoạn thẳng <span class="m">AB</span> được vẽ màu đỏ.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hiện có mấy “nhóm đảo” đi lại được với nhau? Mỗi cây cầu mới gộp được nhiều nhất mấy nhóm?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ba đảo <span class="m">C</span>, <span class="m">D</span>, <span class="m">E</span> đang “cô lập”. Mỗi cây cầu mới chỉ nối thêm được nhiều nhất một đảo cô lập vào nhóm <span class="m">A</span>–<span class="m">B</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đếm số nhóm hiện có</h4>
+      <p>Hiện nay có 4 nhóm tách rời: nhóm {<span class="m">A</span>; <span class="m">B</span>}, đảo <span class="m">C</span>, đảo <span class="m">D</span>, đảo <span class="m">E</span>.</p>
+      <p>Mỗi cây cầu nối hai đảo, nên gộp được nhiều nhất <b>hai nhóm thành một</b>. Từ 4 nhóm về 1 nhóm cần ít nhất 4 − 1 = 3 cây cầu.</p>
+      <p class="vi-sao">Mỗi cầu chỉ bớt được nhiều nhất một nhóm; muốn bớt 3 nhóm thì cần ít nhất 3 cầu.</p></div>
+    <div class="buoc" data-so="2"><h4>Chỉ ra một cách xây 3 cây cầu</h4>
+      <svg viewBox="0 0 420 290" style="max-width:380px" role="img" aria-label="Năm hòn đảo A, B, C, D, E; cầu AB đã có (đỏ), ba cầu xây thêm (xanh nét đứt)">
+  <line x1="48.0" y1="104.0" x2="179.0" y2="40.0" stroke="#c93c3c" stroke-width="4" stroke-linecap="round"/>
+  <line x1="179.0" y1="40.0" x2="376.0" y2="80.0" stroke="#0f8a68" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <line x1="376.0" y1="80.0" x2="349.0" y2="218.0" stroke="#0f8a68" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <line x1="349.0" y1="218.0" x2="168.0" y2="253.0" stroke="#0f8a68" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+  <circle cx="48.0" cy="104.0" r="4.5" fill="#2f6fdb"/>
+  <text x="34.0" y="96.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">A</text>
+  <circle cx="179.0" cy="40.0" r="4.5" fill="#2f6fdb"/>
+  <text x="179.0" y="26.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">B</text>
+  <circle cx="376.0" cy="80.0" r="4.5" fill="#2f6fdb"/>
+  <text x="390.0" y="72.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">C</text>
+  <circle cx="168.0" cy="253.0" r="4.5" fill="#2f6fdb"/>
+  <text x="168.0" y="279.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">D</text>
+  <circle cx="349.0" cy="218.0" r="4.5" fill="#2f6fdb"/>
+  <text x="365.0" y="236.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#2f6fdb">E</text>
+</svg>
+      <p>Ví dụ: xây cầu <span class="m">BC</span>, <span class="m">CE</span>, <span class="m">ED</span>. Khi đó đi được <span class="m">A → B → C → E → D</span>, tức là đi lại được giữa mọi đảo.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Phải xây thêm ít nhất 3 cây cầu (ví dụ các cầu <span class="m">BC</span>, <span class="m">CE</span>, <span class="m">ED</span>).</div>
+    <div class="bay">Trả lời 4 cây cầu vì “còn 4 đảo chưa có cầu riêng” hoặc nối mỗi đảo với <span class="m">A</span> bằng một cầu rồi thêm cầu thừa. Đảo <span class="m">A</span>, <span class="m">B</span> đã nối với nhau; chỉ cần đưa 3 đảo còn lại vào.</div>
+    <div class="gv-note">Có nhiều cách xây 3 cầu (ví dụ <i>AC</i>, <i>AD</i>, <i>AE</i>; hoặc <i>BC</i>, <i>BD</i>, <i>BE</i>). Không cần hai cầu cắt nhau; vị trí các đảo không ảnh hưởng tới đáp số.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+    <div class="them">Hình dung 4 nhóm bạn đứng riêng rẽ. Mỗi lần nắm tay chỉ nối được hai người, tức là gộp hai nhóm thành một. Muốn cả lớp nối thành một vòng tay liền thì phải nắm tay ít nhất 3 lần.</div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đo bằng gang tay</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Chiều dài mặt bàn học của em dài khoảng mấy gang tay của em?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt gang tay nối tiếp nhau, không chồng, không hở.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt ngón cái ở mép bàn, căng gang tay, đánh dấu chỗ đầu ngón út; đặt tiếp ngón cái vào chỗ vừa đánh dấu… Đếm số lần.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cách đo</h4>
+      <p>Đo từ mép trái tới mép phải mặt bàn bằng gang tay, đặt nối tiếp nhau, rồi đếm số gang. Phần lẻ cuối cùng thì ước lượng (“khoảng nửa gang”).</p>
+      <p>Ví dụ: một mặt bàn đơn dài khoảng 6 gang tay của một bạn lớp 6.</p>
+      <p class="vi-sao">Ta đang dùng gang tay làm <b>đơn vị độ dài</b>; số gang đếm được là <b>số đo độ dài</b> của mặt bàn.</p>
+      <a class="xem-lai" href="#kt-do-dai">📌 Xem lại: độ dài đoạn thẳng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ bàn và tay của mỗi em (thường khoảng 5 – 8 gang tay). Đo bằng cách đặt gang tay nối tiếp nhau từ mép này tới mép kia rồi đếm.</div>
+    <div class="gv-note">Hoạt động mở. Nên cho hai bạn tay to, tay nhỏ cùng đo một bàn để thấy kết quả khác nhau — từ đó hiểu vì sao cần đơn vị chung (cm, m).</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd4" data-ten="HĐ4" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ4</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đơn vị độ dài</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Mở trang cuối của sách giáo khoa, em sẽ thấy thông tin về khổ sách là 19 × 26,5 cm.</p>
+    <p>Em hiểu thông tin đó như thế nào?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 19 × 26,5 cm — số nào là chiều rộng, số nào là chiều dài?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Trang sách là một hình chữ nhật, có hai kích thước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đọc thông tin</h4>
+      <p>Trang sách có chiều rộng 19 cm và chiều dài 26,5 cm.</p>
+      <p class="vi-sao">Người ta chọn 1 cm làm đơn vị đo; 19 và 26,5 là số đo hai cạnh của trang sách. Dấu “×” ở đây chỉ để ghi “rộng × dài”, không phải phép nhân cần tính.</p>
+      <a class="xem-lai" href="#kt-do-dai">📌 Xem lại: độ dài, đơn vị độ dài</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trang sách (khổ sách) có chiều rộng 19 cm và chiều dài 26,5 cm.</div>
+    <div class="bay">Đem nhân 19 × 26,5 rồi nói “sách dài 503,5 cm”. Kí hiệu khổ sách chỉ ghi hai kích thước, không phải phép tính.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (mục 2)" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (mục 2)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đơn vị độ dài</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em còn biết những đơn vị đo độ dài nào khác?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhớ lại bảng đơn vị đo độ dài ở tiểu học.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đo quãng đường dài dùng đơn vị gì? Đo con kiến dùng đơn vị gì?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Kể các đơn vị</h4>
+      <p>Bảng đơn vị đo độ dài: ki-lô-mét (km), héc-tô-mét (hm), đề-ca-mét (dam), mét (m), đề-xi-mét (dm), xăng-ti-mét (cm), mi-li-mét (mm).</p>
+      <p>Ngoài ra còn có những đơn vị khác như inch (dùng cho màn hình ti vi), hải lí (dùng trên biển).</p>
+      <a class="xem-lai" href="#kt-do-dai">📌 Xem lại: độ dài</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ví dụ: km, hm, dam, m, dm, cm, mm; ngoài ra có inch, hải lí…</div>
+    <div class="gv-note">Câu hỏi mở. Có thể nối với “gang tay”, “bước chân” ở HĐ3, bài 8.12 — các đơn vị không chuẩn.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd5" data-ten="HĐ5" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ5</span><span class="nhan nb">Nhận biết</span><span class="nhan">So sánh đoạn thẳng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng thước có vạch chia để đo độ dài các đoạn thẳng <span class="m">AB</span>, <span class="m">CD</span>, <span class="m">EG</span> trong Hình 8.31 rồi trả lời các câu hỏi sau:</p>
+    <p>a) Đoạn thẳng <span class="m">AB</span> có dài bằng đoạn thẳng <span class="m">EG</span> không?</p>
+    <p>b) Trong các đoạn <span class="m">AB</span> và <span class="m">CD</span>, đoạn thẳng nào có độ dài nhỏ hơn?</p>
+    <p>c) Trong các đoạn <span class="m">CD</span> và <span class="m">EG</span>, đoạn thẳng nào có độ dài lớn hơn?</p>
+    <p><i>(Hình 8.31: ba đoạn thẳng nằm ngang: <span class="m">AB</span> và <span class="m">EG</span> cùng độ dài; <span class="m">CD</span> dài hơn.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đo cả ba đoạn trước, ghi số đo ra, rồi mới so sánh.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đặt vạch 0 của thước trùng với đầu mút bên trái, đọc số ở đầu mút bên phải.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo</h4>
+      <p>Đo trên hình trong sách được: <span class="m">AB</span> = 3 cm, <span class="m">CD</span> = 4 cm, <span class="m">EG</span> = 3 cm.</p>
+      <a class="xem-lai" href="#kt-do-dai">📌 Xem lại: độ dài đoạn thẳng</a></div>
+    <div class="buoc" data-so="2"><h4>So sánh</h4>
+      <p>a) <span class="m">AB</span> = <span class="m">EG</span> (cùng 3 cm). b) 3 &lt; 4 nên <span class="m">AB &lt; CD</span>: đoạn <span class="m">AB</span> ngắn hơn. c) 4 &gt; 3 nên <span class="m">CD &gt; EG</span>: đoạn <span class="m">CD</span> dài hơn.</p>
+      <p class="vi-sao">So sánh hai đoạn thẳng chính là so sánh hai số đo độ dài của chúng (cùng một đơn vị).</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai đoạn thẳng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Có, <span class="m">AB = EG</span>. &nbsp; b) Đoạn <span class="m">AB</span> có độ dài nhỏ hơn (<span class="m">AB &lt; CD</span>). &nbsp; c) Đoạn <span class="m">CD</span> có độ dài lớn hơn (<span class="m">CD &gt; EG</span>).</div>
+    <div class="gv-note">Số đo 3 cm, 4 cm đo trên hình SGK (bản scan, đã đối chiếu tỉ lệ với thước ở Hình 8.29). Sách in có thể lệch 1 – 2 mm; kết luận so sánh không đổi.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đoạn thẳng bằng nhau</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy đo các đoạn thẳng trong Hình 8.33b rồi đánh dấu giống nhau cho các đoạn thẳng bằng nhau theo mẫu như Hình 8.33a.</p>
+    <p><i>(Hình 8.33: a) tứ giác <span class="m">ABCD</span> với <span class="m">AB</span>, <span class="m">AD</span> đánh một vạch, <span class="m">CB</span>, <span class="m">CD</span> đánh hai vạch; ghi <span class="m">AB = AD</span>, <span class="m">CB = CD</span>. b) hai tam giác <span class="m">MQN</span> và <span class="m">MPN</span> có chung cạnh đáy <span class="m">MN</span>; <span class="m">Q</span> và <span class="m">P</span> ở phía trên.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hình 8.33b có 5 đoạn thẳng. Đo cả 5 rồi tìm các cặp bằng nhau.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Các đoạn cần đo: <span class="m">MN</span>, <span class="m">MQ</span>, <span class="m">QN</span>, <span class="m">MP</span>, <span class="m">PN</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo năm đoạn thẳng</h4>
+      <p>Đo trên hình trong sách được: <span class="m">MQ</span> khoảng 3 cm, <span class="m">PN</span> khoảng 3 cm, <span class="m">MP</span> khoảng 4 cm, <span class="m">QN</span> khoảng 4 cm, <span class="m">MN</span> khoảng 5 cm.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: hai đoạn thẳng bằng nhau</a></div>
+    <div class="buoc" data-so="2"><h4>Đánh dấu</h4>
+      <svg viewBox="0 0 340 200" style="max-width:320px" role="img" aria-label="Hai tam giác MQN và MPN chung cạnh MN; MQ = NP (một vạch), MP = NQ (hai vạch)">
+  <line x1="40.0" y1="170.0" x2="297.0" y2="170.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="170.0" x2="132.0" y2="48.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="132.0" y1="48.0" x2="297.0" y2="170.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40.0" y1="170.0" x2="203.0" y2="48.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="203.0" y1="48.0" x2="297.0" y2="170.0" stroke="#1f2430" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="90.7" y1="89.5" x2="103.4" y2="99.2" stroke="#c93c3c" stroke-width="2" stroke-linecap="round"/>
+  <line x1="232.4" y1="99.2" x2="245.1" y2="89.5" stroke="#c93c3c" stroke-width="2" stroke-linecap="round"/>
+  <line x1="81.7" y1="128.8" x2="91.3" y2="141.6" stroke="#2f6fdb" stroke-width="2" stroke-linecap="round"/>
+  <line x1="86.5" y1="125.2" x2="96.1" y2="138.0" stroke="#2f6fdb" stroke-width="2" stroke-linecap="round"/>
+  <line x1="245.2" y1="141.6" x2="254.7" y2="128.8" stroke="#2f6fdb" stroke-width="2" stroke-linecap="round"/>
+  <line x1="240.3" y1="138.0" x2="249.8" y2="125.2" stroke="#2f6fdb" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="40.0" cy="170.0" r="4.5" fill="#1f2430"/>
+  <text x="30.0" y="192.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">M</text>
+  <circle cx="297.0" cy="170.0" r="4.5" fill="#1f2430"/>
+  <text x="307.0" y="192.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">N</text>
+  <circle cx="132.0" cy="48.0" r="4.5" fill="#1f2430"/>
+  <text x="126.0" y="36.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">Q</text>
+  <circle cx="203.0" cy="48.0" r="4.5" fill="#1f2430"/>
+  <text x="211.0" y="36.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#1f2430">P</text>
+</svg>
+      <p><span class="m">MQ = NP</span>: mỗi đoạn đánh <b>một vạch</b>. <span class="m">MP = NQ</span>: mỗi đoạn đánh <b>hai vạch</b>. <span class="m">MN</span> không bằng đoạn nào khác nên không đánh dấu.</p>
+      <p class="vi-sao">Các đoạn có cùng số vạch là các đoạn bằng nhau; khác số vạch là khác nhau.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">MQ = NP</span> (đánh một vạch); <span class="m">MP = NQ</span> (đánh hai vạch).</div>
+    <div class="bay">Đánh cùng một vạch cho cả bốn đoạn <span class="m">MQ</span>, <span class="m">NP</span>, <span class="m">MP</span>, <span class="m">NQ</span> vì “trông na ná”. Hai cặp có độ dài khác nhau (3 cm và 4 cm) nên phải dùng kí hiệu khác nhau.</div>
+    <div class="gv-note">Số đo lấy trên hình SGK (bản scan, đối chiếu tỉ lệ thước Hình 8.29): MQ = NP khoảng 3 cm, MP = NQ khoảng 4 cm, MN khoảng 5 cm. Chấp nhận sai lệch 1 – 2 mm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="vd2" data-ten="Vận dụng 2" data-muc="nb">
+  <div class="bai-dau"><span class="so">Vận dụng 2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Đo độ dài</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng thước thẳng có chia vạch, em hãy đo chiều dài của cây bút em đang dùng.</p>
+    <p>So sánh chiều dài cây bút với chiều dài thước thẳng và rút ra kết luận.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đặt đầu bút đúng vạch 0, đọc vạch ở đầu kia.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chiều dài thước là số lớn nhất ghi trên thước (thường 20 cm hoặc 30 cm).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo và so sánh</h4>
+      <p>Ví dụ: cây bút dài 14 cm, thước dài 20 cm. Vì 14 &lt; 20 nên cây bút ngắn hơn thước.</p>
+      <p class="vi-sao">So sánh độ dài hai vật bằng cách so sánh số đo của chúng (cùng đơn vị cm).</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh hai đoạn thẳng</a></div>
+    <div class="buoc" data-so="2"><h4>Kết luận</h4>
+      <p>Cây bút ngắn hơn thước nên đo trực tiếp được bằng một lần đặt thước. Nếu vật dài hơn thước thì đo từng phần rồi cộng lại (như Hình 8.30).</p>
+      <a class="xem-lai" href="#kt-cong">📌 Xem lại: đo đoạn thẳng dài hơn thước</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Tuỳ cây bút (ví dụ 14 cm). Thường cây bút ngắn hơn thước (ví dụ 14 cm &lt; 20 cm) nên đo được bằng một lần đặt thước.</div>
+    <div class="gv-note">Hoạt động thực hành mở; chấp nhận mọi kết luận hợp lí dựa trên số đo thật của HS.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b810" data-ten="Bài 8.10" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 8.10</span><span class="nhan nb">Nhận biết</span><span class="nhan">Độ dài, compa</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Dùng compa vẽ đường tròn tâm <span class="m">O</span> có bán kính bằng 2 cm. Gọi <span class="m">M</span> và <span class="m">N</span> là hai điểm tuỳ ý trên đường tròn đó. Hai đoạn thẳng <span class="m">OM</span> và <span class="m">ON</span> có bằng nhau không?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 <i>OM</i> và <i>ON</i> đều đi từ tâm tới một điểm trên đường tròn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Khi vẽ, đầu kim compa ở <span class="m">O</span>, đầu chì luôn cách <span class="m">O</span> bao nhiêu?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Giải thích</h4>
+      <p>Khi vẽ đường tròn, độ mở compa giữ nguyên 2 cm, nên mọi điểm trên đường tròn đều cách tâm <span class="m">O</span> đúng 2 cm. Vậy <span class="m">OM</span> = 2 cm, <span class="m">ON</span> = 2 cm, do đó <span class="m">OM = ON</span>.</p>
+      <p class="vi-sao">Độ dài <span class="m">OM</span> là khoảng cách từ <span class="m">O</span> tới <span class="m">M</span>; trên đường tròn khoảng cách đó luôn bằng bán kính.</p>
+      <a class="xem-lai" href="#kt-khoang-cach">📌 Xem lại: khoảng cách</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có. <span class="m">OM = ON</span> = 2 cm (đều bằng bán kính).</div>
+    <div class="bay">Chọn <span class="m">M</span>, <span class="m">N</span> ở hai chỗ “xa nhau” rồi nghĩ <span class="m">OM</span>, <span class="m">ON</span> khác nhau. Dù <span class="m">M</span>, <span class="m">N</span> ở đâu trên đường tròn, khoảng cách tới tâm vẫn là 2 cm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b811" data-ten="Bài 8.11" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 8.11</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đo độ dài</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Việt dùng thước đo độ dài đoạn thẳng <span class="m">AB</span>. Vì thước bị gãy mất một mẩu nên Việt chỉ có thể đặt thước để điểm <span class="m">A</span> trùng với vạch 3 cm. Khi đó điểm <span class="m">B</span> trùng với vạch 12 cm. Em hãy giúp Việt tính độ dài đoạn thẳng <span class="m">AB</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Điểm <i>A</i> không ở vạch 0 — vậy đọc số ở <i>B</i> chưa phải là độ dài.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Từ vạch 3 đến vạch 12 có bao nhiêu xăng-ti-mét?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tính từ hai vạch</h4>
+      <svg viewBox="0 0 470 110" style="max-width:440px" role="img" aria-label="Thước bị gãy: A ở vạch 3 cm, B ở vạch 12 cm">
+  <rect x="23.0" y="50.0" width="414.0" height="34" rx="4" fill="#f4e3c3" stroke="#c9a96e"/>
+  <line x1="35.0" y1="50.0" x2="35.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="38.0" y1="50.0" x2="38.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="41.0" y1="50.0" x2="41.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="44.0" y1="50.0" x2="44.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="47.0" y1="50.0" x2="47.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="50.0" y1="50.0" x2="50.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="53.0" y1="50.0" x2="53.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="56.0" y1="50.0" x2="56.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="59.0" y1="50.0" x2="59.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="62.0" y1="50.0" x2="62.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="65.0" y1="50.0" x2="65.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="68.0" y1="50.0" x2="68.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="71.0" y1="50.0" x2="71.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="74.0" y1="50.0" x2="74.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="77.0" y1="50.0" x2="77.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="80.0" y1="50.0" x2="80.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="83.0" y1="50.0" x2="83.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="86.0" y1="50.0" x2="86.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="89.0" y1="50.0" x2="89.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="92.0" y1="50.0" x2="92.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="95.0" y1="50.0" x2="95.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="98.0" y1="50.0" x2="98.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="101.0" y1="50.0" x2="101.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="104.0" y1="50.0" x2="104.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="107.0" y1="50.0" x2="107.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="110.0" y1="50.0" x2="110.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="113.0" y1="50.0" x2="113.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="116.0" y1="50.0" x2="116.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="119.0" y1="50.0" x2="119.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="122.0" y1="50.0" x2="122.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="125.0" y1="50.0" x2="125.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="128.0" y1="50.0" x2="128.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="131.0" y1="50.0" x2="131.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="134.0" y1="50.0" x2="134.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="137.0" y1="50.0" x2="137.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="140.0" y1="50.0" x2="140.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="143.0" y1="50.0" x2="143.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="146.0" y1="50.0" x2="146.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="149.0" y1="50.0" x2="149.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="152.0" y1="50.0" x2="152.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="155.0" y1="50.0" x2="155.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="158.0" y1="50.0" x2="158.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="161.0" y1="50.0" x2="161.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="164.0" y1="50.0" x2="164.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="167.0" y1="50.0" x2="167.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="170.0" y1="50.0" x2="170.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="173.0" y1="50.0" x2="173.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="176.0" y1="50.0" x2="176.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="179.0" y1="50.0" x2="179.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="182.0" y1="50.0" x2="182.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="185.0" y1="50.0" x2="185.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="188.0" y1="50.0" x2="188.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="191.0" y1="50.0" x2="191.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="194.0" y1="50.0" x2="194.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="197.0" y1="50.0" x2="197.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="200.0" y1="50.0" x2="200.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="203.0" y1="50.0" x2="203.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="206.0" y1="50.0" x2="206.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="209.0" y1="50.0" x2="209.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="212.0" y1="50.0" x2="212.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="215.0" y1="50.0" x2="215.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="218.0" y1="50.0" x2="218.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="221.0" y1="50.0" x2="221.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="224.0" y1="50.0" x2="224.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="227.0" y1="50.0" x2="227.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="230.0" y1="50.0" x2="230.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="233.0" y1="50.0" x2="233.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="236.0" y1="50.0" x2="236.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="239.0" y1="50.0" x2="239.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="242.0" y1="50.0" x2="242.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="245.0" y1="50.0" x2="245.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="248.0" y1="50.0" x2="248.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="251.0" y1="50.0" x2="251.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="254.0" y1="50.0" x2="254.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="257.0" y1="50.0" x2="257.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="260.0" y1="50.0" x2="260.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="263.0" y1="50.0" x2="263.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="266.0" y1="50.0" x2="266.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="269.0" y1="50.0" x2="269.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="272.0" y1="50.0" x2="272.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="275.0" y1="50.0" x2="275.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="278.0" y1="50.0" x2="278.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="281.0" y1="50.0" x2="281.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="284.0" y1="50.0" x2="284.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="287.0" y1="50.0" x2="287.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="290.0" y1="50.0" x2="290.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="293.0" y1="50.0" x2="293.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="296.0" y1="50.0" x2="296.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="299.0" y1="50.0" x2="299.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="302.0" y1="50.0" x2="302.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="305.0" y1="50.0" x2="305.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="308.0" y1="50.0" x2="308.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="311.0" y1="50.0" x2="311.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="314.0" y1="50.0" x2="314.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="317.0" y1="50.0" x2="317.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="320.0" y1="50.0" x2="320.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="323.0" y1="50.0" x2="323.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="326.0" y1="50.0" x2="326.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="329.0" y1="50.0" x2="329.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="332.0" y1="50.0" x2="332.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="335.0" y1="50.0" x2="335.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="338.0" y1="50.0" x2="338.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="341.0" y1="50.0" x2="341.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="344.0" y1="50.0" x2="344.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="347.0" y1="50.0" x2="347.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="350.0" y1="50.0" x2="350.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="353.0" y1="50.0" x2="353.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="356.0" y1="50.0" x2="356.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="359.0" y1="50.0" x2="359.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="362.0" y1="50.0" x2="362.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="365.0" y1="50.0" x2="365.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="368.0" y1="50.0" x2="368.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="371.0" y1="50.0" x2="371.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="374.0" y1="50.0" x2="374.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="377.0" y1="50.0" x2="377.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="380.0" y1="50.0" x2="380.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="383.0" y1="50.0" x2="383.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="386.0" y1="50.0" x2="386.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="389.0" y1="50.0" x2="389.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="392.0" y1="50.0" x2="392.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="395.0" y1="50.0" x2="395.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="398.0" y1="50.0" x2="398.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="401.0" y1="50.0" x2="401.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="404.0" y1="50.0" x2="404.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="407.0" y1="50.0" x2="407.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="410.0" y1="50.0" x2="410.0" y2="59.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="413.0" y1="50.0" x2="413.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="416.0" y1="50.0" x2="416.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="419.0" y1="50.0" x2="419.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="422.0" y1="50.0" x2="422.0" y2="55.0" stroke="#1f2430" stroke-width="1" stroke-linecap="round"/>
+  <line x1="425.0" y1="50.0" x2="425.0" y2="64.0" stroke="#1f2430" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="35.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">0</text>
+  <text x="65.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">1</text>
+  <text x="95.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">2</text>
+  <text x="125.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">3</text>
+  <text x="155.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">4</text>
+  <text x="185.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">5</text>
+  <text x="215.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">6</text>
+  <text x="245.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">7</text>
+  <text x="275.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">8</text>
+  <text x="305.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">9</text>
+  <text x="335.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">10</text>
+  <text x="365.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">11</text>
+  <text x="395.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">12</text>
+  <text x="425.0" y="80.0" font-family="Segoe UI,Arial,sans-serif" font-size="13" text-anchor="middle" fill="#1f2430">13</text>
+  <line x1="125.0" y1="30.0" x2="395.0" y2="30.0" stroke="#2f6fdb" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="125.0" cy="30.0" r="4.5" fill="#c93c3c"/>
+  <text x="125.0" y="20.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">A</text>
+  <circle cx="395.0" cy="30.0" r="4.5" fill="#c93c3c"/>
+  <text x="395.0" y="20.0" font-family="Cambria Math,Times New Roman,serif" font-size="19" font-style="italic" text-anchor="middle" fill="#c93c3c">B</text>
+  <rect x="0" y="48" width="89" height="40" fill="#ffffff" fill-opacity="0.85"/>
+  <text x="40.0" y="75.0" font-family="Segoe UI,Arial,sans-serif" font-size="14" text-anchor="middle" fill="#5c6577">gãy</text>
+</svg>
+      <p>Từ vạch 0 đến <span class="m">B</span> là 12 cm, trong đó từ vạch 0 đến <span class="m">A</span> là 3 cm. Vậy <span class="m">AB</span> = 12 − 3 = 9 (cm).</p>
+      <p class="vi-sao"><span class="m">A</span> nằm giữa vạch 0 và <span class="m">B</span>, nên (vạch 0 → <span class="m">B</span>) = (vạch 0 → <span class="m">A</span>) + <span class="m">AB</span>.</p>
+      <a class="xem-lai" href="#kt-cong">📌 Xem lại: cộng độ dài</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">AB</span> = 12 − 3 = 9 (cm).</div>
+    <div class="bay">Trả lời <span class="m">AB</span> = 12 cm (đọc ngay số ở <span class="m">B</span>). Chỉ đọc thẳng được khi đầu kia ở vạch 0.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b812" data-ten="Bài 8.12" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 8.12</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Nam dùng bước chân để đo chiều dài lớp học. Nam bước từ mép tường đầu lớp đến mép tường cuối lớp thì được đúng 18 bước chân. Nếu mỗi bước chân của Nam dài khoảng 0,6 m thì lớp học dài khoảng bao nhiêu mét?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 18 bước, mỗi bước 0,6 m — phép tính gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chiều dài lớp = số bước × độ dài một bước.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Nhân số bước với độ dài một bước</h4>
+      <p>18 · 0,6 = 10,8 (m).</p>
+      <p class="vi-sao">18 bước nối tiếp nhau phủ kín chiều dài lớp, mỗi bước 0,6 m, nên chiều dài là 18 lần 0,6 m. Tính nhẩm: 18 · 6 = 108, rồi đặt dấu phẩy tách một chữ số thập phân: 10,8.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Lớp học dài khoảng 18 · 0,6 = 10,8 (m).</div>
+    <div class="bay">Viết 18 · 0,6 = 108 (quên dấu phẩy). 0,6 có một chữ số thập phân nên tích cũng có một chữ số thập phân.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b813" data-ten="Bài 8.13" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 8.13</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đo, sắp xếp</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy đo độ dài (đơn vị milimét) rồi sắp xếp các đoạn thẳng trong Hình 8.34 theo thứ tự tăng dần của độ dài.</p>
+    <p><i>(Hình 8.34: năm đoạn thẳng: <span class="m">AB</span> (nằm ngang, dài), <span class="m">CD</span> (gần thẳng đứng, ngắn), <span class="m">EF</span> (xiên xuống phải), <span class="m">GH</span> (xiên lên phải), <span class="m">IK</span> (xiên lên phải, dài).)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Đo bằng milimét cho chính xác; đoạn xiên vẫn đặt thước dọc theo đoạn.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ghi số đo từng đoạn vào bảng rồi sắp xếp các số từ bé đến lớn.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Đo từng đoạn</h4>
+      <table>
+        <tr><th>Đoạn</th><th><span class="m">AB</span></th><th><span class="m">CD</span></th><th><span class="m">EF</span></th><th><span class="m">GH</span></th><th><span class="m">IK</span></th></tr>
+        <tr><td>Độ dài (mm)</td><td> khoảng 42</td><td> khoảng 11</td><td> khoảng 21</td><td> khoảng 32</td><td> khoảng 53</td></tr>
+      </table>
+      <p class="vi-sao">Với đoạn xiên, đặt vạch 0 của thước trùng một đầu mút và xoay thước nằm dọc theo đoạn.</p>
+      <a class="xem-lai" href="#kt-do-dai">📌 Xem lại: độ dài đoạn thẳng</a></div>
+    <div class="buoc" data-so="2"><h4>Sắp xếp tăng dần</h4>
+      <p>11 &lt; 21 &lt; 32 &lt; 42 &lt; 53, nên <span class="m">CD &lt; EF &lt; GH &lt; AB &lt; IK</span>.</p>
+      <a class="xem-lai" href="#kt-so-sanh">📌 Xem lại: so sánh đoạn thẳng</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Đo được khoảng: <span class="m">CD</span> khoảng 11 mm, <span class="m">EF</span> khoảng 21 mm, <span class="m">GH</span> khoảng 32 mm, <span class="m">AB</span> khoảng 42 mm, <span class="m">IK</span> khoảng 53 mm. Thứ tự tăng dần: <span class="m">CD</span>, <span class="m">EF</span>, <span class="m">GH</span>, <span class="m">AB</span>, <span class="m">IK</span>.</div>
+    <div class="bay">Nghĩ đoạn nằm ngang <span class="m">AB</span> dài nhất vì “trông dài”. <span class="m">IK</span> nằm xiên nhưng đo ra dài hơn <span class="m">AB</span>.</div>
+    <div class="gv-note">Số đo lấy trên hình SGK (bản scan trang 54, quy đổi theo tỉ lệ thước ở Hình 8.29). Sách in có thể lệch ±1 mm; thứ tự sắp xếp không đổi vì các đoạn chênh nhau khoảng 1 cm.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b814" data-ten="Bài 8.14" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 8.14</span><span class="nhan th">Thông hiểu</span><span class="nhan">Bài toán thực tế</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một cái cây đang mọc thẳng thì bị bão làm gãy phần ngọn. Người ta đo được phần ngọn bị gãy dài 1,75 m và phần thân còn lại dài 3 m. Hỏi trước khi bị gãy, cây cao bao nhiêu mét?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Trước khi gãy, cây gồm những phần nào ghép lại?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Chiều cao cây = phần thân còn lại + phần ngọn bị gãy (giống <span class="m">AB = AM + MB</span>).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Cộng hai phần</h4>
+      <svg viewBox="0 0 320 250" style="max-width:260px" role="img" aria-label="Cây bị gãy: phần thân còn lại 3 m, phần ngọn gãy 1,75 m">
+  <line x1="20.0" y1="225.0" x2="300.0" y2="225.0" stroke="#5c6577" stroke-width="2" stroke-linecap="round"/>
+  <line x1="90.0" y1="225.0" x2="90.0" y2="90.0" stroke="#d9822b" stroke-width="6" stroke-linecap="round"/>
+  <line x1="90.0" y1="90.0" x2="129.4" y2="158.2" stroke="#0f8a68" stroke-width="5" stroke-linecap="round"/>
+  <text x="70.0" y="160.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" text-anchor="end" fill="#1f2430">3 m</text>
+  <text x="122.0" y="107.0" font-family="Segoe UI,Arial,sans-serif" font-size="15" text-anchor="start" fill="#1f2430">1,75 m</text>
+</svg>
+      <p>Chiều cao cây trước khi gãy: 3 + 1,75 = 4,75 (m).</p>
+      <p class="vi-sao">Chỗ gãy nằm giữa gốc cây và ngọn cây, nên chiều cao cả cây bằng tổng hai phần — giống cách đo đoạn thẳng dài hơn thước ở Hình 8.30.</p>
+      <a class="xem-lai" href="#kt-cong">📌 Xem lại: AB = AM + MB</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Trước khi bị gãy, cây cao 3 + 1,75 = 4,75 (m).</div>
+    <div class="bay">Đặt tính lệch cột: để chữ số 3 thẳng cột với chữ số 5 cuối cùng rồi được 1,78. Viết 3 thành 3,00 rồi cộng thẳng cột dấu phẩy: 3,00 + 1,75 = 4,75.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 34. Đoạn thẳng. Độ dài đoạn thẳng — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c08-b34';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-08-bai-34-doan-thang-do-dai-doan-thang-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-08-bai-34-doan-thang-do-dai-doan-thang-bai-giai.nguon.html" data-phien-ban="96d0f4fa8139">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>

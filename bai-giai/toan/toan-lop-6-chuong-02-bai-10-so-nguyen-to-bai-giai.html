@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 10. Số nguyên tố — Bài tập &amp; lời giải · Toán 6 (Kết nối tri thức)</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1f2430; --muted:#5c6577; --line:#e3e7f0;
+  --brand:#2f6fdb; --brand-soft:#e8f0ff;
+  --warm:#b76e00; --warm-soft:#fff6e5;
+  --green:#0f8a68; --green-soft:#e6f7f1;
+  --red:#c93c3c; --red-soft:#fdeceb;
+  --purple:#6b4fc9; --purple-soft:#f1ecff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+.m{font-family:"Cambria Math","Times New Roman",Georgia,serif; font-style:normal; white-space:nowrap; font-size:1.06em}
+.m i{font-style:italic}
+button{font:inherit; cursor:pointer}
+a{color:var(--brand)}
+
+/* ---------- Thanh trên cùng ---------- */
+.top{position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,30,60,.05)}
+.top-in{max-width:880px; margin:0 auto; padding:10px 16px 8px}
+.crumb{font-size:13px; color:var(--muted)}
+.crumb a{color:var(--muted); text-decoration:none}
+.hang1{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:space-between}
+h1{font-size:21px; margin:2px 0; line-height:1.3}
+.che-do{display:inline-flex; background:#eef1f7; border-radius:999px; padding:4px}
+.che-do button{border:0; background:transparent; padding:7px 14px; border-radius:999px; color:var(--muted); font-weight:600; font-size:15px}
+.che-do button[aria-pressed="true"]{background:#fff; color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chips{display:flex; gap:6px; overflow-x:auto; padding:8px 0 2px; scrollbar-width:thin}
+.chip{flex:none; text-decoration:none; color:var(--ink); background:#f1f3f8; border:1px solid var(--line);
+  border-radius:999px; padding:4px 12px; font-size:14px; font-weight:600; white-space:nowrap}
+.chip::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#c5cbd8; margin-right:6px; vertical-align:1px}
+.chip.hieu::before{background:var(--green)}
+.chip.chua::before{background:#f0a020}
+.tien-do{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); padding-top:4px}
+.thanh{flex:1; height:6px; background:#e8ebf2; border-radius:9px; overflow:hidden}
+.thanh i{display:block; height:100%; width:0; background:var(--green); transition:width .4s}
+
+main{max-width:880px; margin:0 auto; padding:18px 16px 60px}
+
+/* ---------- Thẻ chung ---------- */
+.the{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 20px; margin:0 0 18px}
+.huong-dan{background:var(--brand-soft); border-color:#cfdcf8}
+.huong-dan h2{margin:0 0 6px; font-size:17px}
+.huong-dan ol{margin:0; padding-left:22px}
+.chi-gv{display:none}
+body[data-mode="gv"] .chi-gv{display:block}
+body[data-mode="gv"] .chi-hs{display:none !important}
+
+/* Kiến thức cần nhớ */
+details.nho{background:var(--warm-soft); border:1px solid #f3d9a6; border-radius:var(--r); padding:0; margin:0 0 18px}
+details.nho>summary{list-style:none; padding:14px 20px; font-weight:700; cursor:pointer}
+details.nho>summary::-webkit-details-marker{display:none}
+details.nho>summary::after{content:"▾"; float:right; color:var(--warm)}
+details.nho[open]>summary::after{content:"▴"}
+.nho-in{padding:0 20px 14px}
+.kt{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border-left:4px solid #f0b44c; scroll-margin-top:130px}
+.kt b.ten{display:block; color:var(--warm); font-size:14px; text-transform:uppercase; letter-spacing:.02em}
+.kt.nhay{animation:nhay 1.6s}
+@keyframes nhay{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #f7c56a}}
+.nguon{font-size:13px; color:var(--muted)}
+
+/* Bảng đáp án nhanh (GV) */
+table{border-collapse:collapse; width:100%; font-size:15px}
+th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top}
+th{background:#f3f5fa}
+
+/* ---------- Thẻ bài tập ---------- */
+.bai{scroll-margin-top:130px}
+.bai-dau{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px}
+.so{font-weight:800; font-size:19px}
+.nhan{font-size:12.5px; font-weight:700; padding:2px 9px; border-radius:999px; background:#eef1f7; color:var(--muted)}
+.nhan.nb{background:var(--green-soft); color:var(--green)}
+.nhan.th{background:var(--brand-soft); color:var(--brand)}
+.nhan.vd{background:var(--purple-soft); color:var(--purple)}
+.nhan.vdc{background:#fdeceb; color:var(--red)}
+.nhan.mo{background:var(--warm-soft); color:var(--warm)}
+.trang-thai{margin-left:auto; font-size:13px; font-weight:700}
+.de{background:#fafbfe; border:1px dashed #cfd6e4; border-radius:10px; padding:12px 16px}
+.de p{margin:.3em 0}
+.tu-lam{color:var(--muted); font-size:15px; margin:12px 0 8px}
+
+.nut-hang{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+.nut{border:1.5px solid var(--line); background:#fff; border-radius:10px; padding:9px 16px; font-weight:600; font-size:15.5px; min-height:44px}
+.nut:hover{border-color:#b9c3d8}
+.nut.chinh{background:var(--brand); border-color:var(--brand); color:#fff}
+.nut.chinh:hover{background:#255fc2}
+.nut[hidden]{display:none}
+
+.goi-y{background:var(--purple-soft); border-radius:10px; padding:10px 14px; margin:8px 0}
+.goi-y b{color:var(--purple)}
+
+/* Các bước giải */
+.loi-giai{margin-top:6px}
+.buoc{display:none; position:relative; padding:10px 14px 10px 50px; margin:8px 0; border-radius:10px; background:#fff; border:1px solid var(--line); animation:hien .35s ease}
+.buoc.hien{display:block}
+.buoc::before{content:attr(data-so); position:absolute; left:12px; top:10px; width:26px; height:26px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+.buoc h4{margin:0 0 2px; font-size:16px}
+.buoc p{margin:.25em 0}
+.vi-sao{color:var(--muted); font-size:15px}
+.vi-sao::before{content:"🤔 Vì sao? "; font-weight:700; color:var(--ink)}
+.xem-lai{font-size:14px; font-weight:600; text-decoration:none; background:var(--warm-soft); color:var(--warm); padding:2px 8px; border-radius:6px; display:inline-block; margin-top:4px}
+@keyframes hien{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+.ket{display:none}
+.ket.hien{display:block; animation:hien .35s ease}
+.dap-so{background:var(--green-soft); border:1.5px solid #9fd9c4; border-radius:10px; padding:10px 14px; margin:10px 0}
+.dap-so::before{content:"✅ Đáp số"; display:block; font-weight:800; color:var(--green); font-size:14px; text-transform:uppercase}
+.bay{background:var(--red-soft); border-radius:10px; padding:10px 14px; margin:10px 0}
+.bay::before{content:"⚠️ Bẫy hay gặp"; display:block; font-weight:800; color:var(--red); font-size:14px; text-transform:uppercase}
+.gv-note{display:none; background:#f3f5fa; border-radius:10px; padding:10px 14px; margin:10px 0; font-size:15px}
+.gv-note::before{content:"🧑‍🏫 Ghi chú cho giáo viên"; display:block; font-weight:800; font-size:14px; color:var(--muted); text-transform:uppercase}
+
+.hieu-chua{border-top:1px solid var(--line); margin-top:12px; padding-top:10px}
+.hieu-chua p{margin:0 0 6px; font-weight:600}
+.nut.ok[aria-pressed="true"]{background:var(--green-soft); border-color:var(--green); color:var(--green)}
+.nut.no[aria-pressed="true"]{background:var(--warm-soft); border-color:#f0a020; color:var(--warm)}
+.them{display:none; background:var(--warm-soft); border-radius:10px; padding:10px 14px; margin-top:8px}
+.them.hien{display:block; animation:hien .35s ease}
+.them::before{content:"🔁 Nói cách khác cho dễ hiểu"; display:block; font-weight:800; color:var(--warm); font-size:14px; text-transform:uppercase}
+
+/* Thử nhanh */
+.thu{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:10px 0}
+.thu>b{display:block; font-size:14px; text-transform:uppercase; color:var(--brand)}
+.cau-thu{display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line)}
+.cau-thu:last-of-type{border-bottom:0}
+.cau-thu .noi-dung{min-width:90px; font-size:18px}
+.chon{border:1.5px solid var(--line); background:#fff; border-radius:9px; min-width:52px; min-height:42px; font-size:20px; font-family:"Cambria Math","Times New Roman",serif}
+.chon.dung{background:var(--green-soft); border-color:var(--green)}
+.chon.sai{background:var(--red-soft); border-color:var(--red)}
+.chon.chu{font-family:inherit; font-size:15px; padding:0 12px}
+.lm{font-family:"Times New Roman",Georgia,serif; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+/* Phân số đứng: <span class="frac"><b>tử</b><span>mẫu</span></span> — hỗn số: 2<span class="frac">…</span> */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; font-size:.92em; line-height:1.2; margin:0 2px; white-space:nowrap}
+.frac>b{border-bottom:1.5px solid currentColor; padding:0 4px; font-weight:inherit}
+.frac>span{padding:0 4px}
+.phan-hoi{font-size:14.5px}
+.phan-hoi.dung{color:var(--green)} .phan-hoi.sai{color:var(--red)}
+
+svg{max-width:100%; height:auto; display:block; margin:6px auto}
+
+/* Chế độ giáo viên: hiện hết, gọn */
+/* GV: đề → đáp số → (nút) các bước giải thích, ẩn mặc định → bẫy, ghi chú */
+body[data-mode="gv"] .bai{display:flex; flex-direction:column}
+body[data-mode="gv"] .ket{display:contents}
+body[data-mode="gv"] .bai-dau{order:1} body[data-mode="gv"] .de{order:2}
+body[data-mode="gv"] .dap-so{order:3} body[data-mode="gv"] .nut-buoc-gv{order:4}
+body[data-mode="gv"] .loi-giai{order:5} body[data-mode="gv"] .bay{order:6}
+body[data-mode="gv"] .gv-note{order:7} body[data-mode="gv"] .them{order:9}
+body[data-mode="gv"] .buoc{display:none; animation:none; padding-top:6px; padding-bottom:6px}
+body[data-mode="gv"] .bai.mo-buoc .buoc{display:block; animation:hien .3s ease}
+.nut-buoc-gv{align-self:flex-start; margin:0 0 4px}
+body[data-mode="gv"] .nut-buoc-gv{display:inline-block}
+.gv-tat-ca{margin-top:10px}
+body[data-mode="gv"] .nut-hang,
+body[data-mode="gv"] .goi-y,
+body[data-mode="gv"] .tu-lam,
+body[data-mode="gv"] .hieu-chua,
+body[data-mode="gv"] .thu,
+body[data-mode="gv"] .trang-thai,
+body[data-mode="gv"] .tien-do{display:none !important}
+body[data-mode="gv"] .them,
+body[data-mode="gv"] .gv-note{display:block}
+
+/* ---------- Vùng "Suy nghĩ trước" ---------- */
+.de{font-size:18px; background:#fff; border:0; border-left:4px solid var(--brand); border-radius:0; padding:4px 0 4px 16px}
+.nghi{margin:14px 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px}
+.loi-nhac{margin:0; font-size:15px; color:var(--muted); flex:1 1 260px}
+.tro-giup{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-left:auto}
+.nut-nho{border:1px solid var(--line); background:transparent; border-radius:999px; padding:4px 12px; font-size:13.5px; color:var(--muted); min-height:34px}
+.nut-nho:hover:not(:disabled){color:var(--ink); border-color:#b9c3d8}
+.nut-nho:disabled{opacity:.55; cursor:default}
+.nut-link{border:0; background:none; padding:4px; font-size:13px; color:var(--muted); text-decoration:underline; min-height:34px}
+.nut-nho[hidden],.nut-link[hidden]{display:none}
+.dem-nghi{flex-basis:100%; margin:0; font-size:13px; color:var(--muted); text-align:right; min-height:1em}
+body[data-mode="gv"] .de{font-size:17px}
+
+/* ---------- Phần (nhóm bài) ---------- */
+.phan-tieu-de{scroll-margin-top:130px; margin:30px 0 12px; padding:0 0 6px; font-size:20px; line-height:1.35;
+  border-bottom:2px solid var(--line); color:#1f2f57}
+.phan-tieu-de small{display:block; font-size:14px; font-weight:400; color:var(--muted)}
+.phan-tieu-de:first-of-type{margin-top:8px}
+
+/* ---------- Trích dẫn văn bản (bằng chứng) ---------- */
+.trich{margin:8px 0; padding:8px 14px; border-left:3px solid #c9b27a; background:#fbf8f1; border-radius:0 8px 8px 0;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.65; color:#3b3222}
+.trich p{margin:.2em 0}
+.trich cite{display:block; font-family:inherit; font-style:normal; font-size:13px; color:var(--muted); margin-top:4px}
+.trich.tho p{margin:0}
+
+/* ---------- Bài viết tham khảo (chỉ GV) ---------- */
+.tham-khao{display:none; margin:10px 0; padding:16px 22px; background:#fffdf7; border:1px solid #eadfc4; border-radius:10px;
+  font-family:"Times New Roman","Noto Serif",Cambria,serif; font-size:16.5px; line-height:1.75; color:#2e2a22}
+.tham-khao::before{content:"📄 Bài viết tham khảo — dành cho giáo viên đối chiếu, không phát cho học sinh chép"; display:block;
+  font-family:"Segoe UI",system-ui,sans-serif; font-weight:800; font-size:13px; color:var(--muted); text-transform:uppercase; margin-bottom:6px}
+.tham-khao p{margin:.5em 0; text-indent:1.6em}
+.tham-khao h5{margin:.2em 0 .4em; text-align:center; font-size:17px}
+body[data-mode="gv"] .tham-khao{display:block; order:8}
+
+/* ---------- Biến thể môn Ngữ văn ---------- */
+body[data-mon="ngu-van"] .dap-so::before{content:"✍️ Gợi ý trả lời"}
+body[data-mon="ngu-van"] .bay::before{content:"⚠️ Chỗ dễ trượt"}
+body[data-mon="ngu-van"] .them::before{content:"🌱 Nghĩ theo cách khác"}
+body[data-mon="ngu-van"] .dap-so{font-size:16.5px; line-height:1.7}
+body[data-mon="ngu-van"] .de{font-size:17.5px}
+body[data-bang="khong"] #khoi-bang{display:none !important}
+/* Câu hỏi mở (không phải môn Văn): đáp án là câu trả lời mẫu */
+body:not([data-mon="ngu-van"]) .bai[data-muc="mo"] .dap-so::before{content:"💬 Câu trả lời mẫu"}
+/* Ngữ liệu tiếng Anh */
+body[data-mon="tieng-anh"] .de{font-size:17.5px}
+body[data-mon="tieng-anh"] .en{font-style:italic}
+body[data-mon="tieng-anh"] .bay::before{content:"⚠️ Lỗi hay gặp"}
+.chi-van{display:none} body[data-mon="ngu-van"] .chi-van{display:inline}
+body[data-mon="ngu-van"] .nhan-dap{font-size:0} body[data-mon="ngu-van"] .nhan-dap::after{content:"gợi ý trả lời"; font-size:1rem}
+
+.chan{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:18px}
+  .the{padding:14px}
+  .buoc{padding-left:44px}
+  .buoc::before{left:9px}
+}
+.in-tieu-de{display:none}
+@media print{
+  /* Ban in: chi co de bai va dap so */
+  .top,.huong-dan,details.nho,#khoi-bang,.cuoi-trang,.chan,.nghi,.thu,.goi-y,.loi-giai,.bay,.gv-note,.them,
+  .hieu-chua,.nut-buoc-gv,.trang-thai,.tham-khao,.nhan:not(.nb):not(.th):not(.vd):not(.vdc):not(.mo){display:none !important}
+  .in-tieu-de{display:block; margin:0 0 10px} .in-tieu-de h1{font-size:17pt; margin:2px 0}
+  body{background:#fff; font-size:12.5pt} main{padding:0; max-width:none}
+  .ket{display:block !important} .dap-so{display:block !important; margin:6px 0 0; padding:6px 10px}
+  .de{font-size:12.5pt}
+  .the{border:0; border-bottom:1px solid #ccc; border-radius:0; padding:8px 0 10px; margin:0; box-shadow:none}
+  .bai{display:block !important; break-inside:avoid}
+}
+</style>
+</head>
+<body data-mode="hs" data-mon="toan" data-bang="co">
+
+<header class="top">
+  <div class="top-in">
+    <div class="crumb"><a href="../index.html">📚 Các bài giải</a> › Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div>
+    <div class="hang1">
+      <h1>Bài 10. Số nguyên tố — Bài tập &amp; lời giải</h1>
+      <div class="che-do" role="group" aria-label="Chế độ xem">
+        <button type="button" data-chon-mode="hs" aria-pressed="true">🎒 Học sinh</button>
+        <button type="button" data-chon-mode="gv" aria-pressed="false">🧑‍🏫 Giáo viên</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Danh sách bài"></nav>
+    <div class="tien-do"><span id="dem">Em đã hiểu 0/9 bài</span><div class="thanh"><i id="thanh"></i></div></div>
+  </div>
+</header>
+
+<main>
+<div class="in-tieu-de"><div class="nguon">Toán 6 › Chương II. Tính chia hết trong tập hợp các số tự nhiên</div><h1>Bài 10. Số nguyên tố — Bài tập &amp; lời giải</h1></div>
+
+<!-- ===== Hướng dẫn dùng trang ===== -->
+<section class="the huong-dan chi-hs">
+  <h2>🎒 Cách học với trang này</h2>
+  <ol>
+    <li><b>Đọc kĩ đề, tự làm ra giấy nháp trước.</b> Nút gợi ý chỉ mở sau vài chục giây — đó là thời gian để em động não.</li>
+    <li>Bí quá thì bấm <b>💡 Cần gợi ý</b>: mỗi lần bấm chỉ mở thêm <b>một bước</b>. Mở càng ít bước càng giỏi!</li>
+    <li>Cuối bài, bấm <b>👍 Hiểu rồi</b> hoặc <b>🤔 Chưa hiểu lắm</b> để đánh dấu tiến độ.</li>
+  </ol>
+</section>
+<section class="the huong-dan chi-gv">
+  <h2>🧑‍🏫 Chế độ giáo viên</h2>
+  <p style="margin:0">Mỗi bài hiện <b>đề → <span class="nhan-dap">đáp số</span></b> ngay, kèm <b>chỗ học sinh hay sai</b> và <b>ghi chú dạy</b><span class="chi-van">; bài Viết có thêm <b>bài viết tham khảo</b> để đối chiếu</span>. Các bước giải thích được thu gọn — bấm <b>👣 Xem các bước</b> ở từng bài, hoặc mở tất cả bằng nút dưới đây. Bấm <kbd>Ctrl</kbd> + <kbd>P</kbd> để in — bản in chỉ gồm <b>đề bài và đáp số</b>.</p>
+  <button class="nut-nho gv-tat-ca" id="gv-tat-ca">👣 Hiện tất cả các bước giải thích</button>
+</section>
+
+<details class="nho" open>
+  <summary>📌 Kiến thức cần nhớ (trích SGK) <span class="nguon" style="font-weight:400">— 5 ý, bấm để mở / thu gọn</span></summary>
+  <div class="nho-in">
+    <style>
+      table.cot{width:auto;border-collapse:collapse;margin:6px 0}
+      table.cot td{border:0;padding:2px 14px;font-family:“Cambria Math”,“Times New Roman”,serif;font-size:17px}
+      table.cot td:first-child{text-align:right;border-right:2px solid #1f2430}
+      table.cot td.dien{color:#c93c3c;font-weight:700}
+    </style>
+    <div class="kt" id="kt-snt"><b class="ten">Số nguyên tố, hợp số</b>
+      <b>Số nguyên tố</b> là số tự nhiên lớn hơn 1, chỉ có hai ước là 1 và chính nó.<br>
+      <b>Hợp số</b> là số tự nhiên lớn hơn 1, có nhiều hơn hai ước.<br>
+      Số 0 và số 1 không là số nguyên tố và không là hợp số (lời Pi).</div>
+    <div class="kt" id="kt-hop-so"><b class="ten">Nhận ra hợp số (lời Pi)</b>
+      Để khẳng định một số là hợp số, ta thường sử dụng các dấu hiệu chia hết để tìm ra một ước khác 1 và chính nó.</div>
+    <div class="kt" id="kt-phan-tich"><b class="ten">Phân tích ra thừa số nguyên tố</b>
+      Mọi hợp số đều có thể phân tích được thành tích của các thừa số nguyên tố. Người ta quy ước dạng phân tích ra thừa số nguyên tố của một số nguyên tố là chính nó. Trong kết quả ta thường viết các thừa số theo thứ tự từ bé đến lớn và viết tích các thừa số giống nhau dưới dạng luỹ thừa. Ví dụ: <span class="m">24 = 2<sup>3</sup> · 3</span>.</div>
+    <div class="kt" id="kt-cay"><b class="ten">Sơ đồ cây (tóm tắt cách làm ở Hình 2.1, 2.2)</b>
+      Tách số thành tích hai số, rồi tiếp tục tách những số chưa là số nguyên tố, cho đến khi mọi “lá” đều là số nguyên tố. Ví dụ: <span class="m">24 = 2 × 12</span>; <span class="m">12 = 3 × 4</span>; <span class="m">4 = 2 × 2</span>.</div>
+    <div class="kt" id="kt-cot"><b class="ten">Sơ đồ cột (tóm tắt cách làm của SGK)</b>
+      Chia số đó cho ước nguyên tố nhỏ nhất của nó, ghi thương ở dòng dưới; lặp lại với thương cho đến khi được 1. Các số ở cột phải là các thừa số nguyên tố.
+      <table class="cot"><tr><td>24</td><td>2</td></tr><tr><td>12</td><td>2</td></tr><tr><td>6</td><td>2</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table></div>
+    <p class="nguon">Nguồn: SGK Toán 6, Kết nối tri thức với cuộc sống, Tập một — Bài 10. Số nguyên tố.</p>
+  </div>
+</details>
+
+<!-- ===== Bảng đáp án nhanh (GV) — JS tự dựng từ các ô Đáp số ===== -->
+<section class="the chi-gv" id="khoi-bang">
+  <h2 style="margin:0 0 8px; font-size:17px">⚡ Bảng đáp án nhanh</h2>
+  <table id="bang-dap-an"><tr><th style="width:120px">Bài</th><th>Đáp số</th><th style="width:110px">Mức độ</th></tr></table>
+</section>
+
+<article class="the bai" id="hd1" data-ten="HĐ1" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Tìm ước</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm các ước và số ước của các số trong Bảng 2.1.</p>
+    <table><tr><th>Số</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr></table></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Bảng 2.1 đã làm mẫu hai dòng 10 và 11 — em làm tiếp các số từ 2 đến 9.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Với mỗi số, chia nó cho 1, 2, … đến chính nó, ghi lại các số chia hết.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm ước từng số</h4>
+      <table>
+        <tr><th>Số</th><th>Các ước</th><th>Số ước</th></tr>
+        <tr><td>2</td><td>1; 2</td><td>2</td></tr>
+        <tr><td>3</td><td>1; 3</td><td>2</td></tr>
+        <tr><td>4</td><td>1; 2; 4</td><td>3</td></tr>
+        <tr><td>5</td><td>1; 5</td><td>2</td></tr>
+        <tr><td>6</td><td>1; 2; 3; 6</td><td>4</td></tr>
+        <tr><td>7</td><td>1; 7</td><td>2</td></tr>
+        <tr><td>8</td><td>1; 2; 4; 8</td><td>4</td></tr>
+        <tr><td>9</td><td>1; 3; 9</td><td>3</td></tr>
+        <tr><td>10</td><td>1; 2; 5; 10</td><td>4</td></tr>
+        <tr><td>11</td><td>1; 11</td><td>2</td></tr>
+      </table>
+      <p class="vi-sao">Cách tìm ước giống Bài 8: chia lần lượt cho các số từ 1 đến chính số đó.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">2: 1; 2 (2 ước) · 3: 1; 3 (2) · 4: 1; 2; 4 (3) · 5: 1; 5 (2) · 6: 1; 2; 3; 6 (4) · 7: 1; 7 (2) · 8: 1; 2; 4; 8 (4) · 9: 1; 3; 9 (3) · 10: 1; 2; 5; 10 (4) · 11: 1; 11 (2).</div>
+    <div class="bay">Đếm số ước của 4 là 4 (viết 1; 2; 2; 4). Ước 2 chỉ tính một lần — 4 có 3 ước.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd2" data-ten="HĐ2" data-muc="nb">
+  <div class="bai-dau"><span class="so">HĐ2</span><span class="nhan nb">Nhận biết</span><span class="nhan">Phân loại theo số ước</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy chia các số cho trong Bảng 2.1 thành hai nhóm: nhóm <span class="m">A</span> gồm các số chỉ có hai ước, nhóm <span class="m">B</span> gồm các số có nhiều hơn hai ước.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Nhìn cột “Số ước” ở HĐ1: bằng 2 hay lớn hơn 2?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng kết quả cột “Số ước” của HĐ1.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Chia nhóm</h4>
+      <p>Có đúng 2 ước: 2; 3; 5; 7; 11. Có 3 hoặc 4 ước: 4; 6; 8; 9; 10.</p>
+      <p class="vi-sao">Nhóm <span class="m">A</span> sau này được gọi là các <b>số nguyên tố</b>, nhóm <span class="m">B</span> là các <b>hợp số</b>.</p>
+      <a class="xem-lai" href="#kt-snt">📌 Xem lại: số nguyên tố, hợp số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhóm <span class="m">A</span> = {2; 3; 5; 7; 11}; nhóm <span class="m">B</span> = {4; 6; 8; 9; 10}.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="hd3" data-ten="HĐ3" data-muc="th">
+  <div class="bai-dau"><span class="so">HĐ3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Số 0 và số 1</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Suy nghĩ và trả lời câu hỏi:</p><p>a) Số 1 có bao nhiêu ước?</p>
+    <p>b) Số 0 có chia hết cho 2; 5; 7; 2 017; 2 018 không? Em có nhận xét gì về số ước của 0?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai số “đặc biệt”: một số có quá ít ước, một số có quá nhiều ước.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">0 = k · 0</span>… Thử viết <span class="m">0 = 2 · ?</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>1 chỉ chia hết cho 1. Số 1 có đúng <b>một</b> ước.</p></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p><span class="m">0 = 0 · 2 = 0 · 5 = 0 · 7 = 0 · 2 017 = 0 · 2 018</span>, nên 0 chia hết cho cả năm số đó.</p>
+      <p>Tương tự, 0 chia hết cho mọi số tự nhiên khác 0, nên mọi số tự nhiên khác 0 đều là ước của 0: số 0 có <b>vô số</b> ước.</p>
+      <p class="vi-sao">Vì vậy SGK nói: số 0 và số 1 không là số nguyên tố, cũng không là hợp số — 1 có quá ít ước (một ước), 0 có vô số ước.</p>
+      <a class="xem-lai" href="#kt-snt">📌 Xem lại: số nguyên tố, hợp số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Số 1 có một ước (là 1). b) Có, 0 chia hết cho cả 2; 5; 7; 2 017; 2 018. Số 0 chia hết cho mọi số tự nhiên khác 0 nên có vô số ước.</div>
+    <div class="bay">Nghĩ “0 chia cho số nào cũng không được”. Thật ra <span class="m">0 : 2 = 0</span> không dư; điều không làm được là chia <b>cho</b> 0.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt1" data-ten="Luyện tập 1" data-muc="nb">
+  <div class="bai-dau"><span class="so">Luyện tập 1</span><span class="nhan nb">Nhận biết</span><span class="nhan">Nhận biết số nguyên tố</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Em hãy tìm nhà thích hợp cho các số trong Bảng 2.1.</p>
+    <p><i>(Hình: hai ngôi nhà, nhà “Số nguyên tố” đã có 11; … và nhà “Hợp số” đã có 10; …)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 “Nhà” Số nguyên tố dành cho số chỉ có hai ước.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng kết quả HĐ2: nhóm <span class="m">A</span> và nhóm <span class="m">B</span>.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Xếp vào hai nhà</h4>
+      <p>Các số chỉ có hai ước 1 và chính nó → nhà Số nguyên tố. Các số lớn hơn 1 có nhiều hơn hai ước → nhà Hợp số.</p>
+      <a class="xem-lai" href="#kt-snt">📌 Xem lại: số nguyên tố, hợp số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Nhà Số nguyên tố: 2; 3; 5; 7; 11. Nhà Hợp số: 4; 6; 8; 9; 10.</div>
+    <div class="bay">Cho 9 vào nhà Số nguyên tố vì “9 là số lẻ”. Số lẻ chưa chắc là số nguyên tố: 9 có ước 3.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt2" data-ten="Luyện tập 2" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 2</span><span class="nhan th">Thông hiểu</span><span class="nhan">Số nguyên tố hay hợp số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong các số cho dưới đây, số nào là số nguyên tố, số nào là hợp số? Vì sao?</p><p>a) 1 930; &nbsp; b) 23.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Với số lớn, tìm một ước “khác 1 và chính nó” bằng dấu hiệu chia hết.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Làm như Ví dụ 1: 1 930 tận cùng là 0 thì chia hết cho số nào?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p>1 930 tận cùng là 0 nên chia hết cho 2. Ngoài 1 và 1 930, nó còn có ước 2 → 1 930 là hợp số.</p>
+      <a class="xem-lai" href="#kt-hop-so">📌 Xem lại: nhận ra hợp số</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b</h4>
+      <p>23 không chia hết cho số nào trong 2; 3; 4; …; 22. Số 23 chỉ có hai ước là 1 và 23 → 23 là số nguyên tố.</p>
+      <a class="xem-lai" href="#kt-snt">📌 Xem lại: số nguyên tố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) 1 930 là hợp số (có thêm ước 2). &nbsp; b) 23 là số nguyên tố (chỉ có hai ước 1 và 23).</div>
+    <div class="bay">Nghĩ số lớn thì là hợp số. Số nguyên tố hay hợp số không phụ thuộc số to hay nhỏ mà phụ thuộc số ước.</div>
+    <div class="gv-note">Với 23, HS có thể tra bảng số nguyên tố cuối sách (lời Tròn) thay vì chia thử.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tt" data-ten="Thử thách nhỏ" data-muc="vd">
+  <div class="bai-dau"><span class="so">Thử thách nhỏ</span><span class="nhan vd">Vận dụng</span><span class="nhan">Tìm đường — số nguyên tố</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bạn Hà đang ở ô 🧍 tìm đường đến phòng chiếu phim 🎬. Biết rằng chỉ có thể đi từ một ô sang ô chung cạnh có chứa số nguyên tố. Em hãy giúp Hà đến được phòng chiếu phim nhé.</p>
+    <table>
+      <tr><td>2 000</td><td>43</td><td>135</td><td>105</td><td>111</td><td>89</td></tr>
+      <tr><td>104</td><td>251</td><td>29</td><td>31</td><td>41</td><td>57</td></tr>
+      <tr><td>73</td><td>423</td><td>23</td><td>1 945</td><td>17</td><td>62</td></tr>
+      <tr><td>102</td><td>13</td><td>11</td><td>81</td><td>🎬 2</td><td>71</td></tr>
+      <tr><td>7</td><td>19</td><td>35</td><td>1 954</td><td>51</td><td>63</td></tr>
+      <tr><td>🧍</td><td>5</td><td>2 018</td><td>53</td><td>37</td><td>1 975</td></tr>
+    </table></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Tô trước các ô là hợp số — đó là những bức tường.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng dấu hiệu chia hết để loại các hợp số: số chẵn khác 2, số tận cùng 5 khác 5, số có tổng các chữ số chia hết cho 3 (khác 3)…</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Loại các hợp số</h4>
+      <p>Chia hết cho 2: 2 000; 104; 62; 102; 1 954; 2 018. Chia hết cho 5: 135; 105; 1 945; 35; 1 975. Chia hết cho 3: 111; 57; 423; 81; 51; 63.</p>
+      <p>Các số còn lại đều là số nguyên tố (tra bảng): 43; 89; 251; 29; 31; 41; 73; 23; 17; 13; 11; 2; 71; 7; 19; 5; 53; 37.</p>
+      <a class="xem-lai" href="#kt-hop-so">📌 Xem lại: nhận ra hợp số</a></div>
+    <div class="buoc" data-so="2"><h4>Tìm đường</h4>
+      <table>
+        <tr><td style="background:#fdeceb">2 000</td><td>43</td><td style="background:#fdeceb">135</td><td style="background:#fdeceb">105</td><td style="background:#fdeceb">111</td><td>89</td></tr>
+        <tr><td style="background:#fdeceb">104</td><td>251</td><td style="background:#e6f7f1"><b>29</b></td><td style="background:#e6f7f1"><b>31</b></td><td style="background:#e6f7f1"><b>41</b></td><td style="background:#fdeceb">57</td></tr>
+        <tr><td>73</td><td style="background:#fdeceb">423</td><td style="background:#e6f7f1"><b>23</b></td><td style="background:#fdeceb">1 945</td><td style="background:#e6f7f1"><b>17</b></td><td style="background:#fdeceb">62</td></tr>
+        <tr><td style="background:#fdeceb">102</td><td style="background:#e6f7f1"><b>13</b></td><td style="background:#e6f7f1"><b>11</b></td><td style="background:#fdeceb">81</td><td style="background:#e6f7f1"><b>🎬 2</b></td><td>71</td></tr>
+        <tr><td style="background:#e6f7f1"><b>7</b></td><td style="background:#e6f7f1"><b>19</b></td><td style="background:#fdeceb">35</td><td style="background:#fdeceb">1 954</td><td style="background:#fdeceb">51</td><td style="background:#fdeceb">63</td></tr>
+        <tr><td><b>🧍</b></td><td>5</td><td style="background:#fdeceb">2 018</td><td>53</td><td>37</td><td style="background:#fdeceb">1 975</td></tr>
+      </table>
+      <p>🧍 → 7 → 19 → 13 → 11 → 23 → 29 → 31 → 41 → 17 → 🎬 2.</p>
+      <p class="vi-sao">Ô 🎬 kề với 17, 81, 51 và 71. 81 và 51 là hợp số; 71 là số nguyên tố nhưng chỉ kề 62 và 63 (hợp số) nên là ngõ cụt. Vậy phải vào 🎬 từ 17, rồi lần ngược 17 → 41 → 31 → 29 → 23 → 11 → 13 → 19 là tới sát chỗ Hà.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">🧍 → 7 → 19 → 13 → 11 → 23 → 29 → 31 → 41 → 17 → 🎬 (cũng có thể đi 🧍 → 5 → 19 → … như trên).</div>
+    <div class="bay">Đi qua 51 hoặc 57 vì tưởng là số nguyên tố. <span class="m">51 = 3 · 17</span>, <span class="m">57 = 3 · 19</span> (tổng các chữ số đều chia hết cho 3).</div>
+    <div class="gv-note">Đã kiểm hết mọi đường đi: chỉ có hai đường, khác nhau ở bước đầu (qua 7 hoặc qua 5). 71 kề ô 🎬 nhưng không nối được về phía Hà.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch1" data-ten="Câu hỏi (phân tích số 60)" data-muc="th" data-chip="Câu hỏi ①">
+  <div class="bai-dau"><span class="so">Câu hỏi (phân tích số 60)</span><span class="nhan th">Thông hiểu</span><span class="nhan">Kiểm tra phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bạn Việt phân tích số 60 ra thừa số nguyên tố và cho kết quả <span class="m">60 = 3 · 4 · 5</span>. Kết quả của Việt đúng hay sai? Nếu sai, em hãy sửa lại cho đúng.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Các thừa số trong kết quả phải là số gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Kiểm tra từng thừa số 3; 4; 5 có phải số nguyên tố không.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm chỗ sai</h4>
+      <p>Tích <span class="m">3 · 4 · 5</span> đúng bằng 60, nhưng 4 là hợp số (<span class="m">4 = 2 · 2</span>). Vậy Việt sai.</p>
+      <a class="xem-lai" href="#kt-phan-tich">📌 Xem lại: phân tích ra thừa số nguyên tố</a></div>
+    <div class="buoc" data-so="2"><h4>Sửa lại</h4>
+      <p><span class="m">60 = 3 · 2 · 2 · 5 = 2<sup>2</sup> · 3 · 5</span>.</p>
+      <p class="vi-sao">Viết thừa số từ bé đến lớn, thừa số giống nhau viết dưới dạng luỹ thừa.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Sai, vì 4 không phải số nguyên tố. Sửa: <span class="m">60 = 2<sup>2</sup> · 3 · 5</span>.</div>
+    <div class="bay">Chỉ kiểm tra tích có bằng 60 không. Tích đúng chưa đủ — mọi thừa số phải là số nguyên tố.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="tl" data-ten="Tranh luận" data-muc="th">
+  <div class="bai-dau"><span class="so">Tranh luận</span><span class="nhan th">Thông hiểu</span><span class="nhan">Phân tích số nguyên tố</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Bạn nào đúng nhỉ?</p><p>Tròn: Số 7 không phân tích được thành tích các thừa số nguyên tố.</p><p>Vuông: Phân tích ra thừa số nguyên tố của số 7 là 7.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 SGK có một quy ước dành riêng cho số nguyên tố.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Đọc lại quy ước về dạng phân tích ra thừa số nguyên tố của một số nguyên tố.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dùng quy ước của SGK</h4>
+      <p>7 là số nguyên tố. Người ta quy ước dạng phân tích ra thừa số nguyên tố của một số nguyên tố là chính nó, nên phân tích của 7 là 7.</p>
+      <a class="xem-lai" href="#kt-phan-tich">📌 Xem lại: phân tích ra thừa số nguyên tố</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Vuông đúng: theo quy ước, dạng phân tích ra thừa số nguyên tố của số nguyên tố 7 là 7.</div>
+    <div class="gv-note">Tròn có lí ở chỗ 7 không tách được thành tích của hai số nhỏ hơn; nhưng theo quy ước SGK, câu trả lời chuẩn là của Vuông. Có thể cho lớp thảo luận vì sao cần quy ước này.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch2" data-ten="Câu hỏi (sơ đồ cây số 18)" data-muc="nb" data-chip="Câu hỏi ②">
+  <div class="bai-dau"><span class="so">Câu hỏi (sơ đồ cây số 18)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Sơ đồ cây</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm các số còn thiếu trong phân tích số 18 ra thừa số nguyên tố theo sơ đồ cây ở Hình 2.3.</p>
+    <p><i>(Hình 2.3: <span class="m">18 = 3 × ?</span>; <span class="m">? = 2 × ?</span>.)</i></p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 18 = 3 × ? — số nào nhân 3 bằng 18?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ô “?” đầu tiên là thương <span class="m">18 : 3</span>. Sau đó tách tiếp số đó.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền từng ô</h4>
+      <p><span class="m">18 : 3 = 6</span>, nên <span class="m">18 = 3 × 6</span>. Tiếp: <span class="m">6 = 2 × 3</span>.</p>
+      <svg viewBox="0 0 230 150" style="max-width:230px" role="img" aria-label="Sơ đồ cây: 18 tách thành 3 và 6, 6 tách thành 2 và 3">
+        <g stroke="#5c6577" stroke-width="2"><line x1="110" y1="30" x2="62" y2="58"/><line x1="110" y1="30" x2="162" y2="58"/><line x1="162" y1="84" x2="128" y2="112"/><line x1="162" y1="84" x2="198" y2="112"/></g>
+        <g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle">
+          <text x="110" y="24" fill="#1f2430" font-weight="700">18</text>
+          <text x="60" y="78" fill="#2f6fdb">3</text><text x="162" y="78" fill="#c93c3c" font-weight="700">6</text>
+          <text x="128" y="132" fill="#2f6fdb">2</text><text x="198" y="132" fill="#c93c3c" font-weight="700">3</text>
+        </g>
+      </svg>
+      <p class="vi-sao">Các “lá” cuối cùng 3; 2; 3 đều là số nguyên tố nên dừng. Vậy <span class="m">18 = 2 · 3<sup>2</sup></span>.</p>
+      <a class="xem-lai" href="#kt-cay">📌 Xem lại: sơ đồ cây</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">18 = 3 × 6</span>; <span class="m">6 = 2 × 3</span>. Kết quả: <span class="m">18 = 2 · 3<sup>2</sup></span>.</div>
+    <div class="bay">Dừng ở <span class="m">18 = 3 × 6</span>. 6 chưa phải số nguyên tố nên phải tách tiếp.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="ch3" data-ten="Câu hỏi (sơ đồ cột số 30)" data-muc="nb" data-chip="Câu hỏi ③">
+  <div class="bai-dau"><span class="so">Câu hỏi (sơ đồ cột số 30)</span><span class="nhan nb">Nhận biết</span><span class="nhan">Sơ đồ cột</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm các số còn thiếu trong phân tích số 30 ra thừa số nguyên tố theo sơ đồ cột ở hình bên.</p>
+    <table class="cot"><tr><td>30</td><td>2</td></tr><tr><td>?</td><td>3</td></tr><tr><td>5</td><td>?</td></tr><tr><td>1</td><td></td></tr></table></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Mỗi dòng: lấy số bên trái chia cho số bên phải, được số ở dòng dưới.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Ô “?” bên trái là <span class="m">30 : 2</span>. Ô “?” bên phải là ước nguyên tố nhỏ nhất của 5.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Điền các ô</h4>
+      <p><span class="m">30 : 2 = 15</span>; <span class="m">15 : 3 = 5</span>; 5 là số nguyên tố nên chia cho 5, được 1.</p>
+      <table class="cot"><tr><td>30</td><td>2</td></tr><tr><td class="dien">15</td><td>3</td></tr><tr><td>5</td><td class="dien">5</td></tr><tr><td>1</td><td></td></tr></table>
+      <p>Vậy <span class="m">30 = 2 · 3 · 5</span>.</p>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: sơ đồ cột</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Ô trống bên trái là 15, ô trống bên phải là 5. <span class="m">30 = 2 · 3 · 5</span>.</div>
+    <div class="bay">Điền ô trái là 28 (lấy 30 − 2). Sơ đồ cột dùng phép <b>chia</b>, không phải phép trừ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="lt3" data-ten="Luyện tập 3" data-muc="th">
+  <div class="bai-dau"><span class="so">Luyện tập 3</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sơ đồ cột</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Phân tích các số sau ra thừa số nguyên tố theo sơ đồ cột:</p><p>a) 36; &nbsp; b) 105.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Luôn chia cho ước nguyên tố nhỏ nhất: thử 2, rồi 3, rồi 5, rồi 7…</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 105 là số lẻ nên không chia cho 2 được — thử 3 (tổng các chữ số).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a — 36</h4>
+      <table class="cot"><tr><td>36</td><td>2</td></tr><tr><td>18</td><td>2</td></tr><tr><td>9</td><td>3</td></tr><tr><td>3</td><td>3</td></tr><tr><td>1</td><td></td></tr></table>
+      <p><span class="m">36 = 2 · 2 · 3 · 3 = 2<sup>2</sup> · 3<sup>2</sup></span>.</p>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: sơ đồ cột</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — 105</h4>
+      <table class="cot"><tr><td>105</td><td>3</td></tr><tr><td>35</td><td>5</td></tr><tr><td>7</td><td>7</td></tr><tr><td>1</td><td></td></tr></table>
+      <p><span class="m">105 = 3 · 5 · 7</span>.</p>
+      <p class="vi-sao">105 lẻ nên không chia hết cho 2; tổng các chữ số 1 + 0 + 5 = 6 chia hết cho 3, nên ước nguyên tố nhỏ nhất là 3.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) <span class="m">36 = 2<sup>2</sup> · 3<sup>2</sup></span>. &nbsp; b) <span class="m">105 = 3 · 5 · 7</span>.</div>
+    <div class="bay">Chia 36 cho 4 hoặc cho 6 ở cột phải. Cột phải chỉ được ghi số nguyên tố.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b217" data-ten="Bài 2.17" data-muc="nb">
+  <div class="bai-dau"><span class="so">Bài 2.17</span><span class="nhan nb">Nhận biết</span><span class="nhan">Phân tích ra thừa số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Phân tích các số sau ra thừa số nguyên tố: 70; 115.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 115 tận cùng là 5 — chia cho 5 xong, thương là số gì?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Dùng sơ đồ cột hoặc sơ đồ cây; nhớ kiểm tra thương cuối cùng có phải số nguyên tố.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân tích 70</h4>
+      <p><span class="m">70 = 2 · 35 = 2 · 5 · 7</span>.</p>
+      <a class="xem-lai" href="#kt-phan-tich">📌 Xem lại: phân tích ra thừa số nguyên tố</a></div>
+    <div class="buoc" data-so="2"><h4>Phân tích 115</h4>
+      <p>115 lẻ, tổng các chữ số 7 không chia hết cho 3, tận cùng 5 → chia hết cho 5: <span class="m">115 = 5 · 23</span>.</p>
+      <p class="vi-sao">23 là số nguyên tố nên dừng.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">70 = 2 · 5 · 7</span>; &nbsp; <span class="m">115 = 5 · 23</span>.</div>
+    <div class="bay">Thử chia 23 tiếp cho 3 hoặc 7. 23 là số nguyên tố — đã đến “lá” cuối.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b218" data-ten="Bài 2.18" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.18</span><span class="nhan th">Thông hiểu</span><span class="nhan">Kiểm tra phân tích</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kết quả phân tích các số 120; 102 ra thừa số nguyên tố của bạn Nam như sau:</p>
+    <p><span class="m">120 = 2 · 3 · 4 · 5</span>; &nbsp; <span class="m">102 = 2 · 51</span>.</p>
+    <p>Theo em, kết quả của Nam đúng hay sai? Nếu sai, em hãy sửa lại cho đúng.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Hai bẫy khác nhau: một thừa số là hợp số, một thừa số “trông như” số nguyên tố.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 51 có tổng các chữ số là 6 — 51 có chia hết cho 3 không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Số 120</h4>
+      <p>Sai vì 4 là hợp số. Sửa: <span class="m">120 = 2 · 3 · 2 · 2 · 5 = 2<sup>3</sup> · 3 · 5</span>.</p>
+      <a class="xem-lai" href="#kt-phan-tich">📌 Xem lại: phân tích ra thừa số nguyên tố</a></div>
+    <div class="buoc" data-so="2"><h4>Số 102</h4>
+      <p>Sai vì 51 là hợp số: <span class="m">51 = 3 · 17</span> (tổng các chữ số 5 + 1 = 6 chia hết cho 3). Sửa: <span class="m">102 = 2 · 3 · 17</span>.</p>
+      <a class="xem-lai" href="#kt-hop-so">📌 Xem lại: nhận ra hợp số</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Cả hai đều sai. Sửa: <span class="m">120 = 2<sup>3</sup> · 3 · 5</span>; <span class="m">102 = 2 · 3 · 17</span>.</div>
+    <div class="bay">Cho 51 là số nguyên tố vì “lẻ và không chia hết cho 5”. Phải thử cả 3: <span class="m">51 = 3 · 17</span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b219" data-ten="Bài 2.19" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.19</span><span class="nhan th">Thông hiểu</span><span class="nhan">Đúng / sai</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Các khẳng định sau đúng hay sai? Vì sao?</p>
+    <p>a) Ước nguyên tố của 30 là 5 và 6;</p><p>b) Tích của hai số nguyên tố bất kì luôn là số lẻ;</p><p>c) Ước nguyên tố nhỏ nhất của số chẵn là 2;</p><p>d) Mọi bội của 3 đều là hợp số;</p><p>e) Mọi số chẵn đều là hợp số.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Muốn nói “sai”, chỉ cần một ví dụ ngược lại. Nhớ đến số 2 — số nguyên tố chẵn duy nhất.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Thử với số nhỏ: 2; 3; 6… Số 2 và số 3 có phải hợp số không?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a, b</h4>
+      <p>a) <b>Sai</b>: 6 không phải số nguyên tố. <span class="m">30 = 2 · 3 · 5</span>, các ước nguyên tố của 30 là 2; 3; 5.</p>
+      <p>b) <b>Sai</b>: <span class="m">2 · 3 = 6</span> là số chẵn.</p>
+      <a class="xem-lai" href="#kt-snt">📌 Xem lại: số nguyên tố</a></div>
+    <div class="buoc" data-so="2"><h4>Câu c</h4>
+      <p><b>Đúng</b>: số chẵn chia hết cho 2, mà 2 là số nguyên tố nhỏ nhất.</p></div>
+    <div class="buoc" data-so="3"><h4>Câu d, e</h4>
+      <p>d) <b>Sai</b>: 3 là bội của 3 nhưng 3 là số nguyên tố.</p>
+      <p>e) <b>Sai</b>: 2 là số chẵn nhưng là số nguyên tố.</p>
+      <p class="vi-sao">Một ví dụ ngược lại là đủ để kết luận một khẳng định “mọi…”, “luôn…” là sai.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Sai (6 không phải số nguyên tố; ước nguyên tố của 30 là 2; 3; 5). b) Sai (2 · 3 = 6 chẵn). c) Đúng. d) Sai (3 là bội của 3 nhưng là số nguyên tố). e) Sai (2 chẵn nhưng là số nguyên tố).</div>
+    <div class="bay">Quên số 2 là số nguyên tố, nên cho rằng b và e đúng.</div>
+    <div class="gv-note">Câu d, e còn có ví dụ ngược khác là số 0 (bội của 3, số chẵn, nhưng không là hợp số). Câu c: với số chẵn 0 thì “ước nguyên tố nhỏ nhất” vẫn là 2 — không cần bàn sâu với HS.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b220" data-ten="Bài 2.20" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.20</span><span class="nhan th">Thông hiểu</span><span class="nhan">Số nguyên tố hay hợp số</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Kiểm tra xem các số sau là số nguyên tố hay hợp số bằng cách dùng dấu hiệu chia hết hoặc tra bảng số nguyên tố:</p><p>89; 97; 125; 541; 2 013; 2 018.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Dùng dấu hiệu chia hết trước; số nào không “bắt” được thì tra bảng.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> 125 tận cùng 5; 2 018 chẵn; 2 013 có tổng các chữ số là 6.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Dùng dấu hiệu chia hết</h4>
+      <p>125 tận cùng 5 → chia hết cho 5 → hợp số.</p>
+      <p>2 013: tổng các chữ số 2 + 0 + 1 + 3 = 6 chia hết cho 3 → hợp số.</p>
+      <p>2 018 tận cùng 8 → chia hết cho 2 → hợp số.</p>
+      <a class="xem-lai" href="#kt-hop-so">📌 Xem lại: nhận ra hợp số</a></div>
+    <div class="buoc" data-so="2"><h4>Tra bảng số nguyên tố</h4>
+      <p>89; 97; 541 không chia hết cho 2, 3, 5; tra bảng số nguyên tố cuối sách thấy cả ba đều có mặt → số nguyên tố.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Số nguyên tố: 89; 97; 541. Hợp số: 125; 2 013; 2 018.</div>
+    <div class="bay">Kết luận 541 là số nguyên tố chỉ vì nó không chia hết cho 2, 3, 5. Còn phải kiểm các số nguyên tố khác — vì vậy nên tra bảng.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b221" data-ten="Bài 2.21" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2.21</span><span class="nhan vd">Vận dụng</span><span class="nhan">Phân tích luỹ thừa</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Hãy phân tích <span class="m">A</span> ra thừa số nguyên tố: <span class="m">A = 4<sup>4</sup> · 9<sup>5</sup></span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 4 và 9 chưa phải số nguyên tố. Viết bung từng luỹ thừa ra.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">4 = 2 · 2</span>, nên <span class="m">4<sup>4</sup> = 4 · 4 · 4 · 4</span> = có bao nhiêu thừa số 2?</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Phân tích 4<sup>4</sup></h4>
+      <p><span class="m">4<sup>4</sup> = 4 · 4 · 4 · 4 = (2 · 2) · (2 · 2) · (2 · 2) · (2 · 2) = 2<sup>8</sup></span> (8 thừa số 2).</p>
+      <p class="vi-sao">Mỗi số 4 góp 2 thừa số 2; có 4 số 4 nên được 2 · 4 = 8 thừa số 2.</p>
+      <a class="xem-lai" href="#kt-phan-tich">📌 Xem lại: phân tích ra thừa số nguyên tố</a></div>
+    <div class="buoc" data-so="2"><h4>Phân tích 9<sup>5</sup></h4>
+      <p><span class="m">9 = 3 · 3</span>, nên <span class="m">9<sup>5</sup> = 9 · 9 · 9 · 9 · 9</span> có <span class="m">2 · 5 = 10</span> thừa số 3: <span class="m">9<sup>5</sup> = 3<sup>10</sup></span>.</p></div>
+    <div class="buoc" data-so="3"><h4>Ghép lại</h4>
+      <p><span class="m">A = 2<sup>8</sup> · 3<sup>10</sup></span>.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so"><span class="m">A = 2<sup>8</sup> · 3<sup>10</sup></span>.</div>
+    <div class="bay">Viết <span class="m">4<sup>4</sup> = 2<sup>4</sup></span> hoặc <span class="m">2<sup>6</sup></span>. Viết bung ra sẽ thấy có 8 thừa số 2.</div>
+    <div class="gv-note">Không dùng công thức luỹ thừa của luỹ thừa <span class="m">(a<sup>m</sup>)<sup>n</sup></span> — không có trong Toán 6; đếm thừa số khi viết bung là đủ. Kiểm tra: <span class="m">4<sup>4</sup> · 9<sup>5</sup> = 256 · 59 049 = 15 116 544 = 2<sup>8</sup> · 3<sup>10</sup></span>.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b222" data-ten="Bài 2.22" data-muc="th">
+  <div class="bai-dau"><span class="so">Bài 2.22</span><span class="nhan th">Thông hiểu</span><span class="nhan">Sơ đồ cột, sơ đồ cây</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Tìm các số còn thiếu trong các sơ đồ phân tích một số ra thừa số nguyên tố sau:</p>
+    <p>a) Sơ đồ cột:</p>
+    <table class="cot"><tr><td>210</td><td>2</td></tr><tr><td>?</td><td>3</td></tr><tr><td>35</td><td>?</td></tr><tr><td>?</td><td>7</td></tr><tr><td>1</td><td></td></tr></table>
+    <p>b) Sơ đồ cây: <span class="m">? = 6 × ?</span>; <span class="m">6 = 2 × 3</span>; <span class="m">? = 3 × ?</span>; <span class="m">? = 5 × 7</span>.</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Câu b nên điền từ dưới lên: ô nào em tính được ngay?</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Câu b: ô cuối <span class="m">? = 5 × 7</span> tính được ngay. Rồi đi ngược lên.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Câu a</h4>
+      <p><span class="m">210 : 2 = 105</span>; <span class="m">105 : 3 = 35</span>; 35 chia cho ước nguyên tố nhỏ nhất là 5 được 7; <span class="m">7 : 7 = 1</span>.</p>
+      <table class="cot"><tr><td>210</td><td>2</td></tr><tr><td class="dien">105</td><td>3</td></tr><tr><td>35</td><td class="dien">5</td></tr><tr><td class="dien">7</td><td>7</td></tr><tr><td>1</td><td></td></tr></table>
+      <p><span class="m">210 = 2 · 3 · 5 · 7</span>.</p>
+      <a class="xem-lai" href="#kt-cot">📌 Xem lại: sơ đồ cột</a></div>
+    <div class="buoc" data-so="2"><h4>Câu b — đi từ dưới lên</h4>
+      <p><span class="m">5 × 7 = 35</span>; <span class="m">3 × 35 = 105</span>; <span class="m">6 × 105 = 630</span>.</p>
+      <svg viewBox="0 0 310 200" style="max-width:310px" role="img" aria-label="Sơ đồ cây: 630 tách thành 6 và 105; 6 tách thành 2 và 3; 105 tách thành 3 và 35; 35 tách thành 5 và 7">
+        <g stroke="#5c6577" stroke-width="2"><line x1="150" y1="30" x2="85" y2="56"/><line x1="150" y1="30" x2="220" y2="56"/><line x1="85" y1="82" x2="52" y2="108"/><line x1="85" y1="82" x2="118" y2="108"/><line x1="220" y1="82" x2="188" y2="108"/><line x1="220" y1="82" x2="255" y2="108"/><line x1="255" y1="134" x2="222" y2="160"/><line x1="255" y1="134" x2="288" y2="160"/></g>
+        <g font-family="Segoe UI,Arial" font-size="18" text-anchor="middle">
+          <text x="150" y="24" fill="#c93c3c" font-weight="700">630</text>
+          <text x="85" y="76" fill="#1f2430">6</text><text x="220" y="76" fill="#c93c3c" font-weight="700">105</text>
+          <text x="52" y="128" fill="#2f6fdb">2</text><text x="118" y="128" fill="#2f6fdb">3</text>
+          <text x="188" y="128" fill="#2f6fdb">3</text><text x="255" y="128" fill="#c93c3c" font-weight="700">35</text>
+          <text x="222" y="180" fill="#2f6fdb">5</text><text x="288" y="180" fill="#2f6fdb">7</text>
+        </g>
+      </svg>
+      <p class="vi-sao">Số màu đỏ là các ô em điền. Các “lá” 2; 3; 3; 5; 7 đều là số nguyên tố, nên <span class="m">630 = 2 · 3<sup>2</sup> · 5 · 7</span>.</p>
+      <a class="xem-lai" href="#kt-cay">📌 Xem lại: sơ đồ cây</a></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">a) Các ô trống: 105; 5; 7 (<span class="m">210 = 2 · 3 · 5 · 7</span>). &nbsp; b) <span class="m">630 = 6 × 105</span>; <span class="m">105 = 3 × 35</span>; <span class="m">35 = 5 × 7</span> (<span class="m">630 = 2 · 3<sup>2</sup> · 5 · 7</span>).</div>
+    <div class="bay">Ở câu b, điền từ trên xuống nên không biết bắt đầu từ đâu. Ô duy nhất tính ngay được là <span class="m">5 × 7</span> — bắt đầu từ đó.</div>
+    <div class="gv-note">Kho SGK mô tả sơ đồ cây câu b bằng chữ (không có ảnh); lời giải hiểu các ô “?” cùng hàng là cùng một số (thừa số thứ hai của 6 × ? là số được tách tiếp thành 3 × ?…). Nếu hình trong sách bố trí khác, đối chiếu lại.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b223" data-ten="Bài 2.23" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2.23</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán chia nhóm</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Một lớp có 30 học sinh. Cô giáo muốn chia lớp thành các nhóm để thực hiện các dự án học tập nhỏ. Biết rằng, các nhóm đều có số người bằng nhau và có nhiều hơn 1 người trong mỗi nhóm. Hỏi mỗi nhóm có thể có bao nhiêu người?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Số người mỗi nhóm là ước của 30, và lớn hơn 1.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> Phân tích <span class="m">30 = 2 · 3 · 5</span> giúp tìm nhanh các ước của 30.</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các ước của 30</h4>
+      <p>Các nhóm có số người bằng nhau nên số người mỗi nhóm là ước của 30. Ư(30) = {1; 2; 3; 5; 6; 10; 15; 30}.</p>
+      <p class="vi-sao">Từ <span class="m">30 = 2 · 3 · 5</span>, các ước là 1, từng thừa số 2; 3; 5, tích từng cặp 6; 10; 15 và cả 30.</p></div>
+    <div class="buoc" data-so="2"><h4>Chọn theo điều kiện</h4>
+      <p>Nhiều hơn 1 người nên bỏ 1. Chia lớp thành <b>các</b> nhóm (ít nhất 2 nhóm) nên bỏ 30 (cả lớp một nhóm).</p>
+      <p>Mỗi nhóm có thể có 2; 3; 5; 6; 10 hoặc 15 người.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Mỗi nhóm có thể có 2; 3; 5; 6; 10 hoặc 15 người.</div>
+    <div class="bay">Quên ước 6 hoặc 10 (chỉ ghi các thừa số nguyên tố 2; 3; 5). Ước của 30 gồm cả các tích như 6; 10; 15.</div>
+    <div class="gv-note">Nhiều tài liệu tính cả trường hợp 30 người (cả lớp là một nhóm). Chấp nhận nếu HS ghi thêm 30 kèm giải thích; đáp án ở đây bỏ 30 vì đề nói “chia lớp thành các nhóm”.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<article class="the bai" id="b224" data-ten="Bài 2.24" data-muc="vd">
+  <div class="bai-dau"><span class="so">Bài 2.24</span><span class="nhan vd">Vận dụng</span><span class="nhan">Bài toán xếp hàng</span><span class="trang-thai"></span></div>
+  <div class="de"><p>Trong nghi lễ thượng cờ lúc 6 giờ sáng và hạ cờ lúc 21 giờ hằng ngày ở Quảng trường Ba Đình, đội tiêu binh có 34 người gồm 1 sĩ quan chỉ huy đứng đầu và 33 chiến sĩ. Hỏi có bao nhiêu cách sắp xếp 33 chiến sĩ thành các hàng, sao cho mỗi hàng có số người như nhau?</p></div>
+  <div class="nghi chi-hs">
+    <p class="loi-nhac">🧠 Chỉ xếp 33 chiến sĩ (người sĩ quan đứng riêng). Số hàng phải là ước của 33.</p>
+    <div class="tro-giup"><button class="nut-nho" data-tro-giup>💡 Cần gợi ý</button><button class="nut-link" data-hien-het hidden>xem hết lời giải</button></div>
+    <p class="dem-nghi"></p>
+  </div>
+  <div class="goi-y" hidden><b>Gợi ý:</b> <span class="m">33 = 3 · 11</span>. Tìm Ư(33).</div>
+  <div class="loi-giai">
+    <div class="buoc" data-so="1"><h4>Tìm các ước của 33</h4>
+      <p>Mỗi hàng có số người như nhau nên số hàng là ước của 33. <span class="m">33 = 3 · 11</span>, Ư(33) = {1; 3; 11; 33}.</p></div>
+    <div class="buoc" data-so="2"><h4>Liệt kê các cách xếp</h4>
+      <table><tr><th>Số hàng</th><td>1</td><td>3</td><td>11</td><td>33</td></tr><tr><th>Số người mỗi hàng</th><td>33</td><td>11</td><td>3</td><td>1</td></tr></table>
+      <p class="vi-sao">Số hàng × số người mỗi hàng = 33.</p></div>
+  </div>
+  <div class="ket">
+    <div class="dap-so">Có 4 cách: 1 hàng 33 người; 3 hàng, mỗi hàng 11 người; 11 hàng, mỗi hàng 3 người; 33 hàng, mỗi hàng 1 người.</div>
+    <div class="bay">Dùng 34 thay vì 33. Sĩ quan chỉ huy đứng đầu, không xếp vào hàng.</div>
+    <div class="gv-note">Nếu loại hai cách “1 hàng” và “mỗi hàng 1 người” (ít thực tế) thì còn 2 cách (3 hàng × 11, 11 hàng × 3). Đề không loại, nên đáp án chính là 4 cách; chấp nhận 2 cách nếu HS lập luận rõ.</div>
+    <div class="hieu-chua"><p>Em hiểu bài này chưa?</p><div class="nut-hang" style="display:flex"><button class="nut ok" data-hieu="1">👍 Hiểu rồi</button><button class="nut no" data-hieu="0">🤔 Chưa hiểu lắm</button></div></div>
+  </div>
+</article>
+
+<section class="the chi-hs cuoi-trang" style="text-align:center">
+  <p style="margin:0 0 10px">🎉 Làm xong hết rồi? Em có thể xem lại những bài đánh dấu <b style="color:var(--warm)">🤔 chưa hiểu</b> ở thanh trên cùng (chấm màu cam).</p>
+  <button class="nut" id="lam-lai">↺ Xoá đánh dấu, làm lại từ đầu</button>
+</section>
+
+<p class="chan">Toán 6 · Kết nối tri thức với cuộc sống · Bài 10. Số nguyên tố — Lời giải do nhóm biên soạn, không phải đáp án chính thức của SGK.</p>
+</main>
+
+<script>
+(function(){
+  var KEY = 'bai-giai:toan-6:c02-b10';
+  var luu = {}; try{ luu = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){}
+  function ghi(){ try{ localStorage.setItem(KEY, JSON.stringify(luu)); }catch(e){} }
+  var bais = [].slice.call(document.querySelectorAll('.bai'));
+
+  // --- Dựng thanh chọn bài + bảng đáp án nhanh từ chính các bài ---
+  var MUC = {nb:'Nhận biết', th:'Thông hiểu', vd:'Vận dụng', vdc:'Vận dụng cao', mo:'Câu hỏi mở'};
+  var nav = document.getElementById('chips'), bang = document.getElementById('bang-dap-an');
+  var phans = [].slice.call(document.querySelectorAll('.phan-tieu-de'));
+  // Trang có chia phần (Ngữ văn…): mỗi chip = một phần; không chia phần (Toán): mỗi chip = một bài
+  (phans.length ? phans : bais).forEach(function(x){
+    var a = document.createElement('a'); a.className = 'chip'; a.href = '#' + x.id; a.dataset.chip = x.id;
+    a.textContent = x.dataset.chip || (x.dataset.ten || '').replace(/^Bài /, ''); nav.appendChild(a);
+  });
+  function phanCua(bai){   // tiêu đề phần đứng ngay trước bài
+    var p = null; phans.forEach(function(h){ if (h.compareDocumentPosition(bai) & Node.DOCUMENT_POSITION_FOLLOWING) p = h; });
+    return p;
+  }
+  bais.forEach(function(bai){
+    var tr = document.createElement('tr'), ds = bai.querySelector('.dap-so');
+    tr.innerHTML = '<td><a href="#' + bai.id + '"></a></td><td></td><td>' + (MUC[bai.dataset.muc] || '') + '</td>';
+    var ph = phanCua(bai);   // trang chia phần: ghi kèm tên phần (mỗi phần đánh số bài lại từ 1)
+    tr.cells[0].firstChild.textContent = (ph ? ph.dataset.chip + ' · ' : '') + bai.dataset.ten;
+    tr.cells[1].innerHTML = ds ? ds.innerHTML : '';
+    bang.appendChild(tr);
+  });
+
+  // --- Chữ cái đơn trong công thức (x, A, M…) in nghiêng; ngoặc, số, kí hiệu để đứng ---
+  document.querySelectorAll('.m').forEach(function(m){
+    var w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT), ns = [];
+    while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(t){
+      var h = t.nodeValue.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/(^|[^A-Za-zÀ-ỹ])([A-Za-z])(?![A-Za-zÀ-ỹ])/g, '$1<i>$2</i>');
+      if (h === t.nodeValue) return;
+      var s = document.createElement('span'); s.innerHTML = h; t.parentNode.replaceChild(s, t);
+    });
+  });
+  // Trên điện thoại: thu gọn hộp kiến thức để bài tập hiện lên sớm
+  if (window.matchMedia('(max-width:600px)').matches) document.querySelector('details.nho').open = false;
+
+  // --- Chế độ Học sinh / Giáo viên ---
+  function datMode(m){
+    document.body.dataset.mode = m;
+    document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.chonMode === m); });
+    luu._mode = m; ghi();
+  }
+  document.querySelectorAll('[data-chon-mode]').forEach(function(b){ b.onclick = function(){ datMode(b.dataset.chonMode); }; });
+  if (location.hash === '#gv') luu._mode = 'gv';
+  datMode(luu._mode || 'hs');
+
+  // --- Tiến độ ---
+  function capNhat(){
+    var n = 0;
+    bais.forEach(function(bai){
+      var s = luu[bai.id], chip = document.querySelector('[data-chip="'+bai.id+'"]'), tt = bai.querySelector('.trang-thai');
+      if (chip){ chip.classList.toggle('hieu', s === 1); chip.classList.toggle('chua', s === 0); }
+      tt.textContent = s === 1 ? '✅ Đã hiểu' : s === 0 ? '🤔 Cần xem lại' : '';
+      tt.style.color = s === 1 ? 'var(--green)' : 'var(--warm)';
+      bai.querySelectorAll('[data-hieu]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.hieu === s)); });
+      var th = bai.querySelector('.them'); if (th) th.classList.toggle('hien', s === 0);
+      if (s === 1) n++;
+    });
+    phans.forEach(function(h){   // chip phần: xanh khi mọi câu trong phần đã hiểu, cam khi có câu cần xem lại
+      var ds = bais.filter(function(b){ return phanCua(b) === h; }), chip = document.querySelector('[data-chip="'+h.id+'"]');
+      chip.classList.toggle('hieu', ds.length > 0 && ds.every(function(b){ return luu[b.id] === 1; }));
+      chip.classList.toggle('chua', ds.some(function(b){ return luu[b.id] === 0; }));
+    });
+    document.getElementById('dem').textContent = 'Em đã hiểu ' + n + '/' + bais.length + (phans.length ? ' câu' : ' bài');
+    document.getElementById('thanh').style.width = (100 * n / bais.length) + '%';
+  }
+
+  // --- Giáo viên: nút mở / thu các bước giải thích ---
+  function nhanBuoc(bai, n){ return bai.classList.contains('mo-buoc') ? '▴ Ẩn các bước giải thích' : '👣 Xem ' + n + ' bước giải thích'; }
+  bais.forEach(function(bai){
+    var n = bai.querySelectorAll('.buoc').length;
+    var nb = document.createElement('button'); nb.className = 'nut-nho nut-buoc-gv chi-gv'; nb.textContent = nhanBuoc(bai, n);
+    nb.onclick = function(){ bai.classList.toggle('mo-buoc'); nb.textContent = nhanBuoc(bai, n); capNhatTatCa(); };
+    bai.querySelector('.loi-giai').before(nb);
+  });
+  var nutTatCa = document.getElementById('gv-tat-ca');
+  function capNhatTatCa(){
+    var het = bais.every(function(b){ return b.classList.contains('mo-buoc'); });
+    nutTatCa.textContent = het ? '▴ Thu gọn tất cả các bước' : '👣 Hiện tất cả các bước giải thích';
+    return het;
+  }
+  nutTatCa.onclick = function(){
+    var mo = !capNhatTatCa();
+    bais.forEach(function(b){
+      b.classList.toggle('mo-buoc', mo);
+      var nb = b.querySelector('.nut-buoc-gv'); nb.textContent = nhanBuoc(b, b.querySelectorAll('.buoc').length);
+    });
+    capNhatTatCa();
+  };
+
+  var CHO_GIAY = 20;   // thời gian "suy nghĩ trước" rồi nút gợi ý mới mở
+  bais.forEach(function(bai){
+    var buocs = [].slice.call(bai.querySelectorAll('.buoc')), ket = bai.querySelector('.ket');
+    var goiY = bai.querySelector('.goi-y'), nutTG = bai.querySelector('[data-tro-giup]');
+    var nutHet = bai.querySelector('[data-hien-het]'), dem = bai.querySelector('.dem-nghi');
+    var buoc = 0;          // 0 = chưa mở gì; 1 = đã mở gợi ý; 1 + k = đã mở k bước
+    var conLai = CHO_GIAY, dongHo = null;
+
+    function ve(){
+      var da = Math.max(0, buoc - 1), xong = da >= buocs.length;
+      goiY.hidden = buoc < 1;
+      buocs.forEach(function(b, i){ b.classList.toggle('hien', i < da); });
+      ket.classList.toggle('hien', xong);
+      nutTG.hidden = xong; nutHet.hidden = xong || buoc < 1;
+      nutTG.textContent = buoc === 0 ? '💡 Cần gợi ý' : '👣 Mở bước ' + (da + 1) + '/' + buocs.length;
+      if (xong) dem.textContent = '';
+    }
+    function moKhoa(){
+      clearInterval(dongHo); dongHo = null; conLai = 0; nutTG.disabled = false;
+      dem.textContent = buoc ? '' : 'Bí quá thì dùng gợi ý nhé — nhưng chỉ mở từng chút một.';
+    }
+    function batDauDem(){
+      if (dongHo || conLai <= 0) return;
+      nutTG.disabled = true;
+      var bao = function(){ dem.textContent = '🧠 Suy nghĩ thêm ' + conLai + ' giây nữa rồi mới xem gợi ý nhé…'; };
+      bao();
+      dongHo = setInterval(function(){ if (--conLai <= 0) moKhoa(); else bao(); }, 1000);
+    }
+    nutTG.onclick = function(){ buoc++; ve(); (buocs[buoc - 2] || goiY).scrollIntoView({behavior:'smooth', block:'nearest'}); };
+    nutHet.onclick = function(){ buoc = buocs.length + 1; ve(); };
+    if (luu[bai.id] !== undefined){ buoc = buocs.length + 1; conLai = 0; }   // đã làm rồi → mở sẵn
+    else if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es, ob){ if (es[0].isIntersecting){ batDauDem(); ob.disconnect(); } }, {threshold:.5}).observe(bai);
+    } else batDauDem();
+    ve();
+    bai.querySelectorAll('[data-hieu]').forEach(function(b){
+      b.onclick = function(){ luu[bai.id] = +b.dataset.hieu; ghi(); capNhat(); };
+    });
+  });
+
+  // --- Thử nhanh ∈ / ∉ ---
+  document.querySelectorAll('.cau-thu').forEach(function(c){
+    var ph = c.querySelector('.phan-hoi');
+    c.querySelectorAll('.chon').forEach(function(b){
+      b.onclick = function(){
+        c.querySelectorAll('.chon').forEach(function(x){ x.classList.remove('dung','sai'); });
+        var ok = b.dataset.dung === '1';
+        b.classList.add(ok ? 'dung' : 'sai');
+        ph.className = 'phan-hoi ' + (ok ? 'dung' : 'sai');
+        ph.textContent = ok ? '✓ ' + ph.dataset.dungTxt : '✗ ' + ph.dataset.saiTxt;
+      };
+    });
+  });
+
+  // --- Nút "Xem lại" kiến thức: mở hộp và nháy sáng mục ---
+  document.querySelectorAll('.xem-lai').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.querySelector('details.nho').open = true;
+      var kt = document.querySelector(a.getAttribute('href'));
+      kt.classList.remove('nhay'); void kt.offsetWidth; kt.classList.add('nhay');
+    });
+  });
+
+  document.getElementById('lam-lai').onclick = function(){
+    if (!confirm('Xoá hết đánh dấu “hiểu / chưa hiểu”?')) return;
+    var m = luu._mode; luu = {_mode: m}; ghi(); location.reload();
+  };
+
+  capNhat();
+})();
+</script>
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="solution" data-mon="toan" data-tep="bài giải/toán/toan-lop-6-chuong-02-bai-10-so-nguyen-to-bai-giai.html" data-nguon="bài giải/toán/nguon/toan-lop-6-chuong-02-bai-10-so-nguyen-to-bai-giai.nguon.html" data-phien-ban="d81160030a8c">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+</body>
+</html>
