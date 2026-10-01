@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://giao-guc-pho-thong.github.io/bai-giang-lop-6/gop-y/schema.json",
+  "title": "Góp ý (feedback) — Trợ lý học tập lớp 6",
+  "description": "Một bản ghi góp ý do gop-y/gop-y.js tạo ra. Khoá tiếng Anh (snake_case, ổn định cho DB/API/AI); giá trị liệt kê cố định; chữ tự do bằng tiếng Việt. File xuất từ trình duyệt có dạng { export_version, exported_at, device_id, items: [Feedback…] }; API nhận { schema_version, items: [Feedback không có trường sync] }.",
+  "type": "object",
+  "required": ["schema_version", "id", "created_at", "reporter", "feedback", "context"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "id": { "type": "string", "format": "uuid", "description": "Sinh ở trình duyệt; dùng làm khoá chống trùng khi gửi lại." },
+    "created_at": { "type": "string", "format": "date-time", "description": "ISO 8601 có múi giờ của máy người gửi, vd 2026-10-01T09:12:00+07:00." },
+    "updated_at": { "type": ["string", "null"], "format": "date-time", "description": "Lần người gửi sửa lại góp ý (nếu có)." },
+
+    "reporter": {
+      "type": "object",
+      "required": ["role", "device_id"],
+      "properties": {
+        "role": { "enum": ["teacher", "student", "parent", "other"] },
+        "device_id": { "type": "string", "description": "Mã ngẫu nhiên theo trình duyệt — ẩn danh, chỉ để gom góp ý cùng một người." },
+        "display_name": { "type": ["string", "null"], "description": "Tên / trường tự khai, KHÔNG bắt buộc; luôn null với học sinh." }
+      }
+    },
+
+    "feedback": {
+      "type": "object",
+      "required": ["category", "message"],
+      "properties": {
+        "category": {
+          "enum": ["content_error", "typo_format", "interaction_bug", "audio_issue", "hard_to_understand", "suggestion", "praise", "other"],
+          "description": "content_error: sai kiến thức/đáp án · typo_format: chính tả, trình bày · interaction_bug: nút/tương tác không chạy · audio_issue: âm thanh, phát âm · hard_to_understand: khó hiểu, quá khó · suggestion: đề xuất · praise: khen · other: khác"
+        },
+        "message": { "type": "string", "maxLength": 3000, "description": "Người dùng tự viết. Có thể rỗng khi category = praise." },
+        "expected": { "type": ["string", "null"], "maxLength": 1000, "description": "\"Đúng ra phải là…\" — chỉ có với content_error / typo_format. Dữ liệu quý nhất để AI đề xuất bản sửa." },
+        "rating": { "type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "Cảm nhận chung về trang: 1 😞 … 5 😍 (không bắt buộc)." }
+      }
+    },
+
+    "context": {
+      "type": "object",
+      "description": "Thu TỰ ĐỘNG lúc người dùng bấm góp ý.",
+      "required": ["page", "location", "state", "tech"],
+      "properties": {
+        "page": {
+          "type": "object",
+          "properties": {
+            "type": { "enum": ["lesson", "solution", "test", "test_teacher", "index", "other"], "description": "lesson: bài giảng · solution: bài giải · test: trang làm bài kiểm tra online · test_teacher: trang giáo viên · index: trang mục lục" },
+            "subject": { "type": ["string", "null"], "enum": ["toan", "ngu-van", "tieng-anh", null] },
+            "lesson_id": { "type": "string", "description": "Tên file trang, bỏ .html — định danh bài ổn định." },
+            "title": { "type": ["string", "null"] },
+            "h1": { "type": ["string", "null"] },
+            "url": { "type": "string", "description": "Trên web: địa chỉ thật (không query). Mở trên máy: file://…/<đường trong dự án> (không lộ ổ đĩa)." },
+            "file": { "type": ["string", "null"], "description": "Đường file HTML trong repo dự án, vd \"bài giải/toán/toan-lop-6-…-bai-giai.html\"." },
+            "source_path": { "type": ["string", "null"], "description": "File NGUỒN cần sửa khi góp ý đúng (bản .md của bài giảng, *.nguon.html của bài giải, *-online.json của đề…)." },
+            "content_version": { "type": ["string", "null"], "description": "12 kí tự SHA-1 của trang lúc dựng. Khác bản hiện tại = góp ý có thể đã được sửa." },
+            "lang": { "type": ["string", "null"] }
+          }
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "anchor_source": { "enum": ["viewport", "selection", "picked"], "description": "viewport: đoán theo chỗ đang xem · selection: người dùng bôi đen · picked: người dùng bấm 🎯 rồi chạm đúng khối. Độ tin cậy: picked ≈ selection > viewport." },
+            "heading_path": { "type": "array", "items": { "type": "string" }, "description": "Chuỗi tiêu đề từ h1 tới mục chứa vị trí, vd [\"Bài 1. Tập hợp\", \"Luyện tập 2\"]." },
+            "block": {
+              "type": ["object", "null"],
+              "properties": {
+                "id": { "type": ["string", "null"], "description": "id gần nhất (vd lt2, cau-3) — tra thẳng trong file nguồn." },
+                "section_id": { "type": ["string", "null"] },
+                "label": { "type": ["string", "null"], "description": "data-ten hoặc tiêu đề của khối." },
+                "tag": { "type": "string" },
+                "selector": { "type": "string", "description": "Bộ chọn CSS ngắn tới đúng phần tử." },
+                "text": { "type": ["string", "null"], "description": "Chữ của phần tử (≤ 300 kí tự)." },
+                "data": { "type": ["object", "null"], "description": "Tối đa 8 thuộc tính data-* của phần tử (vd đáp án data-answer của câu tự chấm)." }
+              }
+            },
+            "selected_text": { "type": ["string", "null"], "maxLength": 1000 },
+            "surrounding_text": { "type": ["string", "null"], "description": "≈ 200 kí tự trước + sau đoạn chọn (hoặc 400 kí tự đầu của khối)." },
+            "scroll_pct": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "state": {
+          "type": "object",
+          "properties": {
+            "view_mode": { "type": ["string", "null"], "description": "Bài giải: hs | gv." },
+            "presenting": { "type": "boolean" },
+            "exam_screen": { "type": ["string", "null"], "enum": ["thong-tin", "lam-bai", "ket-qua", null] },
+            "url_hash": { "type": ["string", "null"] },
+            "seconds_on_page": { "type": "integer" },
+            "recent_actions": {
+              "type": "array", "maxItems": 15,
+              "description": "15 lần bấm gần nhất trên trang (không ghi chữ người dùng gõ). Dùng để tái hiện lỗi tương tác.",
+              "items": { "type": "object", "properties": { "t_s": { "type": "integer" }, "action": { "const": "click" }, "target": { "type": "string" } } }
+            }
+          }
+        },
+        "tech": {
+          "type": "object",
+          "properties": {
+            "viewport": { "type": "string" }, "screen": { "type": "string" }, "dpr": { "type": "number" },
+            "device": { "enum": ["desktop", "tablet", "mobile"] }, "touch": { "type": "boolean" },
+            "ua": { "type": "string" }, "online": { "type": "boolean" },
+            "language": { "type": ["string", "null"] }, "timezone": { "type": ["string", "null"] },
+            "recent_errors": {
+              "type": "array", "maxItems": 8, "description": "Lỗi JavaScript gần nhất của trang (kể cả trước khi gop-y.js tải xong).",
+              "items": { "type": "object", "properties": { "t_s": { "type": "integer" }, "message": { "type": "string" }, "source": { "type": "string" } } }
+            }
+          }
+        }
+      }
+    },
+
+    "sync": {
+      "type": "object",
+      "description": "CHỈ có ở bản lưu trong trình duyệt / file xuất; không gửi lên API.",
+      "properties": {
+        "status": { "enum": ["pending", "sent", "failed", "rejected"], "description": "rejected: máy chủ trả trong rejected[] — không gửi lại" },
+        "attempts": { "type": "integer" },
+        "last_error": { "type": ["string", "null"] },
+        "sent_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
+  }
+}
