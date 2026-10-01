@@ -7,8 +7,8 @@
    - Toàn bộ giao diện nằm trong Shadow DOM: CSS của trang và của góp ý không đè lên nhau.
    - Tự thu ngữ cảnh: trang, mục đang xem, đoạn bôi đen, khối được "chỉ vào", chế độ HS/GV,
      thao tác gần đây, lỗi JS gần đây, thiết bị.
-   - Lưu localStorage (khoá gopy.v1.*). Khi có API: đặt window.GOP_Y_CAU_HINH = { endpoint: "…" }
-     TRƯỚC khi nạp file này → góp ý chưa gửi sẽ tự gửi lên (hàng chờ, tự thử lại khi có mạng).
+   - Lưu localStorage (khoá gopy.v1.*) rồi gửi lên API (biến API bên dưới) khi chạy trên trang web thật;
+     hàng chờ, tự thử lại khi có mạng. Ghi đè: window.GOP_Y_CAU_HINH = { endpoint: "…" } TRƯỚC khi nạp file này.
    - Cấu trúc bản ghi: gop-y/schema.json. Hướng dẫn: gop-y/README.md.
    ============================================================================================= */
 (function () {
@@ -17,7 +17,11 @@
 
   var SCHEMA = '1.0';
   var KHOA = { ds: 'gopy.v1.items', nguoi: 'gopy.v1.reporter', nhap: 'gopy.v1.draft', goiY: 'gopy.v1.hint' };
-  var CH = Object.assign({ endpoint: null, headers: {}, toiDa: 500 }, window.GOP_Y_CAU_HINH || {});
+  // API nhận góp ý (dự án riêng, Wasmer). Chỉ bật trên trang web thật; mở trên máy (file://) vẫn chỉ lưu localStorage
+  // để góp ý thử không lẫn vào CSDL. Ghi đè được bằng window.GOP_Y_CAU_HINH = { endpoint: … } (null = tắt gửi).
+  var API = 'https://gdpt-api.wasmer.app/v1/feedback';
+  var TREN_WEB = location.protocol === 'https:' && location.hostname === 'giao-guc-pho-thong.github.io';
+  var CH = Object.assign({ endpoint: TREN_WEB ? API : null, headers: {}, toiDa: 500 }, window.GOP_Y_CAU_HINH || {});
   var NAP = document.getElementById('gop-y-nap');
   var META = NAP ? NAP.dataset : {};
   var T0 = Date.now();
