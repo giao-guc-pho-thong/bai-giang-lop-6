@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://giao-guc-pho-thong.github.io/bai-giang-lop-6/sitemap.xml
