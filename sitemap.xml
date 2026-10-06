@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -571,6 +571,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/bai-tap/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/bai-tap/tieng-anh/tieng-anh-lop-6-unit-01-02-luyen-tap.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/ban-quyen.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>yearly</changefreq>
@@ -631,7 +643,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-cuoi-hoc-ki-i-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-cuoi-hoc-ki-i.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-cuoi-hoc-ki-ii-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -643,7 +667,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-giua-hoc-ki-i-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-giua-hoc-ki-i.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-giua-hoc-ki-ii-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -655,7 +691,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-01-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-01.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-02-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -667,7 +715,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-03-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-03.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-04-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -679,7 +739,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-05-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-05.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-06-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -691,7 +763,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-07-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-07.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-08-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -703,7 +787,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-09-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-09.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-10-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -715,7 +811,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-11-de-so-02.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-11.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/kiem-tra/tieng-anh-lop-6-kiem-tra-unit-12-de-so-02.html</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -848,7 +956,7 @@
   </url>
   <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/so-do-trang.html</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

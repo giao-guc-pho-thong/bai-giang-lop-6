@@ -109,6 +109,7 @@
     if (/\/(kiem-tra|bài kiểm tra)\//.test(p)) return ten === 'giao-vien.html' ? 'test_teacher' : (ten === 'index.html' ? 'index' : 'test');
     if (ten === 'index.html' || ten === '') return 'index';
     if (/\/(bai-giai|bài giải)\//.test(p)) return 'solution';
+    if (/\/(bai-tap|bài tập)\//.test(p)) return ten === 'index.html' ? 'index' : 'practice';
     return 'lesson';
   }
   function monHoc() {

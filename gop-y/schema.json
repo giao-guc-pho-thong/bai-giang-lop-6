@@ -43,7 +43,7 @@
         "page": {
           "type": "object",
           "properties": {
-            "type": { "enum": ["lesson", "solution", "test", "test_teacher", "index", "other"], "description": "lesson: bài giảng · solution: bài giải · test: trang làm bài kiểm tra online · test_teacher: trang giáo viên · index: trang mục lục" },
+            "type": { "enum": ["lesson", "solution", "practice", "test", "test_teacher", "index", "other"], "description": "lesson: bài giảng · solution: bài giải · practice: trang luyện tập online · test: trang làm bài kiểm tra online · test_teacher: trang giáo viên · index: trang mục lục" },
             "subject": { "type": ["string", "null"], "enum": ["toan", "ngu-van", "tieng-anh", null] },
             "lesson_id": { "type": "string", "description": "Tên file trang, bỏ .html — định danh bài ổn định." },
             "title": { "type": ["string", "null"] },
