@@ -115,9 +115,9 @@
   function monHoc() {
     if (META.mon) return META.mon;
     var p = duongDan().toLowerCase();
-    if (/(\/toan\/|\/toán\/|\/toan-lop-6)/.test(p)) return 'toan';
-    if (/(\/ngu-van\/|\/ngữ văn\/|\/ngu-van-lop-6)/.test(p)) return 'ngu-van';
-    if (/(\/tieng-anh\/|\/tiếng anh\/|\/tieng-anh-lop-6)/.test(p)) return 'tieng-anh';
+    if (/(\/toan\/|\/toán\/|\/toan-lop-\d+)/.test(p)) return 'toan';
+    if (/(\/ngu-van\/|\/ngữ văn\/|\/ngu-van-lop-\d+)/.test(p)) return 'ngu-van';
+    if (/(\/tieng-anh\/|\/tiếng anh\/|\/tieng-anh-lop-\d+)/.test(p)) return 'tieng-anh';
     return null;
   }
   function urlGon() {

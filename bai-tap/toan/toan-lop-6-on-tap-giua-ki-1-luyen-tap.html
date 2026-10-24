@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện tập ôn giữa học kì I – Toán 6</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#1f2430;--muted:#5c6577;--line:#dfe4ee;--brand:#2f6fdb;--brand-soft:#e8f0ff;
+--green:#0f9d76;--green-soft:#e3f6ef;--red:#d64545;--red-soft:#fdeceb;--warm:#f59e0b;--warm-soft:#fff6e5;--purple:#7c5cd6;--purple-soft:#f1ecff}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header.top{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding:.55rem .8rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+header.top h1{font-size:1rem;margin:0;flex:1 1 auto}
+header.top button{font-size:.85rem;padding:.4rem .7rem}
+main{max-width:760px;margin:0 auto;padding:.8rem .8rem 4rem}
+.man{display:none}.man.hien{display:block}
+.the{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1rem;margin:.8rem 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.the h3{margin:.1rem 0 .5rem;font-size:1.05rem;color:var(--brand)}
+.the table{width:100%;border-collapse:collapse;font-size:.93rem;margin:.4rem 0}
+.the th,.the td{border:1px solid var(--line);padding:.35rem .45rem;text-align:left;vertical-align:top}
+.the th{background:var(--brand-soft)}
+.the ul{padding-left:1.2rem;margin:.3rem 0}
+.luu-y{background:var(--warm-soft);border-left:4px solid var(--warm);padding:.5rem .7rem;border-radius:8px;margin:.5rem 0 0}
+button{font-family:inherit;font-size:1rem;border:0;border-radius:12px;padding:.75rem 1.1rem;cursor:pointer;background:var(--brand);color:#fff;font-weight:600}
+button:disabled{background:#b9c3d6;cursor:not-allowed}
+button.phu{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+button.xam{background:#eef1f6;color:var(--ink)}
+button.do{background:var(--red)}
+.hang{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem}
+.hang button{flex:1 1 auto}
+#nutBatDau{width:100%;font-size:1.1rem;padding:1rem}
+.goi-cuon{text-align:center;color:var(--muted);font-size:.9rem;margin:.4rem 0}
+.nguon{font-size:.85rem;color:var(--muted);margin:.3rem 0 0}
+/* tiến độ */
+.tien-do{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;margin-bottom:.7rem}
+.tien-do .thanh{height:10px;background:#e6eaf2;border-radius:6px;overflow:hidden;margin:.4rem 0}
+.tien-do .thanh i{display:block;height:100%;background:var(--brand);width:0}
+.tien-do small{color:var(--muted)}
+.nhan{display:inline-block;border-radius:999px;padding:.1rem .6rem;font-size:.8rem;font-weight:600;vertical-align:middle;background:var(--purple-soft);color:var(--purple)}
+/* dạng */
+.dang-tieu{background:var(--brand-soft);border-radius:12px;padding:.6rem .8rem;margin-bottom:.7rem}
+.dang-tieu h2{margin:0;font-size:1rem}
+.dang-tieu .vi{color:var(--muted);font-size:.9rem}
+/* câu hỏi */
+.cau{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+.de{font-size:1.12rem;font-weight:600;margin:.2rem 0 .8rem;line-height:1.6}
+.de sup{font-size:.72em}
+.chu-hinh{font-weight:400;color:var(--muted);font-size:.9rem}
+.ov{text-decoration:overline}
+figure.hinh{margin:.4rem 0 .8rem;text-align:center}
+figure.hinh svg{max-width:100%;height:auto;max-height:340px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.lua{display:grid;gap:.5rem}
+.lua button{text-align:left;background:#fff;color:var(--ink);border:2px solid var(--line);font-weight:500;font-size:1.05rem}
+.lua button.chon{border-color:var(--brand);background:var(--brand-soft)}
+.lua button.dung{border-color:var(--green);background:var(--green-soft)}
+.lua button.sai{border-color:var(--red);background:var(--red-soft)}
+.lua button b{display:inline-block;width:1.6rem;color:var(--brand)}
+.ds-hang{display:flex;gap:.5rem;align-items:flex-start;padding:.5rem .4rem;border-bottom:1px solid var(--line)}
+.ds-hang:last-child{border-bottom:0}
+.ds-hang .y{flex:1 1 auto;font-size:1.02rem}
+.ds-hang .nut{display:flex;gap:.3rem;flex:0 0 auto}
+.ds-hang .nut button{padding:.45rem .6rem;font-size:.9rem;background:#fff;color:var(--ink);border:2px solid var(--line)}
+.ds-hang .nut button.chon{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+.ds-hang.dung{background:var(--green-soft)}.ds-hang.dung .nut button.chon{border-color:var(--green);color:var(--green);background:#fff}
+.ds-hang.sai{background:var(--red-soft)}
+.o-hang{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.45rem 0}
+.o-hang label{font-weight:600;min-width:2.2rem}
+.o-hang .dv{color:var(--muted)}
+input.o{font:inherit;font-size:1.1rem;padding:.55rem .7rem;border:2px solid var(--line);border-radius:10px;width:11rem;max-width:100%}
+input.o:focus{outline:none;border-color:var(--brand)}
+input.o.dung{border-color:var(--green);background:var(--green-soft)}
+input.o.sai{border-color:var(--red);background:var(--red-soft)}
+.phan-hoi{border-radius:12px;padding:.8rem .9rem;margin-top:.8rem;display:none}
+.phan-hoi.dung{display:block;background:var(--green-soft);border:1px solid var(--green)}
+.phan-hoi.sai{display:block;background:var(--red-soft);border:1px solid var(--red)}
+.phan-hoi.nhe{display:block;background:var(--brand-soft);border:1px solid var(--brand)}
+.phan-hoi h4{margin:0 0 .3rem;font-size:1rem}
+.phan-hoi .goi{margin-top:.5rem;padding-top:.5rem;border-top:1px dashed rgba(0,0,0,.15);font-size:.95rem}
+.phan-hoi details.the{margin:.4rem 0 0;padding:.6rem .7rem;font-size:.9rem}
+.phan-hoi details.the summary{cursor:pointer;font-weight:600;color:var(--brand)}
+.phan-hoi .the h3{font-size:.95rem}
+.loi-giai{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.6rem .8rem;margin-top:.5rem;line-height:1.7}
+.loi-giai sup{font-size:.72em}
+.so-lan{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+.tieu-chi label{display:flex;gap:.5rem;align-items:flex-start;padding:.35rem 0;cursor:pointer}
+.tieu-chi input{margin-top:.3rem;width:1.1rem;height:1.1rem}
+/* nhật kí */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:10;align-items:flex-end;justify-content:center}
+.modal.hien{display:flex}
+.modal .hop{background:#fff;width:100%;max-width:760px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:1rem}
+.modal .hop h2{margin:.2rem 0 .6rem;font-size:1.1rem}
+.nk-dong{padding:.3rem 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.nk-dong.ok1{color:var(--green)}.nk-dong.okn{color:#b45309}.nk-dong.chua{color:var(--muted)}.nk-dong.dc{color:var(--purple)}
+.tong{background:var(--brand-soft);border-radius:12px;padding:.7rem .9rem;margin:.5rem 0}
+.tong ul{margin:.3rem 0;padding-left:1.2rem}
+.muc-luc button{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:2px solid var(--line);font-weight:500;margin:.3rem 0;font-size:.95rem}
+.muc-luc button.xong{border-color:var(--green)}
+.muc-luc button.dang{border-color:var(--brand);background:var(--brand-soft)}
+.muc-luc small{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:1.2rem .8rem 2rem}
+.ket{text-align:center}
+.ket .so{font-size:2.4rem;font-weight:700;color:var(--brand)}
+@media(min-width:600px){html{font-size:18px}.modal{align-items:center}.modal .hop{border-radius:16px}}
+</style>
+<!-- bieu-tuong:dau (do bieu-tuong/gan_bieu_tuong.py chèn, đừng sửa tay) -->
+<link rel="icon" type="image/png" sizes="32x32" href="../../bieu-tuong/favicon-32.png" data-may="../../../bieu-tuong/favicon-32.png">
+<link rel="apple-touch-icon" href="../../bieu-tuong/apple-touch-icon.png" data-may="../../../bieu-tuong/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='n' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f5fb3'/%3E%3Cstop offset='1' stop-color='%234b7bd1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url%28%23n%29'/%3E%3Cpath d='M11 49Q22 44 32 51Q42 44 53 49' fill='none' stroke='%23ffc83d' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M13 17Q23 13 31 19V47Q23 41 13 45Z' fill='%23fff'/%3E%3Cpath d='M51 17Q41 13 33 19V47Q41 41 51 45Z' fill='%23fff'/%3E%3Cpath d='M39 16V31l3.5-3 3.5 3V17.5' fill='%23ffc83d'/%3E%3C/svg%3E">
+<script>(function(){if(location.protocol!=='file:')return;document.querySelectorAll('link[data-may]').forEach(function(l){l.href=l.dataset.may})})();</script>
+<!-- bieu-tuong:cuoi -->
+</head>
+<body>
+<header class="top">
+ <h1>Toán 6 · Ôn giữa học kì I · Luyện tập</h1>
+ <button class="xam" id="nutMucLuc" type="button">Các phần</button>
+ <button class="xam" id="nutNhatKi" type="button">Nhật kí</button>
+</header>
+<main>
+ <!-- Màn 1: kiến thức -->
+ <div class="man hien" id="manKT">
+  <div class="the" style="border-left:5px solid var(--brand)">
+   <h3>Luyện tập ôn giữa học kì I – Toán 6</h3>
+   <p style="margin:.2rem 0">Em đọc <strong>hết</strong> các thẻ kiến thức bên dưới (cuộn xuống cuối). Nút <em>Bắt đầu luyện</em> chỉ sáng lên khi em đã cuộn tới cuối trang. Bài luyện có <strong>44 câu</strong> chia làm 4 phần: 18 câu nhiều lựa chọn, 6 câu đúng – sai, 9 câu trả lời ngắn, 11 câu tự luận (có 3 bài thực tế và 4 bài nâng cao). Máy chấm ngay từng câu; sai thì làm lại cho tới khi đúng, càng sai nhiều gợi ý càng cụ thể.</p>
+   <p class="nguon">Theo nội dung ôn tập giữa học kì I môn Toán 6 (2026 – 2027) của nhà trường. Kiến thức tóm tắt theo SGK Toán 6, bộ <em>Kết nối tri thức với cuộc sống</em> (Chương I, II, IV).</p>
+   <p id="ktTiepTuc" style="display:none;margin:.4rem 0 0;color:var(--green);font-weight:600"></p>
+  </div>
+  <section class="the" id="kt-taphop"><h3>Tập hợp và cách mô tả tập hợp (Bài 1)</h3>
+<p>Một <strong>tập hợp</strong> bao gồm những đối tượng nhất định; các đối tượng ấy là những <strong>phần tử</strong> của tập hợp. <i>x</i> là phần tử của tập <i>A</i>: kí hiệu <i>x</i> ∈ <i>A</i>; <i>y</i> không là phần tử của <i>A</i>: <i>y</i> ∉ <i>A</i>.</p>
+<p><strong>Hai cách mô tả một tập hợp</strong> (SGK):</p>
+<ul>
+<li><b>Cách 1. Liệt kê các phần tử:</b> viết các phần tử trong dấu { } theo thứ tự tuỳ ý, <em>mỗi phần tử chỉ viết một lần</em>, cách nhau bởi dấu ";". Ví dụ P = {0; 1; 2; 3; 4; 5}.</li>
+<li><b>Cách 2. Nêu dấu hiệu đặc trưng cho các phần tử:</b> P = {<i>n</i> | <i>n</i> là số tự nhiên nhỏ hơn 6}, hay P = {<i>n</i> ∈ ℕ | <i>n</i> &lt; 6}.</li>
+</ul>
+<p>ℕ = {0; 1; 2; 3; …} là tập hợp các số tự nhiên; ℕ* = {1; 2; 3; …} là tập hợp các số tự nhiên khác 0.</p>
+<p class="luu-y">Khi kiểm tra một cách viết theo tính chất đặc trưng, hãy <strong>liệt kê thử</strong> các phần tử thoả mãn điều kiện rồi so với tập đã cho. Đừng quên số 0 (0 ∈ ℕ, 0 chia hết cho mọi số khác 0).</p></section><section class="the" id="kt-pheptinh"><h3>Phép nhân, phép chia số tự nhiên; tìm x (Bài 4, 5)</h3>
+<p><strong>Tính chất của phép nhân</strong> (SGK): giao hoán <i>ab</i> = <i>ba</i>; kết hợp (<i>ab</i>)<i>c</i> = <i>a</i>(<i>bc</i>); phân phối của phép nhân đối với phép cộng <i>a</i>(<i>b</i> + <i>c</i>) = <i>ab</i> + <i>ac</i>. Dùng ngược lại để <em>tính nhanh</em>: <i>ab</i> + <i>ac</i> = <i>a</i>(<i>b</i> + <i>c</i>); <i>ab</i> − <i>ac</i> = <i>a</i>(<i>b</i> − <i>c</i>). Ghi nhớ các cặp "tròn chục, tròn trăm": 2 · 5 = 10; 4 · 25 = 100; 8 · 125 = 1 000.</p>
+<p><strong>Phép chia có dư</strong> (SGK): với hai số tự nhiên <i>a</i> và <i>b</i> (<i>b</i> ≠ 0), ta luôn tìm được đúng hai số tự nhiên <i>q</i> và <i>r</i> sao cho <i>a</i> = <i>bq</i> + <i>r</i>, trong đó 0 ≤ <i>r</i> &lt; <i>b</i>. Nếu <i>r</i> = 0 ta có <em>phép chia hết</em>; nếu <i>r</i> ≠ 0 ta có <em>phép chia có dư</em>. <b>Số dư luôn nhỏ hơn số chia.</b></p>
+<p><strong>Tìm x</strong> = tìm thành phần chưa biết của phép tính:</p>
+<table><tr><th>Phép tính</th><th>Quy tắc</th></tr>
+<tr><td><i>x</i> + <i>a</i> = <i>b</i></td><td><i>x</i> = <i>b</i> − <i>a</i> (số hạng = tổng − số hạng kia)</td></tr>
+<tr><td><i>x</i> − <i>a</i> = <i>b</i> &nbsp;/&nbsp; <i>a</i> − <i>x</i> = <i>b</i></td><td><i>x</i> = <i>b</i> + <i>a</i> (số bị trừ = hiệu + số trừ) &nbsp;/&nbsp; <i>x</i> = <i>a</i> − <i>b</i> (số trừ = số bị trừ − hiệu)</td></tr>
+<tr><td><i>a</i> · <i>x</i> = <i>b</i></td><td><i>x</i> = <i>b</i> : <i>a</i> (thừa số = tích : thừa số kia)</td></tr>
+<tr><td><i>x</i> : <i>a</i> = <i>b</i> &nbsp;/&nbsp; <i>a</i> : <i>x</i> = <i>b</i></td><td><i>x</i> = <i>b</i> · <i>a</i> (số bị chia = thương · số chia) &nbsp;/&nbsp; <i>x</i> = <i>a</i> : <i>b</i> (số chia = số bị chia : thương)</td></tr></table>
+<p class="luu-y">Khi <i>x</i> nằm trong ngoặc, coi <strong>cả ngoặc</strong> là một "số chưa biết", tìm giá trị của ngoặc trước rồi mới tìm <i>x</i>.</p></section><section class="the" id="kt-luythua"><h3>Luỹ thừa với số mũ tự nhiên (Bài 6)</h3>
+<p>SGK: <strong>Luỹ thừa bậc <i>n</i></strong> của số tự nhiên <i>a</i> là tích của <i>n</i> thừa số bằng nhau, mỗi thừa số bằng <i>a</i>: <i>a</i><sup><i>n</i></sup> = <i>a</i> · <i>a</i> · … · <i>a</i> (<i>n</i> thừa số). <i>a</i> là <strong>cơ số</strong>, <i>n</i> là <strong>số mũ</strong>. Quy ước <i>a</i><sup>1</sup> = <i>a</i>; <i>a</i><sup>0</sup> = 1 (<i>a</i> ≠ 0).</p>
+<ul>
+<li><strong>Nhân hai luỹ thừa cùng cơ số:</strong> giữ nguyên cơ số, cộng các số mũ: <i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup>.</li>
+<li><strong>Chia hai luỹ thừa cùng cơ số</strong> (khác 0): giữ nguyên cơ số, lấy số mũ của số bị chia trừ số mũ của số chia: <i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup> (<i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i>).</li>
+</ul>
+<p class="luu-y">Lỗi hay gặp: 2<sup>3</sup> = 6 (sai, đúng là 2 · 2 · 2 = 8); 2<sup>3</sup> · 2<sup>4</sup> = 4<sup>7</sup> (sai, cơ số giữ nguyên: 2<sup>7</sup>). Nhớ các luỹ thừa quen thuộc: 2<sup>3</sup> = 8, 2<sup>5</sup> = 32, 2<sup>8</sup> = 256, 3<sup>3</sup> = 27, 3<sup>4</sup> = 81, 5<sup>2</sup> = 25, 1<sup><i>n</i></sup> = 1.</p></section><section class="the" id="kt-thutu"><h3>Thứ tự thực hiện các phép tính (Bài 7)</h3>
+<p>SGK:</p>
+<ul>
+<li>Với biểu thức <strong>không có dấu ngoặc</strong>: <strong>Luỹ thừa → Nhân và chia → Cộng và trừ</strong> (nhân chia, cộng trừ cùng cấp thì làm từ trái sang phải).</li>
+<li>Với biểu thức <strong>có dấu ngoặc</strong>: trong ngoặc trước, ngoài ngoặc sau: <strong>( ) → [ ] → { }</strong>.</li>
+</ul>
+<p class="luu-y">Mẹo: mỗi dòng chỉ làm <em>một</em> việc, chép lại phần còn lại y nguyên. Ví dụ 3 − 2<sup>8</sup> : 2<sup>5</sup> → tính luỹ thừa (hoặc dùng 2<sup>8</sup> : 2<sup>5</sup> = 2<sup>3</sup>) trước, rồi chia, rồi trừ.</p></section><section class="the" id="kt-chiahet"><h3>Quan hệ chia hết, ước và bội, tính chất chia hết của tổng (Bài 8)</h3>
+<p>SGK: cho hai số tự nhiên <i>a</i> và <i>b</i> (<i>b</i> ≠ 0). Nếu có số tự nhiên <i>k</i> sao cho <i>a</i> = <i>kb</i> thì <i>a</i> <strong>chia hết cho</strong> <i>b</i>, kí hiệu <i>a</i> ⋮ <i>b</i>. Khi đó <i>b</i> là <strong>ước</strong> của <i>a</i> và <i>a</i> là <strong>bội</strong> của <i>b</i>. Ư(<i>a</i>) là tập các ước của <i>a</i>, B(<i>b</i>) là tập các bội của <i>b</i>.</p>
+<ul>
+<li>Tìm ước của <i>a</i>: lần lượt chia <i>a</i> cho các số từ 1 đến <i>a</i>. Tìm bội của <i>b</i>: nhân <i>b</i> lần lượt với 0; 1; 2; 3; …</li>
+</ul>
+<p><strong>Tính chất 1.</strong> Nếu tất cả các số hạng của một tổng đều chia hết cho cùng một số thì tổng chia hết cho số đó: <i>a</i> ⋮ <i>m</i> và <i>b</i> ⋮ <i>m</i> thì (<i>a</i> + <i>b</i>) ⋮ <i>m</i>. Cũng đúng với hiệu.</p>
+<p><strong>Tính chất 2.</strong> Nếu có một số hạng của tổng không chia hết cho một số, các số hạng còn lại đều chia hết cho số đó thì tổng không chia hết cho số đã cho: <i>a</i> ⋮ <i>m</i> và <i>b</i> ⋮̸ <i>m</i> thì (<i>a</i> + <i>b</i>) ⋮̸ <i>m</i>. Cũng đúng với hiệu.</p></section><section class="the" id="kt-dauhieu"><h3>Dấu hiệu chia hết cho 2; 5; 9; 3 (Bài 9)</h3>
+<table><tr><th>Chia hết cho</th><th>Dấu hiệu (SGK)</th></tr>
+<tr><td><b>2</b></td><td>Chữ số tận cùng là 0, 2, 4, 6, 8 (và chỉ những số đó)</td></tr>
+<tr><td><b>5</b></td><td>Chữ số tận cùng là 0 hoặc 5</td></tr>
+<tr><td><b>9</b></td><td>Tổng các chữ số chia hết cho 9</td></tr>
+<tr><td><b>3</b></td><td>Tổng các chữ số chia hết cho 3</td></tr></table>
+<ul>
+<li>Chia hết cho <b>cả 2 và 5</b> ⟺ tận cùng là <b>0</b>.</li>
+<li>Chia hết cho 9 thì chia hết cho 3; nhưng chia hết cho 3 <em>chưa chắc</em> chia hết cho 9 (ví dụ 2 010).</li>
+<li>Bài "tìm chữ số <i>x</i>": xét <em>chữ số tận cùng</em> cho 2 và 5, xét <em>tổng các chữ số</em> cho 3 và 9; nhớ <i>x</i> chỉ là một chữ số từ 0 đến 9.</li>
+</ul>
+<p class="luu-y"><em>Em có biết?</em> (SGK Bài 9): <strong>một số tự nhiên luôn viết được thành tổng các chữ số của nó cộng với một số chia hết cho 9</strong>. Vì vậy số dư khi chia một số cho 9 (hoặc cho 3) bằng số dư khi chia <em>tổng các chữ số</em> của nó cho 9 (cho 3).</p></section><section class="the" id="kt-nguyento"><h3>Số nguyên tố, hợp số, phân tích ra thừa số nguyên tố (Bài 10)</h3>
+<p>SGK: <strong>Số nguyên tố</strong> là số tự nhiên lớn hơn 1, chỉ có hai ước là 1 và chính nó. <strong>Hợp số</strong> là số tự nhiên lớn hơn 1, có nhiều hơn hai ước. <b>Số 0 và số 1 không là số nguyên tố và không là hợp số.</b></p>
+<p>Các số nguyên tố nhỏ hơn 50: 2; 3; 5; 7; 11; 13; 17; 19; 23; 29; 31; 37; 41; 43; 47. Để khẳng định một số là hợp số, ta thường dùng các dấu hiệu chia hết để tìm ra một ước khác 1 và chính nó.</p>
+<p><strong>Phân tích một số ra thừa số nguyên tố</strong>: viết số đó dưới dạng tích các thừa số nguyên tố (sơ đồ cây hoặc chia theo cột dọc). Trong kết quả, viết các thừa số theo thứ tự từ bé đến lớn và viết tích các thừa số giống nhau dưới dạng luỹ thừa. Ví dụ 24 = 2 · 2 · 2 · 3 = 2<sup>3</sup> · 3.</p>
+<p class="luu-y">Kết quả phân tích chỉ được chứa số nguyên tố: 40 = 4 · 10 hay 40 = 8 · 5 <em>chưa phải</em> là phân tích ra thừa số nguyên tố.</p></section><section class="the" id="kt-hinhdeu"><h3>Tam giác đều, hình vuông, lục giác đều (Bài 18)</h3>
+<table><tr><th>Hình</th><th>Cạnh</th><th>Góc</th><th>Đường chéo</th></tr>
+<tr><td><b>Tam giác đều</b></td><td>Ba cạnh bằng nhau</td><td>Ba góc bằng nhau và bằng 60°</td><td>—</td></tr>
+<tr><td><b>Hình vuông</b></td><td>Bốn cạnh bằng nhau</td><td>Bốn góc bằng nhau và bằng 90°</td><td>Hai đường chéo bằng nhau</td></tr>
+<tr><td><b>Lục giác đều</b></td><td>Sáu cạnh bằng nhau</td><td>Sáu góc bằng nhau, mỗi góc bằng 120°</td><td>Ba đường chéo chính bằng nhau (mỗi đường chéo chính dài gấp đôi cạnh)</td></tr></table>
+<p><strong>Vẽ hình vuông ABCD cạnh 4 cm</strong> (SGK): <em>Bước 1.</em> Vẽ đoạn thẳng AB = 4 cm. <em>Bước 2.</em> Vẽ đường thẳng vuông góc với AB tại A, lấy D trên đó sao cho AD = 4 cm. <em>Bước 3.</em> Vẽ đường thẳng vuông góc với AB tại B, lấy C sao cho BC = 4 cm. <em>Bước 4.</em> Nối C với D.</p>
+<p class="luu-y">Đồ vật "có dạng hình vuông" phải có 4 cạnh bằng nhau <em>và</em> 4 góc vuông; cửa sổ thường là hình chữ nhật, khay mứt Tết thường là hình lục giác.</p></section><section class="the" id="kt-tugiac"><h3>Hình chữ nhật, hình thoi, hình bình hành, hình thang cân (Bài 19)</h3>
+<table><tr><th>Hình</th><th>Nhận xét (SGK)</th></tr>
+<tr><td><b>Hình chữ nhật</b></td><td>Bốn góc bằng nhau và bằng 90°; các cạnh đối bằng nhau; hai đường chéo bằng nhau.</td></tr>
+<tr><td><b>Hình thoi</b></td><td>Bốn cạnh bằng nhau; hai đường chéo vuông góc với nhau; các cạnh đối song song; các góc đối bằng nhau.</td></tr>
+<tr><td><b>Hình bình hành</b></td><td>Các cạnh đối bằng nhau; hai đường chéo cắt nhau tại trung điểm của mỗi đường; các cạnh đối song song; các góc đối bằng nhau.</td></tr>
+<tr><td><b>Hình thang cân</b></td><td>Hai cạnh bên bằng nhau; hai đường chéo bằng nhau; hai cạnh đáy song song; hai góc kề một đáy bằng nhau.</td></tr></table>
+<p class="luu-y">Nhận dạng nhanh: hai đáy song song, hai cạnh bên xiên đều nhau → hình thang cân; bốn góc vuông → hình chữ nhật (nếu thêm bốn cạnh bằng nhau → hình vuông); cạnh đối song song, góc "nghiêng" → hình bình hành (nếu thêm bốn cạnh bằng nhau → hình thoi).</p></section><section class="the" id="kt-chuvi"><h3>Chu vi và diện tích (Bài 20)</h3>
+<table><tr><th>Hình</th><th>Chu vi C</th><th>Diện tích S</th></tr>
+<tr><td>Hình vuông cạnh <i>a</i></td><td>C = 4<i>a</i></td><td>S = <i>a</i><sup>2</sup></td></tr>
+<tr><td>Hình chữ nhật hai cạnh <i>a</i>, <i>b</i></td><td>C = 2(<i>a</i> + <i>b</i>)</td><td>S = <i>ab</i></td></tr>
+<tr><td>Hình thang hai đáy <i>a</i>, <i>b</i>; hai cạnh bên <i>c</i>, <i>d</i>; chiều cao <i>h</i></td><td>C = <i>a</i> + <i>b</i> + <i>c</i> + <i>d</i></td><td>S = (<i>a</i> + <i>b</i>) · <i>h</i> : 2</td></tr>
+<tr><td>Hình bình hành hai cạnh <i>a</i>, <i>b</i>; chiều cao <i>h</i> ứng với cạnh <i>a</i></td><td>C = 2(<i>a</i> + <i>b</i>)</td><td>S = <i>ah</i></td></tr>
+<tr><td>Hình thoi cạnh <i>m</i>, hai đường chéo <i>a</i>, <i>b</i></td><td>C = 4<i>m</i></td><td>S = <i>ab</i> : 2</td></tr></table>
+<p class="luu-y">Chu vi = độ dài đi một vòng quanh hình, đơn vị <b>m, cm</b>; diện tích = phần mặt phẳng hình phủ kín, đơn vị <b>m², cm²</b>. Đổi đơn vị trước khi tính (1 m = 10 dm; 1 m² = 100 dm²). Bài thực tế: tính diện tích (hoặc chu vi) rồi mới nhân với đơn giá.</p></section><section class="the" id="kt-nangcao"><h3>Mẹo cho bài nâng cao: tổng luỹ thừa, chia có dư</h3>
+<ul>
+<li><strong>Tổng các luỹ thừa cùng cơ số</strong> A = 1 + 3 + 3<sup>2</sup> + … : đếm số số hạng, rồi <em>nhóm</em> 2 (hoặc 3) số hạng liên tiếp; trong mỗi nhóm đặt luỹ thừa nhỏ nhất làm thừa số chung, phần còn lại của mọi nhóm đều giống nhau (1 + 3 = 4; 1 + 2 + 2<sup>2</sup> = 7). Cuối cùng dùng tính chất chia hết của tổng (Bài 8) hoặc viết A = 4 · (…).</li>
+<li><strong>Chia cho 2, cho 5, cho 9 đều dư 1</strong>: số đó <em>trừ đi 1</em> thì chia hết cho 2, 5, 9 → dùng dấu hiệu chia hết cho số đã trừ.</li>
+<li><strong>10<sup><i>n</i></sup> − 1 = 99…9</strong> (<i>n</i> chữ số 9) = 9 · 11…1 (<i>n</i> chữ số 1). Số 11…1 có tổng các chữ số bằng <i>n</i>, nên 11…1 − <i>n</i> chia hết cho 9 (Em có biết, Bài 9).</li>
+</ul></section>
+  <div id="kt-end" style="height:1px"></div>
+  <p class="goi-cuon" id="goiCuon">Cuộn xuống hết để mở khoá nút bắt đầu ↓</p>
+  <button id="nutBatDau" type="button" disabled>Bắt đầu luyện →</button>
+ </div>
+
+ <!-- Màn 2: luyện tập -->
+ <div class="man" id="manLT">
+  <div class="tien-do">
+   <div><strong id="tdCau"></strong> <span id="tdMuc" class="nhan"></span></div>
+   <div class="thanh"><i id="tdThanh"></i></div>
+   <small id="tdDang"></small>
+  </div>
+  <div class="dang-tieu" id="dangTieu"></div>
+  <div class="cau" id="cau"></div>
+ </div>
+
+ <!-- Màn 3: tổng kết -->
+ <div class="man" id="manKet">
+  <div class="the ket">
+   <h3>Em đã hoàn thành toàn bộ bài luyện tập!</h3>
+   <div class="so" id="ketSo"></div>
+   <div id="ketTom"></div>
+   <div class="hang"><button id="nutXemNK2" type="button">Xem nhật kí &amp; tổng kết</button><button class="do" id="nutLamLai2" type="button">Làm lại từ đầu</button></div>
+  </div>
+ </div>
+</main>
+
+<div class="modal" id="modalNK"><div class="hop">
+ <h2>Nhật kí học tập</h2>
+ <div id="nkTong"></div>
+ <div id="nkDanhSach"></div>
+ <div class="hang"><button class="xam" id="nutDongNK" type="button">Đóng</button><button class="do" id="nutLamLai" type="button">Làm lại từ đầu</button></div>
+</div></div>
+
+<div class="modal" id="modalML"><div class="hop">
+ <h2>Các phần của bài luyện</h2>
+ <p style="color:var(--muted);font-size:.9rem;margin:.2rem 0 .5rem">Bấm vào một phần để nhảy tới câu chưa làm đầu tiên của phần đó. Tiến độ các câu đã làm vẫn được giữ.</p>
+ <div class="muc-luc" id="mlDanhSach"></div>
+ <div class="hang"><button class="xam" id="nutDongML" type="button">Đóng</button></div>
+</div></div>
+
+<footer>Luyện tập ôn giữa học kì I – Toán 6. Theo nội dung ôn tập giữa học kì I môn Toán 6 (2026 – 2027) của nhà trường.<br>Chạy hoàn toàn trên máy của em; tiến độ lưu trong trình duyệt này.</footer>
+<script>
+const DATA = {"cau": [{"id": "1", "dang": "p1", "kieu": "mc", "de": "Cho tập hợp B = {0; 2; 4; 6; 8}. Cách viết nào sau đây <b>sai<\/b>?", "options": ["B = {x ∈ ℕ | 1 &lt; x &lt; 9, x là số chẵn}", "B = {x ∈ ℕ | 0 ≤ x ≤ 8, x là số chẵn}", "B = {x ∈ ℕ | x ≤ 8, x là số chẵn}", "B = {x ∈ ℕ | x &lt; 10, x là số chẵn}"], "dapAn": "A", "kt": "taphop", "goi1": "Muốn kiểm tra một cách viết theo tính chất đặc trưng, em hãy <em>liệt kê thử<\/em> các số thoả mãn điều kiện rồi so với B = {0; 2; 4; 6; 8}.", "goi2": "Với từng phương án, hỏi: số 0 có thoả mãn điều kiện không? B có chứa số 0, nên cách viết nào \"đánh rơi\" số 0 là cách viết sai.", "giai": "Phương án A: điều kiện 1 &lt; x &lt; 9 nên x chỉ có thể là 2; 4; 6; 8 — <b>thiếu số 0<\/b>, không đúng với B. Các phương án B, C, D đều cho đúng các số chẵn 0; 2; 4; 6; 8. Vậy cách viết sai là <b>A<\/b>.", "hinh": null}, {"id": "2", "dang": "p1", "kieu": "mc", "de": "Cho tập hợp D = {x ∈ ℕ | x &gt; 10}. Khẳng định nào sau đây đúng?", "options": ["11 ∈ D", "10 ∈ D", "9 ∈ D", "8 ∈ D"], "dapAn": "A", "kt": "taphop", "goi1": "x ∈ D khi x là số tự nhiên <em>lớn hơn<\/em> 10 (lớn hơn, không phải bằng).", "goi2": "So từng số 11; 10; 9; 8 với 10: số nào thực sự lớn hơn 10?", "giai": "D gồm các số tự nhiên lớn hơn 10: 11; 12; 13; … Chỉ có 11 &gt; 10 nên 11 ∈ D (<b>A<\/b>). Số 10 không lớn hơn 10 nên 10 ∉ D; 9 và 8 cũng không thuộc D.", "hinh": null}, {"id": "3", "dang": "p1", "kieu": "mc", "de": "Số nào sau đây chia hết cho cả 2 và 5?", "options": ["2 345", "2 552", "1 238", "1 900"], "dapAn": "D", "kt": "dauhieu", "goi1": "Dấu hiệu: chia hết cho 2 khi chữ số tận cùng là 0, 2, 4, 6, 8; chia hết cho 5 khi chữ số tận cùng là 0 hoặc 5.", "goi2": "Số chia hết cho <em>cả<\/em> 2 và 5 phải thoả mãn cả hai dấu hiệu, tức là chữ số tận cùng phải là 0.", "giai": "2 345 tận cùng là 5: chia hết cho 5 nhưng không chia hết cho 2. 2 552 và 1 238 tận cùng là số chẵn: chia hết cho 2 nhưng không chia hết cho 5. 1 900 tận cùng là 0 nên chia hết cho cả 2 và 5. Đáp án <b>D<\/b>.", "hinh": null}, {"id": "4", "dang": "p1", "kieu": "mc", "de": "Số nào sau đây chia hết cho cả 2; 3; 5 và 9?", "options": ["3 790", "2 430", "1 795", "2 010"], "dapAn": "B", "kt": "dauhieu", "goi1": "Chia hết cho 2 và 5: tận cùng là 0. Chia hết cho 9: tổng các chữ số chia hết cho 9 (khi đó cũng chia hết cho 3).", "goi2": "Loại ngay số tận cùng không phải 0. Với các số còn lại, cộng các chữ số và xem tổng có chia hết cho 9 không.", "giai": "1 795 tận cùng là 5 nên không chia hết cho 2. 3 790 có tổng các chữ số 3 + 7 + 9 + 0 = 19 không chia hết cho 3. 2 010 có tổng các chữ số bằng 3: chia hết cho 3 nhưng không chia hết cho 9. 2 430 tận cùng là 0 và có tổng các chữ số 2 + 4 + 3 + 0 = 9 ⋮ 9 nên chia hết cho cả 2; 3; 5; 9. Đáp án <b>B<\/b>.", "hinh": null}, {"id": "5", "dang": "p1", "kieu": "mc", "de": "Cho A = 15 + 57. Khẳng định nào sau đây đúng?", "options": ["A chia hết cho 5", "A chia hết cho 10", "A chia hết cho 7", "A chia hết cho 3"], "dapAn": "D", "kt": "chiahet", "goi1": "Tính chất chia hết của tổng: nếu cả hai số hạng cùng chia hết cho một số thì tổng chia hết cho số đó.", "goi2": "Hỏi: 15 và 57 cùng chia hết cho số nào trong 3; 5; 7; 10? (Hoặc tính A = 72 rồi dùng dấu hiệu chia hết.)", "giai": "Vì 15 ⋮ 3 và 57 ⋮ 3 nên (15 + 57) ⋮ 3 (Tính chất 1). Kiểm tra lại: A = 72 có tổng các chữ số 7 + 2 = 9 ⋮ 3. A = 72 không tận cùng là 0 hay 5 nên không chia hết cho 5, không chia hết cho 10; 72 = 7 · 10 + 2 nên không chia hết cho 7. Đáp án <b>D<\/b>.", "hinh": null}, {"id": "6", "dang": "p1", "kieu": "mc", "de": "Cho D = 721 − 126. Khẳng định nào sau đây <b>sai<\/b>?", "options": ["D chia hết cho cả 2 và 3", "D chia hết cho 5", "D chia hết cho 7", "D không chia hết cho 9"], "dapAn": "A", "kt": "chiahet", "goi1": "Tính D rồi dùng dấu hiệu chia hết cho 2; 3; 5; 9. Với 7, dùng tính chất chia hết của hiệu: 721 = 7 · 103 và 126 = 7 · 18.", "goi2": "D = 595. Chữ số tận cùng là 5 → chia hết cho 2 không? chia hết cho 5 không? Tổng các chữ số là 19 → chia hết cho 3, cho 9 không?", "giai": "D = 721 − 126 = 595. Tận cùng là 5 nên D chia hết cho 5 (B đúng) và <b>không chia hết cho 2<\/b>, vậy khẳng định A sai. Tổng các chữ số 5 + 9 + 5 = 19 không chia hết cho 9 (D đúng) và cũng không chia hết cho 3. Vì 721 ⋮ 7 và 126 ⋮ 7 nên hiệu 595 ⋮ 7 (595 = 7 · 85, C đúng). Khẳng định sai là <b>A<\/b>.", "hinh": null}, {"id": "7", "dang": "p1", "kieu": "mc", "de": "Kết quả của phép tính 5<sup>3<\/sup> · 5<sup>4<\/sup> : 5<sup>5<\/sup> bằng:", "options": ["10", "25", "52", "5<sup>6<\/sup>"], "dapAn": "B", "kt": "luythua", "goi1": "Nhân hai luỹ thừa cùng cơ số: giữ nguyên cơ số, cộng số mũ. Chia hai luỹ thừa cùng cơ số: giữ nguyên cơ số, trừ số mũ.", "goi2": "5<sup>3<\/sup> · 5<sup>4<\/sup> = 5<sup>3+4<\/sup> = 5<sup>?<\/sup>; rồi lấy kết quả chia cho 5<sup>5<\/sup>: số mũ còn lại bằng bao nhiêu? Cuối cùng tính giá trị của luỹ thừa đó.", "giai": "5<sup>3<\/sup> · 5<sup>4<\/sup> : 5<sup>5<\/sup> = 5<sup>7<\/sup> : 5<sup>5<\/sup> = 5<sup>2<\/sup> = 25. Đáp án <b>B<\/b>. Lưu ý 5<sup>2<\/sup> là 5 · 5 = 25, không phải 52; 10 và 5<sup>6<\/sup> là kết quả khi tính sai số mũ.", "hinh": null}, {"id": "8", "dang": "p1", "kieu": "mc", "de": "Trong các số sau: 77; 117; 131; 152. Số nào là số nguyên tố?", "options": ["77", "117", "131", "152"], "dapAn": "C", "kt": "nguyento", "goi1": "Số nguyên tố là số tự nhiên lớn hơn 1, chỉ có hai ước là 1 và chính nó. Để chỉ ra một số là hợp số, chỉ cần tìm thêm một ước khác 1 và chính nó (dùng dấu hiệu chia hết, bảng cửu chương).", "goi2": "77 có chia hết cho 7 không? 117 có tổng các chữ số bằng 9 thì chia hết cho số nào? 152 là số chẵn. Số còn lại thử chia cho 2; 3; 5; 7; 11.", "giai": "77 = 7 · 11 là hợp số; 117 có tổng các chữ số 1 + 1 + 7 = 9 nên chia hết cho 9 (117 = 9 · 13), là hợp số; 152 là số chẵn, chia hết cho 2, là hợp số. 131 không chia hết cho 2; 3; 5; 7; 11 (131 = 11 · 11 + 10), chỉ có hai ước là 1 và 131 nên là số nguyên tố (có thể tra bảng số nguyên tố cuối SGK). Đáp án <b>C<\/b>.", "hinh": null}, {"id": "9", "dang": "p1", "kieu": "mc", "de": "Kết quả của phép tính 237 · 43 + 57 · 237 là:", "options": ["23 700", "2 370", "237 000", "2 370 000"], "dapAn": "A", "kt": "pheptinh", "goi1": "Tính chất phân phối của phép nhân đối với phép cộng: ab + ac = a(b + c).", "goi2": "Cả hai tích đều có thừa số 237. Đặt 237 làm thừa số chung: 237 · (43 + 57) = 237 · ?", "giai": "237 · 43 + 57 · 237 = 237 · (43 + 57) = 237 · 100 = 23 700. Đáp án <b>A<\/b>. Các phương án khác sai số chữ số 0.", "hinh": null}, {"id": "10", "dang": "p1", "kieu": "mc", "de": "Kết quả của phép tính 50 · 67 − 17 · 50 là:", "options": ["250", "2 500", "300", "500"], "dapAn": "B", "kt": "pheptinh", "goi1": "Tính chất phân phối cũng dùng được với phép trừ: ab − ac = a(b − c).", "goi2": "Đặt 50 làm thừa số chung: 50 · (67 − 17) = 50 · ?", "giai": "50 · 67 − 17 · 50 = 50 · (67 − 17) = 50 · 50 = 2 500. Đáp án <b>B<\/b>.", "hinh": null}, {"id": "11", "dang": "p1", "kieu": "mc", "de": "Số nào sau đây là bội của 17?", "options": ["51", "54", "56", "63"], "dapAn": "A", "kt": "chiahet", "goi1": "Bội của 17 là các số 17 · 0; 17 · 1; 17 · 2; 17 · 3; …, tức là các số chia hết cho 17.", "goi2": "Nhân 17 lần lượt với 1; 2; 3; 4: 17; 34; 51; 68. Số nào trong các phương án nằm trong dãy này?", "giai": "17 · 3 = 51 nên 51 là bội của 17. Đáp án <b>A<\/b>. 54; 56; 63 đều nằm giữa 51 và 68 nên không chia hết cho 17.", "hinh": null}, {"id": "12", "dang": "p1", "kieu": "mc", "de": "Số nào sau đây là ước của 84?", "options": ["11", "13", "14", "15"], "dapAn": "C", "kt": "chiahet", "goi1": "Số b là ước của 84 khi 84 chia hết cho b.", "goi2": "Lần lượt chia 84 cho 11; 13; 14; 15, phép chia nào không có dư?", "giai": "84 = 14 · 6 nên 14 là ước của 84. Đáp án <b>C<\/b>. 84 : 11 dư 7; 84 : 13 dư 6; 84 : 15 dư 9.", "hinh": null}, {"id": "13", "dang": "p1", "kieu": "mc", "de": "Ba số tự nhiên lẻ liên tiếp đều là số nguyên tố là:", "options": ["1; 3; 5", "3; 5; 7", "5; 7; 9", "7; 9; 11"], "dapAn": "B", "kt": "nguyento", "goi1": "Số 0 và số 1 không là số nguyên tố và không là hợp số. Số 9 = 3 · 3 là hợp số.", "goi2": "Loại các bộ có chứa 1 hoặc chứa 9. Bộ còn lại gồm ba số nào?", "giai": "1 không là số nguyên tố nên loại A; 9 = 3 · 3 là hợp số nên loại C và D. Bộ 3; 5; 7 gồm ba số nguyên tố lẻ liên tiếp. Đáp án <b>B<\/b>.", "hinh": null}, {"id": "14", "dang": "p1", "kieu": "mc", "de": "Phân tích 40 ra thừa số nguyên tố, ta được kết quả đúng là:", "options": ["2 · 4 · 5", "2<sup>3<\/sup> · 5", "5 · 8", "4 · 10"], "dapAn": "B", "kt": "nguyento", "goi1": "Kết quả phân tích ra thừa số nguyên tố chỉ được chứa các số nguyên tố; các thừa số giống nhau viết gọn thành luỹ thừa.", "goi2": "40 = 2 · 20 = 2 · 2 · 10 = 2 · 2 · 2 · 5. Viết gọn tích 2 · 2 · 2 thành luỹ thừa.", "giai": "40 = 2 · 2 · 2 · 5 = 2<sup>3<\/sup> · 5. Đáp án <b>B<\/b>. Các phương án A, C, D có thừa số 4; 8; 10 là hợp số nên chưa phải phân tích ra thừa số nguyên tố.", "hinh": null}, {"id": "15", "dang": "p1", "kieu": "mc", "de": "Trong các đồ vật sau đây, đồ vật ở hình nào có dạng là hình vuông? <span class=\"chu-hinh\">(Hình 1: cửa sổ; Hình 2: đồng hồ; Hình 3: bàn cờ vua; Hình 4: khay mứt.)<\/span>", "options": ["Hình 1", "Hình 2", "Hình 3", "Hình 4"], "dapAn": "C", "kt": "hinhdeu", "goi1": "Hình vuông có bốn cạnh bằng nhau và bốn góc vuông.", "goi2": "Đếm cạnh của mỗi đồ vật: 3 cạnh, 4 cạnh hay 6 cạnh? Trong các hình 4 cạnh, hình nào có bốn cạnh bằng nhau?", "giai": "Cửa sổ (Hình 1) có dạng hình chữ nhật (bốn góc vuông nhưng hai cạnh dài hơn hai cạnh kia). Đồng hồ (Hình 2) có dạng hình tam giác. Khay mứt (Hình 4) có dạng hình lục giác. Bàn cờ vua (Hình 3) có bốn cạnh bằng nhau và bốn góc vuông: hình vuông. Đáp án <b>C<\/b>.", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 340 300\" width=\"340\" height=\"300\" role=\"img\" aria-label=\"Bốn đồ vật: cửa sổ, đồng hồ tam giác, bàn cờ vua, khay mứt lục giác\"><rect width=\"340\" height=\"300\" fill=\"#fff\"/><rect x=\"25\" y=\"35\" width=\"130\" height=\"80\" fill=\"#cfe3ff\" stroke=\"#000\" stroke-width=\"2\"/><rect x=\"35\" y=\"45\" width=\"110\" height=\"60\" fill=\"#eaf4ff\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"90\" y1=\"45\" x2=\"90\" y2=\"105\" stroke=\"#000\" stroke-width=\"2\"/><text x=\"90\" y=\"138\" font-family=\"Arial, sans-serif\" font-size=\"14\" text-anchor=\"middle\">Hình 1<\/text><polygon points=\"250,30 205,115 295,115\" fill=\"#f3d9b1\" stroke=\"#000\" stroke-width=\"2\"/><circle cx=\"250\" cy=\"85\" r=\"22\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"250\" y1=\"85\" x2=\"250\" y2=\"70\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"250\" y1=\"85\" x2=\"262\" y2=\"92\" stroke=\"#000\" stroke-width=\"2\"/><text x=\"250\" y=\"138\" font-family=\"Arial, sans-serif\" font-size=\"14\" text-anchor=\"middle\">Hình 2<\/text><rect x=\"45\" y=\"160\" width=\"88\" height=\"88\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"2\"/><rect x=\"45\" y=\"171\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"45\" y=\"193\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"45\" y=\"215\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"45\" y=\"237\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"56\" y=\"160\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"56\" y=\"182\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"56\" y=\"204\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"56\" y=\"226\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"67\" y=\"171\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"67\" y=\"193\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"67\" y=\"215\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"67\" y=\"237\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"78\" y=\"160\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"78\" y=\"182\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"78\" y=\"204\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"78\" y=\"226\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"89\" y=\"171\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"89\" y=\"193\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"89\" y=\"215\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"89\" y=\"237\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"100\" y=\"160\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"100\" y=\"182\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"100\" y=\"204\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"100\" y=\"226\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"111\" y=\"171\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"111\" y=\"193\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"111\" y=\"215\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"111\" y=\"237\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"122\" y=\"160\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"122\" y=\"182\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"122\" y=\"204\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><rect x=\"122\" y=\"226\" width=\"11\" height=\"11\" fill=\"#d9a066\"/><text x=\"89\" y=\"275\" font-family=\"Arial, sans-serif\" font-size=\"14\" text-anchor=\"middle\">Hình 3<\/text><polygon points=\"298.0,204.0 274.0,245.6 226.0,245.6 202.0,204.0 226.0,162.4 274.0,162.4\" fill=\"#f7e2c3\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"250\" y1=\"204\" x2=\"298.0\" y2=\"204.0\" stroke=\"#000\" stroke-width=\"1.5\"/><line x1=\"250\" y1=\"204\" x2=\"274.0\" y2=\"245.6\" stroke=\"#000\" stroke-width=\"1.5\"/><line x1=\"250\" y1=\"204\" x2=\"226.0\" y2=\"245.6\" stroke=\"#000\" stroke-width=\"1.5\"/><line x1=\"250\" y1=\"204\" x2=\"202.0\" y2=\"204.0\" stroke=\"#000\" stroke-width=\"1.5\"/><line x1=\"250\" y1=\"204\" x2=\"226.0\" y2=\"162.4\" stroke=\"#000\" stroke-width=\"1.5\"/><line x1=\"250\" y1=\"204\" x2=\"274.0\" y2=\"162.4\" stroke=\"#000\" stroke-width=\"1.5\"/><circle cx=\"250\" cy=\"204\" r=\"9\" fill=\"#b5651d\" stroke=\"#000\" stroke-width=\"1.5\"/><text x=\"250\" y=\"275\" font-family=\"Arial, sans-serif\" font-size=\"14\" text-anchor=\"middle\">Hình 4<\/text><\/svg>"}, {"id": "16", "dang": "p1", "kieu": "mc", "de": "Hãy liệt kê tên của các hình sau theo thứ tự từ trái sang phải:", "options": ["Hình thang, hình chữ nhật, hình bình hành, hình thoi", "Hình chữ nhật, hình thang cân, hình thoi, hình bình hành", "Hình thang cân, hình chữ nhật, hình bình hành, hình thoi", "Hình thang cân, hình vuông, hình thoi, hình bình hành"], "dapAn": "C", "kt": "tugiac", "goi1": "Nhận dạng: hai đáy song song, hai cạnh bên xiên đều nhau → hình thang cân; bốn góc vuông, cạnh dài hơn cạnh kia → hình chữ nhật; cạnh đối song song, góc nghiêng → hình bình hành; bốn cạnh bằng nhau → hình thoi.", "goi2": "Hình thứ nhất có hai cạnh bên bằng nhau nên không chỉ là \"hình thang\". Hình thứ hai có bốn góc vuông nhưng không có bốn cạnh bằng nhau. Hai hình cuối: hình nào có bốn cạnh bằng nhau?", "giai": "Từ trái sang phải: hình thang cân (hai cạnh bên bằng nhau), hình chữ nhật (bốn góc vuông, cạnh đối bằng nhau), hình bình hành (cạnh đối song song, góc nghiêng), hình thoi (bốn cạnh bằng nhau). Đáp án <b>C<\/b>. Phương án A gọi hình đầu là \"hình thang\" chưa đủ; B và D đảo thứ tự hoặc gọi sai hình chữ nhật thành hình vuông.", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 340 100\" width=\"340\" height=\"100\" role=\"img\" aria-label=\"Bốn hình xếp từ trái sang phải\"><rect width=\"340\" height=\"100\" fill=\"#fff\"/><polygon points=\"8,85 82,85 66,22 24,22\" fill=\"#f5e9df\" stroke=\"#000\" stroke-width=\"2\"/><rect x=\"98\" y=\"30\" width=\"74\" height=\"48\" fill=\"#f5e9df\" stroke=\"#000\" stroke-width=\"2\"/><polygon points=\"186,80 248,80 270,28 208,28\" fill=\"#f5e9df\" stroke=\"#000\" stroke-width=\"2\"/><polygon points=\"306,18 334,54 306,90 278,54\" fill=\"#f5e9df\" stroke=\"#000\" stroke-width=\"2\"/><\/svg>"}, {"id": "17", "dang": "p1", "kieu": "mc", "de": "Trong hình vẽ dưới đây, hình bình hành ABCD có BC = 6 cm và chiều cao BH = 3 cm. Diện tích hình bình hành ABCD bằng:", "options": ["18 cm", "18 cm<sup>2<\/sup>", "9 cm", "9 cm<sup>2<\/sup>"], "dapAn": "B", "kt": "chuvi", "goi1": "Diện tích hình bình hành: S = a · h, với a là cạnh và h là chiều cao tương ứng với cạnh đó. Đơn vị diện tích là cm<sup>2<\/sup>.", "goi2": "Cạnh AD bằng cạnh đối BC = 6 cm, chiều cao BH = 3 cm. Lấy 6 · 3 rồi nhớ đơn vị diện tích.", "giai": "Hình bình hành có các cạnh đối bằng nhau nên AD = BC = 6 cm; chiều cao ứng với cạnh AD là BH = 3 cm. S = 6 · 3 = 18 (cm<sup>2<\/sup>). Đáp án <b>B<\/b>. \"18 cm\" sai đơn vị; 9 cm<sup>2<\/sup> là kết quả nếu nhầm với công thức diện tích tam giác hoặc hình thoi (chia 2).", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 340 200\" width=\"340\" height=\"200\" role=\"img\" aria-label=\"Hình bình hành ABCD, BC = 6 cm, đường cao BH = 3 cm\"><rect width=\"340\" height=\"200\" fill=\"#fff\"/><polygon points=\"40,170 90,60 290,60 240,170\" fill=\"#eef3ff\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"90\" y1=\"60\" x2=\"90\" y2=\"170\" stroke=\"#000\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/><polyline points=\"90,158 102,158 102,170\" fill=\"none\" stroke=\"#000\" stroke-width=\"1.5\"/><g font-family=\"Arial, sans-serif\" font-size=\"16\"><text x=\"24\" y=\"188\">A<\/text><text x=\"84\" y=\"188\">H<\/text><text x=\"82\" y=\"52\">B<\/text><text x=\"288\" y=\"52\">C<\/text><text x=\"244\" y=\"188\">D<\/text><text x=\"190\" y=\"52\" text-anchor=\"middle\">6 cm<\/text><text x=\"98\" y=\"120\">3 cm<\/text><\/g><\/svg>"}, {"id": "18", "dang": "p1", "kieu": "mc", "de": "Một mảnh vườn hình vuông có độ dài cạnh 8 m. Độ dài hàng rào bao quanh mảnh vườn hình vuông đó là:", "options": ["64 m", "32 m", "64 m<sup>2<\/sup>", "32 m<sup>2<\/sup>"], "dapAn": "B", "kt": "chuvi", "goi1": "Hàng rào bao quanh vườn dài bằng chu vi mảnh vườn. Chu vi hình vuông cạnh a: C = 4a; diện tích: S = a<sup>2<\/sup>.", "goi2": "Chu vi hình vuông cạnh 8 m là 4 · 8 = ? Đơn vị độ dài là m (không phải m<sup>2<\/sup>).", "giai": "Độ dài hàng rào bằng chu vi mảnh vườn: 4 · 8 = 32 (m). Đáp án <b>B<\/b>. 64 m<sup>2<\/sup> là diện tích mảnh vườn, không phải độ dài hàng rào.", "hinh": null}, {"id": "19", "dang": "p2", "kieu": "ds", "de": "Cho tổng A = 3<sup>4<\/sup> : 3<sup>2<\/sup> + 2<sup>3<\/sup> + x, biết x là số tự nhiên.", "y": [{"de": "Nếu x = 3 thì A không chia hết cho 2.", "dung": false}, {"de": "Nếu x = 0 thì A là số nguyên tố.", "dung": true}, {"de": "Nếu x là số lẻ thì A chia hết cho 2.", "dung": true}, {"de": "Nếu x = 13 thì A chia hết cho cả 3 và 5.", "dung": true}], "kt": "luythua", "goi1": "Rút gọn A trước: 3<sup>4<\/sup> : 3<sup>2<\/sup> = 3<sup>2<\/sup> = 9 và 2<sup>3<\/sup> = 8, nên A = 17 + x. Sau đó thay từng giá trị của x.", "goi2": "a) x = 3: A = 20, chẵn hay lẻ? b) x = 0: A = 17 có phải số nguyên tố? c) 17 là số lẻ, lẻ + lẻ = ? d) x = 13: A = 30 có tận cùng là 0 và tổng các chữ số là 3.", "giai": "A = 3<sup>4<\/sup> : 3<sup>2<\/sup> + 2<sup>3<\/sup> + x = 3<sup>2<\/sup> + 8 + x = 9 + 8 + x = 17 + x.<br>a) x = 3: A = 20 chia hết cho 2 → khẳng định \"không chia hết cho 2\" là <b>Sai<\/b>.<br>b) x = 0: A = 17 là số nguyên tố → <b>Đúng<\/b>.<br>c) x lẻ: 17 lẻ cộng x lẻ được số chẵn, chia hết cho 2 → <b>Đúng<\/b>.<br>d) x = 13: A = 30 tận cùng là 0 (chia hết cho 5), tổng các chữ số 3 (chia hết cho 3) → <b>Đúng<\/b>.", "hinh": null}, {"id": "20", "dang": "p2", "kieu": "ds", "de": "Cho hình vuông ABCD có cạnh bằng 4 cm (hình vẽ). Khi đó:", "y": [{"de": "AB = BC = CD = DA = 4 cm.", "dung": true}, {"de": "AB và BD song song với nhau.", "dung": false}, {"de": "Mỗi góc ở các đỉnh của hình vuông bằng nhau và bằng 60°.", "dung": false}, {"de": "Vẽ cạnh AB = 4 cm. Dùng thước ê ke vẽ các đường vuông góc với AB tại A, B, sau đó lần lượt lấy các điểm D, C trên các đường đó sao cho AD = BC = 4 cm. Nối C với D ta được hình vuông ABCD có cạnh 4 cm như đã cho.", "dung": true}], "kt": "hinhdeu", "goi1": "Hình vuông: bốn cạnh bằng nhau, bốn góc bằng nhau và bằng 90°, hai đường chéo bằng nhau. Xem lại cách vẽ hình vuông bằng ê ke trong SGK.", "goi2": "b) BD là đường chéo, nó cắt AB tại B – hai đường cắt nhau thì có song song không? c) Góc của hình vuông là góc vuông, bao nhiêu độ? d) So với bốn bước vẽ hình vuông trong SGK.", "giai": "a) <b>Đúng<\/b>: hình vuông có bốn cạnh bằng nhau, đều bằng 4 cm.<br>b) <b>Sai<\/b>: BD là đường chéo, cắt AB tại B nên AB và BD không song song (AB song song với CD).<br>c) <b>Sai<\/b>: bốn góc của hình vuông bằng nhau và bằng 90°, không phải 60° (60° là góc của tam giác đều).<br>d) <b>Đúng<\/b>: đây chính là cách vẽ hình vuông cạnh 4 cm bằng ê ke trong SGK (Bài 18, Thực hành 2).", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 220\" width=\"240\" height=\"220\" role=\"img\" aria-label=\"Hình vuông ABCD cạnh 4 cm với hai đường chéo\"><rect width=\"240\" height=\"220\" fill=\"#fff\"/><polygon points=\"45,45 195,45 195,195 45,195\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"45\" y1=\"45\" x2=\"195\" y2=\"195\" stroke=\"#000\" stroke-width=\"2\"/><line x1=\"195\" y1=\"45\" x2=\"45\" y2=\"195\" stroke=\"#000\" stroke-width=\"2\"/><g font-family=\"Arial, sans-serif\" font-size=\"16\"><text x=\"28\" y=\"40\">A<\/text><text x=\"202\" y=\"40\">B<\/text><text x=\"202\" y=\"212\">C<\/text><text x=\"26\" y=\"212\">D<\/text><text x=\"120\" y=\"32\" text-anchor=\"middle\">4 cm<\/text><\/g><\/svg>"}, {"id": "21", "dang": "p2", "kieu": "ds", "de": "Cho các hình phẳng trong thực tế và các thuộc tính của chúng:", "y": [{"de": "Hình có 3 cạnh không bằng nhau và 3 góc bằng nhau là tam giác đều.", "dung": false}, {"de": "Trong một lục giác đều, độ dài các đường chéo chính bằng độ dài của các cạnh.", "dung": false}, {"de": "Hình chữ nhật là hình có 4 góc vuông và 4 cạnh bằng nhau.", "dung": false}, {"de": "Trong hình thang cân, hai đường chéo bằng nhau và hai cạnh bên bằng nhau.", "dung": true}], "kt": "tugiac", "goi1": "Nhớ lại nhận xét SGK: tam giác đều có ba cạnh bằng nhau; lục giác đều có ba đường chéo chính bằng nhau (mỗi đường dài gấp đôi cạnh); hình chữ nhật có bốn góc vuông và các cạnh đối bằng nhau; hình thang cân có hai cạnh bên bằng nhau, hai đường chéo bằng nhau.", "goi2": "a) Tam giác đều có 3 cạnh thế nào? b) Lục giác đều ghép từ 6 tam giác đều, đường chéo chính đi qua tâm dài bằng mấy cạnh? c) Bốn góc vuông và bốn cạnh bằng nhau là hình gì? d) So với nhận xét về hình thang cân.", "giai": "a) <b>Sai<\/b>: tam giác đều có ba cạnh bằng nhau và ba góc bằng nhau (60°).<br>b) <b>Sai<\/b>: lục giác đều ghép từ 6 tam giác đều nên mỗi đường chéo chính dài gấp đôi cạnh; ba đường chéo chính chỉ bằng <em>nhau<\/em>.<br>c) <b>Sai<\/b>: hình có bốn góc vuông và bốn cạnh bằng nhau là hình vuông; hình chữ nhật chỉ có các cạnh đối bằng nhau.<br>d) <b>Đúng<\/b>: trong hình thang cân, hai cạnh bên bằng nhau và hai đường chéo bằng nhau (nhận xét SGK Bài 19).", "hinh": null}, {"id": "22", "dang": "p2", "kieu": "ds", "de": "Trong các phát biểu sau về phép chia hết và phép chia có dư, phát biểu nào đúng, phát biểu nào sai?", "y": [{"de": "Khi chia một số tự nhiên a cho b, nếu số dư bằng 0 thì phép chia đó là phép chia hết.", "dung": true}, {"de": "Nếu phép chia có dư, thì số dư phải luôn lớn hơn số chia.", "dung": false}, {"de": "Nếu số dư r khác 0 trong phép chia a cho b, thì phép chia đó là phép chia không có dư.", "dung": false}, {"de": "Phép chia hết luôn cho kết quả là một số tự nhiên.", "dung": true}], "kt": "pheptinh", "goi1": "SGK: a = b · q + r với 0 ≤ r &lt; b. r = 0: phép chia hết; r ≠ 0: phép chia có dư.", "goi2": "b) Điều kiện của số dư là 0 ≤ r &lt; b — số dư so với số chia thế nào? c) r ≠ 0 nghĩa là phép chia gì? d) Thương q của phép chia hết là số gì?", "giai": "a) <b>Đúng<\/b>: số dư r = 0 thì a = b · q, là phép chia hết.<br>b) <b>Sai<\/b>: số dư luôn <em>nhỏ hơn<\/em> số chia (0 ≤ r &lt; b).<br>c) <b>Sai<\/b>: r ≠ 0 thì đó là phép chia <em>có dư<\/em>.<br>d) <b>Đúng<\/b>: trong phép chia hết a : b = q, thương q là một số tự nhiên.", "hinh": null}, {"id": "23", "dang": "p2", "kieu": "ds", "de": "Trong các phát biểu sau về số nguyên tố và hợp số, phát biểu nào đúng, phát biểu nào sai?", "y": [{"de": "Số 1 là số nguyên tố.", "dung": false}, {"de": "Số 11 là số nguyên tố vì nó chỉ có hai ước là 1 và 11.", "dung": true}, {"de": "Số 12 là số nguyên tố vì nó có nhiều hơn hai ước.", "dung": false}, {"de": "Số 23 là hợp số.", "dung": false}], "kt": "nguyento", "goi1": "Số nguyên tố: số tự nhiên lớn hơn 1, chỉ có hai ước là 1 và chính nó. Hợp số: số tự nhiên lớn hơn 1, có nhiều hơn hai ước. Số 0 và 1 không là số nguyên tố, không là hợp số.", "goi2": "a) Số 1 có lớn hơn 1 không? c) \"Có nhiều hơn hai ước\" là định nghĩa của hợp số hay số nguyên tố? d) 23 có ước nào khác 1 và 23 không (thử chia cho 2; 3; 5)?", "giai": "a) <b>Sai<\/b>: số 1 không là số nguyên tố, không là hợp số.<br>b) <b>Đúng<\/b>: 11 chỉ có hai ước là 1 và 11.<br>c) <b>Sai<\/b>: số có nhiều hơn hai ước là <em>hợp số<\/em>; 12 là hợp số.<br>d) <b>Sai<\/b>: 23 không chia hết cho 2; 3; 5, chỉ có hai ước là 1 và 23 nên 23 là số nguyên tố.", "hinh": null}, {"id": "24", "dang": "p2", "kieu": "ds", "de": "Trong các phép chia sau, đâu là kết quả đúng, đâu là kết quả sai?", "y": [{"de": "1 356 : 23 = 58 (dư 22)", "dung": true}, {"de": "264 : 12 = 22", "dung": true}, {"de": "528 : 16 = 23", "dung": false}, {"de": "1 056 : 24 = 44 (dư 0)", "dung": true}], "kt": "pheptinh", "goi1": "Thử lại phép chia bằng phép nhân: số bị chia = số chia · thương + số dư (số dư phải nhỏ hơn số chia).", "goi2": "a) 23 · 58 + 22 = ? b) 12 · 22 = ? c) 16 · 23 = ? có bằng 528 không? d) 24 · 44 = ?", "giai": "a) 23 · 58 = 1 334; 1 334 + 22 = 1 356 và 22 &lt; 23 → <b>Đúng<\/b>.<br>b) 12 · 22 = 264 → <b>Đúng<\/b>.<br>c) 16 · 23 = 368 ≠ 528; đúng ra 528 : 16 = 33 → <b>Sai<\/b>.<br>d) 24 · 44 = 1 056 → <b>Đúng<\/b>.", "hinh": null}, {"id": "25", "dang": "p3", "kieu": "mc", "de": "Cho tập hợp A = {5; 10; 15; 20; 25}. Cách viết tập hợp A bằng cách chỉ ra tính chất đặc trưng nào sau đây là đúng?", "options": ["A = {x ∈ ℕ | x ⋮ 5, x &lt; 25}", "A = {x ∈ ℕ | x ⋮ 5, x ≤ 25}", "A = {x ∈ ℕ | x ⋮ 5, 0 &lt; x ≤ 25}", "A = {x ∈ ℕ | x ⋮ 5, 5 &lt; x &lt; 25}"], "dapAn": "C", "kt": "taphop", "goi1": "Các phần tử của A đều chia hết cho 5 (là bội của 5), từ 5 đến 25. Hãy liệt kê thử từng cách viết rồi so với A.", "goi2": "Số 0 cũng chia hết cho 5. Cách viết nào vô tình chứa số 0, hoặc bỏ mất 5 hay 25?", "giai": "A gồm các bội của 5 từ 5 đến 25. Phương án A: x &lt; 25 bỏ mất số 25 (và chứa 0). Phương án B: chứa thêm số 0 vì 0 ⋮ 5. Phương án D: bỏ mất 5 và 25. Phương án <b>C<\/b>: x ⋮ 5 và 0 &lt; x ≤ 25 cho đúng {5; 10; 15; 20; 25}. (Cách viết khác cũng đúng: A = {x ∈ ℕ* | x ⋮ 5, x ≤ 25} hoặc A = {5 · k | k ∈ ℕ, 1 ≤ k ≤ 5}.)", "hinh": null}, {"id": "26", "dang": "p3", "kieu": "fill", "de": "Kết quả của phép tính 205 − [1 200 − (4<sup>2<\/sup> − 2 · 3)<sup>3<\/sup>] : 40 là:", "o": [{"nhan": "Kết quả", "loai": "so", "dapAn": ["200"]}], "kt": "thutu", "goi1": "Thứ tự: trong ngoặc tròn trước (luỹ thừa → nhân → trừ), rồi luỹ thừa của ngoặc, rồi ngoặc vuông, rồi phép chia, cuối cùng phép trừ.", "goi2": "4<sup>2<\/sup> − 2 · 3 = 16 − 6 = 10; 10<sup>3<\/sup> = 1 000; 1 200 − 1 000 = 200; 200 : 40 = ?; 205 − ? = ?", "giai": "205 − [1 200 − (4<sup>2<\/sup> − 2 · 3)<sup>3<\/sup>] : 40<br>= 205 − [1 200 − (16 − 6)<sup>3<\/sup>] : 40<br>= 205 − [1 200 − 10<sup>3<\/sup>] : 40<br>= 205 − [1 200 − 1 000] : 40<br>= 205 − 200 : 40<br>= 205 − 5 = <b>200<\/b>.", "hinh": null}, {"id": "27", "dang": "p3", "kieu": "fill", "de": "Tìm x biết: <span class=\"ov\">136x<\/span> chia hết cho cả 2 và 5.", "o": [{"nhan": "x =", "loai": "so", "dapAn": ["0"]}], "kt": "dauhieu", "goi1": "x là chữ số tận cùng. Số chia hết cho 2 tận cùng là 0, 2, 4, 6, 8; chia hết cho 5 tận cùng là 0 hoặc 5.", "goi2": "Chữ số nào vừa có trong dãy 0, 2, 4, 6, 8 vừa là 0 hoặc 5?", "giai": "<span class=\"ov\">136x<\/span> chia hết cho cả 2 và 5 nên chữ số tận cùng x phải là 0. Vậy <b>x = 0<\/b> (số 1 360).", "hinh": null}, {"id": "28", "dang": "p3", "kieu": "fill", "de": "Tìm x biết: <span class=\"ov\">272x<\/span> chia hết cho cả 2 và 3.", "o": [{"nhan": "x =", "loai": "so", "dapAn": ["4"]}], "kt": "dauhieu", "goi1": "Chia hết cho 2: x là chữ số chẵn. Chia hết cho 3: tổng các chữ số 2 + 7 + 2 + x = 11 + x phải chia hết cho 3.", "goi2": "11 + x chia hết cho 3 khi x ∈ {1; 4; 7}. Trong ba chữ số đó, chữ số nào chẵn?", "giai": "Để <span class=\"ov\">272x<\/span> ⋮ 2 thì x ∈ {0; 2; 4; 6; 8}. Để <span class=\"ov\">272x<\/span> ⋮ 3 thì (2 + 7 + 2 + x) = (11 + x) ⋮ 3, suy ra x ∈ {1; 4; 7}. Chữ số vừa chẵn vừa thuộc {1; 4; 7} là 4. Vậy <b>x = 4<\/b> (số 2 724).", "hinh": null}, {"id": "29", "dang": "p3", "kieu": "fill", "de": "Một sân chơi hình bình hành có độ dài hai cạnh kề lần lượt là 4 cm và 7 cm. Chu vi của sân chơi đó bằng bao nhiêu xăng-ti-mét?", "o": [{"nhan": "Chu vi =", "loai": "so", "dapAn": ["22"], "donVi": "cm"}], "kt": "chuvi", "goi1": "Chu vi hình bình hành có hai cạnh a, b: C = 2(a + b).", "goi2": "C = 2 · (4 + 7) = 2 · ?", "giai": "Chu vi sân chơi: 2 · (4 + 7) = 2 · 11 = <b>22 (cm)<\/b>.", "hinh": null}, {"id": "30", "dang": "p3", "kieu": "mc", "de": "Cho tập hợp K = {18; 27; 36; 45}. Cách viết tập hợp K bằng cách chỉ ra tính chất đặc trưng nào sau đây là đúng?", "options": ["K = {x ∈ ℕ | x ⋮ 9, x ≤ 45}", "K = {x ∈ ℕ | x ⋮ 9, 18 ≤ x ≤ 45}", "K = {x ∈ ℕ | x ⋮ 3, 18 ≤ x ≤ 45}", "K = {x ∈ ℕ | x ⋮ 9, 18 &lt; x &lt; 45}"], "dapAn": "B", "kt": "taphop", "goi1": "18; 27; 36; 45 đều là bội của 9 (9 · 2; 9 · 3; 9 · 4; 9 · 5). Liệt kê thử từng cách viết.", "goi2": "Phương án nào chứa thêm 0; 9 hoặc 21; 24; …, phương án nào bỏ mất 18 và 45?", "giai": "Phương án A chứa thêm 0 và 9. Phương án C (chia hết cho 3) chứa thêm 21; 24; 30; … Phương án D bỏ mất 18 và 45 vì dùng dấu &lt;. Phương án <b>B<\/b>: x ⋮ 9 và 18 ≤ x ≤ 45 cho đúng {18; 27; 36; 45}. (Cách viết khác: K = {9 · k | k ∈ ℕ, 2 ≤ k ≤ 5}.)", "hinh": null}, {"id": "31", "dang": "p3", "kieu": "fill", "de": "Kết quả phép tính 12 : {400 : [500 − (125 + 25 · 7)]} là:", "o": [{"nhan": "Kết quả", "loai": "so", "dapAn": ["6"]}], "kt": "thutu", "goi1": "Thứ tự ngoặc: ( ) → [ ] → { }. Trong ngoặc tròn làm phép nhân trước phép cộng.", "goi2": "125 + 25 · 7 = 125 + 175 = 300; 500 − 300 = 200; 400 : 200 = ?; 12 : ? = ?", "giai": "12 : {400 : [500 − (125 + 25 · 7)]}<br>= 12 : {400 : [500 − (125 + 175)]}<br>= 12 : {400 : [500 − 300]}<br>= 12 : {400 : 200}<br>= 12 : 2 = <b>6<\/b>.", "hinh": null}, {"id": "32", "dang": "p3", "kieu": "fill", "de": "Tìm x biết: <span class=\"ov\">92x020<\/span> chia hết cho cả 2; 3; 5 và 9.", "o": [{"nhan": "x =", "loai": "so", "dapAn": ["5"]}], "kt": "dauhieu", "goi1": "Số đã tận cùng là 0 nên chắc chắn chia hết cho 2 và 5. Chỉ còn cần tổng các chữ số chia hết cho 9 (khi đó cũng chia hết cho 3).", "goi2": "Tổng các chữ số: 9 + 2 + x + 0 + 2 + 0 = 13 + x. Chữ số x nào (từ 0 đến 9) làm 13 + x chia hết cho 9?", "giai": "Số <span class=\"ov\">92x020<\/span> tận cùng là 0 nên chia hết cho 2 và 5. Để chia hết cho 9 (và do đó cho 3), cần (9 + 2 + x + 0 + 2 + 0) = (13 + x) ⋮ 9. Vì 0 ≤ x ≤ 9 nên 13 ≤ 13 + x ≤ 22, bội của 9 trong khoảng này chỉ có 18, suy ra x = 5. Vậy <b>x = 5<\/b> (số 925 020).", "hinh": null}, {"id": "33", "dang": "p3", "kieu": "fill", "de": "Phân tích số 520 ra thừa số nguyên tố. (Gõ ví dụ: <code>2^3.5.13<\/code>, dùng <code>^<\/code> cho số mũ và dấu chấm cho phép nhân.)", "o": [{"nhan": "520 =", "loai": "ptnt", "dapAn": ["2^3.5.13"], "tsnt": {"2": 3, "5": 1, "13": 1}}], "kt": "nguyento", "goi1": "Chia liên tiếp cho các số nguyên tố từ nhỏ đến lớn: 520 : 2 = 260; 260 : 2 = 130; 130 : 2 = 65; 65 : 5 = 13; 13 là số nguyên tố.", "goi2": "Có ba lần chia cho 2, một lần chia cho 5, còn lại 13. Viết các thừa số giống nhau dưới dạng luỹ thừa: 2 · 2 · 2 = 2<sup>3<\/sup>.", "giai": "520 = 2 · 260 = 2 · 2 · 130 = 2 · 2 · 2 · 65 = 2 · 2 · 2 · 5 · 13. Vậy <b>520 = 2<sup>3<\/sup> · 5 · 13<\/b>. (Sơ đồ cột: 520 | 2; 260 | 2; 130 | 2; 65 | 5; 13 | 13; 1.)", "hinh": null}, {"id": "34", "dang": "p4a", "kieu": "fill", "de": "Thực hiện phép tính:<br>a) (5 · 3<sup>2<\/sup> − 20) : 5 + 3 · 2<sup>3<\/sup><br>b) 3<sup>3<\/sup> · 17 − 3<sup>3<\/sup> · 6 − 3<sup>3<\/sup><br>c) 3<sup>3<\/sup> − 2<sup>8<\/sup> : 2<sup>5<\/sup> + 6 · 5<sup>2<\/sup><br>d) 3 · [50 − (87 − 2 · 41)<sup>2<\/sup>] + 1<sup>2026<\/sup>", "o": [{"nhan": "a)", "loai": "so", "dapAn": ["29"]}, {"nhan": "b)", "loai": "so", "dapAn": ["270"]}, {"nhan": "c)", "loai": "so", "dapAn": ["169"]}, {"nhan": "d)", "loai": "so", "dapAn": ["76"]}], "kt": "thutu", "goi1": "Luỹ thừa → nhân, chia → cộng, trừ; có ngoặc thì trong ngoặc trước. Câu b) dùng tính chất phân phối: đặt 3<sup>3<\/sup> làm thừa số chung. Câu c) 2<sup>8<\/sup> : 2<sup>5<\/sup> = 2<sup>3<\/sup>. Câu d) 1 mũ bao nhiêu cũng bằng 1.", "goi2": "a) 3<sup>2<\/sup> = 9 → 5 · 9 − 20 = 25 → 25 : 5 = 5 → cộng 3 · 8. b) 3<sup>3<\/sup> · (17 − 6 − 1) = 27 · ? c) 27 − 8 + 6 · 25. d) 87 − 82 = 5; 5<sup>2<\/sup> = 25; 50 − 25 = 25; 3 · 25 + 1.", "giai": "a) (5 · 3<sup>2<\/sup> − 20) : 5 + 3 · 2<sup>3<\/sup> = (5 · 9 − 20) : 5 + 3 · 8 = (45 − 20) : 5 + 24 = 25 : 5 + 24 = 5 + 24 = <b>29<\/b>.<br>b) 3<sup>3<\/sup> · 17 − 3<sup>3<\/sup> · 6 − 3<sup>3<\/sup> = 3<sup>3<\/sup> · (17 − 6 − 1) = 27 · 10 = <b>270<\/b>.<br>c) 3<sup>3<\/sup> − 2<sup>8<\/sup> : 2<sup>5<\/sup> + 6 · 5<sup>2<\/sup> = 27 − 2<sup>3<\/sup> + 6 · 25 = 27 − 8 + 150 = 19 + 150 = <b>169<\/b>.<br>d) 3 · [50 − (87 − 2 · 41)<sup>2<\/sup>] + 1<sup>2026<\/sup> = 3 · [50 − (87 − 82)<sup>2<\/sup>] + 1 = 3 · [50 − 5<sup>2<\/sup>] + 1 = 3 · [50 − 25] + 1 = 3 · 25 + 1 = 75 + 1 = <b>76<\/b>.", "hinh": null}, {"id": "35", "dang": "p4a", "kieu": "fill", "de": "Tính nhanh nếu có thể:<br>a) 34 · 25 + 7 · 25 − 37 · 25<br>b) 31 · 175 − 31 · 50 + 69 · 125<br>c) 80 · 24 · 125<br>d) {132 − [116 − (16 − 8)] : 2} · 5", "o": [{"nhan": "a)", "loai": "so", "dapAn": ["100"]}, {"nhan": "b)", "loai": "so", "dapAn": ["12500"]}, {"nhan": "c)", "loai": "so", "dapAn": ["240000"]}, {"nhan": "d)", "loai": "so", "dapAn": ["390"]}], "kt": "pheptinh", "goi1": "Tính nhanh = dùng tính chất giao hoán, kết hợp, phân phối: ab + ac − ad = a(b + c − d); 8 · 125 = 1 000; 4 · 25 = 100. Câu d) chỉ cần làm đúng thứ tự ngoặc ( ) → [ ] → { }.", "goi2": "a) 25 · (34 + 7 − 37) = 25 · ? b) 31 · (175 − 50) = 31 · 125, rồi 31 · 125 + 69 · 125 = (31 + 69) · 125. c) 80 · 125 = 10 000, nhân với 24. d) 16 − 8 = 8; 116 − 8 = 108; 108 : 2 = 54; 132 − 54 = 78; 78 · 5.", "giai": "a) 34 · 25 + 7 · 25 − 37 · 25 = 25 · (34 + 7 − 37) = 25 · 4 = <b>100<\/b>.<br>b) 31 · 175 − 31 · 50 + 69 · 125 = 31 · (175 − 50) + 69 · 125 = 31 · 125 + 69 · 125 = 125 · (31 + 69) = 125 · 100 = <b>12 500<\/b>.<br>c) 80 · 24 · 125 = (80 · 125) · 24 = 10 000 · 24 = <b>240 000<\/b>.<br>d) {132 − [116 − (16 − 8)] : 2} · 5 = {132 − [116 − 8] : 2} · 5 = {132 − 108 : 2} · 5 = {132 − 54} · 5 = 78 · 5 = <b>390<\/b>.", "hinh": null}, {"id": "36", "dang": "p4a", "kieu": "fill", "de": "Tìm số tự nhiên x biết:<br>a) 3<sup>4<\/sup> · (15 + 2x) = 3<sup>7<\/sup><br>b) 7 · (15 + 2x) = 147<br>c) 375 : (45 − 4x) = 15<br>d) 126 − (x + 32) = 80", "o": [{"nhan": "a) x =", "loai": "so", "dapAn": ["6"]}, {"nhan": "b) x =", "loai": "so", "dapAn": ["3"]}, {"nhan": "c) x =", "loai": "so", "dapAn": ["5"]}, {"nhan": "d) x =", "loai": "so", "dapAn": ["14"]}], "kt": "pheptinh", "goi1": "Coi cả ngoặc là một số chưa biết: tìm giá trị của ngoặc trước (thừa số = tích : thừa số kia; số chia = số bị chia : thương; số trừ = số bị trừ − hiệu), rồi mới tìm x.", "goi2": "a) 15 + 2x = 3<sup>7<\/sup> : 3<sup>4<\/sup> = 3<sup>3<\/sup> = 27 → 2x = 27 − 15. b) 15 + 2x = 147 : 7 = 21. c) 45 − 4x = 375 : 15 = 25 → 4x = 45 − 25. d) x + 32 = 126 − 80 = 46.", "giai": "a) 3<sup>4<\/sup> · (15 + 2x) = 3<sup>7<\/sup><br>15 + 2x = 3<sup>7<\/sup> : 3<sup>4<\/sup> = 3<sup>3<\/sup> = 27<br>2x = 27 − 15 = 12<br>x = 12 : 2 = <b>6<\/b>.<br>b) 7 · (15 + 2x) = 147<br>15 + 2x = 147 : 7 = 21<br>2x = 21 − 15 = 6<br>x = 6 : 2 = <b>3<\/b>.<br>c) 375 : (45 − 4x) = 15<br>45 − 4x = 375 : 15 = 25<br>4x = 45 − 25 = 20<br>x = 20 : 4 = <b>5<\/b>.<br>d) 126 − (x + 32) = 80<br>x + 32 = 126 − 80 = 46<br>x = 46 − 32 = <b>14<\/b>.", "hinh": null}, {"id": "37", "dang": "p4a", "kieu": "fill", "de": "Cho hình thoi ABCD có chu vi là 60 cm. Tính độ dài cạnh AB. Biết hai đường chéo của hình thoi có độ dài lần lượt là 18 cm và 24 cm. Tính diện tích hình thoi ABCD.", "o": [{"nhan": "Cạnh AB =", "loai": "so", "dapAn": ["15"], "donVi": "cm"}, {"nhan": "Diện tích =", "loai": "so", "dapAn": ["216"], "donVi": "cm²"}], "kt": "chuvi", "goi1": "Hình thoi có bốn cạnh bằng nhau nên chu vi C = 4m (m là cạnh). Diện tích hình thoi S = ab : 2 với a, b là hai đường chéo.", "goi2": "AB = 60 : 4 = ? S = 18 · 24 : 2 = ?", "giai": "Hình thoi có bốn cạnh bằng nhau nên độ dài cạnh AB là: 60 : 4 = <b>15 (cm)<\/b>.<br>Diện tích hình thoi ABCD là: 18 · 24 : 2 = 432 : 2 = <b>216 (cm<sup>2<\/sup>)<\/b>.", "hinh": null}, {"id": "38", "dang": "p4b", "kieu": "fill", "de": "Ông Hải có một thửa ruộng hình vuông với độ dài cạnh là 8 m. Ông dự định trồng lúa trên thửa ruộng đó. Biết chi phí mua hạt giống và công trồng lúa ước tính là 120 000 đồng cho mỗi mét vuông. Hỏi ông Hải cần bao nhiêu tiền để trồng lúa trên toàn bộ thửa ruộng đó?", "o": [{"nhan": "Số tiền =", "loai": "so", "dapAn": ["7680000"], "donVi": "đồng"}], "kt": "chuvi", "goi1": "Chi phí tính theo mỗi mét vuông nên phải tính <em>diện tích<\/em> thửa ruộng (S = a<sup>2<\/sup>), rồi nhân với đơn giá.", "goi2": "Diện tích: 8 · 8 = 64 (m<sup>2<\/sup>). Số tiền: 64 · 120 000 = ?", "giai": "Diện tích thửa ruộng hình vuông là: 8 · 8 = 64 (m<sup>2<\/sup>).<br>Số tiền ông Hải cần để trồng lúa trên toàn bộ thửa ruộng là: 64 · 120 000 = <b>7 680 000 (đồng)<\/b>.", "hinh": null}, {"id": "39", "dang": "p4b", "kieu": "fill", "de": "Một mảnh vườn hình chữ nhật có chiều dài 10 m và chiều rộng là 4 m. Người ta làm một lối đi xung quanh vườn rộng 1 m thuộc đất của vườn. Phần đất còn lại dùng để trồng hoa. Tính diện tích phần đất trồng hoa của mảnh vườn.", "o": [{"nhan": "Diện tích trồng hoa =", "loai": "so", "dapAn": ["16"], "donVi": "m²"}], "kt": "chuvi", "goi1": "Lối đi rộng 1 m chạy <em>xung quanh<\/em> vườn nên phần trồng hoa là hình chữ nhật bị \"bớt\" 1 m ở cả hai đầu mỗi chiều: chiều dài giảm 2 m, chiều rộng giảm 2 m.", "goi2": "Chiều dài phần trồng hoa: 10 − 2 · 1 = 8 (m); chiều rộng: 4 − 2 · 1 = 2 (m). Diện tích = 8 · 2.", "giai": "Phần đất trồng hoa là hình chữ nhật có:<br>chiều dài 10 − 1 · 2 = 8 (m); chiều rộng 4 − 1 · 2 = 2 (m).<br>Diện tích phần đất trồng hoa là: 8 · 2 = <b>16 (m<sup>2<\/sup>)<\/b>.<br><em>Cách khác:<\/em> diện tích cả vườn 10 · 4 = 40 (m<sup>2<\/sup>); diện tích lối đi 40 − 16 = 24 (m<sup>2<\/sup>).", "hinh": null}, {"id": "40", "dang": "p4b", "kieu": "fill", "de": "Bác Ba cần lát gạch cho một nền nhà hình chữ nhật có chiều dài là 20 m và chiều rộng bằng một phần tư chiều dài. Bác Ba muốn lót gạch hình vuông cạnh 4 dm lên nền nhà đó nên đã mua gạch bông với giá một viên gạch là 80 000 đồng. Hỏi số tiền mà bác Ba phải trả để mua gạch?", "o": [{"nhan": "Số tiền =", "loai": "so", "dapAn": ["50000000"], "donVi": "đồng"}], "kt": "chuvi", "goi1": "Bốn bước: chiều rộng = 20 : 4; diện tích nền; diện tích một viên gạch (đổi 4 dm về mét hoặc đổi diện tích nền về dm<sup>2<\/sup>); số viên = diện tích nền : diện tích một viên; rồi nhân với giá.", "goi2": "Chiều rộng 5 m; nền 20 · 5 = 100 (m<sup>2<\/sup>) = 10 000 (dm<sup>2<\/sup>); một viên 4 · 4 = 16 (dm<sup>2<\/sup>); số viên 10 000 : 16 = 625; tiền 625 · 80 000.", "giai": "Chiều rộng nền nhà là: 20 : 4 = 5 (m).<br>Diện tích nền nhà là: 20 · 5 = 100 (m<sup>2<\/sup>) = 10 000 (dm<sup>2<\/sup>).<br>Diện tích một viên gạch hình vuông cạnh 4 dm là: 4 · 4 = 16 (dm<sup>2<\/sup>).<br>Số viên gạch cần dùng là: 10 000 : 16 = 625 (viên).<br>Số tiền bác Ba phải trả là: 625 · 80 000 = <b>50 000 000 (đồng)<\/b>.", "hinh": null}, {"id": "41", "dang": "p4c", "kieu": "doichieu", "de": "Cho A = 1 + 3 + 3<sup>2<\/sup> + 3<sup>3<\/sup> + … + 3<sup>98<\/sup> + 3<sup>99<\/sup>. Chứng tỏ rằng A ⋮ 4.", "kt": "nangcao", "goi1": "Đếm số số hạng (từ 3<sup>0<\/sup> = 1 đến 3<sup>99<\/sup> có 100 số hạng), nhóm hai số hạng liên tiếp rồi đặt thừa số chung trong mỗi nhóm.", "giai": "A có 100 số hạng (các luỹ thừa của 3 với số mũ từ 0 đến 99). Nhóm hai số hạng liên tiếp thành 50 nhóm:<br>A = (1 + 3) + (3<sup>2<\/sup> + 3<sup>3<\/sup>) + (3<sup>4<\/sup> + 3<sup>5<\/sup>) + … + (3<sup>98<\/sup> + 3<sup>99<\/sup>)<br>&nbsp;&nbsp;= (1 + 3) + 3<sup>2<\/sup> · (1 + 3) + 3<sup>4<\/sup> · (1 + 3) + … + 3<sup>98<\/sup> · (1 + 3)<br>&nbsp;&nbsp;= 4 + 3<sup>2<\/sup> · 4 + 3<sup>4<\/sup> · 4 + … + 3<sup>98<\/sup> · 4<br>&nbsp;&nbsp;= 4 · (1 + 3<sup>2<\/sup> + 3<sup>4<\/sup> + … + 3<sup>98<\/sup>).<br>Vì 4 · (1 + 3<sup>2<\/sup> + 3<sup>4<\/sup> + … + 3<sup>98<\/sup>) chia hết cho 4 nên <b>A ⋮ 4<\/b>.<br><em>(Cũng có thể lập luận: mỗi nhóm đều chia hết cho 4 nên tổng của chúng chia hết cho 4 — tính chất chia hết của tổng, Bài 8.)<\/em>", "tieuChi": ["Nêu được A có 100 số hạng và nhóm được thành 50 cặp, không bỏ sót số hạng 1 ở đầu.", "Trong mỗi cặp, đặt được thừa số chung là luỹ thừa nhỏ hơn: 3<sup>k<\/sup> · (1 + 3).", "Tính 1 + 3 = 4 và viết A = 4 · (…) (hoặc nói rõ mỗi cặp chia hết cho 4).", "Kết luận A ⋮ 4 có nêu lí do (tích có thừa số 4, hoặc tính chất chia hết của tổng)."], "hinh": null}, {"id": "42", "dang": "p4c", "kieu": "fill", "de": "Tìm số tự nhiên x, y sao cho A = <span class=\"ov\">x369y<\/span> chia cho 2, cho 5 và cho 9 đều dư 1.", "o": [{"nhan": "x =", "loai": "so", "dapAn": ["9"]}, {"nhan": "y =", "loai": "so", "dapAn": ["1"]}], "kt": "nangcao", "goi1": "A chia cho 2; 5; 9 đều dư 1 nghĩa là A − 1 chia hết cho cả 2; 5; 9. Hãy xét A − 1 bằng dấu hiệu chia hết.", "goi2": "A − 1 chia hết cho 2 và 5 nên tận cùng là 0, suy ra y = 1. Khi đó A − 1 = <span class=\"ov\">x3690<\/span> chia hết cho 9: tổng các chữ số x + 3 + 6 + 9 + 0 = x + 18 phải chia hết cho 9. Nhớ x là chữ số đầu tiên nên x ≠ 0.", "giai": "A chia cho 2, cho 5 và cho 9 đều dư 1 nên A − 1 chia hết cho cả 2; 5; 9.<br>A − 1 chia hết cho 2 và 5 nên tận cùng là 0, do đó A tận cùng là 1: <b>y = 1<\/b>.<br>Khi đó A − 1 = <span class=\"ov\">x3690<\/span> ⋮ 9 nên (x + 3 + 6 + 9 + 0) = (x + 18) ⋮ 9, suy ra x ∈ {0; 9}. Vì x là chữ số hàng đầu tiên của số có năm chữ số nên x ≠ 0, vậy <b>x = 9<\/b>.<br>Thử lại: A = 93 691 = 2 · 46 845 + 1 = 5 · 18 738 + 1 = 9 · 10 410 + 1. Vậy x = 9, y = 1.", "hinh": null}, {"id": "43", "dang": "p4c", "kieu": "doichieu", "de": "Cho A = 2 + 2<sup>2<\/sup> + 2<sup>3<\/sup> + … + 2<sup>12<\/sup>. Chứng tỏ rằng A ⋮ 7.", "kt": "nangcao", "goi1": "A có 12 số hạng. Vì 1 + 2 + 2<sup>2<\/sup> = 7 nên hãy nhóm <em>ba<\/em> số hạng liên tiếp.", "giai": "A có 12 số hạng (số mũ từ 1 đến 12). Nhóm ba số hạng liên tiếp thành 4 nhóm:<br>A = (2 + 2<sup>2<\/sup> + 2<sup>3<\/sup>) + (2<sup>4<\/sup> + 2<sup>5<\/sup> + 2<sup>6<\/sup>) + (2<sup>7<\/sup> + 2<sup>8<\/sup> + 2<sup>9<\/sup>) + (2<sup>10<\/sup> + 2<sup>11<\/sup> + 2<sup>12<\/sup>)<br>&nbsp;&nbsp;= 2 · (1 + 2 + 2<sup>2<\/sup>) + 2<sup>4<\/sup> · (1 + 2 + 2<sup>2<\/sup>) + 2<sup>7<\/sup> · (1 + 2 + 2<sup>2<\/sup>) + 2<sup>10<\/sup> · (1 + 2 + 2<sup>2<\/sup>)<br>&nbsp;&nbsp;= 2 · 7 + 2<sup>4<\/sup> · 7 + 2<sup>7<\/sup> · 7 + 2<sup>10<\/sup> · 7<br>&nbsp;&nbsp;= 7 · (2 + 2<sup>4<\/sup> + 2<sup>7<\/sup> + 2<sup>10<\/sup>).<br>Vậy <b>A ⋮ 7<\/b>. (Kiểm tra: A = 2<sup>13<\/sup> − 2 = 8 190 = 7 · 1 170.)", "tieuChi": ["Nêu được A có 12 số hạng và nhóm thành 4 nhóm, mỗi nhóm 3 số hạng liên tiếp.", "Trong mỗi nhóm, đặt được thừa số chung là luỹ thừa nhỏ nhất: 2<sup>k<\/sup> · (1 + 2 + 2<sup>2<\/sup>).", "Tính 1 + 2 + 2<sup>2<\/sup> = 7 và viết A = 7 · (…).", "Kết luận A ⋮ 7 có nêu lí do."], "hinh": null}, {"id": "44", "dang": "p4c", "kieu": "doichieu", "de": "Chứng minh rằng (10<sup>n<\/sup> + 18n − 1) ⋮ 27 (với n là số tự nhiên).", "kt": "nangcao", "goi1": "Tách 10<sup>n<\/sup> − 1 = 99…9 (n chữ số 9) = 9 · 11…1 (n chữ số 1), rồi đặt 9 làm thừa số chung. Phần còn lại cần chia hết cho 3: dùng \"Em có biết\" Bài 9 (một số luôn viết được thành tổng các chữ số của nó cộng với một số chia hết cho 9).", "giai": "Với n = 0: 10<sup>0<\/sup> + 18 · 0 − 1 = 1 − 1 = 0, chia hết cho 27.<br>Với n ≥ 1: 10<sup>n<\/sup> + 18n − 1 = (10<sup>n<\/sup> − 1) + 18n.<br>Ta có 10<sup>n<\/sup> − 1 = 99…9 (n chữ số 9) = 9 · 11…1 (n chữ số 1).<br>Do đó 10<sup>n<\/sup> + 18n − 1 = 9 · 11…1 + 9 · 2n = 9 · (11…1 + 2n).<br>Xét số 11…1 (n chữ số 1): tổng các chữ số của nó bằng n. Theo \"Em có biết\" (Bài 9), một số tự nhiên luôn viết được thành tổng các chữ số của nó cộng với một số chia hết cho 9, nên 11…1 − n chia hết cho 9, do đó chia hết cho 3.<br>Suy ra 11…1 + 2n = (11…1 − n) + 3n là tổng của hai số chia hết cho 3 nên chia hết cho 3 (tính chất chia hết của tổng).<br>Vậy 11…1 + 2n = 3 · k (k là số tự nhiên) và 10<sup>n<\/sup> + 18n − 1 = 9 · 3 · k = 27 · k, tức là <b>(10<sup>n<\/sup> + 18n − 1) ⋮ 27<\/b>.<br><em>Thử với n = 2: 100 + 36 − 1 = 135 = 27 · 5. Với n = 3: 1 000 + 54 − 1 = 1 053 = 27 · 39.<\/em>", "tieuChi": ["Viết được 10<sup>n<\/sup> − 1 = 99…9 = 9 · 11…1 (n chữ số 1).", "Đặt 9 làm thừa số chung: 10<sup>n<\/sup> + 18n − 1 = 9 · (11…1 + 2n).", "Chứng tỏ 11…1 + 2n chia hết cho 3 nhờ tổng các chữ số của 11…1 bằng n (và 3n ⋮ 3).", "Kết luận 9 · 3 = 27 nên biểu thức chia hết cho 27 (có xét hoặc nhắc trường hợp n = 0 càng tốt)."], "hinh": null}], "dang": [{"key": "p1", "ten": "Phần I – Trắc nghiệm nhiều lựa chọn", "lenh": "Chọn một phương án đúng rồi bấm Kiểm tra."}, {"key": "p2", "ten": "Phần II – Trắc nghiệm đúng – sai", "lenh": "Với mỗi ý a), b), c), d) chọn Đúng hoặc Sai, rồi bấm Kiểm tra. Máy chấm cả bốn ý; ý sai được tô đỏ để em chọn lại."}, {"key": "p3", "ten": "Phần III – Trả lời ngắn", "lenh": "Nhập đáp số vào ô (hoặc chọn cách viết đúng), rồi bấm Kiểm tra."}, {"key": "p4a", "ten": "Phần IV – Tự luận: tính toán, tìm x, hình học", "lenh": "Làm ra nháp từng bước, nhập đáp số cuối của mỗi ý. Đúng rồi em sẽ thấy lời giải đầy đủ để đối chiếu cách trình bày."}, {"key": "p4b", "ten": "Phần IV – Các bài toán thực tế", "lenh": "Làm ra nháp, nhập đáp số cuối (chỉ cần ghi số, không cần đơn vị)."}, {"key": "p4c", "ten": "Phần IV – Một số bài toán nâng cao", "lenh": "Bài chứng tỏ chia hết: em làm ra nháp, bấm \"Tôi đã làm xong\" để xem lời giải mẫu và tự đánh giá. Bài tìm x, y: nhập đáp số."}], "ktTitle": {"taphop": "Tập hợp và cách mô tả tập hợp (Bài 1)", "pheptinh": "Phép nhân, phép chia số tự nhiên; tìm x (Bài 4, 5)", "luythua": "Luỹ thừa với số mũ tự nhiên (Bài 6)", "thutu": "Thứ tự thực hiện các phép tính (Bài 7)", "chiahet": "Quan hệ chia hết, ước và bội, tính chất chia hết của tổng (Bài 8)", "dauhieu": "Dấu hiệu chia hết cho 2; 5; 9; 3 (Bài 9)", "nguyento": "Số nguyên tố, hợp số, phân tích ra thừa số nguyên tố (Bài 10)", "hinhdeu": "Tam giác đều, hình vuông, lục giác đều (Bài 18)", "tugiac": "Hình chữ nhật, hình thoi, hình bình hành, hình thang cân (Bài 19)", "chuvi": "Chu vi và diện tích (Bài 20)", "nangcao": "Mẹo cho bài nâng cao: tổng luỹ thừa, chia có dư"}};
+const CAU = DATA.cau, DANG = DATA.dang;
+const DANGMAP = {}; DANG.forEach(d => DANGMAP[d.key] = d);
+const N = CAU.length;
+const KHOA = 'toan6-on-gk1-luyen-tap-v1';
+
+// ---------- trạng thái ----------
+let st = {cur: 0, log: {}, xong: false};
+function luu(){ try{ localStorage.setItem(KHOA, JSON.stringify(st)); }catch(e){} }
+function nap(){ try{ const s = JSON.parse(localStorage.getItem(KHOA)); if(s && s.log){ st = Object.assign(st, s); if(st.cur >= N || st.cur < 0) st.cur = 0; } }catch(e){} }
+nap();
+
+// ---------- tiện ích ----------
+const $ = s => document.querySelector(s);
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+const SUP = {'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
+// số tự nhiên: bỏ khoảng trắng, dấu chấm / phẩy ngăn nghìn, đơn vị
+function chuanSo(s){
+  s = String(s).toLowerCase().replace(/[\s\u00a0]/g, '');
+  s = s.replace(/^(x|y|s|c|p)=/, '');
+  s = s.replace(/(đồng|dong|đ|viên|vien|m²|m2|cm²|cm2|dm²|dm2|cm|dm|m)$/u, '');
+  s = s.replace(/[.,]/g, '');
+  if(!/^\d+$/.test(s)) return null;
+  return s.replace(/^0+(?=\d)/, '');
+}
+// phân tích ra thừa số nguyên tố: trả về {p: k}
+function chuanPtnt(s){
+  s = String(s).toLowerCase().replace(/[\s\u00a0]/g, '');
+  s = s.replace(/^\d+=/, '');
+  s = s.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, ch => '^' + SUP[ch]);
+  s = s.replace(/[·×*x]/g, '.').replace(/\*\*/g, '^');
+  if(!s) return null;
+  const out = {};
+  for(const tok of s.split('.')){
+    const m = /^(\d+)(?:\^(\d+))?$/.exec(tok);
+    if(!m) return null;
+    const p = String(+m[1]), k = m[2] === undefined ? 1 : +m[2];
+    if(+p < 2 || k < 1) return null;
+    out[p] = (out[p] || 0) + k;
+  }
+  return out;
+}
+function dungO(o, v){
+  if(o.loai === 'ptnt'){
+    const a = chuanPtnt(v); if(!a) return false;
+    const b = o.tsnt; const ka = Object.keys(a), kb = Object.keys(b);
+    return ka.length === kb.length && ka.every(p => a[p] === b[p]);
+  }
+  if(o.loai === 'so'){ const a = chuanSo(v); return a !== null && o.dapAn.some(d => chuanSo(d) === a); }
+  const a = String(v).trim().toLowerCase(); return o.dapAn.some(d => String(d).trim().toLowerCase() === a);
+}
+function ktCard(key){ const el = document.getElementById('kt-' + key); return el ? el.outerHTML.replace(/id="kt-[^"]+"/, '') : ''; }
+function dinhDangSo(s){ // 7680000 -> 7 680 000
+  return String(s).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+// ---------- màn kiến thức ----------
+function setupKT(){
+  const nut = $('#nutBatDau');
+  const mo = () => { nut.disabled = false; $('#goiCuon').textContent = 'Em đã đọc hết phần kiến thức. Bấm nút để bắt đầu!'; };
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ mo(); io.disconnect(); } }); }, {threshold: 0.01});
+    io.observe($('#kt-end'));
+  } else { mo(); }
+  const daLam = Object.values(st.log).filter(l => l.ok).length;
+  if(daLam > 0){
+    const p = $('#ktTiepTuc'); p.style.display = 'block';
+    p.textContent = st.xong ? `Lần trước em đã hoàn thành cả ${N} câu. Bấm bắt đầu để xem lại tổng kết hoặc làm lại.` :
+      `Lần trước em đã làm ${daLam}/${N} câu. Bấm bắt đầu để tiếp tục từ câu ${CAU[st.cur].id}.`;
+  }
+  nut.onclick = () => { if(st.xong){ hienKet(); } else { hienMan('manLT'); render(); } };
+}
+function hienMan(id){ document.querySelectorAll('.man').forEach(m => m.classList.remove('hien')); $('#' + id).classList.add('hien'); window.scrollTo(0,0); }
+
+// ---------- luyện tập ----------
+let tam = {};
+function logCua(id){ if(!st.log[id]) st.log[id] = {tries: 0, wrong: [], ok: false}; return st.log[id]; }
+
+function render(){
+  const c = CAU[st.cur], d = DANGMAP[c.dang];
+  const soDang = DANG.findIndex(x => x.key === c.dang) + 1;
+  $('#tdCau').textContent = `Câu ${c.id} · ${st.cur + 1}/${N}`;
+  $('#tdMuc').textContent = c.kieu === 'mc' ? 'Nhiều lựa chọn' : c.kieu === 'ds' ? 'Đúng – Sai' : c.kieu === 'fill' ? 'Nhập đáp số' : 'Tự đối chiếu';
+  $('#tdThanh').style.width = (100 * st.cur / N).toFixed(1) + '%';
+  const trongDang = CAU.filter(x => x.dang === c.dang);
+  const idx = trongDang.findIndex(x => x.id === c.id) + 1;
+  $('#tdDang').textContent = `${d.ten} · câu ${idx}/${trongDang.length} của phần`;
+  $('#dangTieu').innerHTML = `<h2>${esc(d.ten)}</h2><div class="vi">${esc(d.lenh)}</div>`;
+  tam = {};
+  const box = $('#cau');
+  let h = `<div class="de">${c.de}</div>`;
+  if(c.hinh) h += `<figure class="hinh">${c.hinh}</figure>`;
+  if(c.kieu === 'mc'){
+    h += `<div class="lua">` + c.options.map((o, i) => `<button type="button" data-i="${i}"><b>${String.fromCharCode(65 + i)}.</b> ${o}</button>`).join('') + `</div>`;
+  } else if(c.kieu === 'ds'){
+    h += `<div class="ds">` + c.y.map((y, i) => `<div class="ds-hang" data-y="${i}"><div class="y"><b>${'abcd'[i]})</b> ${y.de}</div><div class="nut"><button type="button" data-v="1">Đúng</button><button type="button" data-v="0">Sai</button></div></div>`).join('') + `</div>`;
+  } else if(c.kieu === 'fill'){
+    h += c.o.map((o, i) => `<div class="o-hang"><label for="o${i}">${o.nhan}</label><input class="o" id="o${i}" data-i="${i}" autocomplete="off" inputmode="${o.loai === 'so' ? 'numeric' : 'text'}" spellcheck="false" placeholder="${o.loai === 'ptnt' ? 'ví dụ 2^3.5.13' : '…'}">${o.donVi ? `<span class="dv">${o.donVi}</span>` : ''}</div>`).join('');
+  } else if(c.kieu === 'doichieu'){
+    h += `<p style="color:var(--muted);margin:.2rem 0 .6rem">Bài này máy không chấm được. Em làm ra nháp cho xong, rồi bấm nút để xem lời giải mẫu và tự đánh giá bài của mình.</p>`;
+  }
+  if(c.kieu === 'doichieu') h += `<div class="hang"><button type="button" id="nutXong">Tôi đã làm xong →</button><button type="button" class="phu" id="nutGoiDC">Xin gợi ý</button></div>`;
+  else h += `<div class="hang"><button type="button" id="nutKiem">Kiểm tra</button></div>`;
+  h += `<div class="phan-hoi" id="phanHoi"></div>`;
+  box.innerHTML = h;
+  gan(c);
+  const lg = logCua(c.id);
+  if(lg.tries > 0 && !lg.ok && c.kieu !== 'doichieu'){ $('#phanHoi').insertAdjacentHTML('afterend', `<div class="so-lan">Câu này em đã thử ${lg.tries} lần.</div>`); }
+}
+
+function gan(c){
+  const box = $('#cau');
+  if(c.kieu === 'mc'){
+    box.querySelectorAll('.lua button').forEach(b => b.onclick = () => {
+      box.querySelectorAll('.lua button').forEach(x => x.classList.remove('chon'));
+      b.classList.add('chon'); tam.chon = +b.dataset.i;
+    });
+  } else if(c.kieu === 'ds'){
+    tam.ds = [null, null, null, null];
+    box.querySelectorAll('.ds-hang').forEach(hang => {
+      const i = +hang.dataset.y;
+      hang.querySelectorAll('button').forEach(b => b.onclick = () => {
+        if(hang.classList.contains('dung')) return;
+        hang.querySelectorAll('button').forEach(x => x.classList.remove('chon'));
+        b.classList.add('chon'); tam.ds[i] = b.dataset.v === '1'; hang.classList.remove('sai');
+      });
+    });
+  } else if(c.kieu === 'doichieu'){
+    $('#nutXong').onclick = () => doiChieu(c);
+    $('#nutGoiDC').onclick = () => { const ph = $('#phanHoi'); ph.className = 'phan-hoi nhe'; ph.innerHTML = `<h4>Gợi ý</h4><div>${c.goi1}</div>${theKT(c)}`; };
+  }
+  box.querySelectorAll('input.o').forEach(i => i.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); kiem(); } }));
+  if($('#nutKiem')) $('#nutKiem').onclick = kiem;
+}
+function theKT(c){ return `<details class="the"><summary>Xem lại thẻ kiến thức: ${esc((DATA.ktTitle[c.kt] || '').replace(/<[^>]+>/g, ''))}</summary>${ktCard(c.kt)}</details>`; }
+
+function layTraLoi(c){
+  const box = $('#cau');
+  if(c.kieu === 'mc'){ if(tam.chon === undefined) return null; return {text: String.fromCharCode(65 + tam.chon), i: tam.chon}; }
+  if(c.kieu === 'ds'){ if(tam.ds.some(v => v === null)) return null; return {text: tam.ds.map((v, i) => 'abcd'[i] + (v ? 'Đ' : 'S')).join(' '), v: tam.ds.slice()}; }
+  if(c.kieu === 'fill'){ const v = [...box.querySelectorAll('input.o')].map(x => x.value.trim()); if(v.some(x => !x)) return null; return {text: v.map((x, i) => (c.o.length > 1 ? c.o[i].nhan + ' ' : '') + x).join('; '), v}; }
+  return null;
+}
+function chamTung(c, tl){
+  if(c.kieu === 'mc') return [tl.text === c.dapAn];
+  if(c.kieu === 'ds') return c.y.map((y, i) => tl.v[i] === y.dung);
+  if(c.kieu === 'fill') return c.o.map((o, i) => dungO(o, tl.v[i]));
+  return [false];
+}
+function dapAnText(c){
+  if(c.kieu === 'mc') return `<b>${c.dapAn}.</b> ${c.options[c.dapAn.charCodeAt(0) - 65]}`;
+  if(c.kieu === 'ds') return c.y.map((y, i) => `${'abcd'[i]}) <b>${y.dung ? 'Đúng' : 'Sai'}</b>`).join(' · ');
+  if(c.kieu === 'fill') return c.o.map(o => `${o.nhan} <b>${o.loai === 'so' ? dinhDangSo(o.dapAn[0]) : o.dapAn[0].replace(/\^(\d+)/g, '<sup>$1</sup>').replace(/\./g, ' · ')}</b>${o.donVi ? ' ' + o.donVi : ''}`).join('; ');
+  return '';
+}
+
+function kiem(){
+  const c = CAU[st.cur];
+  const tl = layTraLoi(c);
+  const ph = $('#phanHoi');
+  if(!tl){ ph.className = 'phan-hoi sai'; ph.innerHTML = c.kieu === 'ds' ? '<h4>Em chưa chọn đủ bốn ý.</h4>Chọn Đúng hoặc Sai cho cả a), b), c), d) rồi bấm <em>Kiểm tra</em>.' : '<h4>Em chưa trả lời đủ.</h4>Hãy chọn hoặc điền đáp số rồi bấm <em>Kiểm tra</em>.'; return; }
+  if(c.kieu === 'fill'){
+    const loi = c.o.map((o, i) => (o.loai === 'so' && chuanSo(tl.v[i]) === null) || (o.loai === 'ptnt' && chuanPtnt(tl.v[i]) === null) ? i : -1).filter(i => i >= 0);
+    if(loi.length){
+      ph.className = 'phan-hoi sai';
+      ph.innerHTML = `<h4>Máy chưa đọc được câu trả lời ${loi.map(i => c.o[i].nhan).join(', ')}.</h4>` + (c.o[loi[0]].loai === 'ptnt' ? 'Gõ tích các thừa số nguyên tố, dùng dấu chấm cho phép nhân và <code>^</code> cho số mũ, ví dụ <code>2^3.5.13</code>.' : 'Chỉ cần gõ số (có thể gõ 7680000 hoặc 7 680 000), không gõ chữ.');
+      loi.forEach(i => $('#o' + i).classList.add('sai'));
+      return;
+    }
+  }
+  const lg = logCua(c.id);
+  lg.tries += 1;
+  const tung = chamTung(c, tl);
+  const ok = tung.every(Boolean);
+  const box = $('#cau');
+  if(ok){
+    lg.ok = true; luu();
+    ph.className = 'phan-hoi dung';
+    ph.innerHTML = `<h4>Đúng rồi!${lg.tries === 1 ? ' Đúng ngay lần đầu.' : ` (lần thử thứ ${lg.tries})`}</h4><div class="loi-giai"><strong>${c.kieu === 'mc' ? 'Giải thích' : 'Lời giải'}:</strong><br>${c.giai}</div>
+      <div class="hang"><button type="button" id="nutTiep">${st.cur + 1 < N ? 'Câu tiếp theo →' : 'Xem tổng kết →'}</button></div>`;
+    $('#nutKiem').disabled = true;
+    if(c.kieu === 'mc') box.querySelectorAll('.lua button').forEach(b => { b.disabled = true; if(String.fromCharCode(65 + +b.dataset.i) === c.dapAn) b.classList.add('dung'); });
+    if(c.kieu === 'ds') box.querySelectorAll('.ds-hang').forEach(hg => { hg.classList.remove('sai'); hg.classList.add('dung'); hg.querySelectorAll('button').forEach(b => b.disabled = true); });
+    if(c.kieu === 'fill') box.querySelectorAll('input.o').forEach(i => { i.readOnly = true; i.classList.remove('sai'); i.classList.add('dung'); });
+    $('#nutTiep').onclick = tiep;
+    $('#nutTiep').scrollIntoView({behavior: 'smooth', block: 'center'});
+  } else {
+    lg.wrong.push(tl.text); luu();
+    ph.className = 'phan-hoi sai';
+    const soSai = tung.filter(x => !x).length;
+    let h = `<h4>Chưa đúng (lần thử ${lg.tries}).${tung.length > 1 ? ` Còn ${soSai}/${tung.length} ý chưa đúng – ý sai được tô đỏ.` : ''} Em xem gợi ý rồi làm lại nhé.</h4>`;
+    if(lg.tries >= 3){
+      h += `<div class="goi"><strong>Gợi ý 1 (kiến thức):</strong> ${c.goi1}</div><div class="goi"><strong>Gợi ý 2 (cách làm):</strong> ${c.goi2}</div>
+            <div class="goi"><strong>Lời giải:</strong><div class="loi-giai">${c.giai}</div><div style="margin-top:.4rem"><strong>Đáp án:</strong> ${dapAnText(c)}</div><div style="margin-top:.3rem;color:var(--muted)">Em nhập / chọn lại đúng đáp án này để qua câu.</div></div>`;
+    } else if(lg.tries === 2){
+      h += `<div class="goi"><strong>Gợi ý 1 (kiến thức):</strong> ${c.goi1}</div><div class="goi"><strong>Gợi ý 2 (cách làm):</strong> ${c.goi2}</div>${theKT(c)}`;
+    } else {
+      h += `<div class="goi"><strong>Gợi ý 1 (kiến thức):</strong> ${c.goi1}</div>${theKT(c)}`;
+    }
+    ph.innerHTML = h;
+    if(c.kieu === 'mc'){ box.querySelectorAll('.lua button').forEach(b => { if(+b.dataset.i === tl.i){ b.classList.remove('chon'); b.classList.add('sai'); } }); tam.chon = undefined; }
+    if(c.kieu === 'ds'){ box.querySelectorAll('.ds-hang').forEach(hg => { const i = +hg.dataset.y; if(tung[i]){ hg.classList.add('dung'); hg.querySelectorAll('button').forEach(b => b.disabled = true); } else { hg.classList.add('sai'); hg.querySelectorAll('button').forEach(b => b.classList.remove('chon')); tam.ds[i] = null; } }); }
+    if(c.kieu === 'fill'){ box.querySelectorAll('input.o').forEach(inp => { const i = +inp.dataset.i; if(tung[i]){ inp.readOnly = true; inp.classList.remove('sai'); inp.classList.add('dung'); } else { inp.classList.add('sai'); } }); const dau = [...box.querySelectorAll('input.o')].find(i => !i.readOnly); if(dau) dau.focus(); }
+    ph.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }
+}
+function doiChieu(c){
+  const lg = logCua(c.id);
+  lg.tries = Math.max(lg.tries, 1); luu();
+  const ph = $('#phanHoi');
+  ph.className = 'phan-hoi nhe';
+  ph.innerHTML = `<h4>Lời giải mẫu</h4><div class="loi-giai">${c.giai}</div>
+    <div class="goi"><strong>Tự đánh giá bài của em</strong> (đánh dấu những điều em đã làm được):<div class="tieu-chi">` +
+    c.tieuChi.map((t, i) => `<label><input type="checkbox" data-i="${i}"> <span>${t}</span></label>`).join('') +
+    `</div></div><div class="hang"><button type="button" id="nutDaDC">Đã đối chiếu – ${st.cur + 1 < N ? 'Câu tiếp theo →' : 'Xem tổng kết →'}</button></div>`;
+  $('#nutXong').disabled = true;
+  $('#nutDaDC').onclick = () => {
+    const tick = [...ph.querySelectorAll('input[type=checkbox]')].filter(x => x.checked).length;
+    lg.ok = true; lg.doiChieu = true; lg.tick = tick; lg.tongTC = c.tieuChi.length; luu(); tiep();
+  };
+  ph.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+function tiep(){
+  if(st.cur + 1 < N){ st.cur += 1; luu(); render(); window.scrollTo(0, 0); }
+  else { st.xong = true; luu(); hienKet(); }
+}
+
+// ---------- tổng kết / nhật kí ----------
+function thongKe(){
+  const t = {lam: 0, dung1: 0, nhieu: 0, dc: 0, theoDang: {}, theoKT: {}};
+  DANG.forEach(d => t.theoDang[d.key] = {tong: 0, lam: 0, dung1: 0, nhieu: 0, dc: 0});
+  CAU.forEach(c => {
+    const td = t.theoDang[c.dang]; td.tong += 1;
+    if(!t.theoKT[c.kt]) t.theoKT[c.kt] = {lam: 0, nhieu: 0};
+    const l = st.log[c.id]; if(!l || !l.ok) return;
+    t.lam += 1; td.lam += 1;
+    if(l.doiChieu){ t.dc += 1; td.dc += 1; return; }
+    t.theoKT[c.kt].lam += 1;
+    if(l.tries === 1){ t.dung1 += 1; td.dung1 += 1; } else { t.nhieu += 1; td.nhieu += 1; t.theoKT[c.kt].nhieu += 1; }
+  });
+  return t;
+}
+function hienKet(){
+  const t = thongKe();
+  hienMan('manKet');
+  $('#ketSo').textContent = `${t.dung1} / ${N - CAU.filter(c => c.kieu === 'doichieu').length}`;
+  $('#ketTom').innerHTML = `câu máy chấm đúng ngay lần đầu · ${t.nhieu} câu phải thử lại · ${t.dc} bài chứng tỏ đã tự đối chiếu.`;
+}
+function goiY(t){
+  const yeu = Object.keys(t.theoKT).filter(k => { const x = t.theoKT[k]; return x.lam >= 2 && x.nhieu / x.lam >= 0.5; })
+    .sort((a, b) => t.theoKT[b].nhieu / t.theoKT[b].lam - t.theoKT[a].nhieu / t.theoKT[a].lam);
+  if(!yeu.length) return t.lam ? '<p>Các phần đã làm đều ổn – em làm tốt lắm!</p>' : '';
+  return '<p><strong>Nên ôn lại thẻ kiến thức:</strong></p><ul>' + yeu.slice(0, 5).map(k => { const x = t.theoKT[k];
+    return `<li>${esc((DATA.ktTitle[k] || '').replace(/<[^>]+>/g, ''))} <small>(${x.nhieu}/${x.lam} câu phải thử lại)</small></li>`; }).join('') + '</ul>';
+}
+function hienNK(){
+  const t = thongKe();
+  $('#nkTong').innerHTML = `<div class="tong"><strong>Tổng kết:</strong> đã làm ${t.lam}/${N} câu · đúng ngay lần đầu: <strong>${t.dung1}</strong> · phải thử lại: <strong>${t.nhieu}</strong> · tự đối chiếu: <strong>${t.dc}</strong>${goiY(t)}</div>`;
+  let h = '';
+  DANG.forEach(d => {
+    const cs = CAU.filter(c => c.dang === d.key);
+    const x = t.theoDang[d.key];
+    h += `<details${x.lam ? ' open' : ''}><summary><strong>${esc(d.ten)}</strong> <small>(${x.lam}/${x.tong} câu, ${x.nhieu} câu thử lại)</small></summary>`;
+    cs.forEach(c => {
+      const l = st.log[c.id];
+      if(!l || (!l.ok && !l.tries)) { h += `<div class="nk-dong chua">Câu ${c.id}: chưa làm</div>`; return; }
+      if(l.doiChieu){ h += `<div class="nk-dong dc">Câu ${c.id}: đã đối chiếu lời giải mẫu (tự đánh giá đạt ${l.tick}/${l.tongTC} tiêu chí)</div>`; return; }
+      const sai = l.wrong.length ? ` (trả lời sai: ${l.wrong.map(esc).join(' | ')})` : '';
+      if(l.ok) h += `<div class="nk-dong ${l.tries === 1 ? 'ok1' : 'okn'}">Câu ${c.id}: đúng sau ${l.tries} lần${sai}</div>`;
+      else h += `<div class="nk-dong okn">Câu ${c.id}: đang làm, đã thử ${l.tries} lần${sai}</div>`;
+    });
+    h += '</details>';
+  });
+  $('#nkDanhSach').innerHTML = h;
+  $('#modalNK').classList.add('hien');
+}
+function hienML(){
+  const t = thongKe();
+  $('#mlDanhSach').innerHTML = DANG.map((d, k) => { const x = t.theoDang[d.key];
+    const cl = x.lam === x.tong ? 'xong' : (CAU[st.cur].dang === d.key ? 'dang' : '');
+    const cs = CAU.filter(c => c.dang === d.key);
+    return `<button type="button" class="${cl}" data-k="${d.key}">${esc(d.ten)}<br><small>Câu ${cs[0].id} – ${cs[cs.length - 1].id} · đã làm ${x.lam}/${x.tong} câu</small></button>`; }).join('');
+  $('#mlDanhSach').querySelectorAll('button').forEach(b => b.onclick = () => {
+    const key = b.dataset.k;
+    let i = CAU.findIndex(c => c.dang === key && !(st.log[c.id] && st.log[c.id].ok));
+    if(i < 0) i = CAU.findIndex(c => c.dang === key);
+    st.cur = i; st.xong = false; luu(); $('#modalML').classList.remove('hien'); hienMan('manLT'); render();
+  });
+  $('#modalML').classList.add('hien');
+}
+function lamLai(){
+  if(!confirm('Xoá toàn bộ tiến độ và nhật kí để làm lại từ đầu?')) return;
+  st = {cur: 0, log: {}, xong: false}; luu();
+  location.reload();
+}
+$('#nutNhatKi').onclick = hienNK; $('#nutXemNK2').onclick = hienNK;
+$('#nutDongNK').onclick = () => $('#modalNK').classList.remove('hien');
+$('#nutMucLuc').onclick = () => { if($('#manKT').classList.contains('hien') && $('#nutBatDau').disabled){ alert('Em đọc hết phần kiến thức trước đã nhé.'); return; } hienML(); };
+$('#nutDongML').onclick = () => $('#modalML').classList.remove('hien');
+$('#nutLamLai').onclick = lamLai; $('#nutLamLai2').onclick = lamLai;
+document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if(e.target === m) m.classList.remove('hien'); }));
+setupKT();
+</script>
+<!-- phap-ly:dau (do phap-ly/phap_ly.py chèn, đừng sửa tay) -->
+<style>#ct-phap-ly{clear:both;margin:40px 0 0;padding:18px 16px 84px;border-top:1px solid #dde3ee;background:#f7f9fc;color:#5b6475;font:13px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center}#ct-phap-ly p{margin:2px auto;max-width:980px;color:inherit;font:inherit}#ct-phap-ly a{color:#2f5fb3;text-decoration:underline;text-underline-offset:2px}#ct-phap-ly a:hover{color:#163f86}#ct-phap-ly .ct-dam{font-weight:600;color:#3b4456}@media print{#ct-phap-ly{margin-top:16px;padding:6px 0 0;background:none;font-size:8.5pt}}</style>
+<footer id="ct-phap-ly" role="contentinfo">
+<p><span class="ct-dam">© 2026 Nhóm giao-guc-pho-thong</span> · Tài liệu miễn phí cho <b>dạy và học</b>, <b>không</b> dùng cho mục đích thương mại. Người dùng tự chịu trách nhiệm khi sử dụng.</p>
+<p><a href="../../dieu-khoan-su-dung.html" data-may="../../../phap-ly/dieu-khoan-su-dung.html">Điều khoản sử dụng</a> · <a href="../../ban-quyen.html" data-may="../../../phap-ly/ban-quyen.html">Bản quyền</a> · Nội dung gốc theo giấy phép <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.vi" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> · Nội dung trích từ SGK thuộc Nhà xuất bản Giáo dục Việt Nam và các tác giả.</p>
+</footer>
+<script>(function(f){if(location.protocol!=='file:')return;f.querySelectorAll('a[data-may]').forEach(function(a){a.href=a.dataset.may})})(document.getElementById('ct-phap-ly'));</script>
+<!-- phap-ly:cuoi -->
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="practice" data-mon="toan" data-tep="lop-6/bài tập/toán/toan-lop-6-on-tap-giua-ki-1-luyen-tap.html" data-nguon="lop-6/bài tập/toán/toan-lop-6-on-tap-giua-ki-1-luyen-tap-ke-hoach.md" data-phien-ban="8f2eb26c2b29">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+<!-- thong-ke:dau (do thong-ke/gan_khach.py chèn, đừng sửa tay) -->
+<script id="thong-ke-nap" data-may="../../../thong-ke/khach.js" data-web="../../thong-ke/khach.js" data-lop="6">(function(n){var d=n.dataset,s=document.createElement('script');s.defer=true;s.src=location.protocol==='file:'?d.may:d.web;document.head.appendChild(s)})(document.currentScript);</script>
+<!-- thong-ke:cuoi -->
+</body>
+</html>
