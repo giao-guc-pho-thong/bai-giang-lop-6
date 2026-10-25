@@ -47,6 +47,10 @@
   TK.khach = docLuu(); // kết quả của lượt trước trong cùng phiên (nếu có) — để công cụ khác dùng ngay
 
   if (!CH.bat || !CH.khoa) { TK.sanSang = Promise.resolve(TK.khach); return; }
+  // Địa chỉ đang mang gói bài làm của học sinh (giao-vien.html#nhap=… từ mã QR, có họ tên / lớp / trường):
+  // KHÔNG gọi Fingerprint, để địa chỉ này không đi ra bên thứ ba (Điều khoản 6.2, 6.6). Lượt mở này không được
+  // đếm — chấp nhận. (Trang giáo viên cũng tự xoá đoạn này khỏi địa chỉ ngay khi tải; đây là lớp chặn thứ hai.)
+  if (/(^#|[&?])nhap=/.test(location.hash)) { TK.sanSang = Promise.resolve(TK.khach); return; }
 
   // import() động viết qua Function để trình duyệt cũ không hiểu cú pháp cũng không hỏng cả file.
   var nap;

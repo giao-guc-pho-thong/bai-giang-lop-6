@@ -233,7 +233,8 @@
         view_mode: document.body.dataset.mode || null,
         presenting: document.body.classList.contains('tc-dang'),
         exam_screen: manKiemTra(),
-        url_hash: location.hash || null,
+        // Bỏ gói bài làm của học sinh (#nhap=… trên trang giáo viên) — không gửi họ tên / lớp / trường lên máy chủ góp ý
+        url_hash: (location.hash || '').replace(/(^#|[&?])nhap=[^&]*/g, '$1').replace(/[&?]$/, '').replace(/^#$/, '') || null,
         seconds_on_page: giay(),
         recent_actions: thaoTac.slice()
       },
