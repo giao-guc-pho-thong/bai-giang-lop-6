@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện tập Tiếng Anh 6 – Ôn tập giữa học kì I (Unit 1 – 3, Global Success)</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#1f2430;--muted:#5c6577;--line:#dfe4ee;--brand:#2f6fdb;--brand-soft:#e8f0ff;
+--green:#0f9d76;--green-soft:#e3f6ef;--red:#d64545;--red-soft:#fdeceb;--warm:#f59e0b;--warm-soft:#fff6e5;--purple:#7c5cd6;--purple-soft:#f1ecff}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header.top{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding:.55rem .8rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+header.top h1{font-size:1rem;margin:0;flex:1 1 auto}
+header.top button{font-size:.85rem;padding:.4rem .7rem}
+main{max-width:760px;margin:0 auto;padding:.8rem .8rem 4rem}
+.man{display:none}.man.hien{display:block}
+.the{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1rem;margin:.8rem 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.the h3{margin:.1rem 0 .5rem;font-size:1.05rem;color:var(--brand)}
+.the table{width:100%;border-collapse:collapse;font-size:.93rem;margin:.4rem 0}
+.the th,.the td{border:1px solid var(--line);padding:.35rem .45rem;text-align:left;vertical-align:top}
+.the th{background:var(--brand-soft)}
+.the ul{padding-left:1.2rem;margin:.3rem 0}
+.luu-y{background:var(--warm-soft);border-left:4px solid var(--warm);padding:.5rem .7rem;border-radius:8px;margin:.5rem 0 0}
+button{font-family:inherit;font-size:1rem;border:0;border-radius:12px;padding:.75rem 1.1rem;cursor:pointer;background:var(--brand);color:#fff;font-weight:600}
+button:disabled{background:#b9c3d6;cursor:not-allowed}
+button.phu{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+button.xam{background:#eef1f6;color:var(--ink)}
+button.do{background:var(--red)}
+.hang{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem}
+.hang button{flex:1 1 auto}
+#nutBatDau{width:100%;font-size:1.1rem;padding:1rem}
+.goi-cuon{text-align:center;color:var(--muted);font-size:.9rem;margin:.4rem 0}
+/* tiến độ */
+.tien-do{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;margin-bottom:.7rem}
+.tien-do .thanh{height:10px;background:#e6eaf2;border-radius:6px;overflow:hidden;margin:.4rem 0}
+.tien-do .thanh i{display:block;height:100%;background:var(--brand);width:0}
+.tien-do small{color:var(--muted)}
+.nhan{display:inline-block;border-radius:999px;padding:.1rem .6rem;font-size:.8rem;font-weight:600;vertical-align:middle}
+.nhan.tb{background:var(--green-soft);color:var(--green)}.nhan.nc{background:var(--purple-soft);color:var(--purple)}
+/* dạng */
+.dang-tieu{background:var(--brand-soft);border-radius:12px;padding:.6rem .8rem;margin-bottom:.7rem}
+.dang-tieu h2{margin:0;font-size:1rem}
+.dang-tieu .vi{color:var(--muted);font-size:.9rem}
+details.meo{margin-top:.4rem;font-size:.93rem}
+details.meo summary{cursor:pointer;font-weight:600;color:var(--brand)}
+/* câu hỏi */
+.cau{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+.lenh{color:var(--muted);font-size:.92rem;margin-bottom:.4rem;font-style:italic}
+.doan{background:#fbfcff;border:1px dashed var(--line);border-radius:10px;padding:.7rem .8rem;margin-bottom:.7rem;font-size:.97rem;white-space:pre-line}
+.doan b{display:block;margin-bottom:.2rem}
+.de{font-size:1.15rem;font-weight:600;margin:.2rem 0 .8rem}
+.de .trong{display:inline-block;min-width:3.5rem;border-bottom:2px solid var(--brand);text-align:center;color:var(--brand)}
+.lua{display:grid;gap:.5rem}
+.lua button{text-align:left;background:#fff;color:var(--ink);border:2px solid var(--line);font-weight:500;font-size:1.05rem}
+.lua button.chon{border-color:var(--brand);background:var(--brand-soft)}
+.lua button.dung{border-color:var(--green);background:var(--green-soft)}
+.lua button.sai{border-color:var(--red);background:var(--red-soft)}
+.lua button b{display:inline-block;width:1.6rem;color:var(--brand)}
+input.o,textarea.o{width:100%;font:inherit;font-size:1.1rem;padding:.6rem .7rem;border:2px solid var(--line);border-radius:10px;margin:.3rem 0}
+input.o:focus,textarea.o:focus{outline:none;border-color:var(--brand)}
+.o-nho{display:inline-block;width:auto;min-width:7rem;margin:0 .2rem}
+.bank{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0}
+.bank span,.tk span{display:inline-block;border:2px solid var(--line);border-radius:10px;padding:.4rem .7rem;background:#fff;cursor:pointer;font-size:1.05rem;user-select:none}
+.bank span:active,.tk span:active{background:var(--brand-soft)}
+.tk span.da{opacity:.3;pointer-events:none}
+.tk span.wrong-sel{border-color:var(--red);background:var(--red-soft)}
+.cau-dap{min-height:3.2rem;border:2px dashed var(--brand);border-radius:10px;padding:.4rem;display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0;background:#fbfcff}
+.cau-dap span{border:2px solid var(--brand);background:var(--brand-soft);border-radius:10px;padding:.4rem .7rem;cursor:pointer;font-size:1.05rem}
+.cau-dap:empty::before{content:"Bấm từng từ bên dưới để ghép câu…";color:var(--muted);font-size:.9rem;padding:.3rem}
+.phan-hoi{border-radius:12px;padding:.8rem .9rem;margin-top:.8rem;display:none}
+.phan-hoi.dung{display:block;background:var(--green-soft);border:1px solid var(--green)}
+.phan-hoi.sai{display:block;background:var(--red-soft);border:1px solid var(--red)}
+.phan-hoi h4{margin:0 0 .3rem;font-size:1rem}
+.phan-hoi .goi{margin-top:.5rem;padding-top:.5rem;border-top:1px dashed rgba(0,0,0,.15);font-size:.95rem}
+.phan-hoi .goi .the{margin:.4rem 0 0;padding:.6rem .7rem;font-size:.9rem}
+.phan-hoi .the h3{font-size:.95rem}
+.so-lan{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+/* nhật kí */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:10;align-items:flex-end;justify-content:center}
+.modal.hien{display:flex}
+.modal .hop{background:#fff;width:100%;max-width:760px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:1rem}
+.modal .hop h2{margin:.2rem 0 .6rem;font-size:1.1rem}
+.nk-dong{padding:.3rem 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.nk-dong.ok1{color:var(--green)}.nk-dong.okn{color:#b45309}.nk-dong.chua{color:var(--muted)}
+.tong{background:var(--brand-soft);border-radius:12px;padding:.7rem .9rem;margin:.5rem 0}
+.tong ul{margin:.3rem 0;padding-left:1.2rem}
+.muc-luc button{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:2px solid var(--line);font-weight:500;margin:.3rem 0;font-size:.95rem}
+.muc-luc button.xong{border-color:var(--green)}
+.muc-luc button.dang{border-color:var(--brand);background:var(--brand-soft)}
+.muc-luc small{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:1.2rem .8rem 2rem}
+.ket{text-align:center}
+.ket .so{font-size:2.4rem;font-weight:700;color:var(--brand)}
+@media(min-width:600px){html{font-size:18px}.modal{align-items:center}.modal .hop{border-radius:16px}}
+
+figure.hinh{margin:.4rem 0 .8rem;text-align:center}
+figure.hinh svg{max-width:100%;height:auto}
+.lines{background:#fbfcff;border:1px dashed var(--line);border-radius:10px;padding:.6rem .8rem;margin-bottom:.7rem;font-size:1rem}
+.lines div{padding:.15rem 0}
+.prefix{font-size:1.05rem;margin:.3rem 0;color:var(--brand);font-weight:600}
+.nhan.kieu{background:var(--brand-soft);color:var(--brand)}
+</style>
+<!-- bieu-tuong:dau (do bieu-tuong/gan_bieu_tuong.py chèn, đừng sửa tay) -->
+<link rel="icon" type="image/png" sizes="32x32" href="../../bieu-tuong/favicon-32.png" data-may="../../../bieu-tuong/favicon-32.png">
+<link rel="apple-touch-icon" href="../../bieu-tuong/apple-touch-icon.png" data-may="../../../bieu-tuong/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='n' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f5fb3'/%3E%3Cstop offset='1' stop-color='%234b7bd1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url%28%23n%29'/%3E%3Cpath d='M11 49Q22 44 32 51Q42 44 53 49' fill='none' stroke='%23ffc83d' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M13 17Q23 13 31 19V47Q23 41 13 45Z' fill='%23fff'/%3E%3Cpath d='M51 17Q41 13 33 19V47Q41 41 51 45Z' fill='%23fff'/%3E%3Cpath d='M39 16V31l3.5-3 3.5 3V17.5' fill='%23ffc83d'/%3E%3C/svg%3E">
+<script>(function(){if(location.protocol!=='file:')return;document.querySelectorAll('link[data-may]').forEach(function(l){l.href=l.dataset.may})})();</script>
+<!-- bieu-tuong:cuoi -->
+</head>
+<body>
+<header class="top">
+ <h1>Tiếng Anh 6 · Ôn tập giữa học kì I · Luyện tập</h1>
+ <button class="xam" id="nutMucLuc" type="button">Các phần</button>
+ <button class="xam" id="nutNhatKi" type="button">Nhật kí</button>
+</header>
+<main>
+ <!-- Màn 1: kiến thức -->
+ <div class="man hien" id="manKT">
+  <div class="the" style="border-left:5px solid var(--brand)">
+   <h3>Trước khi luyện: ôn lại kiến thức Unit 1 – 3</h3>
+   <p style="margin:.2rem 0">Bài luyện theo <strong>đề cương ôn tập giữa học kì I</strong> của nhà trường (Unit 1 <em>My new school</em>, Unit 2 <em>My house</em>, Unit 3 <em>My friends</em>). Em đọc <strong>hết</strong> các thẻ bên dưới (cuộn xuống cuối). Nút <em>Bắt đầu luyện tập</em> chỉ sáng lên khi em đã cuộn tới cuối trang. Tổng cộng có <strong>95 câu</strong> chia theo các phần của đề cương; máy chấm ngay từng câu, sai thì làm lại cho tới khi đúng.</p>
+   <p style="margin:.4rem 0 0;color:var(--muted);font-size:.92rem">Phần 1 (Listening) của đề cương không có file âm thanh nên không đưa vào trang; xem thẻ <em>Mẹo làm bài nghe</em> ở cuối.</p>
+   <p id="ktTiepTuc" style="display:none;margin:.4rem 0 0;color:var(--green);font-weight:600"></p>
+  </div>
+<section class="the" id="kt-vocab1"><h3>Unit 1 – Từ vựng: <em>My new school</em></h3>
+<p><strong>Đồ dùng học tập</strong> (Getting Started): pencil sharpener (gọt bút chì), compass (com-pa), school bag (cặp sách), calculator (máy tính), rubber (cục tẩy), pencil case (hộp bút).</p>
+<p><strong>Hoạt động ở trường</strong> (A Closer Look 1): school lunch, exercise, English, science, history, football, homework, lessons, music.</p>
+<table><tr><th>play</th><th>do</th><th>have</th><th>study</th></tr>
+<tr><td>play football, play music</td><td>do homework, do exercise</td><td>have school lunch, have lessons</td><td>study English, study science, study history</td></tr></table>
+<p><strong>Glossary Unit 1:</strong> activity (hoạt động), art (nghệ thuật), <b>boarding school</b> (trường nội trú), classmate (bạn cùng lớp), favourite (được yêu thích), help (giúp đỡ), international (quốc tế), interview (phỏng vấn), knock (gõ cửa), remember (nhớ), share (chia sẻ), smart (bảnh bao, gọn gàng), swimming pool (bể bơi). Thêm từ bài học: uniform (đồng phục), subject (môn học), playground (sân chơi), library (thư viện), canteen (nhà ăn), timetable (thời khoá biểu).</p>
+<p><strong>Everyday English – giới thiệu một người:</strong> <em>Phong, this is Duy, my new friend. – Hi, Duy. Nice to meet you. – Hi, Phong. Nice to meet you, too.</em></p>
+<p class="luu-y">Chính tả Anh – Anh của sách: <em>favourite, centre, practise, neighbourhood</em>. Bài kiểm tra chấm theo sách.</p></section>
+<section class="the" id="kt-vocab2"><h3>Unit 2 – Từ vựng: <em>My house</em></h3>
+<p><strong>Loại nhà:</strong> town house (nhà phố), country house (nhà ở vùng quê), flat (căn hộ).</p>
+<p><strong>Phòng</strong> (A Closer Look 1): hall (sảnh), kitchen (bếp), bedroom (phòng ngủ), bathroom (phòng tắm), living room (phòng khách).</p>
+<p><strong>Đồ đạc:</strong> lamp (đèn), toilet, picture (tranh), cupboard (tủ đựng bát đĩa / quần áo), sink (bồn rửa bát), sofa, dishwasher (máy rửa bát), fridge (tủ lạnh), shower (vòi tắm), chest of drawers (tủ có ngăn kéo), wardrobe (tủ đựng quần áo), shelf (kệ, giá), cooker (bếp nấu), furniture (đồ đạc trong nhà).</p>
+<p><strong>Glossary khác:</strong> department store (cửa hàng bách hoá), crazy / strange (kì lạ), between (ở giữa), in front of (phía trước), next to (bên cạnh).</p>
+<p class="luu-y">Đọc câu bên cạnh để chọn phòng: <em>She's cooking dinner</em> → kitchen; <em>I put my clothes in the…</em> → wardrobe.</p></section>
+<section class="the" id="kt-vocab3"><h3>Unit 3 – Từ vựng: <em>My friends</em></h3>
+<p><strong>Bộ phận cơ thể</strong> (Getting Started): cheek (má), eye, hand, arm, mouth, leg, nose, hair, shoulder (vai), foot.</p>
+<p><strong>Ngoại hình:</strong> long / short hair, long / short arms; big / small eyes, big / small nose; blonde / curly / black hair; tall / short; slim (mảnh khảnh); <em>She has glasses and long black hair.</em></p>
+<p><strong>Tính cách</strong> (A Closer Look 1 + Glossary): hard-working (chăm chỉ), confident (tự tin), funny (khôi hài), caring (chu đáo), active (năng động), careful (cẩn thận), shy (xấu hổ), creative (sáng tạo), clever (thông minh), kind (tốt bụng), friendly (thân thiện), loving (giàu tình yêu thương).</p>
+<p>Dấu hiệu nhận tính cách (SGK bài 2): <em>likes drawing pictures, has lots of new ideas</em> → creative; <em>likes helping his friends</em> → kind; <em>likes meeting new people</em> → friendly; <em>pays attention to what she's doing</em> → careful; <em>learns things quickly</em> → clever.</p></section>
+<section class="the" id="kt-tobe"><h3>Hiện tại đơn với động từ <em>to be</em> (am / is / are)</h3>
+<p>SGK Unit 1 (A Closer Look 2): <em>"We use the present simple to talk about actions or events that often happen, or are fixed."</em></p>
+<table><tr><th>Chủ ngữ</th><th>Khẳng định</th><th>Phủ định</th><th>Câu hỏi</th></tr>
+<tr><td>I</td><td>I <b>am</b> a student.</td><td>I <b>am not</b> tired.</td><td><b>Am</b> I late?</td></tr>
+<tr><td>he / she / it</td><td>Mr. Nam <b>is</b> a teacher.</td><td>My school <b>isn't</b> big.</td><td><b>Is</b> your mum at home?</td></tr>
+<tr><td>you / we / they</td><td>Vy and Phong <b>are</b> excited.</td><td>We <b>aren't</b> late.</td><td><b>Are</b> you in grade 6?</td></tr></table>
+<p class="luu-y">Chủ ngữ là danh từ thì đổi thành đại từ rồi mới chọn: <em>My new school</em> = it → is; <em>Vy and Phong</em> = they → are; <em>The balls</em> = they → are. Câu nói "ở đâu / là gì / thế nào" dùng <em>to be</em>, <strong>không</strong> dùng <em>do/does</em>: <em>My school <b>isn't</b> in the centre</em> (không phải <em>doesn't</em>).</p></section>
+<section class="the" id="kt-ps"><h3>Hiện tại đơn với động từ thường</h3>
+<p>SGK Unit 1: <em>"The present simple verbs with he / she / it need an s / es."</em> Ví dụ của sách: <em>We usually <b>go</b> to school by bus. / I <b>don't like</b> school lunch very much.</em></p>
+<ul>
+<li><strong>I / you / we / they</strong> + V nguyên thể: <em>I ride my bike to school. Nam and his cousins go to the bookshop.</em></li>
+<li><strong>he / she / it</strong> + V<b>-s / -es</b>: <em>My mother cooks dinner. Nam likes music. She shows me my classroom.</em></li>
+<li>Thêm <b>-es</b> sau <em>-ch, -sh, -s, -x, -o</em>: watch<b>es</b>, go<b>es</b>, do<b>es</b>; phụ âm + <em>y</em> → <em>-ies</em>: stud<b>ies</b>; have → <b>has</b>.</li>
+</ul>
+<p><strong>Dấu hiệu nhận biết:</strong> every day, once a week, on Sundays, usually / often / always, in his free time, sự thật cố định (nghề nghiệp, vị trí).</p></section>
+<section class="the" id="kt-psneg"><h3>Hiện tại đơn – phủ định và câu hỏi với <em>do / does</em></h3>
+<table><tr><th></th><th>I / you / we / they</th><th>he / she / it</th></tr>
+<tr><td>Phủ định</td><td>We <b>don't go</b> to school on Sundays.</td><td>He <b>doesn't watch</b> TV.</td></tr>
+<tr><td>Câu hỏi</td><td><b>Do</b> you have any new friends?</td><td><b>Does</b> Vy walk to school with you?</td></tr>
+<tr><td>Câu hỏi có từ để hỏi</td><td>Where <b>do</b> you live?</td><td>What <b>does</b> your sister often <b>study</b>?</td></tr></table>
+<p class="luu-y">Đã có <em>does / doesn't</em> thì động từ chính <strong>về nguyên thể</strong>: <em>Does she like…?</em> (không phải <em>likes</em>); <em>He doesn't usually watch TV</em> (không phải <em>watches</em>).</p></section>
+<section class="the" id="kt-adv"><h3>Trạng từ chỉ tần suất (Adverbs of frequency)</h3>
+<p>SGK Unit 1: <em>"We use adverbs of frequency to show how often something happens. We often use them with the present simple. We usually place the adverb of frequency before the main verb."</em> Ví dụ của sách: <em>Tom <b>usually</b> takes the bus to school. / They don't <b>often</b> go to the cinema.</em></p>
+<p><b>always</b> (luôn luôn) › <b>usually</b> (thường) › <b>often</b> (hay) › <b>sometimes</b> (thỉnh thoảng) › <b>rarely</b> (hiếm khi) › <b>never</b> (không bao giờ)</p>
+<ul>
+<li>Trước động từ thường: <em>They <b>often</b> go to the cinema on Saturdays.</em></li>
+<li>Sau động từ <em>to be</em>: <em>Minh <b>is never</b> late.</em></li>
+<li>Sau <em>can</em> / sau <em>don't, doesn't</em>: <em>My sister <b>can usually</b> cook. / He <b>doesn't usually</b> watch TV.</em></li>
+<li>Trong câu hỏi, đứng sau chủ ngữ: <em>Why <b>does Nam always</b> get good marks?</em> (SGK: <em>What kind of music does Susan usually listen to?</em>)</li>
+</ul></section>
+<section class="the" id="kt-pc"><h3>Unit 3 – Hiện tại tiếp diễn (Present continuous) và phân biệt với hiện tại đơn</h3>
+<p>SGK Unit 3 (A Closer Look 2): <em>"We use the present continuous for actions happening now."</em> Ví dụ: <em>She<b>'s talking</b>. / They<b>'re not talking</b>.</em> <em>"We can use the present continuous with now, at present, or at the moment."</em></p>
+<table><tr><th>Khẳng định</th><th>Phủ định</th><th>Câu hỏi</th></tr>
+<tr><td>S + <b>am / is / are</b> + V<b>-ing</b><br><em>He <b>is watering</b> the plants.</em></td><td>S + am / is / are + <b>not</b> + V-ing<br><em>I<b>'m not reading</b> a book now.</em></td><td><b>Am / Is / Are</b> + S + V-ing?<br><em><b>Is</b> your mum <b>cooking</b> now? / What <b>are</b> you <b>doing</b>?</em></td></tr></table>
+<p><strong>Dấu hiệu:</strong> now, right now, at the moment, at this moment, at present, <b>Look!</b>, <b>Listen!</b>, <em>Where's your father?</em> (hỏi việc đang làm).</p>
+<p>SGK: <em>"When something often happens or is fixed, we use the present simple. When something is happening now, we use the present continuous."</em></p>
+<p class="luu-y">Lỗi hay gặp: quên <em>to be</em> (<em>He watering</em> ✗) hoặc dùng <em>do/does</em> với V-ing (<em>Does your mum cooking?</em> ✗). Viết đúng: <em>He <b>is</b> watering. <b>Is</b> your mum cooking?</em></p></section>
+<section class="the" id="kt-poss"><h3>Unit 2 – Sở hữu cách (Possessive case)</h3>
+<p>SGK Unit 2 (A Closer Look 2): <em>"1. We use 's after a proper name. Example: This is Elena's room. 2. We use 's after a singular noun. Example: This is my mum's book."</em></p>
+<table><tr><th>Trường hợp</th><th>Cách viết</th><th>Ví dụ</th></tr>
+<tr><td>Tên riêng / danh từ số ít</td><td>+ <b>'s</b></td><td>Tom<b>'s</b> bicycle, my mum<b>'s</b> book</td></tr>
+<tr><td>Số nhiều tận cùng <em>-s</em></td><td>+ <b>'</b></td><td>my grandparents<b>'</b> house, the students<b>'</b> uniform</td></tr>
+<tr><td>Số nhiều không tận cùng <em>-s</em></td><td>+ <b>'s</b></td><td>the women<b>'s</b> bags, the children<b>'s</b> toys</td></tr></table>
+<p class="luu-y">Viết lại từ <em>the … of …</em>: người sở hữu đứng <strong>trước</strong>, vật đứng <strong>sau</strong>, bỏ <em>the … of</em>: <em>the bicycle of Tom</em> → <em>Tom's bicycle</em>.</p></section>
+<section class="the" id="kt-prep"><h3>Unit 2 – Giới từ chỉ nơi chốn (Prepositions of place)</h3>
+<p>SGK: <em>"Prepositions of place describe where people or things are."</em> Bảy giới từ trong sách: <b>in, on, behind, under, next to, in front of, between</b>.</p>
+<table><tr><th>Giới từ</th><th>Nghĩa</th><th>Ví dụ</th></tr>
+<tr><td><b>in</b></td><td>ở trong</td><td>in the kitchen, in the schoolyard, in the fridge</td></tr>
+<tr><td><b>on</b></td><td>trên bề mặt; trên tường; <b>tầng nhà</b></td><td>on the table, on the wall, <b>on the second floor</b></td></tr>
+<tr><td><b>under</b></td><td>ở dưới</td><td>under the table</td></tr>
+<tr><td><b>behind</b></td><td>phía sau</td><td>behind the park</td></tr>
+<tr><td><b>in front of</b></td><td>phía trước</td><td>in front of the house</td></tr>
+<tr><td><b>next to</b></td><td>bên cạnh</td><td>next to your bed</td></tr>
+<tr><td><b>between … and …</b></td><td>ở giữa hai thứ</td><td>between the bed and the desk</td></tr></table>
+<p><strong>Cặp ngược chiều</strong> (để viết lại câu): <em>behind</em> ↔ <em>in front of</em>; <em>under</em> ↔ <em>above</em>; <em>next to / near / not far from / between</em> đúng cả hai chiều.</p>
+<p class="luu-y">Giới từ thời gian hay gặp trong bài đọc: <b>at</b> seven o'clock, <b>on</b> Tuesdays, <b>during</b> break time. Từ thêm ngoài danh sách SGK Unit 2: <em>above</em> (phía trên), <em>near</em> (gần), <em>during</em> (trong lúc).</p></section>
+<section class="the" id="kt-there"><h3><em>There is / There are</em> – <em>has / have</em></h3>
+<p>Nói <strong>có cái gì ở đâu</strong> (Getting Started Unit 2: <em>"There's a living room, three bedrooms, a kitchen and two bathrooms."</em>; Communication Unit 2: <em>There are four rooms in the house and a big garden.</em>).</p>
+<ul>
+<li><b>There is</b> + danh từ số ít: <em>There is a big garden in our house.</em></li>
+<li><b>There are</b> + danh từ số nhiều: <em>There are forty classrooms in my school.</em></li>
+<li>Câu hỏi: <em>Is there a TV behind you? / Are there many rooms in your new flat?</em></li>
+</ul>
+<table><tr><th>There is / are + vật + in + nơi</th><th>Nơi (chủ ngữ) + has / have + vật</th></tr>
+<tr><td>There are 5 rooms <b>in my house</b>.</td><td><b>My house has</b> 5 rooms.</td></tr>
+<tr><td>There are forty classrooms <b>in my school</b>.</td><td><b>My school has</b> forty classrooms.</td></tr></table>
+<p class="luu-y"><em>My house / My school / My class</em> = <em>it</em> → <b>has</b>; <em>I / we / they</em> → <b>have</b>.</p></section>
+<section class="the" id="kt-suggest"><h3>Unit 2 – Đưa ra gợi ý (Giving suggestions)</h3>
+<p>SGK Unit 2 Communication: <em>Mum: <b>How about putting a picture on the wall?</b> – Elena: Great idea, Mum. – Mum: <b>Let's go to the department store to buy one.</b></em></p>
+<ul>
+<li><b>How about + V-ing?</b> → <em>How about <b>doing</b> some creative drawing?</em></li>
+<li><b>Let's + V (nguyên thể).</b> → <em>Let's <b>go</b> to the supermarket.</em></li>
+<li>Đáp lại khi đồng ý: <em>Great idea. / That's a good idea. / Great. Let's do that.</em></li>
+</ul></section>
+<section class="the" id="kt-appear"><h3>Unit 3 – Hỏi về ngoại hình và tính cách</h3>
+<p>SGK Unit 3 Communication: <em>Linda: <b>What does your best friend look like?</b> – Mi: She's short with long black hair. She has bright brown eyes. – Linda: <b>What's she like?</b> – Mi: She's very kind and creative.</em></p>
+<table><tr><th>Câu hỏi</th><th>Hỏi về</th><th>Trả lời</th></tr>
+<tr><td><b>What does … look like?</b></td><td>ngoại hình</td><td>He's tall with short black hair. She has a round face.</td></tr>
+<tr><td><b>What's … like?</b></td><td>tính cách</td><td>She's kind and helpful. He's friendly and funny.</td></tr></table>
+<p class="luu-y">Đừng nhầm với <em>What does he like?</em> (anh ấy thích gì) – không có <em>look</em>, hỏi sở thích.</p></section>
+<section class="the" id="kt-pron"><h3>Phát âm Unit 1 – 3</h3>
+<ul>
+<li><strong>Unit 1 – /ɑː/ và /ʌ/:</strong> /ɑː/ sm<b>ar</b>t, <b>ar</b>t, c<b>ar</b>ton, cl<b>a</b>ss · /ʌ/ s<b>u</b>bject, st<b>u</b>dy, M<b>o</b>nday, c<b>o</b>mpass, l<b>u</b>nch, br<b>o</b>ther.</li>
+<li><strong>Unit 2 – âm cuối /s/ và /z/:</strong> /s/ lamp<b>s</b>, sink<b>s</b>, flat<b>s</b>, toilet<b>s</b> (sau âm vô thanh /p, k, t/) · /z/ cupboard<b>s</b>, sofa<b>s</b>, kitchen<b>s</b>, room<b>s</b> (sau âm hữu thanh và nguyên âm).</li>
+<li><strong>Unit 3 – /b/ và /p/:</strong> <b>b</b>ig – <b>p</b>ig, <b>b</b>ear – <b>p</b>ear, <b>b</b>uy – <b>p</b>ie, ro<b>b</b>e – ro<b>p</b>e; <em>picnic, biscuits, playing, bringing</em>.</li>
+</ul>
+<p class="luu-y">Đừng nuốt âm cuối (<em>lamps</em> phải nghe rõ /s/), đừng thêm nguyên âm sau phụ âm cuối (<em>sport</em> không đọc "sờ-po-tờ").</p></section>
+<section class="the" id="kt-read"><h3>Mẹo đọc hiểu: điền từ, trả lời câu hỏi, biển báo – thông báo</h3>
+<ul>
+<li><strong>Điền từ vào đoạn:</strong> nhìn từ ngay trước và sau chỗ trống. <em>There ___ twenty classrooms</em> → are; <em>___ the second floor</em> → on; <em>I often ___ books</em> → read; <em>I feel ___ and excited</em> → happy; hai ý trái ngược → <em>but</em>; nêu lí do → <em>because</em>; nêu kết quả → <em>so</em>.</li>
+<li><strong>Trả lời câu hỏi:</strong> đọc câu hỏi trước, gạch từ khoá (<em>How old / look like / break time / why / at weekends</em>), tìm đúng câu trong bài. Phương án sai thường là chi tiết <em>có trong bài nhưng của người khác / thời điểm khác</em>.</li>
+<li><strong>Biển báo:</strong> tròn viền đỏ + gạch chéo = <b>cấm</b> (<em>Do not… / Don't… / You mustn't…</em>); tam giác viền đỏ nền vàng = <b>cảnh báo</b> (<em>Be careful. There is … nearby.</em>).</li>
+<li><strong>Thông báo ngắn:</strong> đối chiếu từng chi tiết: <em>ai viết</em> (kí tên), <em>ở đâu</em> (on the table / in the fridge / Room 6A), <em>khi nào</em> (Friday 3:00 p.m. = Friday afternoon), <em>trước hay sau</em> (before / after lunch).</li>
+</ul></section>
+<section class="the" id="kt-write"><h3>Mẹo sắp xếp thư / đoạn văn</h3>
+<table><tr><th>Phần</th><th>Thư cho bạn</th><th>Đoạn văn</th></tr>
+<tr><td>Mở</td><td><em>Dear Nam,</em> → <em>How are you? I hope you are well.</em> → <em>I am writing to tell you about…</em></td><td>Câu chủ đề: <em>On Sunday, I often help my parents… / I live with my family in…</em></td></tr>
+<tr><td>Thân</td><td>Nội dung chính (<em>It is big and modern… I also enjoy…</em>)</td><td>Chi tiết theo thứ tự: <em>First,… / After…,… / It has four rooms… / Behind the house,…</em></td></tr>
+<tr><td>Kết</td><td><em>Write back to me soon. / Best wishes, Minh</em></td><td>Cảm nghĩ: <em>I love… / My favourite room is…</em></td></tr></table>
+<p class="luu-y">Dựa vào từ nối và từ thay thế: <em>It</em> phải đứng sau danh từ nó thay (<em>my new school → It is big</em>); <em>also, By the way, First, After…</em> báo hiệu vị trí câu.</p></section>
+<section class="the" id="kt-listen"><h3>Mẹo làm bài nghe (Part 1 của đề cương)</h3>
+<p>Đề cương có hai bài nghe (<em>Listen and fill in each blank; Listen and tick True or False</em>) nhưng <strong>không có file âm thanh và không có nội dung băng</strong> nên trang này không luyện được phần đó. Khi thi:</p>
+<ul>
+<li>Đọc trước câu hỏi, gạch chân từ khoá, đoán <strong>loại thông tin</strong> cần điền (số? tên người? tên phòng? môn học?).</li>
+<li>Điền từ: nhìn ngữ pháp quanh chỗ trống – sau <em>There are</em> cần danh từ số nhiều, sau <em>at</em> thường là giờ.</li>
+<li>True/False: câu sai thường đổi <strong>một chi tiết</strong> (số, ngày, tên phòng); nghe lần hai để kiểm tra.</li>
+<li>Ôn các chủ đề nghe của Unit 1–3: hoạt động ở trường, nhà cửa – phòng ốc, bạn thân (ngoại hình, tính cách).</li>
+</ul></section>
+  <div id="kt-end" style="height:1px"></div>
+  <p class="goi-cuon" id="goiCuon">Cuộn xuống hết để mở khoá nút bắt đầu ↓</p>
+  <button id="nutBatDau" type="button" disabled>Bắt đầu luyện tập →</button>
+ </div>
+
+ <!-- Màn 2: luyện tập -->
+ <div class="man" id="manLT">
+  <div class="tien-do">
+   <div><strong id="tdCau"></strong> <span id="tdMuc" class="nhan kieu"></span></div>
+   <div class="thanh"><i id="tdThanh"></i></div>
+   <small id="tdDang"></small>
+  </div>
+  <div class="dang-tieu" id="dangTieu"></div>
+  <div class="cau" id="cau"></div>
+ </div>
+
+ <!-- Màn 3: tổng kết -->
+ <div class="man" id="manKet">
+  <div class="the ket">
+   <h3>Em đã hoàn thành toàn bộ bài luyện tập!</h3>
+   <div class="so" id="ketSo"></div>
+   <div id="ketTom"></div>
+   <div class="hang"><button id="nutXemNK2" type="button">Xem nhật kí &amp; tổng kết</button><button class="do" id="nutLamLai2" type="button">Làm lại từ đầu</button></div>
+  </div>
+ </div>
+</main>
+
+<div class="modal" id="modalNK"><div class="hop">
+ <h2>Nhật kí học tập</h2>
+ <div id="nkTong"></div>
+ <div id="nkDanhSach"></div>
+ <div class="hang"><button class="xam" id="nutDongNK" type="button">Đóng</button><button class="do" id="nutLamLai" type="button">Làm lại từ đầu</button></div>
+</div></div>
+
+<div class="modal" id="modalML"><div class="hop">
+ <h2>Các phần của đề cương</h2>
+ <p style="color:var(--muted);font-size:.9rem;margin:.2rem 0 .5rem">Bấm vào một phần để nhảy tới câu chưa làm đầu tiên của phần đó. Tiến độ các câu đã làm vẫn được giữ.</p>
+ <div class="muc-luc" id="mlDanhSach"></div>
+ <div class="hang"><button class="xam" id="nutDongML" type="button">Đóng</button></div>
+</div></div>
+
+<footer>Luyện tập ôn giữa học kì I – Tiếng Anh 6 (Global Success), Unit 1–3. Theo đề cương ôn tập giữa học kì I (2026 – 2027) của nhà trường.<br>Chạy hoàn toàn trên máy của em; tiến độ lưu trong trình duyệt này.</footer>
+
+<script>
+const DATA = {"cau": [{"id": "A1", "dang": "A", "kieu": "mc", "de": "Vy and Phong ____ excited about their first day at secondary school.", "options": ["are", "is", "am", "be"], "dapAn": ["A"], "gt": "Chủ ngữ <em>Vy and Phong<\/em> là hai người = <em>they<\/em> → <strong>are<\/strong>. <em>is<\/em> chỉ dùng cho một người/vật; <em>be<\/em> là dạng nguyên thể, không đứng một mình làm động từ chính.", "kt": "tobe"}, {"id": "A2", "dang": "A", "kieu": "mc", "de": "My new school _____ in the centre of Khanh Hoa province.", "options": ["doesn't", "aren't", "be not", "isn't"], "dapAn": ["D"], "gt": "Câu nói <em>trường ở đâu<\/em> → động từ <em>to be<\/em>; <em>My new school<\/em> = <em>it<\/em> → phủ định <strong>isn't<\/strong>. <em>doesn't<\/em> chỉ đi với động từ thường (SGK Unit 1, bài 1 câu 3 cũng hỏi đúng câu này).", "kt": "tobe"}, {"id": "A3", "dang": "A", "kieu": "mc", "de": "Nam and his cousins ______ to the bookshop to buy some books once a week.", "options": ["goes", "go", "is going", "going"], "dapAn": ["B"], "gt": "<em>once a week<\/em> (mỗi tuần một lần) → thói quen → hiện tại đơn. Chủ ngữ <em>Nam and his cousins<\/em> là số nhiều → động từ <strong>không thêm -s<\/strong>: <strong>go<\/strong>.", "kt": "ps"}, {"id": "A4", "dang": "A", "kieu": "mc", "de": "Every day, I ______ my bike to school.", "options": ["am riding", "rides", "ride", "riding"], "dapAn": ["C"], "gt": "<em>Every day<\/em> → hiện tại đơn; chủ ngữ <em>I<\/em> → động từ nguyên thể <strong>ride<\/strong>. <em>rides<\/em> chỉ dùng với he/she/it.", "kt": "ps"}, {"id": "A5", "dang": "A", "kieu": "mc", "de": "What ________ your sister often _______ at school on Tuesdays?", "options": ["do / study", "is / studying", "does / studies", "does / study"], "dapAn": ["D"], "gt": "<em>often, on Tuesdays<\/em> → hiện tại đơn; <em>your sister<\/em> = <em>she<\/em> → trợ động từ <strong>does<\/strong>, và khi đã có <em>does<\/em> thì động từ chính về nguyên thể: <strong>study<\/strong> (không phải <em>studies<\/em>).", "kt": "psneg"}, {"id": "A6", "dang": "A", "kieu": "mc", "de": "___________ your mum cooking in the kitchen now?", "options": ["Is", "Are", "Do", "Does"], "dapAn": ["A"], "gt": "Có <em>cooking<\/em> (V-ing) và <em>now<\/em> → hiện tại tiếp diễn: <strong>be + V-ing<\/strong>. <em>Your mum<\/em> = <em>she<\/em> → <strong>Is<\/strong> your mum cooking…? Không dùng <em>Do/Does<\/em> với V-ing.", "kt": "pc"}, {"id": "A7", "dang": "A", "kieu": "mc", "de": "They ___________ listening to the radio at this moment.", "options": ["is", "am", "are", "be"], "dapAn": ["C"], "gt": "<em>at this moment<\/em> + <em>listening<\/em> → hiện tại tiếp diễn; <em>They<\/em> → <strong>are<\/strong> listening.", "kt": "pc"}, {"id": "A8", "dang": "A", "kieu": "mc", "de": "I am not reading a book now. I ______ my homework.", "options": ["are doing", "am doing", "do", "is doing"], "dapAn": ["B"], "gt": "Câu trước có <em>now<\/em> và đang nói việc <em>đang làm<\/em> → hiện tại tiếp diễn; chủ ngữ <em>I<\/em> → <strong>am doing<\/strong>.", "kt": "pc"}, {"id": "A9", "dang": "A", "kieu": "mc", "de": "Where's your father? – He ____________ the plants in the garden.", "options": ["waters", "watering", "water", "is watering"], "dapAn": ["D"], "gt": "Hỏi <em>bố đang ở đâu<\/em> → trả lời việc bố <em>đang làm lúc này<\/em> → hiện tại tiếp diễn: <strong>is watering<\/strong>. <em>watering<\/em> một mình thiếu <em>to be<\/em> nên chưa thành câu.", "kt": "pc"}, {"id": "A10", "dang": "A", "kieu": "mc", "de": "Listen! John and Sue ________ the piano in our class.", "options": ["play", "plays", "are playing", "playing"], "dapAn": ["C"], "gt": "<em>Listen!<\/em> là dấu hiệu của hành động đang diễn ra → hiện tại tiếp diễn. <em>John and Sue<\/em> = <em>they<\/em> → <strong>are playing<\/strong>.", "kt": "pc"}, {"id": "A11", "dang": "A", "kieu": "mc", "de": "Patrick likes reading books. He ______ TV in his free time.", "options": ["doesn't usually watch", "doesn't usually watches", "usually don't watch", "isn't usually watch"], "dapAn": ["A"], "gt": "<em>in his free time<\/em> → hiện tại đơn, <em>He<\/em> → <strong>doesn't<\/strong>; sau <em>doesn't<\/em> động từ về nguyên thể (<em>watch<\/em>, không phải <em>watches<\/em>). Trạng từ <em>usually<\/em> đứng <strong>trước động từ chính<\/strong>, sau <em>doesn't<\/em> – giống ví dụ SGK <em>They don't often go to the cinema<\/em>.", "kt": "adv"}, {"id": "A12", "dang": "A", "kieu": "mc", "de": "Why _______________ good marks?", "options": ["does always Nam get", "does Nam always get", "Nam always get", "do Nam always get"], "dapAn": ["B"], "gt": "Câu hỏi với từ để hỏi: <strong>Why + does + chủ ngữ + trạng từ tần suất + động từ<\/strong>. <em>Nam<\/em> = <em>he<\/em> → <em>does<\/em>; <em>always<\/em> đứng trước động từ chính <em>get<\/em> (như SGK: <em>What kind of music does Susan usually listen to?<\/em>).", "kt": "adv"}, {"id": "A13", "dang": "A", "kieu": "mc", "de": "How about ___________ some creative drawing in the art club?", "options": ["do", "is doing", "are doing", "doing"], "dapAn": ["D"], "gt": "Mẫu câu gợi ý SGK Unit 2: <strong>How about + V-ing?<\/strong> → <strong>doing<\/strong>.", "kt": "suggest"}, {"id": "A14", "dang": "A", "kieu": "mc", "de": "Let's ________ to the supermarket to buy some juice.", "options": ["go", "going", "gone", "goes"], "dapAn": ["A"], "gt": "Mẫu câu gợi ý SGK Unit 2: <strong>Let's + V (nguyên thể)<\/strong> → <strong>go<\/strong>.", "kt": "suggest"}, {"id": "A15", "dang": "A", "kieu": "mc", "de": "A ____ school is a school where students study and live during the school year.", "options": ["primary", "creative", "boarding", "secondary"], "dapAn": ["C"], "gt": "Trường mà học sinh <em>vừa học vừa ở lại<\/em> là <strong>boarding school<\/strong> – trường nội trú (Glossary Unit 1). <em>primary<\/em> = tiểu học, <em>secondary<\/em> = trung học.", "kt": "vocab1"}, {"id": "A16", "dang": "A", "kieu": "mc", "de": "Duy's friends are waiting for him to put on his ____ so they can go to school together.", "options": ["notebook", "uniform", "subject", "timetable"], "dapAn": ["B"], "gt": "<em>put on<\/em> (mặc vào) + thứ mặc được → <strong>uniform<\/strong> (đồng phục). Giống hội thoại Getting Started Unit 1: <em>Let me put on my uniform. Then we can go.<\/em>", "kt": "vocab1"}, {"id": "A17", "dang": "A", "kieu": "mc", "de": "Maria is a _______ student. Every day she studies until 11 p.m.", "options": ["lazy", "confident", "creative", "hard-working"], "dapAn": ["D"], "gt": "Học tới 11 giờ đêm mỗi ngày → <strong>hard-working<\/strong> (chăm chỉ, Glossary Unit 3). <em>lazy<\/em> = lười, trái nghĩa.", "kt": "vocab3"}, {"id": "A18", "dang": "A", "kieu": "mc", "de": "Mai is on the phone, chatting _________ her friends.", "options": ["for", "on", "with", "at"], "dapAn": ["C"], "gt": "<em>chat <strong>with<\/strong> somebody<\/em> = trò chuyện với ai. Giới từ đi theo cụm cố định, không dịch từng chữ từ tiếng Việt.", "kt": "vocab3"}, {"id": "A19", "dang": "A", "kieu": "mc", "de": "My mum is in the ______. She's cooking dinner.", "options": ["living room", "kitchen", "bedroom", "bathroom"], "dapAn": ["B"], "gt": "Câu sau cho ngữ cảnh: <em>She's cooking dinner<\/em> → nấu ăn trong <strong>kitchen<\/strong> (bếp) – Unit 2, A Closer Look 1.", "kt": "vocab2"}, {"id": "A20", "dang": "A", "kieu": "mc", "de": "I put my clothes in the ______ in the corner of my bedroom.", "options": ["wardrobe", "fridge", "bookshelf", "dishwasher"], "dapAn": ["A"], "gt": "Chỗ cất <em>quần áo<\/em> trong phòng ngủ là <strong>wardrobe<\/strong> (tủ đựng quần áo, Glossary Unit 2). <em>fridge<\/em> = tủ lạnh, <em>dishwasher<\/em> = máy rửa bát.", "kt": "vocab2"}, {"id": "A21", "dang": "A", "kieu": "mc", "de": "Where can we buy food, fruit and household goods in one large self-service shop? – At ______.", "options": ["a hall", "a living room", "a museum", "a supermarket"], "dapAn": ["D"], "gt": "<em>one large self-service shop<\/em> bán thực phẩm, hoa quả, đồ gia dụng → <strong>supermarket<\/strong> (siêu thị). <em>hall<\/em> = sảnh, <em>museum<\/em> = bảo tàng.", "kt": "vocab2"}, {"id": "A22", "dang": "A", "kieu": "mc", "de": "A: \"How about putting a picture on the wall?\" – B: \"________\"", "options": ["You're welcome.", "That's a good idea.", "Nice to meet you.", "My name is Nam."], "dapAn": ["B"], "gt": "<em>How about…?<\/em> là lời gợi ý → đáp lại bằng <strong>That's a good idea.<\/strong> (SGK Unit 2: Elena trả lời <em>Great idea, Mum.<\/em>). <em>You're welcome<\/em> dùng khi được cảm ơn.", "kt": "suggest"}, {"id": "A23", "dang": "A", "kieu": "mc", "de": "A: \"Let's buy a new desk for Mum.\" – B: \"______\"", "options": ["I like it. Thank you.", "Yes, she usually does that.", "Great. Let's do that.", "It's under the bed."], "dapAn": ["C"], "gt": "<em>Let's…<\/em> là lời rủ → đồng ý bằng <strong>Great. Let's do that.<\/strong> Ba phương án kia trả lời cho câu hỏi khác (cảm ơn, tần suất, vị trí).", "kt": "suggest"}, {"id": "A24", "dang": "A", "kieu": "mc", "de": "A: \"What does your brother look like?\" – B: \"________\"", "options": ["He's tall with short black hair.", "He likes playing football.", "He's friendly and funny.", "He's twelve years old."], "dapAn": ["A"], "gt": "<strong>What does … look like?<\/strong> hỏi về <strong>ngoại hình<\/strong> (SGK Unit 3: <em>She's short with long black hair<\/em>) → <strong>He's tall with short black hair.<\/strong> Phương án C (tính cách) trả lời cho <em>What's he like?<\/em>", "kt": "appear"}, {"id": "A25", "dang": "A", "kieu": "mc", "de": "A: \"What's your new classmate like?\" – B: \"________\"", "options": ["She's kind and helpful.", "She's in Class 6A.", "She likes reading books.", "She walks to school every day."], "dapAn": ["A"], "gt": "<strong>What's … like?<\/strong> hỏi về <strong>tính cách<\/strong> (SGK Unit 3: <em>She's very kind and creative<\/em>) → <strong>She's kind and helpful.<\/strong>", "kt": "appear"}, {"id": "B1.1", "dang": "B", "kieu": "mc", "de": "Gap (1): choose the best word.", "options": ["at", "in", "on", "under"], "dapAn": ["C"], "gt": "Tầng nhà đi với <strong>on<\/strong>: <em>on the second floor<\/em> (thẻ giới từ: <em>on the second floor<\/em>).", "kt": "prep", "doan": "r1p1"}, {"id": "B1.2", "dang": "B", "kieu": "mc", "de": "Gap (2): choose the best word.", "options": ["read", "reads", "reading", "to read"], "dapAn": ["A"], "gt": "<em>I often ___ books<\/em>: <em>often<\/em> → hiện tại đơn; chủ ngữ <em>I<\/em> → động từ nguyên thể <strong>read<\/strong>.", "kt": "ps", "doan": "r1p1"}, {"id": "B1.3", "dang": "B", "kieu": "mc", "de": "Gap (3): choose the best word.", "options": ["is", "are", "am", "be"], "dapAn": ["B"], "gt": "<em>My teachers<\/em> số nhiều (có <em>-s<\/em>) = <em>they<\/em> → <strong>are<\/strong> friendly and helpful.", "kt": "tobe", "doan": "r1p1"}, {"id": "B1.4", "dang": "B", "kieu": "mc", "de": "Gap (4): choose the best word.", "options": ["bored", "sad", "angry", "happy"], "dapAn": ["D"], "gt": "<em>I love my new school because I feel ___ and excited<\/em>: đi cùng <em>excited<\/em> và <em>love<\/em> phải là cảm xúc vui → <strong>happy<\/strong>.", "kt": "read", "doan": "r1p1"}, {"id": "B2.1", "dang": "B", "kieu": "mc", "de": "Gap (1): choose the best word.", "options": ["is", "are", "am", "be"], "dapAn": ["B"], "gt": "<em>There ___ twenty classrooms…<\/em>: danh từ ngay sau là số nhiều → <strong>There are<\/strong>.", "kt": "there", "doan": "r1p2"}, {"id": "B2.2", "dang": "B", "kieu": "mc", "de": "Gap (2): choose the best word.", "options": ["during", "between", "behind", "next"], "dapAn": ["A"], "gt": "<em>I usually go there ___ break time<\/em>: <strong>during<\/strong> = trong lúc (giờ ra chơi). <em>between/behind<\/em> chỉ vị trí, <em>next<\/em> phải đi với <em>to<\/em>.", "kt": "read", "doan": "r1p2"}, {"id": "B2.3", "dang": "B", "kieu": "mc", "de": "Gap (3): choose the best word.", "options": ["at", "in", "on", "under"], "dapAn": ["C"], "gt": "<em>My classroom is ___ the first floor<\/em> → tầng nhà đi với <strong>on<\/strong>.", "kt": "prep", "doan": "r1p2"}, {"id": "B2.4", "dang": "B", "kieu": "mc", "de": "Gap (4): choose the best word.", "options": ["bored", "sad", "angry", "happy"], "dapAn": ["D"], "gt": "<em>I am ___ to study at this school because I can learn new things and make many friends<\/em> → lí do tích cực → <strong>happy<\/strong>.", "kt": "read", "doan": "r1p2"}, {"id": "B3.1", "dang": "B", "kieu": "mc", "de": "Gap (1): choose the best word.", "options": ["next", "front", "in", "on"], "dapAn": ["C"], "gt": "<em>I see many students ___ the schoolyard<\/em>: ở trong sân trường → <strong>in<\/strong>. <em>next<\/em> và <em>front<\/em> thiếu <em>to / in … of<\/em> nên không đứng một mình được.", "kt": "prep", "doan": "r1p3"}, {"id": "B3.2", "dang": "B", "kieu": "mc", "de": "Gap (2): choose the best word.", "options": ["show", "showing", "to show", "shows"], "dapAn": ["D"], "gt": "<em>She ___ me my classroom and introduces me…<\/em>: động từ sau cùng chủ ngữ là <em>introduces<\/em> (có -s) → cùng thì, cùng ngôi: <strong>shows<\/strong>.", "kt": "ps", "doan": "r1p3"}, {"id": "B3.3", "dang": "B", "kieu": "mc", "de": "Gap (3): choose the best word.", "options": ["unfriendly", "friendly", "tired", "bored"], "dapAn": ["B"], "gt": "<em>They are very ___ and help me find my seat<\/em>: giúp đỡ bạn mới → <strong>friendly<\/strong> (thân thiện, Glossary Unit 3).", "kt": "vocab3", "doan": "r1p3"}, {"id": "B3.4", "dang": "B", "kieu": "mc", "de": "Gap (4): choose the best word.", "options": ["but", "because", "so", "or"], "dapAn": ["A"], "gt": "<em>I feel a little nervous at first, ___ I become more confident later<\/em>: hai ý trái ngược (lo lắng ↔ tự tin) → <strong>but<\/strong>.", "kt": "read", "doan": "r1p3"}, {"id": "B4.1", "dang": "B", "kieu": "mc", "de": "Gap (1): choose the best word.", "options": ["at", "in", "on", "to"], "dapAn": ["A"], "gt": "Giờ đồng hồ đi với <strong>at<\/strong>: <em>at seven o'clock<\/em>.", "kt": "prep", "doan": "r1p4"}, {"id": "B4.2", "dang": "B", "kieu": "mc", "de": "Gap (2): choose the best word.", "options": ["be", "is", "are", "am"], "dapAn": ["B"], "gt": "<em>My first lesson<\/em> = <em>it<\/em> → <strong>is<\/strong> usually English or Maths. (Trạng từ <em>usually<\/em> đứng sau <em>to be<\/em>.)", "kt": "tobe", "doan": "r1p4"}, {"id": "B4.3", "dang": "B", "kieu": "mc", "de": "Gap (3): choose the best word.", "options": ["so", "but", "because", "or"], "dapAn": ["C"], "gt": "<em>I like English ___ my teacher makes the lessons fun<\/em>: vế sau là <strong>lí do<\/strong> → <strong>because<\/strong>. <em>so<\/em> đứng trước kết quả, không đứng trước nguyên nhân.", "kt": "read", "doan": "r1p4"}, {"id": "B4.4", "dang": "B", "kieu": "mc", "de": "Gap (4): choose the best word.", "options": ["noisy", "expensive", "crowded", "tidy"], "dapAn": ["D"], "gt": "<em>keep my classroom clean and ___<\/em>: đi cặp với <em>clean<\/em> → <strong>tidy<\/strong> (gọn gàng). <em>noisy<\/em> = ồn, <em>crowded<\/em> = đông.", "kt": "read", "doan": "r1p4"}, {"id": "C1.1", "dang": "C", "kieu": "mc", "de": "How old is Minh?", "options": ["Ten years old.", "Eleven years old.", "Twelve years old.", "Thirteen years old."], "dapAn": ["C"], "gt": "Bài viết: <em>He is <strong>twelve years old<\/strong> and he is in class 6A.<\/em>", "kt": "read", "doan": "r2p1"}, {"id": "C1.2", "dang": "C", "kieu": "mc", "de": "What does Minh look like?", "options": ["He is short and has long hair.", "He is tall and has short black hair.", "He has blue eyes and blond hair.", "He is tall and has long brown hair."], "dapAn": ["B"], "gt": "Bài viết: <em>He is <strong>tall<\/strong> and has <strong>short black hair<\/strong> and brown eyes.<\/em> Phương án D sai ở <em>long brown hair<\/em>.", "kt": "read", "doan": "r2p1"}, {"id": "C1.3", "dang": "C", "kieu": "mc", "de": "What do the boys often do at break time?", "options": ["Play football.", "Read books.", "Play chess.", "Ride their bikes."], "dapAn": ["A"], "gt": "Bài viết: <em>At break time, we often <strong>play football<\/strong> in the school playground.<\/em> Đọc sách / chơi cờ là sở thích của Minh, đạp xe là vào cuối tuần.", "kt": "read", "doan": "r2p1"}, {"id": "C1.4", "dang": "C", "kieu": "mc", "de": "Why does the writer like Minh?", "options": ["Because he is rich.", "Because he is clever and quiet.", "Because he is tall.", "Because he is kind and funny."], "dapAn": ["D"], "gt": "Bài viết: <em>I like Minh very much because he is <strong>kind and funny<\/strong>.<\/em>", "kt": "read", "doan": "r2p1"}, {"id": "C2.1", "dang": "C", "kieu": "mc", "de": "Where does Lan sit in class?", "options": ["Behind the teacher.", "Next to the writer.", "Near the door.", "In front of the writer."], "dapAn": ["B"], "gt": "Bài viết: <em>She is in my class, and she sits <strong>next to me<\/strong>.<\/em> <em>me<\/em> là người viết → <strong>Next to the writer<\/strong>.", "kt": "read", "doan": "r2p2"}, {"id": "C2.2", "dang": "C", "kieu": "mc", "de": "What does Lan look like?", "options": ["She has short blond hair.", "She has a square face.", "She has long black hair and a round face.", "She has curly brown hair."], "dapAn": ["C"], "gt": "Bài viết: <em>She has <strong>long black hair and a round face<\/strong>.<\/em>", "kt": "read", "doan": "r2p2"}, {"id": "C2.3", "dang": "C", "kieu": "mc", "de": "Why does Lan like English?", "options": ["Because she likes learning new words and speaking English.", "Because she likes doing Maths.", "Because she likes playing sports.", "Because she likes drawing pictures."], "dapAn": ["A"], "gt": "Bài viết: <em>Her favourite subject is English because she likes <strong>learning new words and speaking<\/strong> with her classmates.<\/em> Vẽ tranh là sở thích lúc rảnh, không phải lí do thích tiếng Anh.", "kt": "read", "doan": "r2p2"}, {"id": "C2.4", "dang": "C", "kieu": "mc", "de": "What do Lan and the writer sometimes do after school?", "options": ["Play badminton.", "Watch television.", "Go shopping.", "Go to the library."], "dapAn": ["D"], "gt": "Bài viết: <em>Sometimes, we <strong>go to the library<\/strong> to read books.<\/em>", "kt": "read", "doan": "r2p2"}, {"id": "C3.1", "dang": "C", "kieu": "mc", "de": "Who are the writer's closest friends?", "options": ["Nam and Hoa.", "Minh and Lan.", "Nam and Minh.", "Hoa and Lan."], "dapAn": ["A"], "gt": "Bài viết: <em>… but <strong>Nam and Hoa<\/strong> are my closest friends.<\/em>", "kt": "read", "doan": "r2p3"}, {"id": "C3.2", "dang": "C", "kieu": "mc", "de": "What does Nam like doing?", "options": ["Reading books.", "Drawing pictures.", "Playing basketball and football.", "Listening to music."], "dapAn": ["C"], "gt": "Bài viết: <em>He likes <strong>playing basketball and football<\/strong>.<\/em> Đọc sách là sở thích của Hoa.", "kt": "read", "doan": "r2p3"}, {"id": "C3.3", "dang": "C", "kieu": "mc", "de": "What is Hoa's favourite subject?", "options": ["English.", "Science.", "Maths.", "PE."], "dapAn": ["B"], "gt": "Bài viết: <em>Her favourite subject is <strong>Science<\/strong>.<\/em> PE là môn Nam giỏi, không phải môn Hoa thích.", "kt": "read", "doan": "r2p3"}, {"id": "C3.4", "dang": "C", "kieu": "mc", "de": "Where do the friends meet at weekends?", "options": ["At school.", "At the library.", "At the cinema.", "At the park."], "dapAn": ["D"], "gt": "Bài viết: <em>At weekends, we meet <strong>at the park<\/strong> and play games.<\/em>", "kt": "read", "doan": "r2p3"}, {"id": "C4.1", "dang": "C", "kieu": "mc", "de": "How old is Peter?", "options": ["Ten years old.", "Eleven years old.", "Twelve years old.", "Fourteen years old."], "dapAn": ["C"], "gt": "Bài viết: <em>He is <strong>twelve years old<\/strong> and lives near my house.<\/em>", "kt": "read", "doan": "r2p4"}, {"id": "C4.2", "dang": "C", "kieu": "mc", "de": "What does Peter look like?", "options": ["He has short brown hair and wears glasses.", "He has long black hair.", "He is short and has blue eyes.", "He has curly blond hair."], "dapAn": ["A"], "gt": "Bài viết: <em>He has <strong>short brown hair and wears glasses<\/strong>.<\/em>", "kt": "read", "doan": "r2p4"}, {"id": "C4.3", "dang": "C", "kieu": "mc", "de": "What do Peter and the writer sometimes do on Sunday mornings?", "options": ["Play football.", "Go cycling.", "Read books.", "Go swimming."], "dapAn": ["B"], "gt": "Bài viết: <em>On Sunday mornings, we sometimes <strong>go cycling<\/strong> around our neighbourhood.<\/em>", "kt": "read", "doan": "r2p4"}, {"id": "C4.4", "dang": "C", "kieu": "mc", "de": "What does the writer learn from Peter?", "options": ["How to cook meals.", "How to play chess.", "How to draw pictures.", "Good things about being a friend."], "dapAn": ["D"], "gt": "Bài viết: <em>I learn <strong>many good things<\/strong> from him. I think a good friend is someone who cares about you…<\/em> → điều tốt về tình bạn.", "kt": "read", "doan": "r2p4"}, {"id": "D1", "dang": "D", "kieu": "mc", "de": "Sign 1: What does the sign say?", "options": ["Do not water the grass.", "Do not pick flowers.", "Do not walk on the grass.", "Do not grow vegetables."], "dapAn": ["C"], "gt": "Biển tròn viền đỏ, gạch chéo qua hình <em>bàn chân giẫm lên cỏ<\/em> → cấm <strong>đi lên cỏ<\/strong>: <strong>Do not walk on the grass.<\/strong>", "kt": "read", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" width=\"150\" height=\"150\" role=\"img\" aria-label=\"Sign 1\">\n<circle cx=\"60\" cy=\"60\" r=\"52\" fill=\"#fff\" stroke=\"#d62828\" stroke-width=\"9\"/>\n<path d=\"M26 98 l5-16 5 10 5-16 5 12 5-18 5 16 5-12 5 14 5-10 5 14 5-8 5 14 4-10 4 10 z\" fill=\"#2a9d3a\"/>\n<rect x=\"62\" y=\"22\" width=\"18\" height=\"34\" fill=\"#222\"/>\n<path d=\"M30 80 l6-12 q6-8 16-10 l10-4 h20 v26 z\" fill=\"#222\"/>\n<rect x=\"28\" y=\"78\" width=\"54\" height=\"7\" rx=\"3\" fill=\"#444\"/>\n<line x1=\"24\" y1=\"24\" x2=\"96\" y2=\"96\" stroke=\"#d62828\" stroke-width=\"9\" stroke-linecap=\"round\"/>\n<\/svg>"}, {"id": "D2", "dang": "D", "kieu": "mc", "de": "Sign 2: What does the sign say?", "options": ["There is a school nearby. Drive carefully.", "You can play football here.", "You mustn't go to school.", "There is a hospital nearby."], "dapAn": ["A"], "gt": "Biển <strong>tam giác<\/strong> viền đỏ nền vàng = cảnh báo; hình <em>hai em nhỏ đang chạy<\/em> là biển <em>trẻ em qua đường / có trường học<\/em> → <strong>There is a school nearby. Drive carefully.<\/strong>", "kt": "read", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 112\" width=\"150\" height=\"140\" role=\"img\" aria-label=\"Sign 2\">\n<path d=\"M60 8 L114 104 L6 104 Z\" fill=\"#ffd400\" stroke=\"#d62828\" stroke-width=\"8\" stroke-linejoin=\"round\"/>\n<circle cx=\"46\" cy=\"46\" r=\"7\" fill=\"#000\"/>\n<path d=\"M46 53 l-5 20 l-7 18 M46 53 l5 20 l9 15 M41 60 l-10 9 M51 60 l12 3\" stroke=\"#000\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<circle cx=\"76\" cy=\"54\" r=\"6\" fill=\"#000\"/>\n<path d=\"M76 60 l-4 16 l-6 15 M76 60 l4 16 l8 12 M72 66 l-9 7 M80 66 l10 2\" stroke=\"#000\" stroke-width=\"4.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<\/svg>"}, {"id": "D3", "dang": "D", "kieu": "mc", "de": "Sign 3: What does the sign say?", "options": ["Do not touch.", "Do not drink water.", "Do not sell foods and drinks.", "Do not eat and drink here."], "dapAn": ["D"], "gt": "Biển cấm có hình <em>bánh kẹp và cốc nước<\/em> → cấm <strong>ăn và uống<\/strong> ở đây: <strong>Do not eat and drink here.<\/strong> Phương án B chỉ nói nước, C nói <em>bán<\/em> – không khớp.", "kt": "read", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" width=\"150\" height=\"150\" role=\"img\" aria-label=\"Sign 3\">\n<circle cx=\"60\" cy=\"60\" r=\"52\" fill=\"#fff\" stroke=\"#d62828\" stroke-width=\"9\"/>\n<path d=\"M26 60 q0-14 22-14 q22 0 22 14 z\" fill=\"#222\"/>\n<rect x=\"26\" y=\"62\" width=\"44\" height=\"7\" fill=\"#222\"/>\n<rect x=\"24\" y=\"71\" width=\"48\" height=\"6\" rx=\"3\" fill=\"#222\"/>\n<path d=\"M26 79 h44 q0 10-22 10 q-22 0-22-10 z\" fill=\"#222\"/>\n<path d=\"M76 42 h22 l-3 48 h-16 z\" fill=\"#222\"/>\n<rect x=\"74\" y=\"36\" width=\"26\" height=\"7\" rx=\"2\" fill=\"#222\"/>\n<path d=\"M88 36 l6-20\" stroke=\"#222\" stroke-width=\"4\" stroke-linecap=\"round\"/>\n<line x1=\"24\" y1=\"24\" x2=\"96\" y2=\"96\" stroke=\"#d62828\" stroke-width=\"9\" stroke-linecap=\"round\"/>\n<\/svg>"}, {"id": "D4", "dang": "D", "kieu": "mc", "de": "Sign 4: What does the sign say?", "options": ["You can eat here.", "Don't bring food or drinks inside.", "Only water is allowed.", "You must buy food in the library."], "dapAn": ["B"], "gt": "Biển ghi <em>NO FOOD OR DRINKS IN THE LIBRARY<\/em> → không mang đồ ăn, đồ uống vào: <strong>Don't bring food or drinks inside.<\/strong>", "kt": "read", "hinh": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 150 130\" width=\"180\" height=\"156\" role=\"img\" aria-label=\"Sign 4\">\n<path d=\"M30 10 L120 10 L138 122 L12 122 Z\" fill=\"#2b2b2b\"/>\n<path d=\"M36 18 L114 18 L128 114 L22 114 Z\" fill=\"#ffd400\"/>\n<circle cx=\"75\" cy=\"36\" r=\"9\" fill=\"none\" stroke=\"#222\" stroke-width=\"2.5\"/>\n<rect x=\"70\" y=\"32\" width=\"4\" height=\"8\" fill=\"#222\"/><rect x=\"76\" y=\"33\" width=\"5\" height=\"7\" fill=\"#222\"/>\n<line x1=\"69\" y1=\"30\" x2=\"81\" y2=\"42\" stroke=\"#d62828\" stroke-width=\"2.5\"/>\n<text x=\"75\" y=\"60\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#111\">NO FOOD<\/text>\n<text x=\"75\" y=\"76\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#111\">OR DRINKS<\/text>\n<text x=\"75\" y=\"92\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#111\">IN THE<\/text>\n<text x=\"75\" y=\"108\" text-anchor=\"middle\" font-family=\"Arial, sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#111\">LIBRARY<\/text>\n<\/svg>"}, {"id": "D5", "dang": "D", "kieu": "mc", "de": "Notice 1: What does the notice say?", "options": ["The lunch is in the fridge.", "The milk is on the kitchen table.", "You must wash your dishes before lunch.", "You can find your lunch on the kitchen table."], "dapAn": ["D"], "gt": "Thông báo: <em>Your lunch is <strong>on the kitchen table<\/strong><\/em> → D đúng. A, B đổi chỗ lunch/milk; C sai vì phải rửa bát <em>after<\/em> lunch.", "kt": "read", "doan": "n1"}, {"id": "D6", "dang": "D", "kieu": "mc", "de": "Notice 2: What does the notice say?", "options": ["The English club meets on Monday morning.", "Students can practise English in the school library.", "The English club meets on Friday afternoon in Room 6A.", "Students must study Maths in Room 6A."], "dapAn": ["C"], "gt": "Thông báo: <em><strong>Friday, 3:00 p.m.<\/strong> – Room 6A<\/em>: 3 giờ chiều = <em>afternoon<\/em> → <strong>Friday afternoon in Room 6A<\/strong>.", "kt": "read", "doan": "n2"}, {"id": "D7", "dang": "D", "kieu": "mc", "de": "Notice 3: What does the notice say?", "options": ["Mai invites you to meet Lucy on Saturday afternoon.", "Lucy invites you to school on Saturday morning.", "Mai wants to meet you at Lucy's house.", "Lucy is shy and quiet."], "dapAn": ["A"], "gt": "Người viết là <em>Mai<\/em> (kí tên cuối), mời đến <em>my house<\/em> (nhà Mai) lúc <em>Saturday at 3 p.m.<\/em> = chiều thứ Bảy → <strong>A<\/strong>. Lucy <em>friendly and funny<\/em>, không <em>shy<\/em>.", "kt": "read", "doan": "n3"}, {"id": "D8", "dang": "D", "kieu": "mc", "de": "Notice 4: What does the notice say?", "options": ["Dad wants you to put the lamp under your desk.", "The new lamp is next to your bed now.", "Dad wants you to move the lamp next to your bed.", "There is a new desk in your bedroom."], "dapAn": ["C"], "gt": "Thông báo: đèn <em>đang ở trên bàn<\/em> (<em>on your desk<\/em>), bố muốn <em>put it next to your bed<\/em> → chuyển đèn sang cạnh giường: <strong>C<\/strong>. B sai vì đèn <em>chưa<\/em> ở cạnh giường.", "kt": "read", "doan": "n4"}, {"id": "E1", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 1: choose the correct order.", "lines": ["a/ How are you? I am writing to tell you about my new school, Sunshine Secondary School.", "b/ Dear Nam,", "c/ It is big and modern, and my teacher and friends are friendly.", "d/ Write back to me soon and tell me about your school."], "options": ["a-b-c-d", "d-c-b-a", "a-c-b-d", "b-a-c-d"], "dapAn": ["D"], "gt": "Thư mở đầu bằng lời chào <strong>b<\/strong> (<em>Dear Nam,<\/em>) → hỏi thăm và nêu mục đích viết <strong>a<\/strong> → tả trường <strong>c<\/strong> (<em>It<\/em> = my new school) → kết thư <strong>d<\/strong> (<em>Write back to me soon<\/em>).", "kt": "write"}, {"id": "E2", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 2: choose the correct order.", "lines": ["a/ By the way, what are you going to do this weekend?", "b/ I hope you and your family are well.", "c/ Best wishes,", "d/ I am free on Saturday morning, so we can play badminton together."], "options": ["a - b - c - d", "c - b - d - a", "c - d - b - a", "b - a - d - c"], "dapAn": ["D"], "gt": "Hỏi thăm <strong>b<\/strong> → chuyển ý bằng <em>By the way<\/em> và hỏi kế hoạch cuối tuần <strong>a<\/strong> → đề nghị chơi cầu lông <strong>d<\/strong> (trả lời cho <em>this weekend<\/em>) → kết thư <strong>c<\/strong> (<em>Best wishes,<\/em>). (<em>are you going to do<\/em> chỉ cần hiểu khi đọc – em sẽ học kĩ ở lớp trên.)", "kt": "write"}, {"id": "E3", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 3: choose the correct order.", "lines": ["a/ My favourite subjects are English and Science because they are very interesting.", "b/ Best wishes, / Nam", "c/ Dear Minh,", "d/ I also enjoy playing badminton with my friends after school."], "options": ["a – c – d – b", "c – a – d – b", "c – d – b – a", "b – c – a – d"], "dapAn": ["B"], "gt": "Lời chào <strong>c<\/strong> → nội dung chính <strong>a<\/strong> (môn học yêu thích) → bổ sung <strong>d<\/strong> (<em>I also enjoy…<\/em> – <em>also<\/em> báo hiệu ý thêm sau) → kết thư và kí tên <strong>b<\/strong>.", "kt": "write"}, {"id": "E4", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 4: choose the correct order.", "lines": ["a/ I am in grade 6 at Sunshine Secondary School.", "b/ Dear Nam, How are you? I hope you are doing well.", "c/ My new school is big and beautiful, and I have many new friends here.", "d/ Write to me soon. Best wishes, Minh."], "options": ["a - b - c - d", "c - b - d - a", "b - a - c - d", "b - d - c - a"], "dapAn": ["C"], "gt": "Chào và hỏi thăm <strong>b<\/strong> → giới thiệu mình học ở đâu <strong>a<\/strong> → tả trường <strong>c<\/strong> (<em>My new school<\/em> nhắc lại trường ở câu a) → kết thư <strong>d<\/strong>.", "kt": "write"}, {"id": "E5", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 5: choose the correct order.", "lines": ["a/ First, I clean my bedroom and fold my clothes neatly.", "b/ After finishing my chores, I usually sit down to do my homework or read a book.", "c/ On Sunday, I often help my parents with the housework.", "d/ I love doing small things to keep our house clean and tidy."], "options": ["c-a-b-d", "d-c-b-a", "a-c-b-d", "d-b-c-a"], "dapAn": ["A"], "gt": "Câu chủ đề <strong>c<\/strong> (Chủ nhật giúp bố mẹ việc nhà) → việc đầu tiên <strong>a<\/strong> (<em>First,…<\/em>) → sau khi xong việc <strong>b<\/strong> (<em>After finishing my chores<\/em>) → câu kết nêu cảm nghĩ <strong>d<\/strong>.", "kt": "write"}, {"id": "E6", "dang": "E", "kieu": "mc", "de": "Letter / paragraph 6: choose the correct order.", "lines": ["a/ My favourite room is my bedroom because it has a nice view of the garden.", "b/ I live with my family in a small but cosy house in the countryside.", "c/ Behind the house, there is a small yard where my dad plants flowers.", "d/ It has four rooms: a living room, a kitchen, and two bedrooms."], "options": ["a - b - c - d", "c - b - d - a", "c - d - b - a", "b - d - c - a"], "dapAn": ["D"], "gt": "Giới thiệu ngôi nhà <strong>b<\/strong> → <em>It has four rooms<\/em> <strong>d<\/strong> (<em>It<\/em> = the house) → phía sau nhà <strong>c<\/strong> → phòng yêu thích <strong>a<\/strong> (nhắc <em>the garden<\/em> đã nói ở c). Chỉ phương án D bắt đầu bằng b.", "kt": "write"}, {"id": "F1", "dang": "F", "kieu": "fill", "de": "My mother usually (cook) ___ dinner for my family at 6 p.m.", "dapAn": [["cooks"]], "gt": "<em>usually<\/em> → hiện tại đơn; <em>My mother<\/em> = <em>she<\/em> → thêm <em>-s<\/em>: <strong>cooks<\/strong>.", "kt": "ps"}, {"id": "F2", "dang": "F", "kieu": "fill", "de": "Look! The children (play) ___ football in the schoolyard.", "dapAn": [["are playing"]], "gt": "<em>Look!<\/em> → hành động đang diễn ra → hiện tại tiếp diễn; <em>The children<\/em> số nhiều → <strong>are playing<\/strong>.", "kt": "pc"}, {"id": "F3", "dang": "F", "kieu": "fill", "de": "Mr. Nam (be) ___ an Art teacher.", "dapAn": [["is"]], "gt": "Nghề nghiệp là sự thật cố định → hiện tại đơn; <em>Mr. Nam<\/em> = <em>he<\/em> → <strong>is<\/strong>.", "kt": "tobe"}, {"id": "F4", "dang": "F", "kieu": "fill", "de": "We (not go) ___ to school on Sundays.", "dapAn": [["don't go", "do not go"]], "gt": "<em>on Sundays<\/em> → thói quen → hiện tại đơn phủ định; <em>We<\/em> → <strong>don't go<\/strong> (động từ chính giữ nguyên thể).", "kt": "psneg"}, {"id": "F5", "dang": "F", "kieu": "fill", "de": "Nam (like) ___ listening to music in his free time.", "dapAn": [["likes"]], "gt": "<em>in his free time<\/em> → hiện tại đơn; <em>Nam<\/em> = <em>he<\/em> → <strong>likes<\/strong>.", "kt": "ps"}, {"id": "F6", "dang": "F", "kieu": "fill", "de": "The balls (be) ___ on the table.", "dapAn": [["are"]], "gt": "<em>The balls<\/em> số nhiều (có <em>-s<\/em>) → <strong>are<\/strong>.", "kt": "tobe"}, {"id": "F7", "dang": "F", "kieu": "fill", "de": "Listen! Someone (knock) ___ at the door.", "dapAn": [["is knocking", "'s knocking"]], "gt": "<em>Listen!<\/em> → đang diễn ra → hiện tại tiếp diễn; <em>Someone<\/em> coi là số ít → <strong>is knocking<\/strong> (<em>knock<\/em> – gõ cửa, Glossary Unit 1).", "kt": "pc"}, {"id": "F8", "dang": "F", "kieu": "fill", "de": "What ___ you (do) ___ right now?", "dapAn": [["are"], ["doing"]], "gt": "<em>right now<\/em> → hiện tại tiếp diễn dạng câu hỏi: <strong>What + are + you + doing?<\/strong> Chỗ trống 1: <strong>are<\/strong>; chỗ trống 2: <strong>doing<\/strong>.", "kt": "pc"}, {"id": "G1", "dang": "G", "kieu": "rewrite", "de": "There are 5 rooms in my house.", "prefix": "My house", "dapAn": ["My house has 5 rooms", "My house has five rooms"], "gt": "<em>There are 5 rooms in my house<\/em> → chủ ngữ mới <em>My house<\/em> (= <em>it<\/em>) + <strong>has<\/strong> + <em>5 rooms<\/em>. Bỏ <em>in my house<\/em> vì đã thành chủ ngữ.", "kt": "there"}, {"id": "G2", "dang": "G", "kieu": "rewrite", "de": "My school has forty classrooms.", "prefix": "There", "dapAn": ["There are forty classrooms in my school", "There are 40 classrooms in my school"], "gt": "<em>forty classrooms<\/em> số nhiều → <strong>There are<\/strong> forty classrooms + <strong>in my school<\/strong> (chủ ngữ cũ chuyển thành cụm nơi chốn).", "kt": "there"}, {"id": "G3", "dang": "G", "kieu": "rewrite", "de": "There are twenty students in my class.", "prefix": "My class", "dapAn": ["My class has twenty students", "My class has 20 students"], "gt": "<em>My class<\/em> = <em>it<\/em> → <strong>has<\/strong> twenty students.", "kt": "there"}, {"id": "G4", "dang": "G", "kieu": "rewrite", "de": "Our house has a big garden.", "prefix": "There", "dapAn": ["There is a big garden in our house", "There's a big garden in our house"], "gt": "<em>a big garden<\/em> số ít → <strong>There is<\/strong> a big garden <strong>in our house<\/strong>.", "kt": "there"}, {"id": "H1", "dang": "H", "kieu": "rewrite", "de": "The bicycle of Tom is red.", "prefix": "Tom", "dapAn": ["Tom's bicycle is red"], "gt": "Tên riêng + <strong>'s<\/strong> (SGK: <em>We use 's after a proper name<\/em>): <em>the bicycle of Tom<\/em> → <strong>Tom's bicycle<\/strong>.", "kt": "poss"}, {"id": "H2", "dang": "H", "kieu": "rewrite", "de": "This is the house of my grandparents.", "prefix": "This", "dapAn": ["This is my grandparents' house"], "gt": "<em>grandparents<\/em> là danh từ số nhiều tận cùng <em>-s<\/em> → chỉ thêm dấu <strong>'<\/strong>: <strong>my grandparents' house<\/strong> (SGK Unit 2 Communication: <em>her grandparents' country house<\/em>).", "kt": "poss"}, {"id": "H3", "dang": "H", "kieu": "rewrite", "de": "The bags of the women are very expensive.", "prefix": "The women", "dapAn": ["The women's bags are very expensive"], "gt": "<em>women<\/em> là số nhiều <strong>không<\/strong> tận cùng <em>-s<\/em> → thêm <strong>'s<\/strong>: <strong>the women's bags<\/strong>.", "kt": "poss"}, {"id": "H4", "dang": "H", "kieu": "rewrite", "de": "The uniform of the students is clean and tidy.", "prefix": "The students", "dapAn": ["The students' uniform is clean and tidy"], "gt": "<em>students<\/em> số nhiều có <em>-s<\/em> → thêm dấu <strong>'<\/strong>: <strong>the students' uniform<\/strong>. Động từ giữ <em>is<\/em> vì chủ ngữ chính vẫn là <em>uniform<\/em> (số ít).", "kt": "poss"}, {"id": "I1", "dang": "I", "kieu": "order", "de": "They go to the cinema on Saturdays. (often)", "tokens": ["They", "go", "to the cinema", "on Saturdays.", "often"], "dapAn": ["They often go to the cinema on Saturdays"], "gt": "Động từ chính là <em>go<\/em> (động từ thường) → trạng từ đứng <strong>trước động từ chính<\/strong>: <strong>They often go<\/strong> to the cinema on Saturdays.", "kt": "adv"}, {"id": "I2", "dang": "I", "kieu": "order", "de": "Minh is late for the morning meeting. (never)", "tokens": ["Minh", "is", "late", "for the morning meeting.", "never"], "dapAn": ["Minh is never late for the morning meeting"], "gt": "Động từ là <em>to be<\/em> (<em>is<\/em>) → trạng từ đứng <strong>sau to be<\/strong>: <strong>Minh is never late<\/strong> for the morning meeting.", "kt": "adv"}, {"id": "I3", "dang": "I", "kieu": "order", "de": "We have a picnic near the river. (sometimes)", "tokens": ["We", "have", "a picnic", "near the river.", "sometimes"], "dapAn": ["We sometimes have a picnic near the river", "Sometimes we have a picnic near the river"], "gt": "Động từ chính <em>have<\/em> → <strong>We sometimes have<\/strong> a picnic near the river. (<em>Sometimes<\/em> cũng có thể đứng đầu câu.)", "kt": "adv"}, {"id": "I4", "dang": "I", "kieu": "order", "de": "My sister can cook dinner for the family. (usually)", "tokens": ["My sister", "can", "cook", "dinner", "for the family.", "usually"], "dapAn": ["My sister can usually cook dinner for the family"], "gt": "Có <em>can<\/em>: trạng từ đứng <strong>sau can, trước động từ chính<\/strong> <em>cook<\/em>: <strong>My sister can usually cook<\/strong> dinner for the family.", "kt": "adv"}, {"id": "J1", "dang": "J", "kieu": "rewrite", "de": "The cat is under the table.", "prefix": "The table", "dapAn": ["The table is above the cat", "The table is over the cat"], "gt": "Mèo ở <em>dưới<\/em> bàn → bàn ở <em>phía trên<\/em> mèo: <strong>The table is above the cat.<\/strong> (<em>above<\/em> = phía trên, không chạm – từ thêm ngoài danh sách SGK Unit 2; <em>over<\/em> cũng được chấp nhận.)", "kt": "prep"}, {"id": "J2", "dang": "J", "kieu": "rewrite", "de": "The school is behind the park.", "prefix": "The park", "dapAn": ["The park is in front of the school"], "gt": "Trường ở <em>sau<\/em> công viên → công viên ở <em>trước<\/em> trường: <strong>The park is in front of the school.<\/strong> (<em>behind<\/em> ↔ <em>in front of<\/em>)", "kt": "prep"}, {"id": "J3", "dang": "J", "kieu": "rewrite", "de": "The bookstore is not far from the supermarket.", "prefix": "The supermarket", "dapAn": ["The supermarket is not far from the bookstore", "The supermarket is near the bookstore", "The supermarket isn't far from the bookstore"], "gt": "<em>not far from<\/em> (không xa) đúng cả hai chiều → đổi chỗ hai địa điểm: <strong>The supermarket is not far from the bookstore.<\/strong> (<em>near<\/em> cũng được chấp nhận.)", "kt": "prep"}, {"id": "J4", "dang": "J", "kieu": "rewrite", "de": "The dog is in front of the house.", "prefix": "The house", "dapAn": ["The house is behind the dog"], "gt": "Chó ở <em>trước<\/em> nhà → nhà ở <em>sau<\/em> chó: <strong>The house is behind the dog.<\/strong> (<em>in front of<\/em> ↔ <em>behind<\/em>)", "kt": "prep"}], "dang": [{"key": "A", "en": "Part 2 – Use of English", "vi": "Trắc nghiệm ngữ pháp – từ vựng – giao tiếp (25 câu)", "lenh": "Choose the best answer A, B, C or D.", "kt": "ps", "meo": "Đọc cả câu, tìm <strong>dấu hiệu<\/strong>: <em>every day / once a week / usually<\/em> → hiện tại đơn; <em>now / at this moment / Look! / Listen!<\/em> → hiện tại tiếp diễn. Rồi nhìn <strong>chủ ngữ<\/strong> (số ít hay số nhiều) để chọn <em>is/are<\/em>, <em>do/does<\/em>, động từ có <em>-s<\/em> hay không. Câu từ vựng: đọc hết câu để lấy ngữ cảnh (<em>She's cooking dinner<\/em> → phòng nào?)."}, {"key": "B", "en": "Part 3 – Reading 1: Complete the passages", "vi": "Đọc hiểu – điền từ vào đoạn văn (4 đoạn × 4 chỗ trống)", "lenh": "Choose the best answer A, B, C or D to complete the passage.", "kt": "read", "meo": "Nhìn <strong>từ đứng ngay trước và sau<\/strong> chỗ trống: sau <em>There<\/em> → <em>is/are<\/em> theo danh từ phía sau; trước tên tầng (<em>the second floor<\/em>) → <em>on<\/em>; sau <em>I often<\/em> → động từ nguyên thể; cuối câu <em>I feel ___ and excited<\/em> → tính từ cùng sắc thái vui."}, {"key": "C", "en": "Part 3 – Reading 2: Read and answer", "vi": "Đọc hiểu – trả lời câu hỏi (4 đoạn × 4 câu)", "lenh": "Read the passage and choose the best answer A, B, C or D.", "kt": "read", "meo": "Đọc <strong>câu hỏi trước<\/strong>, gạch chân từ khoá (<em>How old / look like / break time / why<\/em>), rồi tìm đúng câu trong bài có từ khoá đó. Phương án nhiễu thường lấy chi tiết <em>có trong bài nhưng trả lời cho câu hỏi khác<\/em>."}, {"key": "D", "en": "Part 3 – Reading 3: Signs and notices", "vi": "Đọc hiểu biển báo và thông báo ngắn (8 câu)", "lenh": "Look at the sign / Read the notice. Choose the correct answer A, B, C or D.", "kt": "read", "meo": "Biển tròn viền đỏ có gạch chéo = <strong>cấm<\/strong> (<em>Do not… / Don't…<\/em>); biển tam giác viền đỏ = <strong>cảnh báo<\/strong>. Với thông báo: đối chiếu <strong>từng chi tiết<\/strong> (ở đâu, khi nào, ai) với từng phương án."}, {"key": "E", "en": "Part 4 – Writing I: Put the sentences in order", "vi": "Sắp xếp các câu thành bức thư / đoạn văn hoàn chỉnh (6 câu)", "lenh": "Rearrange the sentences (a, b, c, d) to make a complete letter or paragraph. Choose the correct order.", "kt": "write", "meo": "Thư: <em>Dear…,<\/em> → câu hỏi thăm (<em>How are you?<\/em>) → nội dung chính → <em>Write back soon / Best wishes,<\/em>. Đoạn văn: câu <strong>mở đầu nêu chủ đề<\/strong> → chi tiết (<em>First… / It has…<\/em>) → câu <strong>kết nêu cảm nghĩ<\/strong>."}, {"key": "F", "en": "Part 4 – Writing II: Correct form of the verbs", "vi": "Chia động từ trong ngoặc (8 câu)", "lenh": "Give the correct form of the verbs in brackets.", "kt": "pc", "meo": "Có <em>usually / on Sundays / in his free time<\/em> hoặc nói về nghề nghiệp, sự thật → <strong>hiện tại đơn<\/strong> (nhớ <em>-s<\/em> với he/she/it). Có <em>Look! / Listen! / right now<\/em> → <strong>hiện tại tiếp diễn<\/strong>: <em>am/is/are + V-ing<\/em>. Chỗ trống hai phần (<em>What ___ you ___?<\/em>) → điền trợ động từ + động từ."}, {"key": "G", "en": "Part 4 – Writing III: has / have – there is / there are", "vi": "Viết lại câu với has/have hoặc there is/there are (4 câu)", "lenh": "Rewrite the sentence, using has / have / there is / there are. Type the rest of the sentence.", "kt": "there", "meo": "<em>There are 5 rooms in my house<\/em> = <em>My house has 5 rooms<\/em>. Đổi chiều thì: <strong>chủ ngữ<\/strong> (my house) + <strong>has/have<\/strong> + vật; hoặc <strong>There is/are<\/strong> + vật + <strong>in<\/strong> + nơi chốn. Chọn <em>is<\/em> hay <em>are<\/em> theo danh từ đi ngay sau."}, {"key": "H", "en": "Part 4 – Writing IV: Possessive case", "vi": "Viết lại câu dùng sở hữu cách 's (4 câu)", "lenh": "Rewrite the sentence, using the possessive case. Type the rest of the sentence.", "kt": "poss", "meo": "<em>the bicycle of Tom<\/em> → <em>Tom<strong>'s<\/strong> bicycle<\/em>: người sở hữu đứng trước + <strong>'s<\/strong>, vật đứng sau, bỏ <em>the … of<\/em>. Danh từ số nhiều có <em>-s<\/em> chỉ thêm dấu <strong>'<\/strong> (<em>the students'<\/em>); số nhiều không có <em>-s<\/em> vẫn thêm <strong>'s<\/strong> (<em>the women's<\/em>)."}, {"key": "I", "en": "Part 4 – Writing V: Adverbs of frequency", "vi": "Sắp xếp từ để đặt trạng từ tần suất đúng vị trí (4 câu)", "lenh": "Put the words in the correct order. Put the adverb of frequency in the correct position.", "kt": "adv", "meo": "Quy tắc SGK: trạng từ tần suất đứng <strong>trước động từ chính<\/strong> (<em>They <b>often<\/b> go<\/em>) và <strong>sau động từ to be<\/strong> (<em>Minh <b>is never<\/b> late<\/em>). Có <em>can<\/em> thì trạng từ đứng sau <em>can<\/em>, trước động từ chính."}, {"key": "J", "en": "Part 4 – Writing VI: Prepositions of place", "vi": "Viết lại câu với giới từ chỉ nơi chốn ngược lại (4 câu)", "lenh": "Rewrite the sentence, using a preposition of place. Type the rest of the sentence.", "kt": "prep", "meo": "Đổi chỗ hai vật thì giới từ đổi <strong>ngược lại<\/strong>: <em>behind<\/em> ↔ <em>in front of<\/em>; <em>under<\/em> ↔ <em>above<\/em>; <em>not far from / next to / between<\/em> giữ nguyên vì đúng cả hai chiều."}], "doan": {"r1p1": {"ten": "Passage 1: My New School", "text": "Hello! My name is Nam. I am a student in class 6A. My new school is big and beautiful. It has three floors and twenty classrooms. There is a library (1) ______ the second floor. I often (2) ______ books there after school. My classroom is clean and bright. It has a board, a projector and many desks. My teachers (3) ______ friendly and helpful. They teach me many interesting things. I have new friends, and we often play badminton in the school playground. I love my new school because I feel (4) ______ and excited every day."}, "r1p2": {"ten": "Passage 2: My School Facilities", "text": "My new school is in the centre of my town. It is not very big, but it is modern. There (1) ______ twenty classrooms, a computer room and a science lab. The school library is my favourite place because it has many interesting books. I usually go there (2) ______ break time. My classroom is (3) ______ the first floor. It has a large window, so the room is very bright. The teachers are kind, and my classmates are friendly. We often work in groups during English lessons. I am (4) ______ to study at this school because I can learn new things and make many friends."}, "r1p3": {"ten": "Passage 3: My First Day at School", "text": "My first day at my new school is a special memory. I get up early and put on my new uniform. My school is near my house, so I walk there with my mother. When I arrive, I see many students (1) ______ the schoolyard. My teacher welcomes me with a big smile. She (2) ______ me my classroom and introduces me to my classmates. They are very (3) ______ and help me find my seat. At break time, we talk and play games together. I feel a little nervous at first, (4) ______ I become more confident later. I think my new school is a wonderful place to learn and make friends."}, "r1p4": {"ten": "Passage 4: My School Day", "text": "I study at Green Star School. My school day starts (1) ______ seven o'clock in the morning. I wear my uniform and arrive at school on time. My first lesson (2) ______ usually English or Maths. I like English (3) ______ my teacher makes the lessons fun and interesting. At lunchtime, I eat with my friends in the school canteen. After lunch, we sometimes play basketball in the playground. My school has a large library where students can borrow books. There is also a computer room for IT lessons. I always try to keep my classroom clean and (4) ______. I love my school because it is a great place to study and have fun."}, "r2p1": {"ten": "Passage 1: My Best Friend", "text": "My best friend is Minh. He is twelve years old and he is in class 6A. He is tall and has short black hair and brown eyes. Minh is friendly and helpful. He always helps me with my homework when I have problems. We go to school together every morning because we live near each other. At break time, we often play football in the school playground. Minh likes reading books and playing chess, too. At weekends, we sometimes go to the park and ride our bikes. I like Minh very much because he is kind and funny. I am happy to have him as my best friend."}, "r2p2": {"ten": "Passage 2: My New Friend", "text": "I have a new friend named Lan. She is in my class, and she sits next to me. Lan is twelve years old. She has long black hair and a round face. She is very nice and cheerful. She always smiles when she talks to other people. Her favourite subject is English because she likes learning new words and speaking with her classmates. In her free time, Lan enjoys listening to music and drawing pictures. We often do our homework together after school. Sometimes, we go to the library to read books. I am very happy to have Lan as my friend because she is friendly and helpful."}, "r2p3": {"ten": "Passage 3: My Friends at School", "text": "I have many good friends at school, but Nam and Hoa are my closest friends. Nam is tall and sporty. He likes playing basketball and football. He is good at PE and often plays sports after school. Hoa is short and has long brown hair. She is clever and enjoys reading books. Her favourite subject is Science. We often sit together during lunch and talk about our lessons. Sometimes, we help each other with difficult homework. At weekends, we meet at the park and play games. We are different in many ways, but we always have fun together. I think good friends make school life more interesting and enjoyable."}, "r2p4": {"ten": "Passage 4: A Good Friend", "text": "A good friend is very important to me. My friend Peter is a great example. He is twelve years old and lives near my house. He has short brown hair and wears glasses. Peter is kind, funny, and honest. He never tells lies and always keeps his promises. When I feel sad, he listens to me and makes me feel better. We both enjoy playing badminton and riding our bikes. On Sunday mornings, we sometimes go cycling around our neighbourhood. Peter also likes helping his parents with the housework. I learn many good things from him. I think a good friend is someone who cares about you and stays with you in difficult times."}, "n1": {"ten": "A NOTE FROM MUM", "text": "Your lunch is on the kitchen table.\nThe milk is in the fridge.\nPlease wash your dishes after lunch."}, "n2": {"ten": "ENGLISH CLUB", "text": "Friday, 3:00 p.m.\nRoom 6A\nCome and practise English with us!"}, "n3": {"ten": "MEET MY NEW FRIEND", "text": "Come to my house on Saturday at 3 p.m.\nMeet Lucy, my new friend.\nShe is friendly and funny!\n— Mai"}, "n4": {"ten": "A NOTE FROM DAD", "text": "There is a new lamp on your desk.\nPlease put it next to your bed."}}, "ktTitle": {"vocab1": "Unit 1 – Từ vựng: My new school", "vocab2": "Unit 2 – Từ vựng: My house", "vocab3": "Unit 3 – Từ vựng: My friends", "tobe": "Hiện tại đơn với to be (am / is / are)", "ps": "Hiện tại đơn với động từ thường", "psneg": "Hiện tại đơn – phủ định và câu hỏi với do / does", "adv": "Trạng từ chỉ tần suất", "pc": "Hiện tại tiếp diễn – và phân biệt với hiện tại đơn", "poss": "Sở hữu cách 's", "prep": "Giới từ chỉ nơi chốn", "there": "There is / There are – has / have", "suggest": "Đưa ra gợi ý: Let's + V / How about + V-ing?", "appear": "Hỏi về ngoại hình và tính cách", "pron": "Phát âm Unit 1 – 3", "read": "Mẹo đọc hiểu: điền từ, trả lời câu hỏi, biển báo", "write": "Mẹo sắp xếp thư / đoạn văn", "listen": "Mẹo làm bài nghe"}};
+
+const CAU = DATA.cau, DANG = DATA.dang, DOAN = DATA.doan;
+const DANGMAP = {}; DANG.forEach(d => DANGMAP[d.key] = d);
+const N = CAU.length;
+const KHOA = 'ta6-on-gk1-luyen-tap-v1';
+const TEN_KIEU = {mc: 'Trắc nghiệm', fill: 'Chia động từ', rewrite: 'Viết lại câu', order: 'Sắp xếp từ'};
+
+// ---------- trạng thái ----------
+let st = {cur: 0, log: {}, xong: false};
+function luu(){ try{ localStorage.setItem(KHOA, JSON.stringify(st)); }catch(e){} }
+function nap(){ try{ const s = JSON.parse(localStorage.getItem(KHOA)); if(s && s.log){ st = Object.assign(st, s); if(st.cur >= N || st.cur < 0) st.cur = 0; } }catch(e){} }
+nap();
+
+// ---------- tiện ích ----------
+const $ = s => document.querySelector(s);
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function chuan(s){
+  return String(s).toLowerCase().replace(/[’‘`´]/g,"'").replace(/[“”]/g,'"')
+    .replace(/favourite/g,'favorite').replace(/[.,!?;:"]/g,' ').replace(/\s+'/g,"'").replace(/\s+/g,' ').trim();
+}
+function deHtml(de){
+  let i = 0;
+  return esc(de).replace(/___/g, () => `<span class="trong" data-i="${i++}">&nbsp;</span>`);
+}
+function ktCard(key){ const el = document.getElementById('kt-' + key); return el ? el.outerHTML.replace(/id="kt-[^"]+"/, '') : ''; }
+function theKT(c){ return `<div class="goi"><strong>Kiến thức liên quan:</strong> ${esc(DATA.ktTitle[c.kt] || '')}${ktCard(c.kt)}</div>`; }
+// xáo thứ tự token cố định theo id (để mỗi câu luôn hiện cùng một thứ tự, không trùng đáp án)
+function xao(arr, seed){
+  const a = arr.map((v, i) => i); let s = 0; for(const ch of seed) s = (s * 31 + ch.charCodeAt(0)) >>> 0;
+  for(let i = a.length - 1; i > 0; i--){ s = (s * 1103515245 + 12345) >>> 0; const j = s % (i + 1); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
+// ---------- màn kiến thức ----------
+function setupKT(){
+  const nut = $('#nutBatDau');
+  const mo = () => { nut.disabled = false; $('#goiCuon').textContent = 'Em đã đọc hết phần kiến thức. Bấm nút để bắt đầu!'; };
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ mo(); io.disconnect(); } }); }, {threshold: 0.01});
+    io.observe($('#kt-end'));
+  } else { mo(); }
+  const daLam = Object.values(st.log).filter(l => l.ok).length;
+  if(daLam > 0){
+    const p = $('#ktTiepTuc'); p.style.display = 'block';
+    p.textContent = st.xong ? `Lần trước em đã hoàn thành cả ${N} câu. Bấm bắt đầu để xem lại tổng kết hoặc làm lại.` :
+      `Lần trước em đã làm ${daLam}/${N} câu. Bấm bắt đầu để tiếp tục từ câu ${st.cur + 1}.`;
+  }
+  nut.onclick = () => { if(st.xong){ hienKet(); } else { hienMan('manLT'); render(); } };
+}
+function hienMan(id){ document.querySelectorAll('.man').forEach(m => m.classList.remove('hien')); $('#' + id).classList.add('hien'); window.scrollTo(0,0); }
+
+// ---------- luyện tập ----------
+let tam = {};
+function logCua(id){ if(!st.log[id]) st.log[id] = {tries: 0, wrong: [], ok: false}; return st.log[id]; }
+
+function render(){
+  const c = CAU[st.cur], d = DANGMAP[c.dang];
+  const soDang = DANG.findIndex(x => x.key === c.dang) + 1;
+  $('#tdCau').textContent = `Câu ${st.cur + 1} / ${N}`;
+  $('#tdMuc').textContent = TEN_KIEU[c.kieu] || '';
+  $('#tdThanh').style.width = (100 * st.cur / N).toFixed(1) + '%';
+  const trongDang = CAU.filter(x => x.dang === c.dang);
+  const idx = trongDang.findIndex(x => x.id === c.id) + 1;
+  $('#tdDang').textContent = `Phần ${soDang}/${DANG.length}: ${d.en} · câu ${idx}/${trongDang.length} của phần`;
+  const dauDang = idx === 1;
+  $('#dangTieu').innerHTML = `<h2>${esc(d.en)}</h2><div class="vi">${esc(d.vi)}</div>
+    <details class="meo"${dauDang ? ' open' : ''}><summary>Mẹo làm dạng này</summary><div>${d.meo}</div></details>`;
+  tam = {};
+  const box = $('#cau');
+  let h = `<div class="lenh">${esc(d.lenh)}</div>`;
+  if(c.doan){ const p = DOAN[c.doan]; h += `<div class="doan"><b>${esc(p.ten)}</b>${esc(p.text)}</div>`; }
+  if(c.hinh) h += `<figure class="hinh">${c.hinh}</figure>`;
+  if(c.lines) h += `<div class="lines">` + c.lines.map(l => `<div>${esc(l)}</div>`).join('') + `</div>`;
+  if(c.kieu === 'mc'){
+    h += `<div class="de">${esc(c.de)}</div><div class="lua">` +
+      c.options.map((o, i) => `<button type="button" data-i="${i}"><b>${String.fromCharCode(65 + i)}.</b> ${esc(o)}</button>`).join('') + `</div>`;
+  } else if(c.kieu === 'fill'){
+    h += `<div class="de">${deHtml(c.de)}</div>`;
+    h += c.dapAn.map((_, i) => `<div>${c.dapAn.length > 1 ? `<small>Chỗ trống ${i + 1}:</small> ` : ''}<input class="o o-nho" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="…"></div>`).join('');
+  } else if(c.kieu === 'order'){
+    h += `<div class="de">${esc(c.de)}</div><div class="cau-dap" id="cauDap"></div><div class="tk" id="tokens">` +
+      xao(c.tokens, c.id).map(i => `<span data-i="${i}">${esc(c.tokens[i])}</span>`).join('') + `</div>
+      <div class="hang"><button class="xam" type="button" id="nutXoaTu">← Bỏ từ cuối</button><button class="xam" type="button" id="nutXoaHet">Xoá hết</button></div>`;
+  } else if(c.kieu === 'rewrite'){
+    h += `<div class="de">${esc(c.de)}</div><div class="prefix">→ ${esc(c.prefix)} ______</div>
+      <textarea class="o" rows="2" data-i="0" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the rest of the sentence (or the whole sentence)…"></textarea>`;
+  }
+  h += `<div class="hang"><button type="button" id="nutKiem">Kiểm tra</button></div>
+        <div class="phan-hoi" id="phanHoi"></div>`;
+  box.innerHTML = h;
+  gan(c);
+  const lg = logCua(c.id);
+  if(lg.tries > 0 && !lg.ok){ $('#phanHoi').insertAdjacentHTML('afterend', `<div class="so-lan">Câu này em đã thử ${lg.tries} lần.</div>`); }
+}
+
+function gan(c){
+  const box = $('#cau');
+  if(c.kieu === 'mc'){
+    box.querySelectorAll('.lua button').forEach(b => b.onclick = () => {
+      box.querySelectorAll('.lua button').forEach(x => x.classList.remove('chon'));
+      b.classList.add('chon'); tam.chon = +b.dataset.i;
+    });
+  } else if(c.kieu === 'order'){
+    tam.seq = [];
+    const ve = () => {
+      $('#cauDap').innerHTML = tam.seq.map((i, k) => `<span data-k="${k}">${esc(c.tokens[i])}</span>`).join('');
+      box.querySelectorAll('#tokens span').forEach(s => s.classList.toggle('da', tam.seq.includes(+s.dataset.i)));
+      $('#cauDap').querySelectorAll('span').forEach(s => s.onclick = () => { tam.seq.splice(+s.dataset.k, 1); ve(); });
+    };
+    box.querySelectorAll('#tokens span').forEach(s => s.onclick = () => { tam.seq.push(+s.dataset.i); ve(); });
+    $('#nutXoaTu').onclick = () => { tam.seq.pop(); ve(); };
+    $('#nutXoaHet').onclick = () => { tam.seq = []; ve(); };
+    ve();
+  }
+  box.querySelectorAll('input.o').forEach(i => i.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); kiem(); } }));
+  box.querySelectorAll('textarea.o').forEach(i => i.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); kiem(); } }));
+  $('#nutKiem').onclick = kiem;
+}
+
+function layTraLoi(c){
+  const box = $('#cau');
+  if(c.kieu === 'mc'){ if(tam.chon === undefined) return null; return {text: String.fromCharCode(65 + tam.chon), i: tam.chon}; }
+  if(c.kieu === 'fill'){ const v = [...box.querySelectorAll('input.o')].map(x => x.value.trim()); if(v.some(x => !x)) return null; return {text: v.join(' / '), v}; }
+  if(c.kieu === 'order'){ if(!tam.seq.length) return null; return {text: tam.seq.map(i => c.tokens[i]).join(' ')}; }
+  if(c.kieu === 'rewrite'){ const v = box.querySelector('textarea.o').value.trim(); if(!v) return null; return {text: v}; }
+}
+function dungKhong(c, tl){
+  if(c.kieu === 'mc') return c.dapAn.includes(tl.text);
+  if(c.kieu === 'fill') return tl.v.every((v, i) => c.dapAn[i].some(a => chuan(a) === chuan(v)));
+  if(c.kieu === 'order') return c.dapAn.some(a => chuan(a) === chuan(tl.text));
+  if(c.kieu === 'rewrite'){
+    let v = chuan(tl.text); const p = chuan(c.prefix);
+    if(!v.startsWith(p)) v = chuan(c.prefix + ' ' + tl.text);
+    return c.dapAn.some(a => chuan(a) === v);
+  }
+  return false;
+}
+function dapAnText(c){
+  if(c.kieu === 'mc') return c.dapAn.map(l => l + '. ' + c.options[l.charCodeAt(0) - 65]).join(' / ');
+  if(c.kieu === 'fill') return c.dapAn.map(a => a[0]).join(' / ');
+  return c.dapAn[0] + '.';
+}
+
+function kiem(){
+  const c = CAU[st.cur];
+  const tl = layTraLoi(c);
+  const ph = $('#phanHoi');
+  if(!tl){ ph.className = 'phan-hoi sai'; ph.innerHTML = '<h4>Em chưa trả lời.</h4>Hãy chọn hoặc điền câu trả lời rồi bấm <em>Kiểm tra</em>.'; return; }
+  const lg = logCua(c.id);
+  lg.tries += 1;
+  const ok = dungKhong(c, tl);
+  if(ok){
+    lg.ok = true; luu();
+    ph.className = 'phan-hoi dung';
+    ph.innerHTML = `<h4>Đúng rồi!${lg.tries === 1 ? ' Đúng ngay lần đầu.' : ` (lần thử thứ ${lg.tries})`}</h4><div>${c.gt}</div>
+      <div class="hang"><button type="button" id="nutTiep">${st.cur + 1 < N ? 'Câu tiếp theo →' : 'Xem tổng kết →'}</button></div>`;
+    $('#nutKiem').disabled = true;
+    $('#cau').querySelectorAll('.lua button').forEach(b => { b.disabled = true; if(c.dapAn.includes(String.fromCharCode(65 + +b.dataset.i))) b.classList.add('dung'); });
+    $('#cau').querySelectorAll('input.o, textarea.o').forEach(i => i.readOnly = true);
+    $('#cau').querySelectorAll('#tokens span, #cauDap span').forEach(s => s.style.pointerEvents = 'none');
+    $('#nutTiep').onclick = tiep;
+    $('#nutTiep').scrollIntoView({behavior: 'smooth', block: 'center'});
+  } else {
+    lg.wrong.push(tl.text); luu();
+    ph.className = 'phan-hoi sai';
+    let h = `<h4>Chưa đúng (lần thử ${lg.tries}). Em xem lại rồi làm lại nhé.</h4>`;
+    if(lg.tries >= 3){
+      h += `<div><strong>Gợi ý đáp án:</strong> ${esc(dapAnText(c))}</div><div style="margin-top:.3rem">${c.gt}</div><div style="margin-top:.3rem;color:var(--muted)">Em nhập / chọn lại đúng đáp án này để qua câu.</div>`;
+    } else if(lg.tries === 2){
+      h += `<div>${c.gt.replace(/<strong>.*?<\/strong>/g, '<strong>…</strong>')}</div>${theKT(c)}`;
+    } else {
+      h += theKT(c);
+    }
+    ph.innerHTML = h;
+    if(c.kieu === 'mc'){ $('#cau').querySelectorAll('.lua button').forEach(b => { if(+b.dataset.i === tl.i){ b.classList.remove('chon'); b.classList.add('sai'); } }); tam.chon = undefined; }
+    ph.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }
+}
+function tiep(){
+  if(st.cur + 1 < N){ st.cur += 1; luu(); render(); window.scrollTo(0, 0); }
+  else { st.xong = true; luu(); hienKet(); }
+}
+
+// ---------- tổng kết / nhật kí ----------
+function thongKe(){
+  const t = {lam: 0, dung1: 0, nhieu: 0, theoDang: {}, theoKT: {}};
+  DANG.forEach(d => t.theoDang[d.key] = {tong: 0, lam: 0, dung1: 0, nhieu: 0});
+  CAU.forEach(c => {
+    const td = t.theoDang[c.dang]; td.tong += 1;
+    if(!t.theoKT[c.kt]) t.theoKT[c.kt] = {lam: 0, nhieu: 0};
+    const l = st.log[c.id]; if(!l || !l.ok) return;
+    t.lam += 1; td.lam += 1; t.theoKT[c.kt].lam += 1;
+    if(l.tries === 1){ t.dung1 += 1; td.dung1 += 1; } else { t.nhieu += 1; td.nhieu += 1; t.theoKT[c.kt].nhieu += 1; }
+  });
+  return t;
+}
+function hienKet(){
+  const t = thongKe();
+  hienMan('manKet');
+  $('#ketSo').textContent = `${t.dung1} / ${N}`;
+  $('#ketTom').innerHTML = `câu đúng ngay lần đầu · ${t.nhieu} câu phải thử lại.`;
+}
+function goiY(t){
+  const yeu = Object.keys(t.theoKT).filter(k => { const x = t.theoKT[k]; return x.lam >= 2 && x.nhieu / x.lam >= 0.4; })
+    .sort((a, b) => t.theoKT[b].nhieu / t.theoKT[b].lam - t.theoKT[a].nhieu / t.theoKT[a].lam);
+  if(!yeu.length) return t.lam ? '<p>Các phần đã làm đều ổn – em làm tốt lắm!</p>' : '';
+  return '<p><strong>Nên ôn lại thẻ kiến thức:</strong></p><ul>' + yeu.slice(0, 5).map(k => { const x = t.theoKT[k];
+    return `<li>${esc(DATA.ktTitle[k] || '')} <small>(${x.nhieu}/${x.lam} câu phải thử lại)</small></li>`; }).join('') + '</ul>';
+}
+function hienNK(){
+  const t = thongKe();
+  $('#nkTong').innerHTML = `<div class="tong"><strong>Tổng kết:</strong> đã làm ${t.lam}/${N} câu · đúng ngay lần đầu: <strong>${t.dung1}</strong> · phải thử lại: <strong>${t.nhieu}</strong>${goiY(t)}</div>`;
+  let h = '';
+  DANG.forEach(d => {
+    const cs = CAU.filter(c => c.dang === d.key);
+    const x = t.theoDang[d.key];
+    h += `<details${x.lam ? ' open' : ''}><summary><strong>${esc(d.en)}</strong> <small>(${x.lam}/${x.tong} câu, ${x.nhieu} câu thử lại)</small></summary>`;
+    cs.forEach((c, i) => {
+      const l = st.log[c.id];
+      if(!l || (!l.ok && !l.tries)) { h += `<div class="nk-dong chua">Câu ${i + 1} (${c.id}): chưa làm</div>`; return; }
+      const sai = l.wrong.length ? ` (trả lời sai: ${l.wrong.map(esc).join(' | ')})` : '';
+      if(l.ok) h += `<div class="nk-dong ${l.tries === 1 ? 'ok1' : 'okn'}">Câu ${i + 1} (${c.id}): đúng sau ${l.tries} lần${sai}</div>`;
+      else h += `<div class="nk-dong okn">Câu ${i + 1} (${c.id}): đang làm, đã thử ${l.tries} lần${sai}</div>`;
+    });
+    h += '</details>';
+  });
+  $('#nkDanhSach').innerHTML = h;
+  $('#modalNK').classList.add('hien');
+}
+function hienML(){
+  const t = thongKe();
+  $('#mlDanhSach').innerHTML = DANG.map((d, k) => { const x = t.theoDang[d.key];
+    const cl = x.lam === x.tong ? 'xong' : (CAU[st.cur].dang === d.key ? 'dang' : '');
+    return `<button type="button" class="${cl}" data-k="${d.key}">${k + 1}. ${esc(d.en)}<br><small>${esc(d.vi)} · ${x.lam}/${x.tong} câu</small></button>`; }).join('');
+  $('#mlDanhSach').querySelectorAll('button').forEach(b => b.onclick = () => {
+    const key = b.dataset.k;
+    let i = CAU.findIndex(c => c.dang === key && !(st.log[c.id] && st.log[c.id].ok));
+    if(i < 0) i = CAU.findIndex(c => c.dang === key);
+    st.cur = i; st.xong = false; luu(); $('#modalML').classList.remove('hien'); hienMan('manLT'); render();
+  });
+  $('#modalML').classList.add('hien');
+}
+function lamLai(){
+  if(!confirm('Xoá toàn bộ tiến độ và nhật kí để làm lại từ đầu?')) return;
+  st = {cur: 0, log: {}, xong: false}; luu();
+  location.reload();
+}
+$('#nutNhatKi').onclick = hienNK; $('#nutXemNK2').onclick = hienNK;
+$('#nutDongNK').onclick = () => $('#modalNK').classList.remove('hien');
+$('#nutMucLuc').onclick = () => { if($('#manKT').classList.contains('hien') && $('#nutBatDau').disabled){ alert('Em đọc hết phần kiến thức trước đã nhé.'); return; } hienML(); };
+$('#nutDongML').onclick = () => $('#modalML').classList.remove('hien');
+$('#nutLamLai').onclick = lamLai; $('#nutLamLai2').onclick = lamLai;
+document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if(e.target === m) m.classList.remove('hien'); }));
+setupKT();
+</script>
+<!-- phap-ly:dau (do phap-ly/phap_ly.py chèn, đừng sửa tay) -->
+<style>#ct-phap-ly{clear:both;margin:40px 0 0;padding:18px 16px 84px;border-top:1px solid #dde3ee;background:#f7f9fc;color:#5b6475;font:13px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center}#ct-phap-ly p{margin:2px auto;max-width:980px;color:inherit;font:inherit}#ct-phap-ly a{color:#2f5fb3;text-decoration:underline;text-underline-offset:2px}#ct-phap-ly a:hover{color:#163f86}#ct-phap-ly .ct-dam{font-weight:600;color:#3b4456}@media print{#ct-phap-ly{margin-top:16px;padding:6px 0 0;background:none;font-size:8.5pt}}</style>
+<footer id="ct-phap-ly" role="contentinfo">
+<p><span class="ct-dam">© 2026 Nhóm giao-guc-pho-thong</span> · Tài liệu miễn phí cho <b>dạy và học</b>, <b>không</b> dùng cho mục đích thương mại. Người dùng tự chịu trách nhiệm khi sử dụng.</p>
+<p><a href="../../dieu-khoan-su-dung.html" data-may="../../../phap-ly/dieu-khoan-su-dung.html">Điều khoản sử dụng</a> · <a href="../../ban-quyen.html" data-may="../../../phap-ly/ban-quyen.html">Bản quyền</a> · Nội dung gốc theo giấy phép <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.vi" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> · Nội dung trích từ SGK thuộc Nhà xuất bản Giáo dục Việt Nam và các tác giả.</p>
+</footer>
+<script>(function(f){if(location.protocol!=='file:')return;f.querySelectorAll('a[data-may]').forEach(function(a){a.href=a.dataset.may})})(document.getElementById('ct-phap-ly'));</script>
+<!-- phap-ly:cuoi -->
+<!-- gop-y:dau (do gop-y/gan_gop_y.py chèn, đừng sửa tay) -->
+<script id="gop-y-nap" data-may="../../../gop-y/gop-y.js" data-web="../../gop-y/gop-y.js" data-loai="practice" data-mon="tieng-anh" data-tep="lop-6/bài tập/tiếng anh/tieng-anh-lop-6-on-tap-giua-ki-1-luyen-tap.html" data-nguon="lop-6/bài tập/tiếng anh/tieng-anh-lop-6-on-tap-giua-ki-1-luyen-tap-ke-hoach.md" data-phien-ban="b21947cbb4a9">(function(n){var L=window.__gopYLoi=[];addEventListener('error',function(e){if(L.length<8&&e.message)L.push({t_s:0,message:String(e.message).slice(0,300),source:(e.filename||'').split('/').pop()+':'+(e.lineno||'')})});var d=n.dataset,m=location.protocol==='file:',s=document.createElement('script');s.defer=true;s.src=m?d.may:d.web;s.onerror=function(){var t=document.createElement('script');t.src=m?d.web:d.may;document.head.appendChild(t)};document.head.appendChild(s)})(document.currentScript);</script>
+<!-- gop-y:cuoi -->
+<!-- thong-ke:dau (do thong-ke/gan_khach.py chèn, đừng sửa tay) -->
+<script id="thong-ke-nap" data-may="../../../thong-ke/khach.js" data-web="../../thong-ke/khach.js" data-lop="6">(function(n){var d=n.dataset,s=document.createElement('script');s.defer=true;s.src=location.protocol==='file:'?d.may:d.web;document.head.appendChild(s)})(document.currentScript);</script>
+<!-- thong-ke:cuoi -->
+</body>
+</html>
