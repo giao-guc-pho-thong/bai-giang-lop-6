@@ -572,13 +572,19 @@
   </url>
   <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/bai-tap/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/bai-tap/ngu-van/ngu-van-lop-6-on-tap-giua-ki-1-thcs-dong-hai-luyen-tap.html</loc>
     <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/bai-tap/tieng-anh/tieng-anh-lop-6-ioe-vong-truong-thcs-dong-hai-luyen-tap.html</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -980,7 +986,7 @@
   </url>
   <url>
     <loc>https://giao-guc-pho-thong.github.io/bai-giang-lop-6/so-do-trang.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
